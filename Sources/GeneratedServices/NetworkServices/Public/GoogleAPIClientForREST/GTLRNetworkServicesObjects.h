@@ -14,6 +14,9 @@
 
 @class GTLRNetworkServices_AuditConfig;
 @class GTLRNetworkServices_AuditLogConfig;
+@class GTLRNetworkServices_AuthzExtension;
+@class GTLRNetworkServices_AuthzExtension_Labels;
+@class GTLRNetworkServices_AuthzExtension_Metadata;
 @class GTLRNetworkServices_Binding;
 @class GTLRNetworkServices_EndpointMatcher;
 @class GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher;
@@ -23,9 +26,11 @@
 @class GTLRNetworkServices_Expr;
 @class GTLRNetworkServices_ExtensionChain;
 @class GTLRNetworkServices_ExtensionChainExtension;
+@class GTLRNetworkServices_ExtensionChainExtension_Metadata;
 @class GTLRNetworkServices_ExtensionChainMatchCondition;
 @class GTLRNetworkServices_Gateway;
 @class GTLRNetworkServices_Gateway_Labels;
+@class GTLRNetworkServices_GatewayRouteView;
 @class GTLRNetworkServices_GrpcRoute;
 @class GTLRNetworkServices_GrpcRoute_Labels;
 @class GTLRNetworkServices_GrpcRouteDestination;
@@ -63,13 +68,16 @@
 @class GTLRNetworkServices_HttpRouteURLRewrite;
 @class GTLRNetworkServices_LbRouteExtension;
 @class GTLRNetworkServices_LbRouteExtension_Labels;
+@class GTLRNetworkServices_LbRouteExtension_Metadata;
 @class GTLRNetworkServices_LbTrafficExtension;
 @class GTLRNetworkServices_LbTrafficExtension_Labels;
+@class GTLRNetworkServices_LbTrafficExtension_Metadata;
 @class GTLRNetworkServices_Location;
 @class GTLRNetworkServices_Location_Labels;
 @class GTLRNetworkServices_Location_Metadata;
 @class GTLRNetworkServices_Mesh;
 @class GTLRNetworkServices_Mesh_Labels;
+@class GTLRNetworkServices_MeshRouteView;
 @class GTLRNetworkServices_Operation;
 @class GTLRNetworkServices_Operation_Metadata;
 @class GTLRNetworkServices_Operation_Response;
@@ -80,6 +88,7 @@
 @class GTLRNetworkServices_ServiceLbPolicy_Labels;
 @class GTLRNetworkServices_ServiceLbPolicyAutoCapacityDrain;
 @class GTLRNetworkServices_ServiceLbPolicyFailoverConfig;
+@class GTLRNetworkServices_ServiceLbPolicyIsolationConfig;
 @class GTLRNetworkServices_Status;
 @class GTLRNetworkServices_Status_Details_Item;
 @class GTLRNetworkServices_TcpRoute;
@@ -95,6 +104,15 @@
 @class GTLRNetworkServices_TlsRouteRouteMatch;
 @class GTLRNetworkServices_TlsRouteRouteRule;
 @class GTLRNetworkServices_TrafficPortSelector;
+@class GTLRNetworkServices_WasmPlugin;
+@class GTLRNetworkServices_WasmPlugin_Labels;
+@class GTLRNetworkServices_WasmPlugin_Versions;
+@class GTLRNetworkServices_WasmPluginLogConfig;
+@class GTLRNetworkServices_WasmPluginUsedBy;
+@class GTLRNetworkServices_WasmPluginVersion;
+@class GTLRNetworkServices_WasmPluginVersion_Labels;
+@class GTLRNetworkServices_WasmPluginVersionDetails;
+@class GTLRNetworkServices_WasmPluginVersionDetails_Labels;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -133,6 +151,55 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_D
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_AuthzExtension.loadBalancingScheme
+
+/**
+ *  Signifies that this is used for External Managed HTTP(S) Load Balancing.
+ *
+ *  Value: "EXTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_ExternalManaged;
+/**
+ *  Signifies that this is used for Internal HTTP(S) Load Balancing.
+ *
+ *  Value: "INTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_InternalManaged;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "LOAD_BALANCING_SCHEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_AuthzExtension.wireFormat
+
+/**
+ *  The extension service uses Envoy's `ext_authz` gRPC API. The backend service
+ *  for the extension must use HTTP2, or H2C as the protocol. `EXT_AUTHZ_GRPC`
+ *  is only supported for `AuthzExtension` resources.
+ *
+ *  Value: "EXT_AUTHZ_GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc;
+/**
+ *  The extension service uses ext_proc gRPC API over a gRPC stream. This is the
+ *  default value if the wire format is not specified. The backend service for
+ *  the extension must use HTTP2 or H2C as the protocol. All `supported_events`
+ *  for a client request are sent as part of the same gRPC stream.
+ *
+ *  Value: "EXT_PROC_GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc;
+/**
+ *  Not specified.
+ *
+ *  Value: "WIRE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_WireFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher.metadataLabelMatchCriteria
@@ -205,6 +272,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestHeaders;
 /**
  *  If included in `supported_events`, the extension is called when the HTTP
+ *  request trailers arrives.
+ *
+ *  Value: "REQUEST_TRAILERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestTrailers;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
  *  response body arrives.
  *
  *  Value: "RESPONSE_BODY"
@@ -217,6 +291,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_
  *  Value: "RESPONSE_HEADERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseHeaders;
+/**
+ *  If included in `supported_events`, the extension is called when the HTTP
+ *  response trailers arrives.
+ *
+ *  Value: "RESPONSE_TRAILERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseTrailers;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_Gateway.envoyHeaders
@@ -264,6 +345,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv6;
  *  Value: "IP_VERSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_IpVersion_IpVersionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_Gateway.routingMode
+
+/**
+ *  The routing mode is explicit; clients are configured to send traffic through
+ *  the gateway. This is the default routing mode.
+ *
+ *  Value: "EXPLICIT_ROUTING_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_RoutingMode_ExplicitRoutingMode;
+/**
+ *  The routing mode is next-hop. Clients are unaware of the gateway, and a
+ *  route (advanced route or other route type) can be configured to direct
+ *  traffic from client to gateway. The gateway then acts as a next-hop to the
+ *  destination.
+ *
+ *  Value: "NEXT_HOP_ROUTING_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_Gateway_RoutingMode_NextHopRoutingMode;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_Gateway.type
@@ -418,6 +519,73 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadB
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkServices_LoggingConfig.logSeverity
+
+/**
+ *  A person must take action immediately.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Alert;
+/**
+ *  Critical events cause more severe problems or outages.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Critical;
+/**
+ *  Debug or trace level logging.
+ *
+ *  Value: "DEBUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Debug;
+/**
+ *  One or more systems are unusable.
+ *
+ *  Value: "EMERGENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Emergency;
+/**
+ *  Error events are likely to cause problems.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Error;
+/**
+ *  Routine information, such as ongoing status or performance.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Info;
+/**
+ *  Log severity is not specified. This value is treated the same as NONE, but
+ *  is used to distinguish between no update and update to NONE in update_masks.
+ *
+ *  Value: "LOG_SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_LogSeverityUnspecified;
+/**
+ *  Default value at resource creation, presence of this value must be treated
+ *  as no logging/disable logging.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_None;
+/**
+ *  Normal but significant events, such as start up, shut down, or a
+ *  configuration change.
+ *
+ *  Value: "NOTICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Notice;
+/**
+ *  Warning events might cause problems.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkServices_Mesh.envoyHeaders
 
 /**
@@ -483,6 +651,92 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByZone;
 
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ServiceLbPolicyIsolationConfig.isolationGranularity
+
+/**
+ *  No isolation is configured for the backend service. Traffic can overflow
+ *  based on the load balancing algorithm.
+ *
+ *  Value: "ISOLATION_GRANULARITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_IsolationGranularityUnspecified;
+/**
+ *  Traffic for this service will be isolated at the cloud region level.
+ *
+ *  Value: "REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_Region;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ServiceLbPolicyIsolationConfig.isolationMode
+
+/**
+ *  No isolation mode is configured for the backend service.
+ *
+ *  Value: "ISOLATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_IsolationModeUnspecified;
+/**
+ *  Traffic will be sent to the nearest region.
+ *
+ *  Value: "NEAREST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Nearest;
+/**
+ *  Traffic will fail if no serving backends are available in the same region as
+ *  the load balancer.
+ *
+ *  Value: "STRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Strict;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_WasmPluginLogConfig.minLogLevel
+
+/**
+ *  Report logs with CRITICAL level only.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Critical;
+/**
+ *  Report logs with DEBUG level and above.
+ *
+ *  Value: "DEBUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Debug;
+/**
+ *  Report logs with ERROR level and above.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Error;
+/**
+ *  Report logs with INFO level and above.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Info;
+/**
+ *  Unspecified value. Defaults to `LogLevel.INFO`.
+ *
+ *  Value: "LOG_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_LogLevelUnspecified;
+/**
+ *  Report logs with TRACE level and above.
+ *
+ *  Value: "TRACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Trace;
+/**
+ *  Report logs with WARN level and above.
+ *
+ *  Value: "WARN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn;
+
 /**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
@@ -546,6 +800,172 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  */
 @property(nonatomic, copy, nullable) NSString *logType;
 
+@end
+
+
+/**
+ *  `AuthzExtension` is a resource that allows traffic forwarding to a callout
+ *  backend service to make an authorization decision.
+ */
+@interface GTLRNetworkServices_AuthzExtension : GTLRObject
+
+/**
+ *  Required. The `:authority` header in the gRPC request sent from Envoy to the
+ *  extension service.
+ */
+@property(nonatomic, copy, nullable) NSString *authority;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Determines how the proxy behaves if the call to the extension
+ *  fails or times out. When set to `TRUE`, request or response processing
+ *  continues without error. Any subsequent extensions in the extension chain
+ *  are also executed. When set to `FALSE` or the default setting of `FALSE` is
+ *  used, one of the following happens: * If response headers have not been
+ *  delivered to the downstream client, a generic 500 error is returned to the
+ *  client. The error response can be tailored by configuring a custom error
+ *  response in the load balancer. * If response headers have been delivered,
+ *  then the HTTP stream to the downstream client is reset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failOpen;
+
+/**
+ *  Optional. List of the HTTP headers to forward to the extension (from the
+ *  client). If omitted, all headers are sent. Each element is a string
+ *  indicating the header name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forwardHeaders;
+
+/**
+ *  Optional. Set of labels associated with the `AuthzExtension` resource. The
+ *  format must comply with [the requirements for
+ *  labels](/compute/docs/labeling-resources#requirements) for Google Cloud
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_AuthzExtension_Labels *labels;
+
+/**
+ *  Required. All backend services and forwarding rules referenced by this
+ *  extension must share the same load balancing scheme. Supported values:
+ *  `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
+ *  [Backend services
+ *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_ExternalManaged
+ *        Signifies that this is used for External Managed HTTP(S) Load
+ *        Balancing. (Value: "EXTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_InternalManaged
+ *        Signifies that this is used for Internal HTTP(S) Load Balancing.
+ *        (Value: "INTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified
+ *        Default value. Do not use. (Value:
+ *        "LOAD_BALANCING_SCHEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata is
+ *  available under the namespace `com.google.authz_extension.`. The following
+ *  variables are supported in the metadata Struct: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_AuthzExtension_Metadata *metadata;
+
+/**
+ *  Required. Identifier. Name of the `AuthzExtension` resource in the following
+ *  format:
+ *  `projects/{project}/locations/{location}/authzExtensions/{authz_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The reference to the service that runs the extension. To configure
+ *  a callout extension, `service` must be a fully-qualified reference to a
+ *  [backend
+ *  service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices)
+ *  in the format:
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}`
+ *  or
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}`.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Required. Specifies the timeout for each individual message on the stream.
+ *  The timeout must be between 10-10000 milliseconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. The format of communication supported by the callout extension. If
+ *  not specified, the default value `EXT_PROC_GRPC` is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc The
+ *        extension service uses Envoy's `ext_authz` gRPC API. The backend
+ *        service for the extension must use HTTP2, or H2C as the protocol.
+ *        `EXT_AUTHZ_GRPC` is only supported for `AuthzExtension` resources.
+ *        (Value: "EXT_AUTHZ_GRPC")
+ *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc The
+ *        extension service uses ext_proc gRPC API over a gRPC stream. This is
+ *        the default value if the wire format is not specified. The backend
+ *        service for the extension must use HTTP2 or H2C as the protocol. All
+ *        `supported_events` for a client request are sent as part of the same
+ *        gRPC stream. (Value: "EXT_PROC_GRPC")
+ *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_WireFormatUnspecified
+ *        Not specified. (Value: "WIRE_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wireFormat;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `AuthzExtension` resource. The
+ *  format must comply with [the requirements for
+ *  labels](/compute/docs/labeling-resources#requirements) for Google Cloud
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_AuthzExtension_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata is
+ *  available under the namespace `com.google.authz_extension.`. The following
+ *  variables are supported in the metadata Struct: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetworkServices_AuthzExtension_Metadata : GTLRObject
 @end
 
 
@@ -775,7 +1195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_EndpointPolicy_Labels *labels;
 
 /**
- *  Required. Name of the EndpointPolicy resource. It matches pattern
+ *  Identifier. Name of the EndpointPolicy resource. It matches pattern
  *  `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -885,8 +1305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 /**
  *  Required. A set of extensions to execute for the matching request. At least
  *  one extension is required. Up to 3 extensions can be defined for each
- *  extension chain for `LbTrafficExtension` resource. `LbRouteExtension` chains
- *  are limited to 1 extension per extension chain.
+ *  extension chain for `LbTrafficExtension` resource. `LbRouteExtension` and
+ *  `LbEdgeExtension` chains are limited to 1 extension per extension chain.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChainExtension *> *extensions;
 
@@ -912,7 +1332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Optional. The `:authority` header in the gRPC request sent from Envoy to the
- *  extension service.
+ *  extension service. Required for Callout extensions. This field is not
+ *  supported for plugin extensions. Setting it results in a validation error.
  */
 @property(nonatomic, copy, nullable) NSString *authority;
 
@@ -920,11 +1341,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Optional. Determines how the proxy behaves if the call to the extension
  *  fails or times out. When set to `TRUE`, request or response processing
  *  continues without error. Any subsequent extensions in the extension chain
- *  are also executed. When set to `FALSE`: * If response headers have not been
+ *  are also executed. When set to `FALSE` or the default setting of `FALSE` is
+ *  used, one of the following happens: * If response headers have not been
  *  delivered to the downstream client, a generic 500 error is returned to the
  *  client. The error response can be tailored by configuring a custom error
  *  response in the load balancer. * If response headers have been delivered,
- *  then the HTTP stream to the downstream client is reset. Default is `FALSE`.
+ *  then the HTTP stream to the downstream client is reset.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -938,6 +1360,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardHeaders;
 
 /**
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata is
+ *  available under the namespace `com.google....`. For example:
+ *  `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set for plugin extensions. Setting it results in a
+ *  validation error. You can set metadata at either the resource level or the
+ *  extension level. The extension level metadata is recommended because you can
+ *  pass a different set of metadata through each extension to the backend. This
+ *  field is subject to following limitations: * The total size of the metadata
+ *  must be less than 1KiB. * The total number of keys in the metadata must be
+ *  less than 16. * The length of each key must be less than 64 characters. *
+ *  The length of each value must be less than 1024 characters. * All values
+ *  must be strings.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionChainExtension_Metadata *metadata;
+
+/**
  *  Required. The name for this extension. The name is logged as part of the
  *  HTTP request logs. The name must conform with RFC-1034, is restricted to
  *  lower-cased letters, numbers and hyphens, and can have a maximum length of
@@ -947,31 +1389,70 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The reference to the service that runs the extension. Currently
- *  only Callout extensions are supported here. To configure a Callout
- *  extension, `service` must be a fully-qualified reference to a [backend
+ *  Required. The reference to the service that runs the extension. To configure
+ *  a callout extension, `service` must be a fully-qualified reference to a
+ *  [backend
  *  service](https://cloud.google.com/compute/docs/reference/rest/v1/backendServices)
  *  in the format:
  *  `https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/backendServices/{backendService}`
  *  or
  *  `https://www.googleapis.com/compute/v1/projects/{project}/global/backendServices/{backendService}`.
+ *  To configure a plugin extension, `service` must be a reference to a
+ *  [`WasmPlugin`
+ *  resource](https://cloud.google.com/service-extensions/docs/reference/rest/v1beta1/projects.locations.wasmPlugins)
+ *  in the format:
+ *  `projects/{project}/locations/{location}/wasmPlugins/{plugin}` or
+ *  `//networkservices.googleapis.com/projects/{project}/locations/{location}/wasmPlugins/{wasmPlugin}`.
+ *  Plugin extensions are currently supported for the `LbTrafficExtension`, the
+ *  `LbRouteExtension`, and the `LbEdgeExtension` resources.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
  *  Optional. A set of events during request or response processing for which
- *  this extension is called. This field is required for the
- *  `LbTrafficExtension` resource. It's not relevant for the `LbRouteExtension`
- *  resource.
+ *  this extension is called. For the `LbTrafficExtension` resource, this field
+ *  is required. For the `LbRouteExtension` resource, this field is optional. If
+ *  unspecified, `REQUEST_HEADERS` event is assumed as supported. For the
+ *  `LbEdgeExtension` resource, this field is required and must only contain
+ *  `REQUEST_HEADERS` event.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
 
 /**
- *  Required. Specifies the timeout for each individual message on the stream.
- *  The timeout must be between 10-1000 milliseconds.
+ *  Optional. Specifies the timeout for each individual message on the stream.
+ *  The timeout must be between `10`-`10000` milliseconds. Required for callout
+ *  extensions. This field is not supported for plugin extensions. Setting it
+ *  results in a validation error.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
+@end
+
+
+/**
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata is
+ *  available under the namespace `com.google....`. For example:
+ *  `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set for plugin extensions. Setting it results in a
+ *  validation error. You can set metadata at either the resource level or the
+ *  extension level. The extension level metadata is recommended because you can
+ *  pass a different set of metadata through each extension to the backend. This
+ *  field is subject to following limitations: * The total size of the metadata
+ *  must be less than 1KiB. * The total number of keys in the metadata must be
+ *  less than 16. * The length of each key must be less than 64 characters. *
+ *  The length of each value must be less than 1024 characters. * All values
+ *  must be strings.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetworkServices_ExtensionChainExtension_Metadata : GTLRObject
 @end
 
 
@@ -995,7 +1476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Gateway represents the configuration for a proxy, typically a load balancer.
  *  It captures the ip:port over which the services are exposed by the proxy,
  *  along with any policy configurations. Routes have reference to to Gateways
- *  to dictate how requests should be routed by this Gateway. Next id: 32
+ *  to dictate how requests should be routed by this Gateway.
  */
 @interface GTLRNetworkServices_Gateway : GTLRObject
 
@@ -1071,7 +1552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_Gateway_Labels *labels;
 
 /**
- *  Required. Name of the Gateway resource. It matches pattern `projects/ *
+ *  Identifier. Name of the Gateway resource. It matches pattern `projects/ *
  *  /locations/ * /gateways/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1087,7 +1568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 /**
  *  Required. One or more port numbers (1-65535), on which the Gateway will
  *  receive traffic. The proxy binds to the specified ports. Gateways of type
- *  'SECURE_WEB_GATEWAY' are limited to 1 port. Gateways of type 'OPEN_MESH'
+ *  'SECURE_WEB_GATEWAY' are limited to 5 ports. Gateways of type 'OPEN_MESH'
  *  listen on 0.0.0.0 for IPv4 and :: for IPv6 and support multiple ports.
  *
  *  Uses NSNumber of intValue.
@@ -1095,9 +1576,27 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *ports;
 
 /**
+ *  Optional. The routing mode of the Gateway. This field is configurable only
+ *  for gateways of type SECURE_WEB_GATEWAY. This field is required for gateways
+ *  of type SECURE_WEB_GATEWAY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_Gateway_RoutingMode_ExplicitRoutingMode The
+ *        routing mode is explicit; clients are configured to send traffic
+ *        through the gateway. This is the default routing mode. (Value:
+ *        "EXPLICIT_ROUTING_MODE")
+ *    @arg @c kGTLRNetworkServices_Gateway_RoutingMode_NextHopRoutingMode The
+ *        routing mode is next-hop. Clients are unaware of the gateway, and a
+ *        route (advanced route or other route type) can be configured to direct
+ *        traffic from client to gateway. The gateway then acts as a next-hop to
+ *        the destination. (Value: "NEXT_HOP_ROUTING_MODE")
+ */
+@property(nonatomic, copy, nullable) NSString *routingMode;
+
+/**
  *  Optional. Scope determines how configuration across multiple Gateway
  *  instances are merged. The configuration for multiple Gateway instances with
- *  the same scope will be merged as presented as a single coniguration to the
+ *  the same scope will be merged as presented as a single configuration to the
  *  proxy/load balancer. Max length 64 characters. Scope should start with a
  *  letter and can only have letters, numbers, hyphens.
  */
@@ -1151,6 +1650,39 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        fetch them all at once.
  */
 @interface GTLRNetworkServices_Gateway_Labels : GTLRObject
+@end
+
+
+/**
+ *  GatewayRouteView defines view-only resource for Routes to a Gateway
+ */
+@interface GTLRNetworkServices_GatewayRouteView : GTLRObject
+
+/**
+ *  Output only. Identifier. Full path name of the GatewayRouteView resource.
+ *  Format:
+ *  projects/{project_number}/locations/{location}/gateways/{gateway}/routeViews/{route_view}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The resource id for the route. */
+@property(nonatomic, copy, nullable) NSString *routeId;
+
+/** Output only. Location where the route exists. */
+@property(nonatomic, copy, nullable) NSString *routeLocation;
+
+/**
+ *  Output only. Project number where the route exists.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *routeProjectNumber;
+
+/**
+ *  Output only. Type of the route: HttpRoute,GrpcRoute,TcpRoute, or TlsRoute
+ */
+@property(nonatomic, copy, nullable) NSString *routeType;
+
 @end
 
 
@@ -1213,7 +1745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
- *  Required. Name of the GrpcRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the GrpcRoute resource. It matches pattern `projects/ *
  *  /locations/global/grpcRoutes/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1413,7 +1945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 
 /**
- *  The specifications for retries.
+ *  The specifications for retries. Specifies one or more conditions for which
+ *  this retry rule applies. Valid values are:
  */
 @interface GTLRNetworkServices_GrpcRouteRetryPolicy : GTLRObject
 
@@ -1542,8 +2075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Required. The cookie TTL value for the Set-Cookie header generated by the
- *  data plane. The lifetime of the cookie may be set to a value from 1 to 86400
- *  seconds (24 hours) inclusive.
+ *  data plane. The lifetime of the cookie may be set to a value from 0 to 86400
+ *  seconds (24 hours) inclusive. Set this to 0s to use a session cookie and
+ *  disable cookie expiration.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *cookieTtl;
 
@@ -1608,7 +2142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
- *  Required. Name of the HttpRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the HttpRoute resource. It matches pattern `projects/ *
  *  /locations/global/httpRoutes/http_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2067,7 +2601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Specifies the policy on how requests are shadowed to a separate mirrored
  *  destination service. The proxy does not wait for responses from the shadow
  *  service. Prior to sending traffic to the shadow service, the host/authority
- *  header is suffixed with -shadow.
+ *  header is suffixed with -shadow. Mirroring is currently not supported for
+ *  Cloud Run destinations.
  */
 @interface GTLRNetworkServices_HttpRouteRequestMirrorPolicy : GTLRObject
 
@@ -2297,8 +2832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Required. The cookie TTL value for the Set-Cookie header generated by the
- *  data plane. The lifetime of the cookie may be set to a value from 1 to 86400
- *  seconds (24 hours) inclusive.
+ *  data plane. The lifetime of the cookie may be set to a value from 0 to 86400
+ *  seconds (24 hours) inclusive. Set this to 0s to use a session cookie and
+ *  disable cookie expiration.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *cookieTtl;
 
@@ -2354,15 +2890,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Required. A list of references to the forwarding rules to which this service
- *  extension is attached to. At least one forwarding rule is required. There
- *  can be only one `LbRouteExtension` resource per forwarding rule.
+ *  extension is attached. At least one forwarding rule is required. Only one
+ *  `LbRouteExtension` resource can be associated with a forwarding rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardingRules;
 
 /**
  *  Optional. Set of labels associated with the `LbRouteExtension` resource. The
- *  format must comply with [the following
- *  requirements](/compute/docs/labeling-resources#requirements).
+ *  format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_LbRouteExtension_Labels *labels;
 
@@ -2370,8 +2907,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Required. All backend services and forwarding rules referenced by this
  *  extension must share the same load balancing scheme. Supported values:
  *  `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
- *  [Choosing a load
- *  balancer](https://cloud.google.com/load-balancing/docs/backend-service).
+ *  [Backend services
+ *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_LbRouteExtension_LoadBalancingScheme_ExternalManaged
@@ -2385,6 +2922,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        "LOAD_BALANCING_SCHEME_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata
+ *  applies to all extensions in all extensions chains in this resource. The
+ *  metadata is available under the key `com.google.lb_route_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set if at least one of the extension chains contains
+ *  plugin extensions. Setting it results in a validation error. You can set
+ *  metadata at either the resource level or the extension level. The extension
+ *  level metadata is recommended because you can pass a different set of
+ *  metadata through each extension to the backend.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_LbRouteExtension_Metadata *metadata;
 
 /**
  *  Required. Identifier. Name of the `LbRouteExtension` resource in the
@@ -2401,8 +2954,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Optional. Set of labels associated with the `LbRouteExtension` resource. The
- *  format must comply with [the following
- *  requirements](/compute/docs/labeling-resources#requirements).
+ *  format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2410,6 +2964,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        fetch them all at once.
  */
 @interface GTLRNetworkServices_LbRouteExtension_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata
+ *  applies to all extensions in all extensions chains in this resource. The
+ *  metadata is available under the key `com.google.lb_route_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set if at least one of the extension chains contains
+ *  plugin extensions. Setting it results in a validation error. You can set
+ *  metadata at either the resource level or the extension level. The extension
+ *  level metadata is recommended because you can pass a different set of
+ *  metadata through each extension to the backend.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetworkServices_LbRouteExtension_Metadata : GTLRObject
 @end
 
 
@@ -2442,25 +3019,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChain *> *extensionChains;
 
 /**
- *  Required. A list of references to the forwarding rules to which this service
- *  extension is attached to. At least one forwarding rule is required. There
- *  can be only one `LBTrafficExtension` resource per forwarding rule.
+ *  Optional. A list of references to the forwarding rules to which this service
+ *  extension is attached. At least one forwarding rule is required. Only one
+ *  `LbTrafficExtension` resource can be associated with a forwarding rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *forwardingRules;
 
 /**
  *  Optional. Set of labels associated with the `LbTrafficExtension` resource.
- *  The format must comply with [the following
- *  requirements](/compute/docs/labeling-resources#requirements).
+ *  The format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_LbTrafficExtension_Labels *labels;
 
 /**
  *  Required. All backend services and forwarding rules referenced by this
  *  extension must share the same load balancing scheme. Supported values:
- *  `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
- *  [Choosing a load
- *  balancer](https://cloud.google.com/load-balancing/docs/backend-service).
+ *  `INTERNAL_MANAGED` and `EXTERNAL_MANAGED`. For more information, refer to
+ *  [Backend services
+ *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_ExternalManaged
@@ -2474,6 +3052,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        "LOAD_BALANCING_SCHEME_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata
+ *  applies to all extensions in all extensions chains in this resource. The
+ *  metadata is available under the key `com.google.lb_traffic_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set if at least one of the extension chains contains
+ *  plugin extensions. Setting it results in a validation error. You can set
+ *  metadata at either the resource level or the extension level. The extension
+ *  level metadata is recommended because you can pass a different set of
+ *  metadata through each extension to the backend.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_LbTrafficExtension_Metadata *metadata;
 
 /**
  *  Required. Identifier. Name of the `LbTrafficExtension` resource in the
@@ -2490,8 +3084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Optional. Set of labels associated with the `LbTrafficExtension` resource.
- *  The format must comply with [the following
- *  requirements](/compute/docs/labeling-resources#requirements).
+ *  The format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2499,6 +3094,56 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        fetch them all at once.
  */
 @interface GTLRNetworkServices_LbTrafficExtension_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. The metadata provided here is included as part of the
+ *  `metadata_context` (of type `google.protobuf.Struct`) in the
+ *  `ProcessingRequest` message sent to the extension server. The metadata
+ *  applies to all extensions in all extensions chains in this resource. The
+ *  metadata is available under the key `com.google.lb_traffic_extension.`. The
+ *  following variables are supported in the metadata: `{forwarding_rule_id}` -
+ *  substituted with the forwarding rule's fully qualified resource name. This
+ *  field must not be set if at least one of the extension chains contains
+ *  plugin extensions. Setting it results in a validation error. You can set
+ *  metadata at either the resource level or the extension level. The extension
+ *  level metadata is recommended because you can pass a different set of
+ *  metadata through each extension to the backend.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetworkServices_LbTrafficExtension_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Message for response to listing `AuthzExtension` resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "authzExtensions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkServices_ListAuthzExtensionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of `AuthzExtension` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_AuthzExtension *> *authzExtensions;
+
+/** A token identifying a page of results that the server returns. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -2526,6 +3171,47 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  method again using the value of `next_page_token` as `page_token`.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable resources. Populated when the request opts into
+ *  return_partial_success and reading across collections e.g. when attempting
+ *  to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response returned by the ListGatewayRouteViews method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gatewayRouteViews" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkServices_ListGatewayRouteViewsResponse : GTLRCollectionObject
+
+/**
+ *  List of GatewayRouteView resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_GatewayRouteView *> *gatewayRouteViews;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2586,6 +3272,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Unreachable resources. Populated when the request opts into
+ *  return_partial_success and reading across collections e.g. when attempting
+ *  to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -2613,6 +3306,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  method again using the value of `next_page_token` as `page_token`.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable resources. Populated when the request opts into
+ *  return_partial_success and reading across collections e.g. when attempting
+ *  to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2720,6 +3420,47 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Unreachable resources. Populated when the request opts into
+ *  `return_partial_success` and reading across collections e.g. when attempting
+ *  to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response returned by the ListMeshRouteViews method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "meshRouteViews" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkServices_ListMeshRouteViewsResponse : GTLRCollectionObject
+
+/**
+ *  List of MeshRouteView resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_MeshRouteView *> *meshRouteViews;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -2772,6 +3513,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ServiceBinding *> *serviceBindings;
 
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -2799,6 +3547,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ServiceLbPolicy *> *serviceLbPolicies;
+
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2828,6 +3583,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TcpRoute *> *tcpRoutes;
 
+/**
+ *  Unreachable resources. Populated when the request opts into
+ *  return_partial_success and reading across collections e.g. when attempting
+ *  to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -2855,6 +3617,83 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TlsRoute *> *tlsRoutes;
+
+/**
+ *  Unreachable resources. Populated when the request opts into
+ *  return_partial_success and reading across collections e.g. when attempting
+ *  to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response returned by the `ListWasmPlugins` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "wasmPlugins" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkServices_ListWasmPluginsResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+/**
+ *  List of `WasmPlugin` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_WasmPlugin *> *wasmPlugins;
+
+@end
+
+
+/**
+ *  Response returned by the `ListWasmPluginVersions` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "wasmPluginVersions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkServices_ListWasmPluginVersionsResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable resources. Populated when the request attempts to list all
+ *  resources across all supported locations, while some locations are
+ *  temporarily unavailable.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+/**
+ *  List of `WasmPluginVersion` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_WasmPluginVersion *> *wasmPluginVersions;
 
 @end
 
@@ -2921,6 +3760,48 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 
 /**
+ *  The configuration for Platform Telemetry logging for Eventarc Advanced
+ *  resources.
+ */
+@interface GTLRNetworkServices_LoggingConfig : GTLRObject
+
+/**
+ *  Optional. The minimum severity of logs that will be sent to
+ *  Stackdriver/Platform Telemetry. Logs at severitiy ≥ this value will be sent,
+ *  unless it is NONE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Alert A person must
+ *        take action immediately. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Critical Critical
+ *        events cause more severe problems or outages. (Value: "CRITICAL")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Debug Debug or
+ *        trace level logging. (Value: "DEBUG")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Emergency One or
+ *        more systems are unusable. (Value: "EMERGENCY")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Error Error events
+ *        are likely to cause problems. (Value: "ERROR")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Info Routine
+ *        information, such as ongoing status or performance. (Value: "INFO")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_LogSeverityUnspecified
+ *        Log severity is not specified. This value is treated the same as NONE,
+ *        but is used to distinguish between no update and update to NONE in
+ *        update_masks. (Value: "LOG_SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_None Default value
+ *        at resource creation, presence of this value must be treated as no
+ *        logging/disable logging. (Value: "NONE")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Notice Normal but
+ *        significant events, such as start up, shut down, or a configuration
+ *        change. (Value: "NOTICE")
+ *    @arg @c kGTLRNetworkServices_LoggingConfig_LogSeverity_Warning Warning
+ *        events might cause problems. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *logSeverity;
+
+@end
+
+
+/**
  *  Mesh represents a logical configuration grouping for workload to workload
  *  communication within a service mesh. Routes that point to mesh dictate how
  *  requests are routed within this logical mesh boundary.
@@ -2972,7 +3853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_Mesh_Labels *labels;
 
 /**
- *  Required. Name of the Mesh resource. It matches pattern `projects/ *
+ *  Identifier. Name of the Mesh resource. It matches pattern `projects/ *
  *  /locations/global/meshes/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2995,6 +3876,39 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *        fetch them all at once.
  */
 @interface GTLRNetworkServices_Mesh_Labels : GTLRObject
+@end
+
+
+/**
+ *  MeshRouteView defines view-only resource for Routes to a Mesh
+ */
+@interface GTLRNetworkServices_MeshRouteView : GTLRObject
+
+/**
+ *  Output only. Identifier. Full path name of the MeshRouteView resource.
+ *  Format:
+ *  projects/{project_number}/locations/{location}/meshes/{mesh}/routeViews/{route_view}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The resource id for the route. */
+@property(nonatomic, copy, nullable) NSString *routeId;
+
+/** Output only. Location where the route exists. */
+@property(nonatomic, copy, nullable) NSString *routeLocation;
+
+/**
+ *  Output only. Project number where the route exists.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *routeProjectNumber;
+
+/**
+ *  Output only. Type of the route: HttpRoute,GrpcRoute,TcpRoute, or TlsRoute
+ */
+@property(nonatomic, copy, nullable) NSString *routeType;
+
 @end
 
 
@@ -3208,8 +4122,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 
 /**
- *  ServiceBinding is the resource that defines a Service Directory Service to
- *  be used in a BackendService resource.
+ *  GTLRNetworkServices_RetryFilterPerRouteConfig
+ */
+@interface GTLRNetworkServices_RetryFilterPerRouteConfig : GTLRObject
+
+/** The name of the crypto key to use for encrypting event data. */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyName;
+
+@end
+
+
+/**
+ *  ServiceBinding can be used to: - Bind a Service Directory Service to be used
+ *  in a BackendService resource. This feature will be deprecated soon. - Bind a
+ *  Private Service Connect producer service to be used in consumer Cloud
+ *  Service Mesh or Application Load Balancers. - Bind a Cloud Run service to be
+ *  used in consumer Cloud Service Mesh or Application Load Balancers.
  */
 @interface GTLRNetworkServices_ServiceBinding : GTLRObject
 
@@ -3230,24 +4158,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceBinding_Labels *labels;
 
 /**
- *  Required. Name of the ServiceBinding resource. It matches pattern `projects/
- *  * /locations/global/serviceBindings/service_binding_name`.
+ *  Identifier. Name of the ServiceBinding resource. It matches pattern
+ *  `projects/ * /locations/ * /serviceBindings/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The full Service Directory Service name of the format projects/ *
- *  /locations/ * /namespaces/ * /services/ *
+ *  Optional. The full Service Directory Service name of the format `projects/ *
+ *  /locations/ * /namespaces/ * /services/ *`. This field is for Service
+ *  Directory integration which will be deprecated soon.
  */
-@property(nonatomic, copy, nullable) NSString *service;
+@property(nonatomic, copy, nullable) NSString *service GTLR_DEPRECATED;
 
 /**
  *  Output only. The unique identifier of the Service Directory Service against
- *  which the Service Binding resource is validated. This is populated when the
+ *  which the ServiceBinding resource is validated. This is populated when the
  *  Service Binding resource is used in another resource (like Backend Service).
- *  This is of the UUID4 format.
+ *  This is of the UUID4 format. This field is for Service Directory integration
+ *  which will be deprecated soon.
  */
-@property(nonatomic, copy, nullable) NSString *serviceId;
+@property(nonatomic, copy, nullable) NSString *serviceId GTLR_DEPRECATED;
 
 /** Output only. The timestamp when the resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -3294,6 +4224,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicyFailoverConfig *failoverConfig;
 
 /**
+ *  Optional. Configuration to provide isolation support for the associated
+ *  Backend Service.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicyIsolationConfig *isolationConfig;
+
+/**
  *  Optional. Set of label tags associated with the ServiceLbPolicy resource.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkServices_ServiceLbPolicy_Labels *labels;
@@ -3325,7 +4261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, copy, nullable) NSString *loadBalancingAlgorithm;
 
 /**
- *  Required. Name of the ServiceLbPolicy resource. It matches pattern
+ *  Identifier. Name of the ServiceLbPolicy resource. It matches pattern
  *  `projects/{project}/locations/{location}/serviceLbPolicies/{service_lb_policy_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3384,6 +4320,44 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *failoverHealthThreshold;
+
+@end
+
+
+/**
+ *  Configuration to provide isolation support for the associated Backend
+ *  Service.
+ */
+@interface GTLRNetworkServices_ServiceLbPolicyIsolationConfig : GTLRObject
+
+/**
+ *  Optional. The isolation granularity of the load balancer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_IsolationGranularityUnspecified
+ *        No isolation is configured for the backend service. Traffic can
+ *        overflow based on the load balancing algorithm. (Value:
+ *        "ISOLATION_GRANULARITY_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_Region
+ *        Traffic for this service will be isolated at the cloud region level.
+ *        (Value: "REGION")
+ */
+@property(nonatomic, copy, nullable) NSString *isolationGranularity;
+
+/**
+ *  Optional. The isolation mode of the load balancer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_IsolationModeUnspecified
+ *        No isolation mode is configured for the backend service. (Value:
+ *        "ISOLATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Nearest
+ *        Traffic will be sent to the nearest region. (Value: "NEAREST")
+ *    @arg @c kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Strict
+ *        Traffic will fail if no serving backends are available in the same
+ *        region as the load balancer. (Value: "STRICT")
+ */
+@property(nonatomic, copy, nullable) NSString *isolationMode;
 
 @end
 
@@ -3494,7 +4468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
- *  Required. Name of the TcpRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the TcpRoute resource. It matches pattern `projects/ *
  *  /locations/global/tcpRoutes/tcp_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3694,7 +4668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
- *  Required. Name of the TlsRoute resource. It matches pattern `projects/ *
+ *  Identifier. Name of the TlsRoute resource. It matches pattern `projects/ *
  *  /locations/global/tlsRoutes/tls_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3758,7 +4732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
- *  Optional. Specifies the proportion of requests forwareded to the backend
+ *  Optional. Specifies the proportion of requests forwarded to the backend
  *  referenced by the service_name field. This is computed as: -
  *  weight/Sum(weights in destinations) Weights in all destinations does not
  *  need to sum up to 100.
@@ -3772,8 +4746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  RouteMatch defines the predicate used to match requests to a given action.
- *  Multiple match types are "AND"ed for evaluation. If no routeMatch field is
- *  specified, this rule will unconditionally match traffic.
+ *  Multiple match types are "AND"ed for evaluation.
  */
 @interface GTLRNetworkServices_TlsRouteRouteMatch : GTLRObject
 
@@ -3789,7 +4762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  *  against all wildcard domains, i.e. `www.example.com` will be first matched
  *  against `www.example.com`, then `*.example.com`, then `*.com.` Partial
  *  wildcards are not supported, and values like *w.example.com are invalid. At
- *  least one of sni_host and alpn is required. Up to 5 sni hosts across all
+ *  least one of sni_host and alpn is required. Up to 100 sni hosts across all
  *  matches can be set.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sniHost;
@@ -3808,7 +4781,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
 
 /**
  *  Required. RouteMatch defines the predicate used to match requests to a given
- *  action. Multiple match types are "OR"ed for evaluation.
+ *  action. Multiple match types are "OR"ed for evaluation. Atleast one
+ *  RouteMatch must be supplied.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_TlsRouteRouteMatch *> *matches;
 
@@ -3828,6 +4802,397 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBala
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
 
+@end
+
+
+/**
+ *  `WasmPlugin` is a resource representing a service executing a
+ *  customer-provided Wasm module.
+ */
+@interface GTLRNetworkServices_WasmPlugin : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Set of labels associated with the `WasmPlugin` resource. The
+ *  format must comply with [the following
+ *  requirements](/compute/docs/labeling-resources#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_WasmPlugin_Labels *labels;
+
+/**
+ *  Optional. Specifies the logging options for the activity performed by this
+ *  plugin. If logging is enabled, plugin logs are exported to Cloud Logging.
+ *  Note that the settings relate to the logs generated by using logging
+ *  statements in your Wasm code.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_WasmPluginLogConfig *logConfig;
+
+/**
+ *  Optional. The ID of the `WasmPluginVersion` resource that is the currently
+ *  serving one. The version referred to must be a child of this `WasmPlugin`
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *mainVersionId;
+
+/**
+ *  Identifier. Name of the `WasmPlugin` resource in the following format:
+ *  `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. List of all
+ *  [extensions](https://cloud.google.com/service-extensions/docs/overview) that
+ *  use this `WasmPlugin` resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_WasmPluginUsedBy *> *usedBy;
+
+/**
+ *  Optional. All versions of this `WasmPlugin` resource in the key-value
+ *  format. The key is the resource ID, and the value is the `VersionDetails`
+ *  object. Lets you create or update a `WasmPlugin` resource and its versions
+ *  in a single request. When the `main_version_id` field is not empty, it must
+ *  point to one of the `VersionDetails` objects in the map. If provided in a
+ *  `PATCH` request, the new versions replace the previous set. Any version
+ *  omitted from the `versions` field is removed. Because the
+ *  `WasmPluginVersion` resource is immutable, if a `WasmPluginVersion` resource
+ *  with the same name already exists and differs, the request fails. Note: In a
+ *  `GET` request, this field is populated only if the field
+ *  `GetWasmPluginRequest.view` is set to `WASM_PLUGIN_VIEW_FULL`.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_WasmPlugin_Versions *versions;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `WasmPlugin` resource. The
+ *  format must comply with [the following
+ *  requirements](/compute/docs/labeling-resources#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_WasmPlugin_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. All versions of this `WasmPlugin` resource in the key-value
+ *  format. The key is the resource ID, and the value is the `VersionDetails`
+ *  object. Lets you create or update a `WasmPlugin` resource and its versions
+ *  in a single request. When the `main_version_id` field is not empty, it must
+ *  point to one of the `VersionDetails` objects in the map. If provided in a
+ *  `PATCH` request, the new versions replace the previous set. Any version
+ *  omitted from the `versions` field is removed. Because the
+ *  `WasmPluginVersion` resource is immutable, if a `WasmPluginVersion` resource
+ *  with the same name already exists and differs, the request fails. Note: In a
+ *  `GET` request, this field is populated only if the field
+ *  `GetWasmPluginRequest.view` is set to `WASM_PLUGIN_VIEW_FULL`.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRNetworkServices_WasmPluginVersionDetails. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_WasmPlugin_Versions : GTLRObject
+@end
+
+
+/**
+ *  Specifies the logging options for the activity performed by this plugin. If
+ *  logging is enabled, plugin logs are exported to Cloud Logging.
+ */
+@interface GTLRNetworkServices_WasmPluginLogConfig : GTLRObject
+
+/**
+ *  Optional. Specifies whether to enable logging for activity by this plugin.
+ *  Defaults to `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enable;
+
+/**
+ *  Non-empty default. Specifies the lowest level of the plugin logs that are
+ *  exported to Cloud Logging. This setting relates to the logs generated by
+ *  using logging statements in your Wasm code. This field is can be set only if
+ *  logging is enabled for the plugin. If the field is not provided when logging
+ *  is enabled, it is set to `INFO` by default.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Critical
+ *        Report logs with CRITICAL level only. (Value: "CRITICAL")
+ *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Debug Report
+ *        logs with DEBUG level and above. (Value: "DEBUG")
+ *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Error Report
+ *        logs with ERROR level and above. (Value: "ERROR")
+ *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Info Report
+ *        logs with INFO level and above. (Value: "INFO")
+ *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_LogLevelUnspecified
+ *        Unspecified value. Defaults to `LogLevel.INFO`. (Value:
+ *        "LOG_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Trace Report
+ *        logs with TRACE level and above. (Value: "TRACE")
+ *    @arg @c kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn Report
+ *        logs with WARN level and above. (Value: "WARN")
+ */
+@property(nonatomic, copy, nullable) NSString *minLogLevel;
+
+/**
+ *  Non-empty default. Configures the sampling rate of activity logs, where
+ *  `1.0` means all logged activity is reported and `0.0` means no activity is
+ *  reported. A floating point value between `0.0` and `1.0` indicates that a
+ *  percentage of log messages is stored. The default value when logging is
+ *  enabled is `1.0`. The value of the field must be between `0` and `1`
+ *  (inclusive). This field can be specified only if logging is enabled for this
+ *  plugin.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleRate;
+
+@end
+
+
+/**
+ *  Defines a resource that uses the `WasmPlugin` resource.
+ */
+@interface GTLRNetworkServices_WasmPluginUsedBy : GTLRObject
+
+/**
+ *  Output only. Full name of the resource
+ *  https://google.aip.dev/122#full-resource-names, for example
+ *  `//networkservices.googleapis.com/projects/{project}/locations/{location}/lbRouteExtensions/{extension}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A single immutable version of a `WasmPlugin` resource. Defines the Wasm
+ *  module used and optionally its runtime config.
+ */
+@interface GTLRNetworkServices_WasmPluginVersion : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. This field holds the digest (usually checksum) value for the
+ *  plugin image. The value is calculated based on the `image_uri` field. If the
+ *  `image_uri` field refers to a container image, the digest value is obtained
+ *  from the container image. If the `image_uri` field refers to a generic
+ *  artifact, the digest value is calculated based on the contents of the file.
+ */
+@property(nonatomic, copy, nullable) NSString *imageDigest;
+
+/**
+ *  Optional. URI of the image containing the Wasm module, stored in Artifact
+ *  Registry. The URI can refer to one of the following repository formats: *
+ *  Container images: the `image_uri` must point to a container that contains a
+ *  single file with the name `plugin.wasm`. When a new `WasmPluginVersion`
+ *  resource is created, the digest of the image is saved in the `image_digest`
+ *  field. When pulling a container image from Artifact Registry, the digest
+ *  value is used instead of an image tag. * Generic artifacts: the `image_uri`
+ *  must be in this format:
+ *  `projects/{project}/locations/{location}/repositories/{repository}/
+ *  genericArtifacts/{package}:{version}`. The specified package and version
+ *  must contain a file with the name `plugin.wasm`. When a new
+ *  `WasmPluginVersion` resource is created, the checksum of the contents of the
+ *  file is saved in the `image_digest` field.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/**
+ *  Optional. Set of labels associated with the `WasmPluginVersion` resource.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_WasmPluginVersion_Labels *labels;
+
+/**
+ *  Identifier. Name of the `WasmPluginVersion` resource in the following
+ *  format: `projects/{project}/locations/{location}/wasmPlugins/{wasm_plugin}/
+ *  versions/{wasm_plugin_version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Configuration for the plugin. The configuration is provided to the plugin at
+ *  runtime through the `ON_CONFIGURE` callback. When a new `WasmPluginVersion`
+ *  resource is created, the digest of the contents is saved in the
+ *  `plugin_config_digest` field.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *pluginConfigData;
+
+/**
+ *  Output only. This field holds the digest (usually checksum) value for the
+ *  plugin configuration. The value is calculated based on the contents of
+ *  `plugin_config_data` field or the image defined by the `plugin_config_uri`
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *pluginConfigDigest;
+
+/**
+ *  URI of the plugin configuration stored in the Artifact Registry. The
+ *  configuration is provided to the plugin at runtime through the
+ *  `ON_CONFIGURE` callback. The URI can refer to one of the following
+ *  repository formats: * Container images: the `plugin_config_uri` must point
+ *  to a container that contains a single file with the name `plugin.config`.
+ *  When a new `WasmPluginVersion` resource is created, the digest of the image
+ *  is saved in the `plugin_config_digest` field. When pulling a container image
+ *  from Artifact Registry, the digest value is used instead of an image tag. *
+ *  Generic artifacts: the `plugin_config_uri` must be in this format:
+ *  `projects/{project}/locations/{location}/repositories/{repository}/
+ *  genericArtifacts/{package}:{version}`. The specified package and version
+ *  must contain a file with the name `plugin.config`. When a new
+ *  `WasmPluginVersion` resource is created, the checksum of the contents of the
+ *  file is saved in the `plugin_config_digest` field.
+ */
+@property(nonatomic, copy, nullable) NSString *pluginConfigUri;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `WasmPluginVersion` resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_WasmPluginVersion_Labels : GTLRObject
+@end
+
+
+/**
+ *  Details of a `WasmPluginVersion` resource to be inlined in the `WasmPlugin`
+ *  resource.
+ */
+@interface GTLRNetworkServices_WasmPluginVersionDetails : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. This field holds the digest (usually checksum) value for the
+ *  plugin image. The value is calculated based on the `image_uri` field. If the
+ *  `image_uri` field refers to a container image, the digest value is obtained
+ *  from the container image. If the `image_uri` field refers to a generic
+ *  artifact, the digest value is calculated based on the contents of the file.
+ */
+@property(nonatomic, copy, nullable) NSString *imageDigest;
+
+/**
+ *  Optional. URI of the image containing the Wasm module, stored in Artifact
+ *  Registry. The URI can refer to one of the following repository formats: *
+ *  Container images: the `image_uri` must point to a container that contains a
+ *  single file with the name `plugin.wasm`. When a new `WasmPluginVersion`
+ *  resource is created, the digest of the image is saved in the `image_digest`
+ *  field. When pulling a container image from Artifact Registry, the digest
+ *  value is used instead of an image tag. * Generic artifacts: the `image_uri`
+ *  must be in this format:
+ *  `projects/{project}/locations/{location}/repositories/{repository}/
+ *  genericArtifacts/{package}:{version}`. The specified package and version
+ *  must contain a file with the name `plugin.wasm`. When a new
+ *  `WasmPluginVersion` resource is created, the checksum of the contents of the
+ *  file is saved in the `image_digest` field.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/**
+ *  Optional. Set of labels associated with the `WasmPluginVersion` resource.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_WasmPluginVersionDetails_Labels *labels;
+
+/**
+ *  Configuration for the plugin. The configuration is provided to the plugin at
+ *  runtime through the `ON_CONFIGURE` callback. When a new `WasmPluginVersion`
+ *  version is created, the digest of the contents is saved in the
+ *  `plugin_config_digest` field.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *pluginConfigData;
+
+/**
+ *  Output only. This field holds the digest (usually checksum) value for the
+ *  plugin configuration. The value is calculated based on the contents of
+ *  `plugin_config_data` field or the image defined by the `plugin_config_uri`
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *pluginConfigDigest;
+
+/**
+ *  URI of the plugin configuration stored in the Artifact Registry. The
+ *  configuration is provided to the plugin at runtime through the
+ *  `ON_CONFIGURE` callback. The URI can refer to one of the following
+ *  repository formats: * Container images: the `plugin_config_uri` must point
+ *  to a container that contains a single file with the name `plugin.config`.
+ *  When a new `WasmPluginVersion` resource is created, the digest of the image
+ *  is saved in the `plugin_config_digest` field. When pulling a container image
+ *  from Artifact Registry, the digest value is used instead of an image tag. *
+ *  Generic artifacts: the `plugin_config_uri` must be in this format:
+ *  `projects/{project}/locations/{location}/repositories/{repository}/
+ *  genericArtifacts/{package}:{version}`. The specified package and version
+ *  must contain a file with the name `plugin.config`. When a new
+ *  `WasmPluginVersion` resource is created, the checksum of the contents of the
+ *  file is saved in the `plugin_config_digest` field.
+ */
+@property(nonatomic, copy, nullable) NSString *pluginConfigUri;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `WasmPluginVersion` resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_WasmPluginVersionDetails_Labels : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

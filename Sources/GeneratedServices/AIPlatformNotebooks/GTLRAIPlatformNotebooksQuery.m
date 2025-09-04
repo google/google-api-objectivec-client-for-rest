@@ -35,6 +35,33 @@
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckAuthorization
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_CheckAuthorizationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:checkAuthorization";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckAuthorization *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_CheckAuthorizationResponse class];
+  query.loggingName = @"notebooks.projects.locations.instances.checkAuthorization";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckUpgradability
 
 @dynamic notebookInstance;
@@ -122,6 +149,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
   query.loggingName = @"notebooks.projects.locations.instances.diagnose";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGenerateAccessToken
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_GenerateAccessTokenRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:generateAccessToken";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGenerateAccessToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_GenerateAccessTokenResponse class];
+  query.loggingName = @"notebooks.projects.locations.instances.generateAccessToken";
   return query;
 }
 
@@ -310,6 +364,33 @@
   query.notebookInstance = notebookInstance;
   query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
   query.loggingName = @"notebooks.projects.locations.instances.resizeDisk";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRestore
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_RestoreInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:restore";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.restore";
   return query;
 }
 
@@ -506,7 +587,14 @@
 
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

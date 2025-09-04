@@ -115,6 +115,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesDelete : GTLRDataFusionQuery
 
 /**
+ *  Optional. If set to true, any nested resources from this instance will also
+ *  be deleted.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
  *  Required. The instance resource name in the format
  *  projects/{project}/locations/{location}/instances/{instance}
  */
@@ -554,17 +560,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataFusionQuery_ProjectsLocationsList : GTLRDataFusionQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  If true, the returned list will include locations which are not yet
- *  revealed.
- */
-@property(nonatomic, assign) BOOL includeUnrevealedLocations;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -606,7 +612,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: datafusion.projects.locations.operations.cancel
@@ -629,7 +635,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRDataFusion_CancelOperationRequest to include in the
@@ -790,10 +796,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    projects/{project}/locations/{location}.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsVersionsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

@@ -99,8 +99,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Lists the user-managed instance config long-running operations in the given
- *  project. An instance config operation has a name of the form
+ *  Lists the user-managed instance configuration long-running operations in the
+ *  given project. An instance configuration operation has a name of the form
  *  `projects//instanceConfigs//operations/`. The long-running operation
  *  metadata field type `metadata.type_url` describes the type of the metadata.
  *  Operations returned include those that have completed/failed/canceled within
@@ -139,7 +139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  AND` \\ `(metadata.instance_config.name:custom-config) AND` \\
  *  `(metadata.progress.start_time < \\"2021-03-28T14:50:00Z\\") AND` \\
  *  `(error:*)` - Return operations where: * The operation's metadata type is
- *  CreateInstanceConfigMetadata. * The instance config name contains
+ *  CreateInstanceConfigMetadata. * The instance configuration name contains
  *  "custom-config". * The operation started before 2021-03-28T14:50:00Z. * The
  *  operation resulted in an error.
  */
@@ -159,16 +159,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The project of the instance config operations. Values are of the
- *  form `projects/`.
+ *  Required. The project of the instance configuration operations. Values are
+ *  of the form `projects/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRSpanner_ListInstanceConfigOperationsResponse.
  *
- *  Lists the user-managed instance config long-running operations in the given
- *  project. An instance config operation has a name of the form
+ *  Lists the user-managed instance configuration long-running operations in the
+ *  given project. An instance configuration operation has a name of the form
  *  `projects//instanceConfigs//operations/`. The long-running operation
  *  metadata field type `metadata.type_url` describes the type of the metadata.
  *  Operations returned include those that have completed/failed/canceled within
@@ -176,8 +176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  `operation.metadata.value.start_time` in descending order starting from the
  *  most recently started operation.
  *
- *  @param parent Required. The project of the instance config operations.
- *    Values are of the form `projects/`.
+ *  @param parent Required. The project of the instance configuration
+ *    operations. Values are of the form `projects/`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstanceConfigOperationsList
  *
@@ -190,21 +190,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Creates an instance config and begins preparing it to be used. The returned
- *  long-running operation can be used to track the progress of preparing the
- *  new instance config. The instance config name is assigned by the caller. If
- *  the named instance config already exists, `CreateInstanceConfig` returns
- *  `ALREADY_EXISTS`. Immediately after the request returns: * The instance
- *  config is readable via the API, with all requested attributes. The instance
- *  config's reconciling field is set to true. Its state is `CREATING`. While
- *  the operation is pending: * Cancelling the operation renders the instance
- *  config immediately unreadable via the API. * Except for deleting the
- *  creating resource, all other attempts to modify the instance config are
- *  rejected. Upon completion of the returned operation: * Instances can be
- *  created using the instance configuration. * The instance config's
- *  reconciling field becomes false. Its state becomes `READY`. The returned
- *  long-running operation will have a name of the format `/operations/` and can
- *  be used to track creation of the instance config. The metadata field type is
+ *  Creates an instance configuration and begins preparing it to be used. The
+ *  returned long-running operation can be used to track the progress of
+ *  preparing the new instance configuration. The instance configuration name is
+ *  assigned by the caller. If the named instance configuration already exists,
+ *  `CreateInstanceConfig` returns `ALREADY_EXISTS`. Immediately after the
+ *  request returns: * The instance configuration is readable via the API, with
+ *  all requested attributes. The instance configuration's reconciling field is
+ *  set to true. Its state is `CREATING`. While the operation is pending: *
+ *  Cancelling the operation renders the instance configuration immediately
+ *  unreadable via the API. * Except for deleting the creating resource, all
+ *  other attempts to modify the instance configuration are rejected. Upon
+ *  completion of the returned operation: * Instances can be created using the
+ *  instance configuration. * The instance configuration's reconciling field
+ *  becomes false. Its state becomes `READY`. The returned long-running
+ *  operation will have a name of the format `/operations/` and can be used to
+ *  track creation of the instance configuration. The metadata field type is
  *  CreateInstanceConfigMetadata. The response field type is InstanceConfig, if
  *  successful. Authorization requires `spanner.instanceConfigs.create`
  *  permission on the resource parent.
@@ -218,29 +219,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @interface GTLRSpannerQuery_ProjectsInstanceConfigsCreate : GTLRSpannerQuery
 
 /**
- *  Required. The name of the project in which to create the instance config.
- *  Values are of the form `projects/`.
+ *  Required. The name of the project in which to create the instance
+ *  configuration. Values are of the form `projects/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRSpanner_Operation.
  *
- *  Creates an instance config and begins preparing it to be used. The returned
- *  long-running operation can be used to track the progress of preparing the
- *  new instance config. The instance config name is assigned by the caller. If
- *  the named instance config already exists, `CreateInstanceConfig` returns
- *  `ALREADY_EXISTS`. Immediately after the request returns: * The instance
- *  config is readable via the API, with all requested attributes. The instance
- *  config's reconciling field is set to true. Its state is `CREATING`. While
- *  the operation is pending: * Cancelling the operation renders the instance
- *  config immediately unreadable via the API. * Except for deleting the
- *  creating resource, all other attempts to modify the instance config are
- *  rejected. Upon completion of the returned operation: * Instances can be
- *  created using the instance configuration. * The instance config's
- *  reconciling field becomes false. Its state becomes `READY`. The returned
- *  long-running operation will have a name of the format `/operations/` and can
- *  be used to track creation of the instance config. The metadata field type is
+ *  Creates an instance configuration and begins preparing it to be used. The
+ *  returned long-running operation can be used to track the progress of
+ *  preparing the new instance configuration. The instance configuration name is
+ *  assigned by the caller. If the named instance configuration already exists,
+ *  `CreateInstanceConfig` returns `ALREADY_EXISTS`. Immediately after the
+ *  request returns: * The instance configuration is readable via the API, with
+ *  all requested attributes. The instance configuration's reconciling field is
+ *  set to true. Its state is `CREATING`. While the operation is pending: *
+ *  Cancelling the operation renders the instance configuration immediately
+ *  unreadable via the API. * Except for deleting the creating resource, all
+ *  other attempts to modify the instance configuration are rejected. Upon
+ *  completion of the returned operation: * Instances can be created using the
+ *  instance configuration. * The instance configuration's reconciling field
+ *  becomes false. Its state becomes `READY`. The returned long-running
+ *  operation will have a name of the format `/operations/` and can be used to
+ *  track creation of the instance configuration. The metadata field type is
  *  CreateInstanceConfigMetadata. The response field type is InstanceConfig, if
  *  successful. Authorization requires `spanner.instanceConfigs.create`
  *  permission on the resource parent.
@@ -248,7 +250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  @param object The @c GTLRSpanner_CreateInstanceConfigRequest to include in
  *    the query.
  *  @param parent Required. The name of the project in which to create the
- *    instance config. Values are of the form `projects/`.
+ *    instance configuration. Values are of the form `projects/`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstanceConfigsCreate
  */
@@ -258,11 +260,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Deletes the instance config. Deletion is only allowed when no instances are
- *  using the configuration. If any instances are using the config, returns
- *  `FAILED_PRECONDITION`. Only user managed configurations can be deleted.
- *  Authorization requires `spanner.instanceConfigs.delete` permission on the
- *  resource name.
+ *  Deletes the instance configuration. Deletion is only allowed when no
+ *  instances are using the configuration. If any instances are using the
+ *  configuration, returns `FAILED_PRECONDITION`. Only user-managed
+ *  configurations can be deleted. Authorization requires
+ *  `spanner.instanceConfigs.delete` permission on the resource name.
  *
  *  Method: spanner.projects.instanceConfigs.delete
  *
@@ -274,11 +276,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Used for optimistic concurrency control as a way to help prevent
- *  simultaneous deletes of an instance config from overwriting each other. If
- *  not empty, the API only deletes the instance config when the etag provided
- *  matches the current status of the requested instance config. Otherwise,
- *  deletes the instance config without checking the current status of the
- *  requested instance config.
+ *  simultaneous deletes of an instance configuration from overwriting each
+ *  other. If not empty, the API only deletes the instance configuration when
+ *  the etag provided matches the current status of the requested instance
+ *  configuration. Otherwise, deletes the instance configuration without
+ *  checking the current status of the requested instance configuration.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -297,11 +299,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Empty.
  *
- *  Deletes the instance config. Deletion is only allowed when no instances are
- *  using the configuration. If any instances are using the config, returns
- *  `FAILED_PRECONDITION`. Only user managed configurations can be deleted.
- *  Authorization requires `spanner.instanceConfigs.delete` permission on the
- *  resource name.
+ *  Deletes the instance configuration. Deletion is only allowed when no
+ *  instances are using the configuration. If any instances are using the
+ *  configuration, returns `FAILED_PRECONDITION`. Only user-managed
+ *  configurations can be deleted. Authorization requires
+ *  `spanner.instanceConfigs.delete` permission on the resource name.
  *
  *  @param name Required. The name of the instance configuration to be deleted.
  *    Values are of the form `projects//instanceConfigs/`
@@ -344,7 +346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Lists the supported instance configurations for a given project.
+ *  Lists the supported instance configurations for a given project. Returns
+ *  both Google-managed configurations and user-managed configurations.
  *
  *  Method: spanner.projects.instanceConfigs.list
  *
@@ -375,7 +378,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_ListInstanceConfigsResponse.
  *
- *  Lists the supported instance configurations for a given project.
+ *  Lists the supported instance configurations for a given project. Returns
+ *  both Google-managed configurations and user-managed configurations.
  *
  *  @param parent Required. The name of the project for which a list of
  *    supported instance configurations is requested. Values are of the form
@@ -399,7 +403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instanceConfigs.operations.cancel
@@ -423,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -541,24 +545,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Updates an instance config. The returned long-running operation can be used
- *  to track the progress of updating the instance. If the named instance config
- *  does not exist, returns `NOT_FOUND`. Only user managed configurations can be
- *  updated. Immediately after the request returns: * The instance config's
- *  reconciling field is set to true. While the operation is pending: *
- *  Cancelling the operation sets its metadata's cancel_time. The operation is
- *  guaranteed to succeed at undoing all changes, after which point it
- *  terminates with a `CANCELLED` status. * All other attempts to modify the
- *  instance config are rejected. * Reading the instance config via the API
- *  continues to give the pre-request values. Upon completion of the returned
- *  operation: * Creating instances using the instance configuration uses the
- *  new values. * The instance config's new values are readable via the API. *
- *  The instance config's reconciling field becomes false. The returned
+ *  Updates an instance configuration. The returned long-running operation can
+ *  be used to track the progress of updating the instance. If the named
+ *  instance configuration does not exist, returns `NOT_FOUND`. Only
+ *  user-managed configurations can be updated. Immediately after the request
+ *  returns: * The instance configuration's reconciling field is set to true.
+ *  While the operation is pending: * Cancelling the operation sets its
+ *  metadata's cancel_time. The operation is guaranteed to succeed at undoing
+ *  all changes, after which point it terminates with a `CANCELLED` status. *
+ *  All other attempts to modify the instance configuration are rejected. *
+ *  Reading the instance configuration via the API continues to give the
+ *  pre-request values. Upon completion of the returned operation: * Creating
+ *  instances using the instance configuration uses the new values. * The new
+ *  values of the instance configuration are readable via the API. * The
+ *  instance configuration's reconciling field becomes false. The returned
  *  long-running operation will have a name of the format `/operations/` and can
- *  be used to track the instance config modification. The metadata field type
- *  is UpdateInstanceConfigMetadata. The response field type is InstanceConfig,
- *  if successful. Authorization requires `spanner.instanceConfigs.update`
- *  permission on the resource name.
+ *  be used to track the instance configuration modification. The metadata field
+ *  type is UpdateInstanceConfigMetadata. The response field type is
+ *  InstanceConfig, if successful. Authorization requires
+ *  `spanner.instanceConfigs.update` permission on the resource name.
  *
  *  Method: spanner.projects.instanceConfigs.patch
  *
@@ -570,36 +575,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  A unique identifier for the instance configuration. Values are of the form
- *  `projects//instanceConfigs/a-z*`.
+ *  `projects//instanceConfigs/a-z*`. User instance configuration must start
+ *  with `custom-`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRSpanner_Operation.
  *
- *  Updates an instance config. The returned long-running operation can be used
- *  to track the progress of updating the instance. If the named instance config
- *  does not exist, returns `NOT_FOUND`. Only user managed configurations can be
- *  updated. Immediately after the request returns: * The instance config's
- *  reconciling field is set to true. While the operation is pending: *
- *  Cancelling the operation sets its metadata's cancel_time. The operation is
- *  guaranteed to succeed at undoing all changes, after which point it
- *  terminates with a `CANCELLED` status. * All other attempts to modify the
- *  instance config are rejected. * Reading the instance config via the API
- *  continues to give the pre-request values. Upon completion of the returned
- *  operation: * Creating instances using the instance configuration uses the
- *  new values. * The instance config's new values are readable via the API. *
- *  The instance config's reconciling field becomes false. The returned
+ *  Updates an instance configuration. The returned long-running operation can
+ *  be used to track the progress of updating the instance. If the named
+ *  instance configuration does not exist, returns `NOT_FOUND`. Only
+ *  user-managed configurations can be updated. Immediately after the request
+ *  returns: * The instance configuration's reconciling field is set to true.
+ *  While the operation is pending: * Cancelling the operation sets its
+ *  metadata's cancel_time. The operation is guaranteed to succeed at undoing
+ *  all changes, after which point it terminates with a `CANCELLED` status. *
+ *  All other attempts to modify the instance configuration are rejected. *
+ *  Reading the instance configuration via the API continues to give the
+ *  pre-request values. Upon completion of the returned operation: * Creating
+ *  instances using the instance configuration uses the new values. * The new
+ *  values of the instance configuration are readable via the API. * The
+ *  instance configuration's reconciling field becomes false. The returned
  *  long-running operation will have a name of the format `/operations/` and can
- *  be used to track the instance config modification. The metadata field type
- *  is UpdateInstanceConfigMetadata. The response field type is InstanceConfig,
- *  if successful. Authorization requires `spanner.instanceConfigs.update`
- *  permission on the resource name.
+ *  be used to track the instance configuration modification. The metadata field
+ *  type is UpdateInstanceConfigMetadata. The response field type is
+ *  InstanceConfig, if successful. Authorization requires
+ *  `spanner.instanceConfigs.update` permission on the resource name.
  *
  *  @param object The @c GTLRSpanner_UpdateInstanceConfigRequest to include in
  *    the query.
  *  @param name A unique identifier for the instance configuration. Values are
- *    of the form `projects//instanceConfigs/a-z*`.
+ *    of the form `projects//instanceConfigs/a-z*`. User instance configuration
+ *    must start with `custom-`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstanceConfigsPatch
  */
@@ -616,7 +624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instanceConfigs.ssdCaches.operations.cancel
@@ -640,7 +648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -968,6 +976,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *encryptionConfigKmsKeyName;
 
 /**
+ *  Optional. Specifies the KMS configuration for the one or more keys used to
+ *  protect the backup. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`. The keys referenced by
+ *  `kms_key_names` must fully cover all regions of the backup's instance
+ *  configuration. Some examples: * For regional (single-region) instance
+ *  configurations, specify a regional location KMS key. * For multi-region
+ *  instance configurations of type `GOOGLE_MANAGED`, either specify a
+ *  multi-region location KMS key or multiple regional location KMS keys that
+ *  cover all regions in the instance configuration. * For an instance
+ *  configuration of type `USER_MANAGED`, specify only regional location KMS
+ *  keys to cover each region in the instance configuration. Multi-region
+ *  location KMS keys aren't supported for `USER_MANAGED` type instance
+ *  configurations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *encryptionConfigKmsKeyNames;
+
+/**
  *  Required. The name of the instance in which the backup will be created. This
  *  must be the same instance that contains the database the backup will be
  *  created from. The backup will be stored in the location(s) specified in the
@@ -1069,7 +1094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  Method: spanner.projects.instances.backups.getIamPolicy
  *
@@ -1093,7 +1119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  @param object The @c GTLRSpanner_GetIamPolicyRequest to include in the
  *    query.
@@ -1131,18 +1158,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
  *  `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
  *  `version_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
- *  `size_bytes` You can combine multiple expressions by enclosing each
- *  expression in parentheses. By default, expressions are combined with AND
- *  logic, but you can specify AND, OR, and NOT logic explicitly. Here are a few
- *  examples: * `name:Howl` - The backup's name contains the string "howl". *
- *  `database:prod` - The database's name contains the string "prod". *
- *  `state:CREATING` - The backup is pending creation. * `state:READY` - The
- *  backup is fully created and ready for use. * `(name:howl) AND (create_time <
- *  \\"2018-03-28T14:50:00Z\\")` - The backup name contains the string "howl"
- *  and `create_time` of the backup is before 2018-03-28T14:50:00Z. *
- *  `expire_time < \\"2018-03-28T14:50:00Z\\"` - The backup `expire_time` is
- *  before 2018-03-28T14:50:00Z. * `size_bytes > 10000000000` - The backup's
- *  size is greater than 10GB
+ *  `size_bytes` * `backup_schedules` You can combine multiple expressions by
+ *  enclosing each expression in parentheses. By default, expressions are
+ *  combined with AND logic, but you can specify AND, OR, and NOT logic
+ *  explicitly. Here are a few examples: * `name:Howl` - The backup's name
+ *  contains the string "howl". * `database:prod` - The database's name contains
+ *  the string "prod". * `state:CREATING` - The backup is pending creation. *
+ *  `state:READY` - The backup is fully created and ready for use. *
+ *  `(name:howl) AND (create_time < \\"2018-03-28T14:50:00Z\\")` - The backup
+ *  name contains the string "howl" and `create_time` of the backup is before
+ *  2018-03-28T14:50:00Z. * `expire_time < \\"2018-03-28T14:50:00Z\\"` - The
+ *  backup `expire_time` is before 2018-03-28T14:50:00Z. * `size_bytes >
+ *  10000000000` - The backup's size is greater than 10GB *
+ *  `backup_schedules:daily` - The backup is created from a schedule with
+ *  "daily" in its name.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1192,7 +1221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instances.backups.operations.cancel
@@ -1216,7 +1245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -1392,7 +1421,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  Method: spanner.projects.instances.backups.setIamPolicy
  *
@@ -1415,7 +1446,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
  *    query.
@@ -1437,7 +1470,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  Method: spanner.projects.instances.backups.testIamPermissions
  *
@@ -1463,7 +1499,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
  *    query.
@@ -1565,7 +1604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  filtering. The value must be a string, a number, or a boolean. The
  *  comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
  *  Colon `:` is the contains operator. Filter rules are not case sensitive. The
- *  following fields in the Operation are eligible for filtering: * `name` - The
+ *  following fields in the operation are eligible for filtering: * `name` - The
  *  name of the long-running operation * `done` - False if the operation is in
  *  progress, else true. * `metadata.\@type` - the type of metadata. For
  *  example, the type string for RestoreDatabaseMetadata is
@@ -1632,8 +1671,436 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Creates a new Cloud Spanner database and starts to prepare it for serving.
- *  The returned long-running operation will have a name of the format
+ *  Adds split points to specified tables and indexes of a database.
+ *
+ *  Method: spanner.projects.instances.databases.addSplitPoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesAddSplitPoints : GTLRSpannerQuery
+
+/**
+ *  Required. The database on whose tables or indexes the split points are to be
+ *  added. Values are of the form `projects//instances//databases/`.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Fetches a @c GTLRSpanner_AddSplitPointsResponse.
+ *
+ *  Adds split points to specified tables and indexes of a database.
+ *
+ *  @param object The @c GTLRSpanner_AddSplitPointsRequest to include in the
+ *    query.
+ *  @param database Required. The database on whose tables or indexes the split
+ *    points are to be added. Values are of the form
+ *    `projects//instances//databases/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesAddSplitPoints
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_AddSplitPointsRequest *)object
+                       database:(NSString *)database;
+
+@end
+
+/**
+ *  Creates a new backup schedule.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesCreate : GTLRSpannerQuery
+
+/**
+ *  Required. The Id to use for the backup schedule. The `backup_schedule_id`
+ *  appended to `parent` forms the full backup schedule name of the form
+ *  `projects//instances//databases//backupSchedules/`.
+ */
+@property(nonatomic, copy, nullable) NSString *backupScheduleId;
+
+/**
+ *  Required. The name of the database that this backup schedule applies to.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_BackupSchedule.
+ *
+ *  Creates a new backup schedule.
+ *
+ *  @param object The @c GTLRSpanner_BackupSchedule to include in the query.
+ *  @param parent Required. The name of the database that this backup schedule
+ *    applies to.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_BackupSchedule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a backup schedule.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesDelete : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the schedule to delete. Values are of the form
+ *  `projects//instances//databases//backupSchedules/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Empty.
+ *
+ *  Deletes a backup schedule.
+ *
+ *  @param name Required. The name of the schedule to delete. Values are of the
+ *    form `projects//instances//databases//backupSchedules/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets backup schedule for the input schedule name.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesGet : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the schedule to retrieve. Values are of the form
+ *  `projects//instances//databases//backupSchedules/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_BackupSchedule.
+ *
+ *  Gets backup schedule for the input schedule name.
+ *
+ *  @param name Required. The name of the schedule to retrieve. Values are of
+ *    the form `projects//instances//databases//backupSchedules/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a database or backup resource. Returns an
+ *  empty policy if a database or backup exists but does not have a policy set.
+ *  Authorization requires `spanner.databases.getIamPolicy` permission on
+ *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesGetIamPolicy : GTLRSpannerQuery
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which the policy is being
+ *  retrieved. The format is `projects//instances/` for instance resources and
+ *  `projects//instances//databases/` for database resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_Policy.
+ *
+ *  Gets the access control policy for a database or backup resource. Returns an
+ *  empty policy if a database or backup exists but does not have a policy set.
+ *  Authorization requires `spanner.databases.getIamPolicy` permission on
+ *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
+ *
+ *  @param object The @c GTLRSpanner_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which the policy is
+ *    being retrieved. The format is `projects//instances/` for instance
+ *    resources and `projects//instances//databases/` for database resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists all the backup schedules for the database.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesList : GTLRSpannerQuery
+
+/**
+ *  Optional. Number of backup schedules to be returned in the response. If 0 or
+ *  less, defaults to the server's maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If non-empty, `page_token` should contain a next_page_token from a
+ *  previous ListBackupSchedulesResponse to the same `parent`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Database is the parent resource whose backup schedules should be
+ *  listed. Values are of the form projects//instances//databases/
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListBackupSchedulesResponse.
+ *
+ *  Lists all the backup schedules for the database.
+ *
+ *  @param parent Required. Database is the parent resource whose backup
+ *    schedules should be listed. Values are of the form
+ *    projects//instances//databases/
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a backup schedule.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesPatch : GTLRSpannerQuery
+
+/**
+ *  Identifier. Output only for the CreateBackupSchedule operation. Required for
+ *  the UpdateBackupSchedule operation. A globally unique identifier for the
+ *  backup schedule which cannot be changed. Values are of the form
+ *  `projects//instances//databases//backupSchedules/a-z*[a-z0-9]` The final
+ *  segment of the name must be between 2 and 60 characters in length.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A mask specifying which fields in the BackupSchedule resource
+ *  should be updated. This mask is relative to the BackupSchedule resource, not
+ *  to the request message. The field mask must always be specified; this
+ *  prevents any future fields from being erased accidentally.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSpanner_BackupSchedule.
+ *
+ *  Updates a backup schedule.
+ *
+ *  @param object The @c GTLRSpanner_BackupSchedule to include in the query.
+ *  @param name Identifier. Output only for the CreateBackupSchedule operation.
+ *    Required for the UpdateBackupSchedule operation. A globally unique
+ *    identifier for the backup schedule which cannot be changed. Values are of
+ *    the form `projects//instances//databases//backupSchedules/a-z*[a-z0-9]`
+ *    The final segment of the name must be between 2 and 60 characters in
+ *    length.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_BackupSchedule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on a database or backup resource. Replaces
+ *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
+ *  permission on resource. For backups, authorization requires
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesSetIamPolicy : GTLRSpannerQuery
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
+ *  format is `projects//instances/` for instance resources and
+ *  `projects//instances//databases/` for databases resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_Policy.
+ *
+ *  Sets the access control policy on a database or backup resource. Replaces
+ *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
+ *  permission on resource. For backups, authorization requires
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
+ *
+ *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which the policy is
+ *    being set. The format is `projects//instances/` for instance resources and
+ *    `projects//instances//databases/` for databases resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified database or backup
+ *  resource. Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has `spanner.databases.list`
+ *  permission on the containing Cloud Spanner instance. Otherwise returns an
+ *  empty set of permissions. Calling this method on a backup that does not
+ *  exist will result in a NOT_FOUND error if the user has
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
+ *
+ *  Method: spanner.projects.instances.databases.backupSchedules.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesTestIamPermissions : GTLRSpannerQuery
+
+/**
+ *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
+ *  The format is `projects//instances/` for instance resources and
+ *  `projects//instances//databases/` for database resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRSpanner_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified database or backup
+ *  resource. Attempting this RPC on a non-existent Cloud Spanner database will
+ *  result in a NOT_FOUND error if the user has `spanner.databases.list`
+ *  permission on the containing Cloud Spanner instance. Otherwise returns an
+ *  empty set of permissions. Calling this method on a backup that does not
+ *  exist will result in a NOT_FOUND error if the user has
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
+ *
+ *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The Cloud Spanner resource for which permissions
+ *    are being tested. The format is `projects//instances/` for instance
+ *    resources and `projects//instances//databases/` for database resources.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesBackupSchedulesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  `ChangeQuorum` is strictly restricted to databases that use dual-region
+ *  instance configurations. Initiates a background operation to change the
+ *  quorum of a database from dual-region mode to single-region mode or vice
+ *  versa. The returned long-running operation has a name of the format
+ *  `projects//instances//databases//operations/` and can be used to track
+ *  execution of the `ChangeQuorum`. The metadata field type is
+ *  ChangeQuorumMetadata. Authorization requires
+ *  `spanner.databases.changequorum` permission on the resource database.
+ *
+ *  Method: spanner.projects.instances.databases.changequorum
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesChangequorum : GTLRSpannerQuery
+
+/**
+ *  Required. Name of the database in which to apply `ChangeQuorum`. Values are
+ *  of the form `projects//instances//databases/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  `ChangeQuorum` is strictly restricted to databases that use dual-region
+ *  instance configurations. Initiates a background operation to change the
+ *  quorum of a database from dual-region mode to single-region mode or vice
+ *  versa. The returned long-running operation has a name of the format
+ *  `projects//instances//databases//operations/` and can be used to track
+ *  execution of the `ChangeQuorum`. The metadata field type is
+ *  ChangeQuorumMetadata. Authorization requires
+ *  `spanner.databases.changequorum` permission on the resource database.
+ *
+ *  @param object The @c GTLRSpanner_ChangeQuorumRequest to include in the
+ *    query.
+ *  @param name Required. Name of the database in which to apply `ChangeQuorum`.
+ *    Values are of the form `projects//instances//databases/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesChangequorum
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_ChangeQuorumRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new Spanner database and starts to prepare it for serving. The
+ *  returned long-running operation will have a name of the format
  *  `/operations/` and can be used to track preparation of the database. The
  *  metadata field type is CreateDatabaseMetadata. The response field type is
  *  Database, if successful.
@@ -1655,8 +2122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Operation.
  *
- *  Creates a new Cloud Spanner database and starts to prepare it for serving.
- *  The returned long-running operation will have a name of the format
+ *  Creates a new Spanner database and starts to prepare it for serving. The
+ *  returned long-running operation will have a name of the format
  *  `/operations/` and can be used to track preparation of the database. The
  *  metadata field type is CreateDatabaseMetadata. The response field type is
  *  Database, if successful.
@@ -1727,7 +2194,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  Method: spanner.projects.instances.databases.databaseRoles.testIamPermissions
  *
@@ -1753,7 +2223,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
  *    query.
@@ -1872,7 +2345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  Method: spanner.projects.instances.databases.getIamPolicy
  *
@@ -1896,7 +2370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  empty policy if a database or backup exists but does not have a policy set.
  *  Authorization requires `spanner.databases.getIamPolicy` permission on
  *  resource. For backups, authorization requires `spanner.backups.getIamPolicy`
- *  permission on resource.
+ *  permission on resource. For backup schedules, authorization requires
+ *  `spanner.backupSchedules.getIamPolicy` permission on resource.
  *
  *  @param object The @c GTLRSpanner_GetIamPolicyRequest to include in the
  *    query.
@@ -2027,7 +2502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instances.databases.operations.cancel
@@ -2051,7 +2526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -2302,6 +2777,76 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Creates a new session to be used for requests made by the adapter. A session
+ *  identifies a specific incarnation of a database resource and is meant to be
+ *  reused across many `AdaptMessage` calls.
+ *
+ *  Method: spanner.projects.instances.databases.sessions.adapter
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdapter : GTLRSpannerQuery
+
+/** Required. The database in which the new session is created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_AdapterSession.
+ *
+ *  Creates a new session to be used for requests made by the adapter. A session
+ *  identifies a specific incarnation of a database resource and is meant to be
+ *  reused across many `AdaptMessage` calls.
+ *
+ *  @param object The @c GTLRSpanner_AdapterSession to include in the query.
+ *  @param parent Required. The database in which the new session is created.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdapter
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_AdapterSession *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Handles a single message from the client and returns the result as a stream.
+ *  The server will interpret the message frame and respond with message frames
+ *  to the client.
+ *
+ *  Method: spanner.projects.instances.databases.sessions.adaptMessage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdaptMessage : GTLRSpannerQuery
+
+/**
+ *  Required. The database session in which the adapter request is processed.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_AdaptMessageResponse.
+ *
+ *  Handles a single message from the client and returns the result as a stream.
+ *  The server will interpret the message frame and respond with message frames
+ *  to the client.
+ *
+ *  @param object The @c GTLRSpanner_AdaptMessageRequest to include in the
+ *    query.
+ *  @param name Required. The database session in which the adapter request is
+ *    processed.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsAdaptMessage
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_AdaptMessageRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates multiple new sessions. This API can be used to initialize a session
  *  cache on the clients. See https://goo.gl/TgSFN2 for best practices on
  *  session cache management.
@@ -2341,13 +2886,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  transactions. All mutations in a group are committed atomically. However,
  *  mutations across groups can be committed non-atomically in an unspecified
  *  order and thus, they must be independent of each other. Partial failure is
- *  possible, i.e., some groups may have been committed successfully, while some
- *  may have failed. The results of individual batches are streamed into the
- *  response as the batches are applied. BatchWrite requests are not replay
- *  protected, meaning that each mutation group may be applied more than once.
- *  Replays of non-idempotent mutations may have undesirable effects. For
- *  example, replays of an insert mutation may produce an already exists error
- *  or if you use generated or commit timestamp-based keys, it may result in
+ *  possible, that is, some groups might have been committed successfully, while
+ *  some might have failed. The results of individual batches are streamed into
+ *  the response as the batches are applied. `BatchWrite` requests are not
+ *  replay protected, meaning that each mutation group can be applied more than
+ *  once. Replays of non-idempotent mutations can have undesirable effects. For
+ *  example, replays of an insert mutation can produce an already exists error
+ *  or if you use generated or commit timestamp-based keys, it can result in
  *  additional rows being added to the mutation's table. We recommend
  *  structuring your mutation groups to be idempotent to avoid this issue.
  *
@@ -2369,13 +2914,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  transactions. All mutations in a group are committed atomically. However,
  *  mutations across groups can be committed non-atomically in an unspecified
  *  order and thus, they must be independent of each other. Partial failure is
- *  possible, i.e., some groups may have been committed successfully, while some
- *  may have failed. The results of individual batches are streamed into the
- *  response as the batches are applied. BatchWrite requests are not replay
- *  protected, meaning that each mutation group may be applied more than once.
- *  Replays of non-idempotent mutations may have undesirable effects. For
- *  example, replays of an insert mutation may produce an already exists error
- *  or if you use generated or commit timestamp-based keys, it may result in
+ *  possible, that is, some groups might have been committed successfully, while
+ *  some might have failed. The results of individual batches are streamed into
+ *  the response as the batches are applied. `BatchWrite` requests are not
+ *  replay protected, meaning that each mutation group can be applied more than
+ *  once. Replays of non-idempotent mutations can have undesirable effects. For
+ *  example, replays of an insert mutation can produce an already exists error
+ *  or if you use generated or commit timestamp-based keys, it can result in
  *  additional rows being added to the mutation's table. We recommend
  *  structuring your mutation groups to be idempotent to avoid this issue.
  *
@@ -2427,11 +2972,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  rows in the database. `Commit` might return an `ABORTED` error. This can
  *  occur at any time; commonly, the cause is conflicts with concurrent
  *  transactions. However, it can also happen for a variety of other reasons. If
- *  `Commit` returns `ABORTED`, the caller should re-attempt the transaction
- *  from the beginning, re-using the same session. On very rare occasions,
- *  `Commit` might return `UNKNOWN`. This can happen, for example, if the client
- *  job experiences a 1+ hour networking failure. At that point, Cloud Spanner
- *  has lost track of the transaction outcome and we recommend that you perform
+ *  `Commit` returns `ABORTED`, the caller should retry the transaction from the
+ *  beginning, reusing the same session. On very rare occasions, `Commit` might
+ *  return `UNKNOWN`. This can happen, for example, if the client job
+ *  experiences a 1+ hour networking failure. At that point, Cloud Spanner has
+ *  lost track of the transaction outcome and we recommend that you perform
  *  another read from the database to see the state of things as they are now.
  *
  *  Method: spanner.projects.instances.databases.sessions.commit
@@ -2454,11 +2999,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  rows in the database. `Commit` might return an `ABORTED` error. This can
  *  occur at any time; commonly, the cause is conflicts with concurrent
  *  transactions. However, it can also happen for a variety of other reasons. If
- *  `Commit` returns `ABORTED`, the caller should re-attempt the transaction
- *  from the beginning, re-using the same session. On very rare occasions,
- *  `Commit` might return `UNKNOWN`. This can happen, for example, if the client
- *  job experiences a 1+ hour networking failure. At that point, Cloud Spanner
- *  has lost track of the transaction outcome and we recommend that you perform
+ *  `Commit` returns `ABORTED`, the caller should retry the transaction from the
+ *  beginning, reusing the same session. On very rare occasions, `Commit` might
+ *  return `UNKNOWN`. This can happen, for example, if the client job
+ *  experiences a 1+ hour networking failure. At that point, Cloud Spanner has
+ *  lost track of the transaction outcome and we recommend that you perform
  *  another read from the database to see the state of things as they are now.
  *
  *  @param object The @c GTLRSpanner_CommitRequest to include in the query.
@@ -2479,12 +3024,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  transaction at a time. To execute multiple concurrent read-write/write-only
  *  transactions, create multiple sessions. Note that standalone reads and
  *  queries use a transaction internally, and count toward the one transaction
- *  limit. Active sessions use additional server resources, so it is a good idea
+ *  limit. Active sessions use additional server resources, so it's a good idea
  *  to delete idle and unneeded sessions. Aside from explicit deletes, Cloud
- *  Spanner may delete sessions for which no operations are sent for more than
- *  an hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
- *  sessions can be kept alive by sending a trivial SQL query periodically,
- *  e.g., `"SELECT 1"`.
+ *  Spanner can delete sessions when no operations are sent for more than an
+ *  hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
+ *  sessions can be kept alive by sending a trivial SQL query periodically, for
+ *  example, `"SELECT 1"`.
  *
  *  Method: spanner.projects.instances.databases.sessions.create
  *
@@ -2506,12 +3051,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  transaction at a time. To execute multiple concurrent read-write/write-only
  *  transactions, create multiple sessions. Note that standalone reads and
  *  queries use a transaction internally, and count toward the one transaction
- *  limit. Active sessions use additional server resources, so it is a good idea
+ *  limit. Active sessions use additional server resources, so it's a good idea
  *  to delete idle and unneeded sessions. Aside from explicit deletes, Cloud
- *  Spanner may delete sessions for which no operations are sent for more than
- *  an hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
- *  sessions can be kept alive by sending a trivial SQL query periodically,
- *  e.g., `"SELECT 1"`.
+ *  Spanner can delete sessions when no operations are sent for more than an
+ *  hour. If a session is deleted, requests to it return `NOT_FOUND`. Idle
+ *  sessions can be kept alive by sending a trivial SQL query periodically, for
+ *  example, `"SELECT 1"`.
  *
  *  @param object The @c GTLRSpanner_CreateSessionRequest to include in the
  *    query.
@@ -2525,9 +3070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Ends a session, releasing server resources associated with it. This will
- *  asynchronously trigger cancellation of any operations that are running with
- *  this session.
+ *  Ends a session, releasing server resources associated with it. This
+ *  asynchronously triggers the cancellation of any operations that are running
+ *  with this session.
  *
  *  Method: spanner.projects.instances.databases.sessions.delete
  *
@@ -2543,9 +3088,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Empty.
  *
- *  Ends a session, releasing server resources associated with it. This will
- *  asynchronously trigger cancellation of any operations that are running with
- *  this session.
+ *  Ends a session, releasing server resources associated with it. This
+ *  asynchronously triggers the cancellation of any operations that are running
+ *  with this session.
  *
  *  @param name Required. The name of the session to delete.
  *
@@ -2602,13 +3147,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Executes an SQL statement, returning all results in a single reply. This
- *  method cannot be used to return a result set larger than 10 MiB; if the
- *  query yields more data than that, the query fails with a
- *  `FAILED_PRECONDITION` error. Operations inside read-write transactions might
- *  return `ABORTED`. If this occurs, the application should restart the
- *  transaction from the beginning. See Transaction for more details. Larger
- *  result sets can be fetched in streaming fashion by calling
- *  ExecuteStreamingSql instead.
+ *  method can't be used to return a result set larger than 10 MiB; if the query
+ *  yields more data than that, the query fails with a `FAILED_PRECONDITION`
+ *  error. Operations inside read-write transactions might return `ABORTED`. If
+ *  this occurs, the application should restart the transaction from the
+ *  beginning. See Transaction for more details. Larger result sets can be
+ *  fetched in streaming fashion by calling ExecuteStreamingSql instead. The
+ *  query string can be SQL or [Graph Query Language
+ *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  Method: spanner.projects.instances.databases.sessions.executeSql
  *
@@ -2625,13 +3171,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ResultSet.
  *
  *  Executes an SQL statement, returning all results in a single reply. This
- *  method cannot be used to return a result set larger than 10 MiB; if the
- *  query yields more data than that, the query fails with a
- *  `FAILED_PRECONDITION` error. Operations inside read-write transactions might
- *  return `ABORTED`. If this occurs, the application should restart the
- *  transaction from the beginning. See Transaction for more details. Larger
- *  result sets can be fetched in streaming fashion by calling
- *  ExecuteStreamingSql instead.
+ *  method can't be used to return a result set larger than 10 MiB; if the query
+ *  yields more data than that, the query fails with a `FAILED_PRECONDITION`
+ *  error. Operations inside read-write transactions might return `ABORTED`. If
+ *  this occurs, the application should restart the transaction from the
+ *  beginning. See Transaction for more details. Larger result sets can be
+ *  fetched in streaming fashion by calling ExecuteStreamingSql instead. The
+ *  query string can be SQL or [Graph Query Language
+ *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  @param object The @c GTLRSpanner_ExecuteSqlRequest to include in the query.
  *  @param session Required. The session in which the SQL query should be
@@ -2648,7 +3195,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Like ExecuteSql, except returns the result set as a stream. Unlike
  *  ExecuteSql, there is no limit on the size of the returned result set.
  *  However, no individual row in the result set can exceed 100 MiB, and no
- *  column value can exceed 10 MiB.
+ *  column value can exceed 10 MiB. The query string can be SQL or [Graph Query
+ *  Language
+ *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  Method: spanner.projects.instances.databases.sessions.executeStreamingSql
  *
@@ -2667,7 +3216,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Like ExecuteSql, except returns the result set as a stream. Unlike
  *  ExecuteSql, there is no limit on the size of the returned result set.
  *  However, no individual row in the result set can exceed 100 MiB, and no
- *  column value can exceed 10 MiB.
+ *  column value can exceed 10 MiB. The query string can be SQL or [Graph Query
+ *  Language
+ *  (GQL)](https://cloud.google.com/spanner/docs/reference/standard-sql/graph-intro).
  *
  *  @param object The @c GTLRSpanner_ExecuteSqlRequest to include in the query.
  *  @param session Required. The session in which the SQL query should be
@@ -2681,7 +3232,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Gets a session. Returns `NOT_FOUND` if the session does not exist. This is
+ *  Gets a session. Returns `NOT_FOUND` if the session doesn't exist. This is
  *  mainly useful for determining whether a session is still alive.
  *
  *  Method: spanner.projects.instances.databases.sessions.get
@@ -2698,7 +3249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Session.
  *
- *  Gets a session. Returns `NOT_FOUND` if the session does not exist. This is
+ *  Gets a session. Returns `NOT_FOUND` if the session doesn't exist. This is
  *  mainly useful for determining whether a session is still alive.
  *
  *  @param name Required. The name of the session to retrieve.
@@ -2767,11 +3318,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  operation in parallel. Each of the returned partition tokens can be used by
  *  ExecuteStreamingSql to specify a subset of the query result to read. The
  *  same session and read-only transaction must be used by the
- *  PartitionQueryRequest used to create the partition tokens and the
- *  ExecuteSqlRequests that use the partition tokens. Partition tokens become
+ *  `PartitionQueryRequest` used to create the partition tokens and the
+ *  `ExecuteSqlRequests` that use the partition tokens. Partition tokens become
  *  invalid when the session used to create them is deleted, is idle for too
  *  long, begins a new transaction, or becomes too old. When any of these
- *  happen, it is not possible to resume the query, and the whole operation must
+ *  happen, it isn't possible to resume the query, and the whole operation must
  *  be restarted from the beginning.
  *
  *  Method: spanner.projects.instances.databases.sessions.partitionQuery
@@ -2792,11 +3343,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  operation in parallel. Each of the returned partition tokens can be used by
  *  ExecuteStreamingSql to specify a subset of the query result to read. The
  *  same session and read-only transaction must be used by the
- *  PartitionQueryRequest used to create the partition tokens and the
- *  ExecuteSqlRequests that use the partition tokens. Partition tokens become
+ *  `PartitionQueryRequest` used to create the partition tokens and the
+ *  `ExecuteSqlRequests` that use the partition tokens. Partition tokens become
  *  invalid when the session used to create them is deleted, is idle for too
  *  long, begins a new transaction, or becomes too old. When any of these
- *  happen, it is not possible to resume the query, and the whole operation must
+ *  happen, it isn't possible to resume the query, and the whole operation must
  *  be restarted from the beginning.
  *
  *  @param object The @c GTLRSpanner_PartitionQueryRequest to include in the
@@ -2814,15 +3365,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Creates a set of partition tokens that can be used to execute a read
  *  operation in parallel. Each of the returned partition tokens can be used by
  *  StreamingRead to specify a subset of the read result to read. The same
- *  session and read-only transaction must be used by the PartitionReadRequest
- *  used to create the partition tokens and the ReadRequests that use the
+ *  session and read-only transaction must be used by the `PartitionReadRequest`
+ *  used to create the partition tokens and the `ReadRequests` that use the
  *  partition tokens. There are no ordering guarantees on rows returned among
- *  the returned partition tokens, or even within each individual StreamingRead
- *  call issued with a partition_token. Partition tokens become invalid when the
- *  session used to create them is deleted, is idle for too long, begins a new
- *  transaction, or becomes too old. When any of these happen, it is not
- *  possible to resume the read, and the whole operation must be restarted from
- *  the beginning.
+ *  the returned partition tokens, or even within each individual
+ *  `StreamingRead` call issued with a `partition_token`. Partition tokens
+ *  become invalid when the session used to create them is deleted, is idle for
+ *  too long, begins a new transaction, or becomes too old. When any of these
+ *  happen, it isn't possible to resume the read, and the whole operation must
+ *  be restarted from the beginning.
  *
  *  Method: spanner.projects.instances.databases.sessions.partitionRead
  *
@@ -2841,15 +3392,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Creates a set of partition tokens that can be used to execute a read
  *  operation in parallel. Each of the returned partition tokens can be used by
  *  StreamingRead to specify a subset of the read result to read. The same
- *  session and read-only transaction must be used by the PartitionReadRequest
- *  used to create the partition tokens and the ReadRequests that use the
+ *  session and read-only transaction must be used by the `PartitionReadRequest`
+ *  used to create the partition tokens and the `ReadRequests` that use the
  *  partition tokens. There are no ordering guarantees on rows returned among
- *  the returned partition tokens, or even within each individual StreamingRead
- *  call issued with a partition_token. Partition tokens become invalid when the
- *  session used to create them is deleted, is idle for too long, begins a new
- *  transaction, or becomes too old. When any of these happen, it is not
- *  possible to resume the read, and the whole operation must be restarted from
- *  the beginning.
+ *  the returned partition tokens, or even within each individual
+ *  `StreamingRead` call issued with a `partition_token`. Partition tokens
+ *  become invalid when the session used to create them is deleted, is idle for
+ *  too long, begins a new transaction, or becomes too old. When any of these
+ *  happen, it isn't possible to resume the read, and the whole operation must
+ *  be restarted from the beginning.
  *
  *  @param object The @c GTLRSpanner_PartitionReadRequest to include in the
  *    query.
@@ -2864,7 +3415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Reads rows from the database using key lookups and scans, as a simple
- *  key/value style alternative to ExecuteSql. This method cannot be used to
+ *  key/value style alternative to ExecuteSql. This method can't be used to
  *  return a result set larger than 10 MiB; if the read matches more data than
  *  that, the read fails with a `FAILED_PRECONDITION` error. Reads inside
  *  read-write transactions might return `ABORTED`. If this occurs, the
@@ -2887,7 +3438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_ResultSet.
  *
  *  Reads rows from the database using key lookups and scans, as a simple
- *  key/value style alternative to ExecuteSql. This method cannot be used to
+ *  key/value style alternative to ExecuteSql. This method can't be used to
  *  return a result set larger than 10 MiB; if the read matches more data than
  *  that, the read fails with a `FAILED_PRECONDITION` error. Reads inside
  *  read-write transactions might return `ABORTED`. If this occurs, the
@@ -2906,11 +3457,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
- *  Rolls back a transaction, releasing any locks it holds. It is a good idea to
+ *  Rolls back a transaction, releasing any locks it holds. It's a good idea to
  *  call this for any transaction that includes one or more Read or ExecuteSql
  *  requests and ultimately decides not to commit. `Rollback` returns `OK` if it
  *  successfully aborts the transaction, the transaction was already aborted, or
- *  the transaction is not found. `Rollback` never returns `ABORTED`.
+ *  the transaction isn't found. `Rollback` never returns `ABORTED`.
  *
  *  Method: spanner.projects.instances.databases.sessions.rollback
  *
@@ -2926,11 +3477,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Fetches a @c GTLRSpanner_Empty.
  *
- *  Rolls back a transaction, releasing any locks it holds. It is a good idea to
+ *  Rolls back a transaction, releasing any locks it holds. It's a good idea to
  *  call this for any transaction that includes one or more Read or ExecuteSql
  *  requests and ultimately decides not to commit. `Rollback` returns `OK` if it
  *  successfully aborts the transaction, the transaction was already aborted, or
- *  the transaction is not found. `Rollback` never returns `ABORTED`.
+ *  the transaction isn't found. `Rollback` never returns `ABORTED`.
  *
  *  @param object The @c GTLRSpanner_RollbackRequest to include in the query.
  *  @param session Required. The session in which the transaction to roll back
@@ -2980,7 +3531,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  Method: spanner.projects.instances.databases.setIamPolicy
  *
@@ -3003,7 +3556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Sets the access control policy on a database or backup resource. Replaces
  *  any existing policy. Authorization requires `spanner.databases.setIamPolicy`
  *  permission on resource. For backups, authorization requires
- *  `spanner.backups.setIamPolicy` permission on resource.
+ *  `spanner.backups.setIamPolicy` permission on resource. For backup schedules,
+ *  authorization requires `spanner.backupSchedules.setIamPolicy` permission on
+ *  resource.
  *
  *  @param object The @c GTLRSpanner_SetIamPolicyRequest to include in the
  *    query.
@@ -3025,7 +3580,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  Method: spanner.projects.instances.databases.testIamPermissions
  *
@@ -3051,7 +3609,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  permission on the containing Cloud Spanner instance. Otherwise returns an
  *  empty set of permissions. Calling this method on a backup that does not
  *  exist will result in a NOT_FOUND error if the user has
- *  `spanner.backups.list` permission on the containing instance.
+ *  `spanner.backups.list` permission on the containing instance. Calling this
+ *  method on a backup schedule that does not exist will result in a NOT_FOUND
+ *  error if the user has `spanner.backupSchedules.list` permission on the
+ *  containing database.
  *
  *  @param object The @c GTLRSpanner_TestIamPermissionsRequest to include in the
  *    query.
@@ -3221,6 +3782,317 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Lists instance partition long-running operations in the given instance. An
+ *  instance partition operation has a name of the form
+ *  `projects//instances//instancePartitions//operations/`. The long-running
+ *  operation metadata field type `metadata.type_url` describes the type of the
+ *  metadata. Operations returned include those that have
+ *  completed/failed/canceled within the last 7 days, and pending operations.
+ *  Operations returned are ordered by `operation.metadata.value.start_time` in
+ *  descending order starting from the most recently started operation.
+ *  Authorization requires `spanner.instancePartitionOperations.list` permission
+ *  on the resource parent.
+ *
+ *  Method: spanner.projects.instances.instancePartitionOperations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionOperationsList : GTLRSpannerQuery
+
+/**
+ *  Optional. An expression that filters the list of returned operations. A
+ *  filter expression consists of a field name, a comparison operator, and a
+ *  value for filtering. The value must be a string, a number, or a boolean. The
+ *  comparison operator must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`.
+ *  Colon `:` is the contains operator. Filter rules are not case sensitive. The
+ *  following fields in the Operation are eligible for filtering: * `name` - The
+ *  name of the long-running operation * `done` - False if the operation is in
+ *  progress, else true. * `metadata.\@type` - the type of metadata. For
+ *  example, the type string for CreateInstancePartitionMetadata is
+ *  `type.googleapis.com/google.spanner.admin.instance.v1.CreateInstancePartitionMetadata`.
+ *  * `metadata.` - any field in metadata.value. `metadata.\@type` must be
+ *  specified first, if filtering on metadata fields. * `error` - Error
+ *  associated with the long-running operation. * `response.\@type` - the type
+ *  of response. * `response.` - any field in response.value. You can combine
+ *  multiple expressions by enclosing each expression in parentheses. By
+ *  default, expressions are combined with AND logic. However, you can specify
+ *  AND, OR, and NOT logic explicitly. Here are a few examples: * `done:true` -
+ *  The operation is complete. * `(metadata.\@type=` \\
+ *  `type.googleapis.com/google.spanner.admin.instance.v1.CreateInstancePartitionMetadata)
+ *  AND` \\ `(metadata.instance_partition.name:custom-instance-partition) AND`
+ *  \\ `(metadata.start_time < \\"2021-03-28T14:50:00Z\\") AND` \\ `(error:*)` -
+ *  Return operations where: * The operation's metadata type is
+ *  CreateInstancePartitionMetadata. * The instance partition name contains
+ *  "custom-instance-partition". * The operation started before
+ *  2021-03-28T14:50:00Z. * The operation resulted in an error.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Deadline used while retrieving metadata for instance partition
+ *  operations. Instance partitions whose operation metadata cannot be retrieved
+ *  within this deadline will be added to unreachable_instance_partitions in
+ *  ListInstancePartitionOperationsResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *instancePartitionDeadline;
+
+/**
+ *  Optional. Number of operations to be returned in the response. If 0 or less,
+ *  defaults to the server's maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If non-empty, `page_token` should contain a next_page_token from a
+ *  previous ListInstancePartitionOperationsResponse to the same `parent` and
+ *  with the same `filter`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent instance of the instance partition operations. Values
+ *  are of the form `projects//instances/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListInstancePartitionOperationsResponse.
+ *
+ *  Lists instance partition long-running operations in the given instance. An
+ *  instance partition operation has a name of the form
+ *  `projects//instances//instancePartitions//operations/`. The long-running
+ *  operation metadata field type `metadata.type_url` describes the type of the
+ *  metadata. Operations returned include those that have
+ *  completed/failed/canceled within the last 7 days, and pending operations.
+ *  Operations returned are ordered by `operation.metadata.value.start_time` in
+ *  descending order starting from the most recently started operation.
+ *  Authorization requires `spanner.instancePartitionOperations.list` permission
+ *  on the resource parent.
+ *
+ *  @param parent Required. The parent instance of the instance partition
+ *    operations. Values are of the form `projects//instances/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an instance partition and begins preparing it to be used. The
+ *  returned long-running operation can be used to track the progress of
+ *  preparing the new instance partition. The instance partition name is
+ *  assigned by the caller. If the named instance partition already exists,
+ *  `CreateInstancePartition` returns `ALREADY_EXISTS`. Immediately upon
+ *  completion of this request: * The instance partition is readable via the
+ *  API, with all requested attributes but no allocated resources. Its state is
+ *  `CREATING`. Until completion of the returned operation: * Cancelling the
+ *  operation renders the instance partition immediately unreadable via the API.
+ *  * The instance partition can be deleted. * All other attempts to modify the
+ *  instance partition are rejected. Upon completion of the returned operation:
+ *  * Billing for all successfully-allocated resources begins (some types may
+ *  have lower than the requested levels). * Databases can start using this
+ *  instance partition. * The instance partition's allocated resource levels are
+ *  readable via the API. * The instance partition's state becomes `READY`. The
+ *  returned long-running operation will have a name of the format
+ *  `/operations/` and can be used to track creation of the instance partition.
+ *  The metadata field type is CreateInstancePartitionMetadata. The response
+ *  field type is InstancePartition, if successful.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsCreate : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the instance in which to create the instance
+ *  partition. Values are of the form `projects//instances/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Creates an instance partition and begins preparing it to be used. The
+ *  returned long-running operation can be used to track the progress of
+ *  preparing the new instance partition. The instance partition name is
+ *  assigned by the caller. If the named instance partition already exists,
+ *  `CreateInstancePartition` returns `ALREADY_EXISTS`. Immediately upon
+ *  completion of this request: * The instance partition is readable via the
+ *  API, with all requested attributes but no allocated resources. Its state is
+ *  `CREATING`. Until completion of the returned operation: * Cancelling the
+ *  operation renders the instance partition immediately unreadable via the API.
+ *  * The instance partition can be deleted. * All other attempts to modify the
+ *  instance partition are rejected. Upon completion of the returned operation:
+ *  * Billing for all successfully-allocated resources begins (some types may
+ *  have lower than the requested levels). * Databases can start using this
+ *  instance partition. * The instance partition's allocated resource levels are
+ *  readable via the API. * The instance partition's state becomes `READY`. The
+ *  returned long-running operation will have a name of the format
+ *  `/operations/` and can be used to track creation of the instance partition.
+ *  The metadata field type is CreateInstancePartitionMetadata. The response
+ *  field type is InstancePartition, if successful.
+ *
+ *  @param object The @c GTLRSpanner_CreateInstancePartitionRequest to include
+ *    in the query.
+ *  @param parent Required. The name of the instance in which to create the
+ *    instance partition. Values are of the form `projects//instances/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_CreateInstancePartitionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing instance partition. Requires that the instance partition
+ *  is not used by any database or backup and is not the default instance
+ *  partition of an instance. Authorization requires
+ *  `spanner.instancePartitions.delete` permission on the resource name.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsDelete : GTLRSpannerQuery
+
+/**
+ *  Optional. If not empty, the API only deletes the instance partition when the
+ *  etag provided matches the current status of the requested instance
+ *  partition. Otherwise, deletes the instance partition without checking the
+ *  current status of the requested instance partition.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the instance partition to be deleted. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/instancePartitions/{instance_partition}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Empty.
+ *
+ *  Deletes an existing instance partition. Requires that the instance partition
+ *  is not used by any database or backup and is not the default instance
+ *  partition of an instance. Authorization requires
+ *  `spanner.instancePartitions.delete` permission on the resource name.
+ *
+ *  @param name Required. The name of the instance partition to be deleted.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/instancePartitions/{instance_partition}`
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a particular instance partition.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsGet : GTLRSpannerQuery
+
+/**
+ *  Required. The name of the requested instance partition. Values are of the
+ *  form
+ *  `projects/{project}/instances/{instance}/instancePartitions/{instance_partition}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_InstancePartition.
+ *
+ *  Gets information about a particular instance partition.
+ *
+ *  @param name Required. The name of the requested instance partition. Values
+ *    are of the form
+ *    `projects/{project}/instances/{instance}/instancePartitions/{instance_partition}`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all instance partitions for the given instance.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsList : GTLRSpannerQuery
+
+/**
+ *  Optional. Deadline used while retrieving metadata for instance partitions.
+ *  Instance partitions whose metadata cannot be retrieved within this deadline
+ *  will be added to unreachable in ListInstancePartitionsResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *instancePartitionDeadline;
+
+/**
+ *  Number of instance partitions to be returned in the response. If 0 or less,
+ *  defaults to the server's maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If non-empty, `page_token` should contain a next_page_token from a previous
+ *  ListInstancePartitionsResponse.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The instance whose instance partitions should be listed. Values
+ *  are of the form `projects//instances/`. Use `{instance} = '-'` to list
+ *  instance partitions for all Instances in a project, e.g.,
+ *  `projects/myproject/instances/-`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListInstancePartitionsResponse.
+ *
+ *  Lists all instance partitions for the given instance.
+ *
+ *  @param parent Required. The instance whose instance partitions should be
+ *    listed. Values are of the form `projects//instances/`. Use `{instance} =
+ *    '-'` to list instance partitions for all Instances in a project, e.g.,
+ *    `projects/myproject/instances/-`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -3228,7 +4100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instances.instancePartitions.operations.cancel
@@ -3252,7 +4124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -3370,6 +4242,88 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Updates an instance partition, and begins allocating or releasing resources
+ *  as requested. The returned long-running operation can be used to track the
+ *  progress of updating the instance partition. If the named instance partition
+ *  does not exist, returns `NOT_FOUND`. Immediately upon completion of this
+ *  request: * For resource types for which a decrease in the instance
+ *  partition's allocation has been requested, billing is based on the
+ *  newly-requested level. Until completion of the returned operation: *
+ *  Cancelling the operation sets its metadata's cancel_time, and begins
+ *  restoring resources to their pre-request values. The operation is guaranteed
+ *  to succeed at undoing all resource changes, after which point it terminates
+ *  with a `CANCELLED` status. * All other attempts to modify the instance
+ *  partition are rejected. * Reading the instance partition via the API
+ *  continues to give the pre-request resource levels. Upon completion of the
+ *  returned operation: * Billing begins for all successfully-allocated
+ *  resources (some types may have lower than the requested levels). * All
+ *  newly-reserved resources are available for serving the instance partition's
+ *  tables. * The instance partition's new resource levels are readable via the
+ *  API. The returned long-running operation will have a name of the format
+ *  `/operations/` and can be used to track the instance partition modification.
+ *  The metadata field type is UpdateInstancePartitionMetadata. The response
+ *  field type is InstancePartition, if successful. Authorization requires
+ *  `spanner.instancePartitions.update` permission on the resource name.
+ *
+ *  Method: spanner.projects.instances.instancePartitions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesInstancePartitionsPatch : GTLRSpannerQuery
+
+/**
+ *  Required. A unique identifier for the instance partition. Values are of the
+ *  form `projects//instances//instancePartitions/a-z*[a-z0-9]`. The final
+ *  segment of the name must be between 2 and 64 characters in length. An
+ *  instance partition's name cannot be changed after the instance partition is
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Updates an instance partition, and begins allocating or releasing resources
+ *  as requested. The returned long-running operation can be used to track the
+ *  progress of updating the instance partition. If the named instance partition
+ *  does not exist, returns `NOT_FOUND`. Immediately upon completion of this
+ *  request: * For resource types for which a decrease in the instance
+ *  partition's allocation has been requested, billing is based on the
+ *  newly-requested level. Until completion of the returned operation: *
+ *  Cancelling the operation sets its metadata's cancel_time, and begins
+ *  restoring resources to their pre-request values. The operation is guaranteed
+ *  to succeed at undoing all resource changes, after which point it terminates
+ *  with a `CANCELLED` status. * All other attempts to modify the instance
+ *  partition are rejected. * Reading the instance partition via the API
+ *  continues to give the pre-request resource levels. Upon completion of the
+ *  returned operation: * Billing begins for all successfully-allocated
+ *  resources (some types may have lower than the requested levels). * All
+ *  newly-reserved resources are available for serving the instance partition's
+ *  tables. * The instance partition's new resource levels are readable via the
+ *  API. The returned long-running operation will have a name of the format
+ *  `/operations/` and can be used to track the instance partition modification.
+ *  The metadata field type is UpdateInstancePartitionMetadata. The response
+ *  field type is InstancePartition, if successful. Authorization requires
+ *  `spanner.instancePartitions.update` permission on the resource name.
+ *
+ *  @param object The @c GTLRSpanner_UpdateInstancePartitionRequest to include
+ *    in the query.
+ *  @param name Required. A unique identifier for the instance partition. Values
+ *    are of the form `projects//instances//instancePartitions/a-z*[a-z0-9]`.
+ *    The final segment of the name must be between 2 and 64 characters in
+ *    length. An instance partition's name cannot be changed after the instance
+ *    partition is created.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesInstancePartitionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_UpdateInstancePartitionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists all instances in the given project.
  *
  *  Method: spanner.projects.instances.list
@@ -3438,6 +4392,98 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @end
 
 /**
+ *  Moves an instance to the target instance configuration. You can use the
+ *  returned long-running operation to track the progress of moving the
+ *  instance. `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets
+ *  any of the following criteria: * Is undergoing a move to a different
+ *  instance configuration * Has backups * Has an ongoing update * Contains any
+ *  CMEK-enabled databases * Is a free trial instance While the operation is
+ *  pending: * All other attempts to modify the instance, including changes to
+ *  its compute capacity, are rejected. * The following database and backup
+ *  admin operations are rejected: * `DatabaseAdmin.CreateDatabase` *
+ *  `DatabaseAdmin.UpdateDatabaseDdl` (disabled if default_leader is specified
+ *  in the request.) * `DatabaseAdmin.RestoreDatabase` *
+ *  `DatabaseAdmin.CreateBackup` * `DatabaseAdmin.CopyBackup` * Both the source
+ *  and target instance configurations are subject to hourly compute and storage
+ *  charges. * The instance might experience higher read-write latencies and a
+ *  higher transaction abort rate. However, moving an instance doesn't cause any
+ *  downtime. The returned long-running operation has a name of the format
+ *  `/operations/` and can be used to track the move instance operation. The
+ *  metadata field type is MoveInstanceMetadata. The response field type is
+ *  Instance, if successful. Cancelling the operation sets its metadata's
+ *  cancel_time. Cancellation is not immediate because it involves moving any
+ *  data previously moved to the target instance configuration back to the
+ *  original instance configuration. You can use this operation to track the
+ *  progress of the cancellation. Upon successful completion of the
+ *  cancellation, the operation terminates with `CANCELLED` status. If not
+ *  cancelled, upon completion of the returned operation: * The instance
+ *  successfully moves to the target instance configuration. * You are billed
+ *  for compute and storage in target instance configuration. Authorization
+ *  requires the `spanner.instances.update` permission on the resource instance.
+ *  For more details, see [Move an
+ *  instance](https://cloud.google.com/spanner/docs/move-instance).
+ *
+ *  Method: spanner.projects.instances.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerAdmin
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesMove : GTLRSpannerQuery
+
+/**
+ *  Required. The instance to move. Values are of the form
+ *  `projects//instances/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSpanner_Operation.
+ *
+ *  Moves an instance to the target instance configuration. You can use the
+ *  returned long-running operation to track the progress of moving the
+ *  instance. `MoveInstance` returns `FAILED_PRECONDITION` if the instance meets
+ *  any of the following criteria: * Is undergoing a move to a different
+ *  instance configuration * Has backups * Has an ongoing update * Contains any
+ *  CMEK-enabled databases * Is a free trial instance While the operation is
+ *  pending: * All other attempts to modify the instance, including changes to
+ *  its compute capacity, are rejected. * The following database and backup
+ *  admin operations are rejected: * `DatabaseAdmin.CreateDatabase` *
+ *  `DatabaseAdmin.UpdateDatabaseDdl` (disabled if default_leader is specified
+ *  in the request.) * `DatabaseAdmin.RestoreDatabase` *
+ *  `DatabaseAdmin.CreateBackup` * `DatabaseAdmin.CopyBackup` * Both the source
+ *  and target instance configurations are subject to hourly compute and storage
+ *  charges. * The instance might experience higher read-write latencies and a
+ *  higher transaction abort rate. However, moving an instance doesn't cause any
+ *  downtime. The returned long-running operation has a name of the format
+ *  `/operations/` and can be used to track the move instance operation. The
+ *  metadata field type is MoveInstanceMetadata. The response field type is
+ *  Instance, if successful. Cancelling the operation sets its metadata's
+ *  cancel_time. Cancellation is not immediate because it involves moving any
+ *  data previously moved to the target instance configuration back to the
+ *  original instance configuration. You can use this operation to track the
+ *  progress of the cancellation. Upon successful completion of the
+ *  cancellation, the operation terminates with `CANCELLED` status. If not
+ *  cancelled, upon completion of the returned operation: * The instance
+ *  successfully moves to the target instance configuration. * You are billed
+ *  for compute and storage in target instance configuration. Authorization
+ *  requires the `spanner.instances.update` permission on the resource instance.
+ *  For more details, see [Move an
+ *  instance](https://cloud.google.com/spanner/docs/move-instance).
+ *
+ *  @param object The @c GTLRSpanner_MoveInstanceRequest to include in the
+ *    query.
+ *  @param name Required. The instance to move. Values are of the form
+ *    `projects//instances/`.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesMove
+ */
++ (instancetype)queryWithObject:(GTLRSpanner_MoveInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -3445,7 +4491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: spanner.projects.instances.operations.cancel
@@ -3469,7 +4515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.

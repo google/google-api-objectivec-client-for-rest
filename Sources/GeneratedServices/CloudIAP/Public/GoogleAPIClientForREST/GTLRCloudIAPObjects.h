@@ -27,6 +27,8 @@
 @class GTLRCloudIAP_GcipSettings;
 @class GTLRCloudIAP_GetPolicyOptions;
 @class GTLRCloudIAP_IdentityAwareProxyClient;
+@class GTLRCloudIAP_NextStateOfTags;
+@class GTLRCloudIAP_OAuth2;
 @class GTLRCloudIAP_OAuthSettings;
 @class GTLRCloudIAP_Policy;
 @class GTLRCloudIAP_PolicyDelegationSettings;
@@ -35,7 +37,14 @@
 @class GTLRCloudIAP_Resource;
 @class GTLRCloudIAP_Resource_ExpectedNextState;
 @class GTLRCloudIAP_Resource_Labels;
+@class GTLRCloudIAP_TagsFullState;
+@class GTLRCloudIAP_TagsFullState_Tags;
+@class GTLRCloudIAP_TagsFullStateForChildResource;
+@class GTLRCloudIAP_TagsFullStateForChildResource_Tags;
+@class GTLRCloudIAP_TagsPartialState;
+@class GTLRCloudIAP_TagsPartialState_TagsToUpsert;
 @class GTLRCloudIAP_TunnelDestGroup;
+@class GTLRCloudIAP_WorkforceIdentitySettings;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -46,6 +55,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIAP_AccessSettings.identitySources
+
+/**
+ *  IdentitySource Unspecified. When selected, IAP relies on which identity
+ *  settings are fully configured to redirect the traffic to. The precedence
+ *  order is WorkforceIdentitySettings > GcipSettings. If none is set, default
+ *  to use Google identity.
+ *
+ *  Value: "IDENTITY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_AccessSettings_IdentitySources_IdentitySourceUnspecified;
+/**
+ *  Use external identities set up on Google Cloud Workforce Identity
+ *  Federation.
+ *
+ *  Value: "WORKFORCE_IDENTITY_FEDERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_AccessSettings_IdentitySources_WorkforceIdentityFederation;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIAP_AttributePropagationSettings.outputCredentials
@@ -165,26 +194,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_AccessSettings : GTLRObject
 
-/** Settings to configure and enable allowed domains. */
+/** Optional. Settings to configure and enable allowed domains. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AllowedDomainsSettings *allowedDomainsSettings;
 
-/** Configuration to allow cross-origin requests via IAP. */
+/** Optional. Configuration to allow cross-origin requests via IAP. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_CorsSettings *corsSettings;
 
-/** GCIP claims and endpoint configurations for 3p identity providers. */
+/**
+ *  Optional. GCIP claims and endpoint configurations for 3p identity providers.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_GcipSettings *gcipSettings;
 
-/** Settings to configure IAP's OAuth behavior. */
+/**
+ *  Optional. Identity sources that IAP can use to authenticate the end user.
+ *  Only one identity source can be configured.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *identitySources;
+
+/** Optional. Settings to configure IAP's OAuth behavior. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_OAuthSettings *oauthSettings;
 
 /**
- *  Settings to configure Policy delegation for apps hosted in tenant projects.
- *  INTERNAL_ONLY.
+ *  Optional. Settings to allow google-internal teams to use IAP for apps hosted
+ *  in a tenant project.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_PolicyDelegationSettings *policyDelegationSettings;
 
-/** Settings to configure reauthentication policies in IAP. */
+/** Optional. Settings to configure reauthentication policies in IAP. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_ReauthSettings *reauthSettings;
+
+/**
+ *  Optional. Settings to configure the workforce identity federation, including
+ *  workforce pools and OAuth 2.0 settings.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_WorkforceIdentitySettings *workforceIdentitySettings;
 
 @end
 
@@ -195,11 +238,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_AllowedDomainsSettings : GTLRObject
 
-/** List of trusted domains. */
+/** Optional. List of trusted domains. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
 
 /**
- *  Configuration for customers to opt in for the feature.
+ *  Optional. Configuration for customers to opt in for the feature.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -213,10 +256,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_ApplicationSettings : GTLRObject
 
-/** Customization for Access Denied page. */
+/** Optional. Customization for Access Denied page. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AccessDeniedPageSettings *accessDeniedPageSettings;
 
-/** Settings to configure attribute propagation. */
+/** Optional. Settings to configure attribute propagation. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AttributePropagationSettings *attributePropagationSettings;
 
 /**
@@ -225,7 +268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, copy, nullable) NSString *cookieDomain;
 
-/** Settings to configure IAP's behavior for a service mesh. */
+/** Optional. Settings to configure IAP's behavior for a service mesh. */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_CsmSettings *csmSettings;
 
 @end
@@ -237,18 +280,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @interface GTLRCloudIAP_AttributePropagationSettings : GTLRObject
 
 /**
- *  Whether the provided attribute propagation settings should be evaluated on
- *  user requests. If set to true, attributes returned from the expression will
- *  be propagated in the set output credentials.
+ *  Optional. Whether the provided attribute propagation settings should be
+ *  evaluated on user requests. If set to true, attributes returned from the
+ *  expression will be propagated in the set output credentials.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enable;
 
 /**
- *  Raw string CEL expression. Must return a list of attributes. A maximum of 45
- *  attributes can be selected. Expressions can select different attribute types
- *  from `attributes`: `attributes.saml_attributes`,
+ *  Optional. Raw string CEL expression. Must return a list of attributes. A
+ *  maximum of 45 attributes can be selected. Expressions can select different
+ *  attribute types from `attributes`: `attributes.saml_attributes`,
  *  `attributes.iap_attributes`. The following functions are supported: - filter
  *  `.filter(, )`: Returns a subset of `` where `` is true for every item. - in
  *  ` in `: Returns true if `` contains ``. - selectByName `.selectByName()`:
@@ -264,9 +307,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  Which output credentials attributes selected by the CEL expression should be
- *  propagated in. All attributes will be fully duplicated in each selected
- *  output credential.
+ *  Optional. Which output credentials attributes selected by the CEL expression
+ *  should be propagated in. All attributes will be fully duplicated in each
+ *  selected output credential.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputCredentials;
 
@@ -390,14 +433,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
- *  Allows customers to configure HTTP request paths that'll allow HTTP OPTIONS
- *  call to bypass authentication and authorization.
+ *  Allows customers to configure HTTP request paths that'll allow HTTP
+ *  `OPTIONS` call to bypass authentication and authorization.
  */
 @interface GTLRCloudIAP_CorsSettings : GTLRObject
 
 /**
- *  Configuration to allow HTTP OPTIONS calls to skip authorization. If
- *  undefined, IAP will not apply any special logic to OPTIONS requests.
+ *  Configuration to allow HTTP `OPTIONS` calls to skip authentication and
+ *  authorization. If undefined, IAP will not apply any special logic to
+ *  `OPTIONS` requests.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -483,7 +527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
- *  Allows customers to configure tenant_id for GCIP instance per-app.
+ *  Allows customers to configure tenant IDs for a Cloud Identity Platform
+ *  (GCIP) instance for each application.
  */
 @interface GTLRCloudIAP_GcipSettings : GTLRObject
 
@@ -495,11 +540,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *loginPageUri;
 
 /**
- *  GCIP tenant ids that are linked to the IAP resource. tenant_ids could be a
- *  string beginning with a number character to indicate authenticating with
- *  GCIP tenant flow, or in the format of _ to indicate authenticating with GCIP
- *  agent flow. If agent flow is used, tenant_ids should only contain one single
- *  element, while for tenant flow, tenant_ids can contain multiple elements.
+ *  Optional. GCIP tenant IDs that are linked to the IAP resource. `tenant_ids`
+ *  could be a string beginning with a number character to indicate
+ *  authenticating with GCIP tenant flow, or in the format of `_` to indicate
+ *  authenticating with GCIP agent flow. If agent flow is used, `tenant_ids`
+ *  should only contain one single element, while for tenant flow, `tenant_ids`
+ *  can contain multiple elements.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tenantIds;
 
@@ -549,10 +595,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_IapSettings : GTLRObject
 
-/** Top level wrapper for all access related setting in IAP */
+/** Optional. Top level wrapper for all access related setting in IAP */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_AccessSettings *accessSettings;
 
-/** Top level wrapper for all application related settings in IAP */
+/** Optional. Top level wrapper for all application related settings in IAP */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_ApplicationSettings *applicationSettings;
 
 /** Required. The resource name of the IAP protected resource. */
@@ -644,6 +690,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
+ *  Used for calculating the next state of tags on the resource being passed for
+ *  the CheckCustomConstraints RPC call. The detail evaluation of each field is
+ *  described in go/op-create-update-time-tags and
+ *  go/tags-in-orgpolicy-requests.
+ */
+@interface GTLRCloudIAP_NextStateOfTags : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsFullState *tagsFullState;
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsFullStateForChildResource *tagsFullStateForChildResource;
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsPartialState *tagsPartialState;
+
+@end
+
+
+/**
+ *  The OAuth 2.0 Settings
+ */
+@interface GTLRCloudIAP_OAuth2 : GTLRObject
+
+/**
+ *  The OAuth 2.0 client ID registered in the workforce identity federation
+ *  OAuth 2.0 Server.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Input only. The OAuth 2.0 client secret created while registering the client
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/**
+ *  Output only. SHA256 hash value for the client secret. This field is returned
+ *  by IAP when the settings are retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *clientSecretSha256;
+
+@end
+
+
+/**
  *  Configuration for OAuth login&consent flow behavior as well as for OAuth
  *  Credentials.
  */
@@ -658,7 +745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @property(nonatomic, copy, nullable) NSString *loginHint;
 
-/** List of client ids allowed to use IAP programmatically. */
+/** Optional. List of client ids allowed to use IAP programmatically. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *programmaticClients;
 
 @end
@@ -809,7 +896,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 /**
  *  Resource type. Types are defined in IAM's .service files. Valid values for
- *  type might be 'gce', 'gcs', 'project', 'account' etc.
+ *  type might be 'storage_buckets', 'compute_instances',
+ *  'resourcemanager_customers', 'billing_accounts', etc.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -822,12 +910,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @interface GTLRCloudIAP_ReauthSettings : GTLRObject
 
 /**
- *  Reauth session lifetime, how long before a user has to reauthenticate again.
+ *  Optional. Reauth session lifetime, how long before a user has to
+ *  reauthenticate again.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxAge;
 
 /**
- *  Reauth method requested.
+ *  Optional. Reauth method requested.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIAP_ReauthSettings_Method_EnrolledSecondFactors User can
@@ -843,8 +932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
- *  How IAP determines the effective policy in cases of hierarchical policies.
- *  Policies are merged from higher in the hierarchy to lower in the hierarchy.
+ *  Optional. How IAP determines the effective policy in cases of hierarchical
+ *  policies. Policies are merged from higher in the hierarchy to lower in the
+ *  hierarchy.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIAP_ReauthSettings_PolicyType_Default This policy acts
@@ -879,13 +969,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  Services not integrated with custom org policy can omit this field. Services
  *  integrated with custom org policy must populate this field for all requests
  *  where the API call changes the state of the resource. Custom org policy
- *  backend uses these attributes to enforce custom org policies. When a proto
- *  is wrapped, it is generally the One Platform API proto. When a JSON string
- *  is wrapped, use `google.protobuf.StringValue` for the inner value. For
- *  create operations, GCP service is expected to pass resource from customer
- *  request as is. For update/patch operations, GCP service is expected to
- *  compute the next state with the patch provided by the user. See
- *  go/custom-constraints-org-policy-integration-guide for additional details.
+ *  backend uses these attributes to enforce custom org policies. For create
+ *  operations, GCP service is expected to pass resource from customer request
+ *  as is. For update/patch operations, GCP service is expected to compute the
+ *  next state with the patch provided by the user. See
+ *  go/federated-custom-org-policy-integration-guide for additional details.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Resource_ExpectedNextState *expectedNextState;
 
@@ -905,17 +993,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @property(nonatomic, strong, nullable) GTLRCloudIAP_Resource_Labels *labels;
 
 /**
- *  Name of the resource on which conditions will be evaluated. Must use the
- *  Relative Resource Name of the resource, which is the URI path of the
- *  resource without the leading "/". Examples are
- *  "projects/_/buckets/[BUCKET-ID]" for storage buckets or
- *  "projects/[PROJECT-ID]/global/firewalls/[FIREWALL-ID]" for a firewall. This
- *  field is required for evaluating conditions with rules on resource names.
- *  For a `list` permission check, the resource.name value must be set to the
- *  parent resource. If the parent resource is a project, this field should be
- *  left unset.
+ *  The locations of the resource. This field is used to determine whether the
+ *  request is compliant with Trust Boundaries. Usage: - If unset or empty, the
+ *  location of authorization is used as the target location. - For global
+ *  resources: use a single value of "global". - For regional/multi-regional
+ *  resources: use name of the GCP region(s) where the resource exists (e.g.,
+ *  ["us-east1", "us-west1"]). For multi-regional resources specify the name of
+ *  each GCP region in the resource's multi-region. NOTE: Only GCP cloud region
+ *  names are supported - go/cloud-region-names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+/**
+ *  The **relative** name of the resource, which is the URI path of the resource
+ *  without the leading "/". See
+ *  https://cloud.google.com/iam/docs/conditions-resource-attributes#resource-name
+ *  for examples used by other GCP Services. This field is **required** for
+ *  services integrated with resource-attribute-based IAM conditions and/or
+ *  CustomOrgPolicy. This field requires special handling for parents-only
+ *  permissions such as `create` and `list`. See the document linked below for
+ *  further details. See go/iam-conditions-sig-g3#populate-resource-attributes
+ *  for specific details on populating this field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Used for calculating the next state of tags on the resource being passed for
+ *  Custom Org Policy enforcement. NOTE: Only one of the tags representations
+ *  (i.e. numeric or namespaced) should be populated. The input tags will be
+ *  converted to the same representation before the calculation. This behavior
+ *  intentionally may differ from other tags related fields in CheckPolicy
+ *  request, which may require both formats to be passed in. IMPORTANT: If tags
+ *  are unchanged, this field should not be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_NextStateOfTags *nextStateOfTags;
 
 /**
  *  The name of the service this resource belongs to. It is configured using the
@@ -923,18 +1034,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  under //configs/cloud/resourcetypes. For example, the official_service_name
  *  of cloud resource manager service is set as
  *  'cloudresourcemanager.googleapis.com' according to
- *  //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml
+ *  //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml This
+ *  field is **required** for services integrated with resource-attribute-based
+ *  IAM conditions and/or CustomOrgPolicy. This field requires special handling
+ *  for parents-only permissions such as `create` and `list`. See the document
+ *  linked below for further details. See
+ *  go/iam-conditions-sig-g3#populate-resource-attributes for specific details
+ *  on populating this field.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  The public resource type name of the resource on which conditions will be
- *  evaluated. It is configured using the official_name of the ResourceType as
- *  defined in service configurations under //configs/cloud/resourcetypes. For
- *  example, the official_name for GCP projects is set as
- *  'cloudresourcemanager.googleapis.com/Project' according to
- *  //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml For
- *  details see go/iam-conditions-integration-guide.
+ *  The public resource type name of the resource. It is configured using the
+ *  official_name of the ResourceType as defined in service configurations under
+ *  //configs/cloud/resourcetypes. For example, the official_name for GCP
+ *  projects is set as 'cloudresourcemanager.googleapis.com/Project' according
+ *  to //configs/cloud/resourcetypes/google/cloud/resourcemanager/prod.yaml This
+ *  field is **required** for services integrated with resource-attribute-based
+ *  IAM conditions and/or CustomOrgPolicy. This field requires special handling
+ *  for parents-only permissions such as `create` and `list`. See the document
+ *  linked below for further details. See
+ *  go/iam-conditions-sig-g3#populate-resource-attributes for specific details
+ *  on populating this field.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -947,13 +1068,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  Services not integrated with custom org policy can omit this field. Services
  *  integrated with custom org policy must populate this field for all requests
  *  where the API call changes the state of the resource. Custom org policy
- *  backend uses these attributes to enforce custom org policies. When a proto
- *  is wrapped, it is generally the One Platform API proto. When a JSON string
- *  is wrapped, use `google.protobuf.StringValue` for the inner value. For
- *  create operations, GCP service is expected to pass resource from customer
- *  request as is. For update/patch operations, GCP service is expected to
- *  compute the next state with the patch provided by the user. See
- *  go/custom-constraints-org-policy-integration-guide for additional details.
+ *  backend uses these attributes to enforce custom org policies. For create
+ *  operations, GCP service is expected to pass resource from customer request
+ *  as is. For update/patch operations, GCP service is expected to compute the
+ *  next state with the patch provided by the user. See
+ *  go/federated-custom-org-policy-integration-guide for additional details.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1002,6 +1121,113 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
+ *  GTLRCloudIAP_TagsFullState
+ */
+@interface GTLRCloudIAP_TagsFullState : GTLRObject
+
+/**
+ *  If TagsFullState is initialized, the values in this field fully represent
+ *  all the tags in the next state (the current tag values are not used). If
+ *  tags.size() == 0, the next state of tags would be no tags for evaluation
+ *  purposes. Only one type of tags reference (numeric or namespace) is required
+ *  to be passed.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsFullState_Tags *tags;
+
+@end
+
+
+/**
+ *  If TagsFullState is initialized, the values in this field fully represent
+ *  all the tags in the next state (the current tag values are not used). If
+ *  tags.size() == 0, the next state of tags would be no tags for evaluation
+ *  purposes. Only one type of tags reference (numeric or namespace) is required
+ *  to be passed.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIAP_TagsFullState_Tags : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudIAP_TagsFullStateForChildResource
+ */
+@interface GTLRCloudIAP_TagsFullStateForChildResource : GTLRObject
+
+/**
+ *  If TagsFullStateForChildResource is initialized, the values in this field
+ *  represent all the tags in the next state for the child resource. Only one
+ *  type of tags reference (numeric or namespace) is required to be passed.
+ *  IMPORTANT: This field should only be used when the target resource IAM
+ *  policy name is UNKNOWN and the resource's parent IAM policy name is being
+ *  passed in the request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsFullStateForChildResource_Tags *tags;
+
+@end
+
+
+/**
+ *  If TagsFullStateForChildResource is initialized, the values in this field
+ *  represent all the tags in the next state for the child resource. Only one
+ *  type of tags reference (numeric or namespace) is required to be passed.
+ *  IMPORTANT: This field should only be used when the target resource IAM
+ *  policy name is UNKNOWN and the resource's parent IAM policy name is being
+ *  passed in the request.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIAP_TagsFullStateForChildResource_Tags : GTLRObject
+@end
+
+
+/**
+ *  GTLRCloudIAP_TagsPartialState
+ */
+@interface GTLRCloudIAP_TagsPartialState : GTLRObject
+
+/**
+ *  Keys of the tags that should be removed for evaluation purposes. IMPORTANT:
+ *  Currently only numeric references are supported. Once support for namespace
+ *  references is added, both the tag references (numeric and namespace) will be
+ *  removed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tagKeysToRemove;
+
+/**
+ *  Tags that’ll be updated or added to the current state of tags for evaluation
+ *  purposes. If a key exists in both "tags_to_upsert" and "tag_keys_to_remove",
+ *  the one in "tag_keys_to_remove" is ignored. Only one type of tags reference
+ *  (numeric or namespace) is required to be passed.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_TagsPartialState_TagsToUpsert *tagsToUpsert;
+
+@end
+
+
+/**
+ *  Tags that’ll be updated or added to the current state of tags for evaluation
+ *  purposes. If a key exists in both "tags_to_upsert" and "tag_keys_to_remove",
+ *  the one in "tag_keys_to_remove" is ignored. Only one type of tags reference
+ *  (numeric or namespace) is required to be passed.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIAP_TagsPartialState_TagsToUpsert : GTLRObject
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRCloudIAP_TestIamPermissionsRequest : GTLRObject
@@ -1034,15 +1260,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  */
 @interface GTLRCloudIAP_TunnelDestGroup : GTLRObject
 
-/** Unordered list. List of CIDRs that this group applies to. */
+/** Optional. Unordered list. List of CIDRs that this group applies to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *cidrs;
 
-/** Unordered list. List of FQDNs that this group applies to. */
+/** Optional. Unordered list. List of FQDNs that this group applies to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fqdns;
 
 /**
- *  Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
- *  within the project and contain only lower case letters (a-z) and dashes (-).
+ *  Identifier. Identifier for the TunnelDestGroup. Must be unique within the
+ *  project and contain only lower case letters (a-z) and dashes (-).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1050,11 +1276,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 
 
 /**
- *  API requires a return message, but currently all response strings will fit
- *  in the status and public message. In the future, this response can hold AST
- *  validation info.
+ *  IAP Expression Linter endpoint returns empty response body.
  */
 @interface GTLRCloudIAP_ValidateIapAttributeExpressionResponse : GTLRObject
+@end
+
+
+/**
+ *  WorkforceIdentitySettings allows customers to configure workforce pools and
+ *  OAuth 2.0 settings to gate their applications using a third-party IdP with
+ *  access control.
+ */
+@interface GTLRCloudIAP_WorkforceIdentitySettings : GTLRObject
+
+/**
+ *  OAuth 2.0 settings for IAP to perform OIDC flow with workforce identity
+ *  federation services.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIAP_OAuth2 *oauth2;
+
+/** The workforce pool resources. Only one workforce pool is accepted. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *workforcePools;
+
 @end
 
 NS_ASSUME_NONNULL_END

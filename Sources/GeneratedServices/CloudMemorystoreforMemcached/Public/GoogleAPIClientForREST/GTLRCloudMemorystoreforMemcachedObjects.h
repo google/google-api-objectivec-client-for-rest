@@ -767,6 +767,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  */
 @property(nonatomic, copy, nullable) NSString *consumerDefinedName;
 
+/**
+ *  Optional. The consumer_project_number associated with this Apigee instance.
+ *  This field is added specifically to support Apigee integration with SLM
+ *  Rollout and UMM. It represents the numerical project ID of the GCP project
+ *  that consumes this Apigee instance. It is used for SLM rollout notifications
+ *  and UMM integration, enabling proper mapping to customer projects and log
+ *  delivery for Apigee instances. This field complements consumer_project_id
+ *  and may be used for specific Apigee scenarios where the numerical ID is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerProjectNumber;
+
 /** Output only. Timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1339,6 +1351,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reservedIpRangeId;
 
 /**
+ *  Optional. Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Optional. Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. The state of this Memcached instance.
  *
  *  Likely values:
@@ -1585,7 +1611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 
 /**
- *  LINT.IfChange Defines policies to service maintenance events.
+ *  Defines policies to service maintenance events.
  */
 @interface GTLRCloudMemorystoreforMemcached_MaintenancePolicy : GTLRObject
 
@@ -2066,30 +2092,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 @interface GTLRCloudMemorystoreforMemcached_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

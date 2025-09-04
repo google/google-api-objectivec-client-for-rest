@@ -21,10 +21,16 @@
 @class GTLRStorage_Bucket_Cors_Item;
 @class GTLRStorage_Bucket_CustomPlacementConfig;
 @class GTLRStorage_Bucket_Encryption;
+@class GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig;
+@class GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig;
+@class GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig;
 @class GTLRStorage_Bucket_HierarchicalNamespace;
 @class GTLRStorage_Bucket_IamConfiguration;
 @class GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly;
 @class GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess;
+@class GTLRStorage_Bucket_IpFilter;
+@class GTLRStorage_Bucket_IpFilter_PublicNetworkSource;
+@class GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item;
 @class GTLRStorage_Bucket_Labels;
 @class GTLRStorage_Bucket_Lifecycle;
 @class GTLRStorage_Bucket_Lifecycle_Rule_Item;
@@ -39,6 +45,8 @@
 @class GTLRStorage_Bucket_Website;
 @class GTLRStorage_BucketAccessControl;
 @class GTLRStorage_BucketAccessControl_ProjectTeam;
+@class GTLRStorage_BucketStorageLayout_CustomPlacementConfig;
+@class GTLRStorage_BucketStorageLayout_HierarchicalNamespace;
 @class GTLRStorage_Channel_Params;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item;
 @class GTLRStorage_ComposeRequest_SourceObjects_Item_ObjectPreconditions;
@@ -55,13 +63,17 @@
 @class GTLRStorage_Notification;
 @class GTLRStorage_Notification_CustomAttributes;
 @class GTLRStorage_Object;
+@class GTLRStorage_Object_Contexts;
+@class GTLRStorage_Object_Contexts_Custom;
 @class GTLRStorage_Object_CustomerEncryption;
 @class GTLRStorage_Object_Metadata;
 @class GTLRStorage_Object_Owner;
 @class GTLRStorage_Object_Retention;
 @class GTLRStorage_ObjectAccessControl;
 @class GTLRStorage_ObjectAccessControl_ProjectTeam;
+@class GTLRStorage_ObjectCustomContextPayload;
 @class GTLRStorage_Policy_Bindings_Item;
+@class GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -69,6 +81,80 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig.restrictionMode
+
+/**
+ *  Creation of new objects with Customer-Managed Encryption is fully
+ *  restricted.
+ *
+ *  Value: "FullyRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted;
+/**
+ *  Creation of new objects with Customer-Managed Encryption is not restricted.
+ *
+ *  Value: "NotRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted;
+
+// ----------------------------------------------------------------------------
+// GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig.restrictionMode
+
+/**
+ *  Creation of new objects with Customer-Supplied Encryption is fully
+ *  restricted.
+ *
+ *  Value: "FullyRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted;
+/**
+ *  Creation of new objects with Customer-Supplied Encryption is not restricted.
+ *
+ *  Value: "NotRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_NotRestricted;
+
+// ----------------------------------------------------------------------------
+// GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig.restrictionMode
+
+/**
+ *  Creation of new objects with Google Managed Encryption is fully restricted.
+ *
+ *  Value: "FullyRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted;
+/**
+ *  Creation of new objects with Google Managed Encryption is not restricted.
+ *
+ *  Value: "NotRestricted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted;
+
+/**
+ *  An AdvanceRelocateBucketOperation request.
+ */
+@interface GTLRStorage_AdvanceRelocateBucketOperationRequest : GTLRObject
+
+/**
+ *  Specifies the time when the relocation will revert to the sync stage if the
+ *  relocation hasn't succeeded.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Specifies the duration after which the relocation will revert to the sync
+ *  stage if the relocation hasn't succeeded. Optional, if not supplied, a
+ *  default value of 12h will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
 
 /**
  *  An Anywhere Cache instance.
@@ -214,6 +300,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** HTTP 1.1 Entity tag for the bucket. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
+/**
+ *  The generation of this bucket.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/** The hard delete time of the bucket in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *hardDeleteTime;
+
 /** The bucket's hierarchical namespace configuration. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_HierarchicalNamespace *hierarchicalNamespace;
 
@@ -227,6 +323,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/**
+ *  The bucket's IP filter configuration. Specifies the network sources that are
+ *  allowed to access the operations on the bucket, as well as its underlying
+ *  objects. Only enforced when the mode is set to 'Enabled'.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_IpFilter *ipFilter;
+
 /** The kind of item this is. For buckets, this is always storage#bucket. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -234,15 +337,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Labels *labels;
 
 /**
- *  The bucket's lifecycle configuration. See lifecycle management for more
+ *  The bucket's lifecycle configuration. See [Lifecycle
+ *  Management](https://cloud.google.com/storage/docs/lifecycle) for more
  *  information.
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Lifecycle *lifecycle;
 
 /**
  *  The location of the bucket. Object data for objects in the bucket resides in
- *  physical storage within this region. Defaults to US. See the developer's
- *  guide for the authoritative list.
+ *  physical storage within this region. Defaults to US. See the [Developer's
+ *  Guide](https://cloud.google.com/storage/docs/locations) for the
+ *  authoritative list.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -302,6 +407,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Uses NSNumber of boolValue.
  */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPZI;
+
+/**
+ *  Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPZS;
 
 /** The URI of this bucket. */
@@ -313,14 +425,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_SoftDeletePolicy *softDeletePolicy;
 
+/** The soft delete time of the bucket in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *softDeleteTime;
+
 /**
  *  The bucket's default storage class, used whenever no storageClass is
  *  specified for a newly-created object. This defines how objects in the bucket
  *  are stored and determines the SLA and the cost of storage. Values include
  *  MULTI_REGIONAL, REGIONAL, STANDARD, NEARLINE, COLDLINE, ARCHIVE, and
  *  DURABLE_REDUCED_AVAILABILITY. If this value is not specified when the bucket
- *  is created, it will default to STANDARD. For more information, see storage
- *  classes.
+ *  is created, it will default to STANDARD. For more information, see [Storage
+ *  Classes](https://cloud.google.com/storage/docs/storage-classes).
  */
 @property(nonatomic, copy, nullable) NSString *storageClass;
 
@@ -335,8 +450,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The bucket's website configuration, controlling how the service behaves when
- *  accessing bucket contents as a web site. See the Static Website Examples for
- *  more information.
+ *  accessing bucket contents as a web site. See the [Static Website
+ *  Examples](https://cloud.google.com/storage/docs/static-website) for more
+ *  information.
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_Website *website;
 
@@ -444,10 +560,34 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorage_Bucket_Encryption : GTLRObject
 
 /**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Customer Managed Encryption type by default.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig *customerManagedEncryptionEnforcementConfig;
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Customer Supplied Encryption type by default.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig *customerSuppliedEncryptionEnforcementConfig;
+
+/**
  *  A Cloud KMS key that will be used to encrypt objects inserted into this
  *  bucket, if no encryption method is specified.
  */
 @property(nonatomic, copy, nullable) NSString *defaultKmsKeyName;
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Google Managed Encryption type by default.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig *googleManagedEncryptionEnforcementConfig;
 
 @end
 
@@ -494,6 +634,43 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The bucket's IP filter configuration. Specifies the network sources that are
+ *  allowed to access the operations on the bucket, as well as its underlying
+ *  objects. Only enforced when the mode is set to 'Enabled'.
+ */
+@interface GTLRStorage_Bucket_IpFilter : GTLRObject
+
+/**
+ *  Whether to allow all service agents to access the bucket regardless of the
+ *  IP filter configuration.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAllServiceAgentAccess;
+
+/**
+ *  Whether to allow cross-org VPCs in the bucket's IP filter configuration.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCrossOrgVpcs;
+
+/** The mode of the IP filter. Valid values are 'Enabled' and 'Disabled'. */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/** The public network source of the bucket's IP filter. */
+@property(nonatomic, strong, nullable) GTLRStorage_Bucket_IpFilter_PublicNetworkSource *publicNetworkSource;
+
+/**
+ *  The list of [VPC network](https://cloud.google.com/vpc/docs/vpc) sources of
+ *  the bucket's IP filter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item *> *vpcNetworkSources;
+
+@end
+
+
+/**
  *  User-provided labels, in key/value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -506,7 +683,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The bucket's lifecycle configuration. See lifecycle management for more
+ *  The bucket's lifecycle configuration. See [Lifecycle
+ *  Management](https://cloud.google.com/storage/docs/lifecycle) for more
  *  information.
  */
 @interface GTLRStorage_Bucket_Lifecycle : GTLRObject
@@ -642,8 +820,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The bucket's website configuration, controlling how the service behaves when
- *  accessing bucket contents as a web site. See the Static Website Examples for
- *  more information.
+ *  accessing bucket contents as a web site. See the [Static Website
+ *  Examples](https://cloud.google.com/storage/docs/static-website) for more
+ *  information.
  */
 @interface GTLRStorage_Bucket_Website : GTLRObject
 
@@ -661,6 +840,99 @@ NS_ASSUME_NONNULL_BEGIN
  *  bucket as the content for a 404 Not Found result.
  */
 @property(nonatomic, copy, nullable) NSString *notFoundPage;
+
+@end
+
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Customer Managed Encryption type by default.
+ */
+@interface GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig : GTLRObject
+
+/**
+ *  Server-determined value that indicates the time from which configuration was
+ *  enforced and effective. This value is in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/**
+ *  Restriction mode for Customer-Managed Encryption Keys. Defaults to
+ *  NotRestricted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted
+ *        Creation of new objects with Customer-Managed Encryption is fully
+ *        restricted. (Value: "FullyRestricted")
+ *    @arg @c kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted
+ *        Creation of new objects with Customer-Managed Encryption is not
+ *        restricted. (Value: "NotRestricted")
+ */
+@property(nonatomic, copy, nullable) NSString *restrictionMode;
+
+@end
+
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Customer Supplied Encryption type by default.
+ */
+@interface GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig : GTLRObject
+
+/**
+ *  Server-determined value that indicates the time from which configuration was
+ *  enforced and effective. This value is in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/**
+ *  Restriction mode for Customer-Supplied Encryption Keys. Defaults to
+ *  NotRestricted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted
+ *        Creation of new objects with Customer-Supplied Encryption is fully
+ *        restricted. (Value: "FullyRestricted")
+ *    @arg @c kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_NotRestricted
+ *        Creation of new objects with Customer-Supplied Encryption is not
+ *        restricted. (Value: "NotRestricted")
+ */
+@property(nonatomic, copy, nullable) NSString *restrictionMode;
+
+@end
+
+
+/**
+ *  If set, the new objects created in this bucket must comply with this
+ *  enforcement config. Changing this has no effect on existing objects; it
+ *  applies to new objects only. If omitted, the new objects are allowed to be
+ *  encrypted with Google Managed Encryption type by default.
+ */
+@interface GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig : GTLRObject
+
+/**
+ *  Server-determined value that indicates the time from which configuration was
+ *  enforced and effective. This value is in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/**
+ *  Restriction mode for Google-Managed Encryption Keys. Defaults to
+ *  NotRestricted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted
+ *        Creation of new objects with Google Managed Encryption is fully
+ *        restricted. (Value: "FullyRestricted")
+ *    @arg @c kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted
+ *        Creation of new objects with Google Managed Encryption is not
+ *        restricted. (Value: "NotRestricted")
+ */
+@property(nonatomic, copy, nullable) NSString *restrictionMode;
 
 @end
 
@@ -711,6 +983,40 @@ NS_ASSUME_NONNULL_BEGIN
  *  to false until the locked time, after which the field is immutable.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lockedTime;
+
+@end
+
+
+/**
+ *  The public network source of the bucket's IP filter.
+ */
+@interface GTLRStorage_Bucket_IpFilter_PublicNetworkSource : GTLRObject
+
+/**
+ *  The list of public IPv4, IPv6 cidr ranges that are allowed to access the
+ *  bucket.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedIpCidrRanges;
+
+@end
+
+
+/**
+ *  GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item
+ */
+@interface GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item : GTLRObject
+
+/**
+ *  The list of IPv4, IPv6 cidr ranges subnetworks that are allowed to access
+ *  the bucket.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedIpCidrRanges;
+
+/**
+ *  Name of the network. Format:
+ *  projects/{PROJECT_ID}/global/networks/{NETWORK_NAME}
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 @end
 
@@ -995,6 +1301,61 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The storage layout configuration of a bucket.
+ */
+@interface GTLRStorage_BucketStorageLayout : GTLRObject
+
+/** The name of the bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** The bucket's custom placement configuration for Custom Dual Regions. */
+@property(nonatomic, strong, nullable) GTLRStorage_BucketStorageLayout_CustomPlacementConfig *customPlacementConfig;
+
+/** The bucket's hierarchical namespace configuration. */
+@property(nonatomic, strong, nullable) GTLRStorage_BucketStorageLayout_HierarchicalNamespace *hierarchicalNamespace;
+
+/**
+ *  The kind of item this is. For storage layout, this is always
+ *  storage#storageLayout.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The location of the bucket. */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The type of the bucket location. */
+@property(nonatomic, copy, nullable) NSString *locationType;
+
+@end
+
+
+/**
+ *  The bucket's custom placement configuration for Custom Dual Regions.
+ */
+@interface GTLRStorage_BucketStorageLayout_CustomPlacementConfig : GTLRObject
+
+/** The list of regional locations in which data is placed. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataLocations;
+
+@end
+
+
+/**
+ *  The bucket's hierarchical namespace configuration.
+ */
+@interface GTLRStorage_BucketStorageLayout_HierarchicalNamespace : GTLRObject
+
+/**
+ *  When set to true, hierarchical namespace is enabled for this bucket.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  A bulk restore objects request.
  */
 @interface GTLRStorage_BulkRestoreObjectsRequest : GTLRObject
@@ -1019,6 +1380,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *copySourceAcl NS_RETURNS_NOT_RETAINED;
+
+/** Restores only the objects that were created after this time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAfterTime;
+
+/** Restores only the objects that were created before this time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdBeforeTime;
 
 /**
  *  Restores only the objects matching any of the specified glob(s). If this
@@ -1307,6 +1674,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorage_GoogleLongrunningListOperationsResponse : GTLRCollectionObject
 
 /**
+ *  The kind of item this is. For lists of operations, this is always
+ *  storage#operations.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
  *  The continuation token, used to page through large result sets. Provide this
  *  value in a subsequent request to return the next page of results.
  */
@@ -1342,6 +1715,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRStorage_GoogleRpcStatus *error;
 
 /**
+ *  The kind of item this is. For operations, this is always storage#operation.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
  *  Service-specific metadata associated with the operation. It typically
  *  contains progress information and common metadata such as create time. Some
  *  services might not provide such metadata. Any method that returns a
@@ -1366,6 +1744,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  response type is "TakeSnapshotResponse".
  */
 @property(nonatomic, strong, nullable) GTLRStorage_GoogleLongrunningOperation_Response *response;
+
+/** The link to this long running operation. */
+@property(nonatomic, copy, nullable) NSString *selfLink;
 
 @end
 
@@ -1755,9 +2136,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *contentType;
 
 /**
+ *  User-defined or system-defined object contexts. Each object context is a
+ *  key-payload pair, where the key provides the identification and the payload
+ *  holds the associated value and additional metadata.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_Object_Contexts *contexts;
+
+/**
  *  CRC32c checksum, as described in RFC 4960, Appendix B; encoded using base64
  *  in big-endian byte order. For more information about using the CRC32c
- *  checksum, see Hashes and ETags: Best Practices.
+ *  checksum, see [Data Validation and Change
+ *  Detection](https://cloud.google.com/storage/docs/data-validation).
  */
 @property(nonatomic, copy, nullable) NSString *crc32c;
 
@@ -1823,7 +2212,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  MD5 hash of the data; encoded using base64. For more information about using
- *  the MD5 hash, see Hashes and ETags: Best Practices.
+ *  the MD5 hash, see [Data Validation and Change
+ *  Detection](https://cloud.google.com/storage/docs/data-validation).
  */
 @property(nonatomic, copy, nullable) NSString *md5Hash;
 
@@ -1850,6 +2240,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  The owner of the object. This will always be the uploader of the object.
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Object_Owner *owner;
+
+/**
+ *  Restore token used to differentiate deleted objects with the same name and
+ *  generation. This field is only returned for deleted objects in hierarchical
+ *  namespace buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreToken;
 
 /** A collection of object level retention parameters. */
 @property(nonatomic, strong, nullable) GTLRStorage_Object_Retention *retention;
@@ -1900,6 +2297,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeDeleted;
 
+/** The time when the object was finalized. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timeFinalized;
+
 /**
  *  The time at which the object's storage class was last changed. When the
  *  object is initially created, it will be set to timeCreated.
@@ -1915,6 +2315,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lifecycle Configuration.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
+
+@end
+
+
+/**
+ *  User-defined or system-defined object contexts. Each object context is a
+ *  key-payload pair, where the key provides the identification and the payload
+ *  holds the associated value and additional metadata.
+ */
+@interface GTLRStorage_Object_Contexts : GTLRObject
+
+/** User-defined object contexts. */
+@property(nonatomic, strong, nullable) GTLRStorage_Object_Contexts_Custom *custom;
 
 @end
 
@@ -1973,6 +2386,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *retainUntilTime;
 
+@end
+
+
+/**
+ *  User-defined object contexts.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRStorage_ObjectCustomContextPayload. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRStorage_Object_Contexts_Custom : GTLRObject
 @end
 
 
@@ -2089,6 +2514,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The payload of a single user-defined object context.
+ */
+@interface GTLRStorage_ObjectCustomContextPayload : GTLRObject
+
+/** The time at which the object context was created in RFC 3339 format. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The time at which the object context was last updated in RFC 3339 format.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The value of the object context. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  A list of objects.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2188,24 +2632,24 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A collection of identifiers for members who may assume the provided role.
  *  Recognized identifiers are as follows:
- *  - allUsers — A special identifier that represents anyone on the internet;
+ *  - allUsers - A special identifier that represents anyone on the internet;
  *  with or without a Google account.
- *  - allAuthenticatedUsers — A special identifier that represents anyone who is
+ *  - allAuthenticatedUsers - A special identifier that represents anyone who is
  *  authenticated with a Google account or a service account.
- *  - user:emailid — An email address that represents a specific account. For
+ *  - user:emailid - An email address that represents a specific account. For
  *  example, user:alice\@gmail.com or user:joe\@example.com.
- *  - serviceAccount:emailid — An email address that represents a service
+ *  - serviceAccount:emailid - An email address that represents a service
  *  account. For example,
  *  serviceAccount:my-other-app\@appspot.gserviceaccount.com .
- *  - group:emailid — An email address that represents a Google group. For
+ *  - group:emailid - An email address that represents a Google group. For
  *  example, group:admins\@example.com.
- *  - domain:domain — A Google Apps domain name that represents all the users of
+ *  - domain:domain - A Google Apps domain name that represents all the users of
  *  that domain. For example, domain:google.com or domain:example.com.
- *  - projectOwner:projectid — Owners of the given project. For example,
+ *  - projectOwner:projectid - Owners of the given project. For example,
  *  projectOwner:my-example-project
- *  - projectEditor:projectid — Editors of the given project. For example,
+ *  - projectEditor:projectid - Editors of the given project. For example,
  *  projectEditor:my-example-project
- *  - projectViewer:projectid — Viewers of the given project. For example,
+ *  - projectViewer:projectid - Viewers of the given project. For example,
  *  projectViewer:my-example-project
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
@@ -2216,28 +2660,64 @@ NS_ASSUME_NONNULL_BEGIN
  *  ACLs, and legacy IAM roles, which do map directly to ACL permissions. All
  *  roles are of the format roles/storage.specificRole.
  *  The new IAM roles are:
- *  - roles/storage.admin — Full control of Google Cloud Storage resources.
- *  - roles/storage.objectViewer — Read-Only access to Google Cloud Storage
+ *  - roles/storage.admin - Full control of Google Cloud Storage resources.
+ *  - roles/storage.objectViewer - Read-Only access to Google Cloud Storage
  *  objects.
- *  - roles/storage.objectCreator — Access to create objects in Google Cloud
+ *  - roles/storage.objectCreator - Access to create objects in Google Cloud
  *  Storage.
- *  - roles/storage.objectAdmin — Full control of Google Cloud Storage objects.
+ *  - roles/storage.objectAdmin - Full control of Google Cloud Storage objects.
  *  The legacy IAM roles are:
- *  - roles/storage.legacyObjectReader — Read-only access to objects without
+ *  - roles/storage.legacyObjectReader - Read-only access to objects without
  *  listing. Equivalent to an ACL entry on an object with the READER role.
- *  - roles/storage.legacyObjectOwner — Read/write access to existing objects
+ *  - roles/storage.legacyObjectOwner - Read/write access to existing objects
  *  without listing. Equivalent to an ACL entry on an object with the OWNER
  *  role.
- *  - roles/storage.legacyBucketReader — Read access to buckets with object
+ *  - roles/storage.legacyBucketReader - Read access to buckets with object
  *  listing. Equivalent to an ACL entry on a bucket with the READER role.
- *  - roles/storage.legacyBucketWriter — Read access to buckets with object
+ *  - roles/storage.legacyBucketWriter - Read access to buckets with object
  *  listing/creation/deletion. Equivalent to an ACL entry on a bucket with the
  *  WRITER role.
- *  - roles/storage.legacyBucketOwner — Read and write access to existing
+ *  - roles/storage.legacyBucketOwner - Read and write access to existing
  *  buckets with object listing/creation/deletion. Equivalent to an ACL entry on
  *  a bucket with the OWNER role.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  A Relocate Bucket request.
+ */
+@interface GTLRStorage_RelocateBucketRequest : GTLRObject
+
+/**
+ *  The bucket's new custom placement configuration if relocating to a Custom
+ *  Dual Region.
+ */
+@property(nonatomic, strong, nullable) GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig *destinationCustomPlacementConfig;
+
+/** The new location the bucket will be relocated to. */
+@property(nonatomic, copy, nullable) NSString *destinationLocation;
+
+/**
+ *  If true, validate the operation, but do not actually relocate the bucket.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
+ *  The bucket's new custom placement configuration if relocating to a Custom
+ *  Dual Region.
+ */
+@interface GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig : GTLRObject
+
+/** The list of regional locations in which data is placed. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataLocations;
 
 @end
 
@@ -2318,26 +2798,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  The permissions held by the caller. Permissions are always of the format
  *  storage.resource.capability, where resource is one of buckets, objects, or
  *  managedFolders. The supported permissions are as follows:
- *  - storage.buckets.delete — Delete bucket.
- *  - storage.buckets.get — Read bucket metadata.
- *  - storage.buckets.getIamPolicy — Read bucket IAM policy.
- *  - storage.buckets.create — Create bucket.
- *  - storage.buckets.list — List buckets.
- *  - storage.buckets.setIamPolicy — Update bucket IAM policy.
- *  - storage.buckets.update — Update bucket metadata.
- *  - storage.objects.delete — Delete object.
- *  - storage.objects.get — Read object data and metadata.
- *  - storage.objects.getIamPolicy — Read object IAM policy.
- *  - storage.objects.create — Create object.
- *  - storage.objects.list — List objects.
- *  - storage.objects.setIamPolicy — Update object IAM policy.
- *  - storage.objects.update — Update object metadata.
- *  - storage.managedFolders.delete — Delete managed folder.
- *  - storage.managedFolders.get — Read managed folder metadata.
- *  - storage.managedFolders.getIamPolicy — Read managed folder IAM policy.
- *  - storage.managedFolders.create — Create managed folder.
- *  - storage.managedFolders.list — List managed folders.
- *  - storage.managedFolders.setIamPolicy — Update managed folder IAM policy.
+ *  - storage.buckets.delete - Delete bucket.
+ *  - storage.buckets.get - Read bucket metadata.
+ *  - storage.buckets.getIamPolicy - Read bucket IAM policy.
+ *  - storage.buckets.create - Create bucket.
+ *  - storage.buckets.list - List buckets.
+ *  - storage.buckets.setIamPolicy - Update bucket IAM policy.
+ *  - storage.buckets.update - Update bucket metadata.
+ *  - storage.objects.delete - Delete object.
+ *  - storage.objects.get - Read object data and metadata.
+ *  - storage.objects.getIamPolicy - Read object IAM policy.
+ *  - storage.objects.create - Create object.
+ *  - storage.objects.list - List objects.
+ *  - storage.objects.setIamPolicy - Update object IAM policy.
+ *  - storage.objects.update - Update object metadata.
+ *  - storage.managedFolders.delete - Delete managed folder.
+ *  - storage.managedFolders.get - Read managed folder metadata.
+ *  - storage.managedFolders.getIamPolicy - Read managed folder IAM policy.
+ *  - storage.managedFolders.create - Create managed folder.
+ *  - storage.managedFolders.list - List managed folders.
+ *  - storage.managedFolders.setIamPolicy - Update managed folder IAM policy.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

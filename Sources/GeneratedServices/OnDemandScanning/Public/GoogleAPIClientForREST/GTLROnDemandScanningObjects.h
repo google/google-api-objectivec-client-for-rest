@@ -18,6 +18,7 @@
 @class GTLROnDemandScanning_AnalysisCompleted;
 @class GTLROnDemandScanning_Artifact;
 @class GTLROnDemandScanning_AttestationOccurrence;
+@class GTLROnDemandScanning_BaseImage;
 @class GTLROnDemandScanning_BinarySourceInfo;
 @class GTLROnDemandScanning_BuildDefinition;
 @class GTLROnDemandScanning_BuildDefinition_ExternalParameters;
@@ -28,22 +29,29 @@
 @class GTLROnDemandScanning_BuildProvenance;
 @class GTLROnDemandScanning_BuildProvenance_BuildOptions;
 @class GTLROnDemandScanning_Category;
+@class GTLROnDemandScanning_CISAKnownExploitedVulnerabilities;
 @class GTLROnDemandScanning_CloudRepoSourceContext;
 @class GTLROnDemandScanning_Command;
 @class GTLROnDemandScanning_Completeness;
 @class GTLROnDemandScanning_ComplianceOccurrence;
+@class GTLROnDemandScanning_ComplianceVersion;
 @class GTLROnDemandScanning_CVSS;
 @class GTLROnDemandScanning_DeploymentOccurrence;
 @class GTLROnDemandScanning_DiscoveryOccurrence;
 @class GTLROnDemandScanning_DSSEAttestationOccurrence;
 @class GTLROnDemandScanning_Envelope;
 @class GTLROnDemandScanning_EnvelopeSignature;
+@class GTLROnDemandScanning_ExploitPredictionScoringSystem;
+@class GTLROnDemandScanning_File;
+@class GTLROnDemandScanning_File_Digest;
 @class GTLROnDemandScanning_FileHashes;
 @class GTLROnDemandScanning_FileLocation;
 @class GTLROnDemandScanning_Fingerprint;
 @class GTLROnDemandScanning_GerritSourceContext;
 @class GTLROnDemandScanning_GitSourceContext;
+@class GTLROnDemandScanning_GrafeasV1BaseImage;
 @class GTLROnDemandScanning_GrafeasV1FileLocation;
+@class GTLROnDemandScanning_GrafeasV1LayerDetails;
 @class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaBuilder;
 @class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaCompleteness;
 @class GTLROnDemandScanning_GrafeasV1SlsaProvenanceZeroTwoSlsaConfigSource;
@@ -64,6 +72,7 @@
 @class GTLROnDemandScanning_Jwt;
 @class GTLROnDemandScanning_LanguagePackageDependency;
 @class GTLROnDemandScanning_Layer;
+@class GTLROnDemandScanning_LayerDetails;
 @class GTLROnDemandScanning_License;
 @class GTLROnDemandScanning_Location;
 @class GTLROnDemandScanning_Maintainer;
@@ -91,12 +100,16 @@
 @class GTLROnDemandScanning_ResourceDescriptor;
 @class GTLROnDemandScanning_ResourceDescriptor_Annotations;
 @class GTLROnDemandScanning_ResourceDescriptor_Digest;
+@class GTLROnDemandScanning_Risk;
 @class GTLROnDemandScanning_RunDetails;
 @class GTLROnDemandScanning_SbomReferenceIntotoPayload;
 @class GTLROnDemandScanning_SbomReferenceIntotoPredicate;
 @class GTLROnDemandScanning_SbomReferenceIntotoPredicate_Digest;
 @class GTLROnDemandScanning_SBOMReferenceOccurrence;
 @class GTLROnDemandScanning_SBOMStatus;
+@class GTLROnDemandScanning_SecretLocation;
+@class GTLROnDemandScanning_SecretOccurrence;
+@class GTLROnDemandScanning_SecretStatus;
 @class GTLROnDemandScanning_Signature;
 @class GTLROnDemandScanning_SlsaBuilder;
 @class GTLROnDemandScanning_SlsaCompleteness;
@@ -488,6 +501,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Package
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_SbomReference;
 /**
+ *  This represents a secret.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Secret;
+/**
  *  This represents an available package upgrade.
  *
  *  Value: "UPGRADE"
@@ -566,11 +585,17 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Rubygems;
 /**
- *  Rust packages from Cargo (Github ecosystem is `RUST`).
+ *  Rust packages from Cargo (GitHub ecosystem is `RUST`).
  *
  *  Value: "RUST"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Rust;
+/**
+ *  Swift packages from Swift Package Manager (SwiftPM).
+ *
+ *  Value: "SWIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Swift;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_PackageIssue.effectiveSeverity
@@ -695,6 +720,57 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_Pe
  *  Value: "SBOM_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SBOMStatus_SbomState_SbomStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_SecretOccurrence.kind
+
+/**
+ *  A GCP service account key per:
+ *  https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+ *
+ *  Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey;
+/**
+ *  The secret kind is unknown.
+ *
+ *  Value: "SECRET_KIND_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnknown;
+/**
+ *  Unspecified
+ *
+ *  Value: "SECRET_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_SecretStatus.status
+
+/**
+ *  The secret is invalid.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretStatus_Status_Invalid;
+/**
+ *  Unspecified
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretStatus_Status_StatusUnspecified;
+/**
+ *  The status of the secret is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretStatus_Status_Unknown;
+/**
+ *  The secret is valid.
+ *
+ *  Value: "VALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_SecretStatus_Status_Valid;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Version.kind
@@ -1040,6 +1116,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  BaseImage describes a base image of a container image.
+ */
+@interface GTLROnDemandScanning_BaseImage : GTLRObject
+
+/**
+ *  The number of layers that the base image is composed of.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *layerCount;
+
+/** The name of the base image. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The repository name in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  GTLROnDemandScanning_BinarySourceInfo
  */
 @interface GTLROnDemandScanning_BinarySourceInfo : GTLRObject
@@ -1048,8 +1145,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  The binary package. This is significant when the source is different than
  *  the binary itself. Historically if they've differed, we've stored the name
  *  of the source and its version in the package/version fields, but we should
- *  also store the binary package info, as that's what's actually installed. See
- *  b/175908657#comment15.
+ *  also store the binary package info, as that's what's actually installed.
  */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_PackageVersion *binaryVersion;
 
@@ -1262,6 +1358,20 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_CISAKnownExploitedVulnerabilities
+ */
+@interface GTLROnDemandScanning_CISAKnownExploitedVulnerabilities : GTLRObject
+
+/**
+ *  Whether the vulnerability is known to have been leveraged as part of a
+ *  ransomware campaign.
+ */
+@property(nonatomic, copy, nullable) NSString *knownRansomwareCampaignUse;
+
+@end
+
+
+/**
  *  A CloudRepoSourceContext denotes a particular revision in a Google Cloud
  *  Source Repo.
  */
@@ -1357,6 +1467,36 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 @property(nonatomic, copy, nullable) NSString *nonComplianceReason;
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_NonCompliantFile *> *nonCompliantFiles;
+
+/** The OS and config version the benchmark was run on. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ComplianceVersion *version;
+
+@end
+
+
+/**
+ *  Describes the CIS benchmark version that is applicable to a given OS and os
+ *  version.
+ */
+@interface GTLROnDemandScanning_ComplianceVersion : GTLRObject
+
+/**
+ *  The name of the document that defines this benchmark, e.g. "CIS
+ *  Container-Optimized OS".
+ */
+@property(nonatomic, copy, nullable) NSString *benchmarkDocument;
+
+/**
+ *  The CPE URI (https://cpe.mitre.org/specification/) this benchmark is
+ *  applicable to.
+ */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/**
+ *  The version of the benchmark. This is set to the version of the OS-specific
+ *  CIS document the benchmark is defined in.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -1648,6 +1788,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** The CPE of the resource being scanned. */
 @property(nonatomic, copy, nullable) NSString *cpe;
 
+/** Files that make up the resource described by the occurrence. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_File *> *files;
+
 /** The last time this resource was scanned. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
 
@@ -1724,6 +1867,53 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_ExploitPredictionScoringSystem
+ */
+@interface GTLROnDemandScanning_ExploitPredictionScoringSystem : GTLRObject
+
+/**
+ *  The percentile of the current score, the proportion of all scored
+ *  vulnerabilities with the same or a lower EPSS score
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentile;
+
+/**
+ *  The EPSS score representing the probability [0-1] of exploitation in the
+ *  wild in the next 30 days
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_File
+ */
+@interface GTLROnDemandScanning_File : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_File_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_File_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_File_Digest : GTLRObject
+@end
+
+
+/**
  *  Container message for hashes of byte content of files, used in source
  *  messages to verify integrity of source input to the build.
  */
@@ -1745,6 +1935,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  the path to war file combined with the path to jar file.
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_LayerDetails *layerDetails;
 
 @end
 
@@ -1813,6 +2005,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  BaseImage describes a base image of a container image.
+ */
+@interface GTLROnDemandScanning_GrafeasV1BaseImage : GTLRObject
+
+/**
+ *  The number of layers that the base image is composed of.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *layerCount;
+
+/** The name of the base image. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The repository name in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  Indicates the location at which a package was found.
  */
 @interface GTLROnDemandScanning_GrafeasV1FileLocation : GTLRObject
@@ -1822,6 +2035,47 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  the path to war file combined with the path to jar file.
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
+
+/**
+ *  Each package found in a file should have its own layer metadata (that is,
+ *  information from the origin layer of the package).
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1LayerDetails *layerDetails;
+
+@end
+
+
+/**
+ *  Details about the layer a package was found in.
+ */
+@interface GTLROnDemandScanning_GrafeasV1LayerDetails : GTLRObject
+
+/** The base images the layer is found within. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_GrafeasV1BaseImage *> *baseImages;
+
+/**
+ *  The layer chain ID (sha256 hash) of the layer in the container image.
+ *  https://github.com/opencontainers/image-spec/blob/main/config.md#layer-chainid
+ */
+@property(nonatomic, copy, nullable) NSString *chainId;
+
+/**
+ *  The layer build command that was used to build the layer. This may not be
+ *  found in all layers depending on how the container image is built.
+ */
+@property(nonatomic, copy, nullable) NSString *command;
+
+/**
+ *  The diff ID (typically a sha256 hash) of the layer in the container image.
+ */
+@property(nonatomic, copy, nullable) NSString *diffId;
+
+/**
+ *  The index of the layer in the container image.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 @end
 
@@ -2204,6 +2458,39 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  Details about the layer a package was found in.
+ */
+@interface GTLROnDemandScanning_LayerDetails : GTLRObject
+
+/** The base images the layer is found within. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_BaseImage *> *baseImages;
+
+/**
+ *  The layer chain ID (sha256 hash) of the layer in the container image.
+ *  https://github.com/opencontainers/image-spec/blob/main/config.md#layer-chainid
+ */
+@property(nonatomic, copy, nullable) NSString *chainId;
+
+/**
+ *  The layer build command that was used to build the layer. This may not be
+ *  found in all layers depending on how the container image is built.
+ */
+@property(nonatomic, copy, nullable) NSString *command;
+
+/** The diff ID (sha256 hash) of the layer in the container image. */
+@property(nonatomic, copy, nullable) NSString *diffId;
+
+/**
+ *  The index of the layer in the container image.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+@end
+
+
+/**
  *  License information.
  */
 @interface GTLROnDemandScanning_License : GTLRObject
@@ -2446,6 +2733,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        package installed via a package manager. (Value: "PACKAGE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_SbomReference This
  *        represents an SBOM Reference. (Value: "SBOM_REFERENCE")
+ *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Secret This represents a
+ *        secret. (Value: "SECRET")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Upgrade This represents an
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Vulnerability The note and
@@ -2484,6 +2773,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** Describes a specific SBOM reference occurrences. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_SBOMReferenceOccurrence *sbomReference;
+
+/** Describes a secret. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_SecretOccurrence *secret;
 
 /** Output only. The time this occurrence was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -2614,6 +2906,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @property(nonatomic, copy, nullable) NSString *hashDigest;
 
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_LayerDetails *layerDetails;
+
 /**
  *  The list of licenses found that are related to a given package. Note that
  *  licenses may also be stored on the BinarySourceInfo. If there is no
@@ -2663,14 +2957,13 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Rubygems Ruby
  *        packges (from RubyGems package manager). (Value: "RUBYGEMS")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Rust Rust packages
- *        from Cargo (Github ecosystem is `RUST`). (Value: "RUST")
+ *        from Cargo (GitHub ecosystem is `RUST`). (Value: "RUST")
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Swift Swift packages
+ *        from Swift Package Manager (SwiftPM). (Value: "SWIFT")
  */
 @property(nonatomic, copy, nullable) NSString *packageType;
 
-/**
- *  CVEs that this package is no longer vulnerable to
- *  go/drydock-dd-custom-binary-scanning
- */
+/** CVEs that this package is no longer vulnerable to */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *patchedCve;
 
 /** DEPRECATED */
@@ -3063,6 +3356,26 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_Risk
+ */
+@interface GTLROnDemandScanning_Risk : GTLRObject
+
+/**
+ *  CISA maintains the authoritative source of vulnerabilities that have been
+ *  exploited in the wild.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_CISAKnownExploitedVulnerabilities *cisaKev;
+
+/**
+ *  The Exploit Prediction Scoring System (EPSS) estimates the likelihood
+ *  (probability) that a software vulnerability will be exploited in the wild.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ExploitPredictionScoringSystem *epss;
+
+@end
+
+
+/**
  *  GTLROnDemandScanning_RunDetails
  */
 @interface GTLROnDemandScanning_RunDetails : GTLRObject
@@ -3181,6 +3494,75 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        Default unknown state. (Value: "SBOM_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *sbomState;
+
+@end
+
+
+/**
+ *  The location of the secret.
+ */
+@interface GTLROnDemandScanning_SecretLocation : GTLRObject
+
+/** The secret is found from a file. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_GrafeasV1FileLocation *fileLocation;
+
+@end
+
+
+/**
+ *  The occurrence provides details of a secret.
+ */
+@interface GTLROnDemandScanning_SecretOccurrence : GTLRObject
+
+/**
+ *  Required. Type of secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey
+ *        A GCP service account key per:
+ *        https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+ *        (Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY")
+ *    @arg @c kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnknown The
+ *        secret kind is unknown. (Value: "SECRET_KIND_UNKNOWN")
+ *    @arg @c kGTLROnDemandScanning_SecretOccurrence_Kind_SecretKindUnspecified
+ *        Unspecified (Value: "SECRET_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Optional. Locations where the secret is detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_SecretLocation *> *locations;
+
+/** Optional. Status of the secret. */
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_SecretStatus *> *statuses;
+
+@end
+
+
+/**
+ *  The status of the secret with a timestamp.
+ */
+@interface GTLROnDemandScanning_SecretStatus : GTLRObject
+
+/** Optional. Optional message about the status code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Optional. The status of the secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_SecretStatus_Status_Invalid The secret is
+ *        invalid. (Value: "INVALID")
+ *    @arg @c kGTLROnDemandScanning_SecretStatus_Status_StatusUnspecified
+ *        Unspecified (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLROnDemandScanning_SecretStatus_Status_Unknown The status of
+ *        the secret is unknown. (Value: "UNKNOWN")
+ *    @arg @c kGTLROnDemandScanning_SecretStatus_Status_Valid The secret is
+ *        valid. (Value: "VALID")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Optional. The time the secret status was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -3905,6 +4287,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** Output only. URLs related to this vulnerability. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_RelatedUrl *> *relatedUrls;
+
+/** Risk information about the vulnerability, such as CISA, EPSS, etc. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Risk *risk;
 
 /**
  *  Output only. The note provider assigned severity of this vulnerability.

@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Slides presentations.
 // Documentation:
-//   https://developers.google.com/slides/
+//   https://developers.google.com/workspace/slides/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -102,6 +102,8 @@
 @class GTLRSlides_Size;
 @class GTLRSlides_SlideProperties;
 @class GTLRSlides_SolidFill;
+@class GTLRSlides_SpeakerSpotlight;
+@class GTLRSlides_SpeakerSpotlightProperties;
 @class GTLRSlides_StretchedPictureFill;
 @class GTLRSlides_SubstringMatchCriteria;
 @class GTLRSlides_Table;
@@ -1012,7 +1014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Quad
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_QuadArrowCallout;
 /**
- *  Rectangle shape. Corresponds to ECMA-376 ST_ShapeType 'rect'.
+ *  Rectangle shape. Corresponds to ECMA-376 ST_ShapeType 'rect'
  *
  *  Value: "RECTANGLE"
  */
@@ -1233,7 +1235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Trap
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Triangle;
 /**
- *  The shape type that is not predefined.
+ *  Default value. This value is unused.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -2354,7 +2356,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light2;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light3;
 /**
- *  A recolor effect that lightens the image using the page's forth available
+ *  A recolor effect that lightens the image using the page's fourth available
  *  color from its color scheme.
  *
  *  Value: "LIGHT4"
@@ -3246,7 +3248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_QuadArrow;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_QuadArrowCallout;
 /**
- *  Rectangle shape. Corresponds to ECMA-376 ST_ShapeType 'rect'.
+ *  Rectangle shape. Corresponds to ECMA-376 ST_ShapeType 'rect'
  *
  *  Value: "RECTANGLE"
  */
@@ -3467,7 +3469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Trapezoid;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Triangle;
 /**
- *  The shape type that is not predefined.
+ *  Default value. This value is unused.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -4092,7 +4094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The autofit properties of a Shape.
+ *  The autofit properties of a Shape. This property is only set for shapes that
+ *  allow text.
  */
 @interface GTLRSlides_Autofit : GTLRObject
 
@@ -4101,7 +4104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  AUTOFIT_TYPE_UNSPECIFIED, the autofit type is inherited from a parent
  *  placeholder if it exists. The field is automatically set to NONE if a
  *  request is made that might affect text fitting within its bounding text box.
- *  In this case the font_scale is applied to the font_size and the
+ *  In this case, the font_scale is applied to the font_size and the
  *  line_spacing_reduction is applied to the line_spacing. Both properties are
  *  also reset to default values.
  *
@@ -4120,8 +4123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  The font scale applied to the shape. For shapes with autofit_type NONE or
  *  SHAPE_AUTOFIT, this value is the default value of 1. For TEXT_AUTOFIT, this
- *  value multiplied by the font_size gives the font size that is rendered in
- *  the editor. This property is read-only.
+ *  value multiplied by the font_size gives the font size that's rendered in the
+ *  editor. This property is read-only.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4131,7 +4134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The line spacing reduction applied to the shape. For shapes with
  *  autofit_type NONE or SHAPE_AUTOFIT, this value is the default value of 0.
  *  For TEXT_AUTOFIT, this value subtracted from the line_spacing gives the line
- *  spacing that is rendered in the editor. This property is read-only.
+ *  spacing that's rendered in the editor. This property is read-only.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4767,7 +4770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        quad-arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'quadArrowCallout' (Value: "QUAD_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Rectangle Rectangle
- *        shape. Corresponds to ECMA-376 ST_ShapeType 'rect'. (Value:
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'rect' (Value:
  *        "RECTANGLE")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Ribbon Ribbon shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'ribbon' (Value: "RIBBON")
@@ -4858,8 +4861,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        "TRAPEZOID")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Triangle Triangle shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'triangle' (Value: "TRIANGLE")
- *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_TypeUnspecified The shape
- *        type that is not predefined. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_TypeUnspecified Default
+ *        value. This value is unused. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_UpArrow Up arrow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'upArrow' (Value: "UP_ARROW")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_UpArrowCallout Callout up
@@ -5852,12 +5855,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The index of the connection site on the connected page element. In most
  *  cases, it corresponds to the predefined connection site index from the
  *  ECMA-376 standard. More information on those connection sites can be found
- *  in the description of the "cnx" attribute in section 20.1.9.9 and Annex H.
- *  "Predefined DrawingML Shape and Text Geometries" of "Office Open XML File
- *  Formats-Fundamentals and Markup Language Reference", part 1 of [ECMA-376 5th
- *  edition]
- *  (http://www.ecma-international.org/publications/standards/Ecma-376.htm). The
- *  position of each connection site can also be viewed from Slides editor.
+ *  in both the description of the "cxn" attribute in section 20.1.9.9 and
+ *  "Annex H. Example Predefined DrawingML Shape and Text Geometries" of "Office
+ *  Open XML File Formats - Fundamentals and Markup Language Reference", part 1
+ *  of [ECMA-376 5th
+ *  edition](https://ecma-international.org/publications-and-standards/standards/ecma-376/).
+ *  The position of each connection site can also be viewed from Slides editor.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6438,6 +6441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** The size of the page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_Size *size;
 
+/** A Speaker Spotlight. */
+@property(nonatomic, strong, nullable) GTLRSlides_SpeakerSpotlight *speakerSpotlight;
+
 /** A table page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_Table *table;
 
@@ -6863,7 +6869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        image using the page's third available color from its color scheme.
  *        (Value: "LIGHT3")
  *    @arg @c kGTLRSlides_Recolor_Name_Light4 A recolor effect that lightens the
- *        image using the page's forth available color from its color scheme.
+ *        image using the page's fourth available color from its color scheme.
  *        (Value: "LIGHT4")
  *    @arg @c kGTLRSlides_Recolor_Name_Light5 A recolor effect that lightens the
  *        image using the page's fifth available color from its color scheme.
@@ -7494,8 +7500,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing a generic shape that does not have a more
- *  specific classification.
+ *  A PageElement kind representing a generic shape that doesn't have a more
+ *  specific classification. For more information, see [Size and position page
+ *  elements](https://developers.google.com/workspace/slides/api/guides/transform).
  */
 @interface GTLRSlides_Shape : GTLRObject
 
@@ -7767,7 +7774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'quadArrowCallout' (Value:
  *        "QUAD_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Rectangle Rectangle shape. Corresponds
- *        to ECMA-376 ST_ShapeType 'rect'. (Value: "RECTANGLE")
+ *        to ECMA-376 ST_ShapeType 'rect' (Value: "RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Ribbon Ribbon shape. Corresponds to
  *        ECMA-376 ST_ShapeType 'ribbon' (Value: "RIBBON")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Ribbon2 Ribbon 2 shape. Corresponds to
@@ -7850,8 +7857,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        to ECMA-376 ST_ShapeType 'trapezoid' (Value: "TRAPEZOID")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Triangle Triangle shape. Corresponds
  *        to ECMA-376 ST_ShapeType 'triangle' (Value: "TRIANGLE")
- *    @arg @c kGTLRSlides_Shape_ShapeType_TypeUnspecified The shape type that is
- *        not predefined. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_Shape_ShapeType_TypeUnspecified Default value. This
+ *        value is unused. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSlides_Shape_ShapeType_UpArrow Up arrow shape. Corresponds to
  *        ECMA-376 ST_ShapeType 'upArrow' (Value: "UP_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_UpArrowCallout Callout up arrow shape.
@@ -8120,6 +8127,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  A PageElement kind representing a Speaker Spotlight.
+ */
+@interface GTLRSlides_SpeakerSpotlight : GTLRObject
+
+/** The properties of the Speaker Spotlight. */
+@property(nonatomic, strong, nullable) GTLRSlides_SpeakerSpotlightProperties *speakerSpotlightProperties;
+
+@end
+
+
+/**
+ *  The properties of the SpeakerSpotlight.
+ */
+@interface GTLRSlides_SpeakerSpotlightProperties : GTLRObject
+
+/** The outline of the Speaker Spotlight. If not set, it has no outline. */
+@property(nonatomic, strong, nullable) GTLRSlides_Outline *outline;
+
+/** The shadow of the Speaker Spotlight. If not set, it has no shadow. */
+@property(nonatomic, strong, nullable) GTLRSlides_Shadow *shadow;
+
+@end
+
+
+/**
  *  The stretched picture fill. The page or page element is filled entirely with
  *  the specified picture. The picture is stretched to fit its container.
  */
@@ -8155,6 +8187,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *matchCase;
+
+/**
+ *  Optional. True if the find value should be treated as a regular expression.
+ *  Any backslashes in the pattern should be escaped. - `True`: the search text
+ *  is treated as a regular expressions. - `False`: the search text is treated
+ *  as a substring for matching.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchByRegex;
 
 /** The text to search for in the shape or table. */
 @property(nonatomic, copy, nullable) NSString *text;

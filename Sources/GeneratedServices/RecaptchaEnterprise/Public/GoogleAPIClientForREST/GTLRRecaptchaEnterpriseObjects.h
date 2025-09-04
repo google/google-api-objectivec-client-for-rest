@@ -19,9 +19,12 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1EndpointVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction;
@@ -34,13 +37,16 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentBehavioralTrustVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentStolenInstrumentVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignals;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsUserSignals;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroupMembership;
@@ -49,6 +55,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreDistribution_ScoreBuckets;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics_ActionMetrics;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TransactionData;
@@ -61,6 +68,9 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1UserInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings_ActionSettings;
 @class GTLRRecaptchaEnterprise_GoogleRpcStatus;
 @class GTLRRecaptchaEnterprise_GoogleRpcStatus_Details_Item;
 
@@ -292,7 +302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_PaymentHeuristics;
 /**
- *  Default unspecified reason.
+ *  Unspecified reason. Do not use.
  *
  *  Value: "REASON_UNSPECIFIED"
  */
@@ -333,6 +343,106 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_TransactionDeclined;
 
 // ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot.botType
+
+/**
+ *  Software program that interacts with a site and performs tasks autonomously.
+ *
+ *  Value: "AI_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_AiAgent;
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "BOT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_BotTypeUnspecified;
+/**
+ *  Software that extracts specific data from sites for use.
+ *
+ *  Value: "CONTENT_SCRAPER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_ContentScraper;
+/**
+ *  Software that crawls sites and stores content for the purpose of efficient
+ *  retrieval, likely as part of a search engine.
+ *
+ *  Value: "SEARCH_INDEXER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_SearchIndexer;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event.fraudPrevention
+
+/**
+ *  Disable Fraud Prevention for this assessment, regardless of the Google Cloud
+ *  console settings.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Disabled;
+/**
+ *  Enable Fraud Prevention for this assessment, if Fraud Prevention is enabled
+ *  in the Google Cloud console.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled;
+/**
+ *  Default, unspecified setting. `fraud_prevention_assessment` is returned if
+ *  `transaction_data` is present in `Event` and Fraud Prevention is enabled in
+ *  the Google Cloud console.
+ *
+ *  Value: "FRAUD_PREVENTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_FraudPreventionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason.reason
+
+/**
+ *  This transaction is linked to a cluster of known fraudulent activity.
+ *
+ *  Value: "ASSOCIATED_WITH_FRAUD_CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_AssociatedWithFraudCluster;
+/**
+ *  User is cycling through a suspiciously large number of identifiers,
+ *  suggesting enumeration or validation attacks within a potential fraud
+ *  network.
+ *
+ *  Value: "EXCESSIVE_ENUMERATION_PATTERN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ExcessiveEnumerationPattern;
+/**
+ *  Identifiers used in this transaction originate from an unusual or
+ *  conflicting set of geolocations.
+ *
+ *  Value: "GEOLOCATION_DISCREPANCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_GeolocationDiscrepancy;
+/**
+ *  A suspiciously high number of recent transactions have used identifiers
+ *  present in this transaction.
+ *
+ *  Value: "HIGH_TRANSACTION_VELOCITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_HighTransactionVelocity;
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ReasonUnspecified;
+/**
+ *  User has a short history or no history in the reCAPTCHA network, suggesting
+ *  the possibility of synthetic identity generation.
+ *
+ *  Value: "SHORT_IDENTITY_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ShortIdentityHistory;
+
+// ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals.cardLabels
 
 /**
@@ -361,6 +471,51 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "VIRTUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudSignalsCardSignals_CardLabels_Virtual;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData.overrideType
+
+/**
+ *  Allowlist the IP address; i.e. give a `risk_analysis.score` of 0.9 for all
+ *  valid assessments.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_Allow;
+/**
+ *  Default override type that indicates this enum hasn't been specified.
+ *
+ *  Value: "OVERRIDE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_OverrideTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.challenge
+
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "CHALLENGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_ChallengeUnspecified;
+/**
+ *  A solution was submitted that was incorrect or otherwise deemed suspicious.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Failed;
+/**
+ *  No challenge was presented for solving.
+ *
+ *  Value: "NOCAPTCHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Nocaptcha;
+/**
+ *  A solution was submitted that was correct.
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Passed;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis.reasons
@@ -415,6 +570,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "UNEXPECTED_USAGE_PATTERNS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_UnexpectedUsagePatterns;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict.reasons
+
+/**
+ *  The provided phone number was invalid
+ *
+ *  Value: "INVALID_PHONE_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict_Reasons_InvalidPhoneNumber;
+/**
+ *  Default unspecified reason
+ *
+ *  Value: "SMS_TOLL_FRAUD_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict_Reasons_SmsTollFraudReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions.testingChallenge
@@ -657,12 +828,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage;
 /**
- *  Use reCAPTCHA WAF express protection to protect any content other than web
- *  pages, like APIs and IoT devices.
+ *  Deprecated: Use `express_settings` instead.
  *
  *  Value: "EXPRESS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_Express;
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_Express GTLR_DEPRECATED;
 /**
  *  Use reCAPTCHA session-tokens to protect the whole user session on the site's
  *  domain.
@@ -680,6 +850,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafService
 
+/**
+ *  Akamai
+ *
+ *  Value: "AKAMAI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Akamai;
 /**
  *  Cloud Armor
  *
@@ -757,6 +933,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "INVISIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Invisible;
+/**
+ *  Displays a visual challenge or not depending on the user risk analysis
+ *  score.
+ *
+ *  Value: "POLICY_BASED_CHALLENGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_PolicyBasedChallenge;
 /**
  *  Only used to produce scores. It doesn't display the "I'm not a robot"
  *  checkbox and never shows captcha challenges.
@@ -841,6 +1024,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  The AddIpOverride request message.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest : GTLRObject
+
+/** Required. IP override added to the key. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData *ipOverrideData;
+
+@end
+
+
+/**
+ *  Response for AddIpOverride.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideResponse : GTLRObject
+@end
+
+
+/**
  *  Settings specific to keys that can be used by Android apps.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings : GTLRObject
@@ -883,8 +1084,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  Optional. The annotation that will be assigned to the Event. This field can
- *  be left empty to provide reasons that apply to an event without concluding
+ *  Optional. The annotation that is assigned to the Event. This field can be
+ *  left empty to provide reasons that apply to an event without concluding
  *  whether the event is legitimate or fraudulent.
  *
  *  Likely values:
@@ -981,6 +1182,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo *accountVerification;
 
+/**
+ *  Optional. The environment creating the assessment. This describes your
+ *  environment (the system invoking CreateAssessment), NOT the environment of
+ *  your user.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment *assessmentEnvironment;
+
 /** Optional. The event being assessed. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event *event;
 
@@ -1009,6 +1217,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Assessment returned when a site key, a token, and a phone
+ *  number as `user_id` are provided. Account defender and SMS toll fraud
+ *  protection need to be enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment *phoneFraudAssessment;
+
+/**
  *  Optional. The private password leak verification field contains the
  *  parameters that are used to to check for leaks privately without sharing
  *  user credentials.
@@ -1020,6 +1235,62 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /** Output only. Properties of the provided event token. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties *tokenProperties;
+
+@end
+
+
+/**
+ *  The environment creating the assessment. This describes your environment
+ *  (the system invoking CreateAssessment), NOT the environment of your user.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AssessmentEnvironment : GTLRObject
+
+/**
+ *  Optional. Identifies the client module initiating the CreateAssessment
+ *  request. This can be the link to the client module's project. Examples
+ *  include: -
+ *  "github.com/GoogleCloudPlatform/recaptcha-enterprise-google-tag-manager" -
+ *  "cloud.google.com/recaptcha/docs/implement-waf-akamai" -
+ *  "cloud.google.com/recaptcha/docs/implement-waf-cloudflare" -
+ *  "wordpress.org/plugins/recaptcha-something"
+ */
+@property(nonatomic, copy, nullable) NSString *client;
+
+/** Optional. The version of the client module. For example, "1.0.0". */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Bot information and metadata.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot : GTLRObject
+
+/**
+ *  Optional. Enumerated field representing the type of bot.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_AiAgent
+ *        Software program that interacts with a site and performs tasks
+ *        autonomously. (Value: "AI_AGENT")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_BotTypeUnspecified
+ *        Default unspecified type. (Value: "BOT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_ContentScraper
+ *        Software that extracts specific data from sites for use. (Value:
+ *        "CONTENT_SCRAPER")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot_BotType_SearchIndexer
+ *        Software that crawls sites and stores content for the purpose of
+ *        efficient retrieval, likely as part of a search engine. (Value:
+ *        "SEARCH_INDEXER")
+ */
+@property(nonatomic, copy, nullable) NSString *botType;
+
+/**
+ *  Optional. Enumerated string value that indicates the identity of the bot,
+ *  formatted in kebab-case.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1107,8 +1378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Flag for a reCAPTCHA express request for an assessment without a
- *  token. If enabled, `site_key` must reference a SCORE key with WAF feature
- *  set to EXPRESS.
+ *  token. If enabled, `site_key` must reference an Express site key.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1116,12 +1386,30 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Flag for enabling firewall policy config assessment. If this flag
- *  is enabled, the firewall policy will be evaluated and a suggested firewall
- *  action will be returned in the response.
+ *  is enabled, the firewall policy is evaluated and a suggested firewall action
+ *  is returned in the response.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *firewallPolicyEvaluation;
+
+/**
+ *  Optional. The Fraud Prevention setting for this assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Disabled
+ *        Disable Fraud Prevention for this assessment, regardless of the Google
+ *        Cloud console settings. (Value: "DISABLED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_Enabled
+ *        Enable Fraud Prevention for this assessment, if Fraud Prevention is
+ *        enabled in the Google Cloud console. (Value: "ENABLED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event_FraudPrevention_FraudPreventionUnspecified
+ *        Default, unspecified setting. `fraud_prevention_assessment` is
+ *        returned if `transaction_data` is present in `Event` and Fraud
+ *        Prevention is enabled in the Google Cloud console. (Value:
+ *        "FRAUD_PREVENTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *fraudPrevention;
 
 /**
  *  Optional. Deprecated: use `user_info.account_id` instead. Unique stable
@@ -1136,8 +1424,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** Optional. HTTP header information about the request. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headers;
 
-/** Optional. JA3 fingerprint for SSL clients. */
+/**
+ *  Optional. JA3 fingerprint for SSL clients. To learn how to compute this
+ *  fingerprint, please refer to https://github.com/salesforce/ja3.
+ */
 @property(nonatomic, copy, nullable) NSString *ja3;
+
+/**
+ *  Optional. JA4 fingerprint for SSL clients. To learn how to compute this
+ *  fingerprint, please refer to https://github.com/FoxIO-LLC/ja4.
+ */
+@property(nonatomic, copy, nullable) NSString *ja4;
 
 /**
  *  Optional. The URI resource the user requested that triggered an assessment.
@@ -1195,6 +1492,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Settings specific to keys that can be used for reCAPTCHA Express.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings : GTLRObject
+@end
+
+
+/**
  *  An individual action. Each action represents what to do if a policy matches.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallAction : GTLRObject
@@ -1206,32 +1510,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionAllowAction *allow;
 
 /**
- *  This action will deny access to a given page. The user will get an HTTP
- *  error code.
+ *  This action denies access to a given page. The user gets an HTTP error code.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionBlockAction *block;
 
 /**
- *  This action will inject reCAPTCHA JavaScript code into the HTML page
- *  returned by the site backend.
+ *  This action injects reCAPTCHA JavaScript code into the HTML page returned by
+ *  the site backend.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionIncludeRecaptchaScriptAction *includeRecaptchaScript;
 
 /**
- *  This action will redirect the request to a ReCaptcha interstitial to attach
- *  a token.
+ *  This action redirects the request to a reCAPTCHA interstitial to attach a
+ *  token.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction *redirect;
 
 /**
- *  This action will set a custom header but allow the request to continue to
- *  the customer backend.
+ *  This action sets a custom header but allow the request to continue to the
+ *  customer backend.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSetHeaderAction *setHeader;
 
-/**
- *  This action will transparently serve a different page to an offending user.
- */
+/** This action transparently serves a different page to an offending user. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionSubstituteAction *substitute;
 
 @end
@@ -1265,7 +1566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  A redirect action returns a 307 (temporary redirect) response, pointing the
- *  user to a ReCaptcha interstitial page to attach a token.
+ *  user to a reCAPTCHA interstitial page to attach a token.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallActionRedirectAction : GTLRObject
 @end
@@ -1360,15 +1661,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicyAssessment : GTLRObject
 
 /**
- *  Output only. If the processing of a policy config fails, an error will be
- *  populated and the firewall_policy will be left empty.
+ *  Output only. If the processing of a policy config fails, an error is
+ *  populated and the firewall_policy is left empty.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleRpcStatus *error;
 
 /**
  *  Output only. The policy that matched the request. If more than one policy
  *  may match, this is the first match. If no policy matches the incoming
- *  request, the policy field will be left empty.
+ *  request, the policy field is left empty.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy *firewallPolicy;
 
@@ -1388,6 +1689,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  testing attack.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentCardTestingVerdict *cardTestingVerdict;
+
+/**
+ *  Output only. Reasons why the transaction is probably fraudulent and received
+ *  a high transaction risk score.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason *> *riskReasons;
 
 /**
  *  Output only. Assessment of this transaction for risk of a stolen instrument.
@@ -1435,6 +1742,41 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *risk;
+
+@end
+
+
+/**
+ *  Risk reasons applicable to the Fraud Prevention assessment.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason : GTLRObject
+
+/**
+ *  Output only. Risk reasons applicable to the Fraud Prevention assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_AssociatedWithFraudCluster
+ *        This transaction is linked to a cluster of known fraudulent activity.
+ *        (Value: "ASSOCIATED_WITH_FRAUD_CLUSTER")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ExcessiveEnumerationPattern
+ *        User is cycling through a suspiciously large number of identifiers,
+ *        suggesting enumeration or validation attacks within a potential fraud
+ *        network. (Value: "EXCESSIVE_ENUMERATION_PATTERN")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_GeolocationDiscrepancy
+ *        Identifiers used in this transaction originate from an unusual or
+ *        conflicting set of geolocations. (Value: "GEOLOCATION_DISCREPANCY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_HighTransactionVelocity
+ *        A suspiciously high number of recent transactions have used
+ *        identifiers present in this transaction. (Value:
+ *        "HIGH_TRANSACTION_VELOCITY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ReasonUnspecified
+ *        Default unspecified type. (Value: "REASON_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FraudPreventionAssessmentRiskReason_Reason_ShortIdentityHistory
+ *        User has a short history or no history in the reCAPTCHA network,
+ *        suggesting the possibility of synthetic identity generation. (Value:
+ *        "SHORT_IDENTITY_HISTORY")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -1529,12 +1871,42 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Apple Developer account details for the app that is protected by
- *  the reCAPTCHA Key. reCAPTCHA Enterprise leverages platform-specific checks
- *  like Apple App Attest and Apple DeviceCheck to protect your app from abuse.
- *  Providing these fields allows reCAPTCHA Enterprise to get a better
- *  assessment of the integrity of your app.
+ *  the reCAPTCHA Key. reCAPTCHA leverages platform-specific checks like Apple
+ *  App Attest and Apple DeviceCheck to protect your app from abuse. Providing
+ *  these fields allows reCAPTCHA to get a better assessment of the integrity of
+ *  your app.
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId *appleDeveloperId;
+
+@end
+
+
+/**
+ *  Information about the IP or IP range override.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData : GTLRObject
+
+/**
+ *  Required. The IP address to override (can be IPv4, IPv6 or CIDR). The IP
+ *  override must be a valid IPv4 or IPv6 address, or a CIDR range. The IP
+ *  override must be a public IP address. Example of IPv4: 168.192.5.6 Example
+ *  of IPv6: 2001:0000:130F:0000:0000:09C0:876A:130B Example of IPv4 with CIDR:
+ *  168.192.5.0/24 Example of IPv6 with CIDR: 2001:0DB8:1234::/48
+ */
+@property(nonatomic, copy, nullable) NSString *ip;
+
+/**
+ *  Required. Describes the type of IP override.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_Allow
+ *        Allowlist the IP address; i.e. give a `risk_analysis.score` of 0.9 for
+ *        all valid assessments. (Value: "ALLOW")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData_OverrideType_OverrideTypeUnspecified
+ *        Default override type that indicates this enum hasn't been specified.
+ *        (Value: "OVERRIDE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *overrideType;
 
 @end
 
@@ -1554,12 +1926,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** Required. Human-readable display name of this key. Modifiable by user. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Settings for keys that can be used by reCAPTCHA Express. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ExpressKeySettings *expressSettings;
+
 /** Settings for keys that can be used by iOS apps. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings *iosSettings;
 
 /**
  *  Optional. See [Creating and managing labels]
- *  (https://cloud.google.com/recaptcha-enterprise/docs/labels).
+ *  (https://cloud.google.com/recaptcha/docs/labels).
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels *labels;
 
@@ -1583,7 +1958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. See [Creating and managing labels]
- *  (https://cloud.google.com/recaptcha-enterprise/docs/labels).
+ *  (https://cloud.google.com/recaptcha/docs/labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1595,7 +1970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
- *  Response to request to list firewall policies belonging to a key.
+ *  Response to request to list firewall policies belonging to a project.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "firewallPolicies" property. If returned as the result of a query,
@@ -1615,6 +1990,33 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Token to retrieve the next page of results. It is set to empty if no
  *  policies remain in results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for ListIpOverrides.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "ipOverrides" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListIpOverridesResponse : GTLRCollectionObject
+
+/**
+ *  IP Overrides details.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData *> *ipOverrides;
+
+/**
+ *  Token to retrieve the next page of results. If this field is empty, no keys
+ *  remain in the results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1708,9 +2110,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Metrics : GTLRObject
 
 /**
- *  Metrics will be continuous and in order by dates, and in the granularity of
- *  day. Only challenge-based keys (CHECKBOX, INVISIBLE), will have
- *  challenge-based data.
+ *  Metrics are continuous and in order by dates, and in the granularity of day.
+ *  Only challenge-based keys (CHECKBOX, INVISIBLE) have challenge-based data.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics *> *challengeMetrics;
 
@@ -1721,12 +2122,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Metrics will be continuous and in order by dates, and in the granularity of
- *  day. All Key types should have score-based data.
+ *  Metrics are continuous and in order by dates, and in the granularity of day.
+ *  All Key types should have score-based data.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics *> *scoreMetrics;
 
-/** Inclusive start time aligned to a day (UTC). */
+/**
+ *  Inclusive start time aligned to a day in the America/Los_Angeles (Pacific)
+ *  timezone.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
@@ -1741,15 +2145,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Optional. If true, skips the billing check. A reCAPTCHA Enterprise key or
  *  migrated key behaves differently than a reCAPTCHA (non-Enterprise version)
  *  key when you reach a quota limit (see
- *  https://cloud.google.com/recaptcha-enterprise/quotas#quota_limit). To avoid
- *  any disruption of your usage, we check that a billing account is present. If
+ *  https://cloud.google.com/recaptcha/quotas#quota_limit). To avoid any
+ *  disruption of your usage, we check that a billing account is present. If
  *  your usage of reCAPTCHA is under the free quota, you can safely skip the
  *  billing check and proceed with the migration. See
- *  https://cloud.google.com/recaptcha-enterprise/docs/billing-information.
+ *  https://cloud.google.com/recaptcha/docs/billing-information.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skipBillingCheck;
+
+@end
+
+
+/**
+ *  Assessment for Phone Fraud
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment : GTLRObject
+
+/** Output only. Assessment of this phone event for risk of SMS toll fraud. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict *smsTollFraudVerdict;
 
 @end
 
@@ -1849,6 +2264,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  The RemoveIpOverride request message.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest : GTLRObject
+
+/** Required. IP override to be removed from the key. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData *ipOverrideData;
+
+@end
+
+
+/**
+ *  Response for RemoveIpOverride.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideResponse : GTLRObject
+@end
+
+
+/**
  *  The reorder firewall policies request message.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ReorderFirewallPoliciesRequest : GTLRObject
@@ -1892,6 +2325,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis : GTLRObject
 
 /**
+ *  Output only. Challenge information for POLICY_BASED_CHALLENGE and INVISIBLE
+ *  keys
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_ChallengeUnspecified
+ *        Default unspecified type. (Value: "CHALLENGE_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Failed
+ *        A solution was submitted that was incorrect or otherwise deemed
+ *        suspicious. (Value: "FAILED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Nocaptcha
+ *        No challenge was presented for solving. (Value: "NOCAPTCHA")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_Passed
+ *        A solution was submitted that was correct. (Value: "PASSED")
+ */
+@property(nonatomic, copy, nullable) NSString *challenge;
+
+/**
  *  Output only. Extended verdict reasons to be used for experimentation only.
  *  The set of possible reasons is subject to change.
  */
@@ -1907,6 +2357,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  Output only. Bots with identities that have been verified by reCAPTCHA and
+ *  detected in the event.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Bot *> *verifiedBots;
 
 @end
 
@@ -2045,13 +2501,32 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Information about SMS toll fraud.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SmsTollFraudVerdict : GTLRObject
+
+/** Output only. Reasons contributing to the SMS toll fraud verdict. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
+
+/**
+ *  Output only. Probability of an SMS event being fraudulent. Values are from
+ *  0.0 (lowest) to 1.0 (highest).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *risk;
+
+@end
+
+
+/**
  *  Options for user acceptance testing.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions : GTLRObject
 
 /**
  *  Optional. For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge
- *  requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable
+ *  requests for this site return nocaptcha if NOCAPTCHA, or an unsolvable
  *  challenge if CHALLENGE.
  *
  *  Likely values:
@@ -2069,8 +2544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *testingChallenge;
 
 /**
- *  Optional. All assessments for this Key will return this score. Must be
- *  between 0 (likely not legitimate) and 1 (likely legitimate) inclusive.
+ *  Optional. All assessments for this Key return this score. Must be between 0
+ *  (likely not legitimate) and 1 (likely legitimate) inclusive.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2566,8 +3041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage
  *        Redirects suspicious traffic to reCAPTCHA. (Value: "CHALLENGE_PAGE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_Express
- *        Use reCAPTCHA WAF express protection to protect any content other than
- *        web pages, like APIs and IoT devices. (Value: "EXPRESS")
+ *        Deprecated: Use `express_settings` instead. (Value: "EXPRESS")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_SessionToken
  *        Use reCAPTCHA session-tokens to protect the whole user session on the
  *        site's domain. (Value: "SESSION_TOKEN")
@@ -2580,6 +3054,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Required. The WAF service that uses this key.
  *
  *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Akamai
+ *        Akamai (Value: "AKAMAI")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca
  *        Cloud Armor (Value: "CA")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Cloudflare
@@ -2600,7 +3076,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings : GTLRObject
 
 /**
- *  Optional. If set to true, it means allowed_domains will not be enforced.
+ *  Optional. If set to true, it means allowed_domains are not enforced.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2625,7 +3101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /**
  *  Optional. Settings for the frequency and difficulty at which this key
  *  triggers captcha challenges. This should only be specified for
- *  IntegrationTypes CHECKBOX and INVISIBLE.
+ *  `IntegrationType` CHECKBOX, INVISIBLE or POLICY_BASED_CHALLENGE.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_ChallengeSecurityPreference_Balance
@@ -2641,6 +3117,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, copy, nullable) NSString *challengeSecurityPreference;
 
+/** Optional. Challenge settings. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings *challengeSettings;
+
 /**
  *  Required. Describes how this key is integrated with the website.
  *
@@ -2655,12 +3134,72 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Invisible
  *        Doesn't display the "I'm not a robot" checkbox, but may show captcha
  *        challenges after risk analysis. (Value: "INVISIBLE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_PolicyBasedChallenge
+ *        Displays a visual challenge or not depending on the user risk analysis
+ *        score. (Value: "POLICY_BASED_CHALLENGE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_IntegrationType_Score
  *        Only used to produce scores. It doesn't display the "I'm not a robot"
  *        checkbox and never shows captcha challenges. (Value: "SCORE")
  */
 @property(nonatomic, copy, nullable) NSString *integrationType;
 
+@end
+
+
+/**
+ *  Per-action challenge settings.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings : GTLRObject
+
+/**
+ *  Required. A challenge is triggered if the end-user score is below that
+ *  threshold. Value must be between 0 and 1 (inclusive).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scoreThreshold;
+
+@end
+
+
+/**
+ *  Settings for POLICY_BASED_CHALLENGE keys to control when a challenge is
+ *  triggered.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings : GTLRObject
+
+/**
+ *  Optional. The action to score threshold map. The action name should be the
+ *  same as the action name passed in the `data-action` attribute (see
+ *  https://cloud.google.com/recaptcha/docs/actions-website). Action names are
+ *  case-insensitive. There is a maximum of 100 action settings. An action name
+ *  has a maximum length of 100.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings_ActionSettings *actionSettings;
+
+/**
+ *  Required. Defines when a challenge is triggered (unless the default
+ *  threshold is overridden for the given action, see `action_settings`).
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings *defaultSettings;
+
+@end
+
+
+/**
+ *  Optional. The action to score threshold map. The action name should be the
+ *  same as the action name passed in the `data-action` attribute (see
+ *  https://cloud.google.com/recaptcha/docs/actions-website). Action names are
+ *  case-insensitive. There is a maximum of 100 action settings. An action name
+ *  has a maximum length of 100.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsActionSettings.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSettings_ActionSettings : GTLRObject
 @end
 
 

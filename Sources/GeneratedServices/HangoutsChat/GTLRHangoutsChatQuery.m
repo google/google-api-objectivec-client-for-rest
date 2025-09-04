@@ -4,8 +4,9 @@
 // API:
 //   Google Chat API (chat/v1)
 // Description:
-//   Enables apps to fetch information and perform actions in Google Chat.
-//   Authentication is a prerequisite for using the Google Chat REST API.
+//   The Google Chat API lets you build Chat apps to integrate your services
+//   with Google Chat and manage Chat resources such as spaces, members, and
+//   messages.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -26,6 +27,83 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 @implementation GTLRHangoutsChatQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRHangoutsChatQuery_CustomEmojisCreate
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_CustomEmoji *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/customEmojis";
+  GTLRHangoutsChatQuery_CustomEmojisCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRHangoutsChat_CustomEmoji class];
+  query.loggingName = @"chat.customEmojis.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_CustomEmojisDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_CustomEmojisDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Empty class];
+  query.loggingName = @"chat.customEmojis.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_CustomEmojisGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_CustomEmojisGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_CustomEmoji class];
+  query.loggingName = @"chat.customEmojis.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_CustomEmojisList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/customEmojis";
+  GTLRHangoutsChatQuery_CustomEmojisList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRHangoutsChat_ListCustomEmojisResponse class];
+  query.loggingName = @"chat.customEmojis.list";
+  return query;
+}
 
 @end
 
@@ -138,7 +216,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesDelete
 
-@dynamic name;
+@dynamic name, useAdminAccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -174,7 +252,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesGet
 
-@dynamic name;
+@dynamic name, useAdminAccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -210,7 +288,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersCreate
 
-@dynamic parent;
+@dynamic parent, useAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Membership *)object
                          parent:(NSString *)parent {
@@ -237,7 +315,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersDelete
 
-@dynamic name;
+@dynamic name, useAdminAccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -256,7 +334,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersGet
 
-@dynamic name;
+@dynamic name, useAdminAccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -275,7 +353,8 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMembersList
 
-@dynamic filter, pageSize, pageToken, parent, showGroups, showInvited;
+@dynamic filter, pageSize, pageToken, parent, showGroups, showInvited,
+         useAdminAccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -287,6 +366,33 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
   query.parent = parent;
   query.expectedObjectClass = [GTLRHangoutsChat_ListMembershipsResponse class];
   query.loggingName = @"chat.spaces.members.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesMembersPatch
+
+@dynamic name, updateMask, useAdminAccess;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Membership *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesMembersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Membership class];
+  query.loggingName = @"chat.spaces.members.patch";
   return query;
 }
 
@@ -516,7 +622,7 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesPatch
 
-@dynamic name, updateMask;
+@dynamic name, updateMask, useAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Space *)object
                            name:(NSString *)name {
@@ -541,6 +647,23 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesSearch
+
+@dynamic orderBy, pageSize, pageToken, query, useAdminAccess;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/spaces:search";
+  GTLRHangoutsChatQuery_SpacesSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRHangoutsChat_SearchSpacesResponse class];
+  query.loggingName = @"chat.spaces.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesSetup
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_SetUpSpaceRequest *)object {
@@ -558,6 +681,155 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRHangoutsChat_Space class];
   query.loggingName = @"chat.spaces.setup";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesSpaceEventsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_SpacesSpaceEventsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceEvent class];
+  query.loggingName = @"chat.spaces.spaceEvents.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_SpacesSpaceEventsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/spaceEvents";
+  GTLRHangoutsChatQuery_SpacesSpaceEventsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_ListSpaceEventsResponse class];
+  query.loggingName = @"chat.spaces.spaceEvents.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesGetSpaceReadState
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesGetSpaceReadState *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceReadState class];
+  query.loggingName = @"chat.users.spaces.getSpaceReadState";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceNotificationSetting class];
+  query.loggingName = @"chat.users.spaces.spaceNotificationSetting.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SpaceNotificationSetting *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesSpaceNotificationSettingPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceNotificationSetting class];
+  query.loggingName = @"chat.users.spaces.spaceNotificationSetting.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesThreadsGetThreadReadState
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesThreadsGetThreadReadState *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_ThreadReadState class];
+  query.loggingName = @"chat.users.spaces.threads.getThreadReadState";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSpacesUpdateSpaceReadState
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_SpaceReadState *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSpacesUpdateSpaceReadState *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_SpaceReadState class];
+  query.loggingName = @"chat.users.spaces.updateSpaceReadState";
   return query;
 }
 

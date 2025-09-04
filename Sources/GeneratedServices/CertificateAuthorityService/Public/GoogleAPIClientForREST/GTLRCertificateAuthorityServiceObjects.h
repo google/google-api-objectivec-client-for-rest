@@ -19,6 +19,7 @@
 
 @class GTLRCertificateAuthorityService_AccessUrls;
 @class GTLRCertificateAuthorityService_AllowedKeyType;
+@class GTLRCertificateAuthorityService_AttributeTypeAndValue;
 @class GTLRCertificateAuthorityService_AuditConfig;
 @class GTLRCertificateAuthorityService_AuditLogConfig;
 @class GTLRCertificateAuthorityService_Binding;
@@ -31,6 +32,7 @@
 @class GTLRCertificateAuthorityService_CertificateAuthority;
 @class GTLRCertificateAuthorityService_CertificateAuthority_Labels;
 @class GTLRCertificateAuthorityService_CertificateConfig;
+@class GTLRCertificateAuthorityService_CertificateConfigKeyId;
 @class GTLRCertificateAuthorityService_CertificateDescription;
 @class GTLRCertificateAuthorityService_CertificateExtensionConstraints;
 @class GTLRCertificateAuthorityService_CertificateFingerprint;
@@ -59,6 +61,7 @@
 @class GTLRCertificateAuthorityService_Policy;
 @class GTLRCertificateAuthorityService_PublicKey;
 @class GTLRCertificateAuthorityService_PublishingOptions;
+@class GTLRCertificateAuthorityService_RelativeDistinguishedName;
 @class GTLRCertificateAuthorityService_RevocationDetails;
 @class GTLRCertificateAuthorityService_RevokedCertificate;
 @class GTLRCertificateAuthorityService_RsaKeyType;
@@ -70,6 +73,7 @@
 @class GTLRCertificateAuthorityService_SubjectDescription;
 @class GTLRCertificateAuthorityService_SubordinateConfig;
 @class GTLRCertificateAuthorityService_SubordinateConfigChain;
+@class GTLRCertificateAuthorityService_UserDefinedAccessUrls;
 @class GTLRCertificateAuthorityService_X509Extension;
 @class GTLRCertificateAuthorityService_X509Parameters;
 
@@ -82,6 +86,64 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCertificateAuthorityService_AttributeTypeAndValue.type
+
+/**
+ *  Attribute type is unspecified.
+ *
+ *  Value: "ATTRIBUTE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_AttributeTypeUnspecified;
+/**
+ *  The "common name" of the subject.
+ *
+ *  Value: "COMMON_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CommonName;
+/**
+ *  The country code of the subject.
+ *
+ *  Value: "COUNTRY_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CountryCode;
+/**
+ *  The locality or city of the subject.
+ *
+ *  Value: "LOCALITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Locality;
+/**
+ *  The organization of the subject.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Organization;
+/**
+ *  The organizational unit of the subject.
+ *
+ *  Value: "ORGANIZATIONAL_UNIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_OrganizationalUnit;
+/**
+ *  The postal code of the subject.
+ *
+ *  Value: "POSTAL_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_PostalCode;
+/**
+ *  The province, territory, or regional state of the subject.
+ *
+ *  Value: "PROVINCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Province;
+/**
+ *  The street address of the subject.
+ *
+ *  Value: "STREET_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_StreetAddress;
 
 // ----------------------------------------------------------------------------
 // GTLRCertificateAuthorityService_AuditLogConfig.logType
@@ -145,6 +207,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_
  *  Value: "DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_Default;
+/**
+ *  A mode used to get an accurate representation of the Subject field's
+ *  distinguished name. Indicates that the certificate's Subject and/or
+ *  SubjectAltNames are specified in the certificate request. When parsing a PEM
+ *  CSR this mode will maintain the sequence of RDNs found in the CSR's subject
+ *  field in the issued Certificate. This mode requires the caller to have the
+ *  `privateca.certificates.create` permission.
+ *
+ *  Value: "RDN_SEQUENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_RdnSequence;
 /**
  *  A mode reserved for special cases. Indicates that the certificate should
  *  have one SPIFFE SubjectAltNames set by the service based on the caller's
@@ -766,6 +839,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  AttributeTypeAndValue specifies an attribute type and value. It can use
+ *  either a OID or enum value to specify the attribute type.
+ */
+@interface GTLRCertificateAuthorityService_AttributeTypeAndValue : GTLRObject
+
+/** Object ID for an attribute type of an attribute and value pair. */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_ObjectId *objectId;
+
+/**
+ *  The attribute type of the attribute and value pair.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_AttributeTypeUnspecified
+ *        Attribute type is unspecified. (Value: "ATTRIBUTE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CommonName
+ *        The "common name" of the subject. (Value: "COMMON_NAME")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_CountryCode
+ *        The country code of the subject. (Value: "COUNTRY_CODE")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Locality
+ *        The locality or city of the subject. (Value: "LOCALITY")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Organization
+ *        The organization of the subject. (Value: "ORGANIZATION")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_OrganizationalUnit
+ *        The organizational unit of the subject. (Value: "ORGANIZATIONAL_UNIT")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_PostalCode
+ *        The postal code of the subject. (Value: "POSTAL_CODE")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_Province
+ *        The province, territory, or regional state of the subject. (Value:
+ *        "PROVINCE")
+ *    @arg @c kGTLRCertificateAuthorityService_AttributeTypeAndValue_Type_StreetAddress
+ *        The street address of the subject. (Value: "STREET_ADDRESS")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** The value for the attribute type. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
@@ -925,13 +1039,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  Describes values that are relevant in a CA certificate.
+ *  Describes the X.509 basic constraints extension, per [RFC 5280 section
+ *  4.2.1.9](https://tools.ietf.org/html/rfc5280#section-4.2.1.9)
  */
 @interface GTLRCertificateAuthorityService_CaOptions : GTLRObject
 
 /**
- *  Optional. Refers to the "CA" X.509 extension, which is a boolean value. When
- *  this value is missing, the extension will be omitted from the CA
+ *  Optional. Refers to the "CA" boolean field in the X.509 extension. When this
+ *  value is missing, the basic constraints extension will be omitted from the
  *  certificate.
  *
  *  Uses NSNumber of boolValue.
@@ -939,11 +1054,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSNumber *isCa;
 
 /**
- *  Optional. Refers to the path length restriction X.509 extension. For a CA
- *  certificate, this value describes the depth of subordinate CA certificates
- *  that are allowed. If this value is less than 0, the request will fail. If
- *  this value is missing, the max path length will be omitted from the CA
- *  certificate.
+ *  Optional. Refers to the path length constraint field in the X.509 extension.
+ *  For a CA certificate, this value describes the depth of subordinate CA
+ *  certificates that are allowed. If this value is less than 0, the request
+ *  will fail. If this value is missing, the max path length will be omitted
+ *  from the certificate.
  *
  *  Uses NSNumber of intValue.
  */
@@ -970,7 +1085,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CaPool_Labels *labels;
 
 /**
- *  Output only. The resource name for this CaPool in the format `projects/ *
+ *  Identifier. The resource name for this CaPool in the format `projects/ *
  *  /locations/ * /caPools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1065,7 +1180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  Output only. The resource name for this Certificate in the format `projects/
+ *  Identifier. The resource name for this Certificate in the format `projects/
  *  * /locations/ * /caPools/ * /certificates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1098,6 +1213,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *        Subject and/or SubjectAltNames are specified in the certificate
  *        request. This mode requires the caller to have the
  *        `privateca.certificates.create` permission. (Value: "DEFAULT")
+ *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_RdnSequence
+ *        A mode used to get an accurate representation of the Subject field's
+ *        distinguished name. Indicates that the certificate's Subject and/or
+ *        SubjectAltNames are specified in the certificate request. When parsing
+ *        a PEM CSR this mode will maintain the sequence of RDNs found in the
+ *        CSR's subject field in the issued Certificate. This mode requires the
+ *        caller to have the `privateca.certificates.create` permission. (Value:
+ *        "RDN_SEQUENCE")
  *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_ReflectedSpiffe
  *        A mode reserved for special cases. Indicates that the certificate
  *        should have one SPIFFE SubjectAltNames set by the service based on the
@@ -1196,7 +1319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  Output only. The resource name for this CertificateAuthority in the format
+ *  Identifier. The resource name for this CertificateAuthority in the format
  *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1208,6 +1331,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  CA, this will only list the current CertificateAuthority's certificate.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pemCaCertificates;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The State for this CertificateAuthority.
@@ -1282,6 +1419,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Optional. User-defined URLs for CA certificate and CRLs. The service does
+ *  not publish content to these URLs. It is up to the user to mirror content to
+ *  these URLs.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_UserDefinedAccessUrls *userDefinedAccessUrls;
+
 @end
 
 
@@ -1317,10 +1461,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_SubjectConfig *subjectConfig;
 
 /**
+ *  Optional. When specified this provides a custom SKI to be used in the
+ *  certificate. This should only be used to maintain a SKI of an existing CA
+ *  originally created outside CA service, which was not generated using method
+ *  (1) described in RFC 5280 section 4.2.1.2.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateConfigKeyId *subjectKeyId;
+
+/**
  *  Required. Describes how some of the technical X.509 fields in a certificate
  *  should be populated.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_X509Parameters *x509Config;
+
+@end
+
+
+/**
+ *  A KeyId identifies a specific public key, usually by hashing the public key.
+ */
+@interface GTLRCertificateAuthorityService_CertificateConfigKeyId : GTLRObject
+
+/**
+ *  Required. The value of this KeyId encoded in lowercase hexadecimal. This is
+ *  most likely the 160 bit SHA-1 hash of the public key.
+ */
+@property(nonatomic, copy, nullable) NSString *keyId;
 
 @end
 
@@ -1367,6 +1533,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  public key, per https://tools.ietf.org/html/rfc5280#section-4.2.1.2.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_KeyId *subjectKeyId;
+
+/**
+ *  The hash of the pre-signed certificate, which will be signed by the CA.
+ *  Corresponds to the TBS Certificate in
+ *  https://tools.ietf.org/html/rfc5280#section-4.1.2. The field will always be
+ *  populated.
+ */
+@property(nonatomic, copy, nullable) NSString *tbsCertificateDigest;
 
 /** Describes some of the technical X.509 fields in a certificate. */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_X509Parameters *x509Description;
@@ -1460,7 +1634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateRevocationList_Labels *labels;
 
 /**
- *  Output only. The resource name for this CertificateRevocationList in the
+ *  Identifier. The resource name for this CertificateRevocationList in the
  *  format `projects/ * /locations/ * /caPools/ *certificateAuthorities/ * /
  *  certificateRevocationLists/ *`.
  */
@@ -1548,7 +1722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  Optional. The maximum lifetime allowed for issued Certificates that use this
- *  template. If the issuing CaPool's IssuancePolicy specifies a
+ *  template. If the issuing CaPool resource's IssuancePolicy specifies a
  *  maximum_lifetime the minimum of the two durations will be the maximum
  *  lifetime for issued Certificates. Note that if the issuing
  *  CertificateAuthority expires before a Certificate's requested
@@ -1558,7 +1732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDuration *maximumLifetime;
 
 /**
- *  Output only. The resource name for this CertificateTemplate in the format
+ *  Identifier. The resource name for this CertificateTemplate in the format
  *  `projects/ * /locations/ * /certificateTemplates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1611,7 +1785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 /**
  *  Optional. This field allows this CA to be disabled even if it's being
  *  depended on by another resource. However, doing so may result in unintended
- *  and unrecoverable effects on any dependent resource(s) since the CA will no
+ *  and unrecoverable effects on any dependent resources since the CA will no
  *  longer be able to issue certificates.
  *
  *  Uses NSNumber of boolValue.
@@ -1830,7 +2004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_FetchCaCertsResponse : GTLRObject
 
 /**
- *  The PEM encoded CA certificate chains of all Certificate Authorities in this
+ *  The PEM encoded CA certificate chains of all certificate authorities in this
  *  CaPool in the ENABLED, DISABLED, or STAGED states.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_CertChain *> *caCerts;
@@ -1894,6 +2068,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_AllowedKeyType *> *allowedKeyTypes;
 
 /**
+ *  Optional. The duration to backdate all certificates issued from this CaPool.
+ *  If not set, the certificates will be issued with a not_before_time of the
+ *  issuance time (i.e. the current time). If set, the certificates will be
+ *  issued with a not_before_time of the issuance time minus the
+ *  backdate_duration. The not_after_time will be adjusted to preserve the
+ *  requested lifetime. The backdate_duration must be less than or equal to 48
+ *  hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *backdateDuration;
+
+/**
  *  Optional. A set of X.509 values that will be applied to all certificates
  *  issued through this CaPool. If a certificate request includes conflicting
  *  values for the same properties, they will be overwritten by the values
@@ -1912,9 +2097,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  Optional. The maximum lifetime allowed for issued Certificates. Note that if
- *  the issuing CertificateAuthority expires before a Certificate's requested
- *  maximum_lifetime, the effective lifetime will be explicitly truncated to
- *  match it.
+ *  the issuing CertificateAuthority expires before a Certificate resource's
+ *  requested maximum_lifetime, the effective lifetime will be explicitly
+ *  truncated to match it.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maximumLifetime;
 
@@ -2112,8 +2297,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificateAuthoritiesRequest.next_page_token to retrieve the next page
- *  of results.
+ *  ListCertificateAuthoritiesRequest.page_token to retrieve the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2143,8 +2328,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificateAuthoritiesRequest.next_page_token to retrieve the next page
- *  of results.
+ *  ListCertificateAuthoritiesRequest.page_token to retrieve the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2175,8 +2360,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificateRevocationListsRequest.next_page_token to retrieve the next
- *  page of results.
+ *  ListCertificateRevocationListsRequest.page_token to retrieve the next page
+ *  of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2206,8 +2391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificatesRequest.next_page_token to retrieve the next page of
- *  results.
+ *  ListCertificatesRequest.page_token to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2237,7 +2421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  A token to retrieve next page of results. Pass this value in
- *  ListCertificateTemplatesRequest.next_page_token to retrieve the next page of
+ *  ListCertificateTemplatesRequest.page_token to retrieve the next page of
  *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2549,8 +2733,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2711,9 +2895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_PublishingOptions : GTLRObject
 
 /**
- *  Optional. Specifies the encoding format of each CertificateAuthority's CA
- *  certificate and CRLs. If this is omitted, CA certificates and CRLs will be
- *  published in PEM.
+ *  Optional. Specifies the encoding format of each CertificateAuthority
+ *  resource's CA certificate and CRLs. If this is omitted, CA certificates and
+ *  CRLs will be published in PEM.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Der
@@ -2783,6 +2967,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *        Unknown repair action. (Value: "UNKNOWN_REPAIR_ACTION")
  */
 @property(nonatomic, copy, nullable) NSString *exclusiveAction;
+
+@end
+
+
+/**
+ *  RelativeDistinguishedName specifies a relative distinguished name which will
+ *  be used to build a distinguished name.
+ */
+@interface GTLRCertificateAuthorityService_RelativeDistinguishedName : GTLRObject
+
+/** Attributes describes the attribute value assertions in the RDN. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_AttributeTypeAndValue *> *attributes;
 
 @end
 
@@ -3064,6 +3260,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 /** The province, territory, or regional state of the subject. */
 @property(nonatomic, copy, nullable) NSString *province;
 
+/** This field can be used in place of the named subject fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_RelativeDistinguishedName *> *rdnSequence;
+
 /** The street address of the subject. */
 @property(nonatomic, copy, nullable) NSString *streetAddress;
 
@@ -3238,6 +3437,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  User-defined URLs for accessing content published by this
+ *  CertificateAuthority.
+ */
+@interface GTLRCertificateAuthorityService_UserDefinedAccessUrls : GTLRObject
+
+/**
+ *  Optional. A list of URLs where the issuer CA certificate may be downloaded,
+ *  which appears in the "Authority Information Access" extension in the
+ *  certificate. If specified, the default Cloud Storage URLs will be omitted.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aiaIssuingCertificateUrls;
+
+/**
+ *  Optional. A list of URLs where to obtain CRL information, i.e. the
+ *  DistributionPoint.fullName described by
+ *  https://tools.ietf.org/html/rfc5280#section-4.2.1.13. If specified, the
+ *  default Cloud Storage URLs will be omitted.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *crlAccessUrls;
+
+@end
+
+
+/**
  *  An X509Extension specifies an X.509 extension, which may be used in
  *  different parts of X.509 objects like certificates, CSRs, and CRLs.
  */
@@ -3285,7 +3508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /**
  *  Optional. Describes options in this X509Parameters that are relevant in a CA
- *  certificate.
+ *  certificate. If not specified, a default basic constraints extension with
+ *  `is_ca=false` will be added for leaf certificates.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CaOptions *caOptions;
 

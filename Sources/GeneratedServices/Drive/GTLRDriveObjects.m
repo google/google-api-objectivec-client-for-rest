@@ -6,9 +6,17 @@
 // Description:
 //   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/
+//   https://developers.google.com/workspace/drive/
 
 #import <GoogleAPIClientForREST/GTLRDriveObjects.h>
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRDrive_ResolveAccessProposalRequest.action
+NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Accept = @"ACCEPT";
+NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 // ----------------------------------------------------------------------------
 //
@@ -111,6 +119,35 @@
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_AccessProposal
+//
+
+@implementation GTLRDrive_AccessProposal
+@dynamic createTime, fileId, proposalId, recipientEmailAddress,
+         requesterEmailAddress, requestMessage, rolesAndViews;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rolesAndViews" : [GTLRDrive_AccessProposalRoleAndView class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_AccessProposalRoleAndView
+//
+
+@implementation GTLRDrive_AccessProposalRoleAndView
+@dynamic role, view;
 @end
 
 
@@ -305,6 +342,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_DownloadRestriction
+//
+
+@implementation GTLRDrive_DownloadRestriction
+@dynamic restrictedForReaders, restrictedForWriters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_DownloadRestrictionsMetadata
+//
+
+@implementation GTLRDrive_DownloadRestrictionsMetadata
+@dynamic effectiveDownloadRestrictionWithContext, itemDownloadRestriction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Drive
 //
 
@@ -342,8 +399,8 @@
 
 @implementation GTLRDrive_Drive_Capabilities
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermissionRestriction,
-         canChangeDomainUsersOnlyRestriction, canChangeDriveBackground,
-         canChangeDriveMembersOnlyRestriction,
+         canChangeDomainUsersOnlyRestriction, canChangeDownloadRestriction,
+         canChangeDriveBackground, canChangeDriveMembersOnlyRestriction,
          canChangeSharingFoldersRequiresOrganizerPermissionRestriction,
          canComment, canCopy, canDeleteChildren, canDeleteDrive, canDownload,
          canEdit, canListChildren, canManageMembers, canReadRevisions,
@@ -359,7 +416,7 @@
 
 @implementation GTLRDrive_Drive_Restrictions
 @dynamic adminManagedRestrictions, copyRequiresWriterPermission,
-         domainUsersOnly, driveMembersOnly,
+         domainUsersOnly, downloadRestriction, driveMembersOnly,
          sharingFoldersRequiresOrganizerPermission;
 @end
 
@@ -394,9 +451,10 @@
 @implementation GTLRDrive_File
 @dynamic appProperties, capabilities, contentHints, contentRestrictions,
          copyRequiresWriterPermission, createdTime, descriptionProperty,
-         driveId, explicitlyTrashed, exportLinks, fileExtension, folderColorRgb,
-         fullFileExtension, hasAugmentedPermissions, hasThumbnail,
-         headRevisionId, iconLink, identifier, imageMediaMetadata,
+         downloadRestrictions, driveId, explicitlyTrashed, exportLinks,
+         fileExtension, folderColorRgb, fullFileExtension,
+         hasAugmentedPermissions, hasThumbnail, headRevisionId, iconLink,
+         identifier, imageMediaMetadata, inheritedPermissionsDisabled,
          isAppAuthorized, kind, labelInfo, lastModifyingUser, linkShareMetadata,
          md5Checksum, mimeType, modifiedByMe, modifiedByMeTime, modifiedTime,
          name, originalFilename, ownedByMe, owners, parents, permissionIds,
@@ -452,19 +510,21 @@
 @implementation GTLRDrive_File_Capabilities
 @dynamic canAcceptOwnership, canAddChildren, canAddFolderFromAnotherDrive,
          canAddMyDriveParent, canChangeCopyRequiresWriterPermission,
-         canChangeSecurityUpdateEnabled, canChangeViewersCanCopyContent,
-         canComment, canCopy, canDelete, canDeleteChildren, canDownload,
-         canEdit, canListChildren, canModifyContent,
-         canModifyContentRestriction, canModifyEditorContentRestriction,
-         canModifyLabels, canModifyOwnerContentRestriction,
-         canMoveChildrenOutOfDrive, canMoveChildrenOutOfTeamDrive,
-         canMoveChildrenWithinDrive, canMoveChildrenWithinTeamDrive,
-         canMoveItemIntoTeamDrive, canMoveItemOutOfDrive,
-         canMoveItemOutOfTeamDrive, canMoveItemWithinDrive,
-         canMoveItemWithinTeamDrive, canMoveTeamDriveItem, canReadDrive,
-         canReadLabels, canReadRevisions, canReadTeamDrive, canRemoveChildren,
-         canRemoveContentRestriction, canRemoveMyDriveParent, canRename,
-         canShare, canTrash, canTrashChildren, canUntrash;
+         canChangeItemDownloadRestriction, canChangeSecurityUpdateEnabled,
+         canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
+         canDeleteChildren, canDisableInheritedPermissions, canDownload,
+         canEdit, canEnableInheritedPermissions, canListChildren,
+         canModifyContent, canModifyContentRestriction,
+         canModifyEditorContentRestriction, canModifyLabels,
+         canModifyOwnerContentRestriction, canMoveChildrenOutOfDrive,
+         canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinDrive,
+         canMoveChildrenWithinTeamDrive, canMoveItemIntoTeamDrive,
+         canMoveItemOutOfDrive, canMoveItemOutOfTeamDrive,
+         canMoveItemWithinDrive, canMoveItemWithinTeamDrive,
+         canMoveTeamDriveItem, canReadDrive, canReadLabels, canReadRevisions,
+         canReadTeamDrive, canRemoveChildren, canRemoveContentRestriction,
+         canRemoveMyDriveParent, canRename, canShare, canTrash,
+         canTrashChildren, canUntrash;
 @end
 
 
@@ -778,6 +838,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_ListAccessProposalsResponse
+//
+
+@implementation GTLRDrive_ListAccessProposalsResponse
+@dynamic accessProposals, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessProposals" : [GTLRDrive_AccessProposal class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"accessProposals";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_ModifyLabelsRequest
 //
 
@@ -826,13 +908,52 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_Operation
+//
+
+@implementation GTLRDrive_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Operation_Metadata
+//
+
+@implementation GTLRDrive_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Operation_Response
+//
+
+@implementation GTLRDrive_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Permission
 //
 
 @implementation GTLRDrive_Permission
 @dynamic allowFileDiscovery, deleted, displayName, domain, emailAddress,
-         expirationTime, identifier, kind, pendingOwner, permissionDetails,
-         photoLink, role, teamDrivePermissionDetails, type, view;
+         expirationTime, identifier, inheritedPermissionsDisabled, kind,
+         pendingOwner, permissionDetails, photoLink, role,
+         teamDrivePermissionDetails, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -931,6 +1052,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_ResolveAccessProposalRequest
+//
+
+@implementation GTLRDrive_ResolveAccessProposalRequest
+@dynamic action, role, sendNotification, view;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"role" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Revision
 //
 
@@ -994,6 +1133,38 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_Status
+//
+
+@implementation GTLRDrive_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRDrive_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Status_Details_Item
+//
+
+@implementation GTLRDrive_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_TeamDrive
 //
 
@@ -1030,7 +1201,7 @@
 
 @implementation GTLRDrive_TeamDrive_Capabilities
 @dynamic canAddChildren, canChangeCopyRequiresWriterPermissionRestriction,
-         canChangeDomainUsersOnlyRestriction,
+         canChangeDomainUsersOnlyRestriction, canChangeDownloadRestriction,
          canChangeSharingFoldersRequiresOrganizerPermissionRestriction,
          canChangeTeamDriveBackground, canChangeTeamMembersOnlyRestriction,
          canComment, canCopy, canDeleteChildren, canDeleteTeamDrive,
@@ -1047,8 +1218,8 @@
 
 @implementation GTLRDrive_TeamDrive_Restrictions
 @dynamic adminManagedRestrictions, copyRequiresWriterPermission,
-         domainUsersOnly, sharingFoldersRequiresOrganizerPermission,
-         teamMembersOnly;
+         domainUsersOnly, downloadRestriction,
+         sharingFoldersRequiresOrganizerPermission, teamMembersOnly;
 @end
 
 

@@ -5,7 +5,15 @@
 //   Access Context Manager API (accesscontextmanager/v1)
 // Description:
 //   An API for setting attribute based access control to requests to Google
-//   Cloud services.
+//   Cloud services. *Warning:* Do not mix *v1alpha* and *v1* API usage in the
+//   same access policy. The v1alpha API supports new Access Context Manager
+//   features, which may have different attributes or behaviors that are not
+//   supported by v1. The practice of mixed API usage within a policy may result
+//   in the inability to update that policy, including any access levels or
+//   service perimeters belonging to it. It is not recommended to use both v1
+//   and v1alpha for modifying policies with critical service perimeters.
+//   Modifications using v1alpha should be limited to policies with
+//   non-production/non-critical service perimeters.
 // Documentation:
 //   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
@@ -17,12 +25,16 @@
 
 @class GTLRAccessContextManager_AccessLevel;
 @class GTLRAccessContextManager_AccessPolicy;
+@class GTLRAccessContextManager_AccessScope;
+@class GTLRAccessContextManager_AccessSettings;
 @class GTLRAccessContextManager_ApiOperation;
+@class GTLRAccessContextManager_Application;
 @class GTLRAccessContextManager_AuditConfig;
 @class GTLRAccessContextManager_AuditLogConfig;
 @class GTLRAccessContextManager_AuthorizedOrgsDesc;
 @class GTLRAccessContextManager_BasicLevel;
 @class GTLRAccessContextManager_Binding;
+@class GTLRAccessContextManager_ClientScope;
 @class GTLRAccessContextManager_Condition;
 @class GTLRAccessContextManager_CustomLevel;
 @class GTLRAccessContextManager_DevicePolicy;
@@ -43,8 +55,10 @@
 @class GTLRAccessContextManager_Operation_Response;
 @class GTLRAccessContextManager_OsConstraint;
 @class GTLRAccessContextManager_Policy;
+@class GTLRAccessContextManager_ScopedAccessSettings;
 @class GTLRAccessContextManager_ServicePerimeter;
 @class GTLRAccessContextManager_ServicePerimeterConfig;
+@class GTLRAccessContextManager_SessionSettings;
 @class GTLRAccessContextManager_Status;
 @class GTLRAccessContextManager_Status_Details_Item;
 @class GTLRAccessContextManager_SupportedService;
@@ -371,6 +385,68 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular;
 
 // ----------------------------------------------------------------------------
+// GTLRAccessContextManager_SessionSettings.sessionReauthMethod
+
+/**
+ *  The user will be prompted to perform regular login. Users who are enrolled
+ *  for two-step verification and haven't chosen "Remember this computer" will
+ *  be prompted for their second factor.
+ *
+ *  Value: "LOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Login;
+/**
+ *  The user will be prompted for their password.
+ *
+ *  Value: "PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password;
+/**
+ *  The user will be prompted to authenticate using their security key. If no
+ *  security key has been configured, then authentication will fallback to
+ *  LOGIN.
+ *
+ *  Value: "SECURITY_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey;
+/**
+ *  If method is undefined in the API, LOGIN will be used by default.
+ *
+ *  Value: "SESSION_REAUTH_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SessionReauthMethodUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_SupportedService.serviceSupportStage
+
+/**
+ *  Deprecated features are scheduled to be shut down and removed.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Deprecated;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Ga;
+/**
+ *  PREVIEW indicates a pre-release stage where the product is functionally
+ *  complete but undergoing real-world testing.
+ *
+ *  Value: "PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Preview;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "SERVICE_SUPPORT_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_ServiceSupportStageUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAccessContextManager_SupportedService.supportStage
 
 /**
@@ -463,7 +539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name for the `AccessLevel`. Format:
+ *  Identifier. Resource name for the `AccessLevel`. Format:
  *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
  *  `access_level` component must begin with a letter, followed by alphanumeric
  *  characters or `_`. Its maximum length is 50 characters. After you create an
@@ -489,13 +565,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 /**
  *  Output only. An opaque identifier for the current version of the
  *  `AccessPolicy`. This will always be a strongly validated etag, meaning that
- *  two Access Polices will be identical if and only if their etags are
+ *  two Access Policies will be identical if and only if their etags are
  *  identical. Clients should not expect this to be in any specific format.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Resource name of the `AccessPolicy`. Format:
+ *  Output only. Identifier. Resource name of the `AccessPolicy`. Format:
  *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -528,6 +604,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 
 /**
+ *  Access scope represents the client scope, etc. to which the settings will be
+ *  applied to.
+ */
+@interface GTLRAccessContextManager_AccessScope : GTLRObject
+
+/** Optional. Client scope for this access scope. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_ClientScope *clientScope;
+
+@end
+
+
+/**
+ *  Access settings represent the set of conditions that must be met for access
+ *  to be granted. At least one of the fields must be set.
+ */
+@interface GTLRAccessContextManager_AccessSettings : GTLRObject
+
+/**
+ *  Optional. Access level that a user must have to be granted access. Only one
+ *  access level is supported, not multiple. This repeated field must have
+ *  exactly one element. Example:
+ *  "accessPolicies/9522/accessLevels/device_trusted"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
+
+/**
+ *  Optional. Session settings applied to user access on a given AccessScope.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_SessionSettings *sessionSettings;
+
+@end
+
+
+/**
  *  Identification for an API Operation.
  */
 @interface GTLRAccessContextManager_ApiOperation : GTLRObject
@@ -546,6 +656,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  set to `*` will allow all methods AND permissions for all services.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
+
+@end
+
+
+/**
+ *  An application that accesses Google Cloud APIs.
+ */
+@interface GTLRAccessContextManager_Application : GTLRObject
+
+/** The OAuth client ID of the application. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** The name of the application. Example: "Cloud Console" */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -678,7 +802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *authorizationType;
 
 /**
- *  Resource name for the `AuthorizedOrgsDesc`. Format:
+ *  Identifier. Resource name for the `AuthorizedOrgsDesc`. Format:
  *  `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
  *  The `authorized_orgs_desc` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
@@ -813,6 +937,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRAccessContextManager_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Client scope represents the application, etc. subject to this binding's
+ *  restrictions.
+ */
+@interface GTLRAccessContextManager_ClientScope : GTLRObject
+
+/** Optional. The application that is subject to this binding's scope. */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_Application *restrictedClientApplication;
+
 @end
 
 
@@ -987,8 +1123,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @interface GTLRAccessContextManager_EgressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this [EgressPolicy], in
- *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
+ *  A list of identities that are allowed access through [EgressPolicy].
+ *  Identities can be an individual user, service account, Google group, or
+ *  third-party identity. For third-party identity, only single identities are
+ *  supported and other identity types are not supported. The `v1` identities
+ *  that have the prefix `user`, `group`, `serviceAccount`, and `principal` in
+ *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -1072,6 +1212,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_EgressTo *egressTo;
 
+/**
+ *  Optional. Human-readable title for the egress rule. The title must be unique
+ *  within the perimeter and can not exceed 100 characters. Within the access
+ *  policy, the combined length of all rule titles must not exceed 240,000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 
@@ -1093,6 +1241,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, copy, nullable) NSString *accessLevel;
 
+/**
+ *  A Google Cloud resource from the service perimeter that you want to allow to
+ *  access data outside the perimeter. This field supports only projects. The
+ *  project format is `projects/{project_number}`. You can't use `*` in this
+ *  field to allow all Google Cloud resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
 @end
 
 
@@ -1109,8 +1265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 /**
  *  A list of external resources that are allowed to be accessed. Only AWS and
- *  Azure resources are supported. For Amazon S3, the supported format is
- *  s3://BUCKET_NAME. For Azure Storage, the supported format is
+ *  Azure resources are supported. For Amazon S3, the supported formats are
+ *  s3://BUCKET_NAME, s3a://BUCKET_NAME, and s3n://BUCKET_NAME. For Azure
+ *  Storage, the supported format is
  *  azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches if
  *  it contains an external resource in this list (Example: s3://bucket/path).
  *  Currently '*' is not allowed.
@@ -1132,6 +1289,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  to all resources outside the perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+/**
+ *  IAM roles that represent the set of operations that the sources specified in
+ *  the corresponding EgressFrom. are allowed to perform in this
+ *  ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 @end
 
@@ -1218,9 +1382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dryRunAccessLevels;
 
 /**
- *  Required. Immutable. Google Group id whose members are subject to this
- *  binding's restrictions. See "id" in the [G Suite Directory API's Groups
- *  resource]
+ *  Optional. Immutable. Google Group id whose users are subject to this
+ *  binding's restrictions. See "id" in the [Google Workspace Directory API's
+ *  Group Resource]
  *  (https://developers.google.com/admin-sdk/directory/v1/reference/groups#resource).
  *  If a group's email address/alias is changed, this resource will continue to
  *  point at the changed group. This field does not accept group email addresses
@@ -1237,11 +1401,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. A list of applications that are subject to this binding's
+ *  restrictions. If the list is empty, the binding restrictions will
+ *  universally apply to all applications.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_Application *> *restrictedClientApplications;
+
+/**
+ *  Optional. A list of scoped access settings that set this binding's
+ *  restrictions on a subset of applications. This field cannot be set if
+ *  restricted_client_applications is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ScopedAccessSettings *> *scopedAccessSettings;
+
+/**
+ *  Optional. The Google Cloud session length (GCSL) policy for the group key.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_SessionSettings *sessionSettings;
+
 @end
 
 
 /**
- *  Metadata of GCP Access Binding Long Running Operations.
+ *  Metadata of Google Cloud Access Binding Long Running Operations.
  */
 @interface GTLRAccessContextManager_GcpUserAccessBindingOperationMetadata : GTLRObject
 @end
@@ -1294,8 +1477,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @interface GTLRAccessContextManager_IngressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this ingress policy, in
- *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
+ *  A list of identities that are allowed access through [IngressPolicy].
+ *  Identities can be an individual user, service account, Google group, or
+ *  third-party identity. For third-party identity, only single identities are
+ *  supported and other identity types are not supported. The `v1` identities
+ *  that have the prefix `user`, `group`, `serviceAccount`, and `principal` in
+ *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -1351,6 +1538,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  cause this IngressPolicy to apply.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_IngressTo *ingressTo;
+
+/**
+ *  Optional. Human-readable title for the ingress rule. The title must be
+ *  unique within the perimeter and can not exceed 100 characters. Within the
+ *  access policy, the combined length of all rule titles must not exceed
+ *  240,000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -1408,6 +1603,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  specified, then access to all resources inside the perimeter are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+/**
+ *  IAM roles that represent the set of operations that the sources specified in
+ *  the corresponding IngressFrom are allowed to perform in this
+ *  ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 @end
 
@@ -1916,6 +2118,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 
 /**
+ *  A relationship between access settings and its scope.
+ */
+@interface GTLRAccessContextManager_ScopedAccessSettings : GTLRObject
+
+/**
+ *  Optional. Access settings for this scoped access settings. This field may be
+ *  empty if dry_run_settings is set.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessSettings *activeSettings;
+
+/**
+ *  Optional. Dry-run access settings for this scoped access settings. This
+ *  field may be empty if active_settings is set.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessSettings *dryRunSettings;
+
+/**
+ *  Optional. Application, etc. to which the access settings will be applied to.
+ *  Implicitly, this is the scoped access settings key; as such, it must be
+ *  unique and non-empty.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_AccessScope *scope;
+
+@end
+
+
+/**
  *  `ServicePerimeter` describes a set of Google Cloud resources which can
  *  freely import and export data amongst themselves, but not export outside of
  *  the `ServicePerimeter`. If a request with a source within this
@@ -1937,7 +2166,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name for the `ServicePerimeter`. Format:
+ *  Optional. An opaque identifier for the current version of the
+ *  `ServicePerimeter`. This identifier does not follow any specific format. If
+ *  an etag is not provided, the operation will be performed as if a valid etag
+ *  is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. Resource name for the `ServicePerimeter`. Format:
  *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
  *  `service_perimeter` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
@@ -2054,6 +2291,69 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 
 /**
+ *  Stores settings related to Google Cloud Session Length including session
+ *  duration, the type of challenge (i.e. method) they should face when their
+ *  session expires, and other related settings.
+ */
+@interface GTLRAccessContextManager_SessionSettings : GTLRObject
+
+/**
+ *  Optional. How long a user is allowed to take between actions before a new
+ *  access token must be issued. Only set for Google Cloud apps.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxInactivity;
+
+/**
+ *  Optional. The session length. Setting this field to zero is equal to
+ *  disabling session. Also can set infinite session by flipping the enabled bit
+ *  to false below. If use_oidc_max_age is true, for OIDC apps, the session
+ *  length will be the minimum of this field and OIDC max_age param.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *sessionLength;
+
+/**
+ *  Optional. This field enables or disables Google Cloud session length. When
+ *  false, all fields set above will be disregarded and the session length is
+ *  basically infinite.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sessionLengthEnabled;
+
+/**
+ *  Optional. Session method when user's Google Cloud session is up.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Login
+ *        The user will be prompted to perform regular login. Users who are
+ *        enrolled for two-step verification and haven't chosen "Remember this
+ *        computer" will be prompted for their second factor. (Value: "LOGIN")
+ *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password
+ *        The user will be prompted for their password. (Value: "PASSWORD")
+ *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey
+ *        The user will be prompted to authenticate using their security key. If
+ *        no security key has been configured, then authentication will fallback
+ *        to LOGIN. (Value: "SECURITY_KEY")
+ *    @arg @c kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SessionReauthMethodUnspecified
+ *        If method is undefined in the API, LOGIN will be used by default.
+ *        (Value: "SESSION_REAUTH_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sessionReauthMethod;
+
+/**
+ *  Optional. Only useful for OIDC apps. When false, the OIDC max_age param, if
+ *  passed in the authentication request will be ignored. When true, the re-auth
+ *  period will be the minimum of the session_length field and the max_age OIDC
+ *  param.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useOidcMaxAge;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRAccessContextManager_SetIamPolicyRequest : GTLRObject
@@ -2150,6 +2450,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *  `service.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The support stage of the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. (Value:
+ *        "DEPRECATED")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Ga
+ *        GA features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Preview
+ *        PREVIEW indicates a pre-release stage where the product is
+ *        functionally complete but undergoing real-world testing. (Value:
+ *        "PREVIEW")
+ *    @arg @c kGTLRAccessContextManager_SupportedService_ServiceSupportStage_ServiceSupportStageUnspecified
+ *        Do not use this default value. (Value:
+ *        "SERVICE_SUPPORT_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceSupportStage;
 
 /**
  *  The list of the supported methods. This field exists only in response to

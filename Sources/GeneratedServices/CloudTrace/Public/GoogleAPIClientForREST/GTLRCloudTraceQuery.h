@@ -40,7 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Batch writes new spans to new or existing traces. You cannot update existing
- *  spans.
+ *  spans. If a span ID already exists, an additional copy of the span will be
+ *  stored.
  *
  *  Method: cloudtrace.projects.traces.batchWrite
  *
@@ -60,7 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudTrace_Empty.
  *
  *  Batch writes new spans to new or existing traces. You cannot update existing
- *  spans.
+ *  spans. If a span ID already exists, an additional copy of the span will be
+ *  stored.
  *
  *  @param object The @c GTLRCloudTrace_BatchWriteSpansRequest to include in the
  *    query.
@@ -75,7 +77,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new span.
+ *  Creates a new span. If a span ID already exists, an additional copy of the
+ *  span will be stored.
  *
  *  Method: cloudtrace.projects.traces.spans.createSpan
  *
@@ -98,7 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudTrace_Span.
  *
- *  Creates a new span.
+ *  Creates a new span. If a span ID already exists, an additional copy of the
+ *  span will be stored.
  *
  *  @param object The @c GTLRCloudTrace_Span to include in the query.
  *  @param name Required. The resource name of the span in the following format:

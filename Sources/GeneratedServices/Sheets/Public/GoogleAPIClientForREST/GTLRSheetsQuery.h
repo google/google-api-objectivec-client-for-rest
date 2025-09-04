@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Sheets.
 // Documentation:
-//   https://developers.google.com/sheets/
+//   https://developers.google.com/workspace/sheets/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -132,7 +132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormatted
  *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
  *  values. This lets you perform arithmetic on them in formulas. For more
  *  information on interpreting date and time values, see [About date & time
- *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *  values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -189,7 +189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionFormattedValue;
  *  A2 would return `"=A1"`. Sheets treats date and time values as decimal
  *  values. This lets you perform arithmetic on them in formulas. For more
  *  information on interpreting date and time values, see [About date & time
- *  values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *  values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *
  *  Value: "FORMULA"
  */
@@ -373,13 +373,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Returns the spreadsheet at the given ID. The caller must specify the
  *  spreadsheet ID. By default, data within grids is not returned. You can
  *  include grid data in one of 2 ways: * Specify a [field
- *  mask](https://developers.google.com/sheets/api/guides/field-masks) listing
- *  your desired fields using the `fields` URL parameter in HTTP * Set the
- *  includeGridData URL parameter to true. If a field mask is set, the
+ *  mask](https://developers.google.com/workspace/sheets/api/guides/field-masks)
+ *  listing your desired fields using the `fields` URL parameter in HTTP * Set
+ *  the includeGridData URL parameter to true. If a field mask is set, the
  *  `includeGridData` parameter is ignored For large spreadsheets, as a best
  *  practice, retrieve only the specific spreadsheet fields that you want. To
  *  retrieve only subsets of spreadsheet data, use the ranges URL parameter.
- *  Ranges are specified using [A1 notation](/sheets/api/guides/concepts#cell).
+ *  Ranges are specified using [A1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
  *  You can define a single cell (for example, `A1`) or multiple cells (for
  *  example, `A1:D5`). You can also get cells from other sheets within the same
  *  spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at
@@ -399,6 +400,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @interface GTLRSheetsQuery_SpreadsheetsGet : GTLRSheetsQuery
 
 /**
+ *  True if tables should be excluded in the banded ranges. False if not set.
+ */
+@property(nonatomic, assign) BOOL excludeTablesInBandedRanges;
+
+/**
  *  True if grid data should be returned. This parameter is ignored if a field
  *  mask was set in the request.
  */
@@ -416,13 +422,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Returns the spreadsheet at the given ID. The caller must specify the
  *  spreadsheet ID. By default, data within grids is not returned. You can
  *  include grid data in one of 2 ways: * Specify a [field
- *  mask](https://developers.google.com/sheets/api/guides/field-masks) listing
- *  your desired fields using the `fields` URL parameter in HTTP * Set the
- *  includeGridData URL parameter to true. If a field mask is set, the
+ *  mask](https://developers.google.com/workspace/sheets/api/guides/field-masks)
+ *  listing your desired fields using the `fields` URL parameter in HTTP * Set
+ *  the includeGridData URL parameter to true. If a field mask is set, the
  *  `includeGridData` parameter is ignored For large spreadsheets, as a best
  *  practice, retrieve only the specific spreadsheet fields that you want. To
  *  retrieve only subsets of spreadsheet data, use the ranges URL parameter.
- *  Ranges are specified using [A1 notation](/sheets/api/guides/concepts#cell).
+ *  Ranges are specified using [A1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
  *  You can define a single cell (for example, `A1`) or multiple cells (for
  *  example, `A1:D5`). You can also get cells from other sheets within the same
  *  spreadsheet (for example, `Sheet2!A1:C4`) or retrieve multiple ranges at
@@ -446,9 +453,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  or more data filters returns the portions of the spreadsheet that intersect
  *  ranges matched by any of the filters. By default, data within grids is not
  *  returned. You can include grid data one of 2 ways: * Specify a [field
- *  mask](https://developers.google.com/sheets/api/guides/field-masks) listing
- *  your desired fields using the `fields` URL parameter in HTTP * Set the
- *  includeGridData parameter to true. If a field mask is set, the
+ *  mask](https://developers.google.com/workspace/sheets/api/guides/field-masks)
+ *  listing your desired fields using the `fields` URL parameter in HTTP * Set
+ *  the includeGridData parameter to true. If a field mask is set, the
  *  `includeGridData` parameter is ignored For large spreadsheets, as a best
  *  practice, retrieve only the specific spreadsheet fields that you want.
  *
@@ -474,9 +481,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  or more data filters returns the portions of the spreadsheet that intersect
  *  ranges matched by any of the filters. By default, data within grids is not
  *  returned. You can include grid data one of 2 ways: * Specify a [field
- *  mask](https://developers.google.com/sheets/api/guides/field-masks) listing
- *  your desired fields using the `fields` URL parameter in HTTP * Set the
- *  includeGridData parameter to true. If a field mask is set, the
+ *  mask](https://developers.google.com/workspace/sheets/api/guides/field-masks)
+ *  listing your desired fields using the `fields` URL parameter in HTTP * Set
+ *  the includeGridData parameter to true. If a field mask is set, the
  *  `includeGridData` parameter is ignored For large spreadsheets, as a best
  *  practice, retrieve only the specific spreadsheet fields that you want.
  *
@@ -533,12 +540,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Appends values to a spreadsheet. The input range is used to search for
  *  existing data and find a "table" within that range. Values will be appended
  *  to the next row of the table, starting with the first column of the table.
- *  See the [guide](/sheets/api/guides/values#appending_values) and [sample
- *  code](/sheets/api/samples/writing#append_values) for specific details of how
- *  tables are detected and data is appended. The caller must specify the
- *  spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only
- *  controls how the input data will be added to the sheet (column-wise or
- *  row-wise), it does not influence what cell the data starts being written to.
+ *  See the
+ *  [guide](https://developers.google.com/workspace/sheets/api/guides/values#appending_values)
+ *  and [sample
+ *  code](https://developers.google.com/workspace/sheets/api/samples/writing#append_values)
+ *  for specific details of how tables are detected and data is appended. The
+ *  caller must specify the spreadsheet ID, range, and a valueInputOption. The
+ *  `valueInputOption` only controls how the input data will be added to the
+ *  sheet (column-wise or row-wise), it does not influence what cell the data
+ *  starts being written to.
  *
  *  Method: sheets.spreadsheets.values.append
  *
@@ -569,9 +579,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @property(nonatomic, copy, nullable) NSString *insertDataOption;
 
 /**
- *  The [A1 notation](/sheets/api/guides/concepts#cell) of a range to search for
- *  a logical table of data. Values are appended after the last row of the
- *  table.
+ *  The [A1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *  of a range to search for a logical table of data. Values are appended after
+ *  the last row of the table.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -620,7 +631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *        This lets you perform arithmetic on them in formulas. For more
  *        information on interpreting date and time values, see [About date &
  *        time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
@@ -651,18 +662,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Appends values to a spreadsheet. The input range is used to search for
  *  existing data and find a "table" within that range. Values will be appended
  *  to the next row of the table, starting with the first column of the table.
- *  See the [guide](/sheets/api/guides/values#appending_values) and [sample
- *  code](/sheets/api/samples/writing#append_values) for specific details of how
- *  tables are detected and data is appended. The caller must specify the
- *  spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only
- *  controls how the input data will be added to the sheet (column-wise or
- *  row-wise), it does not influence what cell the data starts being written to.
+ *  See the
+ *  [guide](https://developers.google.com/workspace/sheets/api/guides/values#appending_values)
+ *  and [sample
+ *  code](https://developers.google.com/workspace/sheets/api/samples/writing#append_values)
+ *  for specific details of how tables are detected and data is appended. The
+ *  caller must specify the spreadsheet ID, range, and a valueInputOption. The
+ *  `valueInputOption` only controls how the input data will be added to the
+ *  sheet (column-wise or row-wise), it does not influence what cell the data
+ *  starts being written to.
  *
  *  @param object The @c GTLRSheets_ValueRange to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
- *  @param range The [A1 notation](/sheets/api/guides/concepts#cell) of a range
- *    to search for a logical table of data. Values are appended after the last
- *    row of the table.
+ *  @param range The [A1
+ *    notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *    of a range to search for a logical table of data. Values are appended
+ *    after the last row of the table.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesAppend
  */
@@ -804,8 +819,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
 /**
- *  The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the
- *  range to retrieve values from.
+ *  The [A1 notation or R1C1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *  of the range to retrieve values from.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
@@ -833,7 +849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *        `"=A1"`. Sheets treats date and time values as decimal values. This
  *        lets you perform arithmetic on them in formulas. For more information
  *        on interpreting date and time values, see [About date & time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *valueRenderOption;
@@ -970,8 +986,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @interface GTLRSheetsQuery_SpreadsheetsValuesClear : GTLRSheetsQuery
 
 /**
- *  The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the
- *  values to clear.
+ *  The [A1 notation or R1C1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *  of the values to clear.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -988,7 +1005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  @param object The @c GTLRSheets_ClearValuesRequest to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *  @param range The [A1 notation or R1C1
- *    notation](/sheets/api/guides/concepts#cell) of the values to clear.
+ *    notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *    of the values to clear.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesClear
  */
@@ -1054,8 +1072,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
 /**
- *  The [A1 notation or R1C1 notation](/sheets/api/guides/concepts#cell) of the
- *  range to retrieve values from.
+ *  The [A1 notation or R1C1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *  of the range to retrieve values from.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -1083,7 +1102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *        `"=A1"`. Sheets treats date and time values as decimal values. This
  *        lets you perform arithmetic on them in formulas. For more information
  *        on interpreting date and time values, see [About date & time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *valueRenderOption;
@@ -1096,8 +1115,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param spreadsheetId The ID of the spreadsheet to retrieve data from.
  *  @param range The [A1 notation or R1C1
- *    notation](/sheets/api/guides/concepts#cell) of the range to retrieve
- *    values from.
+ *    notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *    of the range to retrieve values from.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesGet
  */
@@ -1129,7 +1148,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @property(nonatomic, assign) BOOL includeValuesInResponse;
 
 /**
- *  The [A1 notation](/sheets/api/guides/concepts#cell) of the values to update.
+ *  The [A1
+ *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *  of the values to update.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
@@ -1178,7 +1199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *        This lets you perform arithmetic on them in formulas. For more
  *        information on interpreting date and time values, see [About date &
  *        time
- *        values](https://developers.google.com/sheets/api/guides/formats#about_date_time_values).
+ *        values](https://developers.google.com/workspace/sheets/api/guides/formats#about_date_time_values).
  *        (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
@@ -1211,8 +1232,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param object The @c GTLRSheets_ValueRange to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
- *  @param range The [A1 notation](/sheets/api/guides/concepts#cell) of the
- *    values to update.
+ *  @param range The [A1
+ *    notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell)
+ *    of the values to update.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesUpdate
  */

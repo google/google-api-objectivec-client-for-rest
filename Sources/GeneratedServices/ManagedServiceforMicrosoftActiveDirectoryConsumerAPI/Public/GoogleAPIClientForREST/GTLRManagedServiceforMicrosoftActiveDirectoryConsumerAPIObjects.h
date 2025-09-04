@@ -739,7 +739,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -961,9 +965,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_Labels *labels;
 
 /**
- *  Required. Locations where domain needs to be provisioned. regions e.g.
- *  us-west1 or us-east4 Service supports up to 4 locations at once. Each
- *  location will use a /26 block.
+ *  Required. Locations where domain needs to be provisioned. The locations can
+ *  be specified according to
+ *  https://cloud.google.com/compute/docs/regions-zones, such as `us-west1` or
+ *  `us-east4`. Each domain supports up to 4 locations, separated by commas.
+ *  Each location will use a /26 block.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -2072,7 +2078,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  LINT.IfChange Defines policies to service maintenance events.
+ *  Defines policies to service maintenance events.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy : GTLRObject
 
@@ -2290,8 +2296,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2699,30 +2705,34 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

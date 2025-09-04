@@ -210,8 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The service for this restriction. It should be the canonical service name,
  *  for example: `translate.googleapis.com`. You can use [`gcloud services
- *  list`](/sdk/gcloud/reference/services/list) to get a list of services that
- *  are enabled in the project.
+ *  list`](https://cloud.google.com/sdk/gcloud/reference/services/list) to get a
+ *  list of services that are enabled in the project.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -311,6 +311,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Key restrictions. */
 @property(nonatomic, strong, nullable) GTLRApiKeysService_V2Restrictions *restrictions;
+
+/**
+ *  Optional. The email address of [the service
+ *  account](https://cloud.google.com/iam/docs/service-accounts) the key is
+ *  bound to.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /** Output only. Unique id in UUID4 format. */
 @property(nonatomic, copy, nullable) NSString *uid;

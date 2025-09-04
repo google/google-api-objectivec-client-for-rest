@@ -37,6 +37,235 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gets information about a location.
  *
+ *  Method: networkmanagement.organizations.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsGet : GTLRNetworkManagementQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: networkmanagement.organizations.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: networkmanagement.organizations.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsCancel : GTLRNetworkManagementQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRNetworkManagement_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: networkmanagement.organizations.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsDelete : GTLRNetworkManagementQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: networkmanagement.organizations.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsGet : GTLRNetworkManagementQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: networkmanagement.organizations.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsList : GTLRNetworkManagementQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
  *  Method: networkmanagement.projects.locations.get
  *
  *  Authorization scope(s):
@@ -294,7 +523,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  then the reachability result returns a value of UNKNOWN. If the endpoint
  *  specifications in `ConnectivityTest` are incomplete, the reachability result
  *  returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest`
- *  for for more details.
+ *  for more details.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.patch
  *
@@ -304,7 +533,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsPatch : GTLRNetworkManagementQuery
 
 /**
- *  Required. Unique name of the resource using the form:
+ *  Identifier. Unique name of the resource using the form:
  *  `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -330,11 +559,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  then the reachability result returns a value of UNKNOWN. If the endpoint
  *  specifications in `ConnectivityTest` are incomplete, the reachability result
  *  returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest`
- *  for for more details.
+ *  for more details.
  *
  *  @param object The @c GTLRNetworkManagement_ConnectivityTest to include in
  *    the query.
- *  @param name Required. Unique name of the resource using the form:
+ *  @param name Identifier. Unique name of the resource using the form:
  *    `projects/{project_id}/locations/global/connectivityTests/{test_id}`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsPatch
@@ -485,7 +714,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: networkmanagement.projects.locations.global.operations.cancel
@@ -508,7 +737,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRNetworkManagement_CancelOperationRequest to include
@@ -636,6 +865,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsList : GTLRNetworkManagementQuery
 
 /**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -671,6 +906,643 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a NetworkMonitoringProvider resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersCreate : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The ID to use for the NetworkMonitoringProvider resource, which
+ *  will become the final component of the NetworkMonitoringProvider resource's
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *networkMonitoringProviderId;
+
+/**
+ *  Required. Parent value for CreateNetworkMonitoringProviderRequest. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Creates a NetworkMonitoringProvider resource.
+ *
+ *  @param object The @c GTLRNetworkManagement_NetworkMonitoringProvider to
+ *    include in the query.
+ *  @param parent Required. Parent value for
+ *    CreateNetworkMonitoringProviderRequest. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_NetworkMonitoringProvider *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a NetworkMonitoringProvider resource and all of its child resources.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersDelete : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Deletes a NetworkMonitoringProvider resource and all of its child resources.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the NetworkMonitoringProvider resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_NetworkMonitoringProvider.
+ *
+ *  Gets the NetworkMonitoringProvider resource.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists NetworkMonitoringProviders for a given project and location.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. The maximum number of monitoring points to return. The service may
+ *  return fewer than this value. If unspecified, at most 20 monitoring points
+ *  will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListMonitoringPoints`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMonitoringPoints` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListNetworkMonitoringProvidersRequest. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListNetworkMonitoringProvidersResponse.
+ *
+ *  Lists NetworkMonitoringProviders for a given project and location.
+ *
+ *  @param parent Required. Parent value for
+ *    ListNetworkMonitoringProvidersRequest. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the MonitoringPoint resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/monitoringPoints/{monitoring_point}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_MonitoringPoint.
+ *
+ *  Gets the MonitoringPoint resource.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/monitoringPoints/{monitoring_point}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists MonitoringPoints for a given network monitoring provider.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.monitoringPoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. The maximum number of monitoring points to return. The service may
+ *  return fewer than this value. If unspecified, at most 20 monitoring points
+ *  will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListMonitoringPoints`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMonitoringPoints` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListMonitoringPointsRequest. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListMonitoringPointsResponse.
+ *
+ *  Lists MonitoringPoints for a given network monitoring provider.
+ *
+ *  @param parent Required. Parent value for ListMonitoringPointsRequest.
+ *    Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersMonitoringPointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the NetworkPath resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.networkPaths.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/networkPaths/{network_path}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_NetworkPath.
+ *
+ *  Gets the NetworkPath resource.
+ *
+ *  @param name Required. Name of the resource. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/networkPaths/{network_path}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists NetworkPaths for a given network monitoring provider.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.networkPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. The maximum number of network paths to return. The service may
+ *  return fewer than this value. If unspecified, at most 20 network pathswill
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListNetworkPaths` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListNetworkPaths` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListNetworkPathsRequest. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListNetworkPathsResponse.
+ *
+ *  Lists NetworkPaths for a given network monitoring provider.
+ *
+ *  @param parent Required. Parent value for ListNetworkPathsRequest. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersNetworkPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the WebPath resource.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.webPaths.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. Name of the resource.. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/webPaths/{web_path}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_WebPath.
+ *
+ *  Gets the WebPath resource.
+ *
+ *  @param name Required. Name of the resource.. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/webPaths/{web_path}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists WebPaths for a given network monitoring provider.
+ *
+ *  Method: networkmanagement.projects.locations.networkMonitoringProviders.webPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. The maximum number of web paths to return. The service may return
+ *  fewer than this value. If unspecified, at most 20 web paths will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListWebPaths` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListWebPaths` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent value for ListWebPathsRequest. Format:
+ *  projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListWebPathsResponse.
+ *
+ *  Lists WebPaths for a given network monitoring provider.
+ *
+ *  @param parent Required. Parent value for ListWebPathsRequest. Format:
+ *    projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsNetworkMonitoringProvidersWebPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same
+ *  settings already exists (even if the ID is different), the creation fails.
+ *  Notes: 1. Creating a configuration with `state=DISABLED` will fail 2. The
+ *  following fields are not considered as settings for the purpose of the check
+ *  mentioned above, therefore - creating another configuration with the same
+ *  fields but different values for the following fields will fail as well: *
+ *  name * create_time * update_time * labels * description
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsCreate : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The parent resource of the VpcFlowLogsConfig to create, in one of
+ *  the following formats: - For project-level resources:
+ *  `projects/{project_id}/locations/global` - For organization-level resources:
+ *  `organizations/{organization_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. ID of the `VpcFlowLogsConfig`. */
+@property(nonatomic, copy, nullable) NSString *vpcFlowLogsConfigId;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same
+ *  settings already exists (even if the ID is different), the creation fails.
+ *  Notes: 1. Creating a configuration with `state=DISABLED` will fail 2. The
+ *  following fields are not considered as settings for the purpose of the check
+ *  mentioned above, therefore - creating another configuration with the same
+ *  fields but different values for the following fields will fail as well: *
+ *  name * create_time * update_time * labels * description
+ *
+ *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
+ *    the query.
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig to
+ *    create, in one of the following formats: - For project-level resources:
+ *    `projects/{project_id}/locations/global` - For organization-level
+ *    resources: `organizations/{organization_id}/locations/global`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specific `VpcFlowLogsConfig`.
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsDelete : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The resource name of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For a project-level resource:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For an organization-level resource:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Deletes a specific `VpcFlowLogsConfig`.
+ *
+ *  @param name Required. The resource name of the VpcFlowLogsConfig, in one of
+ *    the following formats: - For a project-level resource:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For an organization-level resource:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a specific `VpcFlowLogsConfig`.
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The resource name of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For project-level resources:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For organization-level resources:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_VpcFlowLogsConfig.
+ *
+ *  Gets the details of a specific `VpcFlowLogsConfig`.
+ *
+ *  @param name Required. The resource name of the VpcFlowLogsConfig, in one of
+ *    the following formats: - For project-level resources:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For organization-level resources:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all `VpcFlowLogsConfigs` in a given project.
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. Lists the `VpcFlowLogsConfigs` that match the filter expression. A
+ *  filter expression must use the supported [CEL logic operators]
+ *  (https://cloud.google.com/vpc/docs/about-flow-logs-records#supported_cel_logic_operators).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field to use to sort the list. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. Number of `VpcFlowLogsConfigs` to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token from an earlier query, as returned in
+ *  `next_page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For project-level resourcs:
+ *  `projects/{project_id}/locations/global` - For organization-level resources:
+ *  `organizations/{organization_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListVpcFlowLogsConfigsResponse.
+ *
+ *  Lists all `VpcFlowLogsConfigs` in a given project.
+ *
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig, in one
+ *    of the following formats: - For project-level resourcs:
+ *    `projects/{project_id}/locations/global` - For organization-level
+ *    resources: `organizations/{organization_id}/locations/global`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact
+ *  same settings already exists (even if the ID is different), the creation
+ *  fails. Notes: 1. Updating a configuration with `state=DISABLED` will fail.
+ *  2. The following fields are not considered as settings for the purpose of
+ *  the check mentioned above, therefore - updating another configuration with
+ *  the same fields but different values for the following fields will fail as
+ *  well: * name * create_time * update_time * labels * description
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsPatch : GTLRNetworkManagementQuery
+
+/**
+ *  Identifier. Unique name of the configuration. The name can have one of the
+ *  following forms: - For project-level configurations:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For organization-level configurations:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. For example, to change the state of the configuration to
+ *  ENABLED, specify `update_mask` = `"state"`, and the `vpc_flow_logs_config`
+ *  would be: `vpc_flow_logs_config = { name =
+ *  "projects/my-project/locations/global/vpcFlowLogsConfigs/my-config" state =
+ *  "ENABLED" }`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact
+ *  same settings already exists (even if the ID is different), the creation
+ *  fails. Notes: 1. Updating a configuration with `state=DISABLED` will fail.
+ *  2. The following fields are not considered as settings for the purpose of
+ *  the check mentioned above, therefore - updating another configuration with
+ *  the same fields but different values for the following fields will fail as
+ *  well: * name * create_time * update_time * labels * description
+ *
+ *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
+ *    the query.
+ *  @param name Identifier. Unique name of the configuration. The name can have
+ *    one of the following forms: - For project-level configurations:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For organization-level configurations:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
+                           name:(NSString *)name;
 
 @end
 

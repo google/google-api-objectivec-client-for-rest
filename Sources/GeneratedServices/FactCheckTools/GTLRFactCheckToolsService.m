@@ -11,7 +11,7 @@
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeFactCheckToolsUserinfoEmail = @"https://www.googleapis.com/auth/userinfo.email";
+NSString * const kGTLRAuthScopeFactCheckTools = @"https://www.googleapis.com/auth/factchecktools";
 
 // ----------------------------------------------------------------------------
 //   GTLRFactCheckToolsService

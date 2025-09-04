@@ -15,42 +15,54 @@
 NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Acked = @"ACKED";
 NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
 NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_ReceivedError = @"RECEIVED_ERROR";
 NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Timeout = @"TIMEOUT";
 NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Unknown = @"UNKNOWN";
 
 // GTLRTrafficDirectorService_DynamicEndpointConfig.clientStatus
 NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Acked = @"ACKED";
 NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
 NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_ReceivedError = @"RECEIVED_ERROR";
 NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Timeout = @"TIMEOUT";
 NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Unknown = @"UNKNOWN";
 
 // GTLRTrafficDirectorService_DynamicListener.clientStatus
 NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Acked = @"ACKED";
 NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
 NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_ReceivedError = @"RECEIVED_ERROR";
 NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Timeout = @"TIMEOUT";
 NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Unknown = @"UNKNOWN";
 
 // GTLRTrafficDirectorService_DynamicRouteConfig.clientStatus
 NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Acked = @"ACKED";
 NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
 NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_ReceivedError = @"RECEIVED_ERROR";
 NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Timeout = @"TIMEOUT";
 NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Unknown = @"UNKNOWN";
 
 // GTLRTrafficDirectorService_DynamicScopedRouteConfigs.clientStatus
 NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Acked = @"ACKED";
 NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
 NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_ReceivedError = @"RECEIVED_ERROR";
 NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Timeout = @"TIMEOUT";
 NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Unknown = @"UNKNOWN";
 
 // GTLRTrafficDirectorService_GenericXdsConfig.clientStatus
 NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Acked = @"ACKED";
 NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_DoesNotExist = @"DOES_NOT_EXIST";
 NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Nacked = @"NACKED";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_ReceivedError = @"RECEIVED_ERROR";
 NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Requested = @"REQUESTED";
+NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Timeout = @"TIMEOUT";
 NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Unknown = @"UNKNOWN";
 
 // GTLRTrafficDirectorService_GenericXdsConfig.configStatus
@@ -63,6 +75,7 @@ NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ConfigStatus_Unkno
 // GTLRTrafficDirectorService_PerXdsConfig.clientStatus
 NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientAcked = @"CLIENT_ACKED";
 NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientNacked = @"CLIENT_NACKED";
+NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientReceivedError = @"CLIENT_RECEIVED_ERROR";
 NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientRequested = @"CLIENT_REQUESTED";
 NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientUnknown = @"CLIENT_UNKNOWN";
 
@@ -117,7 +130,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_ClientConfig
-@dynamic genericXdsConfigs, node, xdsConfig;
+@dynamic clientScope, genericXdsConfigs, node, xdsConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -723,7 +736,8 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_SocketAddress
-@dynamic address, ipv4Compat, namedPort, portValue, protocol, resolverName;
+@dynamic address, ipv4Compat, namedPort, networkNamespaceFilepath, portValue,
+         protocol, resolverName;
 @end
 
 
@@ -829,7 +843,7 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
 //
 
 @implementation GTLRTrafficDirectorService_StringMatcher
-@dynamic contains, exact, ignoreCase, prefix, safeRegex, suffix;
+@dynamic contains, custom, exact, ignoreCase, prefix, safeRegex, suffix;
 @end
 
 
@@ -846,6 +860,30 @@ NSString * const kGTLRTrafficDirectorService_SocketAddress_Protocol_Udp = @"UDP"
     @"path" : [GTLRTrafficDirectorService_PathSegment class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_TypedExtensionConfig
+//
+
+@implementation GTLRTrafficDirectorService_TypedExtensionConfig
+@dynamic name, typedConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig
+//
+
+@implementation GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

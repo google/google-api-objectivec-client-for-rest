@@ -37,6 +37,25 @@ NSString * const kGTLRBackupforGKE_BackupPlan_State_Provisioning = @"PROVISIONIN
 NSString * const kGTLRBackupforGKE_BackupPlan_State_Ready      = @"READY";
 NSString * const kGTLRBackupforGKE_BackupPlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBackupforGKE_BackupPlanDetails.state
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_ClusterPending = @"CLUSTER_PENDING";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Deactivated = @"DEACTIVATED";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Deleting = @"DELETING";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Failed = @"FAILED";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Ready = @"READY";
+NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRBackupforGKE_DayOfWeekList.daysOfWeek
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Friday = @"FRIDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Monday = @"MONDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Saturday = @"SATURDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Sunday = @"SUNDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Thursday = @"THURSDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Tuesday = @"TUESDAY";
+NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Wednesday = @"WEDNESDAY";
+
 // GTLRBackupforGKE_Restore.state
 NSString * const kGTLRBackupforGKE_Restore_State_Creating      = @"CREATING";
 NSString * const kGTLRBackupforGKE_Restore_State_Deleting      = @"DELETING";
@@ -44,6 +63,7 @@ NSString * const kGTLRBackupforGKE_Restore_State_Failed        = @"FAILED";
 NSString * const kGTLRBackupforGKE_Restore_State_InProgress    = @"IN_PROGRESS";
 NSString * const kGTLRBackupforGKE_Restore_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRBackupforGKE_Restore_State_Succeeded     = @"SUCCEEDED";
+NSString * const kGTLRBackupforGKE_Restore_State_Validating    = @"VALIDATING";
 
 // GTLRBackupforGKE_RestoreConfig.clusterResourceConflictPolicy
 NSString * const kGTLRBackupforGKE_RestoreConfig_ClusterResourceConflictPolicy_ClusterResourceConflictPolicyUnspecified = @"CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED";
@@ -53,6 +73,9 @@ NSString * const kGTLRBackupforGKE_RestoreConfig_ClusterResourceConflictPolicy_U
 // GTLRBackupforGKE_RestoreConfig.namespacedResourceRestoreMode
 NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_DeleteAndRestore = @"DELETE_AND_RESTORE";
 NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_FailOnConflict = @"FAIL_ON_CONFLICT";
+NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeReplaceOnConflict = @"MERGE_REPLACE_ON_CONFLICT";
+NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeReplaceVolumeOnConflict = @"MERGE_REPLACE_VOLUME_ON_CONFLICT";
+NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeSkipOnConflict = @"MERGE_SKIP_ON_CONFLICT";
 NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_NamespacedResourceRestoreModeUnspecified = @"NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED";
 
 // GTLRBackupforGKE_RestoreConfig.volumeDataRestorePolicy
@@ -82,6 +105,7 @@ NSString * const kGTLRBackupforGKE_VolumeBackup_Format_GcePersistentDisk = @"GCE
 NSString * const kGTLRBackupforGKE_VolumeBackup_Format_VolumeBackupFormatUnspecified = @"VOLUME_BACKUP_FORMAT_UNSPECIFIED";
 
 // GTLRBackupforGKE_VolumeBackup.state
+NSString * const kGTLRBackupforGKE_VolumeBackup_State_CleanedUp = @"CLEANED_UP";
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_Creating = @"CREATING";
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_Deleting = @"DELETING";
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_Failed   = @"FAILED";
@@ -89,6 +113,22 @@ NSString * const kGTLRBackupforGKE_VolumeBackup_State_Snapshotting = @"SNAPSHOTT
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRBackupforGKE_VolumeBackup_State_Uploading = @"UPLOADING";
+
+// GTLRBackupforGKE_VolumeDataRestorePolicyBinding.policy
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_NoVolumeDataRestoration = @"NO_VOLUME_DATA_RESTORATION";
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_RestoreVolumeDataFromBackup = @"RESTORE_VOLUME_DATA_FROM_BACKUP";
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_ReuseVolumeHandleFromBackup = @"REUSE_VOLUME_HANDLE_FROM_BACKUP";
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_VolumeDataRestorePolicyUnspecified = @"VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED";
+
+// GTLRBackupforGKE_VolumeDataRestorePolicyBinding.volumeType
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_VolumeType_GcePersistentDisk = @"GCE_PERSISTENT_DISK";
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_VolumeType_VolumeTypeUnspecified = @"VOLUME_TYPE_UNSPECIFIED";
+
+// GTLRBackupforGKE_VolumeDataRestorePolicyOverride.policy
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_NoVolumeDataRestoration = @"NO_VOLUME_DATA_RESTORATION";
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_RestoreVolumeDataFromBackup = @"RESTORE_VOLUME_DATA_FROM_BACKUP";
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_ReuseVolumeHandleFromBackup = @"REUSE_VOLUME_HANDLE_FROM_BACKUP";
+NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_VolumeDataRestorePolicyUnspecified = @"VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED";
 
 // GTLRBackupforGKE_VolumeRestore.state
 NSString * const kGTLRBackupforGKE_VolumeRestore_State_Creating = @"CREATING";
@@ -147,9 +187,10 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 @dynamic allNamespaces, clusterMetadata, completeTime, configBackupSizeBytes,
          containsSecrets, containsVolumeData, createTime, deleteLockDays,
          deleteLockExpireTime, descriptionProperty, encryptionKey, ETag, labels,
-         manual, name, podCount, resourceCount, retainDays, retainExpireTime,
-         selectedApplications, selectedNamespaces, sizeBytes, state,
-         stateReason, uid, updateTime, volumeCount;
+         manual, name, permissiveMode, podCount, resourceCount, retainDays,
+         retainExpireTime, satisfiesPzi, satisfiesPzs, selectedApplications,
+         selectedNamespaceLabels, selectedNamespaces, sizeBytes, state,
+         stateReason, troubleshootingInfo, uid, updateTime, volumeCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -178,10 +219,56 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_BackupChannel
+//
+
+@implementation GTLRBackupforGKE_BackupChannel
+@dynamic createTime, descriptionProperty, destinationProject,
+         destinationProjectId, ETag, labels, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BackupChannel_Labels
+//
+
+@implementation GTLRBackupforGKE_BackupChannel_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_BackupConfig
 //
 
 @implementation GTLRBackupforGKE_BackupConfig
+@dynamic allNamespaces, encryptionKey, includeSecrets, includeVolumeData,
+         permissiveMode, selectedApplications, selectedNamespaceLabels,
+         selectedNamespaces;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BackupConfigDetails
+//
+
+@implementation GTLRBackupforGKE_BackupConfigDetails
 @dynamic allNamespaces, encryptionKey, includeSecrets, includeVolumeData,
          selectedApplications, selectedNamespaces;
 @end
@@ -193,9 +280,10 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 //
 
 @implementation GTLRBackupforGKE_BackupPlan
-@dynamic backupConfig, backupSchedule, cluster, createTime, deactivated,
-         descriptionProperty, ETag, labels, name, protectedPodCount,
-         retentionPolicy, state, stateReason, uid, updateTime;
+@dynamic backupChannel, backupConfig, backupSchedule, cluster, createTime,
+         deactivated, descriptionProperty, ETag, labels,
+         lastSuccessfulBackupTime, name, protectedPodCount, retentionPolicy,
+         rpoRiskLevel, rpoRiskReason, state, stateReason, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -219,6 +307,34 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BackupPlanBinding
+//
+
+@implementation GTLRBackupforGKE_BackupPlanBinding
+@dynamic backupPlan, backupPlanDetails, cluster, createTime, ETag, name, uid,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BackupPlanDetails
+//
+
+@implementation GTLRBackupforGKE_BackupPlanDetails
+@dynamic backupConfigDetails, lastSuccessfulBackup, lastSuccessfulBackupTime,
+         nextScheduledBackupTime, protectedPodCount, retentionPolicyDetails,
+         rpoRiskLevel, state;
 @end
 
 
@@ -285,6 +401,34 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_Date
+//
+
+@implementation GTLRBackupforGKE_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_DayOfWeekList
+//
+
+@implementation GTLRBackupforGKE_DayOfWeekList
+@dynamic daysOfWeek;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"daysOfWeek" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_Empty
 //
 
@@ -304,6 +448,16 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_ExclusionWindow
+//
+
+@implementation GTLRBackupforGKE_ExclusionWindow
+@dynamic daily, daysOfWeek, duration, singleOccurrenceDate, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_Expr
 //
 
@@ -314,6 +468,35 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_Filter
+//
+
+@implementation GTLRBackupforGKE_Filter
+@dynamic exclusionFilters, inclusionFilters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exclusionFilters" : [GTLRBackupforGKE_ResourceSelector class],
+    @"inclusionFilters" : [GTLRBackupforGKE_ResourceSelector class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse
+//
+
+@implementation GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse
+@dynamic signedUrl;
 @end
 
 
@@ -430,6 +613,72 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_GroupKindDependency
+//
+
+@implementation GTLRBackupforGKE_GroupKindDependency
+@dynamic requiring, satisfying;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_Label
+//
+
+@implementation GTLRBackupforGKE_Label
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ListBackupChannelsResponse
+//
+
+@implementation GTLRBackupforGKE_ListBackupChannelsResponse
+@dynamic backupChannels, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupChannels" : [GTLRBackupforGKE_BackupChannel class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backupChannels";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ListBackupPlanBindingsResponse
+//
+
+@implementation GTLRBackupforGKE_ListBackupPlanBindingsResponse
+@dynamic backupPlanBindings, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupPlanBindings" : [GTLRBackupforGKE_BackupPlanBinding class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backupPlanBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_ListBackupPlansResponse
 //
 
@@ -457,11 +706,12 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 //
 
 @implementation GTLRBackupforGKE_ListBackupsResponse
-@dynamic backups, nextPageToken;
+@dynamic backups, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"backups" : [GTLRBackupforGKE_Backup class]
+    @"backups" : [GTLRBackupforGKE_Backup class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -490,6 +740,52 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 + (NSString *)collectionItemsKey {
   return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ListRestoreChannelsResponse
+//
+
+@implementation GTLRBackupforGKE_ListRestoreChannelsResponse
+@dynamic nextPageToken, restoreChannels, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restoreChannels" : [GTLRBackupforGKE_RestoreChannel class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"restoreChannels";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ListRestorePlanBindingsResponse
+//
+
+@implementation GTLRBackupforGKE_ListRestorePlanBindingsResponse
+@dynamic nextPageToken, restorePlanBindings, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restorePlanBindings" : [GTLRBackupforGKE_RestorePlanBinding class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"restorePlanBindings";
 }
 
 @end
@@ -729,19 +1025,74 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_ResourceLabels
+//
+
+@implementation GTLRBackupforGKE_ResourceLabels
+@dynamic resourceLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceLabels" : [GTLRBackupforGKE_Label class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ResourceSelector
+//
+
+@implementation GTLRBackupforGKE_ResourceSelector
+@dynamic groupKind, labels, name, namespaceProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_ResourceSelector_Labels
+//
+
+@implementation GTLRBackupforGKE_ResourceSelector_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_Restore
 //
 
 @implementation GTLRBackupforGKE_Restore
 @dynamic backup, cluster, completeTime, createTime, descriptionProperty, ETag,
-         labels, name, resourcesExcludedCount, resourcesFailedCount,
-         resourcesRestoredCount, restoreConfig, state, stateReason, uid,
-         updateTime, volumesRestoredCount;
+         filter, labels, name, resourcesExcludedCount, resourcesFailedCount,
+         resourcesRestoredCount, restoreConfig, state, stateReason,
+         troubleshootingInfo, uid, updateTime, volumeDataRestorePolicyOverrides,
+         volumesRestoredCount;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"volumeDataRestorePolicyOverrides" : [GTLRBackupforGKE_VolumeDataRestorePolicyOverride class]
   };
   return map;
 }
@@ -765,20 +1116,74 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_RestoreChannel
+//
+
+@implementation GTLRBackupforGKE_RestoreChannel
+@dynamic createTime, descriptionProperty, destinationProject,
+         destinationProjectId, ETag, labels, name, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_RestoreChannel_Labels
+//
+
+@implementation GTLRBackupforGKE_RestoreChannel_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_RestoreConfig
 //
 
 @implementation GTLRBackupforGKE_RestoreConfig
 @dynamic allNamespaces, clusterResourceConflictPolicy,
          clusterResourceRestoreScope, excludedNamespaces,
-         namespacedResourceRestoreMode, noNamespaces, selectedApplications,
-         selectedNamespaces, substitutionRules, transformationRules,
-         volumeDataRestorePolicy;
+         namespacedResourceRestoreMode, noNamespaces, restoreOrder,
+         selectedApplications, selectedNamespaces, substitutionRules,
+         transformationRules, volumeDataRestorePolicy,
+         volumeDataRestorePolicyBindings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"substitutionRules" : [GTLRBackupforGKE_SubstitutionRule class],
-    @"transformationRules" : [GTLRBackupforGKE_TransformationRule class]
+    @"transformationRules" : [GTLRBackupforGKE_TransformationRule class],
+    @"volumeDataRestorePolicyBindings" : [GTLRBackupforGKE_VolumeDataRestorePolicyBinding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_RestoreOrder
+//
+
+@implementation GTLRBackupforGKE_RestoreOrder
+@dynamic groupKindDependencies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groupKindDependencies" : [GTLRBackupforGKE_GroupKindDependency class]
   };
   return map;
 }
@@ -793,7 +1198,8 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_RestorePlan
 @dynamic backupPlan, cluster, createTime, descriptionProperty, ETag, labels,
-         name, restoreConfig, state, stateReason, uid, updateTime;
+         name, restoreChannel, restoreConfig, state, stateReason, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -822,6 +1228,21 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_RestorePlanBinding
+//
+
+@implementation GTLRBackupforGKE_RestorePlanBinding
+@dynamic backupPlan, createTime, ETag, name, restorePlan, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_RetentionPolicy
 //
 
@@ -832,11 +1253,39 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_RetentionPolicyDetails
+//
+
+@implementation GTLRBackupforGKE_RetentionPolicyDetails
+@dynamic backupDeleteLockDays, backupRetainDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_RpoConfig
+//
+
+@implementation GTLRBackupforGKE_RpoConfig
+@dynamic exclusionWindows, targetRpoMinutes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exclusionWindows" : [GTLRBackupforGKE_ExclusionWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_Schedule
 //
 
 @implementation GTLRBackupforGKE_Schedule
-@dynamic cronSchedule, paused;
+@dynamic cronSchedule, nextScheduledBackupTime, paused, rpoConfig;
 @end
 
 
@@ -908,6 +1357,16 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_TimeOfDay
+//
+
+@implementation GTLRBackupforGKE_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_TransformationRule
 //
 
@@ -940,17 +1399,48 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_TroubleshootingInfo
+//
+
+@implementation GTLRBackupforGKE_TroubleshootingInfo
+@dynamic stateReasonCode, stateReasonUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_VolumeBackup
 //
 
 @implementation GTLRBackupforGKE_VolumeBackup
-@dynamic completeTime, createTime, diskSizeBytes, ETag, format, name, sourcePvc,
-         state, stateMessage, storageBytes, uid, updateTime, volumeBackupHandle;
+@dynamic completeTime, createTime, diskSizeBytes, ETag, format, name,
+         satisfiesPzi, satisfiesPzs, sourcePvc, state, stateMessage,
+         storageBytes, uid, updateTime, volumeBackupHandle;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_VolumeDataRestorePolicyBinding
+//
+
+@implementation GTLRBackupforGKE_VolumeDataRestorePolicyBinding
+@dynamic policy, volumeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_VolumeDataRestorePolicyOverride
+//
+
+@implementation GTLRBackupforGKE_VolumeDataRestorePolicyOverride
+@dynamic policy, selectedPvcs;
 @end
 
 

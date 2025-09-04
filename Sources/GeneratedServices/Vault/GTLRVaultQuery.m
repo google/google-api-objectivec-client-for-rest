@@ -12,7 +12,7 @@
 //   privilege. For example, to download an export, an account needs the
 //   **Manage Exports** privilege and the matter shared with them.
 // Documentation:
-//   https://developers.google.com/vault
+//   https://developers.google.com/workspace/vault
 
 #import <GoogleAPIClientForREST/GTLRVaultQuery.h>
 

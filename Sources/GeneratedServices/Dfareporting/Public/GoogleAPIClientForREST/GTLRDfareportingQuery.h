@@ -1019,7 +1019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing user role. This method supports patch semantics.
+ *  Updates an existing account user profile. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.accountUserProfiles.patch
  *
@@ -1041,7 +1042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_AccountUserProfile.
  *
- *  Updates an existing user role. This method supports patch semantics.
+ *  Updates an existing account user profile. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_AccountUserProfile to include in the
  *    query.
@@ -1353,7 +1355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing ad. This method supports patch semantics.
  *
  *  Method: dfareporting.ads.patch
  *
@@ -1375,7 +1377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_Ad.
  *
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing ad. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_Ad to include in the query.
  *  @param profileId User profile ID associated with this request.
@@ -1895,7 +1897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing advertiser. This method supports patch semantics.
+ *  Updates an existing landing page. This method supports patch semantics.
  *
  *  Method: dfareporting.advertiserLandingPages.patch
  *
@@ -1917,7 +1919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_LandingPage.
  *
- *  Updates an existing advertiser. This method supports patch semantics.
+ *  Updates an existing landing page. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
  *  @param profileId User profile ID associated with this request.
@@ -2800,7 +2802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing creative. This method supports patch semantics.
+ *  Updates an existing campaign. This method supports patch semantics.
  *
  *  Method: dfareporting.campaigns.patch
  *
@@ -2822,7 +2824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_Campaign.
  *
- *  Updates an existing creative. This method supports patch semantics.
+ *  Updates an existing campaign. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_Campaign to include in the query.
  *  @param profileId User profile ID associated with this request.
@@ -4900,6 +4902,130 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
+ *  Gets a dynamic feed by ID.
+ *
+ *  Method: dfareporting.dynamicFeeds.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicFeedsGet : GTLRDfareportingQuery
+
+/** Required. Dynamic feed ID. */
+@property(nonatomic, assign) long long dynamicFeedId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicFeed.
+ *
+ *  Gets a dynamic feed by ID.
+ *
+ *  @param dynamicFeedId Required. Dynamic feed ID.
+ *
+ *  @return GTLRDfareportingQuery_DynamicFeedsGet
+ */
++ (instancetype)queryWithDynamicFeedId:(long long)dynamicFeedId;
+
+@end
+
+/**
+ *  Inserts a new dynamic feed.
+ *
+ *  Method: dfareporting.dynamicFeeds.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicFeedsInsert : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicFeed.
+ *
+ *  Inserts a new dynamic feed.
+ *
+ *  @param object The @c GTLRDfareporting_DynamicFeedsInsertRequest to include
+ *    in the query.
+ *
+ *  @return GTLRDfareportingQuery_DynamicFeedsInsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicFeedsInsertRequest *)object;
+
+@end
+
+/**
+ *  Gets a dynamic profile by ID.
+ *
+ *  Method: dfareporting.dynamicProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicProfilesGet : GTLRDfareportingQuery
+
+/** Required. Dynamic profile ID. */
+@property(nonatomic, assign) long long dynamicProfileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicProfile.
+ *
+ *  Gets a dynamic profile by ID.
+ *
+ *  @param dynamicProfileId Required. Dynamic profile ID.
+ *
+ *  @return GTLRDfareportingQuery_DynamicProfilesGet
+ */
++ (instancetype)queryWithDynamicProfileId:(long long)dynamicProfileId;
+
+@end
+
+/**
+ *  Inserts a new dynamic profile.
+ *
+ *  Method: dfareporting.dynamicProfiles.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicProfilesInsert : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicProfile.
+ *
+ *  Inserts a new dynamic profile.
+ *
+ *  @param object The @c GTLRDfareporting_DynamicProfile to include in the
+ *    query.
+ *
+ *  @return GTLRDfareportingQuery_DynamicProfilesInsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicProfile *)object;
+
+@end
+
+/**
+ *  Updates an existing dynamic profile.
+ *
+ *  Method: dfareporting.dynamicProfiles.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicProfilesUpdate : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicProfile.
+ *
+ *  Updates an existing dynamic profile.
+ *
+ *  @param object The @c GTLRDfareporting_DynamicProfile to include in the
+ *    query.
+ *
+ *  @return GTLRDfareportingQuery_DynamicProfilesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicProfile *)object;
+
+@end
+
+/**
  *  Deletes an existing dynamic targeting key.
  *
  *  Method: dfareporting.dynamicTargetingKeys.delete
@@ -5730,7 +5856,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight activity. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.floodlightActivities.patch
  *
@@ -5752,7 +5879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightActivity.
  *
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight activity. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightActivity to include in the
  *    query.
@@ -5973,7 +6101,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight activity group. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.floodlightActivityGroups.patch
  *
@@ -5995,7 +6124,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightActivityGroup.
  *
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight activity group. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightActivityGroup to include in
  *    the query.
@@ -6109,7 +6239,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight configuration. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.floodlightConfigurations.patch
  *
@@ -6131,7 +6262,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_FloodlightConfiguration.
  *
- *  Updates an existing event tag. This method supports patch semantics.
+ *  Updates an existing floodlight configuration. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_FloodlightConfiguration to include in
  *    the query.
@@ -8186,7 +8318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing RemarketingListShare. This method supports patch
+ *  Updates an existing remarketing list share. This method supports patch
  *  semantics.
  *
  *  Method: dfareporting.remarketingListShares.patch
@@ -8209,7 +8341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_RemarketingListShare.
  *
- *  Updates an existing RemarketingListShare. This method supports patch
+ *  Updates an existing remarketing list share. This method supports patch
  *  semantics.
  *
  *  @param object The @c GTLRDfareporting_RemarketingListShare to include in the
@@ -8375,7 +8507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing RemarketingList. This method supports patch semantics.
+ *  Updates an existing remarketing list. This method supports patch semantics.
  *
  *  Method: dfareporting.remarketingLists.patch
  *
@@ -8397,7 +8529,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_RemarketingList.
  *
- *  Updates an existing RemarketingList. This method supports patch semantics.
+ *  Updates an existing remarketing list. This method supports patch semantics.
  *
  *  @param object The @c GTLRDfareporting_RemarketingList to include in the
  *    query.
@@ -9794,6 +9926,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_TargetingTemplate *)object
                       profileId:(long long)profileId;
+
+@end
+
+/**
+ *  Gets one TvCampaignDetail by ID.
+ *
+ *  Method: dfareporting.tvCampaignDetails.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_TvCampaignDetailsGet : GTLRDfareportingQuery
+
+/** Required. Account ID associated with this request. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Required. TV Campaign ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Required. User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_TvCampaignDetail.
+ *
+ *  Gets one TvCampaignDetail by ID.
+ *
+ *  @param profileId Required. User profile ID associated with this request.
+ *  @param identifier Required. TV Campaign ID.
+ *
+ *  @return GTLRDfareportingQuery_TvCampaignDetailsGet
+ */
++ (instancetype)queryWithProfileId:(long long)profileId
+                        identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Retrieves a list of TV campaign summaries.
+ *
+ *  Method: dfareporting.tvCampaignSummaries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_TvCampaignSummariesList : GTLRDfareportingQuery
+
+/** Required. Account ID associated with this request. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Required. Search string to filter the list of TV campaign summaries. Matches
+ *  any substring. Required field.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. User profile ID associated with this request. */
+@property(nonatomic, assign) long long profileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_TvCampaignSummariesListResponse.
+ *
+ *  Retrieves a list of TV campaign summaries.
+ *
+ *  @param profileId Required. User profile ID associated with this request.
+ *
+ *  @return GTLRDfareportingQuery_TvCampaignSummariesList
+ */
++ (instancetype)queryWithProfileId:(long long)profileId;
 
 @end
 

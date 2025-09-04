@@ -17,6 +17,25 @@
 
 @end
 
+@implementation GTLRAuthorizedBuyersMarketplaceQuery_BiddersAuctionPackagesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/auctionPackages";
+  GTLRAuthorizedBuyersMarketplaceQuery_BiddersAuctionPackagesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAuthorizedBuyersMarketplace_ListAuctionPackagesResponse class];
+  query.loggingName = @"authorizedbuyersmarketplace.bidders.auctionPackages.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAuthorizedBuyersMarketplaceQuery_BiddersFinalizedDealsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -57,7 +76,7 @@
 
 @implementation GTLRAuthorizedBuyersMarketplaceQuery_BuyersAuctionPackagesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

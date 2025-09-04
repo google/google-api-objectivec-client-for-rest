@@ -7,7 +7,7 @@
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.
 // Documentation:
-//   https://developers.google.com/cloud-test-lab/
+//   https://firebase.google.com/docs/test-lab/
 
 #import <GoogleAPIClientForREST/GTLRTestingObjects.h>
 
@@ -19,6 +19,10 @@ NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_DoNo
 NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_OrchestratorOptionUnspecified = @"ORCHESTRATOR_OPTION_UNSPECIFIED";
 NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseOrchestrator = @"USE_ORCHESTRATOR";
 
+// GTLRTesting_AndroidModel.accessDeniedReasons
+NSString * const kGTLRTesting_AndroidModel_AccessDeniedReasons_AccessDeniedReasonUnspecified = @"ACCESS_DENIED_REASON_UNSPECIFIED";
+NSString * const kGTLRTesting_AndroidModel_AccessDeniedReasons_EulaNotAccepted = @"EULA_NOT_ACCEPTED";
+
 // GTLRTesting_AndroidModel.form
 NSString * const kGTLRTesting_AndroidModel_Form_DeviceFormUnspecified = @"DEVICE_FORM_UNSPECIFIED";
 NSString * const kGTLRTesting_AndroidModel_Form_Emulator       = @"EMULATOR";
@@ -26,10 +30,14 @@ NSString * const kGTLRTesting_AndroidModel_Form_Physical       = @"PHYSICAL";
 NSString * const kGTLRTesting_AndroidModel_Form_Virtual        = @"VIRTUAL";
 
 // GTLRTesting_AndroidModel.formFactor
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Automotive = @"AUTOMOTIVE";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Desktop  = @"DESKTOP";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified = @"DEVICE_FORM_FACTOR_UNSPECIFIED";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone    = @"PHONE";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet   = @"TABLET";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Tv       = @"TV";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable = @"WEARABLE";
+NSString * const kGTLRTesting_AndroidModel_FormFactor_Xr       = @"XR";
 
 // GTLRTesting_AndroidRoboTest.roboMode
 NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboModeUnspecified = @"ROBO_MODE_UNSPECIFIED";
@@ -66,10 +74,14 @@ NSString * const kGTLRTesting_DeviceSession_State_SessionStateUnspecified = @"SE
 NSString * const kGTLRTesting_DeviceSession_State_Unavailable  = @"UNAVAILABLE";
 
 // GTLRTesting_IosModel.formFactor
+NSString * const kGTLRTesting_IosModel_FormFactor_Automotive   = @"AUTOMOTIVE";
+NSString * const kGTLRTesting_IosModel_FormFactor_Desktop      = @"DESKTOP";
 NSString * const kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified = @"DEVICE_FORM_FACTOR_UNSPECIFIED";
 NSString * const kGTLRTesting_IosModel_FormFactor_Phone        = @"PHONE";
 NSString * const kGTLRTesting_IosModel_FormFactor_Tablet       = @"TABLET";
+NSString * const kGTLRTesting_IosModel_FormFactor_Tv           = @"TV";
 NSString * const kGTLRTesting_IosModel_FormFactor_Wearable     = @"WEARABLE";
+NSString * const kGTLRTesting_IosModel_FormFactor_Xr           = @"XR";
 
 // GTLRTesting_PerAndroidVersionInfo.deviceCapacity
 NSString * const kGTLRTesting_PerAndroidVersionInfo_DeviceCapacity_DeviceCapacityHigh = @"DEVICE_CAPACITY_HIGH";
@@ -278,9 +290,10 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AndroidModel
-@dynamic brand, codename, form, formFactor, identifier, lowFpsVideoRecording,
-         manufacturer, name, perVersionInfo, screenDensity, screenX, screenY,
-         supportedAbis, supportedVersionIds, tags, thumbnailUrl;
+@dynamic accessDeniedReasons, brand, codename, form, formFactor, identifier,
+         labInfo, lowFpsVideoRecording, manufacturer, name, perVersionInfo,
+         screenDensity, screenX, screenY, supportedAbis, supportedVersionIds,
+         tags, thumbnailUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -288,6 +301,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"accessDeniedReasons" : [NSString class],
     @"perVersionInfo" : [GTLRTesting_PerAndroidVersionInfo class],
     @"supportedAbis" : [NSString class],
     @"supportedVersionIds" : [NSString class],
@@ -408,7 +422,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 @implementation GTLRTesting_ApkManifest
 @dynamic applicationLabel, intentFilters, maxSdkVersion, metadata,
          minSdkVersion, packageName, services, targetSdkVersion, usesFeature,
-         usesPermission, versionCode, versionName;
+         usesPermission, usesPermissionTags, versionCode, versionName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -416,7 +430,26 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
     @"metadata" : [GTLRTesting_Metadata class],
     @"services" : [GTLRTesting_Service class],
     @"usesFeature" : [GTLRTesting_UsesFeature class],
-    @"usesPermission" : [NSString class]
+    @"usesPermission" : [NSString class],
+    @"usesPermissionTags" : [GTLRTesting_UsesPermissionTag class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_ApkSplits
+//
+
+@implementation GTLRTesting_ApkSplits
+@dynamic bundleSplits;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bundleSplits" : [GTLRTesting_FileReference class]
   };
   return map;
 }
@@ -430,7 +463,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_AppBundle
-@dynamic bundleLocation;
+@dynamic apks, bundleLocation;
 @end
 
 
@@ -847,6 +880,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 @implementation GTLRTesting_IosXcTest
 @dynamic appBundleId, testSpecialEntitlements, testsZip, xcodeVersion,
          xctestrun;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_LabInfo
+//
+
+@implementation GTLRTesting_LabInfo
+@dynamic name, regionCode;
 @end
 
 
@@ -1351,6 +1394,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_UsesFeature
 @dynamic isRequired, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTesting_UsesPermissionTag
+//
+
+@implementation GTLRTesting_UsesPermissionTag
+@dynamic maxSdkVersion, name;
 @end
 
 

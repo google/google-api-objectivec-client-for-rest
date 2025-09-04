@@ -24,6 +24,7 @@
 @class GTLRMonitoring_BasicService;
 @class GTLRMonitoring_BasicService_ServiceLabels;
 @class GTLRMonitoring_BasicSli;
+@class GTLRMonitoring_BooleanTest;
 @class GTLRMonitoring_BucketOptions;
 @class GTLRMonitoring_CloudEndpoints;
 @class GTLRMonitoring_CloudFunctionV2Target;
@@ -39,6 +40,7 @@
 @class GTLRMonitoring_CreateTimeSeriesSummary;
 @class GTLRMonitoring_Criteria;
 @class GTLRMonitoring_Custom;
+@class GTLRMonitoring_Daily;
 @class GTLRMonitoring_Distribution;
 @class GTLRMonitoring_DistributionCut;
 @class GTLRMonitoring_Documentation;
@@ -55,6 +57,7 @@
 @class GTLRMonitoring_GkeWorkload;
 @class GTLRMonitoring_GoogleMonitoringV3Range;
 @class GTLRMonitoring_Group;
+@class GTLRMonitoring_Hourly;
 @class GTLRMonitoring_HttpCheck;
 @class GTLRMonitoring_HttpCheck_Headers;
 @class GTLRMonitoring_InternalChecker;
@@ -64,6 +67,7 @@
 @class GTLRMonitoring_LabelValue;
 @class GTLRMonitoring_LatencyCriteria;
 @class GTLRMonitoring_Linear;
+@class GTLRMonitoring_Link;
 @class GTLRMonitoring_LogMatch;
 @class GTLRMonitoring_LogMatch_LabelExtractors;
 @class GTLRMonitoring_MeshIstio;
@@ -74,6 +78,7 @@
 @class GTLRMonitoring_MetricDescriptorMetadata;
 @class GTLRMonitoring_MetricRange;
 @class GTLRMonitoring_MetricThreshold;
+@class GTLRMonitoring_Minutes;
 @class GTLRMonitoring_MonitoredResource;
 @class GTLRMonitoring_MonitoredResource_Labels;
 @class GTLRMonitoring_MonitoredResourceDescriptor;
@@ -100,19 +105,23 @@
 @class GTLRMonitoring_RequestBasedSli;
 @class GTLRMonitoring_ResourceGroup;
 @class GTLRMonitoring_ResponseStatusCode;
+@class GTLRMonitoring_RowCountTest;
 @class GTLRMonitoring_Service;
 @class GTLRMonitoring_Service_UserLabels;
+@class GTLRMonitoring_ServiceAgentAuthentication;
 @class GTLRMonitoring_ServiceLevelIndicator;
 @class GTLRMonitoring_ServiceLevelObjective;
 @class GTLRMonitoring_ServiceLevelObjective_UserLabels;
 @class GTLRMonitoring_Snooze;
 @class GTLRMonitoring_SourceContext;
+@class GTLRMonitoring_SqlCondition;
 @class GTLRMonitoring_Status;
 @class GTLRMonitoring_Status_Details_Item;
 @class GTLRMonitoring_SyntheticMonitorTarget;
 @class GTLRMonitoring_TcpCheck;
 @class GTLRMonitoring_Telemetry;
 @class GTLRMonitoring_TimeInterval;
+@class GTLRMonitoring_TimeOfDay;
 @class GTLRMonitoring_TimeSeries;
 @class GTLRMonitoring_TimeSeriesData;
 @class GTLRMonitoring_TimeSeriesDescriptor;
@@ -509,6 +518,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Severity_Severity
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertPolicy_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_AlertStrategy.notificationPrompts
+
+/**
+ *  Notify when an incident is closed.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertStrategy_NotificationPrompts_Closed;
+/**
+ *  No strategy specified. Treated as error.
+ *
+ *  Value: "NOTIFICATION_PROMPT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertStrategy_NotificationPrompts_NotificationPromptUnspecified;
+/**
+ *  Notify when an incident is opened.
+ *
+ *  Value: "OPENED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_AlertStrategy_NotificationPrompts_Opened;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_CollectdValue.dataSourceType
@@ -1100,6 +1131,34 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_Laun
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_MetricThreshold.comparison
 
 /**
@@ -1513,6 +1572,68 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClas
  *  Value: "STATUS_CLASS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_RowCountTest.comparison
+
+/**
+ *  True if the left argument is equal to the right argument.
+ *
+ *  Value: "COMPARISON_EQ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonEq;
+/**
+ *  True if the left argument is greater than or equal to the right argument.
+ *
+ *  Value: "COMPARISON_GE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonGe;
+/**
+ *  True if the left argument is greater than the right argument.
+ *
+ *  Value: "COMPARISON_GT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonGt;
+/**
+ *  True if the left argument is less than or equal to the right argument.
+ *
+ *  Value: "COMPARISON_LE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonLe;
+/**
+ *  True if the left argument is less than the right argument.
+ *
+ *  Value: "COMPARISON_LT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonLt;
+/**
+ *  True if the left argument is not equal to the right argument.
+ *
+ *  Value: "COMPARISON_NE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonNe;
+/**
+ *  No ordering relationship is specified.
+ *
+ *  Value: "COMPARISON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_ServiceAgentAuthentication.type
+
+/**
+ *  OIDC Authentication
+ *
+ *  Value: "OIDC_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceAgentAuthentication_Type_OidcToken;
+/**
+ *  Default value, will result in OIDC Authentication.
+ *
+ *  Value: "SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ServiceAgentAuthentication_Type_ServiceAgentAuthenticationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ServiceLevelObjective.calendarPeriod
@@ -2179,13 +2300,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  A description of the conditions under which some aspect of your system is
  *  considered to be "unhealthy" and the ways to notify people or services about
- *  this state. For an overview of alert policies, see Introduction to Alerting
- *  (https://cloud.google.com/monitoring/alerts/).
+ *  this state. For an overview of alerting policies, see Introduction to
+ *  Alerting (https://cloud.google.com/monitoring/alerts/).
  */
 @interface GTLRMonitoring_AlertPolicy : GTLRObject
 
 /**
- *  Control over how this alert policy's notification channels are notified.
+ *  Control over how this alerting policy's notification channels are notified.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_AlertStrategy *alertStrategy;
 
@@ -2269,8 +2390,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRMonitoring_MutationRecord *mutationRecord;
 
 /**
- *  Required if the policy exists. The resource name for this policy. The format
- *  is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+ *  Identifier. Required if the policy exists. The resource name for this
+ *  policy. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *  [ALERT_POLICY_ID] is assigned by Cloud Monitoring when the policy is
  *  created. When calling the alertPolicies.create method, do not include the
  *  name field in the alerting policy passed as part of the request.
@@ -2288,9 +2410,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notificationChannels;
 
 /**
- *  Optional. The severity of an alert policy indicates how important incidents
- *  generated by that policy are. The severity level will be displayed on the
- *  Incident detail page and in notifications.
+ *  Optional. The severity of an alerting policy indicates how important
+ *  incidents generated by that policy are. The severity level will be displayed
+ *  on the Incident detail page and in notifications.
  *
  *  Likely values:
  *    @arg @c kGTLRMonitoring_AlertPolicy_Severity_Critical This is the highest
@@ -2324,9 +2446,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRMonitoring_AlertPolicy_UserLabels *userLabels;
 
 /**
- *  Read-only description of how the alert policy is invalid. This field is only
- *  set when the alert policy is invalid. An invalid alert policy will not
- *  generate incidents.
+ *  Read-only description of how the alerting policy is invalid. This field is
+ *  only set when the alerting policy is invalid. An invalid alerting policy
+ *  will not generate incidents.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Status *validity;
 
@@ -2361,7 +2483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_AlertStrategy : GTLRObject
 
 /**
- *  If an alert policy that was active has no data for this long, any open
+ *  If an alerting policy that was active has no data for this long, any open
  *  incidents will close
  */
 @property(nonatomic, strong, nullable) GTLRDuration *autoClose;
@@ -2370,8 +2492,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_NotificationChannelStrategy *> *notificationChannelStrategy;
 
 /**
- *  Required for alert policies with a LogMatch condition.This limit is not
- *  implemented for alert policies that are not log-based.
+ *  For log-based alert policies, the notification prompts is always OPENED. For
+ *  non log-based alert policies, the notification prompts can be OPENED or
+ *  OPENED, CLOSED.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *notificationPrompts;
+
+/**
+ *  Required for log-based alerting policies, i.e. policies with a LogMatch
+ *  condition.This limit is not implemented for alerting policies that do not
+ *  have a LogMatch condition.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_NotificationRateLimit *notificationRateLimit;
 
@@ -2504,6 +2634,21 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  in an error.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *version;
+
+@end
+
+
+/**
+ *  A test that uses an alerting result in a boolean column produced by the SQL
+ *  query.
+ */
+@interface GTLRMonitoring_BooleanTest : GTLRObject
+
+/**
+ *  Required. The name of the column containing the boolean value. If the value
+ *  in a row is NULL, that row is ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *column;
 
 @end
 
@@ -2789,6 +2934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /** A condition that uses the Prometheus query language to define alerts. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_PrometheusQueryLanguageCondition *conditionPrometheusQueryLanguage;
 
+/** A condition that periodically evaluates a SQL query result. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_SqlCondition *conditionSql;
+
 /** A condition that compares a time series against a threshold. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricThreshold *conditionThreshold;
 
@@ -2980,10 +3128,32 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_Criteria : GTLRObject
 
 /**
+ *  Optional. When you define a snooze, you can also define a filter for that
+ *  snooze. The filter is a string containing one or more key-value pairs. The
+ *  string uses the standard https://google.aip.dev/160 filter syntax. If you
+ *  define a filter for a snooze, then the snooze can only apply to one alert
+ *  policy. When the snooze is active, incidents won't be created when the
+ *  incident would have key-value pairs (labels) that match those specified by
+ *  the filter in the snooze.Snooze filters support resource, metric, and
+ *  metadata labels. If multiple labels are used, then they must be connected
+ *  with an AND operator. For example, the following filter applies the snooze
+ *  to incidents that have a resource label with an instance ID of 1234567890, a
+ *  metric label with an instance name of test_group, a metadata user label with
+ *  a key of foo and a value of bar, and a metadata system label with a key of
+ *  region and a value of us-central1: "filter":
+ *  "resource.labels.instance_id=\\"1234567890\\" AND
+ *  metric.labels.instance_name=\\"test_group\\" AND
+ *  metadata.user_labels.foo=\\"bar\\" AND
+ *  metadata.system_labels.region=\\"us-central1\\""
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  The specific AlertPolicy names for the alert that should be snoozed. The
  *  format is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[POLICY_ID] There
  *  is a limit of 16 policies per snooze. This limit is checked during snooze
- *  creation.
+ *  creation. Exactly 1 alert policy is required if filter is specified at the
+ *  same time.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *policies;
 
@@ -2996,6 +3166,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  matches your intended service.
  */
 @interface GTLRMonitoring_Custom : GTLRObject
+@end
+
+
+/**
+ *  Used to schedule the query to run every so many days.
+ */
+@interface GTLRMonitoring_Daily : GTLRObject
+
+/**
+ *  Optional. The time of day (in UTC) at which the query should run. If left
+ *  unspecified, the server picks an arbitrary time of day and runs the query at
+ *  the same time each day.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_TimeOfDay *executionTime;
+
+/**
+ *  Required. The number of days between runs. Must be greater than or equal to
+ *  1 day and less than or equal to 31 days.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodicity;
+
 @end
 
 
@@ -3101,7 +3294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  A content string and a MIME type that describes the content string's format.
+ *  Documentation that is included in the notifications and incidents pertaining
+ *  to this policy.
  */
 @interface GTLRMonitoring_Documentation : GTLRObject
 
@@ -3110,9 +3304,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  content may not exceed 8,192 Unicode characters and may not exceed more than
  *  10,240 bytes when encoded in UTF-8 format, whichever is smaller. This text
  *  can be templatized by using variables
- *  (https://cloud.google.com/monitoring/alerts/doc-variables).
+ *  (https://cloud.google.com/monitoring/alerts/doc-variables#doc-vars).
  */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Optional. Links to content such as playbooks, repositories, and other
+ *  resources. This field can contain up to 3 entries.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Link *> *links;
 
 /**
  *  The format of the content field. Presently, only the value "text/markdown"
@@ -3131,8 +3331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  It is both the limit imposed by some third-party ticketing products and it
  *  is common to define textual fields in databases as VARCHAR(255).The contents
  *  of the subject line can be templatized by using variables
- *  (https://cloud.google.com/monitoring/alerts/doc-variables). If this field is
- *  missing or empty, a default subject line will be generated.
+ *  (https://cloud.google.com/monitoring/alerts/doc-variables#doc-vars). If this
+ *  field is missing or empty, a default subject line will be generated.
  */
 @property(nonatomic, copy, nullable) NSString *subject;
 
@@ -3301,7 +3501,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  A single field of a message type.
+ *  A single field of a message type.New usages of this message as an
+ *  alternative to FieldDescriptorProto are strongly discouraged. This message
+ *  does not reliability preserve all information necessary to model the schema
+ *  and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRMonitoring_Field : GTLRObject
 
@@ -3643,6 +3847,31 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  Used to schedule the query to run every so many hours.
+ */
+@interface GTLRMonitoring_Hourly : GTLRObject
+
+/**
+ *  Optional. The number of minutes after the hour (in UTC) to run the query.
+ *  Must be greater than or equal to 0 minutes and less than or equal to 59
+ *  minutes. If left unspecified, then an arbitrary offset is used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minuteOffset;
+
+/**
+ *  Required. The number of hours between runs. Must be greater than or equal to
+ *  1 hour and less than or equal to 48 hours.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodicity;
+
+@end
+
+
+/**
  *  Information involved in an HTTP/HTTPS Uptime check request.
  */
 @interface GTLRMonitoring_HttpCheck : GTLRObject
@@ -3656,7 +3885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The authentication information. Optional when creating an HTTP check;
- *  defaults to empty.
+ *  defaults to empty. Do not set both auth_method and auth_info.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_BasicAuthentication *authInfo;
 
@@ -3761,6 +3990,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        "POST")
  */
 @property(nonatomic, copy, nullable) NSString *requestMethod;
+
+/**
+ *  If specified, Uptime will generate and attach an OIDC JWT token for the
+ *  Monitoring service agent service account as an Authorization header in the
+ *  HTTP request when probing.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_ServiceAgentAuthentication *serviceAgentAuthentication;
 
 /**
  *  If true, use HTTPS instead of HTTP to run the check.
@@ -4038,6 +4274,28 @@ GTLR_DEPRECATED
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Links to content such as playbooks, repositories, and other resources.
+ */
+@interface GTLRMonitoring_Link : GTLRObject
+
+/**
+ *  A short display name for the link. The display name must not be empty or
+ *  exceed 63 characters. Example: "playbook".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The url of a webpage. A url can be templatized by using variables in the
+ *  path or the query parameters. The total length of a URL should not exceed
+ *  2083 characters before and after variable expansion. Example:
+ *  "https://my_domain.com/playbook?name=${resource.name}"
+ */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -4378,6 +4636,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
+/**
+ *  Cloud regions that were unreachable which may have caused incomplete data to
+ *  be returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -4584,11 +4848,11 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Aggregation *> *aggregations;
 
 /**
- *  The amount of time that a time series must fail to report new data to be
- *  considered failing. The minimum value of this field is 120 seconds. Larger
- *  values that are a multiple of a minute--for example, 240 or 300 seconds--are
- *  supported. If an invalid value is given, an error will be returned. The
- *  Duration.nanos field is ignored.
+ *  Required. The amount of time that a time series must fail to report new data
+ *  to be considered failing. The minimum value of this field is 120 seconds.
+ *  Larger values that are a multiple of a minute--for example, 240 or 300
+ *  seconds--are supported. If an invalid value is given, an error will be
+ *  returned.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -4879,6 +5143,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
+
 @end
 
 
@@ -4977,8 +5244,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *denominatorFilter;
 
 /**
- *  The amount of time that a time series must violate the threshold to be
- *  considered failing. Currently, only values that are a multiple of a
+ *  Required. The amount of time that a time series must violate the threshold
+ *  to be considered failing. Currently, only values that are a multiple of a
  *  minute--e.g., 0, 60, 120, or 300 seconds--are supported. If an invalid value
  *  is given, an error will be returned. When choosing a duration, it is useful
  *  to keep in mind the frequency of the underlying time series data (which may
@@ -5046,6 +5313,22 @@ GTLR_DEPRECATED
  *  denominator_filter and denominator_aggregations are specified.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Trigger *trigger;
+
+@end
+
+
+/**
+ *  Used to schedule the query to run every so many minutes.
+ */
+@interface GTLRMonitoring_Minutes : GTLRObject
+
+/**
+ *  Required. Number of minutes between runs. The interval must be greater than
+ *  or equal to 5 minutes and less than or equal to 1440 minutes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *periodicity;
 
 @end
 
@@ -5323,7 +5606,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_MutationRecord *> *mutationRecords;
 
 /**
- *  The full REST resource name for this channel. The format is:
+ *  Identifier. The full REST resource name for this channel. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The
  *  [CHANNEL_ID] is automatically assigned by the server on creation.
  */
@@ -5538,7 +5821,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Control over the rate of notifications sent to this alert policy's
+ *  Control over the rate of notifications sent to this alerting policy's
  *  notification channels.
  */
 @interface GTLRMonitoring_NotificationRateLimit : GTLRObject
@@ -5583,7 +5866,9 @@ GTLR_DEPRECATED
 
 /**
  *  A protocol buffer option, which can be attached to a message, field,
- *  enumeration, etc.
+ *  enumeration, etc.New usages of this message as an alternative to
+ *  FileOptions, MessageOptions, FieldOptions, EnumOptions, EnumValueOptions,
+ *  ServiceOptions, or MethodOptions are strongly discouraged.
  */
 @interface GTLRMonitoring_Option : GTLRObject
 
@@ -5699,8 +5984,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  A condition type that allows alert policies to be defined using Prometheus
- *  Query Language (PromQL)
+ *  A condition type that allows alerting policies to be defined using
+ *  Prometheus Query Language (PromQL)
  *  (https://prometheus.io/docs/prometheus/latest/querying/basics/).The
  *  PrometheusQueryLanguageCondition message contains information from a
  *  Prometheus alerting rule and its associated rule group.A Prometheus alerting
@@ -5740,6 +6025,18 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *alertRule;
 
 /**
+ *  Optional. Whether to disable metric existence validation for this
+ *  condition.This allows alerting policies to be defined on metrics that do not
+ *  yet exist, improving advanced customer workflows such as configuring
+ *  alerting policies using Terraform.Users with the
+ *  monitoring.alertPolicyViewer role are able to see the name of the
+ *  non-existent metric in the alerting policy condition.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableMetricValidation;
+
+/**
  *  Optional. Alerts are considered firing once their PromQL expression was
  *  evaluated to be "true" for this long. Alerts whose PromQL expression was not
  *  evaluated to be "true" for long enough are considered pending. Must be a
@@ -5762,9 +6059,9 @@ GTLR_DEPRECATED
  *  names must be valid
  *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
  *  Label values can be templatized by using variables
- *  (https://cloud.google.com/monitoring/alerts/doc-variables). The only
- *  available variable names are the names of the labels in the PromQL result,
- *  including "__name__" and "value". "labels" may be empty.
+ *  (https://cloud.google.com/monitoring/alerts/doc-variables#doc-vars). The
+ *  only available variable names are the names of the labels in the PromQL
+ *  result, including "__name__" and "value". "labels" may be empty.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_PrometheusQueryLanguageCondition_Labels *labels;
 
@@ -5795,9 +6092,9 @@ GTLR_DEPRECATED
  *  names must be valid
  *  (https://prometheus.io/docs/concepts/data_model/#metric-names-and-labels).
  *  Label values can be templatized by using variables
- *  (https://cloud.google.com/monitoring/alerts/doc-variables). The only
- *  available variable names are the names of the labels in the PromQL result,
- *  including "__name__" and "value". "labels" may be empty.
+ *  (https://cloud.google.com/monitoring/alerts/doc-variables#doc-vars). The
+ *  only available variable names are the names of the labels in the PromQL
+ *  result, including "__name__" and "value". "labels" may be empty.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5809,21 +6106,21 @@ GTLR_DEPRECATED
 
 
 /**
- *  A condition type that allows alert policies to be defined using Monitoring
- *  Query Language (https://cloud.google.com/monitoring/mql).
+ *  A condition type that allows alerting policies to be defined using
+ *  Monitoring Query Language (https://cloud.google.com/monitoring/mql).
  */
 @interface GTLRMonitoring_QueryLanguageCondition : GTLRObject
 
 /**
- *  The amount of time that a time series must violate the threshold to be
- *  considered failing. Currently, only values that are a multiple of a
+ *  Optional. The amount of time that a time series must violate the threshold
+ *  to be considered failing. Currently, only values that are a multiple of a
  *  minute--e.g., 0, 60, 120, or 300 seconds--are supported. If an invalid value
  *  is given, an error will be returned. When choosing a duration, it is useful
  *  to keep in mind the frequency of the underlying time series data (which may
  *  also be affected by any alignments specified in the aggregations field); a
  *  good duration is long enough so that a single outlier does not generate
  *  spurious alerts, but short enough that unhealthy states are detected and
- *  alerted on quickly.
+ *  alerted on quickly. The default value is zero.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -5867,8 +6164,11 @@ GTLR_DEPRECATED
 
 
 /**
- *  The QueryTimeSeries request.
+ *  The QueryTimeSeries request. For information about the status of Monitoring
+ *  Query Language (MQL), see the MQL deprecation notice
+ *  (https://cloud.google.com/stackdriver/docs/deprecations/mql).
  */
+GTLR_DEPRECATED
 @interface GTLRMonitoring_QueryTimeSeriesRequest : GTLRObject
 
 /**
@@ -5896,8 +6196,11 @@ GTLR_DEPRECATED
 
 
 /**
- *  The QueryTimeSeries response.
+ *  The QueryTimeSeries response. For information about the status of Monitoring
+ *  Query Language (MQL), see the MQL deprecation notice
+ *  (https://cloud.google.com/stackdriver/docs/deprecations/mql).
  */
+GTLR_DEPRECATED
 @interface GTLRMonitoring_QueryTimeSeriesResponse : GTLRObject
 
 /**
@@ -6034,6 +6337,49 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A test that checks if the number of rows in the result set violates some
+ *  threshold.
+ */
+@interface GTLRMonitoring_RowCountTest : GTLRObject
+
+/**
+ *  Required. The comparison to apply between the number of rows returned by the
+ *  query and the threshold.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_RowCountTest_Comparison_ComparisonEq True if the
+ *        left argument is equal to the right argument. (Value: "COMPARISON_EQ")
+ *    @arg @c kGTLRMonitoring_RowCountTest_Comparison_ComparisonGe True if the
+ *        left argument is greater than or equal to the right argument. (Value:
+ *        "COMPARISON_GE")
+ *    @arg @c kGTLRMonitoring_RowCountTest_Comparison_ComparisonGt True if the
+ *        left argument is greater than the right argument. (Value:
+ *        "COMPARISON_GT")
+ *    @arg @c kGTLRMonitoring_RowCountTest_Comparison_ComparisonLe True if the
+ *        left argument is less than or equal to the right argument. (Value:
+ *        "COMPARISON_LE")
+ *    @arg @c kGTLRMonitoring_RowCountTest_Comparison_ComparisonLt True if the
+ *        left argument is less than the right argument. (Value:
+ *        "COMPARISON_LT")
+ *    @arg @c kGTLRMonitoring_RowCountTest_Comparison_ComparisonNe True if the
+ *        left argument is not equal to the right argument. (Value:
+ *        "COMPARISON_NE")
+ *    @arg @c kGTLRMonitoring_RowCountTest_Comparison_ComparisonUnspecified No
+ *        ordering relationship is specified. (Value: "COMPARISON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *comparison;
+
+/**
+ *  Required. The value against which to compare the row count.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threshold;
+
+@end
+
+
+/**
  *  The SendNotificationChannelVerificationCode request.
  */
 @interface GTLRMonitoring_SendNotificationChannelVerificationCodeRequest : GTLRObject
@@ -6093,7 +6439,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRMonitoring_MeshIstio *meshIstio;
 
 /**
- *  Resource name for this Service. The format is:
+ *  Identifier. Resource name for this Service. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6128,6 +6474,29 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRMonitoring_Service_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  Contains information needed for generating either an OpenID Connect token
+ *  (https://developers.google.com/identity/protocols/OpenIDConnect) or OAuth
+ *  token (https://developers.google.com/identity/protocols/oauth2). The token
+ *  will be generated for the Monitoring service agent service account.
+ */
+@interface GTLRMonitoring_ServiceAgentAuthentication : GTLRObject
+
+/**
+ *  Type of authentication.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_ServiceAgentAuthentication_Type_OidcToken OIDC
+ *        Authentication (Value: "OIDC_TOKEN")
+ *    @arg @c kGTLRMonitoring_ServiceAgentAuthentication_Type_ServiceAgentAuthenticationTypeUnspecified
+ *        Default value, will result in OIDC Authentication. (Value:
+ *        "SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -6205,14 +6574,14 @@ GTLR_DEPRECATED
 
 /**
  *  The fraction of service that must be good in order for this objective to be
- *  met. 0 < goal <= 0.999.
+ *  met. 0 < goal <= 0.9999.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *goal;
 
 /**
- *  Resource name for this ServiceLevelObjective. The format is:
+ *  Identifier. Resource name for this ServiceLevelObjective. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/services/[SERVICE_ID]/serviceLevelObjectives/[SLO_NAME]
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6289,7 +6658,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRMonitoring_TimeInterval *interval;
 
 /**
- *  Required. The name of the Snooze. The format is:
+ *  Required. Identifier. The name of the Snooze. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]/snoozes/[SNOOZE_ID] The ID of the Snooze
  *  will be generated by the system.
  */
@@ -6329,6 +6698,43 @@ GTLR_DEPRECATED
  *  8-byte array.
  */
 @property(nonatomic, copy, nullable) NSString *spanName;
+
+@end
+
+
+/**
+ *  A condition that allows alerting policies to be defined using GoogleSQL. SQL
+ *  conditions examine a sliding window of logs using GoogleSQL. Alert policies
+ *  with SQL conditions may incur additional billing.
+ */
+@interface GTLRMonitoring_SqlCondition : GTLRObject
+
+/** Test the boolean value in the indicated column. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_BooleanTest *booleanTest;
+
+/** Schedule the query to execute every so many days. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Daily *daily;
+
+/** Schedule the query to execute every so many hours. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Hourly *hourly;
+
+/** Schedule the query to execute every so many minutes. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Minutes *minutes;
+
+/**
+ *  Required. The Log Analytics SQL query to run, as a string. The query must
+ *  conform to the required shape. Specifically, the query must not try to
+ *  filter the input by time. A filter will automatically be applied to filter
+ *  the input so that the query receives all rows received since the last time
+ *  the query was run.For example, the following query extracts all log entries
+ *  containing an HTTP request: SELECT timestamp, log_name, severity,
+ *  http_request, resource, labels FROM my-project.global._Default._AllLogs
+ *  WHERE http_request IS NOT NULL
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/** Test the row count against a threshold. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_RowCountTest *rowCountTest;
 
 @end
 
@@ -6470,12 +6876,65 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and google.protobuf.Timestamp.
+ */
+@interface GTLRMonitoring_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
  *  A collection of data points that describes the time-varying values of a
  *  metric. A time series is identified by a combination of a fully-specified
  *  monitored resource and a fully-specified metric. This type is used for both
  *  listing and creating time series.
  */
 @interface GTLRMonitoring_TimeSeries : GTLRObject
+
+/**
+ *  Input only. A detailed description of the time series that will be
+ *  associated with the google.api.MetricDescriptor for the metric. Once set,
+ *  this field cannot be changed through CreateTimeSeries.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
  *  Output only. The associated monitored resource metadata. When reading a time
@@ -6535,7 +6994,8 @@ GTLR_DEPRECATED
 /**
  *  The units in which the metric value is reported. It is only applicable if
  *  the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
- *  representation of the stored metric values.
+ *  representation of the stored metric values. This field can only be changed
+ *  through CreateTimeSeries when it is empty.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -6667,7 +7127,11 @@ GTLR_DEPRECATED
 
 
 /**
- *  A protocol buffer message type.
+ *  A protocol buffer message type.New usages of this message as an alternative
+ *  to DescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRMonitoring_Type : GTLRObject
 
@@ -6778,6 +7242,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_ContentMatcher *> *contentMatchers;
 
 /**
+ *  Whether the check is disabled or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
  *  A human-friendly name for the Uptime check configuration. The display name
  *  should be unique within a Cloud Monitoring Workspace in order to make it
  *  easier to identify; however, uniqueness is not enforced. Required.
@@ -6804,6 +7275,13 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isInternal GTLR_DEPRECATED;
+
+/**
+ *  To specify whether to log the results of failed probes to Cloud Logging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logCheckFailures;
 
 /**
  *  The monitored resource (https://cloud.google.com/monitoring/api/resources)

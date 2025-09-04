@@ -31,6 +31,24 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
+ *  Includes all fields except for direct notebook inputs.
+ *
+ *  Value: "NOTEBOOK_EXECUTION_JOB_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewNotebookExecutionJobViewBasic;
+/**
+ *  Includes all fields.
+ *
+ *  Value: "NOTEBOOK_EXECUTION_JOB_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewNotebookExecutionJobViewFull;
+/**
+ *  When unspecified, the API defaults to the BASIC view.
+ *
+ *  Value: "NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewNotebookExecutionJobViewUnspecified;
+/**
  *  Include: VersionId, ModelVersionExternalName, and SupportedActions.
  *
  *  Value: "PUBLISHER_MODEL_VERSION_VIEW_BASIC"
@@ -66,6 +84,964 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a BatchPredictionJob. A BatchPredictionJob once created will right
+ *  away be attempted to start.
+ *
+ *  Method: aiplatform.batchPredictionJobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_BatchPredictionJobsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the BatchPredictionJob
+ *  in. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob.
+ *
+ *  Creates a BatchPredictionJob. A BatchPredictionJob once created will right
+ *  away be attempted to start.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob to include in the
+ *    query.
+ *
+ *  @return GTLRAiplatformQuery_BatchPredictionJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob *)object;
+
+@end
+
+/**
+ *  Gets a BatchPredictionJob
+ *
+ *  Method: aiplatform.batchPredictionJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_BatchPredictionJobsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the BatchPredictionJob resource. Format:
+ *  `projects/{project}/locations/{location}/batchPredictionJobs/{batch_prediction_job}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob.
+ *
+ *  Gets a BatchPredictionJob
+ *
+ *  @param name Required. The name of the BatchPredictionJob resource. Format:
+ *    `projects/{project}/locations/{location}/batchPredictionJobs/{batch_prediction_job}`
+ *
+ *  @return GTLRAiplatformQuery_BatchPredictionJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BatchPredictionJobs in a Location.
+ *
+ *  Method: aiplatform.batchPredictionJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_BatchPredictionJobsList : GTLRAiplatformQuery
+
+/**
+ *  The standard list filter. Supported fields: * `display_name` supports `=`,
+ *  `!=` comparisons, and `:` wildcard. * `model_display_name` supports `=`,
+ *  `!=` comparisons. * `state` supports `=`, `!=` comparisons. * `create_time`
+ *  supports `=`, `!=`,`<`, `<=`,`>`, `>=` comparisons. `create_time` must be in
+ *  RFC 3339 format. * `labels` supports general map functions that is:
+ *  `labels.key=value` - key:value equality `labels.key:* - key existence Some
+ *  examples of using the filter are: * `state="JOB_STATE_SUCCEEDED" AND
+ *  display_name:"my_job_*"` * `state!="JOB_STATE_FAILED" OR
+ *  display_name="my_job"` * `NOT display_name="my_job"` *
+ *  `create_time>"2021-05-18T00:00:00Z"` * `labels.keyA=valueA` *
+ *  `labels.keyB:*`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The standard list page token. Typically obtained via
+ *  ListBatchPredictionJobsResponse.next_page_token of the previous
+ *  JobService.ListBatchPredictionJobs call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list the BatchPredictionJobs
+ *  from. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListBatchPredictionJobsResponse.
+ *
+ *  Lists BatchPredictionJobs in a Location.
+ *
+ *  @return GTLRAiplatformQuery_BatchPredictionJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Creates a Dataset.
+ *
+ *  Method: aiplatform.datasets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the Dataset in.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a Dataset.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset to
+ *    include in the query.
+ *
+ *  @return GTLRAiplatformQuery_DatasetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Dataset *)object;
+
+@end
+
+/**
+ *  Create a version from a Dataset.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Dataset resource. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Create a version from a Dataset.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
+ *    include in the query.
+ *  @param parent Required. The name of the Dataset resource. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Dataset version.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Dataset version to delete. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a Dataset version.
+ *
+ *  @param name Required. The resource name of the Dataset version to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Dataset version.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Dataset version to delete. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion.
+ *
+ *  Gets a Dataset version.
+ *
+ *  @param name Required. The resource name of the Dataset version to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DatasetVersions in a Dataset.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsList : GTLRAiplatformQuery
+
+/** Optional. The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Dataset to list DatasetVersions from.
+ *  Format: `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListDatasetVersionsResponse.
+ *
+ *  Lists DatasetVersions in a Dataset.
+ *
+ *  @param parent Required. The resource name of the Dataset to list
+ *    DatasetVersions from. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DatasetVersion.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsPatch : GTLRAiplatformQuery
+
+/**
+ *  Output only. Identifier. The resource name of the DatasetVersion. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask. Updatable fields: *
+ *  `display_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion.
+ *
+ *  Updates a DatasetVersion.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
+ *    include in the query.
+ *  @param name Output only. Identifier. The resource name of the
+ *    DatasetVersion. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Restores a dataset version.
+ *
+ *  Method: aiplatform.datasets.datasetVersions.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDatasetVersionsRestore : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the DatasetVersion resource. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Restores a dataset version.
+ *
+ *  @param name Required. The name of the DatasetVersion resource. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDatasetVersionsRestore
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a Dataset.
+ *
+ *  Method: aiplatform.datasets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Dataset to delete. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a Dataset.
+ *
+ *  @param name Required. The resource name of the Dataset to delete. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Dataset.
+ *
+ *  Method: aiplatform.datasets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsGet : GTLRAiplatformQuery
+
+/** Required. The name of the Dataset resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset.
+ *
+ *  Gets a Dataset.
+ *
+ *  @param name Required. The name of the Dataset resource.
+ *
+ *  @return GTLRAiplatformQuery_DatasetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Datasets in a Location.
+ *
+ *  Method: aiplatform.datasets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsList : GTLRAiplatformQuery
+
+/**
+ *  An expression for filtering the results of the request. For field names both
+ *  snake_case and camelCase are supported. * `display_name`: supports = and !=
+ *  * `metadata_schema_uri`: supports = and != * `labels` supports general map
+ *  functions that is: * `labels.key=value` - key:value equality * `labels.key:*
+ *  or labels:key - key existence * A key including a space must be quoted.
+ *  `labels."a key"`. Some examples: * `displayName="myDisplayName"` *
+ *  `labels.myKey="myValue"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  A comma-separated list of fields to order by, sorted in ascending order. Use
+ *  "desc" after a field name for descending. Supported fields: * `display_name`
+ *  * `create_time` * `update_time`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the Dataset's parent resource. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Mask specifying which fields to read.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListDatasetsResponse.
+ *
+ *  Lists Datasets in a Location.
+ *
+ *  @return GTLRAiplatformQuery_DatasetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates a Dataset.
+ *
+ *  Method: aiplatform.datasets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_DatasetsPatch : GTLRAiplatformQuery
+
+/**
+ *  Output only. Identifier. The resource name of the Dataset. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask. Updatable fields: *
+ *  `display_name` * `description` * `labels`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset.
+ *
+ *  Updates a Dataset.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset to
+ *    include in the query.
+ *  @param name Output only. Identifier. The resource name of the Dataset.
+ *    Format: `projects/{project}/locations/{location}/datasets/{dataset}`
+ *
+ *  @return GTLRAiplatformQuery_DatasetsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Dataset *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Exposes an OpenAI-compatible endpoint for chat completions.
+ *
+ *  Method: aiplatform.endpoints.chat.completions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsChatCompletions : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Exposes an OpenAI-compatible endpoint for chat completions.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleApiHttpBody to include in the
+ *    query.
+ *  @param endpoint Required. The name of the endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsChatCompletions
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleApiHttpBody *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Return a list of tokens based on the input text.
+ *
+ *  Method: aiplatform.endpoints.computeTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_EndpointsComputeTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to get lists of tokens and
+ *  token ids.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse.
+ *
+ *  Return a list of tokens based on the input text.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest to include in
+ *    the query.
+ *  @param endpoint Required. The name of the Endpoint requested to get lists of
+ *    tokens and token ids.
+ *
+ *  @return GTLRAiplatformQuery_EndpointsComputeTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Perform a token counting.
+ *
+ *  Method: aiplatform.endpoints.countTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_EndpointsCountTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to perform token counting.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse.
+ *
+ *  Perform a token counting.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to perform
+ *    token counting. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsCountTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  Method: aiplatform.endpoints.fetchPredictOperation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsFetchPredictOperation : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsFetchPredictOperation
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs.
+ *
+ *  Method: aiplatform.endpoints.generateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
+
+@end
+
+/**
+ *  Perform an online prediction.
+ *
+ *  Method: aiplatform.endpoints.predict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsPredict : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1PredictResponse.
+ *
+ *  Perform an online prediction.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsPredict
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  GTLRAiplatformQuery_EndpointsPredictLongRunning
+ *
+ *  Method: aiplatform.endpoints.predictLongRunning
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsPredictLongRunning : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsPredictLongRunning
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  Method: aiplatform.endpoints.streamGenerateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_EndpointsStreamGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_EndpointsStreamGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
+
+@end
+
+/**
+ *  Upload a file into a RagCorpus.
+ *
+ *  Method: aiplatform.media.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_MediaUpload : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the RagCorpus resource into which to upload the file.
+ *  Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileResponse.
+ *
+ *  Upload a file into a RagCorpus.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the RagCorpus resource into which to
+ *    upload the file. Format:
+ *    `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRAiplatformQuery_MediaUpload
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Gets a GenAI cache config.
+ *
+ *  Method: aiplatform.projects.getCacheConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsGetCacheConfig : GTLRAiplatformQuery
+
+/**
+ *  Required. Name of the cache config. Format: -
+ *  `projects/{project}/cacheConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CacheConfig.
+ *
+ *  Gets a GenAI cache config.
+ *
+ *  @param name Required. Name of the cache config. Format: -
+ *    `projects/{project}/cacheConfig`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsGetCacheConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Given an input prompt, it returns augmented prompt from vertex rag store to
+ *  guide LLM towards generating grounded responses.
+ *
+ *  Method: aiplatform.projects.locations.augmentPrompt
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsAugmentPrompt : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location from which to augment prompt.
+ *  The users must have permission to make a call in the project. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptResponse.
+ *
+ *  Given an input prompt, it returns augmented prompt from vertex rag store to
+ *  guide LLM towards generating grounded responses.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptRequest to include in
+ *    the query.
+ *  @param parent Required. The resource name of the Location from which to
+ *    augment prompt. The users must have permission to make a call in the
+ *    project. Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsAugmentPrompt
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -279,6 +1255,221 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates cached content, this call will initialize the cached content in the
+ *  data storage, and users need to pay for the cache data storage.
+ *
+ *  Method: aiplatform.projects.locations.cachedContents.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsCachedContentsCreate : GTLRAiplatformQuery
+
+/** Required. The parent resource where the cached content will be created */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CachedContent.
+ *
+ *  Creates cached content, this call will initialize the cached content in the
+ *  data storage, and users need to pay for the cache data storage.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1CachedContent to
+ *    include in the query.
+ *  @param parent Required. The parent resource where the cached content will be
+ *    created
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsCachedContentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CachedContent *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes cached content
+ *
+ *  Method: aiplatform.projects.locations.cachedContents.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsCachedContentsDelete : GTLRAiplatformQuery
+
+/** Required. The resource name referring to the cached content */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes cached content
+ *
+ *  @param name Required. The resource name referring to the cached content
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsCachedContentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets cached content configurations
+ *
+ *  Method: aiplatform.projects.locations.cachedContents.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsCachedContentsGet : GTLRAiplatformQuery
+
+/** Required. The resource name referring to the cached content */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CachedContent.
+ *
+ *  Gets cached content configurations
+ *
+ *  @param name Required. The resource name referring to the cached content
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsCachedContentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists cached contents in a project
+ *
+ *  Method: aiplatform.projects.locations.cachedContents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsCachedContentsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum number of cached contents to return. The service may
+ *  return fewer than this value. If unspecified, some default (under maximum)
+ *  number of items will be returned. The maximum value is 1000; values above
+ *  1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListCachedContents` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListCachedContents` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent, which owns this collection of cached contents. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListCachedContentsResponse.
+ *
+ *  Lists cached contents in a project
+ *
+ *  @param parent Required. The parent, which owns this collection of cached
+ *    contents.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsCachedContentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates cached content configurations
+ *
+ *  Method: aiplatform.projects.locations.cachedContents.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsCachedContentsPatch : GTLRAiplatformQuery
+
+/**
+ *  Immutable. Identifier. The server-generated resource name of the cached
+ *  content Format:
+ *  projects/{project}/locations/{location}/cachedContents/{cached_content}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CachedContent.
+ *
+ *  Updates cached content configurations
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1CachedContent to
+ *    include in the query.
+ *  @param name Immutable. Identifier. The server-generated resource name of the
+ *    cached content Format:
+ *    projects/{project}/locations/{location}/cachedContents/{cached_content}
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsCachedContentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CachedContent *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Given an input text, it returns a score that evaluates the factuality of the
+ *  text. It also extracts and returns claims from the text and provides
+ *  supporting facts.
+ *
+ *  Method: aiplatform.projects.locations.corroborateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsCorroborateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location from which to corroborate text.
+ *  The users must have permission to make a call in the project. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentResponse.
+ *
+ *  Given an input text, it returns a score that evaluates the factuality of the
+ *  text. It also extracts and returns claims from the text and provides
+ *  supporting facts.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentRequest to include
+ *    in the query.
+ *  @param parent Required. The resource name of the Location from which to
+ *    corroborate text. The users must have permission to make a call in the
+ *    project. Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsCorroborateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -498,7 +1689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.customJobs.operations.cancel
@@ -521,7 +1712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -890,7 +2081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.dataLabelingJobs.operations.cancel
@@ -913,7 +2104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -1121,7 +2312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.datasets.annotationSpecs.operations.cancel
@@ -1144,7 +2335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -1341,7 +2532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Lists Annotations belongs to a dataitem
+ *  Lists Annotations belongs to a dataitem.
  *
  *  Method: aiplatform.projects.locations.datasets.dataItems.annotations.list
  *
@@ -1382,7 +2573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListAnnotationsResponse.
  *
- *  Lists Annotations belongs to a dataitem
+ *  Lists Annotations belongs to a dataitem.
  *
  *  @param parent Required. The resource name of the DataItem to list
  *    Annotations from. Format:
@@ -1406,7 +2597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.datasets.dataItems.annotations.operations.cancel
@@ -1429,7 +2620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -1656,7 +2847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.datasets.dataItems.operations.cancel
@@ -1679,7 +2870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -2003,6 +3194,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Updates a DatasetVersion.
+ *
+ *  Method: aiplatform.projects.locations.datasets.datasetVersions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch : GTLRAiplatformQuery
+
+/**
+ *  Output only. Identifier. The resource name of the DatasetVersion. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask. Updatable fields: *
+ *  `display_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion.
+ *
+ *  Updates a DatasetVersion.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion to
+ *    include in the query.
+ *  @param name Output only. Identifier. The resource name of the
+ *    DatasetVersion. Format:
+ *    `projects/{project}/locations/{location}/datasets/{dataset}/datasetVersions/{dataset_version}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsDatasetVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Restores a dataset version.
  *
  *  Method: aiplatform.projects.locations.datasets.datasetVersions.restore
@@ -2234,7 +3468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.datasets.operations.cancel
@@ -2257,7 +3491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -2430,7 +3664,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsDatasetsPatch : GTLRAiplatformQuery
 
-/** Output only. The resource name of the Dataset. */
+/**
+ *  Output only. Identifier. The resource name of the Dataset. Format:
+ *  `projects/{project}/locations/{location}/datasets/{dataset}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2449,7 +3686,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Dataset to
  *    include in the query.
- *  @param name Output only. The resource name of the Dataset.
+ *  @param name Output only. Identifier. The resource name of the Dataset.
+ *    Format: `projects/{project}/locations/{location}/datasets/{dataset}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsDatasetsPatch
  */
@@ -2553,7 +3791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.datasets.savedQueries.operations.cancel
@@ -2576,7 +3814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -2866,6 +4104,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Deploys a model to a new endpoint.
+ *
+ *  Method: aiplatform.projects.locations.deploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploy : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to deploy the model in. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deploys a model to a new endpoint.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1DeployRequest to
+ *    include in the query.
+ *  @param destination Required. The resource name of the Location to deploy the
+ *    model in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DeployRequest *)object
+                    destination:(NSString *)destination;
+
+@end
+
+/**
  *  Create a DeploymentResourcePool.
  *
  *  Method: aiplatform.projects.locations.deploymentResourcePools.create
@@ -3019,7 +4290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.deploymentResourcePools.operations.cancel
@@ -3042,7 +4313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -3206,6 +4477,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Update a DeploymentResourcePool.
+ *
+ *  Method: aiplatform.projects.locations.deploymentResourcePools.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsPatch : GTLRAiplatformQuery
+
+/**
+ *  Immutable. The resource name of the DeploymentResourcePool. Format:
+ *  `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Update a DeploymentResourcePool.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool to include in
+ *    the query.
+ *  @param name Immutable. The resource name of the DeploymentResourcePool.
+ *    Format:
+ *    `projects/{project}/locations/{location}/deploymentResourcePools/{deployment_resource_pool}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  List DeployedModels that have been deployed on this DeploymentResourcePool.
  *
  *  Method: aiplatform.projects.locations.deploymentResourcePools.queryDeployedModels
@@ -3248,6 +4561,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsDeploymentResourcePoolsQueryDeployedModels
  */
 + (instancetype)queryWithDeploymentResourcePool:(NSString *)deploymentResourcePool;
+
+@end
+
+/**
+ *  Exposes an OpenAI-compatible endpoint for chat completions.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.chat.completions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsChatCompletions : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Exposes an OpenAI-compatible endpoint for chat completions.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleApiHttpBody to include in the
+ *    query.
+ *  @param endpoint Required. The name of the endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsChatCompletions
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleApiHttpBody *)object
+                       endpoint:(NSString *)endpoint;
 
 @end
 
@@ -3439,6 +4787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectPredict : GTLRAiplatformQuery
 
@@ -3476,6 +4825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDirectRawPredict : GTLRAiplatformQuery
 
@@ -3515,6 +4865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsExplain : GTLRAiplatformQuery
 
@@ -3546,18 +4897,60 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.fetchPredictOperation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsFetchPredictOperation : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsFetchPredictOperation
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Generate content with multimodal inputs.
  *
  *  Method: aiplatform.projects.locations.endpoints.generateContent
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsGenerateContent : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the publisher model requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -3569,9 +4962,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
  *    the query.
- *  @param model Required. The name of the publisher model requested to serve
- *    the prediction. Format:
- *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsGenerateContent
  */
@@ -3622,15 +5017,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Optional. An expression for filtering the results of the request. For field
- *  names both snake_case and camelCase are supported. * `endpoint` supports =
- *  and !=. `endpoint` represents the Endpoint ID, i.e. the last segment of the
- *  Endpoint's resource name. * `display_name` supports = and, != * `labels`
- *  supports general map functions that is: * `labels.key=value` - key:value
- *  equality * `labels.key:* or labels:key - key existence * A key including a
- *  space must be quoted. `labels."a key"`. Some examples: * `endpoint=1` *
- *  `displayName="myDisplayName"` * `labels.myKey="myValue"`
+ *  names both snake_case and camelCase are supported. * `endpoint` supports `=`
+ *  and `!=`. `endpoint` represents the Endpoint ID, i.e. the last segment of
+ *  the Endpoint's resource name. * `display_name` supports `=` and `!=`. *
+ *  `labels` supports general map functions that is: * `labels.key=value` -
+ *  key:value equality * `labels.key:*` or `labels:key` - key existence * A key
+ *  including a space must be quoted. `labels."a key"`. * `base_model_name` only
+ *  supports `=`. Some examples: * `endpoint=1` * `displayName="myDisplayName"`
+ *  * `labels.myKey="myValue"` * `baseModelName="text-bison"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Configures the Google Distributed Cloud (GDC) environment for
+ *  online prediction. Only set this field when the Endpoint is to be deployed
+ *  in a GDC environment.
+ */
+@property(nonatomic, copy, nullable) NSString *gdcZone;
 
 /**
  *  A comma-separated list of fields to order by, sorted in ascending order. Use
@@ -3682,9 +5085,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Updates an existing deployed model. Updatable fields include
- *  `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
- *  `disable_container_logging` (v1 only), and `enable_container_logging`
- *  (v1beta1 only).
+ *  `min_replica_count`, `max_replica_count`, `required_replica_count`,
+ *  `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
+ *  `enable_container_logging` (v1beta1 only).
  *
  *  Method: aiplatform.projects.locations.endpoints.mutateDeployedModel
  *
@@ -3704,9 +5107,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
  *
  *  Updates an existing deployed model. Updatable fields include
- *  `min_replica_count`, `max_replica_count`, `autoscaling_metric_specs`,
- *  `disable_container_logging` (v1 only), and `enable_container_logging`
- *  (v1beta1 only).
+ *  `min_replica_count`, `max_replica_count`, `required_replica_count`,
+ *  `autoscaling_metric_specs`, `disable_container_logging` (v1 only), and
+ *  `enable_container_logging` (v1beta1 only).
  *
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1MutateDeployedModelRequest to
@@ -3730,7 +5133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.endpoints.operations.cancel
@@ -3753,7 +5156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -3960,6 +5363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsPredict : GTLRAiplatformQuery
 
@@ -3988,6 +5392,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  GTLRAiplatformQuery_ProjectsLocationsEndpointsPredictLongRunning
+ *
+ *  Method: aiplatform.projects.locations.endpoints.predictLongRunning
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsPredictLongRunning : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsPredictLongRunning
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Perform an online prediction with an arbitrary HTTP payload. The response
  *  includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the
  *  Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID
@@ -3997,6 +5437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsRawPredict : GTLRAiplatformQuery
 
@@ -4035,6 +5476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsServerStreamingPredict : GTLRAiplatformQuery
 
@@ -4071,12 +5513,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the publisher model requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -4088,9 +5534,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
  *    the query.
- *  @param model Required. The name of the publisher model requested to serve
- *    the prediction. Format:
- *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamGenerateContent
  */
@@ -4106,6 +5554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamRawPredict : GTLRAiplatformQuery
 
@@ -4172,6 +5621,105 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Updates an Endpoint with a long running operation.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsUpdate : GTLRAiplatformQuery
+
+/** Output only. The resource name of the Endpoint. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates an Endpoint with a long running operation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1UpdateEndpointLongRunningRequest to
+ *    include in the query.
+ *  @param name Output only. The resource name of the Endpoint.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1UpdateEndpointLongRunningRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Evaluates a dataset based on a set of given metrics.
+ *
+ *  Method: aiplatform.projects.locations.evaluateDataset
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluateDataset : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to evaluate the dataset. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Evaluates a dataset based on a set of given metrics.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest to include in
+ *    the query.
+ *  @param location Required. The resource name of the Location to evaluate the
+ *    dataset. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluateDataset
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
+ *  Evaluates instances based on a given metric.
+ *
+ *  Method: aiplatform.projects.locations.evaluateInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluateInstances : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to evaluate the instances.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesResponse.
+ *
+ *  Evaluates instances based on a given metric.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest to include
+ *    in the query.
+ *  @param location Required. The resource name of the Location to evaluate the
+ *    instances. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluateInstances
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
  *  Creates a new FeatureGroup in a given project and location.
  *
  *  Method: aiplatform.projects.locations.featureGroups.create
@@ -4183,7 +5731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Required. The ID to use for this FeatureGroup, which will become the final
- *  component of the FeatureGroup's resource name. This value may be up to 60
+ *  component of the FeatureGroup's resource name. This value may be up to 128
  *  characters, and valid characters are `[a-z0-9_]`. The first character cannot
  *  be a number. The value must be unique within the project and location.
  */
@@ -4191,7 +5739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Required. The resource name of the Location to create FeatureGroups. Format:
- *  `projects/{project}/locations/{location}'`
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4203,7 +5751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup to
  *    include in the query.
  *  @param parent Required. The resource name of the Location to create
- *    FeatureGroups. Format: `projects/{project}/locations/{location}'`
+ *    FeatureGroups. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsCreate
  */
@@ -4245,6 +5793,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a batch of Features in a given FeatureGroup.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.features.batchCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesBatchCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the EntityType/FeatureGroup to create the
+ *  batch of Features under. Format:
+ *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a batch of Features in a given FeatureGroup.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateFeaturesRequest to
+ *    include in the query.
+ *  @param parent Required. The resource name of the EntityType/FeatureGroup to
+ *    create the batch of Features under. Format:
+ *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsFeaturesBatchCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateFeaturesRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -4638,7 +6224,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  in the mask. If the user does not provide a mask then only the non-empty
  *  fields present in the request will be overwritten. Set the update_mask to
  *  `*` to override all fields. Updatable fields: * `description` * `labels` *
- *  `disable_monitoring` (Not supported for FeatureRegistry Feature)
+ *  `disable_monitoring` (Not supported for FeatureRegistryService Feature) *
+ *  `point_of_contact` (Not supported for FeaturestoreService FeatureStore)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -4693,6 +6280,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsGetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists FeatureGroups in a given project and location.
  *
  *  Method: aiplatform.projects.locations.featureGroups.list
@@ -4730,9 +6366,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  A page token, received from a previous
- *  FeatureGroupAdminService.ListFeatureGroups call. Provide this to retrieve
- *  the subsequent page. When paginating, all other parameters provided to
- *  FeatureGroupAdminService.ListFeatureGroups must match the call that provided
+ *  FeatureRegistryService.ListFeatureGroups call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  FeatureRegistryService.ListFeatureGroups must match the call that provided
  *  the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -4937,6 +6573,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  overwritten if it is in the mask. If the user does not provide a mask then
  *  only the non-empty fields present in the request will be overwritten. Set
  *  the update_mask to `*` to override all fields. Updatable fields: * `labels`
+ *  * `description` * `big_query` * `big_query.entity_id_columns` *
+ *  `service_agent_type`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -4956,6 +6594,94 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsSetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: aiplatform.projects.locations.featureGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsTestIamPermissions : GTLRAiplatformQuery
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureGroupsTestIamPermissions
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -5122,6 +6848,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Bidirectional streaming RPC to directly write to feature values in a feature
+ *  view. Requests may not have a one-to-one mapping to responses and responses
+ *  may be returned out-of-order to reduce latency.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.directWrite
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDirectWrite : GTLRAiplatformQuery
+
+/**
+ *  FeatureView resource format
+ *  `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}`
+ */
+@property(nonatomic, copy, nullable) NSString *featureView;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponse.
+ *
+ *  Bidirectional streaming RPC to directly write to feature values in a feature
+ *  view. Requests may not have a one-to-one mapping to responses and responses
+ *  may be returned out-of-order to reduce latency.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequest to
+ *    include in the query.
+ *  @param featureView FeatureView resource format
+ *    `projects/{project}/locations/{location}/featureOnlineStores/{featureOnlineStore}/featureViews/{featureView}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsDirectWrite
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequest *)object
+                    featureView:(NSString *)featureView;
+
+@end
+
+/**
  *  Gets details of a single FeatureViewSync.
  *
  *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.featureViewSyncs.get
@@ -5282,6 +7047,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -5535,7 +7349,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  overwritten if it is in the mask. If the user does not provide a mask then
  *  only the non-empty fields present in the request will be overwritten. Set
  *  the update_mask to `*` to override all fields. Updatable fields: * `labels`
- *  * `serviceAgentType`
+ *  * `service_agent_type` * `big_query_source` * `big_query_source.uri` *
+ *  `big_query_source.entity_id_columns` * `feature_registry_source` *
+ *  `feature_registry_source.feature_groups` * `sync_config` *
+ *  `sync_config.cron` * `optimized_config.automatic_resources`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -5598,6 +7415,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Triggers on-demand sync for the FeatureView.
  *
  *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.sync
@@ -5632,6 +7489,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.featureViews.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsTestIamPermissions : GTLRAiplatformQuery
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresFeatureViewsTestIamPermissions
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Gets details of a single FeatureOnlineStore.
  *
  *  Method: aiplatform.projects.locations.featureOnlineStores.get
@@ -5654,6 +7559,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -5903,7 +7857,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  be overwritten if it is in the mask. If the user does not provide a mask
  *  then only the non-empty fields present in the request will be overwritten.
  *  Set the update_mask to `*` to override all fields. Updatable fields: *
- *  `big_query_source` * `bigtable` * `labels` * `sync_config`
+ *  `labels` * `description` * `bigtable` * `bigtable.auto_scaling` *
+ *  `bigtable.enable_multi_region_replica`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -5924,6 +7879,94 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresSetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: aiplatform.projects.locations.featureOnlineStores.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresTestIamPermissions : GTLRAiplatformQuery
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsFeatureOnlineStoresTestIamPermissions
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -6227,9 +8270,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesBatchCreate : GTLRAiplatformQuery
 
 /**
- *  Required. The resource name of the EntityType to create the batch of
- *  Features under. Format:
+ *  Required. The resource name of the EntityType/FeatureGroup to create the
+ *  batch of Features under. Format:
  *  `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *  `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6241,9 +8285,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1BatchCreateFeaturesRequest to
  *    include in the query.
- *  @param parent Required. The resource name of the EntityType to create the
- *    batch of Features under. Format:
+ *  @param parent Required. The resource name of the EntityType/FeatureGroup to
+ *    create the batch of Features under. Format:
  *    `projects/{project}/locations/{location}/featurestores/{featurestore}/entityTypes/{entity_type}`
+ *    `projects/{project}/locations/{location}/featureGroups/{feature_group}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsFeaturestoresEntityTypesFeaturesBatchCreate
  */
@@ -6470,7 +8515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.features.operations.cancel
@@ -6493,7 +8538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -6684,7 +8729,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  in the mask. If the user does not provide a mask then only the non-empty
  *  fields present in the request will be overwritten. Set the update_mask to
  *  `*` to override all fields. Updatable fields: * `description` * `labels` *
- *  `disable_monitoring` (Not supported for FeatureRegistry Feature)
+ *  `disable_monitoring` (Not supported for FeatureRegistryService Feature) *
+ *  `point_of_contact` (Not supported for FeaturestoreService FeatureStore)
  *
  *  String format is a comma-separated list of fields.
  */
@@ -6941,7 +8987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.featurestores.entityTypes.operations.cancel
@@ -6964,7 +9010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -7571,7 +9617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.featurestores.operations.cancel
@@ -7594,7 +9640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -8005,6 +10051,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Gets a RagEngineConfig.
+ *
+ *  Method: aiplatform.projects.locations.getRagEngineConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsGetRagEngineConfig : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the RagEngineConfig resource. Format:
+ *  `projects/{project}/locations/{location}/ragEngineConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1RagEngineConfig.
+ *
+ *  Gets a RagEngineConfig.
+ *
+ *  @param name Required. The name of the RagEngineConfig resource. Format:
+ *    `projects/{project}/locations/{location}/ragEngineConfig`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsGetRagEngineConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Cancels a HyperparameterTuningJob. Starts asynchronous cancellation on the
  *  HyperparameterTuningJob. The server makes a best effort to cancel the job,
  *  but success is not guaranteed. Clients can use
@@ -8230,7 +10306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.hyperparameterTuningJobs.operations.cancel
@@ -8253,7 +10329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -8482,7 +10558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
- *  it. Only non-empty Indexes can be deployed.
+ *  it.
  *
  *  Method: aiplatform.projects.locations.indexEndpoints.deployIndex
  *
@@ -8502,7 +10578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
  *
  *  Deploys an Index into this IndexEndpoint, creating a DeployedIndex within
- *  it. Only non-empty Indexes can be deployed.
+ *  it.
  *
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1DeployIndexRequest to include in the
@@ -8692,7 +10768,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.indexEndpoints.operations.cancel
@@ -8715,7 +10791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -9147,7 +11223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.indexes.operations.cancel
@@ -9170,7 +11246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -9449,6 +11525,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsList : GTLRAiplatformQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -9689,7 +11771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.metadataStores.artifacts.operations.cancel
@@ -9712,7 +11794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -10306,7 +12388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.metadataStores.contexts.operations.cancel
@@ -10329,7 +12411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -10967,7 +13049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.metadataStores.executions.operations.cancel
@@ -10990,7 +13072,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -11482,7 +13564,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.metadataStores.operations.cancel
@@ -11505,7 +13587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -11712,7 +13794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.migratableResources.operations.cancel
@@ -11735,7 +13817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -12111,7 +14193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.modelDeploymentMonitoringJobs.operations.cancel
@@ -12134,7 +14216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -12706,7 +14788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.models.evaluations.operations.cancel
@@ -12729,7 +14811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -13167,8 +15249,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  * `display_name` supports = and != * `labels` supports general map functions
  *  that is: * `labels.key=value` - key:value equality * `labels.key:* or
  *  labels:key - key existence * A key including a space must be quoted.
- *  `labels."a key"`. Some examples: * `model=1234` *
- *  `displayName="myDisplayName"` * `labels.myKey="myValue"`
+ *  `labels."a key"`. * `base_model_name` only supports = Some examples: *
+ *  `model=1234` * `displayName="myDisplayName"` * `labels.myKey="myValue"` *
+ *  `baseModelName="text-bison"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13217,6 +15300,56 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists checkpoints of the specified model version.
+ *
+ *  Method: aiplatform.projects.locations.models.listCheckpoints
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsModelsListCheckpoints : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the model version to list checkpoints for.
+ *  `projects/{project}/locations/{location}/models/{model}\@{version}` Example:
+ *  `projects/{project}/locations/{location}/models/{model}\@2` or
+ *  `projects/{project}/locations/{location}/models/{model}\@golden` If no
+ *  version ID or alias is specified, the latest version will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  next_page_token of the previous ListModelVersionCheckpoints call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListModelVersionCheckpointsResponse.
+ *
+ *  Lists checkpoints of the specified model version.
+ *
+ *  @param name Required. The name of the model version to list checkpoints for.
+ *    `projects/{project}/locations/{location}/models/{model}\@{version}`
+ *    Example: `projects/{project}/locations/{location}/models/{model}\@2` or
+ *    `projects/{project}/locations/{location}/models/{model}\@golden` If no
+ *    version ID or alias is specified, the latest version will be used.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsModelsListCheckpoints
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -13327,7 +15460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.models.operations.cancel
@@ -13350,7 +15483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -13987,6 +16120,385 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Creates a NotebookExecutionJob.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsCreate : GTLRAiplatformQuery
+
+/** Optional. User specified ID for the NotebookExecutionJob. */
+@property(nonatomic, copy, nullable) NSString *notebookExecutionJobId;
+
+/**
+ *  Required. The resource name of the Location to create the
+ *  NotebookExecutionJob. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a NotebookExecutionJob.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob to include in
+ *    the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    NotebookExecutionJob. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a NotebookExecutionJob.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsDelete : GTLRAiplatformQuery
+
+/** Required. The name of the NotebookExecutionJob resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a NotebookExecutionJob.
+ *
+ *  @param name Required. The name of the NotebookExecutionJob resource to be
+ *    deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a NotebookExecutionJob.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsGet : GTLRAiplatformQuery
+
+/** Required. The name of the NotebookExecutionJob resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The NotebookExecutionJob view. Defaults to BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewUnspecified When
+ *        unspecified, the API defaults to the BASIC view. (Value:
+ *        "NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewBasic Includes all
+ *        fields except for direct notebook inputs. (Value:
+ *        "NOTEBOOK_EXECUTION_JOB_VIEW_BASIC")
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewFull Includes all
+ *        fields. (Value: "NOTEBOOK_EXECUTION_JOB_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob.
+ *
+ *  Gets a NotebookExecutionJob.
+ *
+ *  @param name Required. The name of the NotebookExecutionJob resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists NotebookExecutionJobs in a Location.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. For field
+ *  names both snake_case and camelCase are supported. * `notebookExecutionJob`
+ *  supports = and !=. `notebookExecutionJob` represents the
+ *  NotebookExecutionJob ID. * `displayName` supports = and != and regex. *
+ *  `schedule` supports = and != and regex. Some examples: *
+ *  `notebookExecutionJob="123"` * `notebookExecutionJob="my-execution-job"` *
+ *  `displayName="myDisplayName"` and `displayName=~"myDisplayNameRegex"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  `display_name` * `create_time` * `update_time` Example: `display_name,
+ *  create_time desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  ListNotebookExecutionJobsResponse.next_page_token of the previous
+ *  NotebookService.ListNotebookExecutionJobs call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location from which to list the
+ *  NotebookExecutionJobs. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The NotebookExecutionJob view. Defaults to BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewUnspecified When
+ *        unspecified, the API defaults to the BASIC view. (Value:
+ *        "NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewBasic Includes all
+ *        fields except for direct notebook inputs. (Value:
+ *        "NOTEBOOK_EXECUTION_JOB_VIEW_BASIC")
+ *    @arg @c kGTLRAiplatformViewNotebookExecutionJobViewFull Includes all
+ *        fields. (Value: "NOTEBOOK_EXECUTION_JOB_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookExecutionJobsResponse.
+ *
+ *  Lists NotebookExecutionJobs in a Location.
+ *
+ *  @param parent Required. The resource name of the Location from which to list
+ *    the NotebookExecutionJobs. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.notebookExecutionJobs.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookExecutionJobsOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Assigns a NotebookRuntime to a user for a particular Notebook file. This
  *  method will either returns an existing assignment or generates a new one.
  *
@@ -14111,18 +16623,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  `healthState` supports = and !=. healthState enum: [HEALTHY, UNHEALTHY,
  *  HEALTH_STATE_UNSPECIFIED]. * `runtimeState` supports = and !=. runtimeState
  *  enum: [RUNTIME_STATE_UNSPECIFIED, RUNNING, BEING_STARTED, BEING_STOPPED,
- *  STOPPED, BEING_UPGRADED]. * `runtimeUser` supports = and !=. * API version
- *  is UI only: `uiState` supports = and !=. uiState enum:
+ *  STOPPED, BEING_UPGRADED, ERROR, INVALID]. * `runtimeUser` supports = and !=.
+ *  * API version is UI only: `uiState` supports = and !=. uiState enum:
  *  [UI_RESOURCE_STATE_UNSPECIFIED, UI_RESOURCE_STATE_BEING_CREATED,
  *  UI_RESOURCE_STATE_ACTIVE, UI_RESOURCE_STATE_BEING_DELETED,
  *  UI_RESOURCE_STATE_CREATION_FAILED]. * `notebookRuntimeType` supports = and
- *  !=. notebookRuntimeType enum: [USER_DEFINED, ONE_CLICK]. Some examples: *
+ *  !=. notebookRuntimeType enum: [USER_DEFINED, ONE_CLICK]. * `machineType`
+ *  supports = and !=. * `acceleratorType` supports = and !=. Some examples: *
  *  `notebookRuntime="notebookRuntime123"` * `displayName="myDisplayName"` and
  *  `displayName=~"myDisplayNameRegex"` *
  *  `notebookRuntimeTemplate="notebookRuntimeTemplate321"` *
  *  `healthState=HEALTHY` * `runtimeState=RUNNING` *
  *  `runtimeUser="test\@google.com"` * `uiState=UI_RESOURCE_STATE_BEING_DELETED`
- *  * `notebookRuntimeType=USER_DEFINED`
+ *  * `notebookRuntimeType=USER_DEFINED` * `machineType=e2-standard-4` *
+ *  `acceleratorType=NVIDIA_TESLA_T4`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14177,6 +16691,200 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Starts a NotebookRuntime.
  *
  *  Method: aiplatform.projects.locations.notebookRuntimes.start
@@ -14210,6 +16918,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesStart
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StartNotebookRuntimeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops a NotebookRuntime.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimes.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesStop : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the NotebookRuntime resource to be stopped. Instead of
+ *  checking whether the name is in valid NotebookRuntime resource name format,
+ *  directly throw NotFound exception if there is no such NotebookRuntime in
+ *  spanner.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Stops a NotebookRuntime.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1StopNotebookRuntimeRequest to
+ *    include in the query.
+ *  @param name Required. The name of the NotebookRuntime resource to be
+ *    stopped. Instead of checking whether the name is in valid NotebookRuntime
+ *    resource name format, directly throw NotFound exception if there is no
+ *    such NotebookRuntime in spanner.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimesStop
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StopNotebookRuntimeRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -14420,10 +17166,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  * `labels` supports general map functions that is: * `labels.key=value` -
  *  key:value equality * `labels.key:* or labels:key - key existence * A key
  *  including a space must be quoted. `labels."a key"`. * `notebookRuntimeType`
- *  supports = and !=. notebookRuntimeType enum: [USER_DEFINED, ONE_CLICK]. Some
+ *  supports = and !=. notebookRuntimeType enum: [USER_DEFINED, ONE_CLICK]. *
+ *  `machineType` supports = and !=. * `acceleratorType` supports = and !=. Some
  *  examples: * `notebookRuntimeTemplate=notebookRuntimeTemplate123` *
  *  `displayName="myDisplayName"` * `labels.myKey="myValue"` *
- *  `notebookRuntimeType=USER_DEFINED`
+ *  `notebookRuntimeType=USER_DEFINED` * `machineType=e2-standard-4` *
+ *  `acceleratorType=NVIDIA_TESLA_T4`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14475,6 +17223,239 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a NotebookRuntimeTemplate.
+ *
+ *  Method: aiplatform.projects.locations.notebookRuntimeTemplates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesPatch : GTLRAiplatformQuery
+
+/** The resource name of the NotebookRuntimeTemplate. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask. Input format: `{paths:
+ *  "${updated_filed}"}` Updatable fields: * `encryption_spec.kms_key_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate.
+ *
+ *  Updates a NotebookRuntimeTemplate.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate to include
+ *    in the query.
+ *  @param name The resource name of the NotebookRuntimeTemplate.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsNotebookRuntimeTemplatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -14574,7 +17555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.operations.cancel
@@ -14597,7 +17578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -14757,6 +17738,501 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsOperationsWait
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a PersistentResource.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the PersistentResource
+ *  in. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the PersistentResource, which become the final
+ *  component of the PersistentResource's resource name. The maximum length is
+ *  63 characters, and valid characters are
+ *  `/^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$/`.
+ */
+@property(nonatomic, copy, nullable) NSString *persistentResourceId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a PersistentResource.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource to include in the
+ *    query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    PersistentResource in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a PersistentResource.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the PersistentResource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/persistentResources/{persistent_resource}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a PersistentResource.
+ *
+ *  @param name Required. The name of the PersistentResource to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/persistentResources/{persistent_resource}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a PersistentResource.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the PersistentResource resource. Format:
+ *  `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource.
+ *
+ *  Gets a PersistentResource.
+ *
+ *  @param name Required. The name of the PersistentResource resource. Format:
+ *    `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists PersistentResources in a Location.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesList : GTLRAiplatformQuery
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  ListPersistentResourcesResponse.next_page_token of the previous
+ *  PersistentResourceService.ListPersistentResource call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list the PersistentResources
+ *  from. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListPersistentResourcesResponse.
+ *
+ *  Lists PersistentResources in a Location.
+ *
+ *  @param parent Required. The resource name of the Location to list the
+ *    PersistentResources from. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a PersistentResource.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesPatch : GTLRAiplatformQuery
+
+/** Immutable. Resource name of a PersistentResource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Specify the fields to be overwritten in the PersistentResource by
+ *  the update method.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates a PersistentResource.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource to include in the
+ *    query.
+ *  @param name Immutable. Resource name of a PersistentResource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Reboots a PersistentResource.
+ *
+ *  Method: aiplatform.projects.locations.persistentResources.reboot
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesReboot : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the PersistentResource resource. Format:
+ *  `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Reboots a PersistentResource.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1RebootPersistentResourceRequest to
+ *    include in the query.
+ *  @param name Required. The name of the PersistentResource resource. Format:
+ *    `projects/{project_id_or_number}/locations/{location_id}/persistentResources/{persistent_resource_id}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPersistentResourcesReboot
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RebootPersistentResourceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Batch cancel PipelineJobs. Firstly the server will check if all the jobs are
+ *  in non-terminal states, and skip the jobs that are already terminated. If
+ *  the operation failed, none of the pipeline jobs are cancelled. The server
+ *  will poll the states of all the pipeline jobs periodically to check the
+ *  cancellation status. This operation will return an LRO.
+ *
+ *  Method: aiplatform.projects.locations.pipelineJobs.batchCancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPipelineJobsBatchCancel : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the PipelineJobs' parent resource. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Batch cancel PipelineJobs. Firstly the server will check if all the jobs are
+ *  in non-terminal states, and skip the jobs that are already terminated. If
+ *  the operation failed, none of the pipeline jobs are cancelled. The server
+ *  will poll the states of all the pipeline jobs periodically to check the
+ *  cancellation status. This operation will return an LRO.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest to
+ *    include in the query.
+ *  @param parent Required. The name of the PipelineJobs' parent resource.
+ *    Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPipelineJobsBatchCancel
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Batch deletes PipelineJobs The Operation is atomic. If it fails, none of the
+ *  PipelineJobs are deleted. If it succeeds, all of the PipelineJobs are
+ *  deleted.
+ *
+ *  Method: aiplatform.projects.locations.pipelineJobs.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPipelineJobsBatchDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the PipelineJobs' parent resource. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Batch deletes PipelineJobs The Operation is atomic. If it fails, none of the
+ *  PipelineJobs are deleted. If it succeeds, all of the PipelineJobs are
+ *  deleted.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest to
+ *    include in the query.
+ *  @param parent Required. The name of the PipelineJobs' parent resource.
+ *    Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPipelineJobsBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -15006,7 +18482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.pipelineJobs.operations.cancel
@@ -15029,7 +18505,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -15262,18 +18738,60 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  Method: aiplatform.projects.locations.publishers.models.fetchPredictOperation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsFetchPredictOperation : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsFetchPredictOperation
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Generate content with multimodal inputs.
  *
  *  Method: aiplatform.projects.locations.publishers.models.generateContent
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsGenerateContent : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the publisher model requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -15285,9 +18803,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
  *    the query.
- *  @param model Required. The name of the publisher model requested to serve
- *    the prediction. Format:
- *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsGenerateContent
  */
@@ -15303,6 +18823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsPredict : GTLRAiplatformQuery
 
@@ -15331,6 +18852,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  GTLRAiplatformQuery_ProjectsLocationsPublishersModelsPredictLongRunning
+ *
+ *  Method: aiplatform.projects.locations.publishers.models.predictLongRunning
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsPredictLongRunning : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsPredictLongRunning
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
  *  Perform an online prediction with an arbitrary HTTP payload. The response
  *  includes the following HTTP headers: * `X-Vertex-AI-Endpoint-Id`: ID of the
  *  Endpoint that served this prediction. * `X-Vertex-AI-Deployed-Model-Id`: ID
@@ -15340,6 +18897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsRawPredict : GTLRAiplatformQuery
 
@@ -15378,6 +18936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsServerStreamingPredict : GTLRAiplatformQuery
 
@@ -15414,12 +18973,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the publisher model requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -15431,9 +18994,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
  *    the query.
- *  @param model Required. The name of the publisher model requested to serve
- *    the prediction. Format:
- *    `projects/{project}/locations/{location}/publishers/ * /models/ *`
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamGenerateContent
  */
@@ -15449,6 +19014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamRawPredict : GTLRAiplatformQuery
 
@@ -15474,6 +19040,1398 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest *)object
                        endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Creates a RagCorpus.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the RagCorpus in.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a RagCorpus.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1RagCorpus to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    RagCorpus in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RagCorpus *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a RagCorpus.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaDelete : GTLRAiplatformQuery
+
+/**
+ *  Optional. If set to true, any RagFiles in this RagCorpus will also be
+ *  deleted. Otherwise, the request will only work if the RagCorpus has no
+ *  RagFiles.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the RagCorpus resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a RagCorpus.
+ *
+ *  @param name Required. The name of the RagCorpus resource to be deleted.
+ *    Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a RagCorpus.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the RagCorpus resource. Format:
+ *  `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1RagCorpus.
+ *
+ *  Gets a RagCorpus.
+ *
+ *  @param name Required. The name of the RagCorpus resource. Format:
+ *    `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RagCorpora in a Location.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaList : GTLRAiplatformQuery
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  ListRagCorporaResponse.next_page_token of the previous
+ *  VertexRagDataService.ListRagCorpora call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location from which to list the
+ *  RagCorpora. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListRagCorporaResponse.
+ *
+ *  Lists RagCorpora in a Location.
+ *
+ *  @param parent Required. The resource name of the Location from which to list
+ *    the RagCorpora. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a RagCorpus.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaPatch : GTLRAiplatformQuery
+
+/** Output only. The resource name of the RagCorpus. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates a RagCorpus.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1RagCorpus to
+ *    include in the query.
+ *  @param name Output only. The resource name of the RagCorpus.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RagCorpus *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a RagFile.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesDelete : GTLRAiplatformQuery
+
+/**
+ *  Optional. If set to true, any errors generated by external vector database
+ *  during the deletion will be ignored. The default value is false.
+ */
+@property(nonatomic, assign) BOOL forceDelete;
+
+/**
+ *  Required. The name of the RagFile resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a RagFile.
+ *
+ *  @param name Required. The name of the RagFile resource to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a RagFile.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the RagFile resource. Format:
+ *  `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1RagFile.
+ *
+ *  Gets a RagFile.
+ *
+ *  @param name Required. The name of the RagFile resource. Format:
+ *    `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}/ragFiles/{rag_file}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Import files from Google Cloud Storage or Google Drive into a RagCorpus.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesImport : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the RagCorpus resource into which to import files.
+ *  Format: `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Import files from Google Cloud Storage or Google Drive into a RagCorpus.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ImportRagFilesRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the RagCorpus resource into which to
+ *    import files. Format:
+ *    `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesImport
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ImportRagFilesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists RagFiles in a RagCorpus.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesList : GTLRAiplatformQuery
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  ListRagFilesResponse.next_page_token of the previous
+ *  VertexRagDataService.ListRagFiles call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the RagCorpus from which to list the
+ *  RagFiles. Format:
+ *  `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListRagFilesResponse.
+ *
+ *  Lists RagFiles in a RagCorpus.
+ *
+ *  @param parent Required. The resource name of the RagCorpus from which to
+ *    list the RagFiles. Format:
+ *    `projects/{project}/locations/{location}/ragCorpora/{rag_corpus}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.ragCorpora.ragFiles.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.ragEngineConfig.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.ragEngineConfig.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.ragEngineConfig.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.ragEngineConfig.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.ragEngineConfig.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRagEngineConfigOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a reasoning engine.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the ReasoningEngine
+ *  in. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a reasoning engine.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
+ *    to include in the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    ReasoningEngine in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a reasoning engine.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesDelete : GTLRAiplatformQuery
+
+/**
+ *  Optional. If set to true, child resources of this reasoning engine will also
+ *  be deleted. Otherwise, the request will fail with FAILED_PRECONDITION error
+ *  when the reasoning engine has undeleted child resources.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the ReasoningEngine resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a reasoning engine.
+ *
+ *  @param name Required. The name of the ReasoningEngine resource to be
+ *    deleted. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a reasoning engine.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine.
+ *
+ *  Gets a reasoning engine.
+ *
+ *  @param name Required. The name of the ReasoningEngine resource. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists reasoning engines in a location.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesList : GTLRAiplatformQuery
+
+/**
+ *  Optional. The standard list filter. More detail in
+ *  [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list the ReasoningEngines
+ *  from. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListReasoningEnginesResponse.
+ *
+ *  Lists reasoning engines in a location.
+ *
+ *  @param parent Required. The resource name of the Location to list the
+ *    ReasoningEngines from. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a reasoning engine.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesPatch : GTLRAiplatformQuery
+
+/**
+ *  Identifier. The resource name of the ReasoningEngine. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Mask specifying which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates a reasoning engine.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
+ *    to include in the query.
+ *  @param name Identifier. The resource name of the ReasoningEngine. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Queries using a reasoning engine.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesQuery : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource to use. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineResponse.
+ *
+ *  Queries using a reasoning engine.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest to
+ *    include in the query.
+ *  @param name Required. The name of the ReasoningEngine resource to use.
+ *    Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesQuery
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Streams queries using a reasoning engine.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.streamQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesStreamQuery : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource to use. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Streams queries using a reasoning engine.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest to
+ *    include in the query.
+ *  @param name Required. The name of the ReasoningEngine resource to use.
+ *    Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesStreamQuery
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves relevant contexts for a query.
+ *
+ *  Method: aiplatform.projects.locations.retrieveContexts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsRetrieveContexts : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location from which to retrieve
+ *  RagContexts. The users must have permission to make a call in the project.
+ *  Format: `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsResponse.
+ *
+ *  Retrieves relevant contexts for a query.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequest to include
+ *    in the query.
+ *  @param parent Required. The resource name of the Location from which to
+ *    retrieve RagContexts. The users must have permission to make a call in the
+ *    project. Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsRetrieveContexts
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -15655,7 +20613,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.schedules.operations.cancel
@@ -15678,7 +20636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -15929,7 +20887,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Schedule.state to 'ACTIVE'. Only paused Schedule can be resumed. When the
  *  Schedule is resumed, new runs will be scheduled starting from the next
  *  execution time after the current time based on the time_specification in the
- *  Schedule. If Schedule.catchUp is set up true, all missed runs will be
+ *  Schedule. If Schedule.catch_up is set up true, all missed runs will be
  *  scheduled for backfill first.
  *
  *  Method: aiplatform.projects.locations.schedules.resume
@@ -15952,7 +20910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Schedule.state to 'ACTIVE'. Only paused Schedule can be resumed. When the
  *  Schedule is resumed, new runs will be scheduled starting from the next
  *  execution time after the current time based on the time_specification in the
- *  Schedule. If Schedule.catchUp is set up true, all missed runs will be
+ *  Schedule. If Schedule.catch_up is set up true, all missed runs will be
  *  scheduled for backfill first.
  *
  *  @param object The @c
@@ -16129,7 +21087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.specialistPools.operations.cancel
@@ -16152,7 +21110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -16536,7 +21494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.studies.operations.cancel
@@ -16559,7 +21517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -17013,7 +21971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.studies.trials.operations.cancel
@@ -17036,7 +21994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -17612,7 +22570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.tensorboards.experiments.operations.cancel
@@ -17635,7 +22593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -18062,7 +23020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.operations.cancel
@@ -18085,7 +23043,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -18513,7 +23471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.tensorboards.experiments.runs.timeSeries.operations.cancel
@@ -18536,7 +23494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -19010,7 +23968,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.tensorboards.operations.cancel
@@ -19033,7 +23991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -19523,7 +24481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.trainingPipelines.operations.cancel
@@ -19546,7 +24504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -19710,6 +24668,559 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Cancels a TuningJob. Starts asynchronous cancellation on the TuningJob. The
+ *  server makes a best effort to cancel the job, but success is not guaranteed.
+ *  Clients can use GenAiTuningService.GetTuningJob or other methods to check
+ *  whether the cancellation succeeded or whether the job completed despite
+ *  cancellation. On successful cancellation, the TuningJob is not deleted;
+ *  instead it becomes a job with a TuningJob.error value with a
+ *  google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and
+ *  TuningJob.state is set to `CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsCancel : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the TuningJob to cancel. Format:
+ *  `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Cancels a TuningJob. Starts asynchronous cancellation on the TuningJob. The
+ *  server makes a best effort to cancel the job, but success is not guaranteed.
+ *  Clients can use GenAiTuningService.GetTuningJob or other methods to check
+ *  whether the cancellation succeeded or whether the job completed despite
+ *  cancellation. On successful cancellation, the TuningJob is not deleted;
+ *  instead it becomes a job with a TuningJob.error value with a
+ *  google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and
+ *  TuningJob.state is set to `CANCELLED`.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CancelTuningJobRequest to include in
+ *    the query.
+ *  @param name Required. The name of the TuningJob to cancel. Format:
+ *    `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsCancel
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CancelTuningJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a TuningJob. A created TuningJob right away will be attempted to be
+ *  run.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the TuningJob in.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1TuningJob.
+ *
+ *  Creates a TuningJob. A created TuningJob right away will be attempted to be
+ *  run.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1TuningJob to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    TuningJob in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1TuningJob *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a TuningJob.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the TuningJob resource. Format:
+ *  `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1TuningJob.
+ *
+ *  Gets a TuningJob.
+ *
+ *  @param name Required. The name of the TuningJob resource. Format:
+ *    `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists TuningJobs in a Location.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsList : GTLRAiplatformQuery
+
+/** Optional. The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token. Typically obtained via
+ *  ListTuningJobsResponse.next_page_token of the previous
+ *  GenAiTuningService.ListTuningJob][] call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list the TuningJobs from.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListTuningJobsResponse.
+ *
+ *  Lists TuningJobs in a Location.
+ *
+ *  @param parent Required. The resource name of the Location to list the
+ *    TuningJobs from. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsList : GTLRAiplatformQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Rebase a TunedModel.
+ *
+ *  Method: aiplatform.projects.locations.tuningJobs.rebaseTunedModel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsRebaseTunedModel : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location into which to rebase the Model.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Rebase a TunedModel.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest to include
+ *    in the query.
+ *  @param parent Required. The resource name of the Location into which to
+ *    rebase the Model. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsRebaseTunedModel
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a RagEngineConfig.
+ *
+ *  Method: aiplatform.projects.locations.updateRagEngineConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsUpdateRagEngineConfig : GTLRAiplatformQuery
+
+/**
+ *  Identifier. The name of the RagEngineConfig. Format:
+ *  `projects/{project}/locations/{location}/ragEngineConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates a RagEngineConfig.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1RagEngineConfig
+ *    to include in the query.
+ *  @param name Identifier. The name of the RagEngineConfig. Format:
+ *    `projects/{project}/locations/{location}/ragEngineConfig`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsUpdateRagEngineConfig
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1RagEngineConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a cache config.
+ *
+ *  Method: aiplatform.projects.updateCacheConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsUpdateCacheConfig : GTLRAiplatformQuery
+
+/**
+ *  Identifier. Name of the cache config. Format: -
+ *  `projects/{project}/cacheConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates a cache config.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1CacheConfig to
+ *    include in the query.
+ *  @param name Identifier. Name of the cache config. Format: -
+ *    `projects/{project}/cacheConfig`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsUpdateCacheConfig
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CacheConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Return a list of tokens based on the input text.
+ *
+ *  Method: aiplatform.publishers.models.computeTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_PublishersModelsComputeTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to get lists of tokens and
+ *  token ids.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensResponse.
+ *
+ *  Return a list of tokens based on the input text.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest to include in
+ *    the query.
+ *  @param endpoint Required. The name of the Endpoint requested to get lists of
+ *    tokens and token ids.
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsComputeTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Perform a token counting.
+ *
+ *  Method: aiplatform.publishers.models.countTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_PublishersModelsCountTokens : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to perform token counting.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse.
+ *
+ *  Perform a token counting.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to perform
+ *    token counting. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsCountTokens
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  Method: aiplatform.publishers.models.fetchPredictOperation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsFetchPredictOperation : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Fetch an asynchronous online prediction operation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsFetchPredictOperation
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs.
+ *
+ *  Method: aiplatform.publishers.models.generateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
+
+@end
+
+/**
  *  Gets a Model Garden publisher model.
  *
  *  Method: aiplatform.publishers.models.get
@@ -19719,9 +25230,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_PublishersModelsGet : GTLRAiplatformQuery
 
+/** Optional. Token used to access Hugging Face gated models. */
+@property(nonatomic, copy, nullable) NSString *huggingFaceToken;
+
+/**
+ *  Optional. Boolean indicates whether the requested model is a Hugging Face
+ *  model.
+ */
+@property(nonatomic, assign) BOOL isHuggingFaceModel;
+
 /**
  *  Optional. The IETF BCP-47 language code representing the language in which
- *  the publisher model's text information should be written in (see go/bcp47).
+ *  the publisher model's text information should be written in.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -19760,6 +25280,371 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_PublishersModelsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Perform an online prediction.
+ *
+ *  Method: aiplatform.publishers.models.predict
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsPredict : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1PredictResponse.
+ *
+ *  Perform an online prediction.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsPredict
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  GTLRAiplatformQuery_PublishersModelsPredictLongRunning
+ *
+ *  Method: aiplatform.publishers.models.predictLongRunning
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsPredictLongRunning : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest to include
+ *    in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsPredictLongRunning
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  Method: aiplatform.publishers.models.streamGenerateContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_PublishersModelsStreamGenerateContent : GTLRAiplatformQuery
+
+/**
+ *  Required. The fully qualified name of the publisher model or tuned model
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse.
+ *
+ *  Generate content with multimodal inputs with streaming support.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest to include in
+ *    the query.
+ *  @param model Required. The fully qualified name of the publisher model or
+ *    tuned model endpoint to use. Publisher model format:
+ *    `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *    model endpoint format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_PublishersModelsStreamGenerateContent
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest *)object
+                          model:(NSString *)model;
+
+@end
+
+/**
+ *  Creates a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the ReasoningEngine
+ *  in. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a reasoning engine.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
+ *    to include in the query.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine *)object;
+
+@end
+
+/**
+ *  Deletes a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesDelete : GTLRAiplatformQuery
+
+/**
+ *  Optional. If set to true, child resources of this reasoning engine will also
+ *  be deleted. Otherwise, the request will fail with FAILED_PRECONDITION error
+ *  when the reasoning engine has undeleted child resources.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the ReasoningEngine resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes a reasoning engine.
+ *
+ *  @param name Required. The name of the ReasoningEngine resource to be
+ *    deleted. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine.
+ *
+ *  Gets a reasoning engine.
+ *
+ *  @param name Required. The name of the ReasoningEngine resource. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists reasoning engines in a location.
+ *
+ *  Method: aiplatform.reasoningEngines.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesList : GTLRAiplatformQuery
+
+/**
+ *  Optional. The standard list filter. More detail in
+ *  [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location to list the ReasoningEngines
+ *  from. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListReasoningEnginesResponse.
+ *
+ *  Lists reasoning engines in a location.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesPatch : GTLRAiplatformQuery
+
+/**
+ *  Identifier. The resource name of the ReasoningEngine. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Mask specifying which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Updates a reasoning engine.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
+ *    to include in the query.
+ *  @param name Identifier. The resource name of the ReasoningEngine. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Queries using a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesQuery : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource to use. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineResponse.
+ *
+ *  Queries using a reasoning engine.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest to
+ *    include in the query.
+ *  @param name Required. The name of the ReasoningEngine resource to use.
+ *    Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesQuery
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Streams queries using a reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.streamQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesStreamQuery : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the ReasoningEngine resource to use. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Streams queries using a reasoning engine.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest to
+ *    include in the query.
+ *  @param name Required. The name of the ReasoningEngine resource to use.
+ *    Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesStreamQuery
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest *)object
+                           name:(NSString *)name;
 
 @end
 

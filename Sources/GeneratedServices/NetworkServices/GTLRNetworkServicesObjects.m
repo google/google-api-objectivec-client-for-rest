@@ -17,6 +17,16 @@ NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_DataRead = @"DATA_R
 NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRNetworkServices_AuthzExtension.loadBalancingScheme
+NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
+NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
+NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
+
+// GTLRNetworkServices_AuthzExtension.wireFormat
+NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc = @"EXT_AUTHZ_GRPC";
+NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc = @"EXT_PROC_GRPC";
+NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_WireFormatUnspecified = @"WIRE_FORMAT_UNSPECIFIED";
+
 // GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher.metadataLabelMatchCriteria
 NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAll = @"MATCH_ALL";
 NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAny = @"MATCH_ANY";
@@ -31,8 +41,10 @@ NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy = @"SIDEC
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestBody = @"REQUEST_BODY";
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestHeaders = @"REQUEST_HEADERS";
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_RequestTrailers = @"REQUEST_TRAILERS";
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseBody = @"RESPONSE_BODY";
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseHeaders = @"RESPONSE_HEADERS";
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_ResponseTrailers = @"RESPONSE_TRAILERS";
 
 // GTLRNetworkServices_Gateway.envoyHeaders
 NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_DebugHeaders = @"DEBUG_HEADERS";
@@ -43,6 +55,10 @@ NSString * const kGTLRNetworkServices_Gateway_EnvoyHeaders_None = @"NONE";
 NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv4   = @"IPV4";
 NSString * const kGTLRNetworkServices_Gateway_IpVersion_Ipv6   = @"IPV6";
 NSString * const kGTLRNetworkServices_Gateway_IpVersion_IpVersionUnspecified = @"IP_VERSION_UNSPECIFIED";
+
+// GTLRNetworkServices_Gateway.routingMode
+NSString * const kGTLRNetworkServices_Gateway_RoutingMode_ExplicitRoutingMode = @"EXPLICIT_ROUTING_MODE";
+NSString * const kGTLRNetworkServices_Gateway_RoutingMode_NextHopRoutingMode = @"NEXT_HOP_ROUTING_MODE";
 
 // GTLRNetworkServices_Gateway.type
 NSString * const kGTLRNetworkServices_Gateway_Type_OpenMesh    = @"OPEN_MESH";
@@ -77,6 +93,18 @@ NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_Ext
 NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
 NSString * const kGTLRNetworkServices_LbTrafficExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
 
+// GTLRNetworkServices_LoggingConfig.logSeverity
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Alert = @"ALERT";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Debug = @"DEBUG";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Emergency = @"EMERGENCY";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Error = @"ERROR";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Info = @"INFO";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_LogSeverityUnspecified = @"LOG_SEVERITY_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_None = @"NONE";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Notice = @"NOTICE";
+NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverity_Warning = @"WARNING";
+
 // GTLRNetworkServices_Mesh.envoyHeaders
 NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_DebugHeaders = @"DEBUG_HEADERS";
 NSString * const kGTLRNetworkServices_Mesh_EnvoyHeaders_EnvoyHeadersUnspecified = @"ENVOY_HEADERS_UNSPECIFIED";
@@ -88,6 +116,24 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Spr
 NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_SprayToWorld = @"SPRAY_TO_WORLD";
 NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByRegion = @"WATERFALL_BY_REGION";
 NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_WaterfallByZone = @"WATERFALL_BY_ZONE";
+
+// GTLRNetworkServices_ServiceLbPolicyIsolationConfig.isolationGranularity
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_IsolationGranularityUnspecified = @"ISOLATION_GRANULARITY_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationGranularity_Region = @"REGION";
+
+// GTLRNetworkServices_ServiceLbPolicyIsolationConfig.isolationMode
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_IsolationModeUnspecified = @"ISOLATION_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Nearest = @"NEAREST";
+NSString * const kGTLRNetworkServices_ServiceLbPolicyIsolationConfig_IsolationMode_Strict = @"STRICT";
+
+// GTLRNetworkServices_WasmPluginLogConfig.minLogLevel
+NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Critical = @"CRITICAL";
+NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Debug = @"DEBUG";
+NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Error = @"ERROR";
+NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Info = @"INFO";
+NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_LogLevelUnspecified = @"LOG_LEVEL_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Trace = @"TRACE";
+NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"WARN";
 
 // ----------------------------------------------------------------------------
 //
@@ -120,6 +166,58 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
     @"exemptedMembers" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AuthzExtension
+//
+
+@implementation GTLRNetworkServices_AuthzExtension
+@dynamic authority, createTime, descriptionProperty, failOpen, forwardHeaders,
+         labels, loadBalancingScheme, metadata, name, service, timeout,
+         updateTime, wireFormat;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"forwardHeaders" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AuthzExtension_Labels
+//
+
+@implementation GTLRNetworkServices_AuthzExtension_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_AuthzExtension_Metadata
+//
+
+@implementation GTLRNetworkServices_AuthzExtension_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -269,8 +367,8 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 //
 
 @implementation GTLRNetworkServices_ExtensionChainExtension
-@dynamic authority, failOpen, forwardHeaders, name, service, supportedEvents,
-         timeout;
+@dynamic authority, failOpen, forwardHeaders, metadata, name, service,
+         supportedEvents, timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -278,6 +376,20 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
     @"supportedEvents" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ExtensionChainExtension_Metadata
+//
+
+@implementation GTLRNetworkServices_ExtensionChainExtension_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -301,7 +413,8 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 @implementation GTLRNetworkServices_Gateway
 @dynamic addresses, certificateUrls, createTime, descriptionProperty,
          envoyHeaders, gatewaySecurityPolicy, ipVersion, labels, name, network,
-         ports, scope, selfLink, serverTlsPolicy, subnetwork, type, updateTime;
+         ports, routingMode, scope, selfLink, serverTlsPolicy, subnetwork, type,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -330,6 +443,16 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_GatewayRouteView
+//
+
+@implementation GTLRNetworkServices_GatewayRouteView
+@dynamic name, routeId, routeLocation, routeProjectNumber, routeType;
 @end
 
 
@@ -831,7 +954,7 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 @implementation GTLRNetworkServices_LbRouteExtension
 @dynamic createTime, descriptionProperty, extensionChains, forwardingRules,
-         labels, loadBalancingScheme, name, updateTime;
+         labels, loadBalancingScheme, metadata, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -864,12 +987,26 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_LbRouteExtension_Metadata
+//
+
+@implementation GTLRNetworkServices_LbRouteExtension_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_LbTrafficExtension
 //
 
 @implementation GTLRNetworkServices_LbTrafficExtension
 @dynamic createTime, descriptionProperty, extensionChains, forwardingRules,
-         labels, loadBalancingScheme, name, updateTime;
+         labels, loadBalancingScheme, metadata, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -902,21 +1039,82 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_LbTrafficExtension_Metadata
+//
+
+@implementation GTLRNetworkServices_LbTrafficExtension_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ListAuthzExtensionsResponse
+//
+
+@implementation GTLRNetworkServices_ListAuthzExtensionsResponse
+@dynamic authzExtensions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authzExtensions" : [GTLRNetworkServices_AuthzExtension class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"authzExtensions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_ListEndpointPoliciesResponse
 //
 
 @implementation GTLRNetworkServices_ListEndpointPoliciesResponse
-@dynamic endpointPolicies, nextPageToken;
+@dynamic endpointPolicies, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"endpointPolicies" : [GTLRNetworkServices_EndpointPolicy class]
+    @"endpointPolicies" : [GTLRNetworkServices_EndpointPolicy class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
   return @"endpointPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ListGatewayRouteViewsResponse
+//
+
+@implementation GTLRNetworkServices_ListGatewayRouteViewsResponse
+@dynamic gatewayRouteViews, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gatewayRouteViews" : [GTLRNetworkServices_GatewayRouteView class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gatewayRouteViews";
 }
 
 @end
@@ -951,11 +1149,12 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 //
 
 @implementation GTLRNetworkServices_ListGrpcRoutesResponse
-@dynamic grpcRoutes, nextPageToken;
+@dynamic grpcRoutes, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"grpcRoutes" : [GTLRNetworkServices_GrpcRoute class]
+    @"grpcRoutes" : [GTLRNetworkServices_GrpcRoute class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -973,11 +1172,12 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 //
 
 @implementation GTLRNetworkServices_ListHttpRoutesResponse
-@dynamic httpRoutes, nextPageToken;
+@dynamic httpRoutes, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"httpRoutes" : [GTLRNetworkServices_HttpRoute class]
+    @"httpRoutes" : [GTLRNetworkServices_HttpRoute class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1063,17 +1263,41 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 //
 
 @implementation GTLRNetworkServices_ListMeshesResponse
-@dynamic meshes, nextPageToken;
+@dynamic meshes, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"meshes" : [GTLRNetworkServices_Mesh class]
+    @"meshes" : [GTLRNetworkServices_Mesh class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
   return @"meshes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ListMeshRouteViewsResponse
+//
+
+@implementation GTLRNetworkServices_ListMeshRouteViewsResponse
+@dynamic meshRouteViews, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"meshRouteViews" : [GTLRNetworkServices_MeshRouteView class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"meshRouteViews";
 }
 
 @end
@@ -1107,11 +1331,12 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 //
 
 @implementation GTLRNetworkServices_ListServiceBindingsResponse
-@dynamic nextPageToken, serviceBindings;
+@dynamic nextPageToken, serviceBindings, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"serviceBindings" : [GTLRNetworkServices_ServiceBinding class]
+    @"serviceBindings" : [GTLRNetworkServices_ServiceBinding class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1129,11 +1354,12 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 //
 
 @implementation GTLRNetworkServices_ListServiceLbPoliciesResponse
-@dynamic nextPageToken, serviceLbPolicies;
+@dynamic nextPageToken, serviceLbPolicies, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"serviceLbPolicies" : [GTLRNetworkServices_ServiceLbPolicy class]
+    @"serviceLbPolicies" : [GTLRNetworkServices_ServiceLbPolicy class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1151,11 +1377,12 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 //
 
 @implementation GTLRNetworkServices_ListTcpRoutesResponse
-@dynamic nextPageToken, tcpRoutes;
+@dynamic nextPageToken, tcpRoutes, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tcpRoutes" : [GTLRNetworkServices_TcpRoute class]
+    @"tcpRoutes" : [GTLRNetworkServices_TcpRoute class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1173,17 +1400,64 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 //
 
 @implementation GTLRNetworkServices_ListTlsRoutesResponse
-@dynamic nextPageToken, tlsRoutes;
+@dynamic nextPageToken, tlsRoutes, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"tlsRoutes" : [GTLRNetworkServices_TlsRoute class]
+    @"tlsRoutes" : [GTLRNetworkServices_TlsRoute class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
   return @"tlsRoutes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ListWasmPluginsResponse
+//
+
+@implementation GTLRNetworkServices_ListWasmPluginsResponse
+@dynamic nextPageToken, unreachable, wasmPlugins;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"wasmPlugins" : [GTLRNetworkServices_WasmPlugin class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"wasmPlugins";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ListWasmPluginVersionsResponse
+//
+
+@implementation GTLRNetworkServices_ListWasmPluginVersionsResponse
+@dynamic nextPageToken, unreachable, wasmPluginVersions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"wasmPluginVersions" : [GTLRNetworkServices_WasmPluginVersion class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"wasmPluginVersions";
 }
 
 @end
@@ -1229,6 +1503,16 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_LoggingConfig
+//
+
+@implementation GTLRNetworkServices_LoggingConfig
+@dynamic logSeverity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_Mesh
 //
 
@@ -1254,6 +1538,16 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_MeshRouteView
+//
+
+@implementation GTLRNetworkServices_MeshRouteView
+@dynamic name, routeId, routeLocation, routeProjectNumber, routeType;
 @end
 
 
@@ -1331,6 +1625,16 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_RetryFilterPerRouteConfig
+//
+
+@implementation GTLRNetworkServices_RetryFilterPerRouteConfig
+@dynamic cryptoKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_ServiceBinding
 //
 
@@ -1366,7 +1670,7 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 @implementation GTLRNetworkServices_ServiceLbPolicy
 @dynamic autoCapacityDrain, createTime, descriptionProperty, failoverConfig,
-         labels, loadBalancingAlgorithm, name, updateTime;
+         isolationConfig, labels, loadBalancingAlgorithm, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1406,6 +1710,16 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
 
 @implementation GTLRNetworkServices_ServiceLbPolicyFailoverConfig
 @dynamic failoverHealthThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ServiceLbPolicyIsolationConfig
+//
+
+@implementation GTLRNetworkServices_ServiceLbPolicyIsolationConfig
+@dynamic isolationGranularity, isolationMode;
 @end
 
 
@@ -1699,6 +2013,137 @@ NSString * const kGTLRNetworkServices_ServiceLbPolicy_LoadBalancingAlgorithm_Wat
     @"ports" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPlugin
+//
+
+@implementation GTLRNetworkServices_WasmPlugin
+@dynamic createTime, descriptionProperty, labels, logConfig, mainVersionId,
+         name, updateTime, usedBy, versions;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"usedBy" : [GTLRNetworkServices_WasmPluginUsedBy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPlugin_Labels
+//
+
+@implementation GTLRNetworkServices_WasmPlugin_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPlugin_Versions
+//
+
+@implementation GTLRNetworkServices_WasmPlugin_Versions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRNetworkServices_WasmPluginVersionDetails class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPluginLogConfig
+//
+
+@implementation GTLRNetworkServices_WasmPluginLogConfig
+@dynamic enable, minLogLevel, sampleRate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPluginUsedBy
+//
+
+@implementation GTLRNetworkServices_WasmPluginUsedBy
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPluginVersion
+//
+
+@implementation GTLRNetworkServices_WasmPluginVersion
+@dynamic createTime, descriptionProperty, imageDigest, imageUri, labels, name,
+         pluginConfigData, pluginConfigDigest, pluginConfigUri, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPluginVersion_Labels
+//
+
+@implementation GTLRNetworkServices_WasmPluginVersion_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPluginVersionDetails
+//
+
+@implementation GTLRNetworkServices_WasmPluginVersionDetails
+@dynamic createTime, descriptionProperty, imageDigest, imageUri, labels,
+         pluginConfigData, pluginConfigDigest, pluginConfigUri, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_WasmPluginVersionDetails_Labels
+//
+
+@implementation GTLRNetworkServices_WasmPluginVersionDetails_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

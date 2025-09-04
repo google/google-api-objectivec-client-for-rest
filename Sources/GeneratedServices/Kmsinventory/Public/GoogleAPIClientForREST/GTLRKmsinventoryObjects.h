@@ -22,6 +22,7 @@
 @class GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion;
 @class GTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate;
 @class GTLRKmsinventory_GoogleCloudKmsV1ExternalProtectionLevelOptions;
+@class GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy;
 @class GTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation;
 @class GTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestationCertificateChains;
 
@@ -64,6 +65,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_P
  *  Value: "ENCRYPT_DECRYPT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_EncryptDecrypt;
+/**
+ *  CryptoKeys with this purpose may be used with GetPublicKey and Decapsulate.
+ *
+ *  Value: "KEY_ENCAPSULATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_KeyEncapsulation;
 /**
  *  CryptoKeys with this purpose may be used with MacSign.
  *
@@ -124,6 +131,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignEd25519;
 /**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
@@ -190,6 +203,46 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem768;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -343,7 +396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified;
 /**
- *  This version is destroyed, and the key material is no longer stored. This
+ *  The key material of this version is destroyed and no longer stored. This
  *  version may only become ENABLED again if this version is reimport_eligible
  *  and the original key material is reimported with a call to
  *  KeyManagementService.ImportCryptoKeyVersion.
@@ -467,6 +520,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignEd25519;
+/**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
  *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
@@ -532,6 +591,46 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem768;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -674,6 +773,100 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy.allowedAccessReasons
+
+/**
+ *  One of the following operations is being executed while simultaneously
+ *  encountering an internal technical issue which prevented a more precise
+ *  justification code from being generated: * Your account has been used to
+ *  perform any access to your own data which your IAM policy authorizes. * An
+ *  automated Google system operates on encrypted customer data which your IAM
+ *  policy authorizes. * Customer-initiated Google support access. *
+ *  Google-initiated support access to protect system reliability.
+ *
+ *  Value: "CUSTOMER_AUTHORIZED_WORKFLOW_SERVICING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerAuthorizedWorkflowServicing;
+/**
+ *  Customer uses their account to perform any access to their own data which
+ *  their IAM policy authorizes.
+ *
+ *  Value: "CUSTOMER_INITIATED_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedAccess;
+/**
+ *  Customer-initiated support.
+ *
+ *  Value: "CUSTOMER_INITIATED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedSupport;
+/**
+ *  Google-initiated access for security, fraud, abuse, or compliance purposes.
+ *
+ *  Value: "GOOGLE_INITIATED_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedReview;
+/**
+ *  Google-initiated access for system management and troubleshooting.
+ *
+ *  Value: "GOOGLE_INITIATED_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedService;
+/**
+ *  Google systems access customer data to help optimize the structure of the
+ *  data or quality for future uses by the customer.
+ *
+ *  Value: "GOOGLE_INITIATED_SYSTEM_OPERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedSystemOperation;
+/**
+ *  Google-initiated access to maintain system reliability.
+ *
+ *  Value: "GOOGLE_RESPONSE_TO_PRODUCTION_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleResponseToProductionAlert;
+/**
+ *  Customer uses their account to perform any access to their own data which
+ *  their IAM policy authorizes, and one of the following is true: * A Google
+ *  administrator has reset the root-access account associated with the user's
+ *  organization within the past 7 days. * A Google-initiated emergency access
+ *  operation has interacted with a resource in the same project or folder as
+ *  the currently accessed resource within the past 7 days.
+ *
+ *  Value: "MODIFIED_CUSTOMER_INITIATED_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedCustomerInitiatedAccess;
+/**
+ *  Google systems access customer data to help optimize the structure of the
+ *  data or quality for future uses by the customer, and one of the following is
+ *  true: * A Google administrator has reset the root-access account associated
+ *  with the user's organization within the past 7 days. * A Google-initiated
+ *  emergency access operation has interacted with a resource in the same
+ *  project or folder as the currently accessed resource within the past 7 days.
+ *
+ *  Value: "MODIFIED_GOOGLE_INITIATED_SYSTEM_OPERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedGoogleInitiatedSystemOperation;
+/**
+ *  No reason is expected for this key request.
+ *
+ *  Value: "REASON_NOT_EXPECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonNotExpected;
+/**
+ *  Unspecified access reason.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonUnspecified;
+/**
+ *  Google-initiated access in response to a legal request or legal process.
+ *
+ *  Value: "THIRD_PARTY_DATA_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy_AllowedAccessReasons_ThirdPartyDataRequest;
 
 // ----------------------------------------------------------------------------
 // GTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation.format
@@ -927,7 +1120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 /**
  *  Immutable. The period of time that versions of this key spend in the
  *  DESTROY_SCHEDULED state before transitioning to DESTROYED. If not specified
- *  at creation time, the default duration is 24 hours.
+ *  at creation time, the default duration is 30 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *destroyScheduledDuration;
 
@@ -937,6 +1130,18 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *importOnly;
+
+/**
+ *  Optional. The policy used for Key Access Justifications Policy Enforcement.
+ *  If this field is present and this key is enrolled in Key Access
+ *  Justifications Policy Enforcement, the policy will be evaluated in encrypt,
+ *  decrypt, and sign operations, and the operation will fail if rejected by the
+ *  policy. The policy is defined by specifying zero or more allowed
+ *  justification codes.
+ *  https://cloud.google.com/assured-workloads/key-access-justifications/docs/justification-codes
+ *  By default, this field is absent, and all justification codes are allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy *keyAccessJustificationsPolicy;
 
 /**
  *  Labels with user-defined metadata. For more information, see [Labeling
@@ -984,6 +1189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_EncryptDecrypt
  *        CryptoKeys with this purpose may be used with Encrypt and Decrypt.
  *        (Value: "ENCRYPT_DECRYPT")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_KeyEncapsulation
+ *        CryptoKeys with this purpose may be used with GetPublicKey and
+ *        Decapsulate. (Value: "KEY_ENCAPSULATION")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_Mac CryptoKeys
  *        with this purpose may be used with MacSign. (Value: "MAC")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_RawEncryptDecrypt
@@ -1059,6 +1267,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        "AES_256_GCM")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:
@@ -1090,6 +1301,25 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_KemXwing
+ *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -1257,7 +1487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_State_Destroyed
- *        This version is destroyed, and the key material is no longer stored.
+ *        The key material of this version is destroyed and no longer stored.
  *        This version may only become ENABLED again if this version is
  *        reimport_eligible and the original key material is reimported with a
  *        call to KeyManagementService.ImportCryptoKeyVersion. (Value:
@@ -1343,6 +1573,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        "AES_256_GCM")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:
@@ -1374,6 +1607,25 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_KemXwing
+ *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -1471,6 +1723,22 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 
 /** The URI for an external resource that this CryptoKeyVersion represents. */
 @property(nonatomic, copy, nullable) NSString *externalKeyUri;
+
+@end
+
+
+/**
+ *  A KeyAccessJustificationsPolicy specifies zero or more allowed AccessReason
+ *  values for encrypt, decrypt, and sign operations on a CryptoKey.
+ */
+@interface GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy : GTLRObject
+
+/**
+ *  The list of allowed reasons for access to a CryptoKey. Zero allowed access
+ *  reasons means all encrypt, decrypt, and sign operations for the CryptoKey
+ *  associated with this policy will fail.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedAccessReasons;
 
 @end
 

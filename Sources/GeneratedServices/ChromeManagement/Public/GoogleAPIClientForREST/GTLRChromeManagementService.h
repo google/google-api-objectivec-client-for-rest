@@ -8,7 +8,7 @@
 //   administrators to view, manage and gain insights on their Chrome OS and
 //   Chrome Browser devices.
 // Documentation:
-//   http://developers.google.com/chrome/management/
+//   https://developers.google.com/chrome/management/
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -34,6 +34,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly;
 /**
+ *  Authorization scope: See, edit, delete, and take other necessary actions on
+ *  Chrome browser profiles managed by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.profiles"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementProfiles;
+/**
+ *  Authorization scope: See Chrome browser profiles managed by your
+ *  organization
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.profiles.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly;
+/**
  *  Authorization scope: See reports about devices and Chrome browsers managed
  *  within your organization
  *
@@ -42,7 +56,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagemen
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly;
 /**
  *  Authorization scope: See basic device and telemetry information collected
- *  from Chrome OS devices or users managed within your organization
+ *  from ChromeOS devices or users managed within your organization
  *
  *  Value "https://www.googleapis.com/auth/chrome.management.telemetry.readonly"
  */

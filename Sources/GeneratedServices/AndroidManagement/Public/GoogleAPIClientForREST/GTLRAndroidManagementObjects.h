@@ -17,19 +17,24 @@
 
 @class GTLRAndroidManagement_AdbShellCommandEvent;
 @class GTLRAndroidManagement_AdbShellInteractiveEvent;
+@class GTLRAndroidManagement_AddEsimParams;
 @class GTLRAndroidManagement_AdvancedSecurityOverrides;
 @class GTLRAndroidManagement_AlwaysOnVpnPackage;
 @class GTLRAndroidManagement_ApiLevelCondition;
+@class GTLRAndroidManagement_ApnPolicy;
+@class GTLRAndroidManagement_ApnSetting;
 @class GTLRAndroidManagement_ApplicationEvent;
 @class GTLRAndroidManagement_ApplicationPermission;
 @class GTLRAndroidManagement_ApplicationPolicy;
 @class GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration;
+@class GTLRAndroidManagement_ApplicationPolicyChange;
 @class GTLRAndroidManagement_ApplicationReport;
 @class GTLRAndroidManagement_ApplicationReportingSettings;
 @class GTLRAndroidManagement_AppProcessInfo;
 @class GTLRAndroidManagement_AppProcessStartEvent;
 @class GTLRAndroidManagement_AppTrackInfo;
 @class GTLRAndroidManagement_AppVersion;
+@class GTLRAndroidManagement_BackupServiceToggledEvent;
 @class GTLRAndroidManagement_BlockAction;
 @class GTLRAndroidManagement_CertAuthorityInstalledEvent;
 @class GTLRAndroidManagement_CertAuthorityRemovedEvent;
@@ -52,19 +57,27 @@
 @class GTLRAndroidManagement_DeviceRadioState;
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
+@class GTLRAndroidManagement_DisplaySettings;
 @class GTLRAndroidManagement_DnsEvent;
 @class GTLRAndroidManagement_DpcMigrationInfo;
+@class GTLRAndroidManagement_Eid;
+@class GTLRAndroidManagement_EidInfo;
 @class GTLRAndroidManagement_EnrollmentCompleteEvent;
 @class GTLRAndroidManagement_EnrollmentToken;
 @class GTLRAndroidManagement_Enterprise;
+@class GTLRAndroidManagement_EsimCommandStatus;
+@class GTLRAndroidManagement_EsimInfo;
+@class GTLRAndroidManagement_EuiccChipInfo;
 @class GTLRAndroidManagement_ExtensionConfig;
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_FilePulledEvent;
 @class GTLRAndroidManagement_FilePushedEvent;
 @class GTLRAndroidManagement_FreezePeriod;
+@class GTLRAndroidManagement_GoogleAuthenticationSettings;
 @class GTLRAndroidManagement_HardwareInfo;
 @class GTLRAndroidManagement_HardwareStatus;
 @class GTLRAndroidManagement_InstallConstraint;
+@class GTLRAndroidManagement_InternalErrorDetails;
 @class GTLRAndroidManagement_KeyDestructionEvent;
 @class GTLRAndroidManagement_KeyedAppState;
 @class GTLRAndroidManagement_KeyGeneratedEvent;
@@ -113,8 +126,15 @@
 @class GTLRAndroidManagement_PolicyEnforcementRule;
 @class GTLRAndroidManagement_PostureDetail;
 @class GTLRAndroidManagement_PowerManagementEvent;
+@class GTLRAndroidManagement_PreferentialNetworkServiceConfig;
+@class GTLRAndroidManagement_PreferentialNetworkServiceSettings;
 @class GTLRAndroidManagement_ProxyInfo;
 @class GTLRAndroidManagement_RemoteLockEvent;
+@class GTLRAndroidManagement_RemoveEsimParams;
+@class GTLRAndroidManagement_RequestDeviceInfoParams;
+@class GTLRAndroidManagement_RequestDeviceInfoStatus;
+@class GTLRAndroidManagement_ScreenBrightnessSettings;
+@class GTLRAndroidManagement_ScreenTimeoutSettings;
 @class GTLRAndroidManagement_SecurityPosture;
 @class GTLRAndroidManagement_SetupAction;
 @class GTLRAndroidManagement_SigninDetail;
@@ -139,8 +159,14 @@
 @class GTLRAndroidManagement_UserFacingMessage_LocalizedMessages;
 @class GTLRAndroidManagement_WebApp;
 @class GTLRAndroidManagement_WebAppIcon;
+@class GTLRAndroidManagement_WifiRoamingPolicy;
+@class GTLRAndroidManagement_WifiRoamingSetting;
+@class GTLRAndroidManagement_WifiSsid;
+@class GTLRAndroidManagement_WifiSsidPolicy;
 @class GTLRAndroidManagement_WipeAction;
 @class GTLRAndroidManagement_WipeFailureEvent;
+@class GTLRAndroidManagement_WipeParams;
+@class GTLRAndroidManagement_WorkAccountSetupConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -152,6 +178,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AddEsimParams.activationState
+
+/**
+ *  The eSIM is automatically activated after downloading. Setting this as the
+ *  activation state for personally-owned devices will result in the command
+ *  being rejected.
+ *
+ *  Value: "ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AddEsimParams_ActivationState_Activated;
+/**
+ *  eSIM activation state is not specified. This defaults to the eSIM profile
+ *  being NOT_ACTIVATED on personally-owned devices and ACTIVATED on
+ *  company-owned devices.
+ *
+ *  Value: "ACTIVATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AddEsimParams_ActivationState_ActivationStateUnspecified;
+/**
+ *  The eSIM profile is downloaded but not activated. In this case, the user
+ *  will need to activate the eSIM manually on the device.
+ *
+ *  Value: "NOT_ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AddEsimParams_ActivationState_NotActivated;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_AdvancedSecurityOverrides.commonCriteriaMode
@@ -174,6 +227,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
  *  Value: "COMMON_CRITERIA_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AdvancedSecurityOverrides.contentProtectionPolicy
+
+/**
+ *  Content protection is disabled and the user cannot change this.
+ *
+ *  Value: "CONTENT_PROTECTION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionDisabled;
+/**
+ *  Content protection is enabled and the user cannot change this.Supported on
+ *  Android 15 and above. A NonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 15.
+ *
+ *  Value: "CONTENT_PROTECTION_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionEnforced;
+/**
+ *  Unspecified. Defaults to CONTENT_PROTECTION_DISABLED.
+ *
+ *  Value: "CONTENT_PROTECTION_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionPolicyUnspecified;
+/**
+ *  Content protection is not controlled by the policy. The user is allowed to
+ *  choose the behavior of content protection.Supported on Android 15 and above.
+ *  A NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 15.
+ *
+ *  Value: "CONTENT_PROTECTION_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionUserChoice;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_AdvancedSecurityOverrides.developerSettings
@@ -227,9 +313,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
 /**
  *  MTE is disabled on the device and the user is not allowed to change this
  *  setting. This applies only on fully managed devices. In other cases, a
- *  nonComplianceDetail with MANAGEMENT_MODE is reported. A nonComplianceDetail
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported. A NonComplianceDetail
  *  with DEVICE_INCOMPATIBLE is reported if the device does not support
- *  MTE.Supported on Android 14 and above. A nonComplianceDetail with API_LEVEL
+ *  MTE.Supported on Android 14 and above. A NonComplianceDetail with API_LEVEL
  *  is reported if the Android version is less than 14.
  *
  *  Value: "MTE_DISABLED"
@@ -238,10 +324,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
 /**
  *  MTE is enabled on the device and the user is not allowed to change this
  *  setting. This can be set on fully managed devices and work profiles on
- *  company-owned devices. A nonComplianceDetail with MANAGEMENT_MODE is
- *  reported for other management modes. A nonComplianceDetail with
+ *  company-owned devices. A NonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for other management modes. A NonComplianceDetail with
  *  DEVICE_INCOMPATIBLE is reported if the device does not support MTE.Supported
- *  on Android 14 and above. A nonComplianceDetail with API_LEVEL is reported if
+ *  on Android 14 and above. A NonComplianceDetail with API_LEVEL is reported if
  *  the Android version is less than 14.
  *
  *  Value: "MTE_ENFORCED"
@@ -289,6 +375,448 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
  *  Value: "UNTRUSTED_APPS_POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_UntrustedAppsPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnPolicy.overrideApns
+
+/**
+ *  Override APNs disabled. Any configured apnSettings are saved on the device,
+ *  but are disabled and have no effect. Any other APNs on the device remain in
+ *  use.
+ *
+ *  Value: "OVERRIDE_APNS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsDisabled;
+/**
+ *  Override APNs enabled. Only override APNs are in use, any other APNs are
+ *  ignored. This can only be set on fully managed devices on Android 10 and
+ *  above. For work profiles override APNs are enabled via
+ *  preferentialNetworkServiceSettings and this value cannot be set. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 10. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "OVERRIDE_APNS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsEnabled;
+/**
+ *  Unspecified. Defaults to OVERRIDE_APNS_DISABLED.
+ *
+ *  Value: "OVERRIDE_APNS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.alwaysOnSetting
+
+/**
+ *  The PDU session brought up by this APN should always be on. Supported on
+ *  Android 15 and above. A NonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 15.
+ *
+ *  Value: "ALWAYS_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_AlwaysOn;
+/**
+ *  Unspecified. Defaults to NOT_ALWAYS_ON.
+ *
+ *  Value: "ALWAYS_ON_SETTING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_AlwaysOnSettingUnspecified;
+/**
+ *  The PDU session brought up by this APN should not be always on.
+ *
+ *  Value: "NOT_ALWAYS_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_NotAlwaysOn;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.apnTypes
+
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "APN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_ApnTypeUnspecified;
+/**
+ *  APN type for BIP (Bearer Independent Protocol). This can only be set on
+ *  fully managed devices on Android 12 and above. A NonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 12. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported for work profiles.
+ *
+ *  Value: "BIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Bip;
+/**
+ *  APN type for CBS (Carrier Branded Services). This can only be set on fully
+ *  managed devices. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "CBS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Cbs;
+/**
+ *  APN type for default data traffic. This can only be set on fully managed
+ *  devices. A NonComplianceDetail with MANAGEMENT_MODE is reported for work
+ *  profiles.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Default;
+/**
+ *  APN type for DUN (Dial-up networking) traffic. This can only be set on fully
+ *  managed devices. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "DUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Dun;
+/**
+ *  APN type for Emergency PDN. This is not an IA apn, but is used for access to
+ *  carrier services in an emergency call situation. This can only be set on
+ *  fully managed devices. A NonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for work profiles.
+ *
+ *  Value: "EMERGENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Emergency;
+/**
+ *  APN type for enterprise traffic. Supported on Android 13 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Enterprise;
+/**
+ *  APN type for accessing the carrier's FOTA (Firmware Over-the-Air) portal,
+ *  used for over the air updates. This can only be set on fully managed
+ *  devices. A NonComplianceDetail with MANAGEMENT_MODE is reported for work
+ *  profiles.
+ *
+ *  Value: "FOTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Fota;
+/**
+ *  APN type for HiPri (high-priority) traffic. This can only be set on fully
+ *  managed devices. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "HIPRI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Hipri;
+/**
+ *  APN type for IA (Initial Attach) APN. This can only be set on fully managed
+ *  devices. A NonComplianceDetail with MANAGEMENT_MODE is reported for work
+ *  profiles.
+ *
+ *  Value: "IA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Ia;
+/**
+ *  APN type for IMS (IP Multimedia Subsystem) traffic. This can only be set on
+ *  fully managed devices. A NonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for work profiles.
+ *
+ *  Value: "IMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Ims;
+/**
+ *  APN type for MCX (Mission Critical Service) where X can be PTT/Video/Data.
+ *  This can only be set on fully managed devices. A NonComplianceDetail with
+ *  MANAGEMENT_MODE is reported for work profiles.
+ *
+ *  Value: "MCX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Mcx;
+/**
+ *  APN type for MMS (Multimedia Messaging Service) traffic. This can only be
+ *  set on fully managed devices. A NonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for work profiles.
+ *
+ *  Value: "MMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Mms;
+/**
+ *  APN type for RCS (Rich Communication Services). This can only be set on
+ *  fully managed devices on Android 15 and above. A NonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 15. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported for work profiles.
+ *
+ *  Value: "RCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Rcs;
+/**
+ *  APN type for SUPL (Secure User Plane Location) assisted GPS. This can only
+ *  be set on fully managed devices. A NonComplianceDetail with MANAGEMENT_MODE
+ *  is reported for work profiles.
+ *
+ *  Value: "SUPL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Supl;
+/**
+ *  APN type for VSIM (Virtual SIM) service. This can only be set on fully
+ *  managed devices on Android 12 and above. A NonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 12. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported for work profiles.
+ *
+ *  Value: "VSIM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Vsim;
+/**
+ *  APN type for XCAP (XML Configuration Access Protocol) traffic. This can only
+ *  be set on fully managed devices on Android 11 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 11. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  work profiles.
+ *
+ *  Value: "XCAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_ApnTypes_Xcap;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.authType
+
+/**
+ *  Unspecified. If username is empty, defaults to NONE. Otherwise, defaults to
+ *  PAP_OR_CHAP.
+ *
+ *  Value: "AUTH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_AuthTypeUnspecified;
+/**
+ *  Authentication type for CHAP.
+ *
+ *  Value: "CHAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_Chap;
+/**
+ *  Authentication is not required.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_None;
+/**
+ *  Authentication type for PAP.
+ *
+ *  Value: "PAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_Pap;
+/**
+ *  Authentication type for PAP or CHAP.
+ *
+ *  Value: "PAP_OR_CHAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_AuthType_PapOrChap;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.mvnoType
+
+/**
+ *  MVNO type for group identifier level 1.
+ *
+ *  Value: "GID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_Gid;
+/**
+ *  MVNO type for ICCID.
+ *
+ *  Value: "ICCID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_Iccid;
+/**
+ *  MVNO type for IMSI.
+ *
+ *  Value: "IMSI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_Imsi;
+/**
+ *  The MVNO type is not specified.
+ *
+ *  Value: "MVNO_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_MvnoTypeUnspecified;
+/**
+ *  MVNO type for SPN (service provider name).
+ *
+ *  Value: "SPN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_MvnoType_Spn;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.networkTypes
+
+/**
+ *  Radio technology EDGE.
+ *
+ *  Value: "EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Edge;
+/**
+ *  Radio technology GPRS.
+ *
+ *  Value: "GPRS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Gprs;
+/**
+ *  Radio technology GSM.
+ *
+ *  Value: "GSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Gsm;
+/**
+ *  Radio technology HSDPA.
+ *
+ *  Value: "HSDPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Hsdpa;
+/**
+ *  Radio technology HSPA.
+ *
+ *  Value: "HSPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Hspa;
+/**
+ *  Radio technology HSPAP.
+ *
+ *  Value: "HSPAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Hspap;
+/**
+ *  Radio technology HSUPA.
+ *
+ *  Value: "HSUPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Hsupa;
+/**
+ *  Radio technology IWLAN.
+ *
+ *  Value: "IWLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Iwlan;
+/**
+ *  Radio technology LTE.
+ *
+ *  Value: "LTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Lte;
+/**
+ *  Unspecified. This value must not be used.
+ *
+ *  Value: "NETWORK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_NetworkTypeUnspecified;
+/**
+ *  Radio technology NR (New Radio) 5G.
+ *
+ *  Value: "NR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Nr;
+/**
+ *  Radio technology TD_SCDMA.
+ *
+ *  Value: "TD_SCDMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_TdScdma;
+/**
+ *  Radio technology UMTS.
+ *
+ *  Value: "UMTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_NetworkTypes_Umts;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.protocol
+
+/**
+ *  Internet protocol.
+ *
+ *  Value: "IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Ip;
+/**
+ *  Virtual PDP type introduced to handle dual IP stack UE capability.
+ *
+ *  Value: "IPV4V6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Ipv4v6;
+/**
+ *  Internet protocol, version 6.
+ *
+ *  Value: "IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Ipv6;
+/**
+ *  Transfer of Non-IP data to external packet data network.
+ *
+ *  Value: "NON_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_NonIp;
+/**
+ *  Point to point protocol.
+ *
+ *  Value: "PPP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Ppp;
+/**
+ *  The protocol is not specified.
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_ProtocolUnspecified;
+/**
+ *  Transfer of Unstructured data to the Data Network via N6.
+ *
+ *  Value: "UNSTRUCTURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_Protocol_Unstructured;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApnSetting.roamingProtocol
+
+/**
+ *  Internet protocol.
+ *
+ *  Value: "IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ip;
+/**
+ *  Virtual PDP type introduced to handle dual IP stack UE capability.
+ *
+ *  Value: "IPV4V6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ipv4v6;
+/**
+ *  Internet protocol, version 6.
+ *
+ *  Value: "IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ipv6;
+/**
+ *  Transfer of Non-IP data to external packet data network.
+ *
+ *  Value: "NON_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_NonIp;
+/**
+ *  Point to point protocol.
+ *
+ *  Value: "PPP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ppp;
+/**
+ *  The protocol is not specified.
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_ProtocolUnspecified;
+/**
+ *  Transfer of Unstructured data to the Data Network via N6.
+ *
+ *  Value: "UNSTRUCTURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Unstructured;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Application.appPricing
@@ -501,8 +1029,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Alwa
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault;
 /**
  *  The app is updated as soon as possible. No constraints are applied.The
- *  device is notified immediately about a new update after it becomes
- *  available.
+ *  device is notified as soon as possible about a new update after it becomes
+ *  available.*NOTE:* Updates to apps with larger deployments across Android's
+ *  ecosystem can take up to 24h.
  *
  *  Value: "AUTO_UPDATE_HIGH_PRIORITY"
  */
@@ -573,23 +1102,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Cred
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny;
 /**
- *  Automatically grant a permission.On Android 12 and above,
- *  Manifest.permission.READ_SMS
+ *  Automatically grant a permission.On Android 12 and above, READ_SMS
  *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *  and following sensor-related permissions can only be granted on fully
- *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  managed devices: ACCESS_FINE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  ACCESS_BACKGROUND_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  ACCESS_COARSE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *  Manifest.permission.CAMERA
+ *  CAMERA
  *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *  Manifest.permission.RECORD_AUDIO
+ *  RECORD_AUDIO
  *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  ACTIVITY_RECOGNITION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *  Manifest.permission.BODY_SENSORS
+ *  BODY_SENSORS
  *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
@@ -613,13 +1141,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Defa
 // GTLRAndroidManagement_ApplicationPolicy.delegatedScopes
 
 /**
- *  Grants access to blocking uninstallation.
+ *  Grants access to blocking uninstallation. This scope can be delegated to
+ *  multiple applications.
  *
  *  Value: "BLOCK_UNINSTALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_BlockUninstall;
 /**
- *  Grants access to certificate installation and management.
+ *  Grants access to certificate installation and management. This scope can be
+ *  delegated to multiple applications.
  *
  *  Value: "CERT_INSTALL"
  */
@@ -633,7 +1163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#grantKeyPairToApp%28android.content.ComponentName,%20java.lang.String,%20java.lang.String%29)
  *  and revokeKeyPairFromApp
  *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#revokeKeyPairFromApp%28android.content.ComponentName,%20java.lang.String,%20java.lang.String%29)
- *  methods. There can be at most one app that has this delegation.
+ *  methods. This scope can be delegated to at most one application.
  *  choosePrivateKeyRules must be empty and privateKeySelectionEnabled has no
  *  effect if certificate selection is delegated to an application.
  *
@@ -647,13 +1177,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_DelegatedScopeUnspecified;
 /**
- *  Grants access for enabling system apps.
+ *  Grants access for enabling system apps. This scope can be delegated to
+ *  multiple applications.
  *
  *  Value: "ENABLE_SYSTEM_APP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_EnableSystemApp;
 /**
- *  Grants access to managed configurations management.
+ *  Grants access to managed configurations management. This scope can be
+ *  delegated to multiple applications.
  *
  *  Value: "MANAGED_CONFIGURATIONS"
  */
@@ -675,13 +1207,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Dele
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_NetworkActivityLogs;
 /**
- *  Grants access to package access state.
+ *  Grants access to package access state. This scope can be delegated to
+ *  multiple applications.
  *
  *  Value: "PACKAGE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PackageAccess;
 /**
- *  Grants access to permission policy and permission grant state.
+ *  Grants access to permission policy and permission grant state. This scope
+ *  can be delegated to multiple applications.
  *
  *  Value: "PERMISSION_GRANT"
  */
@@ -759,6 +1293,85 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Inst
  *  Value: "REQUIRED_FOR_SETUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_RequiredForSetup;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.preferentialNetworkId
+
+/**
+ *  Application does not use any preferential network.
+ *
+ *  Value: "NO_PREFERENTIAL_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_NoPreferentialNetwork;
+/**
+ *  Preferential network identifier 5.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdFive;
+/**
+ *  Preferential network identifier 4.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdFour;
+/**
+ *  Preferential network identifier 1.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdOne;
+/**
+ *  Preferential network identifier 3.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdThree;
+/**
+ *  Preferential network identifier 2.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdTwo;
+/**
+ *  Whether this value is valid and what it means depends on where it is used,
+ *  and this is documented on the relevant fields.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.userControlSettings
+
+/**
+ *  User control is allowed for the app. Kiosk apps can use this to allow user
+ *  control. For extension apps (see extensionConfig for more details), user
+ *  control is disallowed even if this value is set. For kiosk apps (see KIOSK
+ *  install type for more details), this value can be used to allow user
+ *  control.
+ *
+ *  Value: "USER_CONTROL_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlAllowed;
+/**
+ *  User control is disallowed for the app. This is supported on Android 11 and
+ *  above. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 11.
+ *
+ *  Value: "USER_CONTROL_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlDisallowed;
+/**
+ *  Uses the default behaviour of the app to determine if user control is
+ *  allowed or disallowed. User control is allowed by default for most apps but
+ *  disallowed for following types of apps: extension apps (see extensionConfig
+ *  for more details) kiosk apps (see KIOSK install type for more details) other
+ *  critical system apps
+ *
+ *  Value: "USER_CONTROL_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlSettingsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.workProfileWidgets
@@ -855,6 +1468,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_User
  *  Value: "USER_FACING_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_UserFacingType_UserFacingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_BackupServiceToggledEvent.backupServiceState
+
+/**
+ *  Backup service is enabled
+ *
+ *  Value: "BACKUP_SERVICE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceDisabled;
+/**
+ *  Backup service is disabled
+ *
+ *  Value: "BACKUP_SERVICE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceEnabled;
+/**
+ *  No value is set
+ *
+ *  Value: "BACKUP_SERVICE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_BlockAction.blockScope
@@ -955,6 +1590,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordF
 // GTLRAndroidManagement_Command.type
 
 /**
+ *  Adds an eSIM profile to the device. This is supported on Android 15 and
+ *  above. See also addEsimParams. To remove an eSIM profile, use the
+ *  REMOVE_ESIM command. To determine what happens to the eSIM profile when a
+ *  device is wiped, set wipeDataFlags in the policy. Note: To provision
+ *  multiple eSIMs on a single device, it is recommended to introduce a delay of
+ *  a few minutes between successive executions of the command.
+ *
+ *  Value: "ADD_ESIM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_AddEsim;
+/**
  *  Clears the application data of specified apps. This is supported on Android
  *  9 and above. Note that an application can store data outside of its
  *  application data, for example in external storage or in a user dictionary.
@@ -992,6 +1638,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Reboot;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RelinquishOwnership;
 /**
+ *  Removes an eSIM profile from the device. This is supported on Android 15 and
+ *  above. See also removeEsimParams.
+ *
+ *  Value: "REMOVE_ESIM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RemoveEsim;
+/**
+ *  Request information related to the device.
+ *
+ *  Value: "REQUEST_DEVICE_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RequestDeviceInfo;
+/**
  *  Reset the user's password.
  *
  *  Value: "RESET_PASSWORD"
@@ -1013,6 +1672,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_StartLost
  *  Value: "STOP_LOST_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_StopLostMode;
+/**
+ *  Wipes the device, via a factory reset for a company owned device, or by
+ *  deleting the work profile for a personally owned device with work profile.
+ *  The wipe only occurs once the device acknowledges the command. The command
+ *  can be cancelled before then.
+ *
+ *  Value: "WIPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Wipe;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_CommonCriteriaModeInfo.commonCriteriaModeStatus
@@ -1035,6 +1703,72 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo
  *  Value: "COMMON_CRITERIA_MODE_STATUS_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CommonCriteriaModeInfo.policySignatureVerificationStatus
+
+/**
+ *  Policy signature verification is disabled on the device as
+ *  common_criteria_mode is set to false.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationDisabled;
+/**
+ *  The policy signature verification failed. The policy has not been applied.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationFailed;
+/**
+ *  Policy signature verification is not supported, e.g. because the device has
+ *  been enrolled with a CloudDPC version that does not support the policy
+ *  signature verification.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_NOT_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationNotSupported;
+/**
+ *  Unspecified. The verification status has not been reported. This is set only
+ *  if statusReportingSettings.commonCriteriaModeEnabled is false.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationStatusUnspecified;
+/**
+ *  Policy signature verification succeeded.
+ *
+ *  Value: "POLICY_SIGNATURE_VERIFICATION_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationSucceeded;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileAppFunctions
+
+/**
+ *  Personal profile apps can invoke app functions exposed by apps in the work
+ *  profile. If this is set, appFunctions must not be set to
+ *  APP_FUNCTIONS_DISALLOWED, otherwise the policy will be rejected.
+ *
+ *  Value: "CROSS_PROFILE_APP_FUNCTIONS_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsAllowed;
+/**
+ *  Personal profile apps are not allowed to invoke app functions exposed by
+ *  apps in the work profile.
+ *
+ *  Value: "CROSS_PROFILE_APP_FUNCTIONS_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsDisallowed;
+/**
+ *  Unspecified. If appFunctions is set to APP_FUNCTIONS_ALLOWED, defaults to
+ *  CROSS_PROFILE_APP_FUNCTIONS_ALLOWED. If appFunctions is set to
+ *  APP_FUNCTIONS_DISALLOWED, defaults to
+ *  CROSS_PROFILE_APP_FUNCTIONS_DISALLOWED.
+ *
+ *  Value: "CROSS_PROFILE_APP_FUNCTIONS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_CrossProfilePolicies.crossProfileCopyPaste
@@ -1099,7 +1833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_C
  *  including contact searches and incoming calls.When this is set, personal
  *  apps specified in exemptions_to_show_work_contacts_in_personal_profile are
  *  blocklisted and can not access work profile contacts directly.Supported on
- *  Android 7.0 and above. A nonComplianceDetail with API_LEVEL is reported if
+ *  Android 7.0 and above. A NonComplianceDetail with API_LEVEL is reported if
  *  the Android version is less than 7.0.
  *
  *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED"
@@ -1110,7 +1844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_S
  *  work contacts.When this is set, personal apps specified in
  *  exemptions_to_show_work_contacts_in_personal_profile are allowlisted and can
  *  access work profile contacts directly.Supported on Android 7.0 and above. A
- *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
  *  less than 7.0.
  *
  *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED"
@@ -1126,7 +1860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_S
  *  access work profile contacts.Supported on Android 14 and above. If this is
  *  set on a device with Android version less than 14, the behaviour falls back
  *  to SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED and a
- *  nonComplianceDetail with API_LEVEL is reported.
+ *  NonComplianceDetail with API_LEVEL is reported.
  *
  *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM"
  */
@@ -1175,6 +1909,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_W
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_Active;
+/**
+ *  This is a financed device that has been "locked" by the financing agent.
+ *  This means certain policy settings have been applied which limit device
+ *  functionality until the device has been "unlocked" by the financing agent.
+ *  The device will continue to apply policy settings excluding those overridden
+ *  by the financing agent. When the device is "locked", the state is reported
+ *  in appliedState as DEACTIVATED_BY_DEVICE_FINANCE.
+ *
+ *  Value: "DEACTIVATED_BY_DEVICE_FINANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_AppliedState_DeactivatedByDeviceFinance;
 /**
  *  The device was deleted. This state is never returned by an API call, but is
  *  used in the final status report when the device acknowledges the deletion.
@@ -1274,6 +2019,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_Ownership_Perso
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Active;
 /**
+ *  This is a financed device that has been "locked" by the financing agent.
+ *  This means certain policy settings have been applied which limit device
+ *  functionality until the device has been "unlocked" by the financing agent.
+ *  The device will continue to apply policy settings excluding those overridden
+ *  by the financing agent. When the device is "locked", the state is reported
+ *  in appliedState as DEACTIVATED_BY_DEVICE_FINANCE.
+ *
+ *  Value: "DEACTIVATED_BY_DEVICE_FINANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_DeactivatedByDeviceFinance;
+/**
  *  The device was deleted. This state is never returned by an API call, but is
  *  used in the final status report when the device acknowledges the deletion.
  *  If the device is deleted via the API call, this state is published to
@@ -1318,6 +2074,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Preparing
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Device_State_Provisioning;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceConnectivityManagement.bluetoothSharing
+
+/**
+ *  Bluetooth sharing is allowed.Supported on Android 8 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported on work profiles if the
+ *  Android version is less than 8.
+ *
+ *  Value: "BLUETOOTH_SHARING_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingAllowed;
+/**
+ *  Bluetooth sharing is disallowed.Supported on Android 8 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported on fully managed devices if
+ *  the Android version is less than 8.
+ *
+ *  Value: "BLUETOOTH_SHARING_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingDisallowed;
+/**
+ *  Unspecified. Defaults to BLUETOOTH_SHARING_DISALLOWED on work profiles and
+ *  BLUETOOTH_SHARING_ALLOWED on fully managed devices.
+ *
+ *  Value: "BLUETOOTH_SHARING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceConnectivityManagement.configureWifi
 
 /**
@@ -1339,7 +2122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
  *  switch between already configured networks. Supported on Android 13 and
  *  above, on fully managed devices and work profiles on company-owned devices.
  *  If the setting is not supported, ALLOW_CONFIGURING_WIFI is set. A
- *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
  *  less than 13. wifiConfigDisabled is ignored.
  *
  *  Value: "DISALLOW_ADD_WIFI_CONFIG"
@@ -1382,7 +2165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
 /**
  *  Disallows the user from using Wi-Fi tethering. Supported on company owned
  *  devices running Android 13 and above. If the setting is not supported,
- *  ALLOW_ALL_TETHERING will be set. A nonComplianceDetail with API_LEVEL is
+ *  ALLOW_ALL_TETHERING will be set. A NonComplianceDetail with API_LEVEL is
  *  reported if the Android version is less than 13. tetheringConfigDisabled is
  *  ignored.
  *
@@ -1412,8 +2195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
  *  When set, all types of USB data transfers are prohibited. Supported for
  *  devices running Android 12 or above with USB HAL 1.3 or above. If the
  *  setting is not supported, DISALLOW_USB_FILE_TRANSFER will be set. A
- *  nonComplianceDetail with API_LEVEL is reported if the Android version is
- *  less than 12. A nonComplianceDetail with DEVICE_INCOMPATIBLE is reported if
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 12. A NonComplianceDetail with DEVICE_INCOMPATIBLE is reported if
  *  the device does not have USB HAL 1.3 or above. usbFileTransferDisabled is
  *  ignored.
  *
@@ -1429,9 +2212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_DisallowUsbFileTransfer;
 /**
- *  Unspecified. Defaults to ALLOW_USB_DATA_TRANSFER, unless
- *  usbFileTransferDisabled is set to true. If usbFileTransferDisabled is set to
- *  true, this is equivalent to DISALLOW_USB_FILE_TRANSFER.
+ *  Unspecified. Defaults to DISALLOW_USB_FILE_TRANSFER.
  *
  *  Value: "USB_DATA_ACCESS_UNSPECIFIED"
  */
@@ -1447,7 +2228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_AllowWifiDirect;
 /**
- *  The user is not allowed to use Wi-Fi direct. A nonComplianceDetail with
+ *  The user is not allowed to use Wi-Fi direct. A NonComplianceDetail with
  *  API_LEVEL is reported if the Android version is less than 13.
  *
  *  Value: "DISALLOW_WIFI_DIRECT"
@@ -1465,7 +2246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceConnectivityMana
 
 /**
  *  Airplane mode is disabled. The user is not allowed to toggle airplane mode
- *  on. A nonComplianceDetail with API_LEVEL is reported if the Android version
+ *  on. A NonComplianceDetail with API_LEVEL is reported if the Android version
  *  is less than 9.
  *
  *  Value: "AIRPLANE_MODE_DISABLED"
@@ -1489,7 +2270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Airpl
 
 /**
  *  Cellular 2G is disabled. The user is not allowed to toggle cellular 2G on
- *  via settings. A nonComplianceDetail with API_LEVEL is reported if the
+ *  via settings. A NonComplianceDetail with API_LEVEL is reported if the
  *  Android version is less than 14.
  *
  *  Value: "CELLULAR_TWO_G_DISABLED"
@@ -1512,9 +2293,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Cellu
 // GTLRAndroidManagement_DeviceRadioState.minimumWifiSecurityLevel
 
 /**
+ *  A 192-bit enterprise network is the minimum required security level. The
+ *  device will not be able to connect to Wi-Fi network below this security
+ *  level. This is stricter than ENTERPRISE_NETWORK_SECURITY. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Value: "ENTERPRISE_BIT192_NETWORK_SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseBit192NetworkSecurity;
+/**
  *  An enterprise EAP network is the minimum required security level. The device
  *  will not be able to connect to Wi-Fi network below this security level. This
- *  is stricter than PERSONAL_NETWORK_SECURITY. A nonComplianceDetail with
+ *  is stricter than PERSONAL_NETWORK_SECURITY. A NonComplianceDetail with
  *  API_LEVEL is reported if the Android version is less than 13.
  *
  *  Value: "ENTERPRISE_NETWORK_SECURITY"
@@ -1536,7 +2327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Minim
 /**
  *  A personal network such as WEP, WPA2-PSK is the minimum required security.
  *  The device will not be able to connect to open wifi networks. This is
- *  stricter than OPEN_NETWORK_SECURITY. A nonComplianceDetail with API_LEVEL is
+ *  stricter than OPEN_NETWORK_SECURITY. A NonComplianceDetail with API_LEVEL is
  *  reported if the Android version is less than 13.
  *
  *  Value: "PERSONAL_NETWORK_SECURITY"
@@ -1548,7 +2339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Minim
 
 /**
  *  Ultra wideband is disabled. The user is not allowed to toggle ultra wideband
- *  on via settings. A nonComplianceDetail with API_LEVEL is reported if the
+ *  on via settings. A NonComplianceDetail with API_LEVEL is reported if the
  *  Android version is less than 14.
  *
  *  Value: "ULTRA_WIDEBAND_DISABLED"
@@ -1572,7 +2363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Ultra
 
 /**
  *  Wi-Fi is off and the user is not allowed to turn it on. A
- *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
  *  less than 13.
  *
  *  Value: "WIFI_DISABLED"
@@ -1580,7 +2371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Ultra
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiDisabled;
 /**
  *  Wi-Fi is on and the user is not allowed to turn it off. A
- *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
  *  less than 13.
  *
  *  Value: "WIFI_ENABLED"
@@ -1700,6 +2491,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowP
  *  Value: "PERSONAL_USAGE_DISALLOWED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed;
+/**
+ *  Device is not associated with a single user, and thus both personal usage
+ *  and corporate identity authentication are not expected. Important: This
+ *  setting is mandatory for dedicated device enrollment and it is a breaking
+ *  change. This change needs to be implemented before January 2025.For
+ *  additional details see the dedicated device provisioning guide
+ *  (https://developers.google.com/android/management/provision-device#company-owned_devices_for_work_use_only).
+ *
+ *  Value: "PERSONAL_USAGE_DISALLOWED_USERLESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowedUserless;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Enterprise.enabledNotificationTypes
@@ -1723,6 +2525,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enrollment;
 /**
+ *  A notification sent for an enterprise upgrade. An enterprise upgrade is a
+ *  process that upgrades a managed Google Play Accounts enterprise to a managed
+ *  Google domain.
+ *
+ *  Value: "ENTERPRISE_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_EnterpriseUpgrade;
+/**
  *  This value is ignored.
  *
  *  Value: "NOTIFICATION_TYPE_UNSPECIFIED"
@@ -1740,6 +2550,179 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNoti
  *  Value: "USAGE_LOGS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_UsageLogs;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Enterprise.enterpriseType
+
+/**
+ *  This value is not used.
+ *
+ *  Value: "ENTERPRISE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_EnterpriseTypeUnspecified;
+/**
+ *  The enterprise belongs to a managed Google domain
+ *  (https://developers.google.com/android/work/terminology#managed_google_domain).
+ *
+ *  Value: "MANAGED_GOOGLE_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGoogleDomain;
+/**
+ *  The enterprise is a managed Google Play Accounts enterprise
+ *  (https://developers.google.com/android/work/terminology#managed_google_play_accounts_enterprise).
+ *
+ *  Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Enterprise.managedGoogleDomainType
+
+/**
+ *  The managed Google domain type is not specified.
+ *
+ *  Value: "MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified;
+/**
+ *  The managed Google domain is domain-verified.
+ *
+ *  Value: "TYPE_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeDomain;
+/**
+ *  The managed Google domain is an email-verified team.
+ *
+ *  Value: "TYPE_TEAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeTeam;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Enterprise.managedGooglePlayAccountsEnterpriseType
+
+/**
+ *  The enterprise is customer-managed
+ *
+ *  Value: "CUSTOMER_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_CustomerManaged;
+/**
+ *  The enterprise is EMM-managed (deprecated).
+ *
+ *  Value: "EMM_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_EmmManaged;
+/**
+ *  The managed Google Play Accounts enterprise type is not specified.
+ *
+ *  Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_ManagedGooglePlayAccountsEnterpriseTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_EnterpriseUpgradeEvent.upgradeState
+
+/**
+ *  The upgrade has succeeded.
+ *
+ *  Value: "UPGRADE_STATE_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "UPGRADE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_EsimCommandStatus.status
+
+/**
+ *  For a REMOVE_ESIM command, the iccId of the eSIM to be removed was not found
+ *  on the device. This could either mean the eSIM does not belong to the
+ *  enterprise or the eSIM corresponding to the iccId is not present on the
+ *  device.
+ *
+ *  Value: "ERROR_ICC_ID_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorIccIdNotFound;
+/**
+ *  The ADD_ESIM command failed when attempting to add a new eSIM with its
+ *  activation state set to ACTIVATED since multiple eSIM slots on the device
+ *  contain active eSIM profiles and there is no free eSIM slot available. To
+ *  resolve this, the new eSIM can be added with its activation state as
+ *  NOT_ACTIVATED for later manual activation, or the user must first deactivate
+ *  an existing active eSIM for the operation to proceed.
+ *
+ *  Value: "ERROR_MULTIPLE_ACTIVE_ESIMS_NO_AVAILABLE_SLOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorMultipleActiveEsimsNoAvailableSlot;
+/**
+ *  The eSIM operation cannot be executed when setup is in progress.
+ *
+ *  Value: "ERROR_SETUP_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorSetupInProgress;
+/**
+ *  The user has denied the eSIM operation.
+ *
+ *  Value: "ERROR_USER_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorUserDenied;
+/**
+ *  The eSIM operation is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_InProgress;
+/**
+ *  An error has occurred while trying to add or remove the eSIM on the device,
+ *  see internal_error_details.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_InternalError;
+/**
+ *  The user needs to take an action for the eSIM operation to proceed.
+ *
+ *  Value: "PENDING_USER_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_PendingUserAction;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_StatusUnspecified;
+/**
+ *  The eSIM operation was successfully performed on the device.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EsimCommandStatus_Status_Success;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_GoogleAuthenticationSettings.googleAuthenticationRequired
+
+/**
+ *  This value is not used.
+ *
+ *  Value: "GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified;
+/**
+ *  Google authentication is not required.
+ *
+ *  Value: "NOT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired;
+/**
+ *  User is required to be successfully authenticated by Google.
+ *
+ *  Value: "REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_Required;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_InstallConstraint.chargingConstraint
@@ -1807,6 +2790,268 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_Netw
  *  Value: "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InstallConstraint_NetworkTypeConstraint_NetworkTypeConstraintUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_InternalErrorDetails.errorCodeDetail
+
+/**
+ *  See EuiccManager.ERROR_ADDRESS_MISSING
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_ADDRESS_MISSING)
+ *  for details.
+ *
+ *  Value: "ERROR_ADDRESS_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorAddressMissing;
+/**
+ *  See EuiccManager.ERROR_CARRIER_LOCKED
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CARRIER_LOCKED)
+ *  for details.
+ *
+ *  Value: "ERROR_CARRIER_LOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCarrierLocked;
+/**
+ *  See EuiccManager.ERROR_CERTIFICATE_ERROR
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CERTIFICATE_ERROR)
+ *  for details.
+ *
+ *  Value: "ERROR_CERTIFICATE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCertificateError;
+/**
+ *  Error code detail is unspecified. The error_code is not recognized by
+ *  Android Management API. However, see error_code
+ *
+ *  Value: "ERROR_CODE_DETAIL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCodeDetailUnspecified;
+/**
+ *  See EuiccManager.ERROR_CONNECTION_ERROR
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CONNECTION_ERROR)
+ *  for details.
+ *
+ *  Value: "ERROR_CONNECTION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorConnectionError;
+/**
+ *  See EuiccManager.ERROR_DISALLOWED_BY_PPR
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_DISALLOWED_BY_PPR)
+ *  for details.
+ *
+ *  Value: "ERROR_DISALLOWED_BY_PPR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorDisallowedByPpr;
+/**
+ *  See EuiccManager.ERROR_EUICC_INSUFFICIENT_MEMORY
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_EUICC_INSUFFICIENT_MEMORY)
+ *  for details.
+ *
+ *  Value: "ERROR_EUICC_INSUFFICIENT_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorEuiccInsufficientMemory;
+/**
+ *  See EuiccManager.ERROR_EUICC_MISSING
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_EUICC_MISSING)
+ *  for details.
+ *
+ *  Value: "ERROR_EUICC_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorEuiccMissing;
+/**
+ *  See EuiccManager.ERROR_INCOMPATIBLE_CARRIER
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INCOMPATIBLE_CARRIER)
+ *  for details.
+ *
+ *  Value: "ERROR_INCOMPATIBLE_CARRIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorIncompatibleCarrier;
+/**
+ *  See EuiccManager.ERROR_INSTALL_PROFILE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INSTALL_PROFILE)
+ *  for details.
+ *
+ *  Value: "ERROR_INSTALL_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInstallProfile;
+/**
+ *  See EuiccManager.ERROR_INVALID_ACTIVATION_CODE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_ACTIVATION_CODE)
+ *  for details.
+ *
+ *  Value: "ERROR_INVALID_ACTIVATION_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidActivationCode;
+/**
+ *  See EuiccManager.ERROR_INVALID_CONFIRMATION_CODE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_CONFIRMATION_CODE)
+ *  for details.
+ *
+ *  Value: "ERROR_INVALID_CONFIRMATION_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidConfirmationCode;
+/**
+ *  See EuiccManager.ERROR_INVALID_PORT
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_PORT)
+ *  for details.
+ *
+ *  Value: "ERROR_INVALID_PORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidPort;
+/**
+ *  See EuiccManager.ERROR_INVALID_RESPONSE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_RESPONSE)
+ *  for details.
+ *
+ *  Value: "ERROR_INVALID_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidResponse;
+/**
+ *  See EuiccManager.ERROR_NO_PROFILES_AVAILABLE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_NO_PROFILES_AVAILABLE)
+ *  for details.
+ *
+ *  Value: "ERROR_NO_PROFILES_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorNoProfilesAvailable;
+/**
+ *  See EuiccManager.ERROR_OPERATION_BUSY
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_OPERATION_BUSY)
+ *  for details.
+ *
+ *  Value: "ERROR_OPERATION_BUSY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorOperationBusy;
+/**
+ *  See EuiccManager.ERROR_SIM_MISSING
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_SIM_MISSING)
+ *  for details.
+ *
+ *  Value: "ERROR_SIM_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorSimMissing;
+/**
+ *  See EuiccManager.ERROR_TIME_OUT
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_TIME_OUT)
+ *  for details.
+ *
+ *  Value: "ERROR_TIME_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorTimeOut;
+/**
+ *  See EuiccManager.ERROR_UNSUPPORTED_VERSION
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_UNSUPPORTED_VERSION)
+ *  for details.
+ *
+ *  Value: "ERROR_UNSUPPORTED_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorUnsupportedVersion;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_InternalErrorDetails.operationCodeDetail
+
+/**
+ *  See EuiccManager.OPERATION_APDU
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_APDU)
+ *  for details.
+ *
+ *  Value: "OPERATION_APDU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationApdu;
+/**
+ *  Operation code detail is unspecified. The operation_code is not recognized
+ *  by Android Management API. However, see operation_code.
+ *
+ *  Value: "OPERATION_CODE_DETAIL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationCodeDetailUnspecified;
+/**
+ *  See EuiccManager.OPERATION_DOWNLOAD
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_DOWNLOAD)
+ *  for details.
+ *
+ *  Value: "OPERATION_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationDownload;
+/**
+ *  See EuiccManager.OPERATION_EUICC_CARD
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_EUICC_CARD)
+ *  for details.
+ *
+ *  Value: "OPERATION_EUICC_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationEuiccCard;
+/**
+ *  See EuiccManager.OPERATION_EUICC_GSMA
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_EUICC_GSMA)
+ *  for details.
+ *
+ *  Value: "OPERATION_EUICC_GSMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationEuiccGsma;
+/**
+ *  See EuiccManager.OPERATION_HTTP
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_HTTP)
+ *  for details.
+ *
+ *  Value: "OPERATION_HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationHttp;
+/**
+ *  See EuiccManager.OPERATION_METADATA
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_METADATA)
+ *  for details.
+ *
+ *  Value: "OPERATION_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationMetadata;
+/**
+ *  See EuiccManager.OPERATION_SIM_SLOT
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SIM_SLOT)
+ *  for details.
+ *
+ *  Value: "OPERATION_SIM_SLOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSimSlot;
+/**
+ *  See EuiccManager.OPERATION_SMDX
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX)
+ *  for details.
+ *
+ *  Value: "OPERATION_SMDX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSmdx;
+/**
+ *  See EuiccManager.OPERATION_SMDX_SUBJECT_REASON_CODE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX_SUBJECT_REASON_CODE)
+ *  for details. Note that, in this case, error_code is the least significant 3
+ *  bytes of the EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE)
+ *  specifying the subject code and the reason code as indicated here
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX_SUBJECT_REASON_CODE).
+ *  The most significant byte of the integer is zeroed out. For example, a
+ *  Subject Code of 8.11.1 and a Reason Code of 5.1 is represented in error_code
+ *  as 0000 0000 1000 1011 0001 0000 0101 0001 in binary, which is 9113681 in
+ *  decimal.
+ *
+ *  Value: "OPERATION_SMDX_SUBJECT_REASON_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSmdxSubjectReasonCode;
+/**
+ *  See EuiccManager.OPERATION_SWITCH
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SWITCH)
+ *  for details.
+ *
+ *  Value: "OPERATION_SWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSwitch;
+/**
+ *  See EuiccManager.OPERATION_SYSTEM
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SYSTEM)
+ *  for details.
+ *
+ *  Value: "OPERATION_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSystem;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_KeyedAppState.severity
@@ -2235,14 +3480,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue;
 /**
- *  The management mode (profile owner, device owner, etc.) doesn't support the
- *  setting.
+ *  The management mode (such as fully managed or work profile) doesn't support
+ *  the setting.
  *
  *  Value: "MANAGEMENT_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode;
 /**
- *  This value is disallowed.
+ *  This value is not used.
  *
  *  Value: "NON_COMPLIANCE_REASON_UNSPECIFIED"
  */
@@ -2254,6 +3499,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending;
+/**
+ *  The Google Cloud Platform project used to manage the device is not permitted
+ *  to use this policy.
+ *
+ *  Value: "PROJECT_NOT_PERMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ProjectNotPermitted;
 /**
  *  The policy is not supported by the version of Android Device Policy on the
  *  device.
@@ -2271,6 +3523,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_NonComplianceDetail.specificNonComplianceReason
 
+/**
+ *  Work account added by the user is not part of the enterprise.
+ *  nonComplianceReason is set to USER_ACTION.
+ *
+ *  Value: "NEW_ACCOUNT_NOT_IN_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_NewAccountNotInEnterprise;
 /**
  *  The ONC Wi-Fi setting is not supported in the API level of the Android
  *  version running on the device. fieldPath specifies which field value is not
@@ -2334,6 +3593,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Sp
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesUserCredentialsConfirmationRequired;
 /**
+ *  This policy setting is restricted and cannot be set for this Google Cloud
+ *  Platform project. More details (including how to enable usage of this policy
+ *  setting) are available in the Permissible Usage policy
+ *  (https://developers.google.com/android/management/permissible-usage).
+ *  nonComplianceReason is set to PROJECT_NOT_PERMITTED.
+ *
+ *  Value: "PERMISSIBLE_USAGE_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PermissibleUsageRestriction;
+/**
+ *  Work account required by the workAccountSetupConfig policy setting is not
+ *  part of the enterprise anymore. nonComplianceReason is set to USER_ACTION.
+ *
+ *  Value: "REQUIRED_ACCOUNT_NOT_IN_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_RequiredAccountNotInEnterprise;
+/**
  *  Specific non-compliance reason is not specified. Fields in
  *  specific_non_compliance_context are not set.
  *
@@ -2390,14 +3666,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue;
 /**
- *  The management mode (profile owner, device owner, etc.) doesn't support the
- *  setting.
+ *  The management mode (such as fully managed or work profile) doesn't support
+ *  the setting.
  *
  *  Value: "MANAGEMENT_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode;
 /**
- *  This value is disallowed.
+ *  This value is not used.
  *
  *  Value: "NON_COMPLIANCE_REASON_UNSPECIFIED"
  */
@@ -2409,6 +3685,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending;
+/**
+ *  The Google Cloud Platform project used to manage the device is not permitted
+ *  to use this policy.
+ *
+ *  Value: "PROJECT_NOT_PERMITTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ProjectNotPermitted;
 /**
  *  The policy is not supported by the version of Android Device Policy on the
  *  device.
@@ -2734,23 +4017,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PerAppResult_ClearingR
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny;
 /**
- *  Automatically grant a permission.On Android 12 and above,
- *  Manifest.permission.READ_SMS
+ *  Automatically grant a permission.On Android 12 and above, READ_SMS
  *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *  and following sensor-related permissions can only be granted on fully
- *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  managed devices: ACCESS_FINE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  ACCESS_BACKGROUND_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  ACCESS_COARSE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *  Manifest.permission.CAMERA
+ *  CAMERA
  *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *  Manifest.permission.RECORD_AUDIO
+ *  RECORD_AUDIO
  *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  ACTIVITY_RECOGNITION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *  Manifest.permission.BODY_SENSORS
+ *  BODY_SENSORS
  *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
@@ -2794,6 +4076,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPol
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PersonalUsagePolicies.bluetoothSharing
+
+/**
+ *  Bluetooth sharing is allowed on personal profile.Supported on Android 8 and
+ *  above. A NonComplianceDetail with MANAGEMENT_MODE is reported if this is set
+ *  for a personal device.
+ *
+ *  Value: "BLUETOOTH_SHARING_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingAllowed;
+/**
+ *  Bluetooth sharing is disallowed on personal profile.Supported on Android 8
+ *  and above. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 8. A NonComplianceDetail with MANAGEMENT_MODE is
+ *  reported if this is set for a personal device.
+ *
+ *  Value: "BLUETOOTH_SHARING_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingDisallowed;
+/**
+ *  Unspecified. Defaults to BLUETOOTH_SHARING_ALLOWED.
+ *
+ *  Value: "BLUETOOTH_SHARING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PersonalUsagePolicies.personalPlayStoreMode
 
 /**
@@ -2823,6 +4132,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_
  *  Value: "PLAY_STORE_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PersonalUsagePolicies.privateSpacePolicy
+
+/**
+ *  Users can create a private space profile.
+ *
+ *  Value: "PRIVATE_SPACE_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceAllowed;
+/**
+ *  Users cannot create a private space profile. Supported only for
+ *  company-owned devices with a work profile. Caution: Any existing private
+ *  space will be removed.
+ *
+ *  Value: "PRIVATE_SPACE_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceDisallowed;
+/**
+ *  Unspecified. Defaults to PRIVATE_SPACE_ALLOWED.
+ *
+ *  Value: "PRIVATE_SPACE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpacePolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.androidDevicePolicyTracks
@@ -2879,6 +4212,57 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePo
  *  Value: "WIFI_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.appFunctions
+
+/**
+ *  Apps on the device for fully managed devices or in the work profile for
+ *  devices with work profiles are allowed to expose app functions.
+ *
+ *  Value: "APP_FUNCTIONS_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsAllowed;
+/**
+ *  Apps on the device for fully managed devices or in the work profile for
+ *  devices with work profiles are not allowed to expose app functions. If this
+ *  is set, crossProfileAppFunctions must not be set to
+ *  CROSS_PROFILE_APP_FUNCTIONS_ALLOWED, otherwise the policy will be rejected.
+ *
+ *  Value: "APP_FUNCTIONS_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsDisallowed;
+/**
+ *  Unspecified. Defaults to APP_FUNCTIONS_ALLOWED.
+ *
+ *  Value: "APP_FUNCTIONS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.assistContentPolicy
+
+/**
+ *  Assist content is allowed to be sent to a privileged app.Supported on
+ *  Android 15 and above.
+ *
+ *  Value: "ASSIST_CONTENT_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentAllowed;
+/**
+ *  Assist content is blocked from being sent to a privileged app.Supported on
+ *  Android 15 and above. A NonComplianceDetail with API_LEVEL is reported if
+ *  the Android version is less than 15.
+ *
+ *  Value: "ASSIST_CONTENT_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentDisallowed;
+/**
+ *  Unspecified. Defaults to ASSIST_CONTENT_ALLOWED.
+ *
+ *  Value: "ASSIST_CONTENT_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.autoDateAndTimeZone
@@ -2979,23 +4363,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CredentialProvi
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny;
 /**
- *  Automatically grant a permission.On Android 12 and above,
- *  Manifest.permission.READ_SMS
+ *  Automatically grant a permission.On Android 12 and above, READ_SMS
  *  (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *  and following sensor-related permissions can only be granted on fully
- *  managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *  managed devices: ACCESS_FINE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *  Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *  ACCESS_BACKGROUND_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *  Manifest.permission.ACCESS_COARSE_LOCATION
+ *  ACCESS_COARSE_LOCATION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *  Manifest.permission.CAMERA
+ *  CAMERA
  *  (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *  Manifest.permission.RECORD_AUDIO
+ *  RECORD_AUDIO
  *  (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *  Manifest.permission.ACTIVITY_RECOGNITION
+ *  ACTIVITY_RECOGNITION
  *  (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *  Manifest.permission.BODY_SENSORS
+ *  BODY_SENSORS
  *  (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *
  *  Value: "GRANT"
@@ -3036,6 +4419,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolic
  *  Value: "ENCRYPTION_POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolicy_EncryptionPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.enterpriseDisplayNameVisibility
+
+/**
+ *  The enterprise display name is hidden on the device.
+ *
+ *  Value: "ENTERPRISE_DISPLAY_NAME_HIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameHidden;
+/**
+ *  Unspecified. Defaults to displaying the enterprise name that's set at the
+ *  time of device setup. In future, this will default to
+ *  ENTERPRISE_DISPLAY_NAME_VISIBLE.
+ *
+ *  Value: "ENTERPRISE_DISPLAY_NAME_VISIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisibilityUnspecified;
+/**
+ *  The enterprise display name is visible on the device. Supported on work
+ *  profiles on Android 7 and above. Supported on fully managed devices on
+ *  Android 8 and above. A NonComplianceDetail with API_LEVEL is reported if the
+ *  Android version is less than 7. A NonComplianceDetail with MANAGEMENT_MODE
+ *  is reported on fully managed devices on Android 7.
+ *
+ *  Value: "ENTERPRISE_DISPLAY_NAME_VISIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisible;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.keyguardDisabledFeatures
@@ -3134,13 +4545,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Ba
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy GTLR_DEPRECATED;
 /**
- *  Disable location setting on the device.
+ *  Disable location setting on the device. Important: On Android 11 and above,
+ *  work profiles on company-owned devices cannot directly enforce disabling of
+ *  location services. When LOCATION_DISABLED is set, then a nonComplianceDetail
+ *  with USER_ACTION is reported. Compliance can only be restored once the user
+ *  manually turns off location services through the device's Settings
+ *  application.
  *
  *  Value: "LOCATION_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationDisabled;
 /**
- *  Enable location setting on the device.
+ *  Enable location setting on the device. Important: On Android 11 and above,
+ *  work profiles on company-owned devices cannot directly enforce enabling of
+ *  location services. When LOCATION_ENFORCED is set, then a NonComplianceDetail
+ *  with USER_ACTION is reported. Compliance can only be restored once the user
+ *  manually turns on location services through the device's Settings
+ *  application.
  *
  *  Value: "LOCATION_ENFORCED"
  */
@@ -3244,7 +4665,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_W
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceDisabled;
 /**
- *  Preferential network service is enabled on the work profile.
+ *  Preferential network service is enabled on the work profile. This setting is
+ *  only supported on work profiles on devices running Android 12 or above.
+ *  Starting with Android 13, fully managed devices are also supported.
  *
  *  Value: "PREFERENTIAL_NETWORK_SERVICE_ENABLED"
  */
@@ -3266,7 +4689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PreferentialNet
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingAllowed;
 /**
- *  Printing is disallowed. A nonComplianceDetail with API_LEVEL is reported if
+ *  Printing is disallowed. A NonComplianceDetail with API_LEVEL is reported if
  *  the Android version is less than 9.
  *
  *  Value: "PRINTING_DISALLOWED"
@@ -3306,6 +4729,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedMo
  *  Value: "WIRELESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wireless;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.wipeDataFlags
+
+/**
+ *  This value must not be used.
+ *
+ *  Value: "WIPE_DATA_FLAG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_WipeDataFlags_WipeDataFlagUnspecified;
+/**
+ *  For company-owned devices, setting this in wipeDataFlags will remove all
+ *  eSIMs on the device when wipe is triggered due to any reason. On
+ *  personally-owned devices, this will remove only managed eSIMs on the device.
+ *  (eSIMs which are added via the ADD_ESIM command). This is supported on
+ *  devices running Android 15 and above. A NonComplianceDetail with API_LEVEL
+ *  is reported if the Android version is less than 15.
+ *
+ *  Value: "WIPE_ESIMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_WipeDataFlags_WipeEsims;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PostureDetail.securityRisk
@@ -3393,6 +4837,152 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_E
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PowerManagementEvent_EventType_Shutdown;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PreferentialNetworkServiceConfig.fallbackToDefaultConnection
+
+/**
+ *  Fallback to default connection is allowed. If this is set,
+ *  nonMatchingNetworks must not be set to NON_MATCHING_NETWORKS_DISALLOWED, the
+ *  policy will be rejected otherwise.
+ *
+ *  Value: "FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionAllowed;
+/**
+ *  Fallback to default connection is not allowed.
+ *
+ *  Value: "FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionDisallowed;
+/**
+ *  Unspecified. Defaults to FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED.
+ *
+ *  Value: "FALLBACK_TO_DEFAULT_CONNECTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PreferentialNetworkServiceConfig.nonMatchingNetworks
+
+/**
+ *  Apps this configuration applies to are allowed to use networks other than
+ *  the preferential service.
+ *
+ *  Value: "NON_MATCHING_NETWORKS_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksAllowed;
+/**
+ *  Apps this configuration applies to are disallowed from using other networks
+ *  than the preferential service. This can be set on Android 14 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 14. If this is set, fallbackToDefaultConnection must be set to
+ *  FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED, the policy will be rejected
+ *  otherwise.
+ *
+ *  Value: "NON_MATCHING_NETWORKS_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksDisallowed;
+/**
+ *  Unspecified. Defaults to NON_MATCHING_NETWORKS_ALLOWED.
+ *
+ *  Value: "NON_MATCHING_NETWORKS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PreferentialNetworkServiceConfig.preferentialNetworkId
+
+/**
+ *  Application does not use any preferential network.
+ *
+ *  Value: "NO_PREFERENTIAL_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_NoPreferentialNetwork;
+/**
+ *  Preferential network identifier 5.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdFive;
+/**
+ *  Preferential network identifier 4.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdFour;
+/**
+ *  Preferential network identifier 1.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdOne;
+/**
+ *  Preferential network identifier 3.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdThree;
+/**
+ *  Preferential network identifier 2.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdTwo;
+/**
+ *  Whether this value is valid and what it means depends on where it is used,
+ *  and this is documented on the relevant fields.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PreferentialNetworkServiceSettings.defaultPreferentialNetworkId
+
+/**
+ *  Application does not use any preferential network.
+ *
+ *  Value: "NO_PREFERENTIAL_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_NoPreferentialNetwork;
+/**
+ *  Preferential network identifier 5.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdFive;
+/**
+ *  Preferential network identifier 4.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdFour;
+/**
+ *  Preferential network identifier 1.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdOne;
+/**
+ *  Preferential network identifier 3.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdThree;
+/**
+ *  Preferential network identifier 2.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdTwo;
+/**
+ *  Whether this value is valid and what it means depends on where it is used,
+ *  and this is documented on the relevant fields.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_ID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ProvisioningInfo.managementMode
 
 /**
@@ -3436,6 +5026,128 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Owner
  *  Value: "PERSONALLY_OWNED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ProvisioningInfo_Ownership_PersonallyOwned;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_RequestDeviceInfoParams.deviceInfo
+
+/**
+ *  This value is disallowed.
+ *
+ *  Value: "DEVICE_INFO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_DeviceInfoUnspecified;
+/**
+ *  Request the identifier for eSIM. The user will be asked to approve the
+ *  disclosure of the information before the result can be returned. If the user
+ *  doesn't approve the disclosure, USER_DECLINED will be returned. This is
+ *  supported only for personally owned devices with work profiles and Android
+ *  versions 13 and above.
+ *
+ *  Value: "EID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_Eid;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_RequestDeviceInfoStatus.status
+
+/**
+ *  The user has not completed the actions required to share device information.
+ *
+ *  Value: "PENDING_USER_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_PendingUserAction;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_StatusUnspecified;
+/**
+ *  Device information has been successfully delivered.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Succeeded;
+/**
+ *  The requested device info is not supported on this device, e.g. eSIM is not
+ *  supported on the device.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Unsupported;
+/**
+ *  The user declined sharing device information.
+ *
+ *  Value: "USER_DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_UserDeclined;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ScreenBrightnessSettings.screenBrightnessMode
+
+/**
+ *  The screen brightness mode is automatic in which the brightness is
+ *  automatically adjusted and the user is not allowed to configure the screen
+ *  brightness. screenBrightness can still be set and it is taken into account
+ *  while the brightness is automatically adjusted. Supported on Android 9 and
+ *  above on fully managed devices. A NonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 9. Supported on work profiles
+ *  on company-owned devices on Android 15 and above.
+ *
+ *  Value: "BRIGHTNESS_AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessAutomatic;
+/**
+ *  The screen brightness mode is fixed in which the brightness is set to
+ *  screenBrightness and the user is not allowed to configure the screen
+ *  brightness. screenBrightness must be set. Supported on Android 9 and above
+ *  on fully managed devices. A NonComplianceDetail with API_LEVEL is reported
+ *  if the Android version is less than 9. Supported on work profiles on
+ *  company-owned devices on Android 15 and above.
+ *
+ *  Value: "BRIGHTNESS_FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessFixed;
+/**
+ *  The user is allowed to configure the screen brightness. screenBrightness
+ *  must not be set.
+ *
+ *  Value: "BRIGHTNESS_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessUserChoice;
+/**
+ *  Unspecified. Defaults to BRIGHTNESS_USER_CHOICE.
+ *
+ *  Value: "SCREEN_BRIGHTNESS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_ScreenBrightnessModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ScreenTimeoutSettings.screenTimeoutMode
+
+/**
+ *  The screen timeout is set to screenTimeout and the user is not allowed to
+ *  configure the timeout. screenTimeout must be set. Supported on Android 9 and
+ *  above on fully managed devices. A NonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 9. Supported on work profiles
+ *  on company-owned devices on Android 15 and above.
+ *
+ *  Value: "SCREEN_TIMEOUT_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutEnforced;
+/**
+ *  Unspecified. Defaults to SCREEN_TIMEOUT_USER_CHOICE.
+ *
+ *  Value: "SCREEN_TIMEOUT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutModeUnspecified;
+/**
+ *  The user is allowed to configure the screen timeout. screenTimeout must not
+ *  be set.
+ *
+ *  Value: "SCREEN_TIMEOUT_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutUserChoice;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_SecurityPosture.devicePosture
@@ -3488,6 +5200,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPers
  *  Value: "PERSONAL_USAGE_DISALLOWED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed;
+/**
+ *  Device is not associated with a single user, and thus both personal usage
+ *  and corporate identity authentication are not expected. Important: This
+ *  setting is mandatory for dedicated device enrollment and it is a breaking
+ *  change. This change needs to be implemented before January 2025.For
+ *  additional details see the dedicated device provisioning guide
+ *  (https://developers.google.com/android/management/provision-device#company-owned_devices_for_work_use_only).
+ *
+ *  Value: "PERSONAL_USAGE_DISALLOWED_USERLESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowedUserless;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_SigninDetail.defaultStatus
+
+/**
+ *  Equivalent to SIGNIN_DETAIL_IS_NOT_DEFAULT.
+ *
+ *  Value: "SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailDefaultStatusUnspecified;
+/**
+ *  The sign-in URL will be used by default for the enterprise.
+ *
+ *  Value: "SIGNIN_DETAIL_IS_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsDefault;
+/**
+ *  The sign-in URL will not be used by default for the enterprise.
+ *
+ *  Value: "SIGNIN_DETAIL_IS_NOT_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsNotDefault;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_StartLostModeStatus.status
@@ -3642,6 +5387,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_Updat
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_TelephonyInfo.activationState
+
+/**
+ *  The SIM card is activated.
+ *
+ *  Value: "ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ActivationState_Activated;
+/**
+ *  Activation state is not specified.
+ *
+ *  Value: "ACTIVATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ActivationState_ActivationStateUnspecified;
+/**
+ *  The SIM card is not activated.
+ *
+ *  Value: "NOT_ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ActivationState_NotActivated;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_TelephonyInfo.configMode
+
+/**
+ *  The admin has configured this SIM.
+ *
+ *  Value: "ADMIN_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ConfigMode_AdminConfigured;
+/**
+ *  The configuration mode is unspecified.
+ *
+ *  Value: "CONFIG_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ConfigMode_ConfigModeUnspecified;
+/**
+ *  The user has configured this SIM.
+ *
+ *  Value: "USER_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_TelephonyInfo_ConfigMode_UserConfigured;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_UsageLog.enabledLogTypes
 
 /**
@@ -3728,6 +5517,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventTyp
  *  Value: "APP_PROCESS_START"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_AppProcessStart;
+/**
+ *  Indicates backupServiceToggledEvent has been set.
+ *
+ *  Value: "BACKUP_SERVICE_TOGGLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_UsageLogEvent_EventType_BackupServiceToggled;
 /**
  *  Indicates cert_authority_installed_event has been set.
  *
@@ -4004,6 +5799,123 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_WifiRoamingSetting.wifiRoamingMode
+
+/**
+ *  Aggressive roaming mode which allows quicker Wi-Fi roaming. Supported on
+ *  Android 15 and above on fully managed devices and work profiles on
+ *  company-owned devices. A NonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for other management modes. A NonComplianceDetail with API_LEVEL is
+ *  reported if the Android version is less than 15. A NonComplianceDetail with
+ *  DEVICE_INCOMPATIBLE is reported if the device does not support aggressive
+ *  roaming mode.
+ *
+ *  Value: "WIFI_ROAMING_AGGRESSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingAggressive;
+/**
+ *  Default Wi-Fi roaming mode of the device.
+ *
+ *  Value: "WIFI_ROAMING_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDefault;
+/**
+ *  Wi-Fi roaming is disabled. Supported on Android 15 and above on fully
+ *  managed devices and work profiles on company-owned devices. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported for other management
+ *  modes. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 15.
+ *
+ *  Value: "WIFI_ROAMING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDisabled;
+/**
+ *  Unspecified. Defaults to WIFI_ROAMING_DEFAULT.
+ *
+ *  Value: "WIFI_ROAMING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_WifiSsidPolicy.wifiSsidPolicyType
+
+/**
+ *  The device can make Wi-Fi connections only to the SSIDs in wifiSsids.
+ *  wifiSsids must not be empty. The device will not be able to connect to any
+ *  other Wi-Fi network.
+ *
+ *  Value: "WIFI_SSID_ALLOWLIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidAllowlist;
+/**
+ *  The device cannot connect to any Wi-Fi network whose SSID is in wifiSsids,
+ *  but can connect to other networks.
+ *
+ *  Value: "WIFI_SSID_DENYLIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidDenylist;
+/**
+ *  Defaults to WIFI_SSID_DENYLIST. wifiSsids must not be set. There are no
+ *  restrictions on which SSID the device can connect to.
+ *
+ *  Value: "WIFI_SSID_POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidPolicyTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_WipeParams.wipeDataFlags
+
+/**
+ *  Preserve the factory reset protection data on the device.
+ *
+ *  Value: "PRESERVE_RESET_PROTECTION_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFlags_PreserveResetProtectionData;
+/**
+ *  This value is ignored.
+ *
+ *  Value: "WIPE_DATA_FLAG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFlags_WipeDataFlagUnspecified;
+/**
+ *  For company-owned devices, this removes all eSIMs from the device when the
+ *  device is wiped. In personally-owned devices, this will remove managed eSIMs
+ *  (eSIMs which are added via the ADD_ESIM command) on the devices and no
+ *  personally owned eSIMs will be removed.
+ *
+ *  Value: "WIPE_ESIMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFlags_WipeEsims;
+/**
+ *  Additionally wipe the device's external storage (such as SD cards).
+ *
+ *  Value: "WIPE_EXTERNAL_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFlags_WipeExternalStorage;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_WorkAccountSetupConfig.authenticationType
+
+/**
+ *  Authentication status of user on device is not enforced.
+ *
+ *  Value: "AUTHENTICATION_TYPE_NOT_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeNotEnforced;
+/**
+ *  Unspecified. Defaults to AUTHENTICATION_TYPE_NOT_ENFORCED.
+ *
+ *  Value: "AUTHENTICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeUnspecified;
+/**
+ *  Requires device to be managed with a Google authenticated account.
+ *
+ *  Value: "GOOGLE_AUTHENTICATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_GoogleAuthenticated;
+
 /**
  *  A shell command was issued over ADB via “adb shell command”.
  */
@@ -4026,6 +5938,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  Parameters associated with the ADD_ESIM command to add an eSIM profile to
+ *  the device.
+ */
+@interface GTLRAndroidManagement_AddEsimParams : GTLRObject
+
+/** Required. The activation code for the eSIM profile. */
+@property(nonatomic, copy, nullable) NSString *activationCode;
+
+/**
+ *  Required. The activation state of the eSIM profile once it is downloaded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AddEsimParams_ActivationState_Activated The
+ *        eSIM is automatically activated after downloading. Setting this as the
+ *        activation state for personally-owned devices will result in the
+ *        command being rejected. (Value: "ACTIVATED")
+ *    @arg @c kGTLRAndroidManagement_AddEsimParams_ActivationState_ActivationStateUnspecified
+ *        eSIM activation state is not specified. This defaults to the eSIM
+ *        profile being NOT_ACTIVATED on personally-owned devices and ACTIVATED
+ *        on company-owned devices. (Value: "ACTIVATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_AddEsimParams_ActivationState_NotActivated
+ *        The eSIM profile is downloaded but not activated. In this case, the
+ *        user will need to activate the eSIM manually on the device. (Value:
+ *        "NOT_ACTIVATED")
+ */
+@property(nonatomic, copy, nullable) NSString *activationState;
+
+@end
+
+
+/**
  *  Advanced security settings. In most cases, setting these is not needed.
  */
 @interface GTLRAndroidManagement_AdvancedSecurityOverrides : GTLRObject
@@ -4034,12 +5977,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Controls Common Criteria Mode—security standards defined in the Common
  *  Criteria for Information Technology Security Evaluation
  *  (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode
- *  increases certain security components on a device, including AES-GCM
- *  encryption of Bluetooth Long Term Keys, and Wi-Fi configuration
- *  stores.Warning: Common Criteria Mode enforces a strict security model
+ *  increases certain security components on a device, see CommonCriteriaMode
+ *  for details.Warning: Common Criteria Mode enforces a strict security model
  *  typically only required for IT products used in national security systems
  *  and other highly sensitive organizations. Standard device use may be
- *  affected. Only enabled if required.
+ *  affected. Only enabled if required. If Common Criteria Mode is turned off
+ *  after being enabled previously, all user-configured Wi-Fi networks may be
+ *  lost and any enterprise-configured Wi-Fi networks that require user input
+ *  may need to be reconfigured.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeDisabled
@@ -4052,6 +5997,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        "COMMON_CRITERIA_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *commonCriteriaMode;
+
+/**
+ *  Optional. Controls whether content protection, which scans for deceptive
+ *  apps, is enabled. This is supported on Android 15 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionDisabled
+ *        Content protection is disabled and the user cannot change this.
+ *        (Value: "CONTENT_PROTECTION_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionEnforced
+ *        Content protection is enabled and the user cannot change
+ *        this.Supported on Android 15 and above. A NonComplianceDetail with
+ *        API_LEVEL is reported if the Android version is less than 15. (Value:
+ *        "CONTENT_PROTECTION_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionPolicyUnspecified
+ *        Unspecified. Defaults to CONTENT_PROTECTION_DISABLED. (Value:
+ *        "CONTENT_PROTECTION_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_ContentProtectionPolicy_ContentProtectionUserChoice
+ *        Content protection is not controlled by the policy. The user is
+ *        allowed to choose the behavior of content protection.Supported on
+ *        Android 15 and above. A NonComplianceDetail with API_LEVEL is reported
+ *        if the Android version is less than 15. (Value:
+ *        "CONTENT_PROTECTION_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *contentProtectionPolicy;
 
 /**
  *  Controls access to developer settings: developer options and safe boot.
@@ -4098,19 +6068,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteDisabled
  *        MTE is disabled on the device and the user is not allowed to change
  *        this setting. This applies only on fully managed devices. In other
- *        cases, a nonComplianceDetail with MANAGEMENT_MODE is reported. A
- *        nonComplianceDetail with DEVICE_INCOMPATIBLE is reported if the device
+ *        cases, a NonComplianceDetail with MANAGEMENT_MODE is reported. A
+ *        NonComplianceDetail with DEVICE_INCOMPATIBLE is reported if the device
  *        does not support MTE.Supported on Android 14 and above. A
- *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
  *        is less than 14. (Value: "MTE_DISABLED")
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteEnforced
  *        MTE is enabled on the device and the user is not allowed to change
  *        this setting. This can be set on fully managed devices and work
- *        profiles on company-owned devices. A nonComplianceDetail with
+ *        profiles on company-owned devices. A NonComplianceDetail with
  *        MANAGEMENT_MODE is reported for other management modes. A
- *        nonComplianceDetail with DEVICE_INCOMPATIBLE is reported if the device
+ *        NonComplianceDetail with DEVICE_INCOMPATIBLE is reported if the device
  *        does not support MTE.Supported on Android 14 and above. A
- *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
  *        is less than 14. (Value: "MTE_ENFORCED")
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MtePolicyUnspecified
  *        Unspecified. Defaults to MTE_USER_CHOICE. (Value:
@@ -4188,6 +6158,269 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minApiLevel;
+
+@end
+
+
+/**
+ *  Access Point Name (APN) policy. Configuration for Access Point Names (APNs)
+ *  which may override any other APNs on the device. See OVERRIDE_APNS_ENABLED
+ *  and overrideApns for details.
+ */
+@interface GTLRAndroidManagement_ApnPolicy : GTLRObject
+
+/**
+ *  Optional. APN settings for override APNs. There must not be any conflict
+ *  between any of APN settings provided, otherwise the policy will be rejected.
+ *  Two ApnSettings are considered to conflict when all of the following fields
+ *  match on both: numericOperatorId, apn, proxyAddress, proxyPort,
+ *  mmsProxyAddress, mmsProxyPort, mmsc, mvnoType, protocol, roamingProtocol. If
+ *  some of the APN settings result in non-compliance of INVALID_VALUE , they
+ *  will be ignored. This can be set on fully managed devices on Android 10 and
+ *  above. This can also be set on work profiles on Android 13 and above and
+ *  only with ApnSetting's with ENTERPRISE APN type. A NonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 10. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported for work profiles on
+ *  Android versions less than 13.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApnSetting *> *apnSettings;
+
+/**
+ *  Optional. Whether override APNs are disabled or enabled. See
+ *  DevicePolicyManager.setOverrideApnsEnabled
+ *  (https://developer.android.com/reference/android/app/admin/DevicePolicyManager#setOverrideApnsEnabled)
+ *  for more details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsDisabled
+ *        Override APNs disabled. Any configured apnSettings are saved on the
+ *        device, but are disabled and have no effect. Any other APNs on the
+ *        device remain in use. (Value: "OVERRIDE_APNS_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsEnabled
+ *        Override APNs enabled. Only override APNs are in use, any other APNs
+ *        are ignored. This can only be set on fully managed devices on Android
+ *        10 and above. For work profiles override APNs are enabled via
+ *        preferentialNetworkServiceSettings and this value cannot be set. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 10. A NonComplianceDetail with MANAGEMENT_MODE is
+ *        reported for work profiles. (Value: "OVERRIDE_APNS_ENABLED")
+ *    @arg @c kGTLRAndroidManagement_ApnPolicy_OverrideApns_OverrideApnsUnspecified
+ *        Unspecified. Defaults to OVERRIDE_APNS_DISABLED. (Value:
+ *        "OVERRIDE_APNS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *overrideApns;
+
+@end
+
+
+/**
+ *  An Access Point Name (APN) configuration for a carrier data connection. The
+ *  APN provides configuration to connect a cellular network device to an IP
+ *  data network. A carrier uses this setting to decide which IP address to
+ *  assign, any security methods to apply, and how the device might be connected
+ *  to private networks.
+ */
+@interface GTLRAndroidManagement_ApnSetting : GTLRObject
+
+/**
+ *  Optional. Whether User Plane resources have to be activated during every
+ *  transition from CM-IDLE mode to CM-CONNECTED state for this APN. See 3GPP TS
+ *  23.501 section 5.6.13.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_AlwaysOn The PDU
+ *        session brought up by this APN should always be on. Supported on
+ *        Android 15 and above. A NonComplianceDetail with API_LEVEL is reported
+ *        if the Android version is less than 15. (Value: "ALWAYS_ON")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_AlwaysOnSettingUnspecified
+ *        Unspecified. Defaults to NOT_ALWAYS_ON. (Value:
+ *        "ALWAYS_ON_SETTING_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AlwaysOnSetting_NotAlwaysOn The
+ *        PDU session brought up by this APN should not be always on. (Value:
+ *        "NOT_ALWAYS_ON")
+ */
+@property(nonatomic, copy, nullable) NSString *alwaysOnSetting;
+
+/**
+ *  Required. Name of the APN. Policy will be rejected if this field is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *apn;
+
+/**
+ *  Required. Usage categories for the APN. Policy will be rejected if this
+ *  field is empty or contains APN_TYPE_UNSPECIFIED or duplicates. Multiple APN
+ *  types can be set on fully managed devices. ENTERPRISE is the only allowed
+ *  APN type on work profiles. A NonComplianceDetail with MANAGEMENT_MODE is
+ *  reported for any other value on work profiles. APN types that are not
+ *  supported on the device or management mode will be ignored. If this results
+ *  in the empty list, the APN setting will be ignored, because apnTypes is a
+ *  required field. A NonComplianceDetail with INVALID_VALUE is reported if none
+ *  of the APN types are supported on the device or management mode.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apnTypes;
+
+/**
+ *  Optional. Authentication type of the APN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_AuthTypeUnspecified
+ *        Unspecified. If username is empty, defaults to NONE. Otherwise,
+ *        defaults to PAP_OR_CHAP. (Value: "AUTH_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_Chap Authentication
+ *        type for CHAP. (Value: "CHAP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_None Authentication is
+ *        not required. (Value: "NONE")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_Pap Authentication type
+ *        for PAP. (Value: "PAP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_AuthType_PapOrChap
+ *        Authentication type for PAP or CHAP. (Value: "PAP_OR_CHAP")
+ */
+@property(nonatomic, copy, nullable) NSString *authType;
+
+/**
+ *  Optional. Carrier ID for the APN. A value of 0 (default) means not set and
+ *  negative values are rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *carrierId;
+
+/**
+ *  Required. Human-readable name that describes the APN. Policy will be
+ *  rejected if this field is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. MMSC (Multimedia Messaging Service Center) URI of the APN. */
+@property(nonatomic, copy, nullable) NSString *mmsc;
+
+/**
+ *  Optional. MMS (Multimedia Messaging Service) proxy address of the APN which
+ *  can be an IP address or hostname (not a URL).
+ */
+@property(nonatomic, copy, nullable) NSString *mmsProxyAddress;
+
+/**
+ *  Optional. MMS (Multimedia Messaging Service) proxy port of the APN. A value
+ *  of 0 (default) means not set and negative values are rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mmsProxyPort;
+
+/**
+ *  Optional. The default MTU (Maximum Transmission Unit) size in bytes of the
+ *  IPv4 routes brought up by this APN setting. A value of 0 (default) means not
+ *  set and negative values are rejected. Supported on Android 13 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mtuV4;
+
+/**
+ *  Optional. The MTU (Maximum Transmission Unit) size of the IPv6 mobile
+ *  interface to which the APN connected. A value of 0 (default) means not set
+ *  and negative values are rejected. Supported on Android 13 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 13.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mtuV6;
+
+/**
+ *  Optional. MVNO match type for the APN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_Gid MVNO type for group
+ *        identifier level 1. (Value: "GID")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_Iccid MVNO type for
+ *        ICCID. (Value: "ICCID")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_Imsi MVNO type for
+ *        IMSI. (Value: "IMSI")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_MvnoTypeUnspecified The
+ *        MVNO type is not specified. (Value: "MVNO_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_MvnoType_Spn MVNO type for SPN
+ *        (service provider name). (Value: "SPN")
+ */
+@property(nonatomic, copy, nullable) NSString *mvnoType;
+
+/**
+ *  Optional. Radio technologies (network types) the APN may use. Policy will be
+ *  rejected if this field contains NETWORK_TYPE_UNSPECIFIED or duplicates.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *networkTypes;
+
+/**
+ *  Optional. The numeric operator ID of the APN. Numeric operator ID is defined
+ *  as MCC (Mobile Country Code) + MNC (Mobile Network Code).
+ */
+@property(nonatomic, copy, nullable) NSString *numericOperatorId;
+
+/** Optional. APN password of the APN. */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Optional. The protocol to use to connect to this APN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Ip Internet protocol.
+ *        (Value: "IP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Ipv4v6 Virtual PDP type
+ *        introduced to handle dual IP stack UE capability. (Value: "IPV4V6")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Ipv6 Internet protocol,
+ *        version 6. (Value: "IPV6")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_NonIp Transfer of
+ *        Non-IP data to external packet data network. (Value: "NON_IP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Ppp Point to point
+ *        protocol. (Value: "PPP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_ProtocolUnspecified The
+ *        protocol is not specified. (Value: "PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_Protocol_Unstructured Transfer
+ *        of Unstructured data to the Data Network via N6. (Value:
+ *        "UNSTRUCTURED")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/** Optional. The proxy address of the APN. */
+@property(nonatomic, copy, nullable) NSString *proxyAddress;
+
+/**
+ *  Optional. The proxy port of the APN. A value of 0 (default) means not set
+ *  and negative values are rejected.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proxyPort;
+
+/**
+ *  Optional. The protocol to use to connect to this APN while the device is
+ *  roaming.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ip Internet
+ *        protocol. (Value: "IP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ipv4v6 Virtual
+ *        PDP type introduced to handle dual IP stack UE capability. (Value:
+ *        "IPV4V6")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ipv6 Internet
+ *        protocol, version 6. (Value: "IPV6")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_NonIp Transfer
+ *        of Non-IP data to external packet data network. (Value: "NON_IP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Ppp Point to
+ *        point protocol. (Value: "PPP")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_ProtocolUnspecified
+ *        The protocol is not specified. (Value: "PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApnSetting_RoamingProtocol_Unstructured
+ *        Transfer of Unstructured data to the Data Network via N6. (Value:
+ *        "UNSTRUCTURED")
+ */
+@property(nonatomic, copy, nullable) NSString *roamingProtocol;
+
+/** Optional. APN username of the APN. */
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 
@@ -4454,8 +6687,10 @@ GTLR_DEPRECATED
  *        time the constraints above are met. (Value: "AUTO_UPDATE_DEFAULT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority
  *        The app is updated as soon as possible. No constraints are applied.The
- *        device is notified immediately about a new update after it becomes
- *        available. (Value: "AUTO_UPDATE_HIGH_PRIORITY")
+ *        device is notified as soon as possible about a new update after it
+ *        becomes available.*NOTE:* Updates to apps with larger deployments
+ *        across Android's ecosystem can take up to 24h. (Value:
+ *        "AUTO_UPDATE_HIGH_PRIORITY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
  *        Unspecified. Defaults to AUTO_UPDATE_DEFAULT. (Value:
  *        "AUTO_UPDATE_MODE_UNSPECIFIED")
@@ -4512,23 +6747,22 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny
  *        Automatically deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Grant
- *        Automatically grant a permission.On Android 12 and above,
- *        Manifest.permission.READ_SMS
+ *        Automatically grant a permission.On Android 12 and above, READ_SMS
  *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *        and following sensor-related permissions can only be granted on fully
- *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        managed devices: ACCESS_FINE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        ACCESS_BACKGROUND_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        ACCESS_COARSE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *        Manifest.permission.CAMERA
+ *        CAMERA
  *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *        Manifest.permission.RECORD_AUDIO
+ *        RECORD_AUDIO
  *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        ACTIVITY_RECOGNITION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *        Manifest.permission.BODY_SENSORS
+ *        BODY_SENSORS
  *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_PermissionPolicyUnspecified
@@ -4556,7 +6790,12 @@ GTLR_DEPRECATED
 /**
  *  Configuration to enable this app as an extension app, with the capability of
  *  interacting with Android Device Policy offline.This field can be set for at
- *  most one app.
+ *  most one app.The signing key certificate fingerprint of the app on the
+ *  device must match one of the entries in signingKeyFingerprintsSha256 or the
+ *  signing key certificate fingerprints obtained from Play Store for the app to
+ *  be able to communicate with Android Device Policy. If the app is not on Play
+ *  Store and signingKeyFingerprintsSha256 is not set, a NonComplianceDetail
+ *  with INVALID_VALUE is reported.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ExtensionConfig *extensionConfig;
 
@@ -4662,6 +6901,69 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PermissionGrant *> *permissionGrants;
 
 /**
+ *  Optional. ID of the preferential network the application uses. There must be
+ *  a configuration for the specified network ID in
+ *  preferentialNetworkServiceConfigs. If set to
+ *  PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the application will use the default
+ *  network ID specified in defaultPreferentialNetworkId. See the documentation
+ *  of defaultPreferentialNetworkId for the list of apps excluded from this
+ *  defaulting. This applies on both work profiles and fully managed devices on
+ *  Android 13 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_NoPreferentialNetwork
+ *        Application does not use any preferential network. (Value:
+ *        "NO_PREFERENTIAL_NETWORK")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdFive
+ *        Preferential network identifier 5. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FIVE")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdFour
+ *        Preferential network identifier 4. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FOUR")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdOne
+ *        Preferential network identifier 1. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_ONE")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdThree
+ *        Preferential network identifier 3. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_THREE")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdTwo
+ *        Preferential network identifier 2. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_TWO")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_PreferentialNetworkId_PreferentialNetworkIdUnspecified
+ *        Whether this value is valid and what it means depends on where it is
+ *        used, and this is documented on the relevant fields. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *preferentialNetworkId;
+
+/**
+ *  Optional. Specifies whether user control is permitted for the app. User
+ *  control includes user actions like force-stopping and clearing app data.
+ *  Certain types of apps have special treatment, see
+ *  USER_CONTROL_SETTINGS_UNSPECIFIED and USER_CONTROL_ALLOWED for more details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlAllowed
+ *        User control is allowed for the app. Kiosk apps can use this to allow
+ *        user control. For extension apps (see extensionConfig for more
+ *        details), user control is disallowed even if this value is set. For
+ *        kiosk apps (see KIOSK install type for more details), this value can
+ *        be used to allow user control. (Value: "USER_CONTROL_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlDisallowed
+ *        User control is disallowed for the app. This is supported on Android
+ *        11 and above. A NonComplianceDetail with API_LEVEL is reported if the
+ *        Android version is less than 11. (Value: "USER_CONTROL_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_UserControlSettings_UserControlSettingsUnspecified
+ *        Uses the default behaviour of the app to determine if user control is
+ *        allowed or disallowed. User control is allowed by default for most
+ *        apps but disallowed for following types of apps: extension apps (see
+ *        extensionConfig for more details) kiosk apps (see KIOSK install type
+ *        for more details) other critical system apps (Value:
+ *        "USER_CONTROL_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userControlSettings;
+
+/**
  *  Specifies whether the app installed in the work profile is allowed to add
  *  widgets to the home screen.
  *
@@ -4698,6 +7000,29 @@ GTLR_DEPRECATED
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration : GTLRObject
+@end
+
+
+/**
+ *  A change to be made to a single ApplicationPolicy object.
+ */
+@interface GTLRAndroidManagement_ApplicationPolicyChange : GTLRObject
+
+/**
+ *  If ApplicationPolicy.packageName matches an existing ApplicationPolicy
+ *  object within the Policy being modified, then that object will be updated.
+ *  Otherwise, it will be added to the end of the Policy.applications.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ApplicationPolicy *application;
+
+/**
+ *  The field mask indicating the fields to update. If omitted, all modifiable
+ *  fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
 @end
 
 
@@ -4922,12 +7247,43 @@ GTLR_DEPRECATED
 
 
 /**
+ *  An admin has enabled or disabled backup service.
+ */
+@interface GTLRAndroidManagement_BackupServiceToggledEvent : GTLRObject
+
+/** Package name of the admin app requesting the change. */
+@property(nonatomic, copy, nullable) NSString *adminPackageName;
+
+/**
+ *  User ID of the admin app from the which the change was requested.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adminUserId;
+
+/**
+ *  Whether the backup service is enabled
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceDisabled
+ *        Backup service is enabled (Value: "BACKUP_SERVICE_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceEnabled
+ *        Backup service is disabled (Value: "BACKUP_SERVICE_ENABLED")
+ *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceStateUnspecified
+ *        No value is set (Value: "BACKUP_SERVICE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *backupServiceState;
+
+@end
+
+
+/**
  *  Batched event logs of events from the device.
  */
 @interface GTLRAndroidManagement_BatchUsageLogEvents : GTLRObject
 
 /**
- *  The name of the device in the form
+ *  If present, the name of the device in the form
  *  ‘enterprises/{enterpriseId}/devices/{deviceId}’
  */
 @property(nonatomic, copy, nullable) NSString *device;
@@ -4945,7 +7301,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_UsageLogEvent *> *usageLogEvents;
 
 /**
- *  The resource name of the user that owns this device in the form
+ *  If present, the resource name of the user that owns this device in the form
  *  ‘enterprises/{enterpriseId}/users/{userId}’.
  */
 @property(nonatomic, copy, nullable) NSString *user;
@@ -5151,6 +7507,14 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_Command : GTLRObject
 
 /**
+ *  Optional. Parameters for the ADD_ESIM command to add an eSIM profile to the
+ *  device. If this is set, then it is suggested that type should not be set. In
+ *  this case, the server automatically sets it to ADD_ESIM. It is also
+ *  acceptable to explicitly set type to ADD_ESIM.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_AddEsimParams *addEsimParams;
+
+/**
  *  Parameters for the CLEAR_APP_DATA command to clear the data of specified
  *  apps from the device. See ClearAppsDataParams. If this is set, then it is
  *  suggested that type should not be set. In this case, the server
@@ -5180,7 +7544,11 @@ GTLR_DEPRECATED
 
 /**
  *  If the command failed, an error code explaining the failure. This is not set
- *  when the command is cancelled by the caller.
+ *  when the command is cancelled by the caller. For reasoning about command
+ *  errors, prefer fields in the following order (most preferred first): 1.
+ *  Command-specific fields like clearAppsDataStatus, startLostModeStatus, or
+ *  similar, if they exist. 2. This field, if set. 3. The generic error field in
+ *  the Operation that wraps the command.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Command_ErrorCode_ApiLevel The API level of
@@ -5200,6 +7568,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
+/** Output only. Status of an ADD_ESIM or REMOVE_ESIM command. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_EsimCommandStatus *esimStatus;
+
 /**
  *  For commands of type RESET_PASSWORD, optionally specifies the new password.
  *  Note: The new password must be at least 6 characters long if it is numeric
@@ -5207,6 +7578,26 @@ GTLR_DEPRECATED
  *  INVALID_VALUE.
  */
 @property(nonatomic, copy, nullable) NSString *newPassword NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Optional. Parameters for the REMOVE_ESIM command to remove an eSIM profile
+ *  from the device. If this is set, then it is suggested that type should not
+ *  be set. In this case, the server automatically sets it to REMOVE_ESIM. It is
+ *  also acceptable to explicitly set type to REMOVE_ESIM.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_RemoveEsimParams *removeEsimParams;
+
+/**
+ *  Optional. Parameters for the REQUEST_DEVICE_INFO command to get device
+ *  related information. If this is set, then it is suggested that type should
+ *  not be set. In this case, the server automatically sets it to
+ *  REQUEST_DEVICE_INFO . It is also acceptable to explicitly set type to
+ *  REQUEST_DEVICE_INFO.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_RequestDeviceInfoParams *requestDeviceInfoParams;
+
+/** Output only. Status of the REQUEST_DEVICE_INFO command. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_RequestDeviceInfoStatus *requestDeviceInfoStatus;
 
 /** For commands of type RESET_PASSWORD, optionally specifies flags. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resetPasswordFlags;
@@ -5245,6 +7636,14 @@ GTLR_DEPRECATED
  *  The type of the command.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Command_Type_AddEsim Adds an eSIM profile
+ *        to the device. This is supported on Android 15 and above. See also
+ *        addEsimParams. To remove an eSIM profile, use the REMOVE_ESIM command.
+ *        To determine what happens to the eSIM profile when a device is wiped,
+ *        set wipeDataFlags in the policy. Note: To provision multiple eSIMs on
+ *        a single device, it is recommended to introduce a delay of a few
+ *        minutes between successive executions of the command. (Value:
+ *        "ADD_ESIM")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ClearAppData Clears the
  *        application data of specified apps. This is supported on Android 9 and
  *        above. Note that an application can store data outside of its
@@ -5263,6 +7662,11 @@ GTLR_DEPRECATED
  *        associated with the personal profile(s) are preserved. The device will
  *        be deleted from the server after it acknowledges the command. (Value:
  *        "RELINQUISH_OWNERSHIP")
+ *    @arg @c kGTLRAndroidManagement_Command_Type_RemoveEsim Removes an eSIM
+ *        profile from the device. This is supported on Android 15 and above.
+ *        See also removeEsimParams. (Value: "REMOVE_ESIM")
+ *    @arg @c kGTLRAndroidManagement_Command_Type_RequestDeviceInfo Request
+ *        information related to the device. (Value: "REQUEST_DEVICE_INFO")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ResetPassword Reset the user's
  *        password. (Value: "RESET_PASSWORD")
  *    @arg @c kGTLRAndroidManagement_Command_Type_StartLostMode Puts the device
@@ -5273,6 +7677,11 @@ GTLR_DEPRECATED
  *        out of lost mode. Only supported on fully managed devices or
  *        organization-owned devices with a managed profile. See also
  *        stop_lost_mode_params. (Value: "STOP_LOST_MODE")
+ *    @arg @c kGTLRAndroidManagement_Command_Type_Wipe Wipes the device, via a
+ *        factory reset for a company owned device, or by deleting the work
+ *        profile for a personally owned device with work profile. The wipe only
+ *        occurs once the device acknowledges the command. The command can be
+ *        cancelled before then. (Value: "WIPE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5282,6 +7691,14 @@ GTLR_DEPRECATED
  *  by the server based on the device the command is sent to.
  */
 @property(nonatomic, copy, nullable) NSString *userName;
+
+/**
+ *  Optional. Parameters for the WIPE command to wipe the device. If this is
+ *  set, then it is suggested that type should not be set. In this case, the
+ *  server automatically sets it to WIPE. It is also acceptable to explicitly
+ *  set type to WIPE.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_WipeParams *wipeParams;
 
 @end
 
@@ -5309,6 +7726,32 @@ GTLR_DEPRECATED
  *        Unknown status. (Value: "COMMON_CRITERIA_MODE_STATUS_UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *commonCriteriaModeStatus;
+
+/**
+ *  Output only. The status of policy signature verification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationDisabled
+ *        Policy signature verification is disabled on the device as
+ *        common_criteria_mode is set to false. (Value:
+ *        "POLICY_SIGNATURE_VERIFICATION_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationFailed
+ *        The policy signature verification failed. The policy has not been
+ *        applied. (Value: "POLICY_SIGNATURE_VERIFICATION_FAILED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationNotSupported
+ *        Policy signature verification is not supported, e.g. because the
+ *        device has been enrolled with a CloudDPC version that does not support
+ *        the policy signature verification. (Value:
+ *        "POLICY_SIGNATURE_VERIFICATION_NOT_SUPPORTED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationStatusUnspecified
+ *        Unspecified. The verification status has not been reported. This is
+ *        set only if statusReportingSettings.commonCriteriaModeEnabled is
+ *        false. (Value: "POLICY_SIGNATURE_VERIFICATION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_PolicySignatureVerificationStatus_PolicySignatureVerificationSucceeded
+ *        Policy signature verification succeeded. (Value:
+ *        "POLICY_SIGNATURE_VERIFICATION_SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *policySignatureVerificationStatus;
 
 @end
 
@@ -5438,10 +7881,33 @@ GTLR_DEPRECATED
 
 /**
  *  Controls the data from the work profile that can be accessed from the
- *  personal profile and vice versa. A nonComplianceDetail with MANAGEMENT_MODE
+ *  personal profile and vice versa. A NonComplianceDetail with MANAGEMENT_MODE
  *  is reported if the device does not have a work profile.
  */
 @interface GTLRAndroidManagement_CrossProfilePolicies : GTLRObject
+
+/**
+ *  Optional. Controls whether personal profile apps can invoke app functions
+ *  exposed by apps in the work profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsAllowed
+ *        Personal profile apps can invoke app functions exposed by apps in the
+ *        work profile. If this is set, appFunctions must not be set to
+ *        APP_FUNCTIONS_DISALLOWED, otherwise the policy will be rejected.
+ *        (Value: "CROSS_PROFILE_APP_FUNCTIONS_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsDisallowed
+ *        Personal profile apps are not allowed to invoke app functions exposed
+ *        by apps in the work profile. (Value:
+ *        "CROSS_PROFILE_APP_FUNCTIONS_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileAppFunctions_CrossProfileAppFunctionsUnspecified
+ *        Unspecified. If appFunctions is set to APP_FUNCTIONS_ALLOWED, defaults
+ *        to CROSS_PROFILE_APP_FUNCTIONS_ALLOWED. If appFunctions is set to
+ *        APP_FUNCTIONS_DISALLOWED, defaults to
+ *        CROSS_PROFILE_APP_FUNCTIONS_DISALLOWED. (Value:
+ *        "CROSS_PROFILE_APP_FUNCTIONS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crossProfileAppFunctions;
 
 /**
  *  Whether text copied from one profile (personal or work) can be pasted in the
@@ -5500,7 +7966,7 @@ GTLR_DEPRECATED
  *  SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM. In this
  *  case, these exemptions act as an allowlist, in addition to the already
  *  allowlisted system apps.Supported on Android 14 and above. A
- *  nonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
  *  less than 14.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PackageNameList *exemptionsToShowWorkContactsInPersonalProfile;
@@ -5516,7 +7982,7 @@ GTLR_DEPRECATED
  *        set, personal apps specified in
  *        exemptions_to_show_work_contacts_in_personal_profile are blocklisted
  *        and can not access work profile contacts directly.Supported on Android
- *        7.0 and above. A nonComplianceDetail with API_LEVEL is reported if the
+ *        7.0 and above. A NonComplianceDetail with API_LEVEL is reported if the
  *        Android version is less than 7.0. (Value:
  *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed
@@ -5524,7 +7990,7 @@ GTLR_DEPRECATED
  *        looking up work contacts.When this is set, personal apps specified in
  *        exemptions_to_show_work_contacts_in_personal_profile are allowlisted
  *        and can access work profile contacts directly.Supported on Android 7.0
- *        and above. A nonComplianceDetail with API_LEVEL is reported if the
+ *        and above. A NonComplianceDetail with API_LEVEL is reported if the
  *        Android version is less than 7.0. (Value:
  *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED")
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowedExceptSystem
@@ -5539,7 +8005,7 @@ GTLR_DEPRECATED
  *        above. If this is set on a device with Android version less than 14,
  *        the behaviour falls back to
  *        SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED and a
- *        nonComplianceDetail with API_LEVEL is reported. (Value:
+ *        NonComplianceDetail with API_LEVEL is reported. (Value:
  *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED_EXCEPT_SYSTEM")
  *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified
  *        Unspecified. Defaults to
@@ -5675,6 +8141,15 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Active The device is
  *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRAndroidManagement_Device_AppliedState_DeactivatedByDeviceFinance
+ *        This is a financed device that has been "locked" by the financing
+ *        agent. This means certain policy settings have been applied which
+ *        limit device functionality until the device has been "unlocked" by the
+ *        financing agent. The device will continue to apply policy settings
+ *        excluding those overridden by the financing agent. When the device is
+ *        "locked", the state is reported in appliedState as
+ *        DEACTIVATED_BY_DEVICE_FINANCE. (Value:
+ *        "DEACTIVATED_BY_DEVICE_FINANCE")
  *    @arg @c kGTLRAndroidManagement_Device_AppliedState_Deleted The device was
  *        deleted. This state is never returned by an API call, but is used in
  *        the final status report when the device acknowledges the deletion. If
@@ -5703,7 +8178,7 @@ GTLR_DEPRECATED
  *  Common Criteria for Information Technology Security Evaluation
  *  (https://www.commoncriteriaportal.org/) (CC).This information is only
  *  available if statusReportingSettings.commonCriteriaModeEnabled is true in
- *  the device's policy.
+ *  the device's policy the device is company-owned.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_CommonCriteriaModeInfo *commonCriteriaModeInfo;
 
@@ -5872,6 +8347,15 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Device_State_Active The device is active.
  *        (Value: "ACTIVE")
+ *    @arg @c kGTLRAndroidManagement_Device_State_DeactivatedByDeviceFinance
+ *        This is a financed device that has been "locked" by the financing
+ *        agent. This means certain policy settings have been applied which
+ *        limit device functionality until the device has been "unlocked" by the
+ *        financing agent. The device will continue to apply policy settings
+ *        excluding those overridden by the financing agent. When the device is
+ *        "locked", the state is reported in appliedState as
+ *        DEACTIVATED_BY_DEVICE_FINANCE. (Value:
+ *        "DEACTIVATED_BY_DEVICE_FINANCE")
  *    @arg @c kGTLRAndroidManagement_Device_State_Deleted The device was
  *        deleted. This state is never returned by an API call, but is used in
  *        the final status report when the device acknowledges the deletion. If
@@ -5934,6 +8418,33 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_DeviceConnectivityManagement : GTLRObject
 
 /**
+ *  Optional. Access Point Name (APN) policy. Configuration for Access Point
+ *  Names (APNs) which may override any other APNs on the device. See
+ *  OVERRIDE_APNS_ENABLED and overrideApns for details.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ApnPolicy *apnPolicy;
+
+/**
+ *  Optional. Controls whether Bluetooth sharing is allowed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingAllowed
+ *        Bluetooth sharing is allowed.Supported on Android 8 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported on work profiles if the
+ *        Android version is less than 8. (Value: "BLUETOOTH_SHARING_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingDisallowed
+ *        Bluetooth sharing is disallowed.Supported on Android 8 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported on fully managed
+ *        devices if the Android version is less than 8. (Value:
+ *        "BLUETOOTH_SHARING_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_BluetoothSharing_BluetoothSharingUnspecified
+ *        Unspecified. Defaults to BLUETOOTH_SHARING_DISALLOWED on work profiles
+ *        and BLUETOOTH_SHARING_ALLOWED on fully managed devices. (Value:
+ *        "BLUETOOTH_SHARING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *bluetoothSharing;
+
+/**
  *  Controls Wi-Fi configuring privileges. Based on the option set, user will
  *  have either full or limited or no control in configuring Wi-Fi networks.
  *
@@ -5951,7 +8462,7 @@ GTLR_DEPRECATED
  *        to switch between already configured networks. Supported on Android 13
  *        and above, on fully managed devices and work profiles on company-owned
  *        devices. If the setting is not supported, ALLOW_CONFIGURING_WIFI is
- *        set. A nonComplianceDetail with API_LEVEL is reported if the Android
+ *        set. A NonComplianceDetail with API_LEVEL is reported if the Android
  *        version is less than 13. wifiConfigDisabled is ignored. (Value:
  *        "DISALLOW_ADD_WIFI_CONFIG")
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_ConfigureWifi_DisallowConfiguringWifi
@@ -5971,6 +8482,16 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *configureWifi;
 
 /**
+ *  Optional. Preferential network service configuration. Setting this field
+ *  will override preferentialNetworkService. This can be set on both work
+ *  profiles and fully managed devices on Android 13 and above. See 5G network
+ *  slicing
+ *  (https://developers.google.com/android/management/5g-network-slicing) guide
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_PreferentialNetworkServiceSettings *preferentialNetworkServiceSettings;
+
+/**
  *  Controls tethering settings. Based on the value set, the user is partially
  *  or fully disallowed from using different forms of tethering.
  *
@@ -5986,7 +8507,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_DisallowWifiTethering
  *        Disallows the user from using Wi-Fi tethering. Supported on company
  *        owned devices running Android 13 and above. If the setting is not
- *        supported, ALLOW_ALL_TETHERING will be set. A nonComplianceDetail with
+ *        supported, ALLOW_ALL_TETHERING will be set. A NonComplianceDetail with
  *        API_LEVEL is reported if the Android version is less than 13.
  *        tetheringConfigDisabled is ignored. (Value: "DISALLOW_WIFI_TETHERING")
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_TetheringSettings_TetheringSettingsUnspecified
@@ -6009,8 +8530,8 @@ GTLR_DEPRECATED
  *        When set, all types of USB data transfers are prohibited. Supported
  *        for devices running Android 12 or above with USB HAL 1.3 or above. If
  *        the setting is not supported, DISALLOW_USB_FILE_TRANSFER will be set.
- *        A nonComplianceDetail with API_LEVEL is reported if the Android
- *        version is less than 12. A nonComplianceDetail with
+ *        A NonComplianceDetail with API_LEVEL is reported if the Android
+ *        version is less than 12. A NonComplianceDetail with
  *        DEVICE_INCOMPATIBLE is reported if the device does not have USB HAL
  *        1.3 or above. usbFileTransferDisabled is ignored. (Value:
  *        "DISALLOW_USB_DATA_TRANSFER")
@@ -6020,9 +8541,7 @@ GTLR_DEPRECATED
  *        usbFileTransferDisabled is ignored. (Value:
  *        "DISALLOW_USB_FILE_TRANSFER")
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_UsbDataAccess_UsbDataAccessUnspecified
- *        Unspecified. Defaults to ALLOW_USB_DATA_TRANSFER, unless
- *        usbFileTransferDisabled is set to true. If usbFileTransferDisabled is
- *        set to true, this is equivalent to DISALLOW_USB_FILE_TRANSFER. (Value:
+ *        Unspecified. Defaults to DISALLOW_USB_FILE_TRANSFER. (Value:
  *        "USB_DATA_ACCESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *usbDataAccess;
@@ -6035,7 +8554,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_AllowWifiDirect
  *        The user is allowed to use Wi-Fi direct. (Value: "ALLOW_WIFI_DIRECT")
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_DisallowWifiDirect
- *        The user is not allowed to use Wi-Fi direct. A nonComplianceDetail
+ *        The user is not allowed to use Wi-Fi direct. A NonComplianceDetail
  *        with API_LEVEL is reported if the Android version is less than 13.
  *        (Value: "DISALLOW_WIFI_DIRECT")
  *    @arg @c kGTLRAndroidManagement_DeviceConnectivityManagement_WifiDirectSettings_WifiDirectSettingsUnspecified
@@ -6043,6 +8562,16 @@ GTLR_DEPRECATED
  *        "WIFI_DIRECT_SETTINGS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *wifiDirectSettings;
+
+/** Optional. Wi-Fi roaming policy. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_WifiRoamingPolicy *wifiRoamingPolicy;
+
+/**
+ *  Restrictions on which Wi-Fi SSIDs the device can connect to. Note that this
+ *  does not affect which networks can be configured on the device. Supported on
+ *  company-owned devices running Android 13 and above.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_WifiSsidPolicy *wifiSsidPolicy;
 
 @end
 
@@ -6058,7 +8587,7 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeDisabled
  *        Airplane mode is disabled. The user is not allowed to toggle airplane
- *        mode on. A nonComplianceDetail with API_LEVEL is reported if the
+ *        mode on. A NonComplianceDetail with API_LEVEL is reported if the
  *        Android version is less than 9. (Value: "AIRPLANE_MODE_DISABLED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_AirplaneModeState_AirplaneModeStateUnspecified
  *        Unspecified. Defaults to AIRPLANE_MODE_USER_CHOICE. (Value:
@@ -6075,7 +8604,7 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGDisabled
  *        Cellular 2G is disabled. The user is not allowed to toggle cellular 2G
- *        on via settings. A nonComplianceDetail with API_LEVEL is reported if
+ *        on via settings. A NonComplianceDetail with API_LEVEL is reported if
  *        the Android version is less than 14. (Value:
  *        "CELLULAR_TWO_G_DISABLED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_CellularTwoGState_CellularTwoGStateUnspecified
@@ -6092,11 +8621,17 @@ GTLR_DEPRECATED
  *  connect to.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseBit192NetworkSecurity
+ *        A 192-bit enterprise network is the minimum required security level.
+ *        The device will not be able to connect to Wi-Fi network below this
+ *        security level. This is stricter than ENTERPRISE_NETWORK_SECURITY. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 13. (Value: "ENTERPRISE_BIT192_NETWORK_SECURITY")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_EnterpriseNetworkSecurity
  *        An enterprise EAP network is the minimum required security level. The
  *        device will not be able to connect to Wi-Fi network below this
  *        security level. This is stricter than PERSONAL_NETWORK_SECURITY. A
- *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
  *        is less than 13. (Value: "ENTERPRISE_NETWORK_SECURITY")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_MinimumWifiSecurityLevel_MinimumWifiSecurityLevelUnspecified
  *        Defaults to OPEN_NETWORK_SECURITY, which means the device will be able
@@ -6109,7 +8644,7 @@ GTLR_DEPRECATED
  *        A personal network such as WEP, WPA2-PSK is the minimum required
  *        security. The device will not be able to connect to open wifi
  *        networks. This is stricter than OPEN_NETWORK_SECURITY. A
- *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
  *        is less than 13. (Value: "PERSONAL_NETWORK_SECURITY")
  */
 @property(nonatomic, copy, nullable) NSString *minimumWifiSecurityLevel;
@@ -6121,7 +8656,7 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandDisabled
  *        Ultra wideband is disabled. The user is not allowed to toggle ultra
- *        wideband on via settings. A nonComplianceDetail with API_LEVEL is
+ *        wideband on via settings. A NonComplianceDetail with API_LEVEL is
  *        reported if the Android version is less than 14. (Value:
  *        "ULTRA_WIDEBAND_DISABLED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandStateUnspecified
@@ -6139,11 +8674,11 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiDisabled
  *        Wi-Fi is off and the user is not allowed to turn it on. A
- *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
  *        is less than 13. (Value: "WIFI_DISABLED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiEnabled
  *        Wi-Fi is on and the user is not allowed to turn it off. A
- *        nonComplianceDetail with API_LEVEL is reported if the Android version
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
  *        is less than 13. (Value: "WIFI_ENABLED")
  *    @arg @c kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiStateUnspecified
  *        Unspecified. Defaults to WIFI_STATE_USER_CHOICE (Value:
@@ -6300,6 +8835,20 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Controls for the display settings.
+ */
+@interface GTLRAndroidManagement_DisplaySettings : GTLRObject
+
+/** Optional. Controls the screen brightness settings. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ScreenBrightnessSettings *screenBrightnessSettings;
+
+/** Optional. Controls the screen timeout settings. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ScreenTimeoutSettings *screenTimeoutSettings;
+
+@end
+
+
+/**
  *  A DNS lookup event was initiated through the standard network stack.
  */
 @interface GTLRAndroidManagement_DnsEvent : GTLRObject
@@ -6344,6 +8893,28 @@ GTLR_DEPRECATED
  *  package name. Not populated otherwise.
  */
 @property(nonatomic, copy, nullable) NSString *previousDpc;
+
+@end
+
+
+/**
+ *  EID information for each eUICC chip.
+ */
+@interface GTLRAndroidManagement_Eid : GTLRObject
+
+/** Output only. The EID */
+@property(nonatomic, copy, nullable) NSString *eid;
+
+@end
+
+
+/**
+ *  Information related to the EIDs of the device.
+ */
+@interface GTLRAndroidManagement_EidInfo : GTLRObject
+
+/** Output only. EID information for each eUICC chip. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Eid *> *eids;
 
 @end
 
@@ -6399,6 +8970,15 @@ GTLR_DEPRECATED
  *        Personal usage is allowed (Value: "PERSONAL_USAGE_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowed
  *        Personal usage is disallowed (Value: "PERSONAL_USAGE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_PersonalUsageDisallowedUserless
+ *        Device is not associated with a single user, and thus both personal
+ *        usage and corporate identity authentication are not expected.
+ *        Important: This setting is mandatory for dedicated device enrollment
+ *        and it is a breaking change. This change needs to be implemented
+ *        before January 2025.For additional details see the dedicated device
+ *        provisioning guide
+ *        (https://developers.google.com/android/management/provision-device#company-owned_devices_for_work_use_only).
+ *        (Value: "PERSONAL_USAGE_DISALLOWED_USERLESS")
  */
 @property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
 
@@ -6454,13 +9034,8 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *qrCode;
 
-/**
- *  The user associated with this enrollment token. If it's specified when the
- *  enrollment token is created and the user does not exist, the user will be
- *  created. This field must not contain personally identifiable information.
- *  Only the account_identifier field needs to be set.
- */
-@property(nonatomic, strong, nullable) GTLRAndroidManagement_User *user;
+/** This field is deprecated and the value is ignored. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_User *user GTLR_DEPRECATED;
 
 /**
  *  The token value that's passed to the device and authorizes the device to
@@ -6496,11 +9071,60 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *enterpriseDisplayName;
 
 /**
+ *  Output only. The type of the enterprise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Enterprise_EnterpriseType_EnterpriseTypeUnspecified
+ *        This value is not used. (Value: "ENTERPRISE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGoogleDomain
+ *        The enterprise belongs to a managed Google domain
+ *        (https://developers.google.com/android/work/terminology#managed_google_domain).
+ *        (Value: "MANAGED_GOOGLE_DOMAIN")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise
+ *        The enterprise is a managed Google Play Accounts enterprise
+ *        (https://developers.google.com/android/work/terminology#managed_google_play_accounts_enterprise).
+ *        (Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE")
+ */
+@property(nonatomic, copy, nullable) NSString *enterpriseType;
+
+/** Settings for Google-provided user authentication. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_GoogleAuthenticationSettings *googleAuthenticationSettings;
+
+/**
  *  An image displayed as a logo during device provisioning. Supported types
  *  are: image/bmp, image/gif, image/x-ico, image/jpeg, image/png, image/webp,
  *  image/vnd.wap.wbmp, image/x-adobe-dng.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ExternalData *logo;
+
+/**
+ *  Output only. The type of managed Google domain.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified
+ *        The managed Google domain type is not specified. (Value:
+ *        "MANAGED_GOOGLE_DOMAIN_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeDomain
+ *        The managed Google domain is domain-verified. (Value: "TYPE_DOMAIN")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGoogleDomainType_TypeTeam
+ *        The managed Google domain is an email-verified team. (Value:
+ *        "TYPE_TEAM")
+ */
+@property(nonatomic, copy, nullable) NSString *managedGoogleDomainType;
+
+/**
+ *  Output only. The type of a managed Google Play Accounts enterprise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_CustomerManaged
+ *        The enterprise is customer-managed (Value: "CUSTOMER_MANAGED")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_EmmManaged
+ *        The enterprise is EMM-managed (deprecated). (Value: "EMM_MANAGED")
+ *    @arg @c kGTLRAndroidManagement_Enterprise_ManagedGooglePlayAccountsEnterpriseType_ManagedGooglePlayAccountsEnterpriseTypeUnspecified
+ *        The managed Google Play Accounts enterprise type is not specified.
+ *        (Value: "MANAGED_GOOGLE_PLAY_ACCOUNTS_ENTERPRISE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *managedGooglePlayAccountsEnterpriseType;
 
 /**
  *  The name of the enterprise which is generated by the server during creation,
@@ -6538,36 +9162,151 @@ GTLR_DEPRECATED
 
 
 /**
+ *  An event sent for an enterprise upgrade. An enterprise upgrade is a process
+ *  that upgrades a managed Google Play Accounts enterprise to a managed Google
+ *  domain.
+ */
+@interface GTLRAndroidManagement_EnterpriseUpgradeEvent : GTLRObject
+
+/**
+ *  The name of upgraded enterprise in the format "enterprises/{enterprise}"
+ */
+@property(nonatomic, copy, nullable) NSString *enterprise;
+
+/**
+ *  Output only. The upgrade state of the enterprise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded
+ *        The upgrade has succeeded. (Value: "UPGRADE_STATE_SUCCEEDED")
+ *    @arg @c kGTLRAndroidManagement_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified
+ *        Unspecified. This value is not used. (Value:
+ *        "UPGRADE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *upgradeState;
+
+@end
+
+
+/**
+ *  Status and error details (if present) of an ADD_ESIM or REMOVE_ESIM command.
+ */
+@interface GTLRAndroidManagement_EsimCommandStatus : GTLRObject
+
+/**
+ *  Output only. Information about the eSIM added or removed. This is populated
+ *  only when the eSIM operation status is SUCCESS.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_EsimInfo *esimInfo;
+
+/**
+ *  Output only. Details of the error if the status is set to INTERNAL_ERROR.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_InternalErrorDetails *internalErrorDetails;
+
+/**
+ *  Output only. Status of an ADD_ESIM or REMOVE_ESIM command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorIccIdNotFound
+ *        For a REMOVE_ESIM command, the iccId of the eSIM to be removed was not
+ *        found on the device. This could either mean the eSIM does not belong
+ *        to the enterprise or the eSIM corresponding to the iccId is not
+ *        present on the device. (Value: "ERROR_ICC_ID_NOT_FOUND")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorMultipleActiveEsimsNoAvailableSlot
+ *        The ADD_ESIM command failed when attempting to add a new eSIM with its
+ *        activation state set to ACTIVATED since multiple eSIM slots on the
+ *        device contain active eSIM profiles and there is no free eSIM slot
+ *        available. To resolve this, the new eSIM can be added with its
+ *        activation state as NOT_ACTIVATED for later manual activation, or the
+ *        user must first deactivate an existing active eSIM for the operation
+ *        to proceed. (Value: "ERROR_MULTIPLE_ACTIVE_ESIMS_NO_AVAILABLE_SLOT")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorSetupInProgress
+ *        The eSIM operation cannot be executed when setup is in progress.
+ *        (Value: "ERROR_SETUP_IN_PROGRESS")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_ErrorUserDenied
+ *        The user has denied the eSIM operation. (Value: "ERROR_USER_DENIED")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_InProgress The
+ *        eSIM operation is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_InternalError An
+ *        error has occurred while trying to add or remove the eSIM on the
+ *        device, see internal_error_details. (Value: "INTERNAL_ERROR")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_PendingUserAction
+ *        The user needs to take an action for the eSIM operation to proceed.
+ *        (Value: "PENDING_USER_ACTION")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_StatusUnspecified
+ *        Unspecified. This value is not used. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_EsimCommandStatus_Status_Success The eSIM
+ *        operation was successfully performed on the device. (Value: "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Details of the eSIM added or removed.
+ */
+@interface GTLRAndroidManagement_EsimInfo : GTLRObject
+
+/** Output only. ICC ID of the eSIM. */
+@property(nonatomic, copy, nullable) NSString *iccId;
+
+@end
+
+
+/**
+ *  Information related to the eUICC chip.
+ */
+@interface GTLRAndroidManagement_EuiccChipInfo : GTLRObject
+
+/**
+ *  Output only. The Embedded Identity Document (EID) that identifies the eUICC
+ *  chip for each eUICC chip on the device. This is available on company owned
+ *  devices running Android 13 and above.
+ */
+@property(nonatomic, copy, nullable) NSString *eid;
+
+@end
+
+
+/**
  *  Configuration to enable an app as an extension app, with the capability of
- *  interacting with Android Device Policy offline. For Android versions 13 and
+ *  interacting with Android Device Policy offline. For Android versions 11 and
  *  above, extension apps are exempt from battery restrictions so will not be
  *  placed into the restricted App Standby Bucket
  *  (https://developer.android.com/topic/performance/appstandby#restricted-bucket).
  *  Extensions apps are also protected against users clearing their data or
  *  force-closing the application, although admins can continue to use the clear
- *  app data command
- *  (https://developer.android.com/management/reference/rest/v1/enterprises.devices/issueCommand#CommandType)
- *  on extension apps if needed for Android 13 and above.
+ *  app data command on extension apps if needed for Android 11 and above.
  */
 @interface GTLRAndroidManagement_ExtensionConfig : GTLRObject
 
 /**
  *  Fully qualified class name of the receiver service class for Android Device
- *  Policy to notify the extension app of any local command status updates.
+ *  Policy to notify the extension app of any local command status updates. The
+ *  service must be exported in the extension app's AndroidManifest.xml and
+ *  extend NotificationReceiverService
+ *  (https://developers.google.com/android/management/reference/amapi/com/google/android/managementapi/notification/NotificationReceiverService)
+ *  (see Integrate with the AMAPI SDK
+ *  (https://developers.google.com/android/management/sdk-integration) guide for
+ *  more details).
  */
 @property(nonatomic, copy, nullable) NSString *notificationReceiver;
 
 /**
- *  Hex-encoded SHA-256 hash of the signing certificate of the extension app.
- *  Only hexadecimal string representations of 64 characters are valid.If not
- *  specified, the signature for the corresponding package name is obtained from
- *  the Play Store instead.If this list is empty, the signature of the extension
- *  app on the device must match the signature obtained from the Play Store for
- *  the app to be able to communicate with Android Device Policy.If this list is
- *  not empty, the signature of the extension app on the device must match one
- *  of the entries in this list for the app to be able to communicate with
- *  Android Device Policy.In production use cases, it is recommended to leave
- *  this empty.
+ *  Hex-encoded SHA-256 hashes of the signing key certificates of the extension
+ *  app. Only hexadecimal string representations of 64 characters are valid.The
+ *  signing key certificate fingerprints are always obtained from the Play Store
+ *  and this field is used to provide additional signing key certificate
+ *  fingerprints. However, if the application is not available on the Play
+ *  Store, this field needs to be set. A NonComplianceDetail with INVALID_VALUE
+ *  is reported if this field is not set when the application is not available
+ *  on the Play Store.The signing key certificate fingerprint of the extension
+ *  app on the device must match one of the signing key certificate fingerprints
+ *  obtained from the Play Store or the ones provided in this field for the app
+ *  to be able to communicate with Android Device Policy.In production use
+ *  cases, it is recommended to leave this empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *signingKeyFingerprintsSha256;
 
@@ -6639,16 +9378,93 @@ GTLR_DEPRECATED
 /**
  *  The end date (inclusive) of the freeze period. Must be no later than 90 days
  *  from the start date. If the end date is earlier than the start date, the
- *  freeze period is considered wrapping year-end. Note: year must not be set.
- *  For example, {"month": 1,"date": 30}.
+ *  freeze period is considered wrapping year-end. Note: day and month must be
+ *  set. year should not be set as it is not used. For example, {"month":
+ *  1,"date": 30}.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Date *endDate;
 
 /**
- *  The start date (inclusive) of the freeze period. Note: year must not be set.
- *  For example, {"month": 1,"date": 30}.
+ *  The start date (inclusive) of the freeze period. Note: day and month must be
+ *  set. year should not be set as it is not used. For example, {"month":
+ *  1,"date": 30}.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_Date *startDate;
+
+@end
+
+
+/**
+ *  Request message for generating a URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain.Note: This feature is
+ *  not generally available.
+ */
+@interface GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest : GTLRObject
+
+/**
+ *  Optional. Email address used to prefill the admin field of the enterprise
+ *  signup form as part of the upgrade process. This value is a hint only and
+ *  can be altered by the user. Personal email addresses are not allowed. If
+ *  allowedDomains is non-empty then this must belong to one of the
+ *  allowedDomains.
+ */
+@property(nonatomic, copy, nullable) NSString *adminEmail;
+
+/**
+ *  Optional. A list of domains that are permitted for the admin email. The IT
+ *  admin cannot enter an email address with a domain name that is not in this
+ *  list. Subdomains of domains in this list are not allowed but can be allowed
+ *  by adding a second entry which has *. prefixed to the domain name (e.g.
+ *  *.example.com). If the field is not present or is an empty list then the IT
+ *  admin is free to use any valid domain name. Personal email domains are not
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDomains;
+
+@end
+
+
+/**
+ *  Response message for generating a URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain.Note: This feature is
+ *  not generally available.
+ */
+@interface GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse : GTLRObject
+
+/**
+ *  A URL for an enterprise admin to upgrade their enterprise. The page can't be
+ *  rendered in an iframe.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Contains settings for Google-provided user authentication.
+ */
+@interface GTLRAndroidManagement_GoogleAuthenticationSettings : GTLRObject
+
+/**
+ *  Output only. Whether users need to be authenticated by Google during the
+ *  enrollment process. IT admin can specify if Google authentication is enabled
+ *  for the enterprise for knowledge worker devices. This value can be set only
+ *  via the Google Admin Console. Google authentication can be used with
+ *  signin_url In the case where Google authentication is required and a
+ *  signin_url is specified, Google authentication will be launched before
+ *  signin_url.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified
+ *        This value is not used. (Value:
+ *        "GOOGLE_AUTHENTICATION_REQUIRED_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_NotRequired
+ *        Google authentication is not required. (Value: "NOT_REQUIRED")
+ *    @arg @c kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_Required
+ *        User is required to be successfully authenticated by Google. (Value:
+ *        "REQUIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *googleAuthenticationRequired;
 
 @end
 
@@ -6704,6 +9520,9 @@ GTLR_DEPRECATED
  *  devices running Android 12 and above.
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseSpecificId;
+
+/** Output only. Information related to the eUICC chip. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_EuiccChipInfo *> *euiccChipInfo;
 
 /**
  *  GPU shutdown temperature thresholds in Celsius for each GPU on the device.
@@ -6857,6 +9676,179 @@ GTLR_DEPRECATED
  *        "NETWORK_TYPE_CONSTRAINT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *networkTypeConstraint;
+
+@end
+
+
+/**
+ *  Internal error details if present for the ADD_ESIM or REMOVE_ESIM command.
+ */
+@interface GTLRAndroidManagement_InternalErrorDetails : GTLRObject
+
+/**
+ *  Output only. Integer representation of the error code as specified here
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE).
+ *  See also, OPERATION_SMDX_SUBJECT_REASON_CODE. See error_code_detail for more
+ *  details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCode;
+
+/**
+ *  Output only. The error code detail corresponding to the error_code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorAddressMissing
+ *        See EuiccManager.ERROR_ADDRESS_MISSING
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_ADDRESS_MISSING)
+ *        for details. (Value: "ERROR_ADDRESS_MISSING")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCarrierLocked
+ *        See EuiccManager.ERROR_CARRIER_LOCKED
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CARRIER_LOCKED)
+ *        for details. (Value: "ERROR_CARRIER_LOCKED")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCertificateError
+ *        See EuiccManager.ERROR_CERTIFICATE_ERROR
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CERTIFICATE_ERROR)
+ *        for details. (Value: "ERROR_CERTIFICATE_ERROR")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorCodeDetailUnspecified
+ *        Error code detail is unspecified. The error_code is not recognized by
+ *        Android Management API. However, see error_code (Value:
+ *        "ERROR_CODE_DETAIL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorConnectionError
+ *        See EuiccManager.ERROR_CONNECTION_ERROR
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_CONNECTION_ERROR)
+ *        for details. (Value: "ERROR_CONNECTION_ERROR")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorDisallowedByPpr
+ *        See EuiccManager.ERROR_DISALLOWED_BY_PPR
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_DISALLOWED_BY_PPR)
+ *        for details. (Value: "ERROR_DISALLOWED_BY_PPR")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorEuiccInsufficientMemory
+ *        See EuiccManager.ERROR_EUICC_INSUFFICIENT_MEMORY
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_EUICC_INSUFFICIENT_MEMORY)
+ *        for details. (Value: "ERROR_EUICC_INSUFFICIENT_MEMORY")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorEuiccMissing
+ *        See EuiccManager.ERROR_EUICC_MISSING
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_EUICC_MISSING)
+ *        for details. (Value: "ERROR_EUICC_MISSING")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorIncompatibleCarrier
+ *        See EuiccManager.ERROR_INCOMPATIBLE_CARRIER
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INCOMPATIBLE_CARRIER)
+ *        for details. (Value: "ERROR_INCOMPATIBLE_CARRIER")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInstallProfile
+ *        See EuiccManager.ERROR_INSTALL_PROFILE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INSTALL_PROFILE)
+ *        for details. (Value: "ERROR_INSTALL_PROFILE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidActivationCode
+ *        See EuiccManager.ERROR_INVALID_ACTIVATION_CODE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_ACTIVATION_CODE)
+ *        for details. (Value: "ERROR_INVALID_ACTIVATION_CODE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidConfirmationCode
+ *        See EuiccManager.ERROR_INVALID_CONFIRMATION_CODE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_CONFIRMATION_CODE)
+ *        for details. (Value: "ERROR_INVALID_CONFIRMATION_CODE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidPort
+ *        See EuiccManager.ERROR_INVALID_PORT
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_PORT)
+ *        for details. (Value: "ERROR_INVALID_PORT")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorInvalidResponse
+ *        See EuiccManager.ERROR_INVALID_RESPONSE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_INVALID_RESPONSE)
+ *        for details. (Value: "ERROR_INVALID_RESPONSE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorNoProfilesAvailable
+ *        See EuiccManager.ERROR_NO_PROFILES_AVAILABLE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_NO_PROFILES_AVAILABLE)
+ *        for details. (Value: "ERROR_NO_PROFILES_AVAILABLE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorOperationBusy
+ *        See EuiccManager.ERROR_OPERATION_BUSY
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_OPERATION_BUSY)
+ *        for details. (Value: "ERROR_OPERATION_BUSY")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorSimMissing
+ *        See EuiccManager.ERROR_SIM_MISSING
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_SIM_MISSING)
+ *        for details. (Value: "ERROR_SIM_MISSING")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorTimeOut
+ *        See EuiccManager.ERROR_TIME_OUT
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_TIME_OUT)
+ *        for details. (Value: "ERROR_TIME_OUT")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_ErrorCodeDetail_ErrorUnsupportedVersion
+ *        See EuiccManager.ERROR_UNSUPPORTED_VERSION
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#ERROR_UNSUPPORTED_VERSION)
+ *        for details. (Value: "ERROR_UNSUPPORTED_VERSION")
+ */
+@property(nonatomic, copy, nullable) NSString *errorCodeDetail;
+
+/**
+ *  Output only. Integer representation of the operation code as specified here
+ *  (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE).
+ *  See operation_code_detail for more details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *operationCode;
+
+/**
+ *  Output only. The operation code detail corresponding to the operation_code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationApdu
+ *        See EuiccManager.OPERATION_APDU
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_APDU)
+ *        for details. (Value: "OPERATION_APDU")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationCodeDetailUnspecified
+ *        Operation code detail is unspecified. The operation_code is not
+ *        recognized by Android Management API. However, see operation_code.
+ *        (Value: "OPERATION_CODE_DETAIL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationDownload
+ *        See EuiccManager.OPERATION_DOWNLOAD
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_DOWNLOAD)
+ *        for details. (Value: "OPERATION_DOWNLOAD")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationEuiccCard
+ *        See EuiccManager.OPERATION_EUICC_CARD
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_EUICC_CARD)
+ *        for details. (Value: "OPERATION_EUICC_CARD")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationEuiccGsma
+ *        See EuiccManager.OPERATION_EUICC_GSMA
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_EUICC_GSMA)
+ *        for details. (Value: "OPERATION_EUICC_GSMA")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationHttp
+ *        See EuiccManager.OPERATION_HTTP
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_HTTP)
+ *        for details. (Value: "OPERATION_HTTP")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationMetadata
+ *        See EuiccManager.OPERATION_METADATA
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_METADATA)
+ *        for details. (Value: "OPERATION_METADATA")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSimSlot
+ *        See EuiccManager.OPERATION_SIM_SLOT
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SIM_SLOT)
+ *        for details. (Value: "OPERATION_SIM_SLOT")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSmdx
+ *        See EuiccManager.OPERATION_SMDX
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX)
+ *        for details. (Value: "OPERATION_SMDX")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSmdxSubjectReasonCode
+ *        See EuiccManager.OPERATION_SMDX_SUBJECT_REASON_CODE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX_SUBJECT_REASON_CODE)
+ *        for details. Note that, in this case, error_code is the least
+ *        significant 3 bytes of the EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#EXTRA_EMBEDDED_SUBSCRIPTION_DETAILED_CODE)
+ *        specifying the subject code and the reason code as indicated here
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SMDX_SUBJECT_REASON_CODE).
+ *        The most significant byte of the integer is zeroed out. For example, a
+ *        Subject Code of 8.11.1 and a Reason Code of 5.1 is represented in
+ *        error_code as 0000 0000 1000 1011 0001 0000 0101 0001 in binary, which
+ *        is 9113681 in decimal. (Value: "OPERATION_SMDX_SUBJECT_REASON_CODE")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSwitch
+ *        See EuiccManager.OPERATION_SWITCH
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SWITCH)
+ *        for details. (Value: "OPERATION_SWITCH")
+ *    @arg @c kGTLRAndroidManagement_InternalErrorDetails_OperationCodeDetail_OperationSystem
+ *        See EuiccManager.OPERATION_SYSTEM
+ *        (https://developer.android.com/reference/android/telephony/euicc/EuiccManager#OPERATION_SYSTEM)
+ *        for details. (Value: "OPERATION_SYSTEM")
+ */
+@property(nonatomic, copy, nullable) NSString *operationCodeDetail;
 
 @end
 
@@ -7638,7 +10630,9 @@ GTLR_DEPRECATED
 /**
  *  A token to initiate the migration of a device from being managed by a
  *  third-party DPC to being managed by Android Management API. A migration
- *  token is valid only for a single device.
+ *  token is valid only for a single device. See the guide
+ *  (https://developers.google.com/android/management/dpc-migration) for more
+ *  details.
  */
 @interface GTLRAndroidManagement_MigrationToken : GTLRObject
 
@@ -7724,6 +10718,32 @@ GTLR_DEPRECATED
 
 /** Output only. The value of the migration token. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Request to update or create ApplicationPolicy objects in the given Policy.
+ */
+@interface GTLRAndroidManagement_ModifyPolicyApplicationsRequest : GTLRObject
+
+/**
+ *  Required. The changes to be made to the ApplicationPolicy objects. There
+ *  must be at least one ApplicationPolicyChange.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPolicyChange *> *changes;
+
+@end
+
+
+/**
+ *  Response to a request to update or create ApplicationPolicy objects in the
+ *  given policy.
+ */
+@interface GTLRAndroidManagement_ModifyPolicyApplicationsResponse : GTLRObject
+
+/** The updated policy. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_Policy *policy;
 
 @end
 
@@ -7861,13 +10881,16 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue
  *        The setting has an invalid value. (Value: "INVALID_VALUE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode
- *        The management mode (profile owner, device owner, etc.) doesn't
+ *        The management mode (such as fully managed or work profile) doesn't
  *        support the setting. (Value: "MANAGEMENT_MODE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_NonComplianceReasonUnspecified
- *        This value is disallowed. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
+ *        This value is not used. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Pending
  *        The setting hasn't been applied at the time of the report, but is
  *        expected to be applied shortly. (Value: "PENDING")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ProjectNotPermitted
+ *        The Google Cloud Platform project used to manage the device is not
+ *        permitted to use this policy. (Value: "PROJECT_NOT_PERMITTED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_Unsupported
  *        The policy is not supported by the version of Android Device Policy on
  *        the device. (Value: "UNSUPPORTED")
@@ -7895,6 +10918,10 @@ GTLR_DEPRECATED
  *  The policy-specific reason the device is not in compliance with the setting.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_NewAccountNotInEnterprise
+ *        Work account added by the user is not part of the enterprise.
+ *        nonComplianceReason is set to USER_ACTION. (Value:
+ *        "NEW_ACCOUNT_NOT_IN_ENTERPRISE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel
  *        The ONC Wi-Fi setting is not supported in the API level of the Android
  *        version running on the device. fieldPath specifies which field value
@@ -7934,6 +10961,17 @@ GTLR_DEPRECATED
  *        in specific_non_compliance_context are not set. nonComplianceReason is
  *        set to USER_ACTION. (Value:
  *        "PASSWORD_POLICIES_USER_CREDENTIALS_CONFIRMATION_REQUIRED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PermissibleUsageRestriction
+ *        This policy setting is restricted and cannot be set for this Google
+ *        Cloud Platform project. More details (including how to enable usage of
+ *        this policy setting) are available in the Permissible Usage policy
+ *        (https://developers.google.com/android/management/permissible-usage).
+ *        nonComplianceReason is set to PROJECT_NOT_PERMITTED. (Value:
+ *        "PERMISSIBLE_USAGE_RESTRICTION")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_RequiredAccountNotInEnterprise
+ *        Work account required by the workAccountSetupConfig policy setting is
+ *        not part of the enterprise anymore. nonComplianceReason is set to
+ *        USER_ACTION. (Value: "REQUIRED_ACCOUNT_NOT_IN_ENTERPRISE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_SpecificNonComplianceReasonUnspecified
  *        Specific non-compliance reason is not specified. Fields in
  *        specific_non_compliance_context are not set. (Value:
@@ -7980,13 +11018,16 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue
  *        The setting has an invalid value. (Value: "INVALID_VALUE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode
- *        The management mode (profile owner, device owner, etc.) doesn't
+ *        The management mode (such as fully managed or work profile) doesn't
  *        support the setting. (Value: "MANAGEMENT_MODE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_NonComplianceReasonUnspecified
- *        This value is disallowed. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
+ *        This value is not used. (Value: "NON_COMPLIANCE_REASON_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Pending
  *        The setting hasn't been applied at the time of the report, but is
  *        expected to be applied shortly. (Value: "PENDING")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ProjectNotPermitted
+ *        The Google Cloud Platform project used to manage the device is not
+ *        permitted to use this policy. (Value: "PROJECT_NOT_PERMITTED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_Unsupported
  *        The policy is not supported by the version of Android Device Policy on
  *        the device. (Value: "UNSUPPORTED")
@@ -8467,23 +11508,22 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_Deny Automatically
  *        deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_Grant Automatically
- *        grant a permission.On Android 12 and above,
- *        Manifest.permission.READ_SMS
+ *        grant a permission.On Android 12 and above, READ_SMS
  *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *        and following sensor-related permissions can only be granted on fully
- *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        managed devices: ACCESS_FINE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        ACCESS_BACKGROUND_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        ACCESS_COARSE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *        Manifest.permission.CAMERA
+ *        CAMERA
  *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *        Manifest.permission.RECORD_AUDIO
+ *        RECORD_AUDIO
  *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        ACTIVITY_RECOGNITION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *        Manifest.permission.BODY_SENSORS
+ *        BODY_SENSORS
  *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_PermissionGrant_Policy_PermissionPolicyUnspecified
@@ -8571,6 +11611,27 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountTypesWithManagementDisabled;
 
 /**
+ *  Optional. Whether bluetooth sharing is allowed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingAllowed
+ *        Bluetooth sharing is allowed on personal profile.Supported on Android
+ *        8 and above. A NonComplianceDetail with MANAGEMENT_MODE is reported if
+ *        this is set for a personal device. (Value:
+ *        "BLUETOOTH_SHARING_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingDisallowed
+ *        Bluetooth sharing is disallowed on personal profile.Supported on
+ *        Android 8 and above. A NonComplianceDetail with API_LEVEL is reported
+ *        if the Android version is less than 8. A NonComplianceDetail with
+ *        MANAGEMENT_MODE is reported if this is set for a personal device.
+ *        (Value: "BLUETOOTH_SHARING_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_BluetoothSharing_BluetoothSharingUnspecified
+ *        Unspecified. Defaults to BLUETOOTH_SHARING_ALLOWED. (Value:
+ *        "BLUETOOTH_SHARING_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *bluetoothSharing;
+
+/**
  *  If true, the camera is disabled on the personal profile.
  *
  *  Uses NSNumber of boolValue.
@@ -8616,6 +11677,23 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *personalPlayStoreMode;
 
 /**
+ *  Optional. Controls whether a private space is allowed on the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceAllowed
+ *        Users can create a private space profile. (Value:
+ *        "PRIVATE_SPACE_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpaceDisallowed
+ *        Users cannot create a private space profile. Supported only for
+ *        company-owned devices with a work profile. Caution: Any existing
+ *        private space will be removed. (Value: "PRIVATE_SPACE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PrivateSpacePolicy_PrivateSpacePolicyUnspecified
+ *        Unspecified. Defaults to PRIVATE_SPACE_ALLOWED. (Value:
+ *        "PRIVATE_SPACE_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *privateSpacePolicy;
+
+/**
  *  If true, screen capture is disabled for all users.
  *
  *  Uses NSNumber of boolValue.
@@ -8635,14 +11713,17 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountTypesWithManagementDisabled;
 
 /**
- *  Whether adding new users and profiles is disabled.
+ *  Whether adding new users and profiles is disabled. For devices where
+ *  managementMode is DEVICE_OWNER this field is ignored and the user is never
+ *  allowed to add or remove users.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *addUserDisabled;
 
 /**
- *  Whether adjusting the master volume is disabled. Also mutes the device.
+ *  Whether adjusting the master volume is disabled. Also mutes the device. The
+ *  setting has effect only on fully managed devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8682,8 +11763,52 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *appAutoUpdatePolicy;
 
+/**
+ *  Optional. Controls whether apps on the device for fully managed devices or
+ *  in the work profile for devices with work profiles are allowed to expose app
+ *  functions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsAllowed
+ *        Apps on the device for fully managed devices or in the work profile
+ *        for devices with work profiles are allowed to expose app functions.
+ *        (Value: "APP_FUNCTIONS_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsDisallowed
+ *        Apps on the device for fully managed devices or in the work profile
+ *        for devices with work profiles are not allowed to expose app
+ *        functions. If this is set, crossProfileAppFunctions must not be set to
+ *        CROSS_PROFILE_APP_FUNCTIONS_ALLOWED, otherwise the policy will be
+ *        rejected. (Value: "APP_FUNCTIONS_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AppFunctions_AppFunctionsUnspecified
+ *        Unspecified. Defaults to APP_FUNCTIONS_ALLOWED. (Value:
+ *        "APP_FUNCTIONS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appFunctions;
+
 /** Policy applied to apps. This can have at most 3,000 elements. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPolicy *> *applications;
+
+/**
+ *  Optional. Controls whether AssistContent
+ *  (https://developer.android.com/reference/android/app/assist/AssistContent)
+ *  is allowed to be sent to a privileged app such as an assistant app.
+ *  AssistContent includes screenshots and information about an app, such as
+ *  package name. This is supported on Android 15 and above.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentAllowed
+ *        Assist content is allowed to be sent to a privileged app.Supported on
+ *        Android 15 and above. (Value: "ASSIST_CONTENT_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentDisallowed
+ *        Assist content is blocked from being sent to a privileged
+ *        app.Supported on Android 15 and above. A NonComplianceDetail with
+ *        API_LEVEL is reported if the Android version is less than 15. (Value:
+ *        "ASSIST_CONTENT_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AssistContentPolicy_AssistContentPolicyUnspecified
+ *        Unspecified. Defaults to ASSIST_CONTENT_ALLOWED. (Value:
+ *        "ASSIST_CONTENT_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *assistContentPolicy;
 
 /**
  *  Whether auto date, time, and time zone are enabled on a company-owned
@@ -8871,23 +11996,22 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny
  *        Automatically deny a permission. (Value: "DENY")
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant
- *        Automatically grant a permission.On Android 12 and above,
- *        Manifest.permission.READ_SMS
+ *        Automatically grant a permission.On Android 12 and above, READ_SMS
  *        (https://developer.android.com/reference/android/Manifest.permission#READ_SMS)
  *        and following sensor-related permissions can only be granted on fully
- *        managed devices: Manifest.permission.ACCESS_FINE_LOCATION
+ *        managed devices: ACCESS_FINE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION)
- *        Manifest.permission.ACCESS_BACKGROUND_LOCATION
+ *        ACCESS_BACKGROUND_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION)
- *        Manifest.permission.ACCESS_COARSE_LOCATION
+ *        ACCESS_COARSE_LOCATION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION)
- *        Manifest.permission.CAMERA
+ *        CAMERA
  *        (https://developer.android.com/reference/android/Manifest.permission#CAMERA)
- *        Manifest.permission.RECORD_AUDIO
+ *        RECORD_AUDIO
  *        (https://developer.android.com/reference/android/Manifest.permission#RECORD_AUDIO)
- *        Manifest.permission.ACTIVITY_RECOGNITION
+ *        ACTIVITY_RECOGNITION
  *        (https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION)
- *        Manifest.permission.BODY_SENSORS
+ *        BODY_SENSORS
  *        (https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS)
  *        (Value: "GRANT")
  *    @arg @c kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_PermissionPolicyUnspecified
@@ -8911,6 +12035,9 @@ GTLR_DEPRECATED
 /** Covers controls for radio state such as Wi-Fi, bluetooth, and more. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_DeviceRadioState *deviceRadioState;
 
+/** Optional. Controls for the display settings. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DisplaySettings *displaySettings;
+
 /**
  *  Whether encryption is enabled
  *
@@ -8933,6 +12060,29 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ensureVerifyAppsEnabled GTLR_DEPRECATED;
+
+/**
+ *  Optional. Controls whether the enterpriseDisplayName is visible on the
+ *  device (e.g. lock screen message on company-owned devices).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameHidden
+ *        The enterprise display name is hidden on the device. (Value:
+ *        "ENTERPRISE_DISPLAY_NAME_HIDDEN")
+ *    @arg @c kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisibilityUnspecified
+ *        Unspecified. Defaults to displaying the enterprise name that's set at
+ *        the time of device setup. In future, this will default to
+ *        ENTERPRISE_DISPLAY_NAME_VISIBLE. (Value:
+ *        "ENTERPRISE_DISPLAY_NAME_VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisible
+ *        The enterprise display name is visible on the device. Supported on
+ *        work profiles on Android 7 and above. Supported on fully managed
+ *        devices on Android 8 and above. A NonComplianceDetail with API_LEVEL
+ *        is reported if the Android version is less than 7. A
+ *        NonComplianceDetail with MANAGEMENT_MODE is reported on fully managed
+ *        devices on Android 7. (Value: "ENTERPRISE_DISPLAY_NAME_VISIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *enterpriseDisplayNameVisibility;
 
 /**
  *  Whether factory resetting from settings is disabled.
@@ -8974,7 +12124,8 @@ GTLR_DEPRECATED
 /**
  *  If true, this disables the Lock Screen
  *  (https://source.android.com/docs/core/display/multi_display/lock-screen) for
- *  primary and/or secondary displays.
+ *  primary and/or secondary displays. This policy is supported only in
+ *  dedicated device management mode.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9013,9 +12164,19 @@ GTLR_DEPRECATED
  *        GPS, networks, and other sensors. On Android 9 and above, this is
  *        equivalent to LOCATION_ENFORCED. (Value: "HIGH_ACCURACY")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationDisabled
- *        Disable location setting on the device. (Value: "LOCATION_DISABLED")
+ *        Disable location setting on the device. Important: On Android 11 and
+ *        above, work profiles on company-owned devices cannot directly enforce
+ *        disabling of location services. When LOCATION_DISABLED is set, then a
+ *        nonComplianceDetail with USER_ACTION is reported. Compliance can only
+ *        be restored once the user manually turns off location services through
+ *        the device's Settings application. (Value: "LOCATION_DISABLED")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationEnforced Enable
- *        location setting on the device. (Value: "LOCATION_ENFORCED")
+ *        location setting on the device. Important: On Android 11 and above,
+ *        work profiles on company-owned devices cannot directly enforce
+ *        enabling of location services. When LOCATION_ENFORCED is set, then a
+ *        NonComplianceDetail with USER_ACTION is reported. Compliance can only
+ *        be restored once the user manually turns on location services through
+ *        the device's Settings application. (Value: "LOCATION_ENFORCED")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified
  *        Defaults to LOCATION_USER_CHOICE. (Value: "LOCATION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationUserChoice
@@ -9227,20 +12388,25 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PolicyEnforcementRule *> *policyEnforcementRules;
 
 /**
- *  Controls whether preferential network service is enabled on the work
- *  profile. For example, an organization may have an agreement with a carrier
- *  that all of the work data from its employees' devices will be sent via a
- *  network service dedicated for enterprise use. An example of a supported
- *  preferential network service is the enterprise slice on 5G networks. This
- *  has no effect on fully managed devices.
+ *  Controls whether preferential network service is enabled on the work profile
+ *  or on fully managed devices. For example, an organization may have an
+ *  agreement with a carrier that all of the work data from its employees'
+ *  devices will be sent via a network service dedicated for enterprise use. An
+ *  example of a supported preferential network service is the enterprise slice
+ *  on 5G networks. This policy has no effect if
+ *  preferentialNetworkServiceSettings or
+ *  ApplicationPolicy.preferentialNetworkId is set on devices running Android 13
+ *  or above.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceDisabled
  *        Preferential network service is disabled on the work profile. (Value:
  *        "PREFERENTIAL_NETWORK_SERVICE_DISABLED")
  *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceEnabled
- *        Preferential network service is enabled on the work profile. (Value:
- *        "PREFERENTIAL_NETWORK_SERVICE_ENABLED")
+ *        Preferential network service is enabled on the work profile. This
+ *        setting is only supported on work profiles on devices running Android
+ *        12 or above. Starting with Android 13, fully managed devices are also
+ *        supported. (Value: "PREFERENTIAL_NETWORK_SERVICE_ENABLED")
  *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceUnspecified
  *        Unspecified. Defaults to PREFERENTIAL_NETWORK_SERVICES_DISABLED.
  *        (Value: "PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED")
@@ -9255,7 +12421,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingAllowed
  *        Printing is allowed. (Value: "PRINTING_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingDisallowed
- *        Printing is disallowed. A nonComplianceDetail with API_LEVEL is
+ *        Printing is disallowed. A NonComplianceDetail with API_LEVEL is
  *        reported if the Android version is less than 9. (Value:
  *        "PRINTING_DISALLOWED")
  *    @arg @c kGTLRAndroidManagement_Policy_PrintingPolicy_PrintingPolicyUnspecified
@@ -9311,7 +12477,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_SetupAction *> *setupActions;
 
 /**
- *  Whether changing the user icon is disabled.
+ *  Whether changing the user icon is disabled. The setting has effect only on
+ *  fully managed devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9378,7 +12545,12 @@ GTLR_DEPRECATED
 /**
  *  The system update policy, which controls how OS updates are applied. If the
  *  update type is WINDOWED, the update window will automatically apply to Play
- *  app updates as well.
+ *  app updates as well.Note: Google Play system updates
+ *  (https://source.android.com/docs/core/ota/modular-system) (also called
+ *  Mainline updates) are automatically downloaded and require a device reboot
+ *  to be installed. Refer to the mainline section in Manage system updates
+ *  (https://developer.android.com/work/dpc/system-updates#mainline) for further
+ *  details.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_SystemUpdate *systemUpdate;
 
@@ -9461,11 +12633,25 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *wifiConfigDisabled GTLR_DEPRECATED;
 
 /**
- *  DEPRECATED - Use wifi_config_disabled.
+ *  This is deprecated.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *wifiConfigsLockdownEnabled GTLR_DEPRECATED;
+
+/**
+ *  Optional. Wipe flags to indicate what data is wiped when a device or profile
+ *  wipe is triggered due to any reason (for example, non-compliance). This does
+ *  not apply to the enterprises.devices.delete method. . This list must not
+ *  have duplicates.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
+
+/**
+ *  Optional. Controls the work account setup configuration, such as details of
+ *  whether a Google authenticated account is required.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_WorkAccountSetupConfig *workAccountSetupConfig;
 
 @end
 
@@ -9597,6 +12783,153 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Individual preferential network service configuration.
+ */
+@interface GTLRAndroidManagement_PreferentialNetworkServiceConfig : GTLRObject
+
+/**
+ *  Optional. Whether fallback to the device-wide default network is allowed. If
+ *  this is set to FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED, then
+ *  nonMatchingNetworks must not be set to NON_MATCHING_NETWORKS_DISALLOWED, the
+ *  policy will be rejected otherwise. Note: If this is set to
+ *  FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED, applications are not able to
+ *  access the internet if the 5G slice is not available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionAllowed
+ *        Fallback to default connection is allowed. If this is set,
+ *        nonMatchingNetworks must not be set to
+ *        NON_MATCHING_NETWORKS_DISALLOWED, the policy will be rejected
+ *        otherwise. (Value: "FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionDisallowed
+ *        Fallback to default connection is not allowed. (Value:
+ *        "FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_FallbackToDefaultConnection_FallbackToDefaultConnectionUnspecified
+ *        Unspecified. Defaults to FALLBACK_TO_DEFAULT_CONNECTION_ALLOWED.
+ *        (Value: "FALLBACK_TO_DEFAULT_CONNECTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *fallbackToDefaultConnection;
+
+/**
+ *  Optional. Whether apps this configuration applies to are blocked from using
+ *  networks other than the preferential service. If this is set to
+ *  NON_MATCHING_NETWORKS_DISALLOWED, then fallbackToDefaultConnection must be
+ *  set to FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksAllowed
+ *        Apps this configuration applies to are allowed to use networks other
+ *        than the preferential service. (Value:
+ *        "NON_MATCHING_NETWORKS_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksDisallowed
+ *        Apps this configuration applies to are disallowed from using other
+ *        networks than the preferential service. This can be set on Android 14
+ *        and above. A NonComplianceDetail with API_LEVEL is reported if the
+ *        Android version is less than 14. If this is set,
+ *        fallbackToDefaultConnection must be set to
+ *        FALLBACK_TO_DEFAULT_CONNECTION_DISALLOWED, the policy will be rejected
+ *        otherwise. (Value: "NON_MATCHING_NETWORKS_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_NonMatchingNetworks_NonMatchingNetworksUnspecified
+ *        Unspecified. Defaults to NON_MATCHING_NETWORKS_ALLOWED. (Value:
+ *        "NON_MATCHING_NETWORKS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nonMatchingNetworks;
+
+/**
+ *  Required. Preferential network identifier. This must not be set to
+ *  NO_PREFERENTIAL_NETWORK or PREFERENTIAL_NETWORK_ID_UNSPECIFIED, the policy
+ *  will be rejected otherwise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_NoPreferentialNetwork
+ *        Application does not use any preferential network. (Value:
+ *        "NO_PREFERENTIAL_NETWORK")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdFive
+ *        Preferential network identifier 5. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FIVE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdFour
+ *        Preferential network identifier 4. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FOUR")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdOne
+ *        Preferential network identifier 1. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_ONE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdThree
+ *        Preferential network identifier 3. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_THREE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdTwo
+ *        Preferential network identifier 2. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_TWO")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceConfig_PreferentialNetworkId_PreferentialNetworkIdUnspecified
+ *        Whether this value is valid and what it means depends on where it is
+ *        used, and this is documented on the relevant fields. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *preferentialNetworkId;
+
+@end
+
+
+/**
+ *  Preferential network service settings.
+ */
+@interface GTLRAndroidManagement_PreferentialNetworkServiceSettings : GTLRObject
+
+/**
+ *  Required. Default preferential network ID for the applications that are not
+ *  in applications or if ApplicationPolicy.preferentialNetworkId is set to
+ *  PREFERENTIAL_NETWORK_ID_UNSPECIFIED. There must be a configuration for the
+ *  specified network ID in preferentialNetworkServiceConfigs, unless this is
+ *  set to NO_PREFERENTIAL_NETWORK. If set to
+ *  PREFERENTIAL_NETWORK_ID_UNSPECIFIED or unset, this defaults to
+ *  NO_PREFERENTIAL_NETWORK. Note: If the default preferential network is
+ *  misconfigured, applications with no ApplicationPolicy.preferentialNetworkId
+ *  set are not able to access the internet. This setting does not apply to the
+ *  following critical apps: com.google.android.apps.work.clouddpc
+ *  com.google.android.gmsApplicationPolicy.preferentialNetworkId can still be
+ *  used to configure the preferential network for them.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_NoPreferentialNetwork
+ *        Application does not use any preferential network. (Value:
+ *        "NO_PREFERENTIAL_NETWORK")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdFive
+ *        Preferential network identifier 5. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FIVE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdFour
+ *        Preferential network identifier 4. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_FOUR")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdOne
+ *        Preferential network identifier 1. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_ONE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdThree
+ *        Preferential network identifier 3. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_THREE")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdTwo
+ *        Preferential network identifier 2. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_TWO")
+ *    @arg @c kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdUnspecified
+ *        Whether this value is valid and what it means depends on where it is
+ *        used, and this is documented on the relevant fields. (Value:
+ *        "PREFERENTIAL_NETWORK_ID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultPreferentialNetworkId;
+
+/**
+ *  Required. Preferential network service configurations which enables having
+ *  multiple enterprise slices. There must not be multiple configurations with
+ *  the same preferentialNetworkId. If a configuration is not referenced by any
+ *  application by setting ApplicationPolicy.preferentialNetworkId or by setting
+ *  defaultPreferentialNetworkId, it will be ignored. For devices on 4G
+ *  networks, enterprise APN needs to be configured additionally to set up data
+ *  call for preferential network service. These APNs can be added using
+ *  apnPolicy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PreferentialNetworkServiceConfig *> *preferentialNetworkServiceConfigs;
+
+@end
+
+
+/**
  *  Information about a device that is available during setup.
  */
 @interface GTLRAndroidManagement_ProvisioningInfo : GTLRObject
@@ -9608,11 +12941,23 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *apiLevel;
 
+/**
+ *  The email address of the authenticated user (only present for Google Account
+ *  provisioning method).
+ */
+@property(nonatomic, copy, nullable) NSString *authenticatedUserEmail;
+
 /** The brand of the device. For example, Google. */
 @property(nonatomic, copy, nullable) NSString *brand;
 
 /** The name of the enterprise in the form enterprises/{enterprise}. */
 @property(nonatomic, copy, nullable) NSString *enterprise;
+
+/**
+ *  For corporate-owned devices, IMEI number of the GSM device. For example,
+ *  A1000031212.
+ */
+@property(nonatomic, copy, nullable) NSString *imei;
 
 /**
  *  The management mode of the device or profile.
@@ -9628,6 +12973,12 @@ GTLR_DEPRECATED
  *        profile on the device. (Value: "PROFILE_OWNER")
  */
 @property(nonatomic, copy, nullable) NSString *managementMode;
+
+/**
+ *  For corporate-owned devices, MEID number of the CDMA device. For example,
+ *  A00000292788E1.
+ */
+@property(nonatomic, copy, nullable) NSString *meid;
 
 /** The model of the device. For example, Asus Nexus 7. */
 @property(nonatomic, copy, nullable) NSString *model;
@@ -9649,6 +13000,9 @@ GTLR_DEPRECATED
  *        Device is personally-owned. (Value: "PERSONALLY_OWNED")
  */
 @property(nonatomic, copy, nullable) NSString *ownership;
+
+/** For corporate-owned devices, The device serial number. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
 
 @end
 
@@ -9703,6 +13057,194 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetUserId;
+
+@end
+
+
+/**
+ *  Parameters associated with the REMOVE_ESIM command to remove an eSIM profile
+ *  from the device.
+ */
+@interface GTLRAndroidManagement_RemoveEsimParams : GTLRObject
+
+/** Required. ICC ID of the eSIM profile to be deleted. */
+@property(nonatomic, copy, nullable) NSString *iccId;
+
+@end
+
+
+/**
+ *  Request to remove ApplicationPolicy objects in the given policy.
+ */
+@interface GTLRAndroidManagement_RemovePolicyApplicationsRequest : GTLRObject
+
+/**
+ *  Required. Package names to be removed. Entries that are not found are
+ *  ignored. There must be at least one entry in package_names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *packageNames;
+
+@end
+
+
+/**
+ *  Response to a request to remove ApplicationPolicy objects in the given
+ *  policy.
+ */
+@interface GTLRAndroidManagement_RemovePolicyApplicationsResponse : GTLRObject
+
+/** The updated policy after ApplicationPolicy objects have been removed. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_Policy *policy;
+
+@end
+
+
+/**
+ *  Parameters associated with the REQUEST_DEVICE_INFO command to get device
+ *  related information.
+ */
+@interface GTLRAndroidManagement_RequestDeviceInfoParams : GTLRObject
+
+/**
+ *  Required. Type of device information to be requested.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_DeviceInfoUnspecified
+ *        This value is disallowed. (Value: "DEVICE_INFO_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoParams_DeviceInfo_Eid
+ *        Request the identifier for eSIM. The user will be asked to approve the
+ *        disclosure of the information before the result can be returned. If
+ *        the user doesn't approve the disclosure, USER_DECLINED will be
+ *        returned. This is supported only for personally owned devices with
+ *        work profiles and Android versions 13 and above. (Value: "EID")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceInfo;
+
+@end
+
+
+/**
+ *  Status of the REQUEST_DEVICE_INFO command.
+ */
+@interface GTLRAndroidManagement_RequestDeviceInfoStatus : GTLRObject
+
+/** Information related to the EIDs of the device. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_EidInfo *eidInfo;
+
+/**
+ *  Output only. Status of a REQUEST_DEVICE_INFO command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_PendingUserAction
+ *        The user has not completed the actions required to share device
+ *        information. (Value: "PENDING_USER_ACTION")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_StatusUnspecified
+ *        Unspecified. This value is not used. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Succeeded
+ *        Device information has been successfully delivered. (Value:
+ *        "SUCCEEDED")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Unsupported
+ *        The requested device info is not supported on this device, e.g. eSIM
+ *        is not supported on the device. (Value: "UNSUPPORTED")
+ *    @arg @c kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_UserDeclined
+ *        The user declined sharing device information. (Value: "USER_DECLINED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Controls for the screen brightness settings.
+ */
+@interface GTLRAndroidManagement_ScreenBrightnessSettings : GTLRObject
+
+/**
+ *  Optional. The screen brightness between 1 and 255 where 1 is the lowest and
+ *  255 is the highest brightness. A value of 0 (default) means no screen
+ *  brightness set. Any other value is rejected. screenBrightnessMode must be
+ *  either BRIGHTNESS_AUTOMATIC or BRIGHTNESS_FIXED to set this. Supported on
+ *  Android 9 and above on fully managed devices. A NonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 9. Supported on
+ *  work profiles on company-owned devices on Android 15 and above.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenBrightness;
+
+/**
+ *  Optional. Controls the screen brightness mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessAutomatic
+ *        The screen brightness mode is automatic in which the brightness is
+ *        automatically adjusted and the user is not allowed to configure the
+ *        screen brightness. screenBrightness can still be set and it is taken
+ *        into account while the brightness is automatically adjusted. Supported
+ *        on Android 9 and above on fully managed devices. A NonComplianceDetail
+ *        with API_LEVEL is reported if the Android version is less than 9.
+ *        Supported on work profiles on company-owned devices on Android 15 and
+ *        above. (Value: "BRIGHTNESS_AUTOMATIC")
+ *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessFixed
+ *        The screen brightness mode is fixed in which the brightness is set to
+ *        screenBrightness and the user is not allowed to configure the screen
+ *        brightness. screenBrightness must be set. Supported on Android 9 and
+ *        above on fully managed devices. A NonComplianceDetail with API_LEVEL
+ *        is reported if the Android version is less than 9. Supported on work
+ *        profiles on company-owned devices on Android 15 and above. (Value:
+ *        "BRIGHTNESS_FIXED")
+ *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessUserChoice
+ *        The user is allowed to configure the screen brightness.
+ *        screenBrightness must not be set. (Value: "BRIGHTNESS_USER_CHOICE")
+ *    @arg @c kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_ScreenBrightnessModeUnspecified
+ *        Unspecified. Defaults to BRIGHTNESS_USER_CHOICE. (Value:
+ *        "SCREEN_BRIGHTNESS_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *screenBrightnessMode;
+
+@end
+
+
+/**
+ *  Controls the screen timeout settings.
+ */
+@interface GTLRAndroidManagement_ScreenTimeoutSettings : GTLRObject
+
+/**
+ *  Optional. Controls the screen timeout duration. The screen timeout duration
+ *  must be greater than 0, otherwise it is rejected. Additionally, it should
+ *  not be greater than maximumTimeToLock, otherwise the screen timeout is set
+ *  to maximumTimeToLock and a NonComplianceDetail with INVALID_VALUE reason and
+ *  SCREEN_TIMEOUT_GREATER_THAN_MAXIMUM_TIME_TO_LOCK specific reason is
+ *  reported. If the screen timeout is less than a certain lower bound, it is
+ *  set to the lower bound. The lower bound may vary across devices. If this is
+ *  set, screenTimeoutMode must be SCREEN_TIMEOUT_ENFORCED. Supported on Android
+ *  9 and above on fully managed devices. A NonComplianceDetail with API_LEVEL
+ *  is reported if the Android version is less than 9. Supported on work
+ *  profiles on company-owned devices on Android 15 and above.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *screenTimeout;
+
+/**
+ *  Optional. Controls whether the user is allowed to configure the screen
+ *  timeout.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutEnforced
+ *        The screen timeout is set to screenTimeout and the user is not allowed
+ *        to configure the timeout. screenTimeout must be set. Supported on
+ *        Android 9 and above on fully managed devices. A NonComplianceDetail
+ *        with API_LEVEL is reported if the Android version is less than 9.
+ *        Supported on work profiles on company-owned devices on Android 15 and
+ *        above. (Value: "SCREEN_TIMEOUT_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutModeUnspecified
+ *        Unspecified. Defaults to SCREEN_TIMEOUT_USER_CHOICE. (Value:
+ *        "SCREEN_TIMEOUT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ScreenTimeoutSettings_ScreenTimeoutMode_ScreenTimeoutUserChoice
+ *        The user is allowed to configure the screen timeout. screenTimeout
+ *        must not be set. (Value: "SCREEN_TIMEOUT_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *screenTimeoutMode;
 
 @end
 
@@ -9804,8 +13346,41 @@ GTLR_DEPRECATED
  *        Personal usage is allowed (Value: "PERSONAL_USAGE_ALLOWED")
  *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowed
  *        Personal usage is disallowed (Value: "PERSONAL_USAGE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_PersonalUsageDisallowedUserless
+ *        Device is not associated with a single user, and thus both personal
+ *        usage and corporate identity authentication are not expected.
+ *        Important: This setting is mandatory for dedicated device enrollment
+ *        and it is a breaking change. This change needs to be implemented
+ *        before January 2025.For additional details see the dedicated device
+ *        provisioning guide
+ *        (https://developers.google.com/android/management/provision-device#company-owned_devices_for_work_use_only).
+ *        (Value: "PERSONAL_USAGE_DISALLOWED_USERLESS")
  */
 @property(nonatomic, copy, nullable) NSString *allowPersonalUsage;
+
+/**
+ *  Optional. Whether the sign-in URL should be used by default for the
+ *  enterprise. The SigninDetail with defaultStatus set to
+ *  SIGNIN_DETAIL_IS_DEFAULT is used for Google account enrollment method. Only
+ *  one of an enterprise's signinDetails can have defaultStatus set to
+ *  SIGNIN_DETAIL_IS_DEFAULT. If an Enterprise has at least one signinDetails
+ *  and none of them have defaultStatus set to SIGNIN_DETAIL_IS_DEFAULT then the
+ *  first one from the list is selected and has set defaultStatus to
+ *  SIGNIN_DETAIL_IS_DEFAULT. If no signinDetails specified for the Enterprise
+ *  then the Google Account device enrollment will fail.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailDefaultStatusUnspecified
+ *        Equivalent to SIGNIN_DETAIL_IS_NOT_DEFAULT. (Value:
+ *        "SIGNIN_DETAIL_DEFAULT_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsDefault
+ *        The sign-in URL will be used by default for the enterprise. (Value:
+ *        "SIGNIN_DETAIL_IS_DEFAULT")
+ *    @arg @c kGTLRAndroidManagement_SigninDetail_DefaultStatus_SigninDetailIsNotDefault
+ *        The sign-in URL will not be used by default for the enterprise.
+ *        (Value: "SIGNIN_DETAIL_IS_NOT_DEFAULT")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultStatus;
 
 /**
  *  A JSON string whose UTF-8 representation can be used to generate a QR code
@@ -9954,7 +13529,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *lostOrganization;
 
-/** The phone number displayed to the user when the device is in lost mode. */
+/**
+ *  The phone number that will be called when the device is in lost mode and the
+ *  call owner button is tapped.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *lostPhoneNumber;
 
 /**
@@ -10056,7 +13634,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *applicationReportsEnabled;
 
 /**
- *  Whether Common Criteria Mode reporting is enabled.
+ *  Whether Common Criteria Mode reporting is enabled. This is supported only on
+ *  company-owned devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -10177,7 +13756,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  Configuration for managing system updates
+ *  Configuration for managing system updatesNote: Google Play system updates
+ *  (https://source.android.com/docs/core/ota/modular-system) (also called
+ *  Mainline updates) are automatically downloaded but require a device reboot
+ *  to be installed. Refer to the mainline section in Manage system updates
+ *  (https://developer.android.com/work/dpc/system-updates#mainline) for further
+ *  details.
  */
 @interface GTLRAndroidManagement_SystemUpdate : GTLRObject
 
@@ -10283,8 +13867,45 @@ GTLR_DEPRECATED
  */
 @interface GTLRAndroidManagement_TelephonyInfo : GTLRObject
 
+/**
+ *  Output only. Activation state of the SIM card on the device. This is
+ *  applicable for eSIMs only. This is supported on all devices for API level 35
+ *  and above. This is always ACTIVATION_STATE_UNSPECIFIED for physical SIMs and
+ *  for devices below API level 35.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ActivationState_Activated The
+ *        SIM card is activated. (Value: "ACTIVATED")
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ActivationState_ActivationStateUnspecified
+ *        Activation state is not specified. (Value:
+ *        "ACTIVATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ActivationState_NotActivated
+ *        The SIM card is not activated. (Value: "NOT_ACTIVATED")
+ */
+@property(nonatomic, copy, nullable) NSString *activationState;
+
 /** The carrier name associated with this SIM card. */
 @property(nonatomic, copy, nullable) NSString *carrierName;
+
+/**
+ *  Output only. The configuration mode of the SIM card on the device. This is
+ *  applicable for eSIMs only. This is supported on all devices for API level 35
+ *  and above. This is always CONFIG_MODE_UNSPECIFIED for physical SIMs and for
+ *  devices below API level 35.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ConfigMode_AdminConfigured
+ *        The admin has configured this SIM. (Value: "ADMIN_CONFIGURED")
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ConfigMode_ConfigModeUnspecified
+ *        The configuration mode is unspecified. (Value:
+ *        "CONFIG_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ConfigMode_UserConfigured The
+ *        user has configured this SIM. (Value: "USER_CONFIGURED")
+ */
+@property(nonatomic, copy, nullable) NSString *configMode;
+
+/** Output only. The ICCID associated with this SIM card. */
+@property(nonatomic, copy, nullable) NSString *iccId;
 
 /** The phone number associated with this SIM card. */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
@@ -10349,6 +13970,9 @@ GTLR_DEPRECATED
 
 /** An app process was started. Part of SECURITY_LOGS. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_AppProcessStartEvent *appProcessStartEvent;
+
+/** An admin has enabled or disabled backup service. Part of SECURITY_LOGS. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_BackupServiceToggledEvent *backupServiceToggledEvent;
 
 /**
  *  A new root certificate was installed into the system's trusted credential
@@ -10416,6 +14040,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_AppProcessStart
  *        Indicates app_process_start_event has been set. (Value:
  *        "APP_PROCESS_START")
+ *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_BackupServiceToggled
+ *        Indicates backupServiceToggledEvent has been set. (Value:
+ *        "BACKUP_SERVICE_TOGGLED")
  *    @arg @c kGTLRAndroidManagement_UsageLogEvent_EventType_CertAuthorityInstalled
  *        Indicates cert_authority_installed_event has been set. (Value:
  *        "CERT_AUTHORITY_INSTALLED")
@@ -10758,6 +14385,109 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Wi-Fi roaming policy.
+ */
+@interface GTLRAndroidManagement_WifiRoamingPolicy : GTLRObject
+
+/**
+ *  Optional. Wi-Fi roaming settings. SSIDs provided in this list must be
+ *  unique, the policy will be rejected otherwise.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_WifiRoamingSetting *> *wifiRoamingSettings;
+
+@end
+
+
+/**
+ *  Wi-Fi roaming setting.
+ */
+@interface GTLRAndroidManagement_WifiRoamingSetting : GTLRObject
+
+/**
+ *  Required. Wi-Fi roaming mode for the specified SSID.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingAggressive
+ *        Aggressive roaming mode which allows quicker Wi-Fi roaming. Supported
+ *        on Android 15 and above on fully managed devices and work profiles on
+ *        company-owned devices. A NonComplianceDetail with MANAGEMENT_MODE is
+ *        reported for other management modes. A NonComplianceDetail with
+ *        API_LEVEL is reported if the Android version is less than 15. A
+ *        NonComplianceDetail with DEVICE_INCOMPATIBLE is reported if the device
+ *        does not support aggressive roaming mode. (Value:
+ *        "WIFI_ROAMING_AGGRESSIVE")
+ *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDefault
+ *        Default Wi-Fi roaming mode of the device. (Value:
+ *        "WIFI_ROAMING_DEFAULT")
+ *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingDisabled
+ *        Wi-Fi roaming is disabled. Supported on Android 15 and above on fully
+ *        managed devices and work profiles on company-owned devices. A
+ *        NonComplianceDetail with MANAGEMENT_MODE is reported for other
+ *        management modes. A NonComplianceDetail with API_LEVEL is reported if
+ *        the Android version is less than 15. (Value: "WIFI_ROAMING_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_WifiRoamingSetting_WifiRoamingMode_WifiRoamingModeUnspecified
+ *        Unspecified. Defaults to WIFI_ROAMING_DEFAULT. (Value:
+ *        "WIFI_ROAMING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wifiRoamingMode;
+
+/** Required. SSID of the Wi-Fi network. */
+@property(nonatomic, copy, nullable) NSString *wifiSsid;
+
+@end
+
+
+/**
+ *  Represents a Wi-Fi SSID.
+ */
+@interface GTLRAndroidManagement_WifiSsid : GTLRObject
+
+/** Required. Wi-Fi SSID represented as a string. */
+@property(nonatomic, copy, nullable) NSString *wifiSsid;
+
+@end
+
+
+/**
+ *  Restrictions on which Wi-Fi SSIDs the device can connect to. Note that this
+ *  does not affect which networks can be configured on the device. Supported on
+ *  company-owned devices running Android 13 and above.
+ */
+@interface GTLRAndroidManagement_WifiSsidPolicy : GTLRObject
+
+/**
+ *  Type of the Wi-Fi SSID policy to be applied.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidAllowlist
+ *        The device can make Wi-Fi connections only to the SSIDs in wifiSsids.
+ *        wifiSsids must not be empty. The device will not be able to connect to
+ *        any other Wi-Fi network. (Value: "WIFI_SSID_ALLOWLIST")
+ *    @arg @c kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidDenylist
+ *        The device cannot connect to any Wi-Fi network whose SSID is in
+ *        wifiSsids, but can connect to other networks. (Value:
+ *        "WIFI_SSID_DENYLIST")
+ *    @arg @c kGTLRAndroidManagement_WifiSsidPolicy_WifiSsidPolicyType_WifiSsidPolicyTypeUnspecified
+ *        Defaults to WIFI_SSID_DENYLIST. wifiSsids must not be set. There are
+ *        no restrictions on which SSID the device can connect to. (Value:
+ *        "WIFI_SSID_POLICY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wifiSsidPolicyType;
+
+/**
+ *  Optional. List of Wi-Fi SSIDs that should be applied in the policy. This
+ *  field must be non-empty when WifiSsidPolicyType is set to
+ *  WIFI_SSID_ALLOWLIST. If this is set to a non-empty list, then a
+ *  NonComplianceDetail detail with API_LEVEL is reported if the Android version
+ *  is less than 13 and a NonComplianceDetail with MANAGEMENT_MODE is reported
+ *  for non-company-owned devices.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_WifiSsid *> *wifiSsids;
+
+@end
+
+
+/**
  *  An action to reset a company owned device or delete a work profile. Note:
  *  blockAction must also be specified.
  */
@@ -10788,6 +14518,58 @@ GTLR_DEPRECATED
  *  Intentionally empty.
  */
 @interface GTLRAndroidManagement_WipeFailureEvent : GTLRObject
+@end
+
+
+/**
+ *  Parameters associated with the WIPE command to wipe the device.
+ */
+@interface GTLRAndroidManagement_WipeParams : GTLRObject
+
+/** Optional. Flags to determine what data to wipe. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
+
+/**
+ *  Optional. A short message displayed to the user before wiping the work
+ *  profile on personal devices. This has no effect on company owned devices.
+ *  The maximum message length is 200 characters.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *wipeReason;
+
+@end
+
+
+/**
+ *  Controls the work account setup configuration, such as details of whether a
+ *  Google authenticated account is required.
+ */
+@interface GTLRAndroidManagement_WorkAccountSetupConfig : GTLRObject
+
+/**
+ *  Optional. The authentication type of the user on the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeNotEnforced
+ *        Authentication status of user on device is not enforced. (Value:
+ *        "AUTHENTICATION_TYPE_NOT_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_AuthenticationTypeUnspecified
+ *        Unspecified. Defaults to AUTHENTICATION_TYPE_NOT_ENFORCED. (Value:
+ *        "AUTHENTICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationType_GoogleAuthenticated
+ *        Requires device to be managed with a Google authenticated account.
+ *        (Value: "GOOGLE_AUTHENTICATED")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationType;
+
+/**
+ *  Optional. The specific google work account email address to be added. This
+ *  field is only relevant if authenticationType is GOOGLE_AUTHENTICATED. This
+ *  must be an enterprise account and not a consumer account. Once set and a
+ *  Google authenticated account is added to the device, changing this field
+ *  will have no effect, and thus recommended to be set only once.
+ */
+@property(nonatomic, copy, nullable) NSString *requiredAccountEmail;
+
 @end
 
 NS_ASSUME_NONNULL_END

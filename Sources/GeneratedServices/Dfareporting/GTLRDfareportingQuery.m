@@ -2794,6 +2794,110 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @end
 
+@implementation GTLRDfareportingQuery_DynamicFeedsGet
+
+@dynamic dynamicFeedId;
+
++ (instancetype)queryWithDynamicFeedId:(long long)dynamicFeedId {
+  NSArray *pathParams = @[ @"dynamicFeedId" ];
+  NSString *pathURITemplate = @"studio/dynamicFeeds/{+dynamicFeedId}";
+  GTLRDfareportingQuery_DynamicFeedsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.dynamicFeedId = dynamicFeedId;
+  query.expectedObjectClass = [GTLRDfareporting_DynamicFeed class];
+  query.loggingName = @"dfareporting.dynamicFeeds.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_DynamicFeedsInsert
+
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicFeedsInsertRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"studio/dynamicFeeds";
+  GTLRDfareportingQuery_DynamicFeedsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDfareporting_DynamicFeed class];
+  query.loggingName = @"dfareporting.dynamicFeeds.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_DynamicProfilesGet
+
+@dynamic dynamicProfileId;
+
++ (instancetype)queryWithDynamicProfileId:(long long)dynamicProfileId {
+  NSArray *pathParams = @[ @"dynamicProfileId" ];
+  NSString *pathURITemplate = @"studio/dynamicProfiles/{+dynamicProfileId}";
+  GTLRDfareportingQuery_DynamicProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.dynamicProfileId = dynamicProfileId;
+  query.expectedObjectClass = [GTLRDfareporting_DynamicProfile class];
+  query.loggingName = @"dfareporting.dynamicProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_DynamicProfilesInsert
+
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicProfile *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"studio/dynamicProfiles";
+  GTLRDfareportingQuery_DynamicProfilesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDfareporting_DynamicProfile class];
+  query.loggingName = @"dfareporting.dynamicProfiles.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_DynamicProfilesUpdate
+
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicProfile *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"studio/dynamicProfiles";
+  GTLRDfareportingQuery_DynamicProfilesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDfareporting_DynamicProfile class];
+  query.loggingName = @"dfareporting.dynamicProfiles.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRDfareportingQuery_DynamicTargetingKeysDelete
 
 @dynamic name, objectId, objectType, profileId;
@@ -5581,6 +5685,52 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.profileId = profileId;
   query.expectedObjectClass = [GTLRDfareporting_TargetingTemplate class];
   query.loggingName = @"dfareporting.targetingTemplates.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_TvCampaignDetailsGet
+
+@dynamic accountId, identifier, profileId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithProfileId:(long long)profileId
+                        identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"profileId"
+  ];
+  NSString *pathURITemplate = @"userprofiles/{+profileId}/tvCampaignDetails/{+id}";
+  GTLRDfareportingQuery_TvCampaignDetailsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.profileId = profileId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRDfareporting_TvCampaignDetail class];
+  query.loggingName = @"dfareporting.tvCampaignDetails.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_TvCampaignSummariesList
+
+@dynamic accountId, name, profileId;
+
++ (instancetype)queryWithProfileId:(long long)profileId {
+  NSArray *pathParams = @[ @"profileId" ];
+  NSString *pathURITemplate = @"userprofiles/{+profileId}/tvCampaignSummaries";
+  GTLRDfareportingQuery_TvCampaignSummariesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.profileId = profileId;
+  query.expectedObjectClass = [GTLRDfareporting_TvCampaignSummariesListResponse class];
+  query.loggingName = @"dfareporting.tvCampaignSummaries.list";
   return query;
 }
 

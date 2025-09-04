@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Slides presentations.
 // Documentation:
-//   https://developers.google.com/slides/
+//   https://developers.google.com/workspace/slides/
 
 #import <GoogleAPIClientForREST/GTLRSlidesObjects.h>
 
@@ -1369,7 +1369,8 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_PageElement
 @dynamic descriptionProperty, elementGroup, image, line, objectId, shape,
-         sheetsChart, size, table, title, transform, video, wordArt;
+         sheetsChart, size, speakerSpotlight, table, title, transform, video,
+         wordArt;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1733,6 +1734,26 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_SpeakerSpotlight
+//
+
+@implementation GTLRSlides_SpeakerSpotlight
+@dynamic speakerSpotlightProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_SpeakerSpotlightProperties
+//
+
+@implementation GTLRSlides_SpeakerSpotlightProperties
+@dynamic outline, shadow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_StretchedPictureFill
 //
 
@@ -1747,7 +1768,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_SubstringMatchCriteria
-@dynamic matchCase, text;
+@dynamic matchCase, searchByRegex, text;
 @end
 
 

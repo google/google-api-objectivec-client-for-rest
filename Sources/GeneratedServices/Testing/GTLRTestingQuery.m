@@ -7,7 +7,7 @@
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.
 // Documentation:
-//   https://developers.google.com/cloud-test-lab/
+//   https://firebase.google.com/docs/test-lab/
 
 #import <GoogleAPIClientForREST/GTLRTestingQuery.h>
 
@@ -254,7 +254,7 @@ NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware   = @"PROVIDED_SOFT
 
 @implementation GTLRTestingQuery_TestEnvironmentCatalogGet
 
-@dynamic environmentType, projectId;
+@dynamic environmentType, includeViewableModels, projectId;
 
 + (instancetype)queryWithEnvironmentType:(NSString *)environmentType {
   NSArray *pathParams = @[ @"environmentType" ];

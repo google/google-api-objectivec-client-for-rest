@@ -43,6 +43,24 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewBasic;
  */
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewFull;
 /**
+ *  The asset view includes asset name and labels.
+ *
+ *  Value: "ASSET_VIEW_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewLabels;
+/**
+ *  The asset view includes the standard metadata of an asset.
+ *
+ *  Value: "ASSET_VIEW_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewStandard;
+/**
+ *  The asset view includes fields needed by UI.
+ *
+ *  Value: "ASSET_VIEW_UI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewAssetViewUi;
+/**
  *  The asset view is not specified. The API displays the basic view by default.
  *
  *  Value: "ASSET_VIEW_UNSPECIFIED"
@@ -281,6 +299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *    @arg @c kGTLRMigrationCenterAPIViewAssetViewFull The asset view includes
  *        all the metadata of an asset and performance data. (Value:
  *        "ASSET_VIEW_FULL")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewStandard The asset view
+ *        includes the standard metadata of an asset. (Value:
+ *        "ASSET_VIEW_STANDARD")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewUi The asset view includes
+ *        fields needed by UI. (Value: "ASSET_VIEW_UI")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewLabels The asset view includes
+ *        asset name and labels. (Value: "ASSET_VIEW_LABELS")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -328,6 +353,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. When this value is set to 'true,' the response will include all
+ *  assets, including those that are hidden.
+ */
+@property(nonatomic, assign) BOOL showHidden;
+
+/**
  *  View of the assets. Defaults to BASIC.
  *
  *  Likely values:
@@ -339,6 +370,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *    @arg @c kGTLRMigrationCenterAPIViewAssetViewFull The asset view includes
  *        all the metadata of an asset and performance data. (Value:
  *        "ASSET_VIEW_FULL")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewStandard The asset view
+ *        includes the standard metadata of an asset. (Value:
+ *        "ASSET_VIEW_STANDARD")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewUi The asset view includes
+ *        fields needed by UI. (Value: "ASSET_VIEW_UI")
+ *    @arg @c kGTLRMigrationCenterAPIViewAssetViewLabels The asset view includes
+ *        asset name and labels. (Value: "ASSET_VIEW_LABELS")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -441,6 +479,264 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRMigrationCenterAPI_Frames *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new discovery client.
+ *
+ *  Method: migrationcenter.projects.locations.discoveryClients.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsCreate : GTLRMigrationCenterAPIQuery
+
+/**
+ *  Required. User specified ID for the discovery client. It will become the
+ *  last component of the discovery client name. The ID must be unique within
+ *  the project, is restricted to lower-cased letters and has a maximum length
+ *  of 63 characters. The ID must match the regular expression:
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
+ */
+@property(nonatomic, copy, nullable) NSString *discoveryClientId;
+
+/** Required. Parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *
+ *  Creates a new discovery client.
+ *
+ *  @param object The @c GTLRMigrationCenterAPI_DiscoveryClient to include in
+ *    the query.
+ *  @param parent Required. Parent resource.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsCreate
+ */
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_DiscoveryClient *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a discovery client.
+ *
+ *  Method: migrationcenter.projects.locations.discoveryClients.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsDelete : GTLRMigrationCenterAPIQuery
+
+/** Required. The discovery client name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *
+ *  Deletes a discovery client.
+ *
+ *  @param name Required. The discovery client name.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a discovery client.
+ *
+ *  Method: migrationcenter.projects.locations.discoveryClients.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsGet : GTLRMigrationCenterAPIQuery
+
+/** Required. The discovery client name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_DiscoveryClient.
+ *
+ *  Gets the details of a discovery client.
+ *
+ *  @param name Required. The discovery client name.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the discovery clients in a given project and location.
+ *
+ *  Method: migrationcenter.projects.locations.discoveryClients.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsList : GTLRMigrationCenterAPIQuery
+
+/** Optional. Filter expression to filter results by. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field to sort by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. The server may return fewer
+ *  items than requested. If unspecified, the server will pick an appropriate
+ *  default value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListDiscoveryClients`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListDiscoveryClients` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_ListDiscoveryClientsResponse.
+ *
+ *  Lists all the discovery clients in a given project and location.
+ *
+ *  @param parent Required. Parent resource.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a discovery client.
+ *
+ *  Method: migrationcenter.projects.locations.discoveryClients.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsPatch : GTLRMigrationCenterAPIQuery
+
+/** Output only. Identifier. Full name of this discovery client. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Update mask is used to specify the fields to be overwritten in the
+ *  `DiscoveryClient` resource by the update. The values specified in the
+ *  `update_mask` field are relative to the resource, not the full request. A
+ *  field will be overwritten if it is in the mask. A single * value in the mask
+ *  lets you to overwrite all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *
+ *  Updates a discovery client.
+ *
+ *  @param object The @c GTLRMigrationCenterAPI_DiscoveryClient to include in
+ *    the query.
+ *  @param name Output only. Identifier. Full name of this discovery client.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsPatch
+ */
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_DiscoveryClient *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sends a discovery client heartbeat. Healthy clients are expected to send
+ *  heartbeats regularly (normally every few minutes).
+ *
+ *  Method: migrationcenter.projects.locations.discoveryClients.sendHeartbeat
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsSendHeartbeat : GTLRMigrationCenterAPIQuery
+
+/** Required. The discovery client name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *
+ *  Sends a discovery client heartbeat. Healthy clients are expected to send
+ *  heartbeats regularly (normally every few minutes).
+ *
+ *  @param object The @c
+ *    GTLRMigrationCenterAPI_SendDiscoveryClientHeartbeatRequest to include in
+ *    the query.
+ *  @param name Required. The discovery client name.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsDiscoveryClientsSendHeartbeat
+ */
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_SendDiscoveryClientHeartbeatRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1266,6 +1562,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @interface GTLRMigrationCenterAPIQuery_ProjectsLocationsList : GTLRMigrationCenterAPIQuery
 
 /**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -1312,7 +1614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: migrationcenter.projects.locations.operations.cancel
@@ -1335,7 +1637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRMigrationCenterAPI_CancelOperationRequest to
@@ -1669,6 +1971,82 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRMigrationCenterAPI_PreferenceSet *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of an relation.
+ *
+ *  Method: migrationcenter.projects.locations.relations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsGet : GTLRMigrationCenterAPIQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Relation.
+ *
+ *  Gets the details of an relation.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the relations in a given project and location.
+ *
+ *  Method: migrationcenter.projects.locations.relations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsList : GTLRMigrationCenterAPIQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field to sort by. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for `ListRelationsRequest`. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_ListRelationsResponse.
+ *
+ *  Lists all the relations in a given project and location.
+ *
+ *  @param parent Required. Parent value for `ListRelationsRequest`.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsRelationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

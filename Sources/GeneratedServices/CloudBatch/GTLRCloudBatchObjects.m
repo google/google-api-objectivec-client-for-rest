@@ -4,7 +4,7 @@
 // API:
 //   Batch API (batch/v1)
 // Description:
-//   An API to manage the running of batch resources on Google Cloud Platform.
+//   An API to manage the running of Batch resources on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/batch/
 
@@ -33,16 +33,20 @@ NSString * const kGTLRCloudBatch_AgentTask_TaskSource_User     = @"USER";
 // GTLRCloudBatch_InstancePolicy.provisioningModel
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible = @"PREEMPTIBLE";
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ProvisioningModelUnspecified = @"PROVISIONING_MODEL_UNSPECIFIED";
+NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ReservationBound = @"RESERVATION_BOUND";
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Spot = @"SPOT";
 NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Standard = @"STANDARD";
 
 // GTLRCloudBatch_InstanceStatus.provisioningModel
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Preemptible = @"PREEMPTIBLE";
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ProvisioningModelUnspecified = @"PROVISIONING_MODEL_UNSPECIFIED";
+NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ReservationBound = @"RESERVATION_BOUND";
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Spot = @"SPOT";
 NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Standard = @"STANDARD";
 
 // GTLRCloudBatch_JobStatus.state
+NSString * const kGTLRCloudBatch_JobStatus_State_CancellationInProgress = @"CANCELLATION_IN_PROGRESS";
+NSString * const kGTLRCloudBatch_JobStatus_State_Cancelled     = @"CANCELLED";
 NSString * const kGTLRCloudBatch_JobStatus_State_DeletionInProgress = @"DELETION_IN_PROGRESS";
 NSString * const kGTLRCloudBatch_JobStatus_State_Failed        = @"FAILED";
 NSString * const kGTLRCloudBatch_JobStatus_State_Queued        = @"QUEUED";
@@ -62,6 +66,8 @@ NSString * const kGTLRCloudBatch_LogsPolicy_Destination_DestinationUnspecified =
 NSString * const kGTLRCloudBatch_LogsPolicy_Destination_Path   = @"PATH";
 
 // GTLRCloudBatch_Message.newJobState
+NSString * const kGTLRCloudBatch_Message_NewJobState_CancellationInProgress = @"CANCELLATION_IN_PROGRESS";
+NSString * const kGTLRCloudBatch_Message_NewJobState_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudBatch_Message_NewJobState_DeletionInProgress = @"DELETION_IN_PROGRESS";
 NSString * const kGTLRCloudBatch_Message_NewJobState_Failed    = @"FAILED";
 NSString * const kGTLRCloudBatch_Message_NewJobState_Queued    = @"QUEUED";
@@ -231,7 +237,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 @implementation GTLRCloudBatch_AgentMetadata
 @dynamic creationTime, creator, imageVersion, instance, instanceId,
-         instancePreemptionNoticeReceived, osRelease, version, zoneProperty;
+         instancePreemptionNoticeReceived, machineType, osRelease, version,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -287,6 +294,30 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBatch_AgentTaskLoggingOption
+//
+
+@implementation GTLRCloudBatch_AgentTaskLoggingOption
+@dynamic labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_AgentTaskLoggingOption_Labels
+//
+
+@implementation GTLRCloudBatch_AgentTaskLoggingOption_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBatch_AgentTaskRunnable
 //
 
@@ -302,7 +333,7 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_AgentTaskSpec
-@dynamic environment, maxRunDuration, runnables, userAccount;
+@dynamic environment, loggingOption, maxRunDuration, runnables, userAccount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -384,6 +415,16 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 
 @implementation GTLRCloudBatch_Barrier
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBatch_CancelJobRequest
+//
+
+@implementation GTLRCloudBatch_CancelJobRequest
+@dynamic requestId;
 @end
 
 
@@ -529,7 +570,8 @@ NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted   = @"UNEXECUTED";
 //
 
 @implementation GTLRCloudBatch_InstancePolicyOrTemplate
-@dynamic installGpuDrivers, instanceTemplate, policy;
+@dynamic blockProjectSshKeys, installGpuDrivers, installOpsAgent,
+         instanceTemplate, policy;
 @end
 
 

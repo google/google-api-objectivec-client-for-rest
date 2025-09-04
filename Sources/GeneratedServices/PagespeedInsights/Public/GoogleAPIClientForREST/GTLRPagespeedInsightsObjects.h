@@ -32,6 +32,7 @@
 @class GTLRPagespeedInsights_LighthouseResultV5;
 @class GTLRPagespeedInsights_LighthouseResultV5_Audits;
 @class GTLRPagespeedInsights_LighthouseResultV5_CategoryGroups;
+@class GTLRPagespeedInsights_MetricSavings;
 @class GTLRPagespeedInsights_PagespeedApiLoadingExperienceV5;
 @class GTLRPagespeedInsights_PagespeedApiLoadingExperienceV5_Metrics;
 @class GTLRPagespeedInsights_PagespeedVersion;
@@ -132,8 +133,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The Progressive-Web-App (PWA) category, containing all pwa related audits.
+ *  This is deprecated in Lighthouse's 12.0 release.
  */
-@property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *pwa;
+@property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *pwa GTLR_DEPRECATED;
 
 /**
  *  The Search-Engine-Optimization (SEO) category, containing all seo related
@@ -316,6 +318,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The metric savings of the audit. */
+@property(nonatomic, strong, nullable) GTLRPagespeedInsights_MetricSavings *metricSavings;
 
 /**
  *  The unit of the numeric_value field. Used to format the numeric value for
@@ -505,6 +510,54 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRPagespeedInsights_LighthouseResultV5_CategoryGroups : GTLRObject
+@end
+
+
+/**
+ *  The metric savings of the audit.
+ */
+@interface GTLRPagespeedInsights_MetricSavings : GTLRObject
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  CLS metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *CLS;
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  FCP metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *FCP;
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  INP metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *INP;
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  LCP metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *LCP;
+
+/**
+ *  Optional. Optional numeric value representing the audit's savings for the
+ *  TBT metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *TBT;
+
 @end
 
 

@@ -22,6 +22,7 @@ NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_CambiumNetwor
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Cw = @"CW";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_DoodleCbrs = @"DOODLE_CBRS";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_EUtra = @"E_UTRA";
+NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Faros = @"FAROS";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_FourGBbwSaa1 = @"FOUR_G_BBW_SAA_1";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_Nr = @"NR";
 NSString * const kGTLRSASPortal_DeviceAirInterface_RadioTechnology_RadioTechnologyUnspecified = @"RADIO_TECHNOLOGY_UNSPECIFIED";

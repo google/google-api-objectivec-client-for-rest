@@ -6,7 +6,7 @@
 // Description:
 //   Manipulates events and other calendar data.
 // Documentation:
-//   https://developers.google.com/google-apps/calendar/firstapp
+//   https://developers.google.com/workspace/calendar/firstapp
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -45,6 +45,7 @@
 @class GTLRCalendar_Event_Source;
 @class GTLRCalendar_EventAttachment;
 @class GTLRCalendar_EventAttendee;
+@class GTLRCalendar_EventBirthdayProperties;
 @class GTLRCalendar_EventDateTime;
 @class GTLRCalendar_EventFocusTimeProperties;
 @class GTLRCalendar_EventOutOfOfficeProperties;
@@ -134,9 +135,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  appear to users with reader access, but event details will be hidden.
  *  - "writer" - Provides read and write access to the calendar. Private events
  *  will appear to users with writer access, and event details will be visible.
+ *  Provides read access to the calendar's ACLs.
  *  - "owner" - Provides ownership of the calendar. This role has all of the
- *  permissions of the writer role with the additional ability to see and
- *  manipulate ACLs.
+ *  permissions of the writer role with the additional ability to manipulate
+ *  ACLs.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -923,6 +925,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *attendeesOmitted;
 
 /**
+ *  Birthday or special event data. Used if eventType is "birthday". Immutable.
+ */
+@property(nonatomic, strong, nullable) GTLRCalendar_EventBirthdayProperties *birthdayProperties;
+
+/**
  *  The color of the event. This is an ID referring to an entry in the event
  *  section of the colors definition (see the colors endpoint). Optional.
  */
@@ -970,12 +977,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Specific type of the event. This cannot be modified after the event is
  *  created. Possible values are:
+ *  - "birthday" - A special all-day event with an annual recurrence.
  *  - "default" - A regular event or not further specified.
- *  - "outOfOffice" - An out-of-office event.
  *  - "focusTime" - A focus-time event.
- *  - "workingLocation" - A working location event. Currently, only "default "
- *  and "workingLocation" events can be created using the API. Extended support
- *  for other event types will be made available in later releases.
+ *  - "fromGmail" - An event from Gmail. This type of event cannot be created.
+ *  - "outOfOffice" - An out-of-office event.
+ *  - "workingLocation" - A working location event.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -1119,7 +1126,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *recurringEventId;
 
-/** Information about the event's reminders for the authenticated user. */
+/**
+ *  Information about the event's reminders for the authenticated user. Note
+ *  that changing reminders does not also change the updated property of the
+ *  enclosing event.
+ */
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_Reminders *reminders;
 
 /**
@@ -1187,7 +1198,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *transparency;
 
 /**
- *  Last modification time of the event (as a RFC3339 timestamp). Read-only.
+ *  Last modification time of the main event data (as a RFC3339 timestamp).
+ *  Updating event reminders will not cause this to change. Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updated;
 
@@ -1349,7 +1361,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Information about the event's reminders for the authenticated user.
+ *  Information about the event's reminders for the authenticated user. Note
+ *  that changing reminders does not also change the updated property of the
+ *  enclosing event.
  */
 @interface GTLRCalendar_Event_Reminders : GTLRObject
 
@@ -1529,8 +1543,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "accepted" - The attendee has accepted the invitation. Warning: If you add
  *  an event using the values declined, tentative, or accepted, attendees with
  *  the "Add invitations to my calendar" setting set to "When I respond to
- *  invitation in email" won't see an event on their calendar unless they choose
- *  to change their invitation response in the event invitation email.
+ *  invitation in email" or "Only if the sender is known" might have their
+ *  response reset to needsAction and won't see an event in their calendar
+ *  unless they change their response in the event invitation email.
+ *  Furthermore, if more than 200 guests are invited to the event, response
+ *  status is not propagated to the guests.
  */
 @property(nonatomic, copy, nullable) NSString *responseStatus;
 
@@ -1543,6 +1560,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *selfProperty;
+
+@end
+
+
+/**
+ *  GTLRCalendar_EventBirthdayProperties
+ */
+@interface GTLRCalendar_EventBirthdayProperties : GTLRObject
+
+/**
+ *  Resource name of the contact this birthday event is linked to. This can be
+ *  used to fetch contact details from People API. Format: "people/c12345".
+ *  Read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *contact;
+
+/**
+ *  Custom type label specified for this event. This is populated if
+ *  birthdayProperties.type is set to "custom". Read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *customTypeName;
+
+/**
+ *  Type of birthday or special event. Possible values are:
+ *  - "anniversary" - An anniversary other than birthday. Always has a contact.
+ *  - "birthday" - A birthday event. This is the default value.
+ *  - "custom" - A special date whose label is further specified in the
+ *  customTypeName field. Always has a contact.
+ *  - "other" - A special date which does not fall into the other categories,
+ *  and does not have a custom label. Always has a contact.
+ *  - "self" - Calendar owner's own birthday. Cannot have a contact. The
+ *  Calendar API only supports creating events with the type "birthday". The
+ *  type cannot be changed after the event is created.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

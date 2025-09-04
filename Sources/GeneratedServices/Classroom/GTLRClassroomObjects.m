@@ -6,12 +6,20 @@
 // Description:
 //   Manages classes, rosters, and invitations in Google Classroom.
 // Documentation:
-//   https://developers.google.com/classroom/
+//   https://developers.google.com/workspace/classroom/
 
 #import <GoogleAPIClientForREST/GTLRClassroomObjects.h>
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// GTLRClassroom_AddOnAttachmentStudentSubmission.postSubmissionState
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_Created = @"CREATED";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_New = @"NEW";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_ReclaimedByStudent = @"RECLAIMED_BY_STUDENT";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_Returned = @"RETURNED";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_SubmissionStateUnspecified = @"SUBMISSION_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroom_AddOnAttachmentStudentSubmission_PostSubmissionState_TurnedIn = @"TURNED_IN";
 
 // GTLRClassroom_Announcement.assigneeMode
 NSString * const kGTLRClassroom_Announcement_AssigneeMode_AllStudents = @"ALL_STUDENTS";
@@ -143,6 +151,50 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_AddOnAttachment
+//
+
+@implementation GTLRClassroom_AddOnAttachment
+@dynamic copyHistory, courseId, dueDate, dueTime, identifier, itemId, maxPoints,
+         postId, studentViewUri, studentWorkReviewUri, teacherViewUri, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"copyHistory" : [GTLRClassroom_CopyHistory class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_AddOnAttachmentStudentSubmission
+//
+
+@implementation GTLRClassroom_AddOnAttachmentStudentSubmission
+@dynamic pointsEarned, postSubmissionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_AddOnContext
+//
+
+@implementation GTLRClassroom_AddOnContext
+@dynamic courseId, itemId, postId, studentContext, supportsStudentWork,
+         teacherContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Announcement
 //
 
@@ -210,6 +262,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_CloudPubsubTopic
 @dynamic topicName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_CopyHistory
+//
+
+@implementation GTLRClassroom_CopyHistory
+@dynamic attachmentId, courseId, itemId, postId;
 @end
 
 
@@ -298,8 +360,9 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 @implementation GTLRClassroom_CourseWork
 @dynamic alternateLink, assigneeMode, assignment, associatedWithDeveloper,
          courseId, creationTime, creatorUserId, descriptionProperty, dueDate,
-         dueTime, gradeCategory, identifier, individualStudentsOptions,
-         materials, maxPoints, multipleChoiceQuestion, scheduledTime, state,
+         dueTime, gradeCategory, gradingPeriodId, identifier,
+         individualStudentsOptions, materials, maxPoints,
+         multipleChoiceQuestion, scheduledTime, state,
          submissionModificationMode, title, topicId, updateTime, workType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -360,6 +423,32 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_Criterion
+//
+
+@implementation GTLRClassroom_Criterion
+@dynamic descriptionProperty, identifier, levels, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"levels" : [GTLRClassroom_Level class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Date
 //
 
@@ -400,6 +489,16 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_EmbedUri
+//
+
+@implementation GTLRClassroom_EmbedUri
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Empty
 //
 
@@ -424,6 +523,21 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_Form
 @dynamic formUrl, responseUrl, thumbnailUrl, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_GeminiGem
+//
+
+@implementation GTLRClassroom_GeminiGem
+@dynamic identifier, title, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -482,6 +596,39 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_GradingPeriod
+//
+
+@implementation GTLRClassroom_GradingPeriod
+@dynamic endDate, identifier, startDate, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_GradingPeriodSettings
+//
+
+@implementation GTLRClassroom_GradingPeriodSettings
+@dynamic applyToExistingCoursework, gradingPeriods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gradingPeriods" : [GTLRClassroom_GradingPeriod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Guardian
 //
 
@@ -535,11 +682,52 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_Level
+//
+
+@implementation GTLRClassroom_Level
+@dynamic descriptionProperty, identifier, points, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Link
 //
 
 @implementation GTLRClassroom_Link
 @dynamic thumbnailUrl, title, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListAddOnAttachmentsResponse
+//
+
+@implementation GTLRClassroom_ListAddOnAttachmentsResponse
+@dynamic addOnAttachments, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addOnAttachments" : [GTLRClassroom_AddOnAttachment class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"addOnAttachments";
+}
+
 @end
 
 
@@ -721,6 +909,28 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_ListRubricsResponse
+//
+
+@implementation GTLRClassroom_ListRubricsResponse
+@dynamic nextPageToken, rubrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rubrics" : [GTLRClassroom_Rubric class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rubrics";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_ListStudentsResponse
 //
 
@@ -813,7 +1023,7 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_Material
-@dynamic driveFile, form, link, youtubeVideo;
+@dynamic driveFile, form, gem, link, notebook, youtubeVideo;
 @end
 
 
@@ -914,6 +1124,21 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_NotebookLmNotebook
+//
+
+@implementation GTLRClassroom_NotebookLmNotebook
+@dynamic identifier, title, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_ReclaimStudentSubmissionRequest
 //
 
@@ -937,6 +1162,39 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_ReturnStudentSubmissionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_Rubric
+//
+
+@implementation GTLRClassroom_Rubric
+@dynamic courseId, courseWorkId, creationTime, criteria, identifier,
+         sourceSpreadsheetId, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"criteria" : [GTLRClassroom_Criterion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_RubricGrade
+//
+
+@implementation GTLRClassroom_RubricGrade
+@dynamic criterionId, levelId, points;
 @end
 
 
@@ -982,14 +1240,25 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_StudentContext
+//
+
+@implementation GTLRClassroom_StudentContext
+@dynamic submissionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_StudentSubmission
 //
 
 @implementation GTLRClassroom_StudentSubmission
-@dynamic alternateLink, assignedGrade, assignmentSubmission,
-         associatedWithDeveloper, courseId, courseWorkId, courseWorkType,
-         creationTime, draftGrade, identifier, late, multipleChoiceSubmission,
-         shortAnswerSubmission, state, submissionHistory, updateTime, userId;
+@dynamic alternateLink, assignedGrade, assignedRubricGrades,
+         assignmentSubmission, associatedWithDeveloper, courseId, courseWorkId,
+         courseWorkType, creationTime, draftGrade, draftRubricGrades,
+         identifier, late, multipleChoiceSubmission, shortAnswerSubmission,
+         state, submissionHistory, updateTime, userId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1000,6 +1269,34 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
     @"submissionHistory" : [GTLRClassroom_SubmissionHistory class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_StudentSubmission_AssignedRubricGrades
+//
+
+@implementation GTLRClassroom_StudentSubmission_AssignedRubricGrades
+
++ (Class)classForAdditionalProperties {
+  return [GTLRClassroom_RubricGrade class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_StudentSubmission_DraftRubricGrades
+//
+
+@implementation GTLRClassroom_StudentSubmission_DraftRubricGrades
+
++ (Class)classForAdditionalProperties {
+  return [GTLRClassroom_RubricGrade class];
 }
 
 @end
@@ -1022,6 +1319,15 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_Teacher
 @dynamic courseId, profile, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_TeacherContext
+//
+
+@implementation GTLRClassroom_TeacherContext
 @end
 
 

@@ -51,6 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_CatalogSearch : GTLRDataCatalogQuery
 
 /**
@@ -86,6 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_EntriesLookup : GTLRDataCatalogQuery
 
 /**
@@ -131,8 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `bigquery.table.{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}` *
  *  `bigquery.dataset.{PROJECT_ID}.{DATASET_ID}` *
  *  `datacatalog.entry.{PROJECT_ID}.{LOCATION_ID}.{ENTRY_GROUP_ID}.{ENTRY_ID}`
- *  Identifiers (`*_ID`) should comply with the [Lexical structure in Standard
- *  SQL]
+ *  Identifiers (`*_ID`) should comply with the [Lexical structure in GoogleSQL]
  *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical).
  */
 @property(nonatomic, copy, nullable) NSString *sqlResource;
@@ -146,6 +147,107 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDataCatalogQuery_EntriesLookup
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Retrieves the configuration related to the migration from Data Catalog to
+ *  Dataplex Universal Catalog for a specific organization, including all the
+ *  projects under it which have a separate configuration set.
+ *
+ *  Method: datacatalog.organizations.locations.retrieveConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+GTLR_DEPRECATED
+@interface GTLRDataCatalogQuery_OrganizationsLocationsRetrieveConfig : GTLRDataCatalogQuery
+
+/** Required. The organization whose config is being retrieved. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1OrganizationConfig.
+ *
+ *  Retrieves the configuration related to the migration from Data Catalog to
+ *  Dataplex Universal Catalog for a specific organization, including all the
+ *  projects under it which have a separate configuration set.
+ *
+ *  @param name Required. The organization whose config is being retrieved.
+ *
+ *  @return GTLRDataCatalogQuery_OrganizationsLocationsRetrieveConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the effective configuration related to the migration from Data
+ *  Catalog to Dataplex Universal Catalog for a specific organization or
+ *  project. If there is no specific configuration set for the resource, the
+ *  setting is checked hierarchicahlly through the ancestors of the resource,
+ *  starting from the resource itself.
+ *
+ *  Method: datacatalog.organizations.locations.retrieveEffectiveConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+GTLR_DEPRECATED
+@interface GTLRDataCatalogQuery_OrganizationsLocationsRetrieveEffectiveConfig : GTLRDataCatalogQuery
+
+/** Required. The resource whose effective config is being retrieved. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
+ *
+ *  Retrieves the effective configuration related to the migration from Data
+ *  Catalog to Dataplex Universal Catalog for a specific organization or
+ *  project. If there is no specific configuration set for the resource, the
+ *  setting is checked hierarchicahlly through the ancestors of the resource,
+ *  starting from the resource itself.
+ *
+ *  @param name Required. The resource whose effective config is being
+ *    retrieved.
+ *
+ *  @return GTLRDataCatalogQuery_OrganizationsLocationsRetrieveEffectiveConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the configuration related to the migration to Dataplex Universal
+ *  Catalog for an organization or project.
+ *
+ *  Method: datacatalog.organizations.locations.setConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+GTLR_DEPRECATED
+@interface GTLRDataCatalogQuery_OrganizationsLocationsSetConfig : GTLRDataCatalogQuery
+
+/** Required. The organization or project whose config is being specified. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
+ *
+ *  Sets the configuration related to the migration to Dataplex Universal
+ *  Catalog for an organization or project.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest to include in the
+ *    query.
+ *  @param name Required. The organization or project whose config is being
+ *    specified.
+ *
+ *  @return GTLRDataCatalogQuery_OrganizationsLocationsSetConfig
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -172,6 +274,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsCreate : GTLRDataCatalogQuery
 
 /**
@@ -232,6 +335,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsDelete : GTLRDataCatalogQuery
 
 /** Optional. If true, deletes all entries in the entry group. */
@@ -270,6 +374,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesCreate : GTLRDataCatalogQuery
 
 /**
@@ -322,6 +427,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesDelete : GTLRDataCatalogQuery
 
 /** Required. The name of the entry to delete. */
@@ -352,6 +458,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGet : GTLRDataCatalogQuery
 
 /** Required. The name of the entry to get. */
@@ -386,6 +493,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -438,6 +546,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesImport : GTLRDataCatalogQuery
 
 /** Required. Target entry group for ingested entries. */
@@ -478,6 +587,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList : GTLRDataCatalogQuery
 
 /**
@@ -537,6 +647,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryContacts : GTLRDataCatalogQuery
 
 /** Required. The full resource name of the entry. */
@@ -571,6 +682,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryOverview : GTLRDataCatalogQuery
 
 /** Required. The full resource name of the entry. */
@@ -606,12 +718,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch : GTLRDataCatalogQuery
 
 /**
- *  Output only. The resource name of an entry in URL format. Note: The entry
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Output only. Identifier. The resource name of an entry in URL format. Note:
+ *  The entry itself and its child resources might not be stored in the location
+ *  specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -640,9 +753,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1Entry to
  *    include in the query.
- *  @param name Output only. The resource name of an entry in URL format. Note:
- *    The entry itself and its child resources might not be stored in the
- *    location specified in its name.
+ *  @param name Output only. Identifier. The resource name of an entry in URL
+ *    format. Note: The entry itself and its child resources might not be stored
+ *    in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch
  */
@@ -660,6 +773,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesStar : GTLRDataCatalogQuery
 
 /** Required. The name of the entry to mark as starred. */
@@ -698,6 +812,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsCreate : GTLRDataCatalogQuery
 
 /**
@@ -742,6 +857,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsDelete : GTLRDataCatalogQuery
 
 /** Required. The name of the tag to delete. */
@@ -768,6 +884,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsList : GTLRDataCatalogQuery
 
 /**
@@ -815,10 +932,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsPatch : GTLRDataCatalogQuery
 
 /**
- *  The resource name of the tag in URL format where tag ID is a
+ *  Identifier. The resource name of the tag in URL format where tag ID is a
  *  system-generated identifier. Note: The tag itself might not be stored in the
  *  location specified in its name.
  */
@@ -841,9 +959,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1Tag to include
  *    in the query.
- *  @param name The resource name of the tag in URL format where tag ID is a
- *    system-generated identifier. Note: The tag itself might not be stored in
- *    the location specified in its name.
+ *  @param name Identifier. The resource name of the tag in URL format where tag
+ *    ID is a system-generated identifier. Note: The tag itself might not be
+ *    stored in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsPatch
  */
@@ -858,13 +976,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  deletes tags not included in the input tag list. `ReconcileTags` returns a
  *  long-running operation resource that can be queried with
  *  Operations.GetOperation to return ReconcileTagsMetadata and a
- *  ReconcileTagsResponse message.
+ *  ReconcileTagsResponse message. Note: SearchCatalog might return stale search
+ *  results for up to 24 hours after the `ReconcileTags` operation completes.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.tags.reconcile
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsReconcile : GTLRDataCatalogQuery
 
 /** Required. Name of Entry to be tagged. */
@@ -878,7 +998,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  deletes tags not included in the input tag list. `ReconcileTags` returns a
  *  long-running operation resource that can be queried with
  *  Operations.GetOperation to return ReconcileTagsMetadata and a
- *  ReconcileTagsResponse message.
+ *  ReconcileTagsResponse message. Note: SearchCatalog might return stale search
+ *  results for up to 24 hours after the `ReconcileTags` operation completes.
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1ReconcileTagsRequest to include in
@@ -905,6 +1026,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTestIamPermissions : GTLRDataCatalogQuery
 
 /**
@@ -947,6 +1069,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesUnstar : GTLRDataCatalogQuery
 
 /** Required. The name of the entry to mark as **not** starred. */
@@ -978,6 +1101,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGet : GTLRDataCatalogQuery
 
 /** Required. The name of the entry group to get. */
@@ -1019,6 +1143,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -1063,6 +1188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList : GTLRDataCatalogQuery
 
 /**
@@ -1114,12 +1240,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch : GTLRDataCatalogQuery
 
 /**
- *  The resource name of the entry group in URL format. Note: The entry group
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Identifier. The resource name of the entry group in URL format. Note: The
+ *  entry group itself and its child resources might not be stored in the
+ *  location specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1143,9 +1270,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup to
  *    include in the query.
- *  @param name The resource name of the entry group in URL format. Note: The
- *    entry group itself and its child resources might not be stored in the
- *    location specified in its name.
+ *  @param name Identifier. The resource name of the entry group in URL format.
+ *    Note: The entry group itself and its child resources might not be stored
+ *    in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch
  */
@@ -1169,6 +1296,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsSetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -1219,6 +1347,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsCreate : GTLRDataCatalogQuery
 
 /**
@@ -1263,6 +1392,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsDelete : GTLRDataCatalogQuery
 
 /** Required. The name of the tag to delete. */
@@ -1289,6 +1419,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsList : GTLRDataCatalogQuery
 
 /**
@@ -1336,10 +1467,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch : GTLRDataCatalogQuery
 
 /**
- *  The resource name of the tag in URL format where tag ID is a
+ *  Identifier. The resource name of the tag in URL format where tag ID is a
  *  system-generated identifier. Note: The tag itself might not be stored in the
  *  location specified in its name.
  */
@@ -1362,9 +1494,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1Tag to include
  *    in the query.
- *  @param name The resource name of the tag in URL format where tag ID is a
- *    system-generated identifier. Note: The tag itself might not be stored in
- *    the location specified in its name.
+ *  @param name Identifier. The resource name of the tag in URL format where tag
+ *    ID is a system-generated identifier. Note: The tag itself might not be
+ *    stored in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch
  */
@@ -1386,6 +1518,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTestIamPermissions : GTLRDataCatalogQuery
 
 /**
@@ -1427,7 +1560,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: datacatalog.projects.locations.operations.cancel
@@ -1450,7 +1583,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -1565,6 +1698,76 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the effective configuration related to the migration from Data
+ *  Catalog to Dataplex Universal Catalog for a specific organization or
+ *  project. If there is no specific configuration set for the resource, the
+ *  setting is checked hierarchicahlly through the ancestors of the resource,
+ *  starting from the resource itself.
+ *
+ *  Method: datacatalog.projects.locations.retrieveEffectiveConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+GTLR_DEPRECATED
+@interface GTLRDataCatalogQuery_ProjectsLocationsRetrieveEffectiveConfig : GTLRDataCatalogQuery
+
+/** Required. The resource whose effective config is being retrieved. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
+ *
+ *  Retrieves the effective configuration related to the migration from Data
+ *  Catalog to Dataplex Universal Catalog for a specific organization or
+ *  project. If there is no specific configuration set for the resource, the
+ *  setting is checked hierarchicahlly through the ancestors of the resource,
+ *  starting from the resource itself.
+ *
+ *  @param name Required. The resource whose effective config is being
+ *    retrieved.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsRetrieveEffectiveConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the configuration related to the migration to Dataplex Universal
+ *  Catalog for an organization or project.
+ *
+ *  Method: datacatalog.projects.locations.setConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+GTLR_DEPRECATED
+@interface GTLRDataCatalogQuery_ProjectsLocationsSetConfig : GTLRDataCatalogQuery
+
+/** Required. The organization or project whose config is being specified. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig.
+ *
+ *  Sets the configuration related to the migration to Dataplex Universal
+ *  Catalog for an organization or project.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest to include in the
+ *    query.
+ *  @param name Required. The organization or project whose config is being
+ *    specified.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsSetConfig
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a tag template. You must enable the Data Catalog API in the project
  *  identified by the `parent` parameter. For more information, see [Data
  *  Catalog resource project]
@@ -1575,6 +1778,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesCreate : GTLRDataCatalogQuery
 
 /**
@@ -1622,6 +1826,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesDelete : GTLRDataCatalogQuery
 
 /**
@@ -1660,6 +1865,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsCreate : GTLRDataCatalogQuery
 
 /**
@@ -1710,6 +1916,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsDelete : GTLRDataCatalogQuery
 
 /**
@@ -1747,6 +1954,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename : GTLRDataCatalogQuery
 
 /** Required. The name of the enum field value. */
@@ -1781,6 +1989,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsPatch : GTLRDataCatalogQuery
 
 /** Required. The name of the tag template field. */
@@ -1832,6 +2041,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsRename : GTLRDataCatalogQuery
 
 /** Required. The name of the tag template field. */
@@ -1865,6 +2075,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGet : GTLRDataCatalogQuery
 
 /** Required. The name of the tag template to get. */
@@ -1899,6 +2110,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -1948,12 +2160,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesPatch : GTLRDataCatalogQuery
 
 /**
- *  The resource name of the tag template in URL format. Note: The tag template
- *  itself and its child resources might not be stored in the location specified
- *  in its name.
+ *  Identifier. The resource name of the tag template in URL format. Note: The
+ *  tag template itself and its child resources might not be stored in the
+ *  location specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1981,9 +2194,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate to
  *    include in the query.
- *  @param name The resource name of the tag template in URL format. Note: The
- *    tag template itself and its child resources might not be stored in the
- *    location specified in its name.
+ *  @param name Identifier. The resource name of the tag template in URL format.
+ *    Note: The tag template itself and its child resources might not be stored
+ *    in the location specified in its name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesPatch
  */
@@ -2007,6 +2220,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesSetIamPolicy : GTLRDataCatalogQuery
 
 /**
@@ -2055,6 +2269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesTestIamPermissions : GTLRDataCatalogQuery
 
 /**

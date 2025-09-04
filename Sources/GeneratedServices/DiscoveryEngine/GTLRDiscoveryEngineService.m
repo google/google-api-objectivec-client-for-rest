@@ -2,18 +2,19 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Discovery Engine API (discoveryengine/v1beta)
+//   Discovery Engine API (discoveryengine/v1)
 // Description:
 //   Discovery Engine API.
 // Documentation:
-//   https://cloud.google.com/discovery-engine/docs
+//   https://cloud.google.com/generative-ai-app-builder/docs/
 
 #import <GoogleAPIClientForREST/GTLRDiscoveryEngine.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeDiscoveryEngineCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeDiscoveryEngineCloudPlatform    = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeDiscoveryEngineCloudSearchQuery = @"https://www.googleapis.com/auth/cloud_search.query";
 
 // ----------------------------------------------------------------------------
 //   GTLRDiscoveryEngineService

@@ -41,7 +41,8 @@
 
 @implementation GTLRDigitalAssetLinksQuery_AssetlinksCheck
 
-@dynamic relation, sourceAndroidAppCertificateSha256Fingerprint,
+@dynamic relation, returnRelationExtensions,
+         sourceAndroidAppCertificateSha256Fingerprint,
          sourceAndroidAppPackageName, sourceWebSite,
          targetAndroidAppCertificateSha256Fingerprint,
          targetAndroidAppPackageName, targetWebSite;
@@ -73,7 +74,8 @@
 
 @implementation GTLRDigitalAssetLinksQuery_StatementsList
 
-@dynamic relation, sourceAndroidAppCertificateSha256Fingerprint,
+@dynamic relation, returnRelationExtensions,
+         sourceAndroidAppCertificateSha256Fingerprint,
          sourceAndroidAppPackageName, sourceWebSite;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {

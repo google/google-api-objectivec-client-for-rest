@@ -25,6 +25,47 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// evaluationType
+
+/**
+ *  Not specified
+ *
+ *  Value: "EVALUATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified;
+/**
+ *  Customized best practices
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeOther;
+/**
+ *  SAP best practices
+ *
+ *  Value: "SAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSap;
+/**
+ *  SCC IaC (Infra as Code) best practices.
+ *
+ *  Value: "SCC_IAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSccIac GTLR_DEPRECATED;
+/**
+ *  SQL best practices
+ *
+ *  Value: "SQL_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Workload Manager query classes.
  */
@@ -32,6 +73,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  List discovered workload profiles
+ *
+ *  Method: workloadmanager.projects.locations.discoveredprofiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList : GTLRWorkloadManagerQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListDiscoveredProfilesRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListDiscoveredProfilesResponse.
+ *
+ *  List discovered workload profiles
+ *
+ *  @param parent Required. Parent value for ListDiscoveredProfilesRequest
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -94,6 +179,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsDelete : GTLRWorkloadManagerQuery
+
+/**
+ *  Optional. Followed the best practice from
+ *  https://aip.dev/135#cascading-delete
+ */
+@property(nonatomic, assign) BOOL force;
 
 /** Required. Name of the resource */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -245,7 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List the running result of a single Execution.
+ *  Lists the result of a single evaluation.
  *
  *  Method: workloadmanager.projects.locations.evaluations.executions.results.list
  *
@@ -275,7 +366,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkloadManager_ListExecutionResultsResponse.
  *
- *  List the running result of a single Execution.
+ *  Lists the result of a single evaluation.
  *
  *  @param parent Required. The execution results. Format: {parent}/evaluations/
  *    * /executions/ * /results
@@ -409,7 +500,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsList : GTLRWorkloadManagerQuery
 
-/** Filtering results */
+/** Filter to be applied when listing the evaluation results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Hint for how to order the results */
@@ -471,6 +562,52 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Delete the data insights from workload manager data warehouse.
+ *
+ *  Method: workloadmanager.projects.locations.insights.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsInsightsDelete : GTLRWorkloadManagerQuery
+
+/**
+ *  Required. The system id of the SAP system resource to delete. Formatted as
+ *  projects/{project}/locations/{location}/sapSystems/{sap_system_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Empty.
+ *
+ *  Delete the data insights from workload manager data warehouse.
+ *
+ *  @param name Required. The system id of the SAP system resource to delete.
+ *    Formatted as
+ *    projects/{project}/locations/{location}/sapSystems/{sap_system_id}
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsInsightsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Write the data insights to workload manager data warehouse.
  *
  *  Method: workloadmanager.projects.locations.insights.writeInsight
@@ -512,6 +649,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsList : GTLRWorkloadManagerQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -560,7 +703,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: workloadmanager.projects.locations.operations.cancel
@@ -583,7 +726,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRWorkloadManager_CancelOperationRequest to include
@@ -713,6 +856,24 @@ NS_ASSUME_NONNULL_BEGIN
 /** The Cloud Storage bucket name for custom rules. */
 @property(nonatomic, copy, nullable) NSString *customRulesBucket;
 
+/**
+ *  Optional. The evaluation type of the rules will be applied to. The Cloud
+ *  Storage bucket name for custom rules.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified Not
+ *        specified (Value: "EVALUATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeSap SAP best practices (Value:
+ *        "SAP")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeSqlServer SQL best practices
+ *        (Value: "SQL_SERVER")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeOther Customized best practices
+ *        (Value: "OTHER")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeSccIac SCC IaC (Infra as Code)
+ *        best practices. (Value: "SCC_IAC")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationType;
+
 /** Filter based on primary_category, secondary_category */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -742,77 +903,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    pre-defined rules are global available to all projects and all regions
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets details of a single workload.
- *
- *  Method: workloadmanager.projects.locations.workloadProfiles.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
- */
-@interface GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesGet : GTLRWorkloadManagerQuery
-
-/** Required. Name of the resource */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRWorkloadManager_WorkloadProfile.
- *
- *  Gets details of a single workload.
- *
- *  @param name Required. Name of the resource
- *
- *  @return GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List workloads
- *
- *  Method: workloadmanager.projects.locations.workloadProfiles.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
- */
-GTLR_DEPRECATED
-@interface GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesList : GTLRWorkloadManagerQuery
-
-/** Optional. Filtering results */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, server will pick an appropriate default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. A token identifying a page of results the server should return.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. Parent value for ListWorkloadRequest */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRWorkloadManager_ListWorkloadProfilesResponse.
- *
- *  List workloads
- *
- *  @param parent Required. Parent value for ListWorkloadRequest
- *
- *  @return GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

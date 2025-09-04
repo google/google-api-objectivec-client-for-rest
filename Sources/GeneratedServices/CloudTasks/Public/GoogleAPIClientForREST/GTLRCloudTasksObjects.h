@@ -945,7 +945,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  */
 @interface GTLRCloudTasks_HeaderOverride : GTLRObject
 
-/** header embodying a key and a value. */
+/**
+ *  Header embodying a key and a value. Do not put business sensitive or
+ *  personally identifying data in the HTTP Header Override Configuration or
+ *  other similar fields in accordance with Section 12 (Resource Fields) of the
+ *  [Service Specific Terms](https://cloud.google.com/terms/service-terms).
+ */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_Header *header;
 
 @end
@@ -1157,7 +1162,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  User-Agent: This will be set to `"Google-Cloud-Tasks"`. Headers which can
  *  have multiple values (according to RFC2616) can be specified using
  *  comma-separated values. The size of the headers must be less than 80KB.
- *  Queue-level headers to override headers of all the tasks in the queue.
+ *  Queue-level headers to override headers of all the tasks in the queue. Do
+ *  not put business sensitive or personally identifying data in the HTTP Header
+ *  Override Configuration or other similar fields in accordance with Section 12
+ *  (Resource Fields) of the [Service Specific
+ *  Terms](https://cloud.google.com/terms/service-terms).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTasks_HeaderOverride *> *headerOverrides;
 
@@ -1186,20 +1195,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
 
 /**
  *  If specified, an [OAuth
- *  token](https://developers.google.com/identity/protocols/OAuth2) will be
- *  generated and attached as the `Authorization` header in the HTTP request.
- *  This type of authorization should generally only be used when calling Google
- *  APIs hosted on *.googleapis.com.
+ *  token](https://developers.google.com/identity/protocols/OAuth2) is generated
+ *  and attached as the `Authorization` header in the HTTP request. This type of
+ *  authorization should generally be used only when calling Google APIs hosted
+ *  on *.googleapis.com. Note that both the service account email and the scope
+ *  MUST be specified when using the queue-level authorization override.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_OAuthToken *oauthToken;
 
 /**
  *  If specified, an
  *  [OIDC](https://developers.google.com/identity/protocols/OpenIDConnect) token
- *  will be generated and attached as an `Authorization` header in the HTTP
- *  request. This type of authorization can be used for many scenarios,
- *  including calling Cloud Run, or endpoints where you intend to validate the
- *  token yourself.
+ *  is generated and attached as an `Authorization` header in the HTTP request.
+ *  This type of authorization can be used for many scenarios, including calling
+ *  Cloud Run, or endpoints where you intend to validate the token yourself.
+ *  Note that both the service account email and the audience MUST be specified
+ *  when using the queue-level authorization override.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTasks_OidcToken *oidcToken;
 
@@ -1723,6 +1734,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  is created, Cloud Tasks will pick the default. -1 indicates unlimited
  *  attempts. This field has the same meaning as [task_retry_limit in
  *  queue.yaml/xml](https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters).
+ *  Note: Cloud Tasks stops retrying only when `max_attempts` and
+ *  `max_retry_duration` are both satisfied. When the task has been attempted
+ *  `max_attempts` times and when the `max_retry_duration` time has passed, no
+ *  further attempts are made, and the task is deleted. If you want your task to
+ *  retry infinitely, you must set `max_attempts` to -1 and `max_retry_duration`
+ *  to 0.
  *
  *  Uses NSNumber of intValue.
  */

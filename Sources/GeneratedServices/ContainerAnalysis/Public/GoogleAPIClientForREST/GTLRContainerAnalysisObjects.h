@@ -5,8 +5,7 @@
 //   Container Analysis API (containeranalysis/v1)
 // Description:
 //   This API is a prerequisite for leveraging Artifact Analysis scanning
-//   capabilities in both Artifact Registry and with Advanced Vulnerability
-//   Insights (runtime scanning) in GKE. In addition, the Container Analysis API
+//   capabilities in Artifact Registry. In addition, the Container Analysis API
 //   is an implementation of the Grafeas API, which enables storing, querying,
 //   and retrieval of critical metadata about all of your software artifacts.
 // Documentation:
@@ -24,6 +23,7 @@
 @class GTLRContainerAnalysis_Assessment;
 @class GTLRContainerAnalysis_AttestationNote;
 @class GTLRContainerAnalysis_AttestationOccurrence;
+@class GTLRContainerAnalysis_BaseImage;
 @class GTLRContainerAnalysis_BatchCreateNotesRequest_Notes;
 @class GTLRContainerAnalysis_Binding;
 @class GTLRContainerAnalysis_BuildDefinition;
@@ -38,6 +38,7 @@
 @class GTLRContainerAnalysis_Category;
 @class GTLRContainerAnalysis_CisBenchmark;
 @class GTLRContainerAnalysis_CloudRepoSourceContext;
+@class GTLRContainerAnalysis_CloudStorageLocation;
 @class GTLRContainerAnalysis_Command;
 @class GTLRContainerAnalysis_Completeness;
 @class GTLRContainerAnalysis_ComplianceNote;
@@ -58,6 +59,8 @@
 @class GTLRContainerAnalysis_Envelope;
 @class GTLRContainerAnalysis_EnvelopeSignature;
 @class GTLRContainerAnalysis_Expr;
+@class GTLRContainerAnalysis_File;
+@class GTLRContainerAnalysis_File_Digest;
 @class GTLRContainerAnalysis_FileHashes;
 @class GTLRContainerAnalysis_Fingerprint;
 @class GTLRContainerAnalysis_FixableTotalByDigest;
@@ -68,6 +71,7 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalResult;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Artifacts;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsArtifactObjects;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsGoModule;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsNpmPackage;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsPythonPackage;
@@ -81,7 +85,13 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Dependency;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceDependency;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceRepository;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfig;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfigHttpConfig;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1InlineSecret;
@@ -99,6 +109,7 @@
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSourceManifest;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan;
+@class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedGoModule;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedNpmPackage;
 @class GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedPythonPackage;
@@ -126,6 +137,7 @@
 @class GTLRContainerAnalysis_Jwt;
 @class GTLRContainerAnalysis_KnowledgeBase;
 @class GTLRContainerAnalysis_Layer;
+@class GTLRContainerAnalysis_LayerDetails;
 @class GTLRContainerAnalysis_License;
 @class GTLRContainerAnalysis_Location;
 @class GTLRContainerAnalysis_Material;
@@ -159,6 +171,10 @@
 @class GTLRContainerAnalysis_SBOMReferenceNote;
 @class GTLRContainerAnalysis_SBOMReferenceOccurrence;
 @class GTLRContainerAnalysis_SBOMStatus;
+@class GTLRContainerAnalysis_SecretLocation;
+@class GTLRContainerAnalysis_SecretNote;
+@class GTLRContainerAnalysis_SecretOccurrence;
+@class GTLRContainerAnalysis_SecretStatus;
 @class GTLRContainerAnalysis_Signature;
 @class GTLRContainerAnalysis_SlsaBuilder;
 @class GTLRContainerAnalysis_SlsaCompleteness;
@@ -176,6 +192,7 @@
 @class GTLRContainerAnalysis_SourceContext_Labels;
 @class GTLRContainerAnalysis_Status;
 @class GTLRContainerAnalysis_Status_Details_Item;
+@class GTLRContainerAnalysis_StepResult;
 @class GTLRContainerAnalysis_Subject;
 @class GTLRContainerAnalysis_Subject_Digest;
 @class GTLRContainerAnalysis_TimeSpan;
@@ -678,6 +695,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_Analysis
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_SbomReference;
 /**
+ *  This represents a secret.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Secret;
+/**
  *  This represents an available package upgrade.
  *
  *  Value: "UPGRADE"
@@ -1003,6 +1026,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified;
 /**
+ *  Bucket is located in a Google-owned project and is not regionalized.
+ *
+ *  Value: "LEGACY_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket;
+/**
  *  Bucket is located in user-owned project in the same region as the build. The
  *  builder service account must have access to create and write to Cloud
  *  Storage buckets in the build project.
@@ -1102,13 +1131,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
  *
  *  Value: "N1_HIGHCPU_32"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32 GTLR_DEPRECATED;
 /**
  *  Highcpu machine with 8 CPUs.
  *
  *  Value: "N1_HIGHCPU_8"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8 GTLR_DEPRECATED;
 /**
  *  Standard machine type.
  *
@@ -1135,6 +1164,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
 
+/**
+ *  Dirhash of a Go module's source code which is then hex-encoded.
+ *
+ *  Value: "GO_MODULE_H1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_GoModuleH1;
 /**
  *  Use a md5 hash.
  *
@@ -1273,6 +1308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash.type
 
+/**
+ *  Dirhash of a Go module's source code which is then hex-encoded.
+ *
+ *  Value: "GO_MODULE_H1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1;
 /**
  *  Use a md5 hash.
  *
@@ -1432,6 +1473,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Package;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_SbomReference;
 /**
+ *  This represents a secret.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Secret;
+/**
  *  This represents an available package upgrade.
  *
  *  Value: "UPGRADE"
@@ -1513,6 +1560,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Packag
  *  Value: "SBOM_REFERENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SbomReference;
+/**
+ *  This represents a secret.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Secret;
 /**
  *  This represents an available package upgrade.
  *
@@ -1677,6 +1730,57 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_P
  *  Value: "SBOM_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_SbomStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_SecretOccurrence.kind
+
+/**
+ *  A GCP service account key per:
+ *  https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+ *
+ *  Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey;
+/**
+ *  The secret kind is unknown.
+ *
+ *  Value: "SECRET_KIND_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnknown;
+/**
+ *  Unspecified
+ *
+ *  Value: "SECRET_KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_SecretStatus.status
+
+/**
+ *  The secret is invalid.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Invalid;
+/**
+ *  Unspecified
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretStatus_Status_StatusUnspecified;
+/**
+ *  The status of the secret is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Unknown;
+/**
+ *  The secret is valid.
+ *
+ *  Value: "VALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretStatus_Status_Valid;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Version.kind
@@ -2086,6 +2190,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  BaseImage describes a base image of a container image.
+ */
+@interface GTLRContainerAnalysis_BaseImage : GTLRObject
+
+/**
+ *  The number of layers that the base image is composed of.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *layerCount;
+
+/** The name of the base image. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The repository name in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  Request to create notes in batch.
  */
 @interface GTLRContainerAnalysis_BatchCreateNotesRequest : GTLRObject
@@ -2216,7 +2341,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2418,7 +2547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  A step in the build pipeline. Next ID: 21
+ *  A step in the build pipeline. Next ID: 22
  */
 @interface GTLRContainerAnalysis_BuildStep : GTLRObject
 
@@ -2519,6 +2648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  image only.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_TimeSpan *pullTiming;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_StepResult *> *results;
 
 /**
  *  A shell script to be executed in the step. When script is provided, the user
@@ -2662,6 +2793,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Empty placeholder to denote that this is a Google Cloud Storage export
+ *  request.
+ */
+@interface GTLRContainerAnalysis_CloudStorageLocation : GTLRObject
+@end
+
+
+/**
  *  Command describes a step performed as part of the build pipeline.
  */
 @interface GTLRContainerAnalysis_Command : GTLRObject
@@ -2745,6 +2884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+@property(nonatomic, copy, nullable) NSString *impact;
+
 /** A rationale for the existence of this compliance check. */
 @property(nonatomic, copy, nullable) NSString *rationale;
 
@@ -2776,6 +2917,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 @property(nonatomic, copy, nullable) NSString *nonComplianceReason;
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_NonCompliantFile *> *nonCompliantFiles;
+
+/** The OS and config version the benchmark was run on. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ComplianceVersion *version;
 
 @end
 
@@ -3338,6 +3482,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        "PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_SbomReference
  *        This represents an SBOM Reference. (Value: "SBOM_REFERENCE")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Secret This
+ *        represents a secret. (Value: "SECRET")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Upgrade This
  *        represents an available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Vulnerability
@@ -3416,6 +3562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The CPE of the resource being scanned. */
 @property(nonatomic, copy, nullable) NSString *cpe;
+
+/** Files that make up the resource described by the occurrence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_File *> *files;
 
 /** The last time this resource was scanned. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
@@ -3570,6 +3719,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  The request to generate and export SBOM. Target must be specified for the
+ *  request.
+ */
+@interface GTLRContainerAnalysis_ExportSBOMRequest : GTLRObject
+
+/**
+ *  Optional. Empty placeholder to denote that this is a Google Cloud Storage
+ *  export request.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CloudStorageLocation *cloudStorageLocation;
+
+@end
+
+
+/**
+ *  The response from a call to ExportSBOM.
+ */
+@interface GTLRContainerAnalysis_ExportSBOMResponse : GTLRObject
+
+/**
+ *  The name of the discovery occurrence in the form
+ *  "projects/{project_id}/occurrences/{OCCURRENCE_ID} It can be used to track
+ *  the progress of the SBOM export.
+ */
+@property(nonatomic, copy, nullable) NSString *discoveryOccurrence;
+
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -3615,6 +3794,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_File
+ */
+@interface GTLRContainerAnalysis_File : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_File_Digest *digest;
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_File_Digest
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_File_Digest : GTLRObject
 @end
 
 
@@ -3842,6 +4044,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Artifacts : GTLRObject
 
 /**
+ *  Optional. A list of Go modules to be uploaded to Artifact Registry upon
+ *  successful completion of all build steps. If any objects fail to be pushed,
+ *  the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsGoModule *> *goModules;
+
+/**
  *  A list of images to be pushed upon the successful completion of all build
  *  steps. The images will be pushed using the builder service account's
  *  credentials. The digests of the pushed images will be stored in the Build
@@ -3916,6 +4125,52 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Go module to upload to Artifact Registry upon successful completion of all
+ *  build steps. A module refers to all dependencies in a go.mod file.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsGoModule : GTLRObject
+
+/** Optional. The Go module's "module path". e.g. example.com/foo/v2 */
+@property(nonatomic, copy, nullable) NSString *modulePath;
+
+/**
+ *  Optional. The Go module's semantic version in the form vX.Y.Z. e.g. v0.1.1
+ *  Pre-release identifiers can also be added by appending a dash and dot
+ *  separated ASCII alphanumeric characters and hyphens. e.g.
+ *  v0.2.3-alpha.x.12m.5
+ */
+@property(nonatomic, copy, nullable) NSString *moduleVersion;
+
+/**
+ *  Optional. Location of the Artifact Registry repository. i.e. us-east1
+ *  Defaults to the build’s location.
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryLocation;
+
+/**
+ *  Optional. Artifact Registry repository name. Specified Go modules will be
+ *  zipped and uploaded to Artifact Registry with this location as a prefix.
+ *  e.g. my-go-repo
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryName;
+
+/**
+ *  Optional. Project ID of the Artifact Registry repository. Defaults to the
+ *  build project.
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryProjectId;
+
+/**
+ *  Optional. Source path of the go.mod file in the build's workspace. If not
+ *  specified, this will default to the current directory. e.g.
+ *  ~/code/go/mypackage
+ */
+@property(nonatomic, copy, nullable) NSString *sourcePath;
+
+@end
+
+
+/**
  *  A Maven artifact to upload to Artifact Registry upon successful completion
  *  of all build steps.
  */
@@ -3933,8 +4188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
- *  Path to an artifact in the build's workspace to be uploaded to Artifact
- *  Registry. This can be either an absolute path, e.g.
+ *  Optional. Path to an artifact in the build's workspace to be uploaded to
+ *  Artifact Registry. This can be either an absolute path, e.g.
  *  /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar or a relative path from
  *  /workspace, e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
  */
@@ -4042,6 +4297,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Optional. Dependencies that the Cloud Build worker will fetch before
+ *  executing user steps.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Dependency *> *dependencies;
+
 /** Output only. Contains information about the build when status=FAILURE. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo *failureInfo;
 
@@ -4051,6 +4312,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  execution.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
+
+/** Optional. Configuration for git operations. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfig *gitConfig;
 
 /**
  *  Output only. Unique identifier of the build.
@@ -4117,7 +4381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
-/** The location of the source files to build. */
+/** Optional. The location of the source files to build. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Source *source;
 
 /** Output only. A permanent fixed identifier for source. */
@@ -4307,6 +4571,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified
  *        Unspecified. (Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket
+ *        Bucket is located in a Google-owned project and is not regionalized.
+ *        (Value: "LEGACY_BUCKET")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket
  *        Bucket is located in user-owned project in the same region as the
  *        build. The builder service account must have access to create and
@@ -4320,7 +4587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  "disk free"; some of the space will be used by the operating system and
  *  build utilities. Also note that this is the minimum disk size that will be
  *  allocated for the build -- the build may run with a larger disk than
- *  requested. At present, the maximum disk size is 2000GB; builds that request
+ *  requested. At present, the maximum disk size is 4000GB; builds that request
  *  more than the maximum are rejected with an error.
  *
  *  Uses NSNumber of longLongValue.
@@ -4335,6 +4602,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dynamicSubstitutions;
+
+/**
+ *  Optional. Option to specify whether structured logging is enabled. If true,
+ *  JSON-formatted logs are parsed as structured logs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableStructuredLogging;
 
 /**
  *  A list of global environment variable definitions that will exist for all
@@ -4413,6 +4688,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  for more information.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOption *pool;
+
+/**
+ *  Optional. Option to specify the Pub/Sub topic to receive build status
+ *  updates.
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
  *  Requested verifiability options.
@@ -4717,7 +4998,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository : GTLRObject
 
-/** Directory, relative to the source root, in which to run the build. */
+/**
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ */
 @property(nonatomic, copy, nullable) NSString *dir;
 
 /**
@@ -4727,8 +5010,102 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *repository;
 
 /**
- *  The revision to fetch from the Git repository such as a branch, a tag, a
- *  commit SHA, or any Git ref.
+ *  Required. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  A dependency that the Cloud Build worker will fetch before executing user
+ *  steps.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Dependency : GTLRObject
+
+/**
+ *  If set to true disable all dependency fetching (ignoring the default source
+ *  as well).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *empty;
+
+/** Represents a git repository as a build dependency. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceDependency *gitSource;
+
+@end
+
+
+/**
+ *  Represents a git repository as a build dependency.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceDependency : GTLRObject
+
+/**
+ *  Optional. How much history should be fetched for the build (default 1, -1
+ *  for all history).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *depth;
+
+/** Required. Where should the files be placed on the worker. */
+@property(nonatomic, copy, nullable) NSString *destPath;
+
+/**
+ *  Optional. True if submodules should be fetched too (default false).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recurseSubmodules;
+
+/** Required. The kind of repo (url or dev connect). */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceRepository *repository;
+
+/** Required. The revision that we will fetch the repo at. */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  A repository for a git source.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DependencyGitSourceRepository : GTLRObject
+
+/**
+ *  The Developer Connect Git repository link formatted as `projects/ *
+ *  /locations/ * /connections/ * /gitRepositoryLink/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *developerConnect;
+
+/** Location of the Git repository. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  This config defines the location of a source through Developer Connect.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig : GTLRObject
+
+/**
+ *  Required. Directory, relative to the source root, in which to run the build.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Required. The Developer Connect Git repository link, formatted as `projects/
+ *  * /locations/ * /connections/ * /gitRepositoryLink/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitRepositoryLink;
+
+/**
+ *  Required. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref.
  */
 @property(nonatomic, copy, nullable) NSString *revision;
 
@@ -4748,20 +5125,47 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  GitConfig is a configuration for git operations.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfig : GTLRObject
+
+/** Configuration for HTTP related git operations. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfigHttpConfig *http;
+
+@end
+
+
+/**
+ *  HttpConfig is a configuration for HTTP related git operations.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitConfigHttpConfig : GTLRObject
+
+/**
+ *  SecretVersion resource of the HTTP proxy URL. The Service Account used in
+ *  the build (either the default Service Account or user-specified Service
+ *  Account) should have `secretmanager.versions.access` permissions on this
+ *  secret. The proxy URL should be in format `protocol://\@]proxyhost[:port]`.
+ */
+@property(nonatomic, copy, nullable) NSString *proxySecretVersionName;
+
+@end
+
+
+/**
  *  Location of the source in any accessible Git repository.
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource : GTLRObject
 
 /**
- *  Directory, relative to the source root, in which to run the build. This must
- *  be a relative path. If a step's `dir` is specified and is an absolute path,
- *  this value is ignored for that step's execution.
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ *  This must be a relative path. If a step's `dir` is specified and is an
+ *  absolute path, this value is ignored for that step's execution.
  */
 @property(nonatomic, copy, nullable) NSString *dir;
 
 /**
- *  The revision to fetch from the Git repository such as a branch, a tag, a
- *  commit SHA, or any Git ref. Cloud Build uses `git fetch` to fetch the
+ *  Optional. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref. Cloud Build uses `git fetch` to fetch the
  *  revision from the Git repository; therefore make sure that the string you
  *  provide for `revision` is parsable by the command. For information on string
  *  values accepted by `git fetch`, see
@@ -4771,8 +5175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *revision;
 
 /**
- *  Location of the Git repo to build. This will be used as a `git remote`, see
- *  https://git-scm.com/docs/git-remote.
+ *  Required. Location of the Git repo to build. This will be used as a `git
+ *  remote`, see https://git-scm.com/docs/git-remote.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -4788,6 +5192,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  The type of hash that was performed.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1
+ *        Dirhash of a Go module's source code which is then hex-encoded.
+ *        (Value: "GO_MODULE_H1")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Md5 Use
  *        a md5 hash. (Value: "MD5")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_None No
@@ -4865,32 +5272,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *commitSha;
 
 /**
- *  Directory, relative to the source root, in which to run the build. This must
- *  be a relative path. If a step's `dir` is specified and is an absolute path,
- *  this value is ignored for that step's execution.
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ *  This must be a relative path. If a step's `dir` is specified and is an
+ *  absolute path, this value is ignored for that step's execution.
  */
 @property(nonatomic, copy, nullable) NSString *dir;
 
 /**
- *  Only trigger a build if the revision regex does NOT match the revision
- *  regex.
+ *  Optional. Only trigger a build if the revision regex does NOT match the
+ *  revision regex.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *invertRegex;
 
 /**
- *  ID of the project that owns the Cloud Source Repository. If omitted, the
- *  project ID requesting the build is assumed.
+ *  Optional. ID of the project that owns the Cloud Source Repository. If
+ *  omitted, the project ID requesting the build is assumed.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Name of the Cloud Source Repository. */
+/** Required. Name of the Cloud Source Repository. */
 @property(nonatomic, copy, nullable) NSString *repoName;
 
 /**
- *  Substitutions to use in a triggered build. Should only be used with
- *  RunBuildTrigger
+ *  Optional. Substitutions to use in a triggered build. Should only be used
+ *  with RunBuildTrigger
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1RepoSource_Substitutions *substitutions;
 
@@ -4905,8 +5312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  Substitutions to use in a triggered build. Should only be used with
- *  RunBuildTrigger
+ *  Optional. Substitutions to use in a triggered build. Should only be used
+ *  with RunBuildTrigger
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4942,12 +5349,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  corresponding to build step indices. [Cloud
  *  Builders](https://cloud.google.com/cloud-build/docs/cloud-builders) can
  *  produce this output by writing to `$BUILDER_OUTPUT/output`. Only the first
- *  50KB of data is stored.
+ *  50KB of data is stored. Note that the `$BUILDER_OUTPUT` variable is
+ *  read-only and can't be substituted.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepOutputs;
+
+/**
+ *  Optional. Go module artifacts uploaded to Artifact Registry at the end of
+ *  the build.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedGoModule *> *goModules;
 
 /** Container images that were built as a part of the build. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage *> *images;
@@ -5062,6 +5476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ConnectedRepository *connectedRepository;
 
+/** If provided, get the source from this Developer Connect config. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig *developerConnectConfig;
+
 /** If provided, get the source from this Git repository. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1GitSource *gitSource;
 
@@ -5164,16 +5581,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  Cloud Storage generation for the object. If the generation is omitted, the
- *  latest generation will be used.
+ *  Optional. Cloud Storage generation for the object. If the generation is
+ *  omitted, the latest generation will be used.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Cloud Storage object containing the source. This object must be a zipped
- *  (`.zip`) or gzipped archive file (`.tar.gz`) containing source to build.
+ *  Required. Cloud Storage object containing the source. This object must be a
+ *  zipped (`.zip`) or gzipped archive file (`.tar.gz`) containing source to
+ *  build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -5202,7 +5620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSourceManifest : GTLRObject
 
 /**
- *  Cloud Storage bucket containing the source manifest (see [Bucket Name
+ *  Required. Cloud Storage bucket containing the source manifest (see [Bucket
+ *  Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -5216,8 +5635,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Cloud Storage object containing the source manifest. This object must be a
- *  JSON file.
+ *  Required. Cloud Storage object containing the source manifest. This object
+ *  must be a JSON file.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -5234,6 +5653,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** Start of time span. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  A Go module artifact uploaded to Artifact Registry using the GoModule
+ *  directive.
+ */
+@interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedGoModule : GTLRObject
+
+/** Hash types and values of the Go Module Artifact. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+/** URI of the uploaded artifact. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -5345,6 +5784,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  the path to war file combined with the path to jar file.
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
+
+/**
+ *  Each package found in a file should have its own layer metadata (that is,
+ *  information from the origin layer of the package).
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_LayerDetails *layerDetails;
 
 @end
 
@@ -5770,6 +6215,41 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  Details about the layer a package was found in.
+ */
+@interface GTLRContainerAnalysis_LayerDetails : GTLRObject
+
+/** The base images the layer is found within. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_BaseImage *> *baseImages;
+
+/**
+ *  The layer chain ID (sha256 hash) of the layer in the container image.
+ *  https://github.com/opencontainers/image-spec/blob/main/config.md#layer-chainid
+ */
+@property(nonatomic, copy, nullable) NSString *chainId;
+
+/**
+ *  The layer build command that was used to build the layer. This may not be
+ *  found in all layers depending on how the container image is built.
+ */
+@property(nonatomic, copy, nullable) NSString *command;
+
+/**
+ *  The diff ID (typically a sha256 hash) of the layer in the container image.
+ */
+@property(nonatomic, copy, nullable) NSString *diffId;
+
+/**
+ *  The index of the layer in the container image.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+@end
+
+
+/**
  *  License information.
  */
 @interface GTLRContainerAnalysis_License : GTLRObject
@@ -5837,6 +6317,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Note *> *notes;
 
+/**
+ *  Unordered list. Unreachable regions. Populated for requests from the global
+ *  region when `return_partial_success` is set. Format: projects//locations/
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -5864,6 +6350,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Occurrence *> *occurrences;
+
+/**
+ *  Unordered list. Unreachable regions. Populated for requests from the global
+ *  region when `return_partial_success` is set. Format: projects//locations/
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -6027,6 +6519,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        installed via a package manager. (Value: "PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_SbomReference This represents an
  *        SBOM Reference. (Value: "SBOM_REFERENCE")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_Secret This represents a secret.
+ *        (Value: "SECRET")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Upgrade This represents an
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Vulnerability The note and
@@ -6057,6 +6551,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** A note describing an SBOM reference. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SBOMReferenceNote *sbomReference;
+
+/** A note describing a secret. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_SecretNote *secret;
 
 /** A one sentence description of this note. */
 @property(nonatomic, copy, nullable) NSString *shortDescription;
@@ -6139,6 +6636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        package installed via a package manager. (Value: "PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_SbomReference This
  *        represents an SBOM Reference. (Value: "SBOM_REFERENCE")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Secret This represents a
+ *        secret. (Value: "SECRET")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Upgrade This represents an
  *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability The note and
@@ -6177,6 +6676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** Describes a specific SBOM reference occurrences. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SBOMReferenceOccurrence *sbomReference;
+
+/** Describes a secret. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_SecretOccurrence *secret;
 
 /** Output only. The time this occurrence was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -6896,6 +7398,82 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  The location of the secret.
+ */
+@interface GTLRContainerAnalysis_SecretLocation : GTLRObject
+
+/** The secret is found from a file. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1FileLocation *fileLocation;
+
+@end
+
+
+/**
+ *  The note representing a secret.
+ */
+@interface GTLRContainerAnalysis_SecretNote : GTLRObject
+@end
+
+
+/**
+ *  The occurrence provides details of a secret.
+ */
+@interface GTLRContainerAnalysis_SecretOccurrence : GTLRObject
+
+/**
+ *  Required. Type of secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey
+ *        A GCP service account key per:
+ *        https://cloud.google.com/iam/docs/creating-managing-service-account-keys
+ *        (Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnknown The
+ *        secret kind is unknown. (Value: "SECRET_KIND_UNKNOWN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnspecified
+ *        Unspecified (Value: "SECRET_KIND_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Optional. Locations where the secret is detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_SecretLocation *> *locations;
+
+/** Optional. Status of the secret. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_SecretStatus *> *statuses;
+
+@end
+
+
+/**
+ *  The status of the secret with a timestamp.
+ */
+@interface GTLRContainerAnalysis_SecretStatus : GTLRObject
+
+/** Optional. Optional message about the status code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Optional. The status of the secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_SecretStatus_Status_Invalid The secret is
+ *        invalid. (Value: "INVALID")
+ *    @arg @c kGTLRContainerAnalysis_SecretStatus_Status_StatusUnspecified
+ *        Unspecified (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_SecretStatus_Status_Unknown The status of
+ *        the secret is unknown. (Value: "UNKNOWN")
+ *    @arg @c kGTLRContainerAnalysis_SecretStatus_Status_Valid The secret is
+ *        valid. (Value: "VALID")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Optional. The time the secret status was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRContainerAnalysis_SetIamPolicyRequest : GTLRObject
@@ -7324,6 +7902,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRContainerAnalysis_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  StepResult is the declaration of a result for a build step.
+ */
+@interface GTLRContainerAnalysis_StepResult : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *attestationContentName;
+@property(nonatomic, copy, nullable) NSString *attestationType;
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -7874,6 +8464,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  A listing by resource of the number of fixable and total vulnerabilities.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_FixableTotalByDigest *> *counts;
+
+/**
+ *  Unordered list. Unreachable regions. Populated for requests from the global
+ *  region when `return_partial_success` is set. Format: projects//locations/
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

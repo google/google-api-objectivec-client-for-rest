@@ -33,6 +33,7 @@
 @class GTLRAuthorizedBuyersMarketplace_InventorySizeTargeting;
 @class GTLRAuthorizedBuyersMarketplace_InventoryTypeTargeting;
 @class GTLRAuthorizedBuyersMarketplace_MarketplaceTargeting;
+@class GTLRAuthorizedBuyersMarketplace_MediaPlanner;
 @class GTLRAuthorizedBuyersMarketplace_MobileApplicationTargeting;
 @class GTLRAuthorizedBuyersMarketplace_Money;
 @class GTLRAuthorizedBuyersMarketplace_Note;
@@ -398,6 +399,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTarge
  *  Value: "USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTargeting_TimeZoneType_User;
+
+// ----------------------------------------------------------------------------
+// GTLRAuthorizedBuyersMarketplace_Deal.buyerPermissionType
+
+/**
+ *  All buyers under the [Deal.negotiating_buyer]'s bidder can transact on the
+ *  deal.
+ *
+ *  Value: "BIDDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_Bidder;
+/**
+ *  A placeholder for an undefined buyer permission type.
+ *
+ *  Value: "BUYER_PERMISSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_BuyerPermissionTypeUnspecified;
+/**
+ *  Only the [Deal.negotiating_buyer] can transact on the deal.
+ *
+ *  Value: "NEGOTIATOR_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_NegotiatorOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRAuthorizedBuyersMarketplace_Deal.dealType
@@ -1150,6 +1174,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *creator;
 
 /**
+ *  Output only. If set, this field contains the DSP specific seat id set by the
+ *  media planner account that is considered the owner of this deal. The seat ID
+ *  is in the calling DSP's namespace.
+ */
+@property(nonatomic, copy, nullable) NSString *dealOwnerSeatId;
+
+/**
  *  Output only. A description of the auction package.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1160,6 +1191,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Output only. If set, this field identifies a seat that the media planner
+ *  selected as the owner of this auction package. This is a seat ID in the
+ *  DSP's namespace that was provided to the media planner.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eligibleSeatIds;
+
+/**
  *  Immutable. The unique identifier for the auction package. Format:
  *  `buyers/{accountId}/auctionPackages/{auctionPackageId}` The
  *  auction_package_id part of name is sent in the BidRequest to all RTB bidders
@@ -1168,11 +1206,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The list of clients of the current buyer that are subscribed to
- *  the AuctionPackage. Format:
+ *  Output only. The list of buyers that are subscribed to the AuctionPackage.
+ *  This field is only populated when calling as a bidder. Format:
+ *  `buyers/{buyerAccountId}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subscribedBuyers;
+
+/**
+ *  Output only. When calling as a buyer, the list of clients of the current
+ *  buyer that are subscribed to the AuctionPackage. When calling as a bidder,
+ *  the list of clients that are subscribed to the AuctionPackage owned by the
+ *  bidder or its buyers. Format:
  *  `buyers/{buyerAccountId}/clients/{clientAccountId}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subscribedClients;
+
+/**
+ *  Output only. The list of media planners that are subscribed to the
+ *  AuctionPackage. This field is only populated when calling as a bidder.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAuthorizedBuyersMarketplace_MediaPlanner *> *subscribedMediaPlanners;
 
 /**
  *  Output only. Time the auction package was last updated. This value is only
@@ -1586,15 +1639,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *  Output only. When the client field is populated, this field refers to the
  *  buyer who creates and manages the client buyer and gets billed on behalf of
  *  the client buyer; when the buyer field is populated, this field is the same
- *  value as buyer. Format : `buyers/{buyerAccountId}`
+ *  value as buyer; when the deal belongs to a media planner account, this field
+ *  will be empty. Format : `buyers/{buyerAccountId}`
  */
 @property(nonatomic, copy, nullable) NSString *billedBuyer;
 
 /**
- *  Output only. Refers to a buyer in The Realtime-bidding API. Format:
- *  `buyers/{buyerAccountId}`
+ *  Output only. Refers to a buyer in Real-time Bidding API's Buyer resource.
+ *  Format: `buyers/{buyerAccountId}`
  */
 @property(nonatomic, copy, nullable) NSString *buyer;
+
+/**
+ *  Output only. The buyer permission type of the deal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_Bidder
+ *        All buyers under the [Deal.negotiating_buyer]'s bidder can transact on
+ *        the deal. (Value: "BIDDER")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_BuyerPermissionTypeUnspecified
+ *        A placeholder for an undefined buyer permission type. (Value:
+ *        "BUYER_PERMISSION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_NegotiatorOnly
+ *        Only the [Deal.negotiating_buyer] can transact on the deal. (Value:
+ *        "NEGOTIATOR_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *buyerPermissionType;
 
 /**
  *  Output only. Refers to a Client. Format:
@@ -1642,6 +1712,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Output only. If set, this field contains the list of DSP specific seat ids
+ *  set by media planners that are eligible to transact on this deal. The seat
+ *  ID is in the calling DSP's namespace.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eligibleSeatIds;
+
+/**
  *  Specified by buyers in request for proposal (RFP) to notify publisher the
  *  total estimated spend for the proposal. Publishers will receive this
  *  information and send back proposed deals accordingly.
@@ -1661,6 +1738,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  *  truncated towards the start of time in seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *flightStartTime;
+
+/**
+ *  Output only. Refers to a buyer in Real-time Bidding API's Buyer resource.
+ *  This field represents a media planner (For example, agency or big
+ *  advertiser).
+ */
+@property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_MediaPlanner *mediaPlanner;
 
 /**
  *  Immutable. The unique identifier of the deal. Auto-generated by the server
@@ -2193,15 +2277,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 
 /**
- *  Targeting represents different criteria that can be used to target
- *  inventory. For example, they can choose to target inventory only if the user
- *  is in the US. Multiple types of targeting are always applied as a logical
- *  AND, unless noted otherwise.
+ *  Targeting represents different criteria that can be used to target deals or
+ *  auction packages. For example, they can choose to target inventory only if
+ *  the user is in the US. Multiple types of targeting are always applied as a
+ *  logical AND, unless noted otherwise.
  */
 @interface GTLRAuthorizedBuyersMarketplace_MarketplaceTargeting : GTLRObject
 
 /** Daypart targeting information. */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_DayPartTargeting *daypartTargeting;
+
+/**
+ *  Output only. The sensitive content category label IDs excluded. Refer to
+ *  this file
+ *  https://storage.googleapis.com/adx-rtb-dictionaries/content-labels.txt for
+ *  category IDs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludedSensitiveCategoryIds;
 
 /** Output only. Geo criteria IDs to be included/excluded. */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_CriteriaTargeting *geoTargeting;
@@ -2230,8 +2324,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
  */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_CriteriaTargeting *userListTargeting;
 
+/**
+ *  Output only. The verticals included or excluded as defined in
+ *  https://developers.google.com/authorized-buyers/rtb/downloads/publisher-verticals
+ */
+@property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_CriteriaTargeting *verticalTargeting;
+
 /** Output only. Video targeting information. */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_VideoTargeting *videoTargeting;
+
+@end
+
+
+/**
+ *  Describes a single Media Planner account.
+ */
+@interface GTLRAuthorizedBuyersMarketplace_MediaPlanner : GTLRObject
+
+/** Output only. Account ID of the media planner. */
+@property(nonatomic, copy, nullable) NSString *accountId;
 
 @end
 
@@ -2412,8 +2523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 
 /**
- *  Buyers are allowed to store certain types of private data in a proposal or
- *  deal.
+ *  Buyers are allowed to store certain types of private data in a proposal.
  */
 @interface GTLRAuthorizedBuyersMarketplace_PrivateData : GTLRObject
 
@@ -2992,30 +3102,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @interface GTLRAuthorizedBuyersMarketplace_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3031,13 +3145,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @interface GTLRAuthorizedBuyersMarketplace_TimeZone : GTLRObject
 
 /**
- *  IANA Time Zone Database time zone, e.g. "America/New_York".
+ *  IANA Time Zone Database time zone. For example "America/New_York".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end

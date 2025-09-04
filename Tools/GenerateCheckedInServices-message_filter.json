@@ -16,6 +16,7 @@
     "With name override: CloudBatch",
   ],
   "WARNING": [
+    "Method 'aiplatform.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'artifactregistry.projects.locations.repositories.aptArtifacts.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'artifactregistry.projects.locations.repositories.goModules.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'artifactregistry.projects.locations.repositories.googetArtifacts.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
@@ -26,9 +27,15 @@
     "Method 'cloudsearch.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'cloudsupport.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'dfareporting.creativeAssets.insert' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
+    "Method 'displayvideo.advertisers.assets.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'displayvideo.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'firebaseappdistribution.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'groupsmigration.archive.insert' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'walletobjects.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
+    "Won't add the kind 'compute#InterconnectGroup' to the kind registry: it is used on multiple schema: InterconnectGroup, InterconnectGroupsListResponse",
+    "Won't add the kind 'compute#interconnectAttachmentGroup' to the kind registry: it is used on multiple schema: InterconnectAttachmentGroup, InterconnectAttachmentGroupsListResponse",
+    "Won't add the kind 'compute#metadata' to the kind registry: it is used on multiple schema: InstanceSettingsMetadata, Metadata",
+    "Won't add the kind 'compute#reservationBlock' to the kind registry: it is used on multiple schema: ReservationBlock, ReservationBlocksListResponse",
+    "Won't add the kind 'compute#reservationSubBlock' to the kind registry: it is used on multiple schema: ReservationSubBlock, ReservationSubBlocksListResponse",
   ]
 }

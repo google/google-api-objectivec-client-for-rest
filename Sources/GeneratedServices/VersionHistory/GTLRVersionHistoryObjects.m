@@ -6,7 +6,7 @@
 // Description:
 //   Version History API - Prod
 // Documentation:
-//   https://developers.chrome.com/versionhistory
+//   https://developer.chrome.com/docs/web-platform/versionhistory/guide
 
 #import <GoogleAPIClientForREST/GTLRVersionHistoryObjects.h>
 
@@ -41,6 +41,7 @@ NSString * const kGTLRVersionHistory_Platform_PlatformType_PlatformTypeUnspecifi
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Webview = @"WEBVIEW";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Win = @"WIN";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Win64 = @"WIN64";
+NSString * const kGTLRVersionHistory_Platform_PlatformType_WinArm64 = @"WIN_ARM64";
 
 // ----------------------------------------------------------------------------
 //
@@ -166,7 +167,33 @@ NSString * const kGTLRVersionHistory_Platform_PlatformType_Win64 = @"WIN64";
 //
 
 @implementation GTLRVersionHistory_Release
-@dynamic fraction, fractionGroup, name, serving, version;
+@dynamic fraction, fractionGroup, name, pinnable, rolloutData, serving, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rolloutData" : [GTLRVersionHistory_RolloutData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVersionHistory_RolloutData
+//
+
+@implementation GTLRVersionHistory_RolloutData
+@dynamic rolloutName, tag;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tag" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

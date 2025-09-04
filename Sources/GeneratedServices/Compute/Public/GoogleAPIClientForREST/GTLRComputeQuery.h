@@ -27,6 +27,16 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// addressFamily
+
+/** Value: "IPV4" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeAddressFamilyIpv4;
+/** Value: "IPV6" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeAddressFamilyIpv6;
+/** Value: "UNSPECIFIED_IP_VERSION" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeAddressFamilyUnspecifiedIpVersion;
+
+// ----------------------------------------------------------------------------
 // direction
 
 /**
@@ -91,6 +101,38 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRefres
 FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 // ----------------------------------------------------------------------------
+// routeType
+
+/** Value: "ADVERTISED" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeAdvertised;
+/** Value: "LEARNED" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeLearned;
+/** Value: "UNSPECIFIED_ROUTE_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  This view includes basic information about the reservation block
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewBasic;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "BLOCK_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewBlockViewUnspecified;
+/**
+ *  Includes detailed topology view.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -105,7 +147,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of accelerator types.
+ *  Retrieves an aggregated list of accelerator types. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
  *
  *  Method: compute.acceleratorTypes.aggregatedList
  *
@@ -197,7 +241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -210,7 +256,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_AcceleratorTypeAggregatedList.
  *
- *  Retrieves an aggregated list of accelerator types.
+ *  Retrieves an aggregated list of accelerator types. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -345,7 +393,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -377,7 +427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of addresses.
+ *  Retrieves an aggregated list of addresses. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.addresses.aggregatedList
  *
@@ -469,7 +520,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -482,7 +535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_AddressAggregatedList.
  *
- *  Retrieves an aggregated list of addresses.
+ *  Retrieves an aggregated list of addresses. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -714,7 +768,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -846,7 +902,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of autoscalers.
+ *  Retrieves an aggregated list of autoscalers. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.autoscalers.aggregatedList
  *
@@ -938,7 +995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -951,7 +1010,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_AutoscalerAggregatedList.
  *
- *  Retrieves an aggregated list of autoscalers.
+ *  Retrieves an aggregated list of autoscalers. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -1192,7 +1252,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -1686,7 +1748,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -1988,7 +2052,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves the list of all BackendService resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.backendServices.aggregatedList
  *
@@ -2080,7 +2145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -2094,7 +2161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_BackendServiceAggregatedList.
  *
  *  Retrieves the list of all BackendService resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -2447,7 +2515,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -2470,8 +2540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of all usable backend services in the specified
- *  project.
+ *  Retrieves a list of all usable backend services in the specified project.
  *
  *  Method: compute.backendServices.listUsable
  *
@@ -2552,15 +2621,16 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_BackendServiceListUsable.
  *
- *  Retrieves an aggregated list of all usable backend services in the specified
- *  project.
+ *  Retrieves a list of all usable backend services in the specified project.
  *
  *  @param project Project ID for this request.
  *
@@ -2915,7 +2985,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of persistent disks.
+ *  Retrieves an aggregated list of persistent disks. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.disks.aggregatedList
  *
@@ -3007,7 +3078,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -3020,7 +3093,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_DiskAggregatedList.
  *
- *  Retrieves an aggregated list of persistent disks.
+ *  Retrieves an aggregated list of persistent disks. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -3077,6 +3151,63 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_DisksBulkInsert
  */
 + (instancetype)queryWithObject:(GTLRCompute_BulkInsertDiskResource *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Sets the labels on many disks at once. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  Method: compute.disks.bulkSetLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_DisksBulkSetLabels : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on many disks at once. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_BulkZoneSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_DisksBulkSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BulkZoneSetLabelsRequest *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty;
 
@@ -3443,7 +3574,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -3977,7 +4110,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of disk types.
+ *  Retrieves an aggregated list of disk types. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.diskTypes.aggregatedList
  *
@@ -4069,7 +4203,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -4082,7 +4218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_DiskTypeAggregatedList.
  *
- *  Retrieves an aggregated list of disk types.
+ *  Retrieves an aggregated list of disk types. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -4216,7 +4353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -4452,7 +4591,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -4979,7 +5120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -5515,7 +5658,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -5639,7 +5784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of forwarding rules.
+ *  Retrieves an aggregated list of forwarding rules. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.forwardingRules.aggregatedList
  *
@@ -5731,7 +5877,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -5744,7 +5892,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_ForwardingRuleAggregatedList.
  *
- *  Retrieves an aggregated list of forwarding rules.
+ *  Retrieves an aggregated list of forwarding rules. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -5977,7 +6126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -6371,7 +6522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -6684,7 +6837,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -7163,7 +7318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -7273,7 +7430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -7299,7 +7458,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of all operations.
+ *  Retrieves an aggregated list of all operations. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.globalOperations.aggregatedList
  *
@@ -7391,7 +7551,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -7404,7 +7566,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_OperationAggregatedList.
  *
- *  Retrieves an aggregated list of all operations.
+ *  Retrieves an aggregated list of all operations. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -7425,7 +7588,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOperationsDelete : GTLRComputeQuery
 
-/** Name of the Operations resource to delete. */
+/**
+ *  Name of the Operations resource to delete, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -7438,7 +7603,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Deletes the specified Operations resource.
  *
  *  @param project Project ID for this request.
- *  @param operation Name of the Operations resource to delete.
+ *  @param operation Name of the Operations resource to delete, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOperationsDelete
  */
@@ -7459,7 +7625,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOperationsGet : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -7471,7 +7639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Retrieves the specified Operations resource.
  *
  *  @param project Project ID for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOperationsGet
  */
@@ -7563,7 +7732,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -7607,7 +7778,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOperationsWait : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -7629,7 +7802,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  is not `DONE`.
  *
  *  @param project Project ID for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOperationsWait
  */
@@ -7649,7 +7823,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOrganizationOperationsDelete : GTLRComputeQuery
 
-/** Name of the Operations resource to delete. */
+/**
+ *  Name of the Operations resource to delete, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Parent ID for this request. */
@@ -7661,7 +7837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Deletes the specified Operations resource.
  *
- *  @param operation Name of the Operations resource to delete.
+ *  @param operation Name of the Operations resource to delete, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_GlobalOrganizationOperationsDelete
  */
@@ -7682,10 +7859,15 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @interface GTLRComputeQuery_GlobalOrganizationOperationsGet : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return. Parent is derived from this
+ *  field.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
-/** Parent ID for this request. */
+/**
+ *  Parent ID for this request. Not used. Parent is derived from resource_id.
+ */
 @property(nonatomic, copy, nullable) NSString *parentId;
 
 /**
@@ -7694,7 +7876,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Retrieves the specified Operations resource. Gets a list of operations by
  *  making a `list()` request.
  *
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return. Parent is
+ *    derived from this field.
  *
  *  @return GTLRComputeQuery_GlobalOrganizationOperationsGet
  */
@@ -7785,7 +7968,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -8012,7 +8197,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -8088,7 +8275,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves the list of all HealthCheck resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.healthChecks.aggregatedList
  *
@@ -8180,7 +8368,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -8194,7 +8384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_HealthChecksAggregatedList.
  *
  *  Retrieves the list of all HealthCheck resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -8409,7 +8600,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -8736,7 +8929,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -9063,7 +9258,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -9444,9 +9641,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
- *    @c kGTLRAuthScopeComputeDevstorageFullControl
- *    @c kGTLRAuthScopeComputeDevstorageReadOnly
- *    @c kGTLRAuthScopeComputeDevstorageReadWrite
  */
 @interface GTLRComputeQuery_ImagesInsert : GTLRComputeQuery
 
@@ -9572,7 +9766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -9758,6 +9954,405 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Cancels the specified resize request and removes it from the queue.
+ *  Cancelled resize request does no longer wait for the resources to be
+ *  provisioned. Cancel is only possible for requests that are accepted in the
+ *  queue.
+ *
+ *  Method: compute.instanceGroupManagerResizeRequests.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagerResizeRequestsCancel : GTLRComputeQuery
+
+/**
+ *  The name of the managed instance group. The name should conform to RFC1035
+ *  or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the resize request to cancel. The name should conform to RFC1035
+ *  or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *resizeRequest;
+
+/**
+ *  The name of the zone where the managed instance group is located. The name
+ *  should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Cancels the specified resize request and removes it from the queue.
+ *  Cancelled resize request does no longer wait for the resources to be
+ *  provisioned. Cancel is only possible for requests that are accepted in the
+ *  queue.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. The name should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. The name
+ *    should conform to RFC1035 or be a resource ID.
+ *  @param resizeRequest The name of the resize request to cancel. The name
+ *    should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagerResizeRequestsCancel
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            instanceGroupManager:(NSString *)instanceGroupManager
+                   resizeRequest:(NSString *)resizeRequest;
+
+@end
+
+/**
+ *  Deletes the specified, inactive resize request. Requests that are still
+ *  active cannot be deleted. Deleting request does not delete instances that
+ *  were provisioned previously.
+ *
+ *  Method: compute.instanceGroupManagerResizeRequests.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagerResizeRequestsDelete : GTLRComputeQuery
+
+/**
+ *  The name of the managed instance group. The name should conform to RFC1035
+ *  or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the resize request to delete. The name should conform to RFC1035
+ *  or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *resizeRequest;
+
+/**
+ *  The name of the zone where the managed instance group is located. The name
+ *  should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified, inactive resize request. Requests that are still
+ *  active cannot be deleted. Deleting request does not delete instances that
+ *  were provisioned previously.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. The name should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. The name
+ *    should conform to RFC1035 or be a resource ID.
+ *  @param resizeRequest The name of the resize request to delete. The name
+ *    should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagerResizeRequestsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            instanceGroupManager:(NSString *)instanceGroupManager
+                   resizeRequest:(NSString *)resizeRequest;
+
+@end
+
+/**
+ *  Returns all of the details about the specified resize request.
+ *
+ *  Method: compute.instanceGroupManagerResizeRequests.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstanceGroupManagerResizeRequestsGet : GTLRComputeQuery
+
+/**
+ *  The name of the managed instance group. Name should conform to RFC1035 or be
+ *  a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the resize request. Name should conform to RFC1035 or be a
+ *  resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *resizeRequest;
+
+/**
+ *  Name of the href="/compute/docs/regions-zones/#available">zone scoping this
+ *  request. Name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceGroupManagerResizeRequest.
+ *
+ *  Returns all of the details about the specified resize request.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the
+ *    href="/compute/docs/regions-zones/#available">zone scoping this request.
+ *    Name should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. Name
+ *    should conform to RFC1035 or be a resource ID.
+ *  @param resizeRequest The name of the resize request. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagerResizeRequestsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            instanceGroupManager:(NSString *)instanceGroupManager
+                   resizeRequest:(NSString *)resizeRequest;
+
+@end
+
+/**
+ *  Creates a new resize request that starts provisioning VMs immediately or
+ *  queues VM creation.
+ *
+ *  Method: compute.instanceGroupManagerResizeRequests.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagerResizeRequestsInsert : GTLRComputeQuery
+
+/**
+ *  The name of the managed instance group to which the resize request will be
+ *  added. Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located and where
+ *  the resize request will be created. Name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new resize request that starts provisioning VMs immediately or
+ *  queues VM creation.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagerResizeRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located and where the resize request will be created. Name should conform
+ *    to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group to which
+ *    the resize request will be added. Name should conform to RFC1035 or be a
+ *    resource ID.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagerResizeRequestsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagerResizeRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Retrieves a list of resize requests that are contained in the managed
+ *  instance group.
+ *
+ *  Method: compute.instanceGroupManagerResizeRequests.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstanceGroupManagerResizeRequestsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The name of the managed instance group. The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The name of the zone where the managed instance group is located. The name
+ *  should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceGroupManagerResizeRequestsListResponse.
+ *
+ *  Retrieves a list of resize requests that are contained in the managed
+ *  instance group.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. The name should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. The name
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagerResizeRequestsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Flags the specified instances to be removed from the managed instance group.
  *  Abandoning an instance does not delete the instance, but it does remove the
  *  instance from any target pools that are applied by the managed instance
@@ -9839,7 +10434,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves the list of managed instance groups and groups them by zone.
+ *  Retrieves the list of managed instance groups and groups them by zone. To
+ *  prevent failure, Google recommends that you set the `returnPartialSuccess`
+ *  parameter to `true`.
  *
  *  Method: compute.instanceGroupManagers.aggregatedList
  *
@@ -9931,7 +10528,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -9944,7 +10543,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupManagerAggregatedList.
  *
- *  Retrieves the list of managed instance groups and groups them by zone.
+ *  Retrieves the list of managed instance groups and groups them by zone. To
+ *  prevent failure, Google recommends that you set the `returnPartialSuccess`
+ *  parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -10451,7 +11052,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -10573,7 +11176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -10703,7 +11308,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -10829,7 +11436,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -11178,6 +11787,88 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Flags the specified instances in the managed instance group to be resumed.
+ *  This method increases the targetSize and decreases the targetSuspendedSize
+ *  of the managed instance group by the number of instances that you resume.
+ *  The resumeInstances operation is marked DONE if the resumeInstances request
+ *  is successful. The underlying actions take additional time. You must
+ *  separately verify the status of the RESUMING action with the
+ *  listmanagedinstances method. In this request, you can only specify instances
+ *  that are suspended. For example, if an instance was previously suspended
+ *  using the suspendInstances method, it can be resumed using the
+ *  resumeInstances method. If a health check is attached to the managed
+ *  instance group, the specified instances will be verified as healthy after
+ *  they are resumed. You can specify a maximum of 1000 instances with this
+ *  method per request.
+ *
+ *  Method: compute.instanceGroupManagers.resumeInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersResumeInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be resumed.
+ *  This method increases the targetSize and decreases the targetSuspendedSize
+ *  of the managed instance group by the number of instances that you resume.
+ *  The resumeInstances operation is marked DONE if the resumeInstances request
+ *  is successful. The underlying actions take additional time. You must
+ *  separately verify the status of the RESUMING action with the
+ *  listmanagedinstances method. In this request, you can only specify instances
+ *  that are suspended. For example, if an instance was previously suspended
+ *  using the suspendInstances method, it can be resumed using the
+ *  resumeInstances method. If a health check is attached to the managed
+ *  instance group, the specified instances will be verified as healthy after
+ *  they are resumed. You can specify a maximum of 1000 instances with this
+ *  method per request.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagersResumeInstancesRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersResumeInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersResumeInstancesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Specifies the instance template to use when creating new instances in this
  *  group. The templates for existing instances in the group do not change
  *  unless you run recreateInstances, run applyUpdatesToInstances, or set the
@@ -11304,6 +11995,273 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_InstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersSetTargetPoolsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be started.
+ *  This method increases the targetSize and decreases the targetStoppedSize of
+ *  the managed instance group by the number of instances that you start. The
+ *  startInstances operation is marked DONE if the startInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the STARTING action with the listmanagedinstances
+ *  method. In this request, you can only specify instances that are stopped.
+ *  For example, if an instance was previously stopped using the stopInstances
+ *  method, it can be started using the startInstances method. If a health check
+ *  is attached to the managed instance group, the specified instances will be
+ *  verified as healthy after they are started. You can specify a maximum of
+ *  1000 instances with this method per request.
+ *
+ *  Method: compute.instanceGroupManagers.startInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersStartInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be started.
+ *  This method increases the targetSize and decreases the targetStoppedSize of
+ *  the managed instance group by the number of instances that you start. The
+ *  startInstances operation is marked DONE if the startInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the STARTING action with the listmanagedinstances
+ *  method. In this request, you can only specify instances that are stopped.
+ *  For example, if an instance was previously stopped using the stopInstances
+ *  method, it can be started using the startInstances method. If a health check
+ *  is attached to the managed instance group, the specified instances will be
+ *  verified as healthy after they are started. You can specify a maximum of
+ *  1000 instances with this method per request.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagersStartInstancesRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersStartInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersStartInstancesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately stopped. You can only specify instances that are running in this
+ *  request. This method reduces the targetSize and increases the
+ *  targetStoppedSize of the managed instance group by the number of instances
+ *  that you stop. The stopInstances operation is marked DONE if the
+ *  stopInstances request is successful. The underlying actions take additional
+ *  time. You must separately verify the status of the STOPPING action with the
+ *  listmanagedinstances method. If the standbyPolicy.initialDelaySec field is
+ *  set, the group delays stopping the instances until initialDelaySec have
+ *  passed from instance.creationTimestamp (that is, when the instance was
+ *  created). This delay gives your application time to set itself up and
+ *  initialize on the instance. If more than initialDelaySec seconds have passed
+ *  since instance.creationTimestamp when this method is called, there will be
+ *  zero delay. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is stopped. Stopped
+ *  instances can be started using the startInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  Method: compute.instanceGroupManagers.stopInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersStopInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately stopped. You can only specify instances that are running in this
+ *  request. This method reduces the targetSize and increases the
+ *  targetStoppedSize of the managed instance group by the number of instances
+ *  that you stop. The stopInstances operation is marked DONE if the
+ *  stopInstances request is successful. The underlying actions take additional
+ *  time. You must separately verify the status of the STOPPING action with the
+ *  listmanagedinstances method. If the standbyPolicy.initialDelaySec field is
+ *  set, the group delays stopping the instances until initialDelaySec have
+ *  passed from instance.creationTimestamp (that is, when the instance was
+ *  created). This delay gives your application time to set itself up and
+ *  initialize on the instance. If more than initialDelaySec seconds have passed
+ *  since instance.creationTimestamp when this method is called, there will be
+ *  zero delay. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is stopped. Stopped
+ *  instances can be started using the startInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagersStopInstancesRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersStopInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersStopInstancesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately suspended. You can only specify instances that are running in
+ *  this request. This method reduces the targetSize and increases the
+ *  targetSuspendedSize of the managed instance group by the number of instances
+ *  that you suspend. The suspendInstances operation is marked DONE if the
+ *  suspendInstances request is successful. The underlying actions take
+ *  additional time. You must separately verify the status of the SUSPENDING
+ *  action with the listmanagedinstances method. If the
+ *  standbyPolicy.initialDelaySec field is set, the group delays suspension of
+ *  the instances until initialDelaySec have passed from
+ *  instance.creationTimestamp (that is, when the instance was created). This
+ *  delay gives your application time to set itself up and initialize on the
+ *  instance. If more than initialDelaySec seconds have passed since
+ *  instance.creationTimestamp when this method is called, there will be zero
+ *  delay. If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is suspended. Suspended
+ *  instances can be resumed using the resumeInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  Method: compute.instanceGroupManagers.suspendInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersSuspendInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately suspended. You can only specify instances that are running in
+ *  this request. This method reduces the targetSize and increases the
+ *  targetSuspendedSize of the managed instance group by the number of instances
+ *  that you suspend. The suspendInstances operation is marked DONE if the
+ *  suspendInstances request is successful. The underlying actions take
+ *  additional time. You must separately verify the status of the SUSPENDING
+ *  action with the listmanagedinstances method. If the
+ *  standbyPolicy.initialDelaySec field is set, the group delays suspension of
+ *  the instances until initialDelaySec have passed from
+ *  instance.creationTimestamp (that is, when the instance was created). This
+ *  delay gives your application time to set itself up and initialize on the
+ *  instance. If more than initialDelaySec seconds have passed since
+ *  instance.creationTimestamp when this method is called, there will be zero
+ *  delay. If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is suspended. Suspended
+ *  instances can be resumed using the resumeInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_InstanceGroupManagersSuspendInstancesRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersSuspendInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersSuspendInstancesRequest *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager;
@@ -11439,7 +12397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves the list of instance groups and sorts them by zone.
+ *  Retrieves the list of instance groups and sorts them by zone. To prevent
+ *  failure, Google recommends that you set the `returnPartialSuccess` parameter
+ *  to `true`.
  *
  *  Method: compute.instanceGroups.aggregatedList
  *
@@ -11531,7 +12491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -11544,7 +12506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupAggregatedList.
  *
- *  Retrieves the list of instance groups and sorts them by zone.
+ *  Retrieves the list of instance groups and sorts them by zone. To prevent
+ *  failure, Google recommends that you set the `returnPartialSuccess` parameter
+ *  to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -11798,7 +12762,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -11921,7 +12887,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -12213,7 +13181,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Retrieves an aggregated list of all of the instances in your project across
  *  all regions and zones. The performance of this method degrades when a filter
- *  is specified on a project that has a very large number of instances.
+ *  is specified on a project that has a very large number of instances. To
+ *  prevent failure, Google recommends that you set the `returnPartialSuccess`
+ *  parameter to `true`.
  *
  *  Method: compute.instances.aggregatedList
  *
@@ -12305,7 +13275,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -12320,7 +13292,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Retrieves an aggregated list of all of the instances in your project across
  *  all regions and zones. The performance of this method degrades when a filter
- *  is specified on a project that has a very large number of instances.
+ *  is specified on a project that has a very large number of instances. To
+ *  prevent failure, Google recommends that you set the `returnPartialSuccess`
+ *  parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -12637,6 +13611,102 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Get Instance settings.
+ *
+ *  Method: compute.instanceSettings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstanceSettingsGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceSettings.
+ *
+ *  Get Instance settings.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_InstanceSettingsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Patch Instance settings
+ *
+ *  Method: compute.instanceSettings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceSettingsPatch : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  The zone scoping this request. It should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patch Instance settings
+ *
+ *  @param object The @c GTLRCompute_InstanceSettings to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The zone scoping this request. It should conform to
+ *    RFC1035.
+ *
+ *  @return GTLRComputeQuery_InstanceSettingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceSettings *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
  *  Returns the specified Instance resource.
  *
  *  Method: compute.instances.get
@@ -12901,7 +13971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  property value. You can also provide a negative start position, which
  *  translates to the most recent number of bytes written to the serial port.
  *  For example, -3 is interpreted as the most recent 3 bytes written to the
- *  serial console.
+ *  serial console. Note that the negative start is bounded by the retained
+ *  buffer size, and the returned serial console output will not exceed the max
+ *  buffer size.
  */
 @property(nonatomic, assign) long long start;
 
@@ -13128,7 +14200,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -13249,7 +14323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -13390,6 +14466,63 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_InstancesRemoveResourcePolicies
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstancesRemoveResourcePoliciesRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Mark the host as faulty and try to restart the instance on a new host.
+ *
+ *  Method: compute.instances.reportHostAsFaulty
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesReportHostAsFaulty : GTLRComputeQuery
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Mark the host as faulty and try to restart the instance on a new host.
+ *
+ *  @param object The @c GTLRCompute_InstancesReportHostAsFaultyRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesReportHostAsFaulty
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstancesReportHostAsFaultyRequest *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance;
@@ -15099,7 +16232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves the list of all InstanceTemplates resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.instanceTemplates.aggregatedList
  *
@@ -15191,7 +16325,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -15205,7 +16341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_InstanceTemplateAggregatedList.
  *
  *  Retrieves the list of all InstanceTemplates resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -15466,7 +16603,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -15562,7 +16701,1042 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of interconnect attachments.
+ *  Retrieves an aggregated list of instantSnapshots. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
+ *
+ *  Method: compute.instantSnapshots.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstantSnapshotsAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_InstantSnapshotAggregatedList.
+ *
+ *  Retrieves an aggregated list of instantSnapshots. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified InstantSnapshot resource. Keep in mind that deleting a
+ *  single instantSnapshot might not necessarily delete all the data on that
+ *  instantSnapshot. If any data on the instantSnapshot that is marked for
+ *  deletion is needed for subsequent instantSnapshots, the data will be moved
+ *  to the next corresponding instantSnapshot. For more information, see
+ *  Deleting instantSnapshots.
+ *
+ *  Method: compute.instantSnapshots.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstantSnapshotsDelete : GTLRComputeQuery
+
+/** Name of the InstantSnapshot resource to delete. */
+@property(nonatomic, copy, nullable) NSString *instantSnapshot;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified InstantSnapshot resource. Keep in mind that deleting a
+ *  single instantSnapshot might not necessarily delete all the data on that
+ *  instantSnapshot. If any data on the instantSnapshot that is marked for
+ *  deletion is needed for subsequent instantSnapshots, the data will be moved
+ *  to the next corresponding instantSnapshot. For more information, see
+ *  Deleting instantSnapshots.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instantSnapshot Name of the InstantSnapshot resource to delete.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                 instantSnapshot:(NSString *)instantSnapshot;
+
+@end
+
+/**
+ *  Returns the specified InstantSnapshot resource in the specified zone.
+ *
+ *  Method: compute.instantSnapshots.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstantSnapshotsGet : GTLRComputeQuery
+
+/** Name of the InstantSnapshot resource to return. */
+@property(nonatomic, copy, nullable) NSString *instantSnapshot;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstantSnapshot.
+ *
+ *  Returns the specified InstantSnapshot resource in the specified zone.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instantSnapshot Name of the InstantSnapshot resource to return.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                 instantSnapshot:(NSString *)instantSnapshot;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.instantSnapshots.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstantSnapshotsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates an instant snapshot in the specified zone.
+ *
+ *  Method: compute.instantSnapshots.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstantSnapshotsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates an instant snapshot in the specified zone.
+ *
+ *  @param object The @c GTLRCompute_InstantSnapshot to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstantSnapshot *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Retrieves the list of InstantSnapshot resources contained within the
+ *  specified zone.
+ *
+ *  Method: compute.instantSnapshots.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstantSnapshotsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstantSnapshotList.
+ *
+ *  Retrieves the list of InstantSnapshot resources contained within the
+ *  specified zone.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.instantSnapshots.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstantSnapshotsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the labels on a instantSnapshot in the given zone. To learn more about
+ *  labels, read the Labeling Resources documentation.
+ *
+ *  Method: compute.instantSnapshots.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstantSnapshotsSetLabels : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on a instantSnapshot in the given zone. To learn more about
+ *  labels, read the Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_ZoneSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetLabelsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.instantSnapshots.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstantSnapshotsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InstantSnapshotsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Deletes the specified InterconnectAttachmentGroup in the given scope
+ *
+ *  Method: compute.interconnectAttachmentGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsDelete : GTLRComputeQuery
+
+/** Name of the InterconnectAttachmentGroup resource to delete. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachmentGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified InterconnectAttachmentGroup in the given scope
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectAttachmentGroup Name of the InterconnectAttachmentGroup
+ *    resource to delete.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+     interconnectAttachmentGroup:(NSString *)interconnectAttachmentGroup;
+
+@end
+
+/**
+ *  Returns the specified InterconnectAttachmentGroup resource in the given
+ *  scope.
+ *
+ *  Method: compute.interconnectAttachmentGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsGet : GTLRComputeQuery
+
+/** Name of the InterconnectAttachmentGroup resource to return. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachmentGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectAttachmentGroup.
+ *
+ *  Returns the specified InterconnectAttachmentGroup resource in the given
+ *  scope.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectAttachmentGroup Name of the InterconnectAttachmentGroup
+ *    resource to return.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+     interconnectAttachmentGroup:(NSString *)interconnectAttachmentGroup;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.interconnectAttachmentGroups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the InterconnectAttachmentStatuses for the specified
+ *  InterconnectAttachmentGroup resource.
+ *
+ *  Method: compute.interconnectAttachmentGroups.getOperationalStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsGetOperationalStatus : GTLRComputeQuery
+
+/** Name of the interconnectAttachmentGroup resource to query. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachmentGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c
+ *  GTLRCompute_InterconnectAttachmentGroupsGetOperationalStatusResponse.
+ *
+ *  Returns the InterconnectAttachmentStatuses for the specified
+ *  InterconnectAttachmentGroup resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectAttachmentGroup Name of the interconnectAttachmentGroup
+ *    resource to query.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsGetOperationalStatus
+ */
++ (instancetype)queryWithProject:(NSString *)project
+     interconnectAttachmentGroup:(NSString *)interconnectAttachmentGroup;
+
+@end
+
+/**
+ *  Creates a InterconnectAttachmentGroup in the specified project in the given
+ *  scope using the parameters that are included in the request.
+ *
+ *  Method: compute.interconnectAttachmentGroups.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a InterconnectAttachmentGroup in the specified project in the given
+ *  scope using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_InterconnectAttachmentGroup to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectAttachmentGroup *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Lists the InterconnectAttachmentGroups for a project in the given scope.
+ *
+ *  Method: compute.interconnectAttachmentGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectAttachmentGroupsListResponse.
+ *
+ *  Lists the InterconnectAttachmentGroups for a project in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified InterconnectAttachmentGroup resource with the data
+ *  included in the request. This method supports PATCH semantics and uses JSON
+ *  merge patch format and processing rules.
+ *
+ *  Method: compute.interconnectAttachmentGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsPatch : GTLRComputeQuery
+
+/** Name of the InterconnectAttachmentGroup resource to patch. */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachmentGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified InterconnectAttachmentGroup resource with the data
+ *  included in the request. This method supports PATCH semantics and uses JSON
+ *  merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_InterconnectAttachmentGroup to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param interconnectAttachmentGroup Name of the InterconnectAttachmentGroup
+ *    resource to patch.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectAttachmentGroup *)object
+                        project:(NSString *)project
+    interconnectAttachmentGroup:(NSString *)interconnectAttachmentGroup;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.interconnectAttachmentGroups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.interconnectAttachmentGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectAttachmentGroupsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectAttachmentGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of interconnect attachments. To prevent
+ *  failure, Google recommends that you set the `returnPartialSuccess` parameter
+ *  to `true`.
  *
  *  Method: compute.interconnectAttachments.aggregatedList
  *
@@ -15654,7 +17828,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -15667,7 +17843,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InterconnectAttachmentAggregatedList.
  *
- *  Retrieves an aggregated list of interconnect attachments.
+ *  Retrieves an aggregated list of interconnect attachments. To prevent
+ *  failure, Google recommends that you set the `returnPartialSuccess` parameter
+ *  to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -15904,7 +18082,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -16041,6 +18221,475 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Create Interconnects with redundancy by creating them in a specified
+ *  interconnect group.
+ *
+ *  Method: compute.interconnectGroups.createMembers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsCreateMembers : GTLRComputeQuery
+
+/** Name of the group resource to create members for. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Create Interconnects with redundancy by creating them in a specified
+ *  interconnect group.
+ *
+ *  @param object The @c GTLRCompute_InterconnectGroupsCreateMembersRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the group resource to create members for.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsCreateMembers
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectGroupsCreateMembersRequest *)object
+                        project:(NSString *)project
+              interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Deletes the specified InterconnectGroup in the given scope
+ *
+ *  Method: compute.interconnectGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsDelete : GTLRComputeQuery
+
+/** Name of the InterconnectGroup resource to delete. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified InterconnectGroup in the given scope
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the InterconnectGroup resource to delete.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+               interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Returns the specified InterconnectGroup resource in the given scope.
+ *
+ *  Method: compute.interconnectGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsGet : GTLRComputeQuery
+
+/** Name of the InterconnectGroup resource to return. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectGroup.
+ *
+ *  Returns the specified InterconnectGroup resource in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the InterconnectGroup resource to return.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+               interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.interconnectGroups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the interconnectStatuses for the specified InterconnectGroup.
+ *
+ *  Method: compute.interconnectGroups.getOperationalStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsGetOperationalStatus : GTLRComputeQuery
+
+/** Name of the interconnectGroup resource to query. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectGroupsGetOperationalStatusResponse.
+ *
+ *  Returns the interconnectStatuses for the specified InterconnectGroup.
+ *
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the interconnectGroup resource to query.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsGetOperationalStatus
+ */
++ (instancetype)queryWithProject:(NSString *)project
+               interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Creates a InterconnectGroup in the specified project in the given scope
+ *  using the parameters that are included in the request.
+ *
+ *  Method: compute.interconnectGroups.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a InterconnectGroup in the specified project in the given scope
+ *  using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_InterconnectGroup to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectGroup *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Lists the InterconnectGroups for a project in the given scope.
+ *
+ *  Method: compute.interconnectGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InterconnectGroupsListResponse.
+ *
+ *  Lists the InterconnectGroups for a project in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified InterconnectGroup resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  Method: compute.interconnectGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsPatch : GTLRComputeQuery
+
+/** Name of the InterconnectGroup resource to patch. */
+@property(nonatomic, copy, nullable) NSString *interconnectGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified InterconnectGroup resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_InterconnectGroup to include in the query.
+ *  @param project Project ID for this request.
+ *  @param interconnectGroup Name of the InterconnectGroup resource to patch.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InterconnectGroup *)object
+                        project:(NSString *)project
+              interconnectGroup:(NSString *)interconnectGroup;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.interconnectGroups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InterconnectGroupsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.interconnectGroups.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InterconnectGroupsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_InterconnectGroupsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Returns the details for the specified interconnect location. Gets a list of
  *  available interconnect locations by making a list() request.
  *
@@ -16158,7 +18807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -16299,7 +18950,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -16601,7 +19254,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17051,7 +19706,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17154,6 +19811,64 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Updates a License resource in the specified project. *Caution* This resource
+ *  is intended for use only by third-party partners who are creating Cloud
+ *  Marketplace images.
+ *
+ *  Method: compute.licenses.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_LicensesUpdate : GTLRComputeQuery
+
+/** The license name for this request. */
+@property(nonatomic, copy, nullable) NSString *license;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates a License resource in the specified project. *Caution* This resource
+ *  is intended for use only by third-party partners who are creating Cloud
+ *  Marketplace images.
+ *
+ *  @param object The @c GTLRCompute_License to include in the query.
+ *  @param project Project ID for this request.
+ *  @param license The license name for this request.
+ *
+ *  @return GTLRComputeQuery_LicensesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_License *)object
+                        project:(NSString *)project
+                        license:(NSString *)license;
 
 @end
 
@@ -17411,7 +20126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17471,6 +20188,43 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Sets the labels on a machine image. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  Method: compute.machineImages.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_MachineImagesSetLabels : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on a machine image. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_MachineImagesSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Returns permissions that a caller has on the specified resource.
  *
  *  Method: compute.machineImages.testIamPermissions
@@ -17507,7 +20261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of machine types.
+ *  Retrieves an aggregated list of machine types. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.machineTypes.aggregatedList
  *
@@ -17599,7 +20354,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17612,7 +20369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_MachineTypeAggregatedList.
  *
- *  Retrieves an aggregated list of machine types.
+ *  Retrieves an aggregated list of machine types. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -17746,7 +20504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17778,7 +20538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves the list of all NetworkAttachment resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.networkAttachments.aggregatedList
  *
@@ -17870,7 +20631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17884,7 +20647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_NetworkAttachmentAggregatedList.
  *
  *  Retrieves the list of all NetworkAttachment resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -18161,7 +20925,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -18326,7 +21092,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves the list of all NetworkEdgeSecurityService resources available to
- *  the specified project.
+ *  the specified project. To prevent failure, Google recommends that you set
+ *  the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.networkEdgeSecurityServices.aggregatedList
  *
@@ -18418,7 +21185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -18432,7 +21201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_NetworkEdgeSecurityServiceAggregatedList.
  *
  *  Retrieves the list of all NetworkEdgeSecurityService resources available to
- *  the specified project.
+ *  the specified project. To prevent failure, Google recommends that you set
+ *  the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -18649,7 +21419,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves the list of network endpoint groups and sorts them by zone.
+ *  Retrieves the list of network endpoint groups and sorts them by zone. To
+ *  prevent failure, Google recommends that you set the `returnPartialSuccess`
+ *  parameter to `true`.
  *
  *  Method: compute.networkEndpointGroups.aggregatedList
  *
@@ -18741,7 +21513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -18754,7 +21528,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupAggregatedList.
  *
- *  Retrieves the list of network endpoint groups and sorts them by zone.
+ *  Retrieves the list of network endpoint groups and sorts them by zone. To
+ *  prevent failure, Google recommends that you set the `returnPartialSuccess`
+ *  parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -19142,7 +21918,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -19263,7 +22041,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -19403,6 +22183,65 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Inserts a packet mirroring rule into a firewall policy.
+ *
+ *  Method: compute.networkFirewallPolicies.addPacketMirroringRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesAddPacketMirroringRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  When rule.priority is not specified, auto choose a unused priority between
+ *  minPriority and maxPriority>. This field is exclusive with rule.priority.
+ */
+@property(nonatomic, assign) NSInteger maxPriority;
+
+/**
+ *  When rule.priority is not specified, auto choose a unused priority between
+ *  minPriority and maxPriority>. This field is exclusive with rule.priority.
+ */
+@property(nonatomic, assign) NSInteger minPriority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts a packet mirroring rule into a firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesAddPacketMirroringRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
  *  Inserts a rule into a firewall policy.
  *
  *  Method: compute.networkFirewallPolicies.addRule
@@ -19458,6 +22297,130 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
                         project:(NSString *)project
                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of network firewall policies, listing network
+ *  firewall policies from all applicable scopes (global and regional) and
+ *  grouping the results per scope. To prevent failure, Google recommends that
+ *  you set the `returnPartialSuccess` parameter to `true`.
+ *
+ *  Method: compute.networkFirewallPolicies.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkFirewallPolicyAggregatedList.
+ *
+ *  Retrieves an aggregated list of network firewall policies, listing network
+ *  firewall policies from all applicable scopes (global and regional) and
+ *  grouping the results per scope. To prevent failure, Google recommends that
+ *  you set the `returnPartialSuccess` parameter to `true`.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
 
 @end
 
@@ -19663,6 +22626,43 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Gets a packet mirroring rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.getPacketMirroringRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesGetPacketMirroringRule : GTLRComputeQuery
+
+/** Name of the firewall policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to get from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyRule.
+ *
+ *  Gets a packet mirroring rule of the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesGetPacketMirroringRule
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
  *  Gets a rule of the specified priority.
  *
  *  Method: compute.networkFirewallPolicies.getRule
@@ -19825,7 +22825,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -19888,6 +22890,56 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_NetworkFirewallPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                        project:(NSString *)project
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Patches a packet mirroring rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.patchPacketMirroringRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesPatchPacketMirroringRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to patch. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches a packet mirroring rule of the specified priority.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesPatchPacketMirroringRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
                         project:(NSString *)project
                  firewallPolicy:(NSString *)firewallPolicy;
 
@@ -19985,6 +23037,54 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param firewallPolicy Name of the firewall policy to update.
  *
  *  @return GTLRComputeQuery_NetworkFirewallPoliciesRemoveAssociation
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Deletes a packet mirroring rule of the specified priority.
+ *
+ *  Method: compute.networkFirewallPolicies.removePacketMirroringRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworkFirewallPoliciesRemovePacketMirroringRule : GTLRComputeQuery
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to remove from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a packet mirroring rule of the specified priority.
+ *
+ *  @param project Project ID for this request.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_NetworkFirewallPoliciesRemovePacketMirroringRule
  */
 + (instancetype)queryWithProject:(NSString *)project
                   firewallPolicy:(NSString *)firewallPolicy;
@@ -20109,6 +23209,144 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the specified network profile.
+ *
+ *  Method: compute.networkProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkProfilesGet : GTLRComputeQuery
+
+/** Name of the network profile to return. */
+@property(nonatomic, copy, nullable) NSString *networkProfile;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkProfile.
+ *
+ *  Returns the specified network profile.
+ *
+ *  @param project Project ID for this request.
+ *  @param networkProfile Name of the network profile to return.
+ *
+ *  @return GTLRComputeQuery_NetworkProfilesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  networkProfile:(NSString *)networkProfile;
+
+@end
+
+/**
+ *  Retrieves a list of network profiles available to the specified project.
+ *
+ *  Method: compute.networkProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworkProfilesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkProfilesListResponse.
+ *
+ *  Retrieves a list of network profiles available to the specified project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_NetworkProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
 
 @end
 
@@ -20397,7 +23635,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -20525,7 +23765,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -20550,7 +23792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Patches the specified network with the data included in the request. Only
- *  the following fields can be modified: routingConfig.routingMode.
+ *  routingConfig can be modified.
  *
  *  Method: compute.networks.patch
  *
@@ -20583,7 +23825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified network with the data included in the request. Only
- *  the following fields can be modified: routingConfig.routingMode.
+ *  routingConfig can be modified.
  *
  *  @param object The @c GTLRCompute_Network to include in the query.
  *  @param project Project ID for this request.
@@ -20640,6 +23882,56 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_NetworksRemovePeering
  */
 + (instancetype)queryWithObject:(GTLRCompute_NetworksRemovePeeringRequest *)object
+                        project:(NSString *)project
+                        network:(NSString *)network;
+
+@end
+
+/**
+ *  Requests to remove a peering from the specified network. Applicable only for
+ *  PeeringConnection with update_strategy=CONSENSUS.
+ *
+ *  Method: compute.networks.requestRemovePeering
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NetworksRequestRemovePeering : GTLRComputeQuery
+
+/** Name of the network resource to remove peering from. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Requests to remove a peering from the specified network. Applicable only for
+ *  PeeringConnection with update_strategy=CONSENSUS.
+ *
+ *  @param object The @c GTLRCompute_NetworksRequestRemovePeeringRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param network Name of the network resource to remove peering from.
+ *
+ *  @return GTLRComputeQuery_NetworksRequestRemovePeering
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworksRequestRemovePeeringRequest *)object
                         project:(NSString *)project
                         network:(NSString *)network;
 
@@ -20802,7 +24094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes
- *  for more details about each group.
+ *  for more details about each group. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.nodeGroups.aggregatedList
  *
@@ -20894,7 +24187,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -20908,7 +24203,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_NodeGroupAggregatedList.
  *
  *  Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes
- *  for more details about each group.
+ *  for more details about each group. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -21263,7 +24559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -21379,7 +24677,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -21462,6 +24762,63 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_NodeGroupsPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_NodeGroup *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                      nodeGroup:(NSString *)nodeGroup;
+
+@end
+
+/**
+ *  Perform maintenance on a subset of nodes in the node group.
+ *
+ *  Method: compute.nodeGroups.performMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_NodeGroupsPerformMaintenance : GTLRComputeQuery
+
+/** Name of the node group scoping this request. */
+@property(nonatomic, copy, nullable) NSString *nodeGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Perform maintenance on a subset of nodes in the node group.
+ *
+ *  @param object The @c GTLRCompute_NodeGroupsPerformMaintenanceRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param nodeGroup Name of the node group scoping this request.
+ *
+ *  @return GTLRComputeQuery_NodeGroupsPerformMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NodeGroupsPerformMaintenanceRequest *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                       nodeGroup:(NSString *)nodeGroup;
@@ -21678,7 +25035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of node templates.
+ *  Retrieves an aggregated list of node templates. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.nodeTemplates.aggregatedList
  *
@@ -21770,7 +25128,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -21783,7 +25143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_NodeTemplateAggregatedList.
  *
- *  Retrieves an aggregated list of node templates.
+ *  Retrieves an aggregated list of node templates. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -22058,7 +25419,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -22165,7 +25528,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of node types.
+ *  Retrieves an aggregated list of node types. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.nodeTypes.aggregatedList
  *
@@ -22257,7 +25621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -22270,7 +25636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_NodeTypeAggregatedList.
  *
- *  Retrieves an aggregated list of node types.
+ *  Retrieves an aggregated list of node types. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -22404,7 +25771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -22435,7 +25804,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of packetMirrorings.
+ *  Retrieves an aggregated list of packetMirrorings. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.packetMirrorings.aggregatedList
  *
@@ -22527,7 +25897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -22540,7 +25912,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_PacketMirroringAggregatedList.
  *
- *  Retrieves an aggregated list of packetMirrorings.
+ *  Retrieves an aggregated list of packetMirrorings. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -22773,7 +26146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -23215,7 +26590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -23318,7 +26695,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -23434,6 +26813,53 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_ProjectsMoveInstance
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceMoveRequest *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Sets the Cloud Armor tier of the project. To set ENTERPRISE or above the
+ *  billing account of the project must be subscribed to Cloud Armor Enterprise.
+ *  See Subscribing to Cloud Armor Enterprise for more information.
+ *
+ *  Method: compute.projects.setCloudArmorTier
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ProjectsSetCloudArmorTier : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the Cloud Armor tier of the project. To set ENTERPRISE or above the
+ *  billing account of the project must be subscribed to Cloud Armor Enterprise.
+ *  See Subscribing to Cloud Armor Enterprise for more information.
+ *
+ *  @param object The @c GTLRCompute_ProjectsSetCloudArmorTierRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_ProjectsSetCloudArmorTier
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ProjectsSetCloudArmorTierRequest *)object
                         project:(NSString *)project;
 
 @end
@@ -23834,7 +27260,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -23958,7 +27386,8 @@ GTLR_DEPRECATED
 
 /**
  *  Lists all PublicDelegatedPrefix resources owned by the specific project
- *  across all scopes.
+ *  across all scopes. To prevent failure, Google recommends that you set the
+ *  `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.publicDelegatedPrefixes.aggregatedList
  *
@@ -24050,7 +27479,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -24064,7 +27495,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_PublicDelegatedPrefixAggregatedList.
  *
  *  Lists all PublicDelegatedPrefix resources owned by the specific project
- *  across all scopes.
+ *  across all scopes. To prevent failure, Google recommends that you set the
+ *  `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -24354,7 +27786,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -24712,7 +28146,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -25150,7 +28586,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -25175,8 +28613,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of all usable backend services in the specified
- *  project in the given region.
+ *  Retrieves a list of all usable backend services in the specified project in
+ *  the given region.
  *
  *  Method: compute.regionBackendServices.listUsable
  *
@@ -25263,15 +28701,17 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_BackendServiceListUsable.
  *
- *  Retrieves an aggregated list of all usable backend services in the specified
- *  project in the given region.
+ *  Retrieves a list of all usable backend services in the specified project in
+ *  the given region.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request. It must be a string
@@ -25545,7 +28985,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of commitments by region.
+ *  Retrieves an aggregated list of commitments by region. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
  *
  *  Method: compute.regionCommitments.aggregatedList
  *
@@ -25637,7 +29079,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -25650,7 +29094,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_CommitmentAggregatedList.
  *
- *  Retrieves an aggregated list of commitments by region.
+ *  Retrieves an aggregated list of commitments by region. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -25832,7 +29278,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -25858,7 +29306,7 @@ GTLR_DEPRECATED
 /**
  *  Updates the specified commitment with the data included in the request.
  *  Update is performed only on selected fields included as part of update-mask.
- *  Only the following fields can be modified: auto_renew.
+ *  Only the following fields can be updated: auto_renew and plan.
  *
  *  Method: compute.regionCommitments.update
  *
@@ -25868,7 +29316,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_RegionCommitmentsUpdate : GTLRComputeQuery
 
-/** Name of the commitment for which auto renew is being updated. */
+/** Name of the commitment that you want to update. */
 @property(nonatomic, copy, nullable) NSString *commitment;
 
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
@@ -25904,13 +29352,12 @@ GTLR_DEPRECATED
  *
  *  Updates the specified commitment with the data included in the request.
  *  Update is performed only on selected fields included as part of update-mask.
- *  Only the following fields can be modified: auto_renew.
+ *  Only the following fields can be updated: auto_renew and plan.
  *
  *  @param object The @c GTLRCompute_Commitment to include in the query.
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param commitment Name of the commitment for which auto renew is being
- *    updated.
+ *  @param commitment Name of the commitment that you want to update.
  *
  *  @return GTLRComputeQuery_RegionCommitmentsUpdate
  */
@@ -26357,7 +29804,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -26970,7 +30419,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -27274,7 +30725,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -27531,7 +30984,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28205,7 +31660,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28324,7 +31781,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28446,7 +31905,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28564,7 +32025,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28867,6 +32330,84 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Flags the specified instances in the managed instance group to be resumed.
+ *  This method increases the targetSize and decreases the targetSuspendedSize
+ *  of the managed instance group by the number of instances that you resume.
+ *  The resumeInstances operation is marked DONE if the resumeInstances request
+ *  is successful. The underlying actions take additional time. You must
+ *  separately verify the status of the RESUMING action with the
+ *  listmanagedinstances method. In this request, you can only specify instances
+ *  that are suspended. For example, if an instance was previously suspended
+ *  using the suspendInstances method, it can be resumed using the
+ *  resumeInstances method. If a health check is attached to the managed
+ *  instance group, the specified instances will be verified as healthy after
+ *  they are resumed. You can specify a maximum of 1000 instances with this
+ *  method per request.
+ *
+ *  Method: compute.regionInstanceGroupManagers.resumeInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersResumeInstances : GTLRComputeQuery
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be resumed.
+ *  This method increases the targetSize and decreases the targetSuspendedSize
+ *  of the managed instance group by the number of instances that you resume.
+ *  The resumeInstances operation is marked DONE if the resumeInstances request
+ *  is successful. The underlying actions take additional time. You must
+ *  separately verify the status of the RESUMING action with the
+ *  listmanagedinstances method. In this request, you can only specify instances
+ *  that are suspended. For example, if an instance was previously suspended
+ *  using the suspendInstances method, it can be resumed using the
+ *  resumeInstances method. If a health check is attached to the managed
+ *  instance group, the specified instances will be verified as healthy after
+ *  they are resumed. You can specify a maximum of 1000 instances with this
+ *  method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersResumeInstancesRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersResumeInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersResumeInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Sets the instance template to use when creating new instances or recreating
  *  instances in this group. Existing instances are not affected.
  *
@@ -28972,6 +32513,260 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be started.
+ *  This method increases the targetSize and decreases the targetStoppedSize of
+ *  the managed instance group by the number of instances that you start. The
+ *  startInstances operation is marked DONE if the startInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the STARTING action with the listmanagedinstances
+ *  method. In this request, you can only specify instances that are stopped.
+ *  For example, if an instance was previously stopped using the stopInstances
+ *  method, it can be started using the startInstances method. If a health check
+ *  is attached to the managed instance group, the specified instances will be
+ *  verified as healthy after they are started. You can specify a maximum of
+ *  1000 instances with this method per request.
+ *
+ *  Method: compute.regionInstanceGroupManagers.startInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersStartInstances : GTLRComputeQuery
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be started.
+ *  This method increases the targetSize and decreases the targetStoppedSize of
+ *  the managed instance group by the number of instances that you start. The
+ *  startInstances operation is marked DONE if the startInstances request is
+ *  successful. The underlying actions take additional time. You must separately
+ *  verify the status of the STARTING action with the listmanagedinstances
+ *  method. In this request, you can only specify instances that are stopped.
+ *  For example, if an instance was previously stopped using the stopInstances
+ *  method, it can be started using the startInstances method. If a health check
+ *  is attached to the managed instance group, the specified instances will be
+ *  verified as healthy after they are started. You can specify a maximum of
+ *  1000 instances with this method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersStartInstancesRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersStartInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersStartInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately stopped. You can only specify instances that are running in this
+ *  request. This method reduces the targetSize and increases the
+ *  targetStoppedSize of the managed instance group by the number of instances
+ *  that you stop. The stopInstances operation is marked DONE if the
+ *  stopInstances request is successful. The underlying actions take additional
+ *  time. You must separately verify the status of the STOPPING action with the
+ *  listmanagedinstances method. If the standbyPolicy.initialDelaySec field is
+ *  set, the group delays stopping the instances until initialDelaySec have
+ *  passed from instance.creationTimestamp (that is, when the instance was
+ *  created). This delay gives your application time to set itself up and
+ *  initialize on the instance. If more than initialDelaySec seconds have passed
+ *  since instance.creationTimestamp when this method is called, there will be
+ *  zero delay. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is stopped. Stopped
+ *  instances can be started using the startInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  Method: compute.regionInstanceGroupManagers.stopInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersStopInstances : GTLRComputeQuery
+
+/** The name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately stopped. You can only specify instances that are running in this
+ *  request. This method reduces the targetSize and increases the
+ *  targetStoppedSize of the managed instance group by the number of instances
+ *  that you stop. The stopInstances operation is marked DONE if the
+ *  stopInstances request is successful. The underlying actions take additional
+ *  time. You must separately verify the status of the STOPPING action with the
+ *  listmanagedinstances method. If the standbyPolicy.initialDelaySec field is
+ *  set, the group delays stopping the instances until initialDelaySec have
+ *  passed from instance.creationTimestamp (that is, when the instance was
+ *  created). This delay gives your application time to set itself up and
+ *  initialize on the instance. If more than initialDelaySec seconds have passed
+ *  since instance.creationTimestamp when this method is called, there will be
+ *  zero delay. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is stopped. Stopped
+ *  instances can be started using the startInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersStopInstancesRequest to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersStopInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersStopInstancesRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately suspended. You can only specify instances that are running in
+ *  this request. This method reduces the targetSize and increases the
+ *  targetSuspendedSize of the managed instance group by the number of instances
+ *  that you suspend. The suspendInstances operation is marked DONE if the
+ *  suspendInstances request is successful. The underlying actions take
+ *  additional time. You must separately verify the status of the SUSPENDING
+ *  action with the listmanagedinstances method. If the
+ *  standbyPolicy.initialDelaySec field is set, the group delays suspension of
+ *  the instances until initialDelaySec have passed from
+ *  instance.creationTimestamp (that is, when the instance was created). This
+ *  delay gives your application time to set itself up and initialize on the
+ *  instance. If more than initialDelaySec seconds have passed since
+ *  instance.creationTimestamp when this method is called, there will be zero
+ *  delay. If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is suspended. Suspended
+ *  instances can be resumed using the resumeInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  Method: compute.regionInstanceGroupManagers.suspendInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersSuspendInstances : GTLRComputeQuery
+
+/** Name of the managed instance group. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Flags the specified instances in the managed instance group to be
+ *  immediately suspended. You can only specify instances that are running in
+ *  this request. This method reduces the targetSize and increases the
+ *  targetSuspendedSize of the managed instance group by the number of instances
+ *  that you suspend. The suspendInstances operation is marked DONE if the
+ *  suspendInstances request is successful. The underlying actions take
+ *  additional time. You must separately verify the status of the SUSPENDING
+ *  action with the listmanagedinstances method. If the
+ *  standbyPolicy.initialDelaySec field is set, the group delays suspension of
+ *  the instances until initialDelaySec have passed from
+ *  instance.creationTimestamp (that is, when the instance was created). This
+ *  delay gives your application time to set itself up and initialize on the
+ *  instance. If more than initialDelaySec seconds have passed since
+ *  instance.creationTimestamp when this method is called, there will be zero
+ *  delay. If the group is part of a backend service that has enabled connection
+ *  draining, it can take up to 60 seconds after the connection draining
+ *  duration has elapsed before the VM instance is suspended. Suspended
+ *  instances can be resumed using the resumeInstances method. You can specify a
+ *  maximum of 1000 instances with this method per request.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagersSuspendInstancesRequest to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param instanceGroupManager Name of the managed instance group.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersSuspendInstances
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSuspendInstancesRequest *)object
                         project:(NSString *)project
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager;
@@ -29162,7 +32957,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -29279,7 +33076,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -29642,7 +33441,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -29663,6 +33464,444 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Deletes the specified InstantSnapshot resource. Keep in mind that deleting a
+ *  single instantSnapshot might not necessarily delete all the data on that
+ *  instantSnapshot. If any data on the instantSnapshot that is marked for
+ *  deletion is needed for subsequent instantSnapshots, the data will be moved
+ *  to the next corresponding instantSnapshot. For more information, see
+ *  Deleting instantSnapshots.
+ *
+ *  Method: compute.regionInstantSnapshots.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstantSnapshotsDelete : GTLRComputeQuery
+
+/** Name of the InstantSnapshot resource to delete. */
+@property(nonatomic, copy, nullable) NSString *instantSnapshot;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified InstantSnapshot resource. Keep in mind that deleting a
+ *  single instantSnapshot might not necessarily delete all the data on that
+ *  instantSnapshot. If any data on the instantSnapshot that is marked for
+ *  deletion is needed for subsequent instantSnapshots, the data will be moved
+ *  to the next corresponding instantSnapshot. For more information, see
+ *  Deleting instantSnapshots.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param instantSnapshot Name of the InstantSnapshot resource to delete.
+ *
+ *  @return GTLRComputeQuery_RegionInstantSnapshotsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                 instantSnapshot:(NSString *)instantSnapshot;
+
+@end
+
+/**
+ *  Returns the specified InstantSnapshot resource in the specified region.
+ *
+ *  Method: compute.regionInstantSnapshots.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstantSnapshotsGet : GTLRComputeQuery
+
+/** Name of the InstantSnapshot resource to return. */
+@property(nonatomic, copy, nullable) NSString *instantSnapshot;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_InstantSnapshot.
+ *
+ *  Returns the specified InstantSnapshot resource in the specified region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param instantSnapshot Name of the InstantSnapshot resource to return.
+ *
+ *  @return GTLRComputeQuery_RegionInstantSnapshotsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                 instantSnapshot:(NSString *)instantSnapshot;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.regionInstantSnapshots.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstantSnapshotsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstantSnapshotsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates an instant snapshot in the specified region.
+ *
+ *  Method: compute.regionInstantSnapshots.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstantSnapshotsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates an instant snapshot in the specified region.
+ *
+ *  @param object The @c GTLRCompute_InstantSnapshot to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstantSnapshotsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstantSnapshot *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves the list of InstantSnapshot resources contained within the
+ *  specified region.
+ *
+ *  Method: compute.regionInstantSnapshots.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstantSnapshotsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_InstantSnapshotList.
+ *
+ *  Retrieves the list of InstantSnapshot resources contained within the
+ *  specified region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstantSnapshotsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.regionInstantSnapshots.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstantSnapshotsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstantSnapshotsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the labels on a instantSnapshot in the given region. To learn more
+ *  about labels, read the Labeling Resources documentation.
+ *
+ *  Method: compute.regionInstantSnapshots.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstantSnapshotsSetLabels : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on a instantSnapshot in the given region. To learn more
+ *  about labels, read the Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_RegionSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstantSnapshotsSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetLabelsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.regionInstantSnapshots.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstantSnapshotsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstantSnapshotsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 
@@ -30037,7 +34276,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -30156,7 +34397,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -30748,7 +34991,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -31293,7 +35538,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -31327,7 +35574,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_RegionOperationsDelete : GTLRComputeQuery
 
-/** Name of the Operations resource to delete. */
+/**
+ *  Name of the Operations resource to delete, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -31344,7 +35593,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param operation Name of the Operations resource to delete.
+ *  @param operation Name of the Operations resource to delete, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_RegionOperationsDelete
  */
@@ -31366,7 +35616,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_RegionOperationsGet : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -31382,7 +35634,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_RegionOperationsGet
  */
@@ -31478,7 +35731,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -31524,7 +35779,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_RegionOperationsWait : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -31550,7 +35807,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_RegionOperationsWait
  */
@@ -31870,7 +36128,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32054,13 +36314,74 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Sets the labels on a security policy. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  Method: compute.regionSecurityPolicies.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionSecurityPoliciesSetLabels : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on a security policy. To learn more about labels, read the
+ *  Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_RegionSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionSecurityPoliciesSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetLabelsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Returns the specified Region resource. To decrease latency for this method,
  *  you can optionally omit any unneeded information from the response by using
  *  a field mask. This practice is especially recommended for unused quota
  *  information (the `quotas` field). To exclude one or more fields, set your
  *  request's `fields` query parameter to only include the fields you need. For
  *  example, to only include the `id` and `selfLink` fields, add the query
- *  parameter `?fields=id,selfLink` to your request.
+ *  parameter `?fields=id,selfLink` to your request. This method fails if the
+ *  quota information is unavailable for the region and if the organization
+ *  policy constraint compute.requireBasicQuotaInResponse is enforced. This
+ *  constraint, when enforced, disables the fail-open behaviour when quota
+ *  information (the `items.quotas` field) is unavailable for the region. It is
+ *  recommended to use the default setting for the constraint unless your
+ *  application requires the fail-closed behaviour for this method.
  *
  *  Method: compute.regions.get
  *
@@ -32086,7 +36407,13 @@ GTLR_DEPRECATED
  *  information (the `quotas` field). To exclude one or more fields, set your
  *  request's `fields` query parameter to only include the fields you need. For
  *  example, to only include the `id` and `selfLink` fields, add the query
- *  parameter `?fields=id,selfLink` to your request.
+ *  parameter `?fields=id,selfLink` to your request. This method fails if the
+ *  quota information is unavailable for the region and if the organization
+ *  policy constraint compute.requireBasicQuotaInResponse is enforced. This
+ *  constraint, when enforced, disables the fail-open behaviour when quota
+ *  information (the `items.quotas` field) is unavailable for the region. It is
+ *  recommended to use the default setting for the constraint unless your
+ *  application requires the fail-closed behaviour for this method.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region resource to return.
@@ -32106,7 +36433,13 @@ GTLR_DEPRECATED
  *  field). To exclude one or more fields, set your request's `fields` query
  *  parameter to only include the fields you need. For example, to only include
  *  the `id` and `selfLink` fields, add the query parameter
- *  `?fields=id,selfLink` to your request.
+ *  `?fields=id,selfLink` to your request. This method fails if the quota
+ *  information is unavailable for the region and if the organization policy
+ *  constraint compute.requireBasicQuotaInResponse is enforced. This constraint,
+ *  when enforced, disables the fail-open behaviour when quota information (the
+ *  `items.quotas` field) is unavailable for the region. It is recommended to
+ *  use the default setting for the constraint unless your application requires
+ *  the fail-closed behaviour for this method.
  *
  *  Method: compute.regions.list
  *
@@ -32187,7 +36520,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32201,7 +36536,13 @@ GTLR_DEPRECATED
  *  field). To exclude one or more fields, set your request's `fields` query
  *  parameter to only include the fields you need. For example, to only include
  *  the `id` and `selfLink` fields, add the query parameter
- *  `?fields=id,selfLink` to your request.
+ *  `?fields=id,selfLink` to your request. This method fails if the quota
+ *  information is unavailable for the region and if the organization policy
+ *  constraint compute.requireBasicQuotaInResponse is enforced. This constraint,
+ *  when enforced, disables the fail-open behaviour when quota information (the
+ *  `items.quotas` field) is unavailable for the region. It is recommended to
+ *  use the default setting for the constraint unless your application requires
+ *  the fail-closed behaviour for this method.
  *
  *  @param project Project ID for this request.
  *
@@ -32440,7 +36781,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32699,7 +37042,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32809,7 +37154,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -33108,7 +37455,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -33407,7 +37756,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -33820,7 +38171,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -34053,7 +38406,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -34299,7 +38654,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -34324,7 +38681,273 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of reservations.
+ *  Retrieves information about the specified reservation block.
+ *
+ *  Method: compute.reservationBlocks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ReservationBlocksGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the reservation. Name should conform to RFC1035 or be a resource
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  The name of the reservation block. Name should conform to RFC1035 or be a
+ *  resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationBlock;
+
+/**
+ *  View of the Block.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic This view includes basic information about
+ *        the reservation block (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewBlockViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "BLOCK_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRComputeViewFull Includes detailed topology view. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ReservationBlocksGetResponse.
+ *
+ *  Retrieves information about the specified reservation block.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param reservation The name of the reservation. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *  @param reservationBlock The name of the reservation block. Name should
+ *    conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationBlocksGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     reservation:(NSString *)reservation
+                reservationBlock:(NSString *)reservationBlock;
+
+@end
+
+/**
+ *  Retrieves a list of reservation blocks under a single reservation.
+ *
+ *  Method: compute.reservationBlocks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ReservationBlocksList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the reservation. Name should conform to RFC1035 or be a resource
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ReservationBlocksListResponse.
+ *
+ *  Retrieves a list of reservation blocks under a single reservation.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param reservation The name of the reservation. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationBlocksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     reservation:(NSString *)reservation;
+
+@end
+
+/**
+ *  Allows customers to perform maintenance on a reservation block
+ *
+ *  Method: compute.reservationBlocks.performMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationBlocksPerformMaintenance : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation. Name should conform to RFC1035 or be a resource
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  The name of the reservation block. Name should conform to RFC1035 or be a
+ *  resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationBlock;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Allows customers to perform maintenance on a reservation block
+ *
+ *  @param object The @c GTLRCompute_ReservationsBlocksPerformMaintenanceRequest
+ *    to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param reservation The name of the reservation. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *  @param reservationBlock The name of the reservation block. Name should
+ *    conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationBlocksPerformMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ReservationsBlocksPerformMaintenanceRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                    reservation:(NSString *)reservation
+               reservationBlock:(NSString *)reservationBlock;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of reservations. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.reservations.aggregatedList
  *
@@ -34416,7 +39039,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -34429,7 +39054,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_ReservationAggregatedList.
  *
- *  Retrieves an aggregated list of reservations.
+ *  Retrieves an aggregated list of reservations. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -34718,7 +39344,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -34746,6 +39374,68 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Perform maintenance on an extended reservation
+ *
+ *  Method: compute.reservations.performMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationsPerformMaintenance : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation. Name should conform to RFC1035 or be a resource
+ *  ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Perform maintenance on an extended reservation
+ *
+ *  @param object The @c GTLRCompute_ReservationsPerformMaintenanceRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param reservation The name of the reservation. Name should conform to
+ *    RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationsPerformMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ReservationsPerformMaintenanceRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                    reservation:(NSString *)reservation;
 
 @end
 
@@ -34900,6 +39590,257 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Retrieves information about the specified reservation subBlock.
+ *
+ *  Method: compute.reservationSubBlocks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ReservationSubBlocksGet : GTLRComputeQuery
+
+/**
+ *  The name of the parent reservation and parent block. In the format of
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the reservation subBlock. Name should conform to RFC1035 or be a
+ *  resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationSubBlock;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ReservationSubBlocksGetResponse.
+ *
+ *  Retrieves information about the specified reservation subBlock.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param parentName The name of the parent reservation and parent block. In
+ *    the format of
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ *  @param reservationSubBlock The name of the reservation subBlock. Name should
+ *    conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationSubBlocksGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName
+             reservationSubBlock:(NSString *)reservationSubBlock;
+
+@end
+
+/**
+ *  Retrieves a list of reservation subBlocks under a single reservation.
+ *
+ *  Method: compute.reservationSubBlocks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ReservationSubBlocksList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The name of the parent reservation and parent block. In the format of
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ReservationSubBlocksListResponse.
+ *
+ *  Retrieves a list of reservation subBlocks under a single reservation.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param parentName The name of the parent reservation and parent block. In
+ *    the format of
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ *
+ *  @return GTLRComputeQuery_ReservationSubBlocksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName;
+
+@end
+
+/**
+ *  Allows customers to perform maintenance on a reservation subBlock
+ *
+ *  Method: compute.reservationSubBlocks.performMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationSubBlocksPerformMaintenance : GTLRComputeQuery
+
+/**
+ *  The name of the parent reservation and parent block. In the format of
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation subBlock. Name should conform to RFC1035 or be a
+ *  resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationSubBlock;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Allows customers to perform maintenance on a reservation subBlock
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param parentName The name of the parent reservation and parent block. In
+ *    the format of
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ *  @param reservationSubBlock The name of the reservation subBlock. Name should
+ *    conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationSubBlocksPerformMaintenance
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName
+             reservationSubBlock:(NSString *)reservationSubBlock;
+
+@end
+
+/**
  *  Update share settings of the reservation.
  *
  *  Method: compute.reservations.update
@@ -34965,7 +39906,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of resource policies.
+ *  Retrieves an aggregated list of resource policies. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
  *
  *  Method: compute.resourcePolicies.aggregatedList
  *
@@ -35057,7 +40000,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -35070,7 +40015,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_ResourcePolicyAggregatedList.
  *
- *  Retrieves an aggregated list of resource policies.
+ *  Retrieves an aggregated list of resource policies. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -35344,7 +40291,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -35511,7 +40460,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of routers.
+ *  Retrieves an aggregated list of routers. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.routers.aggregatedList
  *
@@ -35603,7 +40553,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -35616,7 +40568,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_RouterAggregatedList.
  *
- *  Retrieves an aggregated list of routers.
+ *  Retrieves an aggregated list of routers. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -35669,6 +40622,59 @@ GTLR_DEPRECATED
  *  @param router Name of the Router resource to delete.
  *
  *  @return GTLRComputeQuery_RoutersDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Deletes Route Policy
+ *
+ *  Method: compute.routers.deleteRoutePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersDeleteRoutePolicy : GTLRComputeQuery
+
+/** The Policy name for this request. Name must conform to RFC1035 */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the Router resource where Route Policy is defined. */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes Route Policy
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource where Route Policy is defined.
+ *
+ *  @return GTLRComputeQuery_RoutersDeleteRoutePolicy
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -35854,7 +40860,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -35879,6 +40887,51 @@ GTLR_DEPRECATED
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Returns specified Route Policy
+ *
+ *  Method: compute.routers.getRoutePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersGetRoutePolicy : GTLRComputeQuery
+
+/** The Policy name for this request. Name must conform to RFC1035 */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Name of the Router resource to query for the route policy. The name should
+ *  conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_RoutersGetRoutePolicyResponse.
+ *
+ *  Returns specified Route Policy
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource to query for the route policy. The
+ *    name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RoutersGetRoutePolicy
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -36058,7 +41111,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -36078,6 +41133,290 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves a list of router bgp routes available to the specified project.
+ *
+ *  Method: compute.routers.listBgpRoutes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersListBgpRoutes : GTLRComputeQuery
+
+/**
+ *  (Required) limit results to this address family (either IPv4 or IPv6)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeAddressFamilyIpv4 Value "IPV4"
+ *    @arg @c kGTLRComputeAddressFamilyIpv6 Value "IPV6"
+ *    @arg @c kGTLRComputeAddressFamilyUnspecifiedIpVersion Value
+ *        "UNSPECIFIED_IP_VERSION"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRComputeAddressFamilyUnspecifiedIpVersion.
+ */
+@property(nonatomic, copy, nullable) NSString *addressFamily;
+
+/** Limit results to destinations that are subnets of this CIDR range */
+@property(nonatomic, copy, nullable) NSString *destinationPrefix;
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  (Required) limit results to the BGP peer with the given name. Name should
+ *  conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *peer;
+
+/**
+ *  When true, the method returns post-policy routes. Otherwise, it returns
+ *  pre-policy routes.
+ *
+ *  @note If not set, the documented server-side default will be true.
+ */
+@property(nonatomic, assign) BOOL policyApplied;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name or id of the resource for this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  (Required) limit results to this type of route (either LEARNED or
+ *  ADVERTISED)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeRouteTypeAdvertised Value "ADVERTISED"
+ *    @arg @c kGTLRComputeRouteTypeLearned Value "LEARNED"
+ *    @arg @c kGTLRComputeRouteTypeUnspecifiedRouteType Value
+ *        "UNSPECIFIED_ROUTE_TYPE"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRComputeRouteTypeUnspecifiedRouteType.
+ */
+@property(nonatomic, copy, nullable) NSString *routeType;
+
+/**
+ *  Fetches a @c GTLRCompute_RoutersListBgpRoutes.
+ *
+ *  Retrieves a list of router bgp routes available to the specified project.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name or id of the resource for this request. Name should
+ *    conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RoutersListBgpRoutes
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
+
+@end
+
+/**
+ *  Retrieves a list of router route policy subresources available to the
+ *  specified project.
+ *
+ *  Method: compute.routers.listRoutePolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RoutersListRoutePolicies : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name or id of the resource for this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_RoutersListRoutePolicies.
+ *
+ *  Retrieves a list of router route policy subresources available to the
+ *  specified project.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name or id of the resource for this request. Name should
+ *    conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RoutersListRoutePolicies
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                          router:(NSString *)router;
 
 @end
 
@@ -36131,6 +41470,58 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_RoutersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_Router *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router;
+
+@end
+
+/**
+ *  Patches Route Policy
+ *
+ *  Method: compute.routers.patchRoutePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersPatchRoutePolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the Router resource where Route Policy is defined. */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches Route Policy
+ *
+ *  @param object The @c GTLRCompute_RoutePolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource where Route Policy is defined.
+ *
+ *  @return GTLRComputeQuery_RoutersPatchRoutePolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RoutePolicy *)object
                         project:(NSString *)project
                          region:(NSString *)region
                          router:(NSString *)router;
@@ -36231,6 +41622,58 @@ GTLR_DEPRECATED
  *  @return GTLRComputeQuery_RoutersUpdate
  */
 + (instancetype)queryWithObject:(GTLRCompute_Router *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                         router:(NSString *)router;
+
+@end
+
+/**
+ *  Updates or creates new Route Policy
+ *
+ *  Method: compute.routers.updateRoutePolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RoutersUpdateRoutePolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the Router resource where Route Policy is defined. */
+@property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates or creates new Route Policy
+ *
+ *  @param object The @c GTLRCompute_RoutePolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param router Name of the Router resource where Route Policy is defined.
+ *
+ *  @return GTLRComputeQuery_RoutersUpdateRoutePolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RoutePolicy *)object
                         project:(NSString *)project
                          region:(NSString *)region
                          router:(NSString *)router;
@@ -36441,7 +41884,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -36501,7 +41946,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the list of all SecurityPolicy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.securityPolicies.aggregatedList
  *
@@ -36593,7 +42039,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -36607,7 +42055,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_SecurityPoliciesAggregatedList.
  *
  *  Retrieves the list of all SecurityPolicy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -36861,7 +42310,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -36965,7 +42416,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -37167,7 +42620,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the list of all ServiceAttachment resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.serviceAttachments.aggregatedList
  *
@@ -37259,7 +42713,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -37273,7 +42729,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_ServiceAttachmentAggregatedList.
  *
  *  Retrieves the list of all ServiceAttachment resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -37548,7 +43005,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -38047,7 +43506,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -38181,7 +43642,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the list of all SslCertificate resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.sslCertificates.aggregatedList
  *
@@ -38273,7 +43735,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -38287,7 +43751,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_SslCertificateAggregatedList.
  *
  *  Retrieves the list of all SslCertificate resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -38502,7 +43967,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -38526,7 +43993,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the list of all SslPolicy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.sslPolicies.aggregatedList
  *
@@ -38618,7 +44086,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -38632,7 +44102,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_SslPoliciesAggregatedList.
  *
  *  Retrieves the list of all SslPolicy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -38857,7 +44328,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -38962,7 +44435,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -39032,7 +44507,1003 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of subnetworks.
+ *  Retrieves an aggregated list of storage pools. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
+ *
+ *  Method: compute.storagePools.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolsAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_StoragePoolAggregatedList.
+ *
+ *  Retrieves an aggregated list of storage pools. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified storage pool. Deleting a storagePool removes its data
+ *  permanently and is irreversible. However, deleting a storagePool does not
+ *  delete any snapshots previously made from the storagePool. You must
+ *  separately delete snapshots.
+ *
+ *  Method: compute.storagePools.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_StoragePoolsDelete : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the storage pool to delete. */
+@property(nonatomic, copy, nullable) NSString *storagePool;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified storage pool. Deleting a storagePool removes its data
+ *  permanently and is irreversible. However, deleting a storagePool does not
+ *  delete any snapshots previously made from the storagePool. You must
+ *  separately delete snapshots.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param storagePool Name of the storage pool to delete.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     storagePool:(NSString *)storagePool;
+
+@end
+
+/**
+ *  Returns a specified storage pool. Gets a list of available storage pools by
+ *  making a list() request.
+ *
+ *  Method: compute.storagePools.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolsGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the storage pool to return. */
+@property(nonatomic, copy, nullable) NSString *storagePool;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_StoragePool.
+ *
+ *  Returns a specified storage pool. Gets a list of available storage pools by
+ *  making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param storagePool Name of the storage pool to return.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     storagePool:(NSString *)storagePool;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.storagePools.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a storage pool in the specified project using the data in the
+ *  request.
+ *
+ *  Method: compute.storagePools.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_StoragePoolsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a storage pool in the specified project using the data in the
+ *  request.
+ *
+ *  @param object The @c GTLRCompute_StoragePool to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_StoragePool *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Retrieves a list of storage pools contained within the specified zone.
+ *
+ *  Method: compute.storagePools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_StoragePoolList.
+ *
+ *  Retrieves a list of storage pools contained within the specified zone.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Lists the disks in a specified storage pool.
+ *
+ *  Method: compute.storagePools.listDisks
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolsListDisks : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/** Name of the storage pool to list disks of. */
+@property(nonatomic, copy, nullable) NSString *storagePool;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_StoragePoolListDisks.
+ *
+ *  Lists the disks in a specified storage pool.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param storagePool Name of the storage pool to list disks of.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsListDisks
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                     storagePool:(NSString *)storagePool;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.storagePools.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_StoragePoolsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_ZoneSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ZoneSetPolicyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.storagePools.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Updates the specified storagePool with the data included in the request. The
+ *  update is performed only on selected fields included as part of update-mask.
+ *  Only the following fields can be modified: pool_provisioned_capacity_gb,
+ *  pool_provisioned_iops and pool_provisioned_throughput.
+ *
+ *  Method: compute.storagePools.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_StoragePoolsUpdate : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** The storagePool name for this request. */
+@property(nonatomic, copy, nullable) NSString *storagePool;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified storagePool with the data included in the request. The
+ *  update is performed only on selected fields included as part of update-mask.
+ *  Only the following fields can be modified: pool_provisioned_capacity_gb,
+ *  pool_provisioned_iops and pool_provisioned_throughput.
+ *
+ *  @param object The @c GTLRCompute_StoragePool to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param storagePool The storagePool name for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_StoragePool *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                    storagePool:(NSString *)storagePool;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of storage pool types. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
+ *
+ *  Method: compute.storagePoolTypes.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolTypesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_StoragePoolTypeAggregatedList.
+ *
+ *  Retrieves an aggregated list of storage pool types. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolTypesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Returns the specified storage pool type.
+ *
+ *  Method: compute.storagePoolTypes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolTypesGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the storage pool type to return. */
+@property(nonatomic, copy, nullable) NSString *storagePoolType;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_StoragePoolType.
+ *
+ *  Returns the specified storage pool type.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param storagePoolType Name of the storage pool type to return.
+ *
+ *  @return GTLRComputeQuery_StoragePoolTypesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                 storagePoolType:(NSString *)storagePoolType;
+
+@end
+
+/**
+ *  Retrieves a list of storage pool types available to the specified project.
+ *
+ *  Method: compute.storagePoolTypes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_StoragePoolTypesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_StoragePoolTypeList.
+ *
+ *  Retrieves a list of storage pool types available to the specified project.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_StoragePoolTypesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Retrieves an aggregated list of subnetworks. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.subnetworks.aggregatedList
  *
@@ -39124,7 +45595,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -39137,7 +45610,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_SubnetworkAggregatedList.
  *
- *  Retrieves an aggregated list of subnetworks.
+ *  Retrieves an aggregated list of subnetworks. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -39465,7 +45939,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -39570,9 +46046,18 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The project id or project number in which the subnetwork is intended to be
+ *  used. Only applied for Shared VPC. See [Shared VPC
+ *  documentation](https://cloud.google.com/vpc/docs/shared-vpc/)
+ */
+@property(nonatomic, copy, nullable) NSString *serviceProject;
 
 /**
  *  Fetches a @c GTLRCompute_UsableSubnetworksAggregatedList.
@@ -40003,7 +46488,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -40077,7 +46564,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the list of all TargetHttpProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.targetHttpProxies.aggregatedList
  *
@@ -40169,7 +46657,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -40183,7 +46673,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_TargetHttpProxyAggregatedList.
  *
  *  Retrieves the list of all TargetHttpProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -40398,7 +46889,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -40520,7 +47013,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the list of all TargetHttpsProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.targetHttpsProxies.aggregatedList
  *
@@ -40612,7 +47106,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -40626,7 +47122,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_TargetHttpsProxyAggregatedList.
  *
  *  Retrieves the list of all TargetHttpsProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -40841,7 +47338,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -41178,7 +47677,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of target instances.
+ *  Retrieves an aggregated list of target instances. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.targetInstances.aggregatedList
  *
@@ -41270,7 +47770,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -41283,7 +47785,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_TargetInstanceAggregatedList.
  *
- *  Retrieves an aggregated list of target instances.
+ *  Retrieves an aggregated list of target instances. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -41525,7 +48028,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -41726,7 +48231,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of target pools.
+ *  Retrieves an aggregated list of target pools. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.targetPools.aggregatedList
  *
@@ -41818,7 +48324,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -41831,7 +48339,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_TargetPoolAggregatedList.
  *
- *  Retrieves an aggregated list of target pools.
+ *  Retrieves an aggregated list of target pools. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -42107,7 +48616,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -42556,7 +49067,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -42844,7 +49357,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the list of all TargetTcpProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.targetTcpProxies.aggregatedList
  *
@@ -42936,7 +49450,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -42950,7 +49466,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_TargetTcpProxyAggregatedList.
  *
  *  Retrieves the list of all TargetTcpProxy resources, regional and global,
- *  available to the specified project.
+ *  available to the specified project. To prevent failure, Google recommends
+ *  that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -43165,7 +49682,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -43289,7 +49808,9 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of target VPN gateways.
+ *  Retrieves an aggregated list of target VPN gateways. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
  *
  *  Method: compute.targetVpnGateways.aggregatedList
  *
@@ -43381,7 +49902,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -43394,7 +49917,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_TargetVpnGatewayAggregatedList.
  *
- *  Retrieves an aggregated list of target VPN gateways.
+ *  Retrieves an aggregated list of target VPN gateways. To prevent failure,
+ *  Google recommends that you set the `returnPartialSuccess` parameter to
+ *  `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -43627,7 +50152,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -43708,7 +50235,8 @@ GTLR_DEPRECATED
 
 /**
  *  Retrieves the list of all UrlMap resources, regional and global, available
- *  to the specified project.
+ *  to the specified project. To prevent failure, Google recommends that you set
+ *  the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.urlMaps.aggregatedList
  *
@@ -43800,7 +50328,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -43814,7 +50344,8 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_UrlMapsAggregatedList.
  *
  *  Retrieves the list of all UrlMap resources, regional and global, available
- *  to the specified project.
+ *  to the specified project. To prevent failure, Google recommends that you set
+ *  the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Name of the project scoping this request.
  *
@@ -44080,7 +50611,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -44237,7 +50770,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of VPN gateways.
+ *  Retrieves an aggregated list of VPN gateways. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.vpnGateways.aggregatedList
  *
@@ -44329,7 +50863,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -44342,7 +50878,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_VpnGatewayAggregatedList.
  *
- *  Retrieves an aggregated list of VPN gateways.
+ *  Retrieves an aggregated list of VPN gateways. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -44613,7 +51150,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -44734,7 +51273,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Retrieves an aggregated list of VPN tunnels.
+ *  Retrieves an aggregated list of VPN tunnels. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  Method: compute.vpnTunnels.aggregatedList
  *
@@ -44826,7 +51366,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -44839,7 +51381,8 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCompute_VpnTunnelAggregatedList.
  *
- *  Retrieves an aggregated list of VPN tunnels.
+ *  Retrieves an aggregated list of VPN tunnels. To prevent failure, Google
+ *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
  *  @param project Project ID for this request.
  *
@@ -45072,7 +51615,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -45162,7 +51707,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_ZoneOperationsDelete : GTLRComputeQuery
 
-/** Name of the Operations resource to delete. */
+/**
+ *  Name of the Operations resource to delete, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -45183,7 +51730,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
- *  @param operation Name of the Operations resource to delete.
+ *  @param operation Name of the Operations resource to delete, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_ZoneOperationsDelete
  */
@@ -45205,7 +51753,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_ZoneOperationsGet : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -45225,7 +51775,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_ZoneOperationsGet
  */
@@ -45317,7 +51868,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -45368,7 +51921,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRComputeQuery_ZoneOperationsWait : GTLRComputeQuery
 
-/** Name of the Operations resource to return. */
+/**
+ *  Name of the Operations resource to return, or its unique numeric identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Project ID for this request. */
@@ -45397,7 +51952,8 @@ GTLR_DEPRECATED
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
- *  @param operation Name of the Operations resource to return.
+ *  @param operation Name of the Operations resource to return, or its unique
+ *    numeric identifier.
  *
  *  @return GTLRComputeQuery_ZoneOperationsWait
  */
@@ -45526,7 +52082,9 @@ GTLR_DEPRECATED
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false.
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 

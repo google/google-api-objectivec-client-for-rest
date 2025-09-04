@@ -14,6 +14,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRVMwareEngine_Announcement.state
+NSString * const kGTLRVMwareEngine_Announcement_State_Active   = @"ACTIVE";
+NSString * const kGTLRVMwareEngine_Announcement_State_Creating = @"CREATING";
+NSString * const kGTLRVMwareEngine_Announcement_State_Deleting = @"DELETING";
+NSString * const kGTLRVMwareEngine_Announcement_State_Inactive = @"INACTIVE";
+NSString * const kGTLRVMwareEngine_Announcement_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRVMwareEngine_AuditLogConfig.logType
 NSString * const kGTLRVMwareEngine_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRVMwareEngine_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -48,6 +55,7 @@ NSString * const kGTLRVMwareEngine_ExternalAddress_State_StateUnspecified = @"ST
 NSString * const kGTLRVMwareEngine_ExternalAddress_State_Updating = @"UPDATING";
 
 // GTLRVMwareEngine_Hcx.state
+NSString * const kGTLRVMwareEngine_Hcx_State_Activating       = @"ACTIVATING";
 NSString * const kGTLRVMwareEngine_Hcx_State_Active           = @"ACTIVE";
 NSString * const kGTLRVMwareEngine_Hcx_State_Creating         = @"CREATING";
 NSString * const kGTLRVMwareEngine_Hcx_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -64,7 +72,10 @@ NSString * const kGTLRVMwareEngine_LocationMetadata_Capabilities_StretchedCluste
 
 // GTLRVMwareEngine_LoggingServer.protocol
 NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Relp = @"RELP";
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Ssl  = @"SSL";
 NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Tcp  = @"TCP";
+NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Tls  = @"TLS";
 NSString * const kGTLRVMwareEngine_LoggingServer_Protocol_Udp  = @"UDP";
 
 // GTLRVMwareEngine_LoggingServer.sourceType
@@ -94,6 +105,8 @@ NSString * const kGTLRVMwareEngine_Network_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 // GTLRVMwareEngine_NetworkPeering.peerNetworkType
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_DellPowerscale = @"DELL_POWERSCALE";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudFilestoreInstances = @"GOOGLE_CLOUD_FILESTORE_INSTANCES";
+NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_GoogleCloudNetappVolumes = @"GOOGLE_CLOUD_NETAPP_VOLUMES";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_NetappCloudVolumes = @"NETAPP_CLOUD_VOLUMES";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PeerNetworkTypeUnspecified = @"PEER_NETWORK_TYPE_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_NetworkPeering_PeerNetworkType_PrivateServicesAccess = @"PRIVATE_SERVICES_ACCESS";
@@ -186,6 +199,11 @@ NSString * const kGTLRVMwareEngine_PrivateConnection_Type_PrivateServiceAccess =
 NSString * const kGTLRVMwareEngine_PrivateConnection_Type_ThirdPartyService = @"THIRD_PARTY_SERVICE";
 NSString * const kGTLRVMwareEngine_PrivateConnection_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRVMwareEngine_Schedule.lastEditor
+NSString * const kGTLRVMwareEngine_Schedule_LastEditor_EditorUnspecified = @"EDITOR_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_Schedule_LastEditor_System  = @"SYSTEM";
+NSString * const kGTLRVMwareEngine_Schedule_LastEditor_User    = @"USER";
+
 // GTLRVMwareEngine_Subnet.state
 NSString * const kGTLRVMwareEngine_Subnet_State_Active         = @"ACTIVE";
 NSString * const kGTLRVMwareEngine_Subnet_State_Creating       = @"CREATING";
@@ -195,16 +213,137 @@ NSString * const kGTLRVMwareEngine_Subnet_State_Reconciling    = @"RECONCILING";
 NSString * const kGTLRVMwareEngine_Subnet_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_Subnet_State_Updating       = @"UPDATING";
 
+// GTLRVMwareEngine_TimeWindow.dayOfWeek
+NSString * const kGTLRVMwareEngine_TimeWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_TimeWindow_DayOfWeek_Friday = @"FRIDAY";
+NSString * const kGTLRVMwareEngine_TimeWindow_DayOfWeek_Monday = @"MONDAY";
+NSString * const kGTLRVMwareEngine_TimeWindow_DayOfWeek_Saturday = @"SATURDAY";
+NSString * const kGTLRVMwareEngine_TimeWindow_DayOfWeek_Sunday = @"SUNDAY";
+NSString * const kGTLRVMwareEngine_TimeWindow_DayOfWeek_Thursday = @"THURSDAY";
+NSString * const kGTLRVMwareEngine_TimeWindow_DayOfWeek_Tuesday = @"TUESDAY";
+NSString * const kGTLRVMwareEngine_TimeWindow_DayOfWeek_Wednesday = @"WEDNESDAY";
+
+// GTLRVMwareEngine_Upgrade.state
+NSString * const kGTLRVMwareEngine_Upgrade_State_Cancelled     = @"CANCELLED";
+NSString * const kGTLRVMwareEngine_Upgrade_State_Cancelling    = @"CANCELLING";
+NSString * const kGTLRVMwareEngine_Upgrade_State_Failed        = @"FAILED";
+NSString * const kGTLRVMwareEngine_Upgrade_State_Ongoing       = @"ONGOING";
+NSString * const kGTLRVMwareEngine_Upgrade_State_Paused        = @"PAUSED";
+NSString * const kGTLRVMwareEngine_Upgrade_State_Rescheduling  = @"RESCHEDULING";
+NSString * const kGTLRVMwareEngine_Upgrade_State_Scheduled     = @"SCHEDULED";
+NSString * const kGTLRVMwareEngine_Upgrade_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_Upgrade_State_Succeeded     = @"SUCCEEDED";
+
+// GTLRVMwareEngine_Upgrade.type
+NSString * const kGTLRVMwareEngine_Upgrade_Type_FirmwareUpgrade = @"FIRMWARE_UPGRADE";
+NSString * const kGTLRVMwareEngine_Upgrade_Type_InfrastructureUpgrade = @"INFRASTRUCTURE_UPGRADE";
+NSString * const kGTLRVMwareEngine_Upgrade_Type_Other          = @"OTHER";
+NSString * const kGTLRVMwareEngine_Upgrade_Type_SwitchUpgrade  = @"SWITCH_UPGRADE";
+NSString * const kGTLRVMwareEngine_Upgrade_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_Upgrade_Type_VspherePatch   = @"VSPHERE_PATCH";
+NSString * const kGTLRVMwareEngine_Upgrade_Type_VsphereUpgrade = @"VSPHERE_UPGRADE";
+NSString * const kGTLRVMwareEngine_Upgrade_Type_Workaround     = @"WORKAROUND";
+
 // GTLRVMwareEngine_Vcenter.state
 NSString * const kGTLRVMwareEngine_Vcenter_State_Active        = @"ACTIVE";
 NSString * const kGTLRVMwareEngine_Vcenter_State_Creating      = @"CREATING";
 NSString * const kGTLRVMwareEngine_Vcenter_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRVMwareEngine_VmwareUpgradeComponent.componentType
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Cluster = @"CLUSTER";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Dvs = @"DVS";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Esxi = @"ESXI";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Hcx = @"HCX";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_KmsVm = @"KMS_VM";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_NameserverVm = @"NAMESERVER_VM";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Nsxt = @"NSXT";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_NsxtEdge = @"NSXT_EDGE";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_NsxtMgr = @"NSXT_MGR";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_NsxtUc = @"NSXT_UC";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Vcenter = @"VCENTER";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_VmwareComponentTypeUnspecified = @"VMWARE_COMPONENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Vsan = @"VSAN";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_WitnessVm = @"WITNESS_VM";
+
+// GTLRVMwareEngine_VmwareUpgradeComponent.state
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_State_Failed = @"FAILED";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_State_NotApplicable = @"NOT_APPLICABLE";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_State_NotStarted = @"NOT_STARTED";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_State_Paused = @"PAUSED";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_State_Running = @"RUNNING";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_State_Succeeded = @"SUCCEEDED";
 
 // GTLRVMwareEngine_VpcNetwork.type
 NSString * const kGTLRVMwareEngine_VpcNetwork_Type_GoogleCloud = @"GOOGLE_CLOUD";
 NSString * const kGTLRVMwareEngine_VpcNetwork_Type_Internet    = @"INTERNET";
 NSString * const kGTLRVMwareEngine_VpcNetwork_Type_Intranet    = @"INTRANET";
 NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRVMwareEngine_WeeklyTimeInterval.endDay
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Friday = @"FRIDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Monday = @"MONDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Saturday = @"SATURDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Sunday = @"SUNDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Thursday = @"THURSDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Tuesday = @"TUESDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_EndDay_Wednesday = @"WEDNESDAY";
+
+// GTLRVMwareEngine_WeeklyTimeInterval.startDay
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Friday = @"FRIDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Monday = @"MONDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Saturday = @"SATURDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Sunday = @"SUNDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Thursday = @"THURSDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Tuesday = @"TUESDAY";
+NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WEDNESDAY";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest
+//
+
+@implementation GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest
+@dynamic ETag, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_Announcement
+//
+
+@implementation GTLRVMwareEngine_Announcement
+@dynamic activityType, cluster, code, createTime, descriptionProperty, metadata,
+         name, privateCloud, state, targetResourceType, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_Announcement_Metadata
+//
+
+@implementation GTLRVMwareEngine_Announcement_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -244,6 +383,42 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_AutoscalingPolicy
+//
+
+@implementation GTLRVMwareEngine_AutoscalingPolicy
+@dynamic consumedMemoryThresholds, cpuThresholds, grantedMemoryThresholds,
+         nodeTypeId, scaleOutSize, storageThresholds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_AutoscalingSettings
+//
+
+@implementation GTLRVMwareEngine_AutoscalingSettings
+@dynamic autoscalingPolicies, coolDownPeriod, maxClusterNodeCount,
+         minClusterNodeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_AutoscalingSettings_AutoscalingPolicies
+//
+
+@implementation GTLRVMwareEngine_AutoscalingSettings_AutoscalingPolicies
+
++ (Class)classForAdditionalProperties {
+  return [GTLRVMwareEngine_AutoscalingPolicy class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_Binding
 //
 
@@ -266,8 +441,8 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 //
 
 @implementation GTLRVMwareEngine_Cluster
-@dynamic createTime, management, name, nodeTypeConfigs, state,
-         stretchedClusterConfig, uid, updateTime;
+@dynamic autoscalingSettings, createTime, management, name, nodeTypeConfigs,
+         state, stretchedClusterConfig, uid, updateTime;
 @end
 
 
@@ -280,6 +455,24 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 + (Class)classForAdditionalProperties {
   return [GTLRVMwareEngine_NodeTypeConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_Constraints
+//
+
+@implementation GTLRVMwareEngine_Constraints
+@dynamic disallowedIntervals, minHoursDay, minHoursWeek, rescheduleDateRange;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"disallowedIntervals" : [GTLRVMwareEngine_WeeklyTimeInterval class]
+  };
+  return map;
 }
 
 @end
@@ -470,11 +663,44 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_Interval
+//
+
+@implementation GTLRVMwareEngine_Interval
+@dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_IpRange
 //
 
 @implementation GTLRVMwareEngine_IpRange
 @dynamic externalAddress, ipAddress, ipAddressRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListAnnouncementsResponse
+//
+
+@implementation GTLRVMwareEngine_ListAnnouncementsResponse
+@dynamic announcements, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"announcements" : [GTLRVMwareEngine_Announcement class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"announcements";
+}
+
 @end
 
 
@@ -859,6 +1085,29 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 + (NSString *)collectionItemsKey {
   return @"subnets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListUpgradesResponse
+//
+
+@implementation GTLRVMwareEngine_ListUpgradesResponse
+@dynamic nextPageToken, unreachable, upgrades;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"upgrades" : [GTLRVMwareEngine_Upgrade class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"upgrades";
 }
 
 @end
@@ -1304,6 +1553,24 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_Schedule
+//
+
+@implementation GTLRVMwareEngine_Schedule
+@dynamic constraints, editWindow, lastEditor, startTime, weeklyWindows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"weeklyWindows" : [GTLRVMwareEngine_TimeWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_SetIamPolicyRequest
 //
 
@@ -1402,11 +1669,69 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_Thresholds
+//
+
+@implementation GTLRVMwareEngine_Thresholds
+@dynamic scaleIn, scaleOut;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_TimeOfDay
+//
+
+@implementation GTLRVMwareEngine_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_TimeWindow
+//
+
+@implementation GTLRVMwareEngine_TimeWindow
+@dynamic dayOfWeek, duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_UndeletePrivateCloudRequest
 //
 
 @implementation GTLRVMwareEngine_UndeletePrivateCloudRequest
 @dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_Upgrade
+//
+
+@implementation GTLRVMwareEngine_Upgrade
+@dynamic componentUpgrades, createTime, descriptionProperty, endTime,
+         estimatedDuration, ETag, name, schedule, startVersion, state,
+         targetVersion, type, uid, updateTime, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"componentUpgrades" : [GTLRVMwareEngine_VmwareUpgradeComponent class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1422,9 +1747,29 @@ NSString * const kGTLRVMwareEngine_VpcNetwork_Type_TypeUnspecified = @"TYPE_UNSP
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_VmwareUpgradeComponent
+//
+
+@implementation GTLRVMwareEngine_VmwareUpgradeComponent
+@dynamic componentType, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_VpcNetwork
 //
 
 @implementation GTLRVMwareEngine_VpcNetwork
 @dynamic network, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_WeeklyTimeInterval
+//
+
+@implementation GTLRVMwareEngine_WeeklyTimeInterval
+@dynamic endDay, endTime, startDay, startTime;
 @end

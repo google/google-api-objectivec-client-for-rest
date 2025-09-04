@@ -629,6 +629,361 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a new Enrollment in a particular project and location.
+ *
+ *  Method: eventarc.projects.locations.enrollments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsEnrollmentsCreate : GTLREventarcQuery
+
+/**
+ *  Required. The user-provided ID to be assigned to the Enrollment. It should
+ *  match the format `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *enrollmentId;
+
+/** Required. The parent collection in which to add this enrollment. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Create a new Enrollment in a particular project and location.
+ *
+ *  @param object The @c GTLREventarc_Enrollment to include in the query.
+ *  @param parent Required. The parent collection in which to add this
+ *    enrollment.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsEnrollmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLREventarc_Enrollment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a single Enrollment.
+ *
+ *  Method: eventarc.projects.locations.enrollments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsEnrollmentsDelete : GTLREventarcQuery
+
+/**
+ *  Optional. If set to true, and the Enrollment is not found, the request will
+ *  succeed but no action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. If provided, the Enrollment will only be deleted if the etag
+ *  matches the current etag on the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the Enrollment to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Delete a single Enrollment.
+ *
+ *  @param name Required. The name of the Enrollment to be deleted.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsEnrollmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a single Enrollment.
+ *
+ *  Method: eventarc.projects.locations.enrollments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsEnrollmentsGet : GTLREventarcQuery
+
+/** Required. The name of the Enrollment to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_Enrollment.
+ *
+ *  Get a single Enrollment.
+ *
+ *  @param name Required. The name of the Enrollment to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsEnrollmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: eventarc.projects.locations.enrollments.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsEnrollmentsGetIamPolicy : GTLREventarcQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsEnrollmentsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  List Enrollments.
+ *
+ *  Method: eventarc.projects.locations.enrollments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsEnrollmentsList : GTLREventarcQuery
+
+/**
+ *  Optional. The filter field that the list request will filter on. Possible
+ *  filtersare described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The sorting order of the resources returned. Value should be a
+ *  comma-separated list of fields. The default sorting order is ascending. To
+ *  specify descending order for a field, append a `desc` suffix; for example:
+ *  `name desc, update_time`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results to return on each page. Note: The
+ *  service may send fewer.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token; provide the value from the `next_page_token` field
+ *  in a previous call to retrieve the subsequent page. When paginating, all
+ *  other parameters provided must match the previous call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent collection to list triggers on. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_ListEnrollmentsResponse.
+ *
+ *  List Enrollments.
+ *
+ *  @param parent Required. The parent collection to list triggers on.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsEnrollmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single Enrollment.
+ *
+ *  Method: eventarc.projects.locations.enrollments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsEnrollmentsPatch : GTLREventarcQuery
+
+/**
+ *  Optional. If set to true, and the Enrollment is not found, a new Enrollment
+ *  will be created. In this situation, `update_mask` is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Identifier. Resource name of the form
+ *  projects/{project}/locations/{location}/enrollments/{enrollment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The fields to be updated; only fields explicitly provided are
+ *  updated. If no field mask is provided, all provided fields in the request
+ *  are updated. To update all fields, provide a field mask of "*".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Update a single Enrollment.
+ *
+ *  @param object The @c GTLREventarc_Enrollment to include in the query.
+ *  @param name Identifier. Resource name of the form
+ *    projects/{project}/locations/{location}/enrollments/{enrollment}
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsEnrollmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLREventarc_Enrollment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: eventarc.projects.locations.enrollments.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsEnrollmentsSetIamPolicy : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsEnrollmentsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: eventarc.projects.locations.enrollments.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsEnrollmentsTestIamPermissions : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsEnrollmentsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: eventarc.projects.locations.get
@@ -655,7 +1010,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get a GoogleChannelConfig
+ *  Get a GoogleChannelConfig. The name of the GoogleChannelConfig in the
+ *  response is ALWAYS coded with projectID.
  *
  *  Method: eventarc.projects.locations.getGoogleChannelConfig
  *
@@ -670,13 +1026,503 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLREventarc_GoogleChannelConfig.
  *
- *  Get a GoogleChannelConfig
+ *  Get a GoogleChannelConfig. The name of the GoogleChannelConfig in the
+ *  response is ALWAYS coded with projectID.
  *
  *  @param name Required. The name of the config to get.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsGetGoogleChannelConfig
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Create a new GoogleApiSource in a particular project and location.
+ *
+ *  Method: eventarc.projects.locations.googleApiSources.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesCreate : GTLREventarcQuery
+
+/**
+ *  Required. The user-provided ID to be assigned to the GoogleApiSource. It
+ *  should match the format `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *googleApiSourceId;
+
+/** Required. The parent collection in which to add this google api source. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Create a new GoogleApiSource in a particular project and location.
+ *
+ *  @param object The @c GTLREventarc_GoogleApiSource to include in the query.
+ *  @param parent Required. The parent collection in which to add this google
+ *    api source.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesCreate
+ */
++ (instancetype)queryWithObject:(GTLREventarc_GoogleApiSource *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a single GoogleApiSource.
+ *
+ *  Method: eventarc.projects.locations.googleApiSources.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesDelete : GTLREventarcQuery
+
+/**
+ *  Optional. If set to true, and the MessageBus is not found, the request will
+ *  succeed but no action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. If provided, the MessageBus will only be deleted if the etag
+ *  matches the current etag on the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the GoogleApiSource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Delete a single GoogleApiSource.
+ *
+ *  @param name Required. The name of the GoogleApiSource to be deleted.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a single GoogleApiSource.
+ *
+ *  Method: eventarc.projects.locations.googleApiSources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesGet : GTLREventarcQuery
+
+/** Required. The name of the google api source to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleApiSource.
+ *
+ *  Get a single GoogleApiSource.
+ *
+ *  @param name Required. The name of the google api source to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: eventarc.projects.locations.googleApiSources.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesGetIamPolicy : GTLREventarcQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  List GoogleApiSources.
+ *
+ *  Method: eventarc.projects.locations.googleApiSources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesList : GTLREventarcQuery
+
+/**
+ *  Optional. The filter field that the list request will filter on. Possible
+ *  filtersare described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The sorting order of the resources returned. Value should be a
+ *  comma-separated list of fields. The default sorting order is ascending. To
+ *  specify descending order for a field, append a `desc` suffix; for example:
+ *  `name desc, update_time`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results to return on each page. Note: The
+ *  service may send fewer.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token; provide the value from the `next_page_token` field
+ *  in a previous call to retrieve the subsequent page. When paginating, all
+ *  other parameters provided must match the previous call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent collection to list GoogleApiSources on. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_ListGoogleApiSourcesResponse.
+ *
+ *  List GoogleApiSources.
+ *
+ *  @param parent Required. The parent collection to list GoogleApiSources on.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single GoogleApiSource.
+ *
+ *  Method: eventarc.projects.locations.googleApiSources.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesPatch : GTLREventarcQuery
+
+/**
+ *  Optional. If set to true, and the GoogleApiSource is not found, a new
+ *  GoogleApiSource will be created. In this situation, `update_mask` is
+ *  ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Identifier. Resource name of the form
+ *  projects/{project}/locations/{location}/googleApiSources/{google_api_source}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The fields to be updated; only fields explicitly provided are
+ *  updated. If no field mask is provided, all provided fields in the request
+ *  are updated. To update all fields, provide a field mask of "*".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Update a single GoogleApiSource.
+ *
+ *  @param object The @c GTLREventarc_GoogleApiSource to include in the query.
+ *  @param name Identifier. Resource name of the form
+ *    projects/{project}/locations/{location}/googleApiSources/{google_api_source}
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesPatch
+ */
++ (instancetype)queryWithObject:(GTLREventarc_GoogleApiSource *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: eventarc.projects.locations.googleApiSources.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesSetIamPolicy : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: eventarc.projects.locations.googleApiSources.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesTestIamPermissions : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsGoogleApiSourcesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: eventarc.projects.locations.kafkaSources.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsKafkaSourcesGetIamPolicy : GTLREventarcQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsKafkaSourcesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: eventarc.projects.locations.kafkaSources.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsKafkaSourcesSetIamPolicy : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsKafkaSourcesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: eventarc.projects.locations.kafkaSources.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsKafkaSourcesTestIamPermissions : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsKafkaSourcesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -689,6 +1535,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsList : GTLREventarcQuery
+
+/**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -730,6 +1582,401 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a new MessageBus in a particular project and location.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesCreate : GTLREventarcQuery
+
+/**
+ *  Required. The user-provided ID to be assigned to the MessageBus. It should
+ *  match the format `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *messageBusId;
+
+/** Required. The parent collection in which to add this message bus. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Create a new MessageBus in a particular project and location.
+ *
+ *  @param object The @c GTLREventarc_MessageBus to include in the query.
+ *  @param parent Required. The parent collection in which to add this message
+ *    bus.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesCreate
+ */
++ (instancetype)queryWithObject:(GTLREventarc_MessageBus *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a single message bus.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesDelete : GTLREventarcQuery
+
+/**
+ *  Optional. If set to true, and the MessageBus is not found, the request will
+ *  succeed but no action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. If provided, the MessageBus will only be deleted if the etag
+ *  matches the current etag on the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the MessageBus to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Delete a single message bus.
+ *
+ *  @param name Required. The name of the MessageBus to be deleted.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a single MessageBus.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesGet : GTLREventarcQuery
+
+/** Required. The name of the message bus to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_MessageBus.
+ *
+ *  Get a single MessageBus.
+ *
+ *  @param name Required. The name of the message bus to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesGetIamPolicy : GTLREventarcQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  List message buses.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesList : GTLREventarcQuery
+
+/**
+ *  Optional. The filter field that the list request will filter on. Possible
+ *  filtersare described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The sorting order of the resources returned. Value should be a
+ *  comma-separated list of fields. The default sorting order is ascending. To
+ *  specify descending order for a field, append a `desc` suffix; for example:
+ *  `name desc, update_time`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results to return on each page. Note: The
+ *  service may send fewer.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token; provide the value from the `next_page_token` field
+ *  in a previous call to retrieve the subsequent page. When paginating, all
+ *  other parameters provided must match the previous call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent collection to list message buses on. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_ListMessageBusesResponse.
+ *
+ *  List message buses.
+ *
+ *  @param parent Required. The parent collection to list message buses on.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List message bus enrollments.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.listEnrollments
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesListEnrollments : GTLREventarcQuery
+
+/**
+ *  Optional. The maximum number of results to return on each page. Note: The
+ *  service may send fewer.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token; provide the value from the `next_page_token` field
+ *  in a previous call to retrieve the subsequent page. When paginating, all
+ *  other parameters provided must match the previous call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent message bus to list enrollments on. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_ListMessageBusEnrollmentsResponse.
+ *
+ *  List message bus enrollments.
+ *
+ *  @param parent Required. The parent message bus to list enrollments on.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesListEnrollments
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single message bus.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesPatch : GTLREventarcQuery
+
+/**
+ *  Optional. If set to true, and the MessageBus is not found, a new MessageBus
+ *  will be created. In this situation, `update_mask` is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Identifier. Resource name of the form
+ *  projects/{project}/locations/{location}/messageBuses/{message_bus}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The fields to be updated; only fields explicitly provided are
+ *  updated. If no field mask is provided, all provided fields in the request
+ *  are updated. To update all fields, provide a field mask of "*".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Update a single message bus.
+ *
+ *  @param object The @c GTLREventarc_MessageBus to include in the query.
+ *  @param name Identifier. Resource name of the form
+ *    projects/{project}/locations/{location}/messageBuses/{message_bus}
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesPatch
+ */
++ (instancetype)queryWithObject:(GTLREventarc_MessageBus *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesSetIamPolicy : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: eventarc.projects.locations.messageBuses.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsMessageBusesTestIamPermissions : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsMessageBusesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -737,7 +1984,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: eventarc.projects.locations.operations.cancel
@@ -760,7 +2007,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLREventarc_GoogleLongrunningCancelOperationRequest to
@@ -874,6 +2121,362 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Create a new Pipeline in a particular project and location.
+ *
+ *  Method: eventarc.projects.locations.pipelines.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsPipelinesCreate : GTLREventarcQuery
+
+/** Required. The parent collection in which to add this pipeline. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The user-provided ID to be assigned to the Pipeline. It should
+ *  match the format `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *pipelineId;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Create a new Pipeline in a particular project and location.
+ *
+ *  @param object The @c GTLREventarc_Pipeline to include in the query.
+ *  @param parent Required. The parent collection in which to add this pipeline.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsPipelinesCreate
+ */
++ (instancetype)queryWithObject:(GTLREventarc_Pipeline *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a single pipeline.
+ *
+ *  Method: eventarc.projects.locations.pipelines.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsPipelinesDelete : GTLREventarcQuery
+
+/**
+ *  Optional. If set to true, and the Pipeline is not found, the request will
+ *  succeed but no action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. If provided, the Pipeline will only be deleted if the etag matches
+ *  the current etag on the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the Pipeline to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Delete a single pipeline.
+ *
+ *  @param name Required. The name of the Pipeline to be deleted.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsPipelinesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a single Pipeline.
+ *
+ *  Method: eventarc.projects.locations.pipelines.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsPipelinesGet : GTLREventarcQuery
+
+/** Required. The name of the pipeline to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_Pipeline.
+ *
+ *  Get a single Pipeline.
+ *
+ *  @param name Required. The name of the pipeline to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsPipelinesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: eventarc.projects.locations.pipelines.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsPipelinesGetIamPolicy : GTLREventarcQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsPipelinesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  List pipelines.
+ *
+ *  Method: eventarc.projects.locations.pipelines.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsPipelinesList : GTLREventarcQuery
+
+/**
+ *  Optional. The filter field that the list request will filter on. Possible
+ *  filters are described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The sorting order of the resources returned. Value should be a
+ *  comma-separated list of fields. The default sorting order is ascending. To
+ *  specify descending order for a field, append a `desc` suffix; for example:
+ *  `name desc, update_time`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results to return on each page. Note: The
+ *  service may send fewer.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token; provide the value from the `next_page_token` field
+ *  in a previous call to retrieve the subsequent page. When paginating, all
+ *  other parameters provided must match the previous call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent collection to list pipelines on. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_ListPipelinesResponse.
+ *
+ *  List pipelines.
+ *
+ *  @param parent Required. The parent collection to list pipelines on.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsPipelinesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single pipeline.
+ *
+ *  Method: eventarc.projects.locations.pipelines.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsPipelinesPatch : GTLREventarcQuery
+
+/**
+ *  Optional. If set to true, and the Pipeline is not found, a new Pipeline will
+ *  be created. In this situation, `update_mask` is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Identifier. The resource name of the Pipeline. Must be unique within the
+ *  location of the project and must be in
+ *  `projects/{project}/locations/{location}/pipelines/{pipeline}` format.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The fields to be updated; only fields explicitly provided are
+ *  updated. If no field mask is provided, all provided fields in the request
+ *  are updated. To update all fields, provide a field mask of "*".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Update a single pipeline.
+ *
+ *  @param object The @c GTLREventarc_Pipeline to include in the query.
+ *  @param name Identifier. The resource name of the Pipeline. Must be unique
+ *    within the location of the project and must be in
+ *    `projects/{project}/locations/{location}/pipelines/{pipeline}` format.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsPipelinesPatch
+ */
++ (instancetype)queryWithObject:(GTLREventarc_Pipeline *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: eventarc.projects.locations.pipelines.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsPipelinesSetIamPolicy : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsPipelinesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: eventarc.projects.locations.pipelines.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsPipelinesTestIamPermissions : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsPipelinesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -1321,7 +2924,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the config. Must be in the format of,
- *  `projects/{project}/locations/{location}/googleChannelConfig`.
+ *  `projects/{project}/locations/{location}/googleChannelConfig`. In API
+ *  responses, the config name always includes the projectID, regardless of
+ *  whether the projectID or projectNumber was provided.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1342,7 +2947,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLREventarc_GoogleChannelConfig to include in the
  *    query.
  *  @param name Required. The resource name of the config. Must be in the format
- *    of, `projects/{project}/locations/{location}/googleChannelConfig`.
+ *    of, `projects/{project}/locations/{location}/googleChannelConfig`. In API
+ *    responses, the config name always includes the projectID, regardless of
+ *    whether the projectID or projectNumber was provided.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsUpdateGoogleChannelConfig
  */

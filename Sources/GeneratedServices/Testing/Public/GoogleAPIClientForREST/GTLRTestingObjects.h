@@ -7,7 +7,7 @@
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.
 // Documentation:
-//   https://developers.google.com/cloud-test-lab/
+//   https://firebase.google.com/docs/test-lab/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -29,6 +29,7 @@
 @class GTLRTesting_Apk;
 @class GTLRTesting_ApkDetail;
 @class GTLRTesting_ApkManifest;
+@class GTLRTesting_ApkSplits;
 @class GTLRTesting_AppBundle;
 @class GTLRTesting_ClientInfo;
 @class GTLRTesting_ClientInfoDetail;
@@ -57,6 +58,7 @@
 @class GTLRTesting_IosTestSetup;
 @class GTLRTesting_IosVersion;
 @class GTLRTesting_IosXcTest;
+@class GTLRTesting_LabInfo;
 @class GTLRTesting_LauncherActivityIntent;
 @class GTLRTesting_Locale;
 @class GTLRTesting_ManualSharding;
@@ -92,6 +94,7 @@
 @class GTLRTesting_TrafficRule;
 @class GTLRTesting_UniformSharding;
 @class GTLRTesting_UsesFeature;
+@class GTLRTesting_UsesPermissionTag;
 @class GTLRTesting_XcodeVersion;
 
 // Generated comments include content from the discovery document; avoid them
@@ -131,6 +134,23 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_Orche
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseOrchestrator;
 
 // ----------------------------------------------------------------------------
+// GTLRTesting_AndroidModel.accessDeniedReasons
+
+/**
+ *  Do not use. For proto versioning only.
+ *
+ *  Value: "ACCESS_DENIED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_AccessDeniedReasons_AccessDeniedReasonUnspecified;
+/**
+ *  The model is for viewing purposes only. Access and utilization require
+ *  acceptance of an End User License Agreement (EULA).
+ *
+ *  Value: "EULA_NOT_ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_AccessDeniedReasons_EulaNotAccepted;
+
+// ----------------------------------------------------------------------------
 // GTLRTesting_AndroidModel.form
 
 /**
@@ -164,6 +184,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_Form_Virtual;
 // GTLRTesting_AndroidModel.formFactor
 
 /**
+ *  This device has an automotive form factor.
+ *
+ *  Value: "AUTOMOTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Automotive;
+/**
+ *  This device has a desktop form factor.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Desktop;
+/**
  *  Do not use. For proto versioning only.
  *
  *  Value: "DEVICE_FORM_FACTOR_UNSPECIFIED"
@@ -182,11 +214,23 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet;
 /**
+ *  This device has a television form factor.
+ *
+ *  Value: "TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tv;
+/**
  *  This device has the shape of a watch or other wearable.
  *
  *  Value: "WEARABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable;
+/**
+ *  This device has an Extended Reality form factor.
+ *
+ *  Value: "XR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Xr;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_AndroidRoboTest.roboMode
@@ -383,6 +427,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_DeviceSession_State_Unavailable;
 // GTLRTesting_IosModel.formFactor
 
 /**
+ *  This device has an automotive form factor.
+ *
+ *  Value: "AUTOMOTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Automotive;
+/**
+ *  This device has a desktop form factor.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Desktop;
+/**
  *  Do not use. For proto versioning only.
  *
  *  Value: "DEVICE_FORM_FACTOR_UNSPECIFIED"
@@ -401,11 +457,23 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Phone;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tablet;
 /**
+ *  This device has a television form factor.
+ *
+ *  Value: "TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Tv;
+/**
  *  This device has the shape of a watch or other wearable.
  *
  *  Value: "WEARABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Wearable;
+/**
+ *  This device has an Extended Reality form factor.
+ *
+ *  Value: "XR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_IosModel_FormFactor_Xr;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_PerAndroidVersionInfo.deviceCapacity
@@ -1240,6 +1308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @interface GTLRTesting_AndroidModel : GTLRObject
 
 /**
+ *  Reasons for access denial. This model is accessible if this list is empty,
+ *  otherwise the model is viewable only.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessDeniedReasons;
+
+/**
  *  The company that this device is branded with. Example: "Google", "Samsung".
  */
 @property(nonatomic, copy, nullable) NSString *brand;
@@ -1271,6 +1345,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Whether this device is a phone, tablet, wearable, etc.
  *
  *  Likely values:
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Automotive This device has an
+ *        automotive form factor. (Value: "AUTOMOTIVE")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Desktop This device has a
+ *        desktop form factor. (Value: "DESKTOP")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_DeviceFormFactorUnspecified
  *        Do not use. For proto versioning only. (Value:
  *        "DEVICE_FORM_FACTOR_UNSPECIFIED")
@@ -1278,8 +1356,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        shape of a phone. (Value: "PHONE")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Tablet This device has the
  *        shape of a tablet. (Value: "TABLET")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Tv This device has a
+ *        television form factor. (Value: "TV")
  *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Wearable This device has the
  *        shape of a watch or other wearable. (Value: "WEARABLE")
+ *    @arg @c kGTLRTesting_AndroidModel_FormFactor_Xr This device has an
+ *        Extended Reality form factor. (Value: "XR")
  */
 @property(nonatomic, copy, nullable) NSString *formFactor;
 
@@ -1290,6 +1372,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Output only. Lab info of this device. */
+@property(nonatomic, strong, nullable) GTLRTesting_LabInfo *labInfo;
 
 /**
  *  True if and only if tests with this model are recorded by stitching together
@@ -1602,8 +1687,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /** Feature usage tags defined in the manifest. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_UsesFeature *> *usesFeature;
 
-/** Permissions declared to be used by the application */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usesPermission;
+
+/** Permissions declared to be used by the application */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_UsesPermissionTag *> *usesPermissionTags;
 
 /**
  *  Version number used internally by the app.
@@ -1619,12 +1706,31 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  A single dynamic feature apk.
+ */
+@interface GTLRTesting_ApkSplits : GTLRObject
+
+/**
+ *  A list of .apk files generated by bundletool to install to the device under
+ *  test as a single android app with adb install-multiple. If specified,
+ *  requires one or more bundle_splits. The first split specified represents the
+ *  base APK, while subsequent splits represent feature apks.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_FileReference *> *bundleSplits;
+
+@end
+
+
+/**
  *  An Android App Bundle file format, containing a BundleConfig.pb file, a base
  *  module directory, zero or more dynamic feature module directories. See
  *  https://developer.android.com/guide/app-bundle/build for guidance on
  *  building App Bundles.
  */
 @interface GTLRTesting_AppBundle : GTLRObject
+
+/** .apk files generated by bundletool to install as a single android app. */
+@property(nonatomic, strong, nullable) GTLRTesting_ApkSplits *apks;
 
 /** .aab file representing the app bundle under test. */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *bundleLocation;
@@ -1894,7 +2000,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  Optional. The amount of time that a device will be initially allocated for.
  *  This can eventually be extended with the UpdateDeviceSession RPC. Default:
- *  30 minutes.
+ *  15 minutes.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
@@ -2178,6 +2284,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Whether this device is a phone, tablet, wearable, etc.
  *
  *  Likely values:
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Automotive This device has an
+ *        automotive form factor. (Value: "AUTOMOTIVE")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Desktop This device has a desktop
+ *        form factor. (Value: "DESKTOP")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_DeviceFormFactorUnspecified Do
  *        not use. For proto versioning only. (Value:
  *        "DEVICE_FORM_FACTOR_UNSPECIFIED")
@@ -2185,8 +2295,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        of a phone. (Value: "PHONE")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_Tablet This device has the shape
  *        of a tablet. (Value: "TABLET")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Tv This device has a television
+ *        form factor. (Value: "TV")
  *    @arg @c kGTLRTesting_IosModel_FormFactor_Wearable This device has the
  *        shape of a watch or other wearable. (Value: "WEARABLE")
+ *    @arg @c kGTLRTesting_IosModel_FormFactor_Xr This device has an Extended
+ *        Reality form factor. (Value: "XR")
  */
 @property(nonatomic, copy, nullable) NSString *formFactor;
 
@@ -2254,7 +2368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  An optional Roboscript to customize the crawl. See
  *  https://firebase.google.com/docs/test-lab/android/robo-scripts-reference for
- *  more information about Roboscripts.
+ *  more information about Roboscripts. The maximum allowed file size of the
+ *  roboscript is 10MiB.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *roboScript;
 
@@ -2407,6 +2522,26 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  is taken from the tests zip.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_FileReference *xctestrun;
+
+@end
+
+
+/**
+ *  Lab specific information for a device.
+ */
+@interface GTLRTesting_LabInfo : GTLRObject
+
+/**
+ *  Lab name where the device is hosted. If empty, the device is hosted in a
+ *  Google owned lab.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The Unicode country/region code (CLDR) of the lab where the device is
+ *  hosted. E.g. "US" for United States, "CH" for Switzerland.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 @end
 
@@ -3690,6 +3825,25 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isRequired;
+
+/** The android:name value */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The tag within a manifest.
+ *  https://developer.android.com/guide/topics/manifest/uses-permission-element.html
+ */
+@interface GTLRTesting_UsesPermissionTag : GTLRObject
+
+/**
+ *  The android:name value
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSdkVersion;
 
 /** The android:name value */
 @property(nonatomic, copy, nullable) NSString *name;

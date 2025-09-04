@@ -12,12 +12,42 @@
 
 #import <GoogleAPIClientForREST/GTLRWorkloadManagerQuery.h>
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+// ----------------------------------------------------------------------------
+// Constants
+
+// evaluationType
+NSString * const kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified = @"EVALUATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManagerEvaluationTypeOther       = @"OTHER";
+NSString * const kGTLRWorkloadManagerEvaluationTypeSap         = @"SAP";
+NSString * const kGTLRWorkloadManagerEvaluationTypeSccIac      = @"SCC_IAC";
+NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer   = @"SQL_SERVER";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
 
 @implementation GTLRWorkloadManagerQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/discoveredprofiles";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_ListDiscoveredProfilesResponse class];
+  query.loggingName = @"workloadmanager.projects.locations.discoveredprofiles.list";
+  return query;
+}
 
 @end
 
@@ -50,7 +80,7 @@
 
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsDelete
 
-@dynamic name, requestId;
+@dynamic force, name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -246,6 +276,25 @@
 
 @end
 
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsInsightsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsInsightsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Empty class];
+  query.loggingName = @"workloadmanager.projects.locations.insights.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsInsightsWriteInsight
 
 @dynamic location;
@@ -275,7 +324,14 @@
 
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -378,7 +434,7 @@
 
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
 
-@dynamic customRulesBucket, filter, pageSize, pageToken, parent;
+@dynamic customRulesBucket, evaluationType, filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -394,43 +450,3 @@
 }
 
 @end
-
-@implementation GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRWorkloadManager_WorkloadProfile class];
-  query.loggingName = @"workloadmanager.projects.locations.workloadProfiles.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/workloadProfiles";
-  GTLRWorkloadManagerQuery_ProjectsLocationsWorkloadProfilesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRWorkloadManager_ListWorkloadProfilesResponse class];
-  query.loggingName = @"workloadmanager.projects.locations.workloadProfiles.list";
-  return query;
-}
-
-@end
-
-#pragma clang diagnostic pop

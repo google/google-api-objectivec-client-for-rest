@@ -29,13 +29,17 @@ on:
 
 jobs:
   swift:
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
         CONFIGURATION: ["debug", "release"]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: Build ServiceGenerator
       run:  |
         set -eu
@@ -43,24 +47,23 @@ jobs:
         swift build --configuration ${{ matrix.CONFIGURATION }}
 
   xcodebuild:
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
         CONFIGURATION: ["Debug", "Release"]
     steps:
-    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
-    - name: Xcode version
-      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: Build ServiceGenerator
       run:  |
         set -eu
         cd Tools
-        set -o pipefail
         xcodebuild \
             -scheme GTLR_ServiceGenerator \
             -configuration ${{ matrix.CONFIGURATION }} \
             -destination "platform=macOS" \
-            build \
-          | xcpretty
+            build

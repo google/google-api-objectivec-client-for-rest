@@ -955,6 +955,110 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 
 @end
 
+@implementation GTLRCloudIdentityQuery_InboundOidcSsoProfilesCreate
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundOidcSsoProfile *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/inboundOidcSsoProfiles";
+  GTLRCloudIdentityQuery_InboundOidcSsoProfilesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundOidcSsoProfiles.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundOidcSsoProfilesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundOidcSsoProfilesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundOidcSsoProfiles.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundOidcSsoProfilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundOidcSsoProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_InboundOidcSsoProfile class];
+  query.loggingName = @"cloudidentity.inboundOidcSsoProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundOidcSsoProfilesList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/inboundOidcSsoProfiles";
+  GTLRCloudIdentityQuery_InboundOidcSsoProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudIdentity_ListInboundOidcSsoProfilesResponse class];
+  query.loggingName = @"cloudidentity.inboundOidcSsoProfiles.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_InboundOidcSsoProfilesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundOidcSsoProfile *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_InboundOidcSsoProfilesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.inboundOidcSsoProfiles.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIdentityQuery_InboundSamlSsoProfilesCreate
 
 + (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSamlSsoProfile *)object {
@@ -1242,6 +1346,42 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
   query.name = name;
   query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
   query.loggingName = @"cloudidentity.inboundSsoAssignments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_PoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_PoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Policy class];
+  query.loggingName = @"cloudidentity.policies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_PoliciesList
+
+@dynamic filter, pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/policies";
+  GTLRCloudIdentityQuery_PoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudIdentity_ListPoliciesResponse class];
+  query.loggingName = @"cloudidentity.policies.list";
   return query;
 }
 

@@ -21,6 +21,55 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Includes basic data about the Backup Vault, but not the full contents.
+ *
+ *  Value: "BACKUP_VAULT_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupVaultViewBasic;
+/**
+ *  Includes all data about the Backup Vault. This is the default value (for
+ *  both ListBackupVaults and GetBackupVault).
+ *
+ *  Value: "BACKUP_VAULT_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupVaultViewFull;
+/**
+ *  If the value is not set, the default 'FULL' view is used.
+ *
+ *  Value: "BACKUP_VAULT_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupVaultViewUnspecified;
+/**
+ *  Includes basic data about the Backup, but not the full contents.
+ *
+ *  Value: "BACKUP_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewBasic;
+/**
+ *  Includes all data about the Backup. This is the default value (for both
+ *  ListBackups and GetBackup).
+ *
+ *  Value: "BACKUP_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewFull;
+/**
+ *  If the value is not set, the default 'FULL' view is used.
+ *
+ *  Value: "BACKUP_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Backupdr query classes.
  */
@@ -32,11 +81,1711 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
+ *  Create a BackupPlanAssociation
+ *
+ *  Method: backupdr.projects.locations.backupPlanAssociations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsCreate : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the backup plan association to create. The name must
+ *  be unique for the specified project and location.
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanAssociationId;
+
+/**
+ *  Required. The backup plan association project and location in the format
+ *  `projects/{project_id}/locations/{location}`. In Cloud BackupDR locations
+ *  map to GCP regions, for example **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Create a BackupPlanAssociation
+ *
+ *  @param object The @c GTLRBackupdr_BackupPlanAssociation to include in the
+ *    query.
+ *  @param parent Required. The backup plan association project and location in
+ *    the format `projects/{project_id}/locations/{location}`. In Cloud BackupDR
+ *    locations map to GCP regions, for example **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_BackupPlanAssociation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single BackupPlanAssociation.
+ *
+ *  Method: backupdr.projects.locations.backupPlanAssociations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsDelete : GTLRBackupdrQuery
+
+/**
+ *  Required. Name of the backup plan association resource, in the format
+ *  `projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a single BackupPlanAssociation.
+ *
+ *  @param name Required. Name of the backup plan association resource, in the
+ *    format
+ *    `projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List BackupPlanAssociations for a given resource type.
+ *
+ *  Method: backupdr.projects.locations.backupPlanAssociations.fetchForResourceType
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsFetchForResourceType : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters the results fetched in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. Supported fields: *
+ *  resource * backup_plan * state * data_source *
+ *  cloud_sql_instance_backup_plan_association_properties.instance_create_time
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  name
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of BackupPlanAssociations to return. The
+ *  service may return fewer than this value. If unspecified, at most 50
+ *  BackupPlanAssociations will be returned. The maximum value is 100; values
+ *  above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call of
+ *  `FetchBackupPlanAssociationsForResourceType`. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `FetchBackupPlanAssociationsForResourceType` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The type of the GCP resource. Ex: sql.googleapis.com/Instance */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Fetches a @c
+ *  GTLRBackupdr_FetchBackupPlanAssociationsForResourceTypeResponse.
+ *
+ *  List BackupPlanAssociations for a given resource type.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsFetchForResourceType
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single BackupPlanAssociation.
+ *
+ *  Method: backupdr.projects.locations.backupPlanAssociations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsGet : GTLRBackupdrQuery
+
+/**
+ *  Required. Name of the backup plan association resource, in the format
+ *  `projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_BackupPlanAssociation.
+ *
+ *  Gets details of a single BackupPlanAssociation.
+ *
+ *  @param name Required. Name of the backup plan association resource, in the
+ *    format
+ *    `projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackupPlanAssociations in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.backupPlanAssociations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsList : GTLRBackupdrQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve backup Plan
+ *  Associations information, in the format
+ *  `projects/{project_id}/locations/{location}`. In Cloud BackupDR, locations
+ *  map to GCP regions, for example **us-central1**. To retrieve backup plan
+ *  associations for all locations, use "-" for the `{location}` value.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListBackupPlanAssociationsResponse.
+ *
+ *  Lists BackupPlanAssociations in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    backup Plan Associations information, in the format
+ *    `projects/{project_id}/locations/{location}`. In Cloud BackupDR, locations
+ *    map to GCP regions, for example **us-central1**. To retrieve backup plan
+ *    associations for all locations, use "-" for the `{location}` value.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a BackupPlanAssociation.
+ *
+ *  Method: backupdr.projects.locations.backupPlanAssociations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsPatch : GTLRBackupdrQuery
+
+/**
+ *  Output only. Identifier. The resource name of BackupPlanAssociation in below
+ *  format Format :
+ *  projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The list of fields to update. Field mask is used to specify the
+ *  fields to be overwritten in the BackupPlanAssociation resource by the
+ *  update. The fields specified in the update_mask are relative to the
+ *  resource, not the full request. A field will be overwritten if it is in the
+ *  mask. If the user does not provide a mask then the request will fail.
+ *  Currently backup_plan_association.backup_plan is the only supported field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Update a BackupPlanAssociation.
+ *
+ *  @param object The @c GTLRBackupdr_BackupPlanAssociation to include in the
+ *    query.
+ *  @param name Output only. Identifier. The resource name of
+ *    BackupPlanAssociation in below format Format :
+ *    projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_BackupPlanAssociation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Triggers a new Backup.
+ *
+ *  Method: backupdr.projects.locations.backupPlanAssociations.triggerBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsTriggerBackup : GTLRBackupdrQuery
+
+/**
+ *  Required. Name of the backup plan association resource, in the format
+ *  `projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Triggers a new Backup.
+ *
+ *  @param object The @c GTLRBackupdr_TriggerBackupRequest to include in the
+ *    query.
+ *  @param name Required. Name of the backup plan association resource, in the
+ *    format
+ *    `projects/{project}/locations/{location}/backupPlanAssociations/{backupPlanAssociationId}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsTriggerBackup
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_TriggerBackupRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a BackupPlan
+ *
+ *  Method: backupdr.projects.locations.backupPlans.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansCreate : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the `BackupPlan` to create. The name must be unique
+ *  for the specified project and location.The name must start with a lowercase
+ *  letter followed by up to 62 lowercase letters, numbers, or hyphens. Pattern,
+ *  /a-z{,62}/.
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanId;
+
+/**
+ *  Required. The `BackupPlan` project and location in the format
+ *  `projects/{project}/locations/{location}`. In Cloud BackupDR locations map
+ *  to GCP regions, for example **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Create a BackupPlan
+ *
+ *  @param object The @c GTLRBackupdr_BackupPlan to include in the query.
+ *  @param parent Required. The `BackupPlan` project and location in the format
+ *    `projects/{project}/locations/{location}`. In Cloud BackupDR locations map
+ *    to GCP regions, for example **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_BackupPlan *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single BackupPlan.
+ *
+ *  Method: backupdr.projects.locations.backupPlans.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansDelete : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the `BackupPlan` to delete. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a single BackupPlan.
+ *
+ *  @param name Required. The resource name of the `BackupPlan` to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single BackupPlan.
+ *
+ *  Method: backupdr.projects.locations.backupPlans.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the `BackupPlan` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_BackupPlan.
+ *
+ *  Gets details of a single BackupPlan.
+ *
+ *  @param name Required. The resource name of the `BackupPlan` to retrieve.
+ *    Format:
+ *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackupPlans in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.backupPlans.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansList : GTLRBackupdrQuery
+
+/** Optional. Field match expression used to filter the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field by which to sort the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of `BackupPlans` to return in a single
+ *  response. If not specified, a default value will be chosen by the service.
+ *  Note that the response may include a partial list and a caller should only
+ *  rely on the response's next_page_token to determine if there are more
+ *  instances left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListBackupPlans` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListBackupPlans` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve `BackupPlans`
+ *  information. Format: `projects/{project}/locations/{location}`. In Cloud
+ *  BackupDR, locations map to GCP regions, for e.g. **us-central1**. To
+ *  retrieve backup plans for all locations, use "-" for the `{location}` value.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListBackupPlansResponse.
+ *
+ *  Lists BackupPlans in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    `BackupPlans` information. Format:
+ *    `projects/{project}/locations/{location}`. In Cloud BackupDR, locations
+ *    map to GCP regions, for e.g. **us-central1**. To retrieve backup plans for
+ *    all locations, use "-" for the `{location}` value.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a BackupPlan.
+ *
+ *  Method: backupdr.projects.locations.backupPlans.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansPatch : GTLRBackupdrQuery
+
+/**
+ *  Output only. Identifier. The resource name of the `BackupPlan`. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and t he request
+ *  times out. If you make the request again with the same request ID, the
+ *  server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. The list of fields to update. Field mask is used to specify the
+ *  fields to be overwritten in the BackupPlan resource by the update. The
+ *  fields specified in the update_mask are relative to the resource, not the
+ *  full request. A field will be overwritten if it is in the mask. If the user
+ *  does not provide a mask then the request will fail. Currently, these fields
+ *  are supported in update: description, schedules, retention period, adding
+ *  and removing Backup Rules.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Update a BackupPlan.
+ *
+ *  @param object The @c GTLRBackupdr_BackupPlan to include in the query.
+ *  @param name Output only. Identifier. The resource name of the `BackupPlan`.
+ *    Format:
+ *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_BackupPlan *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single BackupPlanRevision.
+ *
+ *  Method: backupdr.projects.locations.backupPlans.revisions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the `BackupPlanRevision` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_BackupPlanRevision.
+ *
+ *  Gets details of a single BackupPlanRevision.
+ *
+ *  @param name Required. The resource name of the `BackupPlanRevision` to
+ *    retrieve. Format:
+ *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}/revisions/{revision}`
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackupPlanRevisions in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.backupPlans.revisions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsList : GTLRBackupdrQuery
+
+/**
+ *  Optional. The maximum number of `BackupPlans` to return in a single
+ *  response. If not specified, a default value will be chosen by the service.
+ *  Note that the response may include a partial list and a caller should only
+ *  rely on the response's next_page_token to determine if there are more
+ *  instances left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value of next_page_token received from a previous
+ *  `ListBackupPlans` call. Provide this to retrieve the subsequent page in a
+ *  multi-page list of results. When paginating, all other parameters provided
+ *  to `ListBackupPlans` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve
+ *  `BackupPlanRevisions` information. Format:
+ *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}`. In
+ *  Cloud BackupDR, locations map to GCP regions, for e.g. **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListBackupPlanRevisionsResponse.
+ *
+ *  Lists BackupPlanRevisions in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    `BackupPlanRevisions` information. Format:
+ *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}`. In
+ *    Cloud BackupDR, locations map to GCP regions, for e.g. **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new BackupVault in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsCreate : GTLRBackupdrQuery
+
+/**
+ *  Required. ID of the requesting object If auto-generating ID server-side,
+ *  remove this field and backup_vault_id from the method_signature of Create
+ *  RPC
+ */
+@property(nonatomic, copy, nullable) NSString *backupVaultId;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is 'false'.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Creates a new BackupVault in a given project and location.
+ *
+ *  @param object The @c GTLRBackupdr_BackupVault to include in the query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_BackupVault *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Internal only. Abandons a backup.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.abandonBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesAbandonBackup : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the instance, in the format 'projects/ *
+ *  /locations/ * /backupVaults/ * /dataSources/'.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Internal only. Abandons a backup.
+ *
+ *  @param object The @c GTLRBackupdr_AbandonBackupRequest to include in the
+ *    query.
+ *  @param dataSource Required. The resource name of the instance, in the format
+ *    'projects/ * /locations/ * /backupVaults/ * /dataSources/'.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesAbandonBackup
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_AbandonBackupRequest *)object
+                     dataSource:(NSString *)dataSource;
+
+@end
+
+/**
+ *  Deletes a Backup.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsDelete : GTLRBackupdrQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a Backup.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a Backup.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsGet : GTLRBackupdrQuery
+
+/**
+ *  Required. Name of the data source resource name, in the format
+ *  'projects/{project_id}/locations/{location}/backupVaults/{backupVault}/dataSources/{datasource}/backups/{backup}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Reserved for future use to provide a BASIC & FULL view of Backup
+ *  resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupViewUnspecified If the value is not set,
+ *        the default 'FULL' view is used. (Value: "BACKUP_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupViewBasic Includes basic data about the
+ *        Backup, but not the full contents. (Value: "BACKUP_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupViewFull Includes all data about the
+ *        Backup. This is the default value (for both ListBackups and
+ *        GetBackup). (Value: "BACKUP_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Backup.
+ *
+ *  Gets details of a Backup.
+ *
+ *  @param name Required. Name of the data source resource name, in the format
+ *    'projects/{project_id}/locations/{location}/backupVaults/{backupVault}/dataSources/{datasource}/backups/{backup}'
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Backups in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsList : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve backup information,
+ *  in the format 'projects/{project_id}/locations/{location}'. In Cloud Backup
+ *  and DR, locations map to Google Cloud regions, for example **us-central1**.
+ *  To retrieve data sources for all locations, use "-" for the '{location}'
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Reserved for future use to provide a BASIC & FULL view of Backup
+ *  resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupViewUnspecified If the value is not set,
+ *        the default 'FULL' view is used. (Value: "BACKUP_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupViewBasic Includes basic data about the
+ *        Backup, but not the full contents. (Value: "BACKUP_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupViewFull Includes all data about the
+ *        Backup. This is the default value (for both ListBackups and
+ *        GetBackup). (Value: "BACKUP_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListBackupsResponse.
+ *
+ *  Lists Backups in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    backup information, in the format
+ *    'projects/{project_id}/locations/{location}'. In Cloud Backup and DR,
+ *    locations map to Google Cloud regions, for example **us-central1**. To
+ *    retrieve data sources for all locations, use "-" for the '{location}'
+ *    value.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the settings of a Backup.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsPatch : GTLRBackupdrQuery
+
+/**
+ *  Output only. Identifier. Name of the backup to create. It must have the
+ *  format`"projects//locations//backupVaults//dataSources/{datasource}/backups/{backup}"`.
+ *  `{backup}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the datasource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Backup resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then the request
+ *  will fail.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Updates the settings of a Backup.
+ *
+ *  @param object The @c GTLRBackupdr_Backup to include in the query.
+ *  @param name Output only. Identifier. Name of the backup to create. It must
+ *    have the
+ *    format`"projects//locations//backupVaults//dataSources/{datasource}/backups/{backup}"`.
+ *    `{backup}` cannot be changed after creation. It must be between 3-63
+ *    characters long and must be unique within the datasource.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_Backup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Restore from a Backup
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsRestore : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the Backup instance, in the format 'projects/
+ *  * /locations/ * /backupVaults/ * /dataSources/ * /backups/'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Restore from a Backup
+ *
+ *  @param object The @c GTLRBackupdr_RestoreBackupRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the Backup instance, in the
+ *    format 'projects/ * /locations/ * /backupVaults/ * /dataSources/ *
+ *    /backups/'.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsRestore
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_RestoreBackupRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Internal only. Fetch access token for a given data source.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.fetchAccessToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesFetchAccessToken : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name for the location for which static IPs should be
+ *  returned. Must be in the format 'projects/ * /locations/ * /backupVaults/ *
+ *  /dataSources'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchAccessTokenResponse.
+ *
+ *  Internal only. Fetch access token for a given data source.
+ *
+ *  @param object The @c GTLRBackupdr_FetchAccessTokenRequest to include in the
+ *    query.
+ *  @param name Required. The resource name for the location for which static
+ *    IPs should be returned. Must be in the format 'projects/ * /locations/ *
+ *    /backupVaults/ * /dataSources'.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesFetchAccessToken
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_FetchAccessTokenRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Internal only. Finalize a backup that was started by a call to
+ *  InitiateBackup.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.finalizeBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesFinalizeBackup : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the instance, in the format 'projects/ *
+ *  /locations/ * /backupVaults/ * /dataSources/'.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Internal only. Finalize a backup that was started by a call to
+ *  InitiateBackup.
+ *
+ *  @param object The @c GTLRBackupdr_FinalizeBackupRequest to include in the
+ *    query.
+ *  @param dataSource Required. The resource name of the instance, in the format
+ *    'projects/ * /locations/ * /backupVaults/ * /dataSources/'.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesFinalizeBackup
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_FinalizeBackupRequest *)object
+                     dataSource:(NSString *)dataSource;
+
+@end
+
+/**
+ *  Gets details of a DataSource.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesGet : GTLRBackupdrQuery
+
+/**
+ *  Required. Name of the data source resource name, in the format
+ *  'projects/{project_id}/locations/{location}/backupVaults/{resource_name}/dataSource/{resource_name}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_DataSource.
+ *
+ *  Gets details of a DataSource.
+ *
+ *  @param name Required. Name of the data source resource name, in the format
+ *    'projects/{project_id}/locations/{location}/backupVaults/{resource_name}/dataSource/{resource_name}'
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Internal only. Initiates a backup.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.initiateBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesInitiateBackup : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the instance, in the format 'projects/ *
+ *  /locations/ * /backupVaults/ * /dataSources/'.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Fetches a @c GTLRBackupdr_InitiateBackupResponse.
+ *
+ *  Internal only. Initiates a backup.
+ *
+ *  @param object The @c GTLRBackupdr_InitiateBackupRequest to include in the
+ *    query.
+ *  @param dataSource Required. The resource name of the instance, in the format
+ *    'projects/ * /locations/ * /backupVaults/ * /dataSources/'.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesInitiateBackup
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_InitiateBackupRequest *)object
+                     dataSource:(NSString *)dataSource;
+
+@end
+
+/**
+ *  Lists DataSources in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesList : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve data sources
+ *  information, in the format 'projects/{project_id}/locations/{location}'. In
+ *  Cloud Backup and DR, locations map to Google Cloud regions, for example
+ *  **us-central1**. To retrieve data sources for all locations, use "-" for the
+ *  '{location}' value.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListDataSourcesResponse.
+ *
+ *  Lists DataSources in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve data
+ *    sources information, in the format
+ *    'projects/{project_id}/locations/{location}'. In Cloud Backup and DR,
+ *    locations map to Google Cloud regions, for example **us-central1**. To
+ *    retrieve data sources for all locations, use "-" for the '{location}'
+ *    value.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the settings of a DataSource.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesPatch : GTLRBackupdrQuery
+
+/** Optional. Enable upsert. */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Output only. Identifier. Name of the datasource to create. It must have the
+ *  format`"projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}"`.
+ *  `{datasource}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the backup vault.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  DataSource resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  the request will fail.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Updates the settings of a DataSource.
+ *
+ *  @param object The @c GTLRBackupdr_DataSource to include in the query.
+ *  @param name Output only. Identifier. Name of the datasource to create. It
+ *    must have the
+ *    format`"projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}"`.
+ *    `{datasource}` cannot be changed after creation. It must be between 3-63
+ *    characters long and must be unique within the backup vault.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_DataSource *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a DataSource. This is a custom method instead of a standard delete
+ *  method because external clients will not delete DataSources except for
+ *  BackupDR backup appliances.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.remove
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesRemove : GTLRBackupdrQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a DataSource. This is a custom method instead of a standard delete
+ *  method because external clients will not delete DataSources except for
+ *  BackupDR backup appliances.
+ *
+ *  @param object The @c GTLRBackupdr_RemoveDataSourceRequest to include in the
+ *    query.
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesRemove
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_RemoveDataSourceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the internal status of a DataSource.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.setInternalStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesSetInternalStatus : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the instance, in the format 'projects/ *
+ *  /locations/ * /backupVaults/ * /dataSources/'.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Sets the internal status of a DataSource.
+ *
+ *  @param object The @c GTLRBackupdr_SetInternalStatusRequest to include in the
+ *    query.
+ *  @param dataSource Required. The resource name of the instance, in the format
+ *    'projects/ * /locations/ * /backupVaults/ * /dataSources/'.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesSetInternalStatus
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_SetInternalStatusRequest *)object
+                     dataSource:(NSString *)dataSource;
+
+@end
+
+/**
+ *  Deletes a BackupVault.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDelete : GTLRBackupdrQuery
+
+/**
+ *  Optional. If true and the BackupVault is not found, the request will succeed
+ *  but no action will be taken.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  The current etag of the backup vault. If an etag is provided and does not
+ *  match the current etag of the connection, deletion will be blocked.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. If set to true, any data source from this backup vault will also
+ *  be deleted.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Optional. If set to true, backupvault deletion will proceed even if there
+ *  are backup plans referencing the backupvault. The default is 'false'.
+ */
+@property(nonatomic, assign) BOOL ignoreBackupPlanReferences;
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is 'false'.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Deletes a BackupVault.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  FetchUsableBackupVaults lists usable BackupVaults in a given project and
+ *  location. Usable BackupVault are the ones that user has
+ *  backupdr.backupVaults.get permission.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.fetchUsable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsFetchUsable : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve backupvault stores
+ *  information, in the format 'projects/{project_id}/locations/{location}'. In
+ *  Cloud Backup and DR, locations map to Google Cloud regions, for example
+ *  **us-central1**. To retrieve backupvault stores for all locations, use "-"
+ *  for the '{location}' value.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchUsableBackupVaultsResponse.
+ *
+ *  FetchUsableBackupVaults lists usable BackupVaults in a given project and
+ *  location. Usable BackupVault are the ones that user has
+ *  backupdr.backupVaults.get permission.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    backupvault stores information, in the format
+ *    'projects/{project_id}/locations/{location}'. In Cloud Backup and DR,
+ *    locations map to Google Cloud regions, for example **us-central1**. To
+ *    retrieve backupvault stores for all locations, use "-" for the
+ *    '{location}' value.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsFetchUsable
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a BackupVault.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsGet : GTLRBackupdrQuery
+
+/**
+ *  Required. Name of the backupvault store resource name, in the format
+ *  'projects/{project_id}/locations/{location}/backupVaults/{resource_name}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Reserved for future use to provide a BASIC & FULL view of Backup
+ *  Vault
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewUnspecified If the value is not
+ *        set, the default 'FULL' view is used. (Value:
+ *        "BACKUP_VAULT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewBasic Includes basic data about
+ *        the Backup Vault, but not the full contents. (Value:
+ *        "BACKUP_VAULT_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewFull Includes all data about the
+ *        Backup Vault. This is the default value (for both ListBackupVaults and
+ *        GetBackupVault). (Value: "BACKUP_VAULT_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRBackupdr_BackupVault.
+ *
+ *  Gets details of a BackupVault.
+ *
+ *  @param name Required. Name of the backupvault store resource name, in the
+ *    format
+ *    'projects/{project_id}/locations/{location}/backupVaults/{resource_name}'
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackupVaults in a given project and location.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsList : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve backupvault stores
+ *  information, in the format 'projects/{project_id}/locations/{location}'. In
+ *  Cloud Backup and DR, locations map to Google Cloud regions, for example
+ *  **us-central1**. To retrieve backupvault stores for all locations, use "-"
+ *  for the '{location}' value.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Reserved for future use to provide a BASIC & FULL view of Backup
+ *  Vault.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewUnspecified If the value is not
+ *        set, the default 'FULL' view is used. (Value:
+ *        "BACKUP_VAULT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewBasic Includes basic data about
+ *        the Backup Vault, but not the full contents. (Value:
+ *        "BACKUP_VAULT_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupVaultViewFull Includes all data about the
+ *        Backup Vault. This is the default value (for both ListBackupVaults and
+ *        GetBackupVault). (Value: "BACKUP_VAULT_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListBackupVaultsResponse.
+ *
+ *  Lists BackupVaults in a given project and location.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    backupvault stores information, in the format
+ *    'projects/{project_id}/locations/{location}'. In Cloud Backup and DR,
+ *    locations map to Google Cloud regions, for example **us-central1**. To
+ *    retrieve backupvault stores for all locations, use "-" for the
+ *    '{location}' value.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the settings of a BackupVault.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsPatch : GTLRBackupdrQuery
+
+/**
+ *  Optional. If set to true, will not check plan duration against backup vault
+ *  enforcement duration.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Optional. If set to true, we will force update access restriction even if
+ *  some non compliant data sources are present. The default is 'false'.
+ */
+@property(nonatomic, assign) BOOL forceUpdateAccessRestriction;
+
+/**
+ *  Output only. Identifier. Name of the backup vault to create. It must have
+ *  the
+ *  format`"projects/{project}/locations/{location}/backupVaults/{backupvault}"`.
+ *  `{backupvault}` cannot be changed after creation. It must be between 3-63
+ *  characters long and must be unique within the project and location.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  BackupVault resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  the request will fail.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is 'false'.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Updates the settings of a BackupVault.
+ *
+ *  @param object The @c GTLRBackupdr_BackupVault to include in the query.
+ *  @param name Output only. Identifier. Name of the backup vault to create. It
+ *    must have the
+ *    format`"projects/{project}/locations/{location}/backupVaults/{backupvault}"`.
+ *    `{backupvault}` cannot be changed after creation. It must be between 3-63
+ *    characters long and must be unique within the project and location.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_BackupVault *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the caller's permissions on a BackupVault resource. A caller is not
+ *  required to have Google IAM permission to make this request.
  *
  *  Method: backupdr.projects.locations.backupVaults.testIamPermissions
  *
@@ -55,11 +1804,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBackupdr_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
+ *  Returns the caller's permissions on a BackupVault resource. A caller is not
+ *  required to have Google IAM permission to make this request.
  *
  *  @param object The @c GTLRBackupdr_TestIamPermissionsRequest to include in
  *    the query.
@@ -72,6 +1818,112 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBackupdr_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Fetch DataSourceReferences for a given project, location and resource type.
+ *
+ *  Method: backupdr.projects.locations.dataSourceReferences.fetchForResourceType
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesFetchForResourceType : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters the results fetched in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. Supported fields: *
+ *  data_source * data_source_gcp_resource_info.gcp_resourcename *
+ *  data_source_backup_config_state * data_source_backup_count *
+ *  data_source_backup_config_info.last_backup_state *
+ *  data_source_gcp_resource_info.gcp_resourcename *
+ *  data_source_gcp_resource_info.type * data_source_gcp_resource_info.location
+ *  *
+ *  data_source_gcp_resource_info.cloud_sql_instance_properties.instance_create_time
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  name
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of DataSourceReferences to return. The service
+ *  may return fewer than this value. If unspecified, at most 50
+ *  DataSourceReferences will be returned. The maximum value is 100; values
+ *  above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call of
+ *  `FetchDataSourceReferencesForResourceType`. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `FetchDataSourceReferencesForResourceType` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The type of the GCP resource. Ex: sql.googleapis.com/Instance */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchDataSourceReferencesForResourceTypeResponse.
+ *
+ *  Fetch DataSourceReferences for a given project, location and resource type.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesFetchForResourceType
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single DataSourceReference.
+ *
+ *  Method: backupdr.projects.locations.dataSourceReferences.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesGet : GTLRBackupdrQuery
+
+/**
+ *  Required. The name of the DataSourceReference to retrieve. Format:
+ *  projects/{project}/locations/{location}/dataSourceReferences/{data_source_reference}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_DataSourceReference.
+ *
+ *  Gets details of a single DataSourceReference.
+ *
+ *  @param name Required. The name of the DataSourceReference to retrieve.
+ *    Format:
+ *    projects/{project}/locations/{location}/dataSourceReferences/{data_source_reference}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -110,6 +1962,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBackupdrCloudPlatform
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsList : GTLRBackupdrQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -168,8 +2026,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The management server project and location in the format
- *  `projects/{project_id}/locations/{location}`. In Cloud Backup and DR
- *  locations map to GCP regions, for example **us-central1**.
+ *  'projects/{project_id}/locations/{location}'. In Cloud Backup and DR
+ *  locations map to Google Cloud regions, for example **us-central1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -195,8 +2053,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBackupdr_ManagementServer to include in the query.
  *  @param parent Required. The management server project and location in the
- *    format `projects/{project_id}/locations/{location}`. In Cloud Backup and
- *    DR locations map to GCP regions, for example **us-central1**.
+ *    format 'projects/{project_id}/locations/{location}'. In Cloud Backup and
+ *    DR locations map to Google Cloud regions, for example **us-central1**.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsManagementServersCreate
  */
@@ -258,7 +2116,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the management server resource name, in the format
- *  `projects/{project_id}/locations/{location}/managementServers/{resource_name}`
+ *  'projects/{project_id}/locations/{location}/managementServers/{resource_name}'
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -269,7 +2127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Name of the management server resource name, in the
  *    format
- *    `projects/{project_id}/locations/{location}/managementServers/{resource_name}`
+ *    'projects/{project_id}/locations/{location}/managementServers/{resource_name}'
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsManagementServersGet
  */
@@ -355,10 +2213,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The project and location for which to retrieve management servers
- *  information, in the format `projects/{project_id}/locations/{location}`. In
- *  Cloud BackupDR, locations map to GCP regions, for example **us-central1**.
- *  To retrieve management servers for all locations, use "-" for the
- *  `{location}` value.
+ *  information, in the format 'projects/{project_id}/locations/{location}'. In
+ *  Cloud BackupDR, locations map to Google Cloud regions, for example
+ *  **us-central1**. To retrieve management servers for all locations, use "-"
+ *  for the '{location}' value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -369,9 +2227,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The project and location for which to retrieve
  *    management servers information, in the format
- *    `projects/{project_id}/locations/{location}`. In Cloud BackupDR, locations
- *    map to GCP regions, for example **us-central1**. To retrieve management
- *    servers for all locations, use "-" for the `{location}` value.
+ *    'projects/{project_id}/locations/{location}'. In Cloud BackupDR, locations
+ *    map to Google Cloud regions, for example **us-central1**. To retrieve
+ *    management servers for all locations, use "-" for the '{location}' value.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsManagementServersList
  *
@@ -380,6 +2238,43 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the Assured Workloads compliance metadata for a given project.
+ *
+ *  Method: backupdr.projects.locations.managementServers.msComplianceMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsManagementServersMsComplianceMetadata : GTLRBackupdrQuery
+
+/**
+ *  Required. The project and location to be used to check CSS metadata for
+ *  target project information, in the format
+ *  'projects/{project_id}/locations/{location}'. In Cloud BackupDR, locations
+ *  map to Google Cloud regions, for example **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchMsComplianceMetadataResponse.
+ *
+ *  Returns the Assured Workloads compliance metadata for a given project.
+ *
+ *  @param object The @c GTLRBackupdr_FetchMsComplianceMetadataRequest to
+ *    include in the query.
+ *  @param parent Required. The project and location to be used to check CSS
+ *    metadata for target project information, in the format
+ *    'projects/{project_id}/locations/{location}'. In Cloud BackupDR, locations
+ *    map to Google Cloud regions, for example **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsManagementServersMsComplianceMetadata
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_FetchMsComplianceMetadataRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -475,7 +2370,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: backupdr.projects.locations.operations.cancel
@@ -498,7 +2393,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRBackupdr_CancelOperationRequest to include in the
@@ -612,6 +2507,96 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists ResourceBackupConfigs.
+ *
+ *  Method: backupdr.projects.locations.resourceBackupConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will use 100 as default. Maximum value is 500 and
+ *  values above 500 will be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location for which to retrieve resource backup
+ *  configs. Format: 'projects/{project_id}/locations/{location}'. In Cloud
+ *  Backup and DR, locations map to Google Cloud regions, for example
+ *  **us-central1**.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListResourceBackupConfigsResponse.
+ *
+ *  Lists ResourceBackupConfigs.
+ *
+ *  @param parent Required. The project and location for which to retrieve
+ *    resource backup configs. Format:
+ *    'projects/{project_id}/locations/{location}'. In Cloud Backup and DR,
+ *    locations map to Google Cloud regions, for example **us-central1**.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Initializes the service related config for a project.
+ *
+ *  Method: backupdr.projects.locations.serviceConfig.initialize
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize : GTLRBackupdrQuery
+
+/**
+ *  Required. The resource name of the serviceConfig used to initialize the
+ *  service. Format: `projects/{project_id}/locations/{location}/serviceConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Operation.
+ *
+ *  Initializes the service related config for a project.
+ *
+ *  @param object The @c GTLRBackupdr_InitializeServiceRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the serviceConfig used to
+ *    initialize the service. Format:
+ *    `projects/{project_id}/locations/{location}/serviceConfig`.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_InitializeServiceRequest *)object
+                           name:(NSString *)name;
 
 @end
 

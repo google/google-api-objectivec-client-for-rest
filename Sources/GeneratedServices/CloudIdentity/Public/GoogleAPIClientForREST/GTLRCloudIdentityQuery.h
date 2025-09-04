@@ -63,7 +63,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewBasic;
  *  This view contains all devices imported by the company admin. Each device in
  *  the response contains all information specified by the company admin when
  *  importing the device (i.e. asset tags). This includes devices that may be
- *  unaassigned or assigned to users.
+ *  unassigned or assigned to users.
  *
  *  Value: "COMPANY_INVENTORY"
  */
@@ -1198,7 +1198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *        devices imported by the company admin. Each device in the response
  *        contains all information specified by the company admin when importing
  *        the device (i.e. asset tags). This includes devices that may be
- *        unaassigned or assigned to users. (Value: "COMPANY_INVENTORY")
+ *        unassigned or assigned to users. (Value: "COMPANY_INVENTORY")
  *    @arg @c kGTLRCloudIdentityViewUserAssignedDevices This view contains all
  *        devices with at least one user registered on the device. Each device
  *        in the response contains all device information, except for asset
@@ -1938,7 +1938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /** The default page size is 200 (max 1000). */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The next_page_token value returned from a previous list request, if any */
+/**
+ *  The `next_page_token` value returned from a previous list request, if any
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -2002,7 +2004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous list request, if any.
+ *  The `next_page_token` value returned from a previous list request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2025,7 +2027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  operators on the parent of the group restricting the search within a
  *  particular customer, e.g. `parent == 'customers/{customer_id}'`. The
  *  `customer_id` must begin with "C" (for example, 'C046psxkn'). This filtering
- *  is only supported for Admins with groups read permissons on the input
+ *  is only supported for Admins with groups read permissions on the input
  *  customer. Example query: `member_key_id == 'member_key_id_value' && in
  *  labels && parent == 'customers/C046psxkn'`
  */
@@ -2080,7 +2082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous list request, if any.
+ *  The `next_page_token` value returned from a previous list request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2278,11 +2280,226 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Creates an InboundSamlSsoProfile for a customer.
+ *  Creates an InboundOidcSsoProfile for a customer. When the target customer
+ *  has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesCreate : GTLRCloudIdentityQuery
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Creates an InboundOidcSsoProfile for a customer. When the target customer
+ *  has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
+ *
+ *  @param object The @c GTLRCloudIdentity_InboundOidcSsoProfile to include in
+ *    the query.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundOidcSsoProfile *)object;
+
+@end
+
+/**
+ *  Deletes an InboundOidcSsoProfile.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesDelete : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  InboundOidcSsoProfile to delete. Format:
+ *  `inboundOidcSsoProfiles/{sso_profile_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Deletes an InboundOidcSsoProfile.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    InboundOidcSsoProfile to delete. Format:
+ *    `inboundOidcSsoProfiles/{sso_profile_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an InboundOidcSsoProfile.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the
+ *  InboundOidcSsoProfile to get. Format:
+ *  `inboundOidcSsoProfiles/{sso_profile_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_InboundOidcSsoProfile.
+ *
+ *  Gets an InboundOidcSsoProfile.
+ *
+ *  @param name Required. The [resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the
+ *    InboundOidcSsoProfile to get. Format:
+ *    `inboundOidcSsoProfiles/{sso_profile_id}`
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists InboundOidcSsoProfile objects for a Google enterprise customer.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesList : GTLRCloudIdentityQuery
+
+/**
+ *  A [Common Expression Language](https://github.com/google/cel-spec)
+ *  expression to filter the results. The only supported filter is filtering by
+ *  customer. For example: `customer=="customers/C0123abc"`. Omitting the filter
+ *  or specifying a filter of `customer=="customers/my_customer"` will return
+ *  the profiles for the customer that the caller (authenticated user) belongs
+ *  to. Specifying a filter of `customer==""` will return the global shared OIDC
+ *  profiles.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of InboundOidcSsoProfiles to return. The service may
+ *  return fewer than this value. If omitted (or defaulted to zero) the server
+ *  will use a sensible default. This default may change over time. The maximum
+ *  allowed value is 100. Requests with page_size greater than that will be
+ *  silently interpreted as having this maximum value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListInboundOidcSsoProfiles` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListInboundOidcSsoProfiles` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListInboundOidcSsoProfilesResponse.
+ *
+ *  Lists InboundOidcSsoProfile objects for a Google enterprise customer.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Updates an InboundOidcSsoProfile. When the target customer has enabled
+ *  [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
+ *
+ *  Method: cloudidentity.inboundOidcSsoProfiles.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_InboundOidcSsoProfilesPatch : GTLRCloudIdentityQuery
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the OIDC SSO
+ *  profile.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Updates an InboundOidcSsoProfile. When the target customer has enabled
+ *  [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
+ *
+ *  @param object The @c GTLRCloudIdentity_InboundOidcSsoProfile to include in
+ *    the query.
+ *  @param name Output only. [Resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the OIDC SSO
+ *    profile.
+ *
+ *  @return GTLRCloudIdentityQuery_InboundOidcSsoProfilesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_InboundOidcSsoProfile *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an InboundSamlSsoProfile for a customer. When the target customer
+ *  has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  Method: cloudidentity.inboundSamlSsoProfiles.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesCreate : GTLRCloudIdentityQuery
@@ -2290,7 +2507,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Operation.
  *
- *  Creates an InboundSamlSsoProfile for a customer.
+ *  Creates an InboundSamlSsoProfile for a customer. When the target customer
+ *  has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  @param object The @c GTLRCloudIdentity_InboundSamlSsoProfile to include in
  *    the query.
@@ -2307,6 +2528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesDelete : GTLRCloudIdentityQuery
@@ -2341,6 +2563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesGet : GTLRCloudIdentityQuery
@@ -2370,11 +2594,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Adds an IdpCredential. Up to 2 credentials are allowed.
+ *  Adds an IdpCredential. Up to 2 credentials are allowed. When the target
+ *  customer has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.add
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsAdd : GTLRCloudIdentityQuery
@@ -2388,7 +2617,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Operation.
  *
- *  Adds an IdpCredential. Up to 2 credentials are allowed.
+ *  Adds an IdpCredential. Up to 2 credentials are allowed. When the target
+ *  customer has enabled [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  @param object The @c GTLRCloudIdentity_AddIdpCredentialRequest to include in
  *    the query.
@@ -2408,6 +2641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsDelete : GTLRCloudIdentityQuery
@@ -2442,6 +2676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsGet : GTLRCloudIdentityQuery
@@ -2476,6 +2712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.idpCredentials.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesIdpCredentialsList : GTLRCloudIdentityQuery
@@ -2524,6 +2762,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSamlSsoProfiles.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesList : GTLRCloudIdentityQuery
@@ -2571,11 +2811,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Updates an InboundSamlSsoProfile.
+ *  Updates an InboundSamlSsoProfile. When the target customer has enabled
+ *  [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  Method: cloudidentity.inboundSamlSsoProfiles.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSamlSsoProfilesPatch : GTLRCloudIdentityQuery
@@ -2597,7 +2842,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Operation.
  *
- *  Updates an InboundSamlSsoProfile.
+ *  Updates an InboundSamlSsoProfile. When the target customer has enabled
+ *  [Multi-party approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448), the `Operation` in
+ *  the response will have `"done": false`, it will not have a response, and the
+ *  metadata will have `"state": "awaiting-multi-party-approval"`.
  *
  *  @param object The @c GTLRCloudIdentity_InboundSamlSsoProfile to include in
  *    the query.
@@ -2619,6 +2868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsCreate : GTLRCloudIdentityQuery
@@ -2645,6 +2895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsDelete : GTLRCloudIdentityQuery
@@ -2679,6 +2930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsGet : GTLRCloudIdentityQuery
@@ -2712,6 +2965,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsList : GTLRCloudIdentityQuery
@@ -2770,6 +3025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.inboundSsoAssignments.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_InboundSsoAssignmentsPatch : GTLRCloudIdentityQuery
@@ -2809,6 +3065,95 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudIdentity_InboundSsoAssignment *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Get a Policy
+ *
+ *  Method: cloudidentity.policies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPolicies
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPoliciesReadonly
+ */
+@interface GTLRCloudIdentityQuery_PoliciesGet : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The name of the policy to retrieve. Format: "policies/{policy}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Policy.
+ *
+ *  Get a Policy
+ *
+ *  @param name Required. The name of the policy to retrieve. Format:
+ *    "policies/{policy}".
+ *
+ *  @return GTLRCloudIdentityQuery_PoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Policies
+ *
+ *  Method: cloudidentity.policies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPolicies
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityPoliciesReadonly
+ */
+@interface GTLRCloudIdentityQuery_PoliciesList : GTLRCloudIdentityQuery
+
+/**
+ *  Optional. A CEL expression for filtering the results. Policies can be
+ *  filtered by application with this expression:
+ *  setting.type.matches('^settings/gmail\\\\..*$') Policies can be filtered by
+ *  setting type with this expression:
+ *  setting.type.matches('^.*\\\\.service_status$') A maximum of one of the
+ *  above setting.type clauses can be used. Policies can be filtered by customer
+ *  with this expression: customer == "customers/{customer}" Where `customer` is
+ *  the `id` from the [Admin SDK `Customer`
+ *  resource](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers).
+ *  You may use `customers/my_customer` to specify your own organization. When
+ *  no customer is mentioned it will be default to customers/my_customer. A
+ *  maximum of one customer clause can be used. The above clauses can only be
+ *  combined together in a single filter expression with the `&&` operator.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return. The service can return
+ *  fewer than this number. If omitted or set to 0, the default is 50 results
+ *  per page. The maximum allowed value is 100. `page_size` values greater than
+ *  100 default to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The pagination token received from a prior call to
+ *  PoliciesService.ListPolicies to retrieve the next page of results. When
+ *  paginating, all other parameters provided to `ListPoliciesRequest` must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_ListPoliciesResponse.
+ *
+ *  List Policies
+ *
+ *  @return GTLRCloudIdentityQuery_PoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
 
 @end
 

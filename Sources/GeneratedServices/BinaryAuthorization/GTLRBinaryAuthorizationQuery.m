@@ -253,6 +253,33 @@
 
 @end
 
+@implementation GTLRBinaryAuthorizationQuery_ProjectsPlatformsGkePoliciesEvaluate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBinaryAuthorization_EvaluateGkePolicyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:evaluate";
+  GTLRBinaryAuthorizationQuery_ProjectsPlatformsGkePoliciesEvaluate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBinaryAuthorization_EvaluateGkePolicyResponse class];
+  query.loggingName = @"binaryauthorization.projects.platforms.gke.policies.evaluate";
+  return query;
+}
+
+@end
+
 @implementation GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesCreate
 
 @dynamic parent, policyId;
@@ -282,7 +309,11 @@
 
 @implementation GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesDelete
 
-@dynamic name;
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

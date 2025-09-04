@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudHealthcare_AccessDeterminationLogConfig.logLevel
+NSString * const kGTLRCloudHealthcare_AccessDeterminationLogConfig_LogLevel_Disabled = @"DISABLED";
+NSString * const kGTLRCloudHealthcare_AccessDeterminationLogConfig_LogLevel_LogLevelUnspecified = @"LOG_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_AccessDeterminationLogConfig_LogLevel_Minimum = @"MINIMUM";
+NSString * const kGTLRCloudHealthcare_AccessDeterminationLogConfig_LogLevel_Verbose = @"VERBOSE";
+
 // GTLRCloudHealthcare_AnalyzeEntitiesRequest.alternativeOutputFormat
 NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_AlternativeOutputFormat_AlternativeOutputFormatUnspecified = @"ALTERNATIVE_OUTPUT_FORMAT_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_AlternativeOutputFormat_FhirBundle = @"FHIR_BUNDLE";
@@ -33,6 +39,20 @@ NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataRead = @"DATA_R
 NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudHealthcare_BlobStorageInfo.storageClass
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Archive = @"ARCHIVE";
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_BlobStorageClassUnspecified = @"BLOB_STORAGE_CLASS_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Coldline = @"COLDLINE";
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Nearline = @"NEARLINE";
+NSString * const kGTLRCloudHealthcare_BlobStorageInfo_StorageClass_Standard = @"STANDARD";
+
+// GTLRCloudHealthcare_BlobStorageSettings.blobStorageClass
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Archive = @"ARCHIVE";
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_BlobStorageClassUnspecified = @"BLOB_STORAGE_CLASS_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Coldline = @"COLDLINE";
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Nearline = @"NEARLINE";
+NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Standard = @"STANDARD";
+
 // GTLRCloudHealthcare_CheckDataAccessRequest.responseView
 NSString * const kGTLRCloudHealthcare_CheckDataAccessRequest_ResponseView_Basic = @"BASIC";
 NSString * const kGTLRCloudHealthcare_CheckDataAccessRequest_ResponseView_Full = @"FULL";
@@ -46,12 +66,21 @@ NSString * const kGTLRCloudHealthcare_Consent_State_Rejected   = @"REJECTED";
 NSString * const kGTLRCloudHealthcare_Consent_State_Revoked    = @"REVOKED";
 NSString * const kGTLRCloudHealthcare_Consent_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCloudHealthcare_ConsentConfig.version
+NSString * const kGTLRCloudHealthcare_ConsentConfig_Version_ConsentEnforcementVersionUnspecified = @"CONSENT_ENFORCEMENT_VERSION_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_ConsentConfig_Version_V1 = @"V1";
+
 // GTLRCloudHealthcare_ConsentEvaluation.evaluationResult
 NSString * const kGTLRCloudHealthcare_ConsentEvaluation_EvaluationResult_EvaluationResultUnspecified = @"EVALUATION_RESULT_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_ConsentEvaluation_EvaluationResult_HasSatisfiedPolicy = @"HAS_SATISFIED_POLICY";
 NSString * const kGTLRCloudHealthcare_ConsentEvaluation_EvaluationResult_NoMatchingPolicy = @"NO_MATCHING_POLICY";
 NSString * const kGTLRCloudHealthcare_ConsentEvaluation_EvaluationResult_NoSatisfiedPolicy = @"NO_SATISFIED_POLICY";
 NSString * const kGTLRCloudHealthcare_ConsentEvaluation_EvaluationResult_NotApplicable = @"NOT_APPLICABLE";
+
+// GTLRCloudHealthcare_ConsentHeaderHandling.profile
+NSString * const kGTLRCloudHealthcare_ConsentHeaderHandling_Profile_PermitEmptyScope = @"PERMIT_EMPTY_SCOPE";
+NSString * const kGTLRCloudHealthcare_ConsentHeaderHandling_Profile_RequiredOnRead = @"REQUIRED_ON_READ";
+NSString * const kGTLRCloudHealthcare_ConsentHeaderHandling_Profile_ScopeProfileUnspecified = @"SCOPE_PROFILE_UNSPECIFIED";
 
 // GTLRCloudHealthcare_DicomConfig.filterProfile
 NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile = @"ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE";
@@ -65,6 +94,21 @@ NSString * const kGTLRCloudHealthcare_EvaluateUserConsentsRequest_ResponseView_B
 NSString * const kGTLRCloudHealthcare_EvaluateUserConsentsRequest_ResponseView_Full = @"FULL";
 NSString * const kGTLRCloudHealthcare_EvaluateUserConsentsRequest_ResponseView_ResponseViewUnspecified = @"RESPONSE_VIEW_UNSPECIFIED";
 
+// GTLRCloudHealthcare_ExplainDataAccessConsentInfo.type
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentInfo_Type_ConsentPolicyTypeAdmin = @"CONSENT_POLICY_TYPE_ADMIN";
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentInfo_Type_ConsentPolicyTypePatient = @"CONSENT_POLICY_TYPE_PATIENT";
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentInfo_Type_ConsentPolicyTypeUnspecified = @"CONSENT_POLICY_TYPE_UNSPECIFIED";
+
+// GTLRCloudHealthcare_ExplainDataAccessConsentInfo.variants
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentInfo_Variants_ConsentVariantCascade = @"CONSENT_VARIANT_CASCADE";
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentInfo_Variants_ConsentVariantStandard = @"CONSENT_VARIANT_STANDARD";
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentInfo_Variants_ConsentVariantUnspecified = @"CONSENT_VARIANT_UNSPECIFIED";
+
+// GTLRCloudHealthcare_ExplainDataAccessConsentScope.decision
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentScope_Decision_ConsentDecisionTypeDeny = @"CONSENT_DECISION_TYPE_DENY";
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentScope_Decision_ConsentDecisionTypePermit = @"CONSENT_DECISION_TYPE_PERMIT";
+NSString * const kGTLRCloudHealthcare_ExplainDataAccessConsentScope_Decision_ConsentDecisionTypeUnspecified = @"CONSENT_DECISION_TYPE_UNSPECIFIED";
+
 // GTLRCloudHealthcare_FhirStore.complexDataTypeReferenceParsing
 NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_ComplexDataTypeReferenceParsingUnspecified = @"COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_Disabled = @"DISABLED";
@@ -73,6 +117,7 @@ NSString * const kGTLRCloudHealthcare_FhirStore_ComplexDataTypeReferenceParsing_
 // GTLRCloudHealthcare_FhirStore.version
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_Dstu2  = @"DSTU2";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4     = @"R4";
+NSString * const kGTLRCloudHealthcare_FhirStore_Version_R5     = @"R5";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3   = @"STU3";
 NSString * const kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified = @"VERSION_UNSPECIFIED";
 
@@ -132,6 +177,13 @@ NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Cr
 NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Delete = @"DELETE";
 NSString * const kGTLRCloudHealthcare_RollbackFhirResourcesRequest_ChangeType_Update = @"UPDATE";
 
+// GTLRCloudHealthcare_RollbackHl7V2MessagesRequest.changeType
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_All = @"ALL";
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Create = @"CREATE";
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Delete = @"DELETE";
+NSString * const kGTLRCloudHealthcare_RollbackHl7V2MessagesRequest_ChangeType_Update = @"UPDATE";
+
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics = @"ANALYTICS";
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_AnalyticsV2 = @"ANALYTICS_V2";
@@ -163,11 +215,39 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_AccessDeterminationLogConfig
+//
+
+@implementation GTLRCloudHealthcare_AccessDeterminationLogConfig
+@dynamic logLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_ActivateConsentRequest
 //
 
 @implementation GTLRCloudHealthcare_ActivateConsentRequest
 @dynamic consentArtifact, expireTime, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_AdminConsents
+//
+
+@implementation GTLRCloudHealthcare_AdminConsents
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -206,6 +286,65 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ApplyAdminConsentsErrorDetail
+//
+
+@implementation GTLRCloudHealthcare_ApplyAdminConsentsErrorDetail
+@dynamic consentErrors, existingOperationId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consentErrors" : [GTLRCloudHealthcare_ConsentErrors class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ApplyAdminConsentsRequest
+//
+
+@implementation GTLRCloudHealthcare_ApplyAdminConsentsRequest
+@dynamic newConsentsList, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ApplyAdminConsentsResponse
+//
+
+@implementation GTLRCloudHealthcare_ApplyAdminConsentsResponse
+@dynamic affectedResources, consentApplySuccess, failedResources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ApplyConsentsRequest
+//
+
+@implementation GTLRCloudHealthcare_ApplyConsentsRequest
+@dynamic patientScope, timeRange, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ApplyConsentsResponse
+//
+
+@implementation GTLRCloudHealthcare_ApplyConsentsResponse
+@dynamic affectedResources, consentApplyFailure, consentApplySuccess,
+         failedResources;
 @end
 
 
@@ -325,6 +464,36 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_BlobStorageInfo
+//
+
+@implementation GTLRCloudHealthcare_BlobStorageInfo
+@dynamic sizeBytes, storageClass, storageClassUpdateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_BlobStorageSettings
+//
+
+@implementation GTLRCloudHealthcare_BlobStorageSettings
+@dynamic blobStorageClass;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_BulkExportGcsDestination
+//
+
+@implementation GTLRCloudHealthcare_BulkExportGcsDestination
+@dynamic uriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_CancelOperationRequest
 //
 
@@ -425,6 +594,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_ConsentAccessorScope
+//
+
+@implementation GTLRCloudHealthcare_ConsentAccessorScope
+@dynamic actor, environment, purpose;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_ConsentArtifact
 //
 
@@ -458,11 +637,50 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_ConsentConfig
+//
+
+@implementation GTLRCloudHealthcare_ConsentConfig
+@dynamic accessDeterminationLogConfig, accessEnforced, consentHeaderHandling,
+         enforcedAdminConsents, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enforcedAdminConsents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ConsentErrors
+//
+
+@implementation GTLRCloudHealthcare_ConsentErrors
+@dynamic error, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_ConsentEvaluation
 //
 
 @implementation GTLRCloudHealthcare_ConsentEvaluation
 @dynamic evaluationResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ConsentHeaderHandling
+//
+
+@implementation GTLRCloudHealthcare_ConsentHeaderHandling
+@dynamic profile;
 @end
 
 
@@ -534,7 +752,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_Dataset
-@dynamic name, timeZone;
+@dynamic encryptionSpec, name, satisfiesPzi, satisfiesPzs, timeZone;
 @end
 
 
@@ -630,14 +848,25 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_DicomNotificationConfig
+//
+
+@implementation GTLRCloudHealthcare_DicomNotificationConfig
+@dynamic pubsubTopic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_DicomStore
 //
 
 @implementation GTLRCloudHealthcare_DicomStore
-@dynamic labels, name, notificationConfig, streamConfigs;
+@dynamic labels, name, notificationConfig, notificationConfigs, streamConfigs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"notificationConfigs" : [GTLRCloudHealthcare_DicomNotificationConfig class],
     @"streamConfigs" : [GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomStreamConfig class]
   };
   return map;
@@ -677,6 +906,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_EncryptionSpec
+//
+
+@implementation GTLRCloudHealthcare_EncryptionSpec
+@dynamic kmsKeyName;
 @end
 
 
@@ -783,6 +1022,64 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 + (NSString *)collectionItemsKey {
   return @"results";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ExplainDataAccessConsentInfo
+//
+
+@implementation GTLRCloudHealthcare_ExplainDataAccessConsentInfo
+@dynamic cascadeOrigins, consentResource, enforcementTime,
+         matchingAccessorScopes, patientConsentOwner, type, variants;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cascadeOrigins" : [NSString class],
+    @"matchingAccessorScopes" : [GTLRCloudHealthcare_ConsentAccessorScope class],
+    @"variants" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ExplainDataAccessConsentScope
+//
+
+@implementation GTLRCloudHealthcare_ExplainDataAccessConsentScope
+@dynamic accessorScope, decision, enforcingConsents, exceptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enforcingConsents" : [GTLRCloudHealthcare_ExplainDataAccessConsentInfo class],
+    @"exceptions" : [GTLRCloudHealthcare_ExplainDataAccessConsentScope class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ExplainDataAccessResponse
+//
+
+@implementation GTLRCloudHealthcare_ExplainDataAccessResponse
+@dynamic consentScopes, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consentScopes" : [GTLRCloudHealthcare_ExplainDataAccessConsentScope class]
+  };
+  return map;
 }
 
 @end
@@ -923,7 +1220,8 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_FhirStore
-@dynamic complexDataTypeReferenceParsing, defaultSearchHandlingStrict,
+@dynamic bulkExportGcsDestination, complexDataTypeReferenceParsing,
+         consentConfig, defaultSearchHandlingStrict,
          disableReferentialIntegrity, disableResourceVersioning,
          enableUpdateCreate, labels, name, notificationConfig,
          notificationConfigs, streamConfigs, validationConfig, version;
@@ -1335,7 +1633,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ImportDicomDataRequest
-@dynamic gcsSource;
+@dynamic blobStorageSettings, gcsSource;
 @end
 
 
@@ -1900,6 +2198,24 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_PatientScope
+//
+
+@implementation GTLRCloudHealthcare_PatientScope
+@dynamic patientIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"patientIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_Policy
 //
 
@@ -2126,6 +2442,45 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_RollbackHL7MessagesFilteringFields
+//
+
+@implementation GTLRCloudHealthcare_RollbackHL7MessagesFilteringFields
+@dynamic operationIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_RollbackHl7V2MessagesRequest
+//
+
+@implementation GTLRCloudHealthcare_RollbackHl7V2MessagesRequest
+@dynamic changeType, excludeRollbacks, filteringFields, force, inputGcsObject,
+         resultGcsBucket, rollbackTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_RollbackHl7V2MessagesResponse
+//
+
+@implementation GTLRCloudHealthcare_RollbackHl7V2MessagesResponse
+@dynamic hl7v2Store;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_SchemaConfig
 //
 
@@ -2239,6 +2594,25 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_SetBlobStorageSettingsRequest
+//
+
+@implementation GTLRCloudHealthcare_SetBlobStorageSettingsRequest
+@dynamic blobStorageSettings, filterConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_SetBlobStorageSettingsResponse
+//
+
+@implementation GTLRCloudHealthcare_SetBlobStorageSettingsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_SetIamPolicyRequest
 //
 
@@ -2305,6 +2679,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_StorageInfo
+//
+
+@implementation GTLRCloudHealthcare_StorageInfo
+@dynamic blobStorageInfo, referencedResource, structuredStorageInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_StreamConfig
 //
 
@@ -2318,6 +2702,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_StructuredStorageInfo
+//
+
+@implementation GTLRCloudHealthcare_StructuredStorageInfo
+@dynamic sizeBytes;
 @end
 
 
@@ -2423,6 +2817,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_TimePartitioning
 @dynamic expirationMs, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_TimeRange
+//
+
+@implementation GTLRCloudHealthcare_TimeRange
+@dynamic end, start;
 @end
 
 

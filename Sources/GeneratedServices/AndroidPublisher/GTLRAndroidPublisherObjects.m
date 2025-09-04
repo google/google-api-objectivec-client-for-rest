@@ -29,6 +29,16 @@ NSString * const kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_
 NSString * const kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
 NSString * const kGTLRAndroidPublisher_ActivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_ActivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_ActivatePurchaseOptionRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_ActivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_ActivateSubscriptionOfferRequest.latencyTolerance
 NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
 NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
@@ -38,6 +48,8 @@ NSString * const kGTLRAndroidPublisher_ActivateSubscriptionOfferRequest_LatencyT
 NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusActive = @"RECOVERY_STATUS_ACTIVE";
 NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusCanceled = @"RECOVERY_STATUS_CANCELED";
 NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusDraft = @"RECOVERY_STATUS_DRAFT";
+NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusGenerationFailed = @"RECOVERY_STATUS_GENERATION_FAILED";
+NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusGenerationInProgress = @"RECOVERY_STATUS_GENERATION_IN_PROGRESS";
 NSString * const kGTLRAndroidPublisher_AppRecoveryAction_Status_RecoveryStatusUnspecified = @"RECOVERY_STATUS_UNSPECIFIED";
 
 // GTLRAndroidPublisher_AssetModuleMetadata.deliveryType
@@ -62,6 +74,11 @@ NSString * const kGTLRAndroidPublisher_BasePlan_State_Draft    = @"DRAFT";
 NSString * const kGTLRAndroidPublisher_BasePlan_State_Inactive = @"INACTIVE";
 NSString * const kGTLRAndroidPublisher_BasePlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_CancelOneTimeProductOfferRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_CancelSurveyResult.reason
 NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonCostRelated = @"CANCEL_SURVEY_REASON_COST_RELATED";
 NSString * const kGTLRAndroidPublisher_CancelSurveyResult_Reason_CancelSurveyReasonFoundBetterApp = @"CANCEL_SURVEY_REASON_FOUND_BETTER_APP";
@@ -75,10 +92,35 @@ NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyToleranc
 NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
 NSString * const kGTLRAndroidPublisher_DeactivateBasePlanRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_DeactivatePurchaseOptionRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_DeactivatePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest.latencyTolerance
 NSString * const kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
 NSString * const kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
 NSString * const kGTLRAndroidPublisher_DeactivateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_DeleteOneTimeProductRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_DeleteOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_DeletePurchaseOptionRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_DeletePurchaseOptionRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_DeobfuscationFile.symbolType
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_DeobfuscationFileTypeUnspecified = @"deobfuscationFileTypeUnspecified";
@@ -99,12 +141,15 @@ NSString * const kGTLRAndroidPublisher_ExternalTransaction_TransactionState_Tran
 NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusActive = @"RECOVERY_STATUS_ACTIVE";
 NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusCanceled = @"RECOVERY_STATUS_CANCELED";
 NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusDraft = @"RECOVERY_STATUS_DRAFT";
+NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusGenerationFailed = @"RECOVERY_STATUS_GENERATION_FAILED";
+NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusGenerationInProgress = @"RECOVERY_STATUS_GENERATION_IN_PROGRESS";
 NSString * const kGTLRAndroidPublisher_GeneratedRecoveryApk_RecoveryStatus_RecoveryStatusUnspecified = @"RECOVERY_STATUS_UNSPECIFIED";
 
 // GTLRAndroidPublisher_Grant.appLevelPermissions
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified = @"APP_LEVEL_PERMISSION_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp = @"CAN_ACCESS_APP";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageAppContent = @"CAN_MANAGE_APP_CONTENT";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDeeplinks = @"CAN_MANAGE_DEEPLINKS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDraftApps = @"CAN_MANAGE_DRAFT_APPS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageOrders = @"CAN_MANAGE_ORDERS";
 NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePermissions = @"CAN_MANAGE_PERMISSIONS";
@@ -137,6 +182,21 @@ NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyToleran
 NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
 NSString * const kGTLRAndroidPublisher_InappproductsUpdateRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_InstallmentsBasePlanType.prorationMode
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ProrationMode_SubscriptionProrationModeChargeFullPriceImmediately = @"SUBSCRIPTION_PRORATION_MODE_CHARGE_FULL_PRICE_IMMEDIATELY";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ProrationMode_SubscriptionProrationModeChargeOnNextBillingDate = @"SUBSCRIPTION_PRORATION_MODE_CHARGE_ON_NEXT_BILLING_DATE";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ProrationMode_SubscriptionProrationModeUnspecified = @"SUBSCRIPTION_PRORATION_MODE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_InstallmentsBasePlanType.renewalType
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_RenewalType_RenewalTypeRenewsWithCommitment = @"RENEWAL_TYPE_RENEWS_WITH_COMMITMENT";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_RenewalType_RenewalTypeRenewsWithoutCommitment = @"RENEWAL_TYPE_RENEWS_WITHOUT_COMMITMENT";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_RenewalType_RenewalTypeUnspecified = @"RENEWAL_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_InstallmentsBasePlanType.resubscribeState
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateActive = @"RESUBSCRIBE_STATE_ACTIVE";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateInactive = @"RESUBSCRIBE_STATE_INACTIVE";
+NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateUnspecified = @"RESUBSCRIBE_STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings.eeaWithdrawalRightType
 NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
 NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
@@ -157,20 +217,112 @@ NSString * const kGTLRAndroidPublisher_ModuleMetadata_DeliveryType_UnknownDelive
 NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleType_FeatureModule = @"FEATURE_MODULE";
 NSString * const kGTLRAndroidPublisher_ModuleMetadata_ModuleType_UnknownModuleType = @"UNKNOWN_MODULE_TYPE";
 
+// GTLRAndroidPublisher_OneTimeProductOffer.state
+NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Active = @"ACTIVE";
+NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Draft = @"DRAFT";
+NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_Inactive = @"INACTIVE";
+NSString * const kGTLRAndroidPublisher_OneTimeProductOffer_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig.availability
+NSString * const kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_Available = @"AVAILABLE";
+NSString * const kGTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable = @"NO_LONGER_AVAILABLE";
+
+// GTLRAndroidPublisher_OneTimeProductPreOrderOffer.priceChangeBehavior
+NSString * const kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorNewOrdersOnly = @"PRE_ORDER_PRICE_CHANGE_BEHAVIOR_NEW_ORDERS_ONLY";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorTwoPointLowest = @"PRE_ORDER_PRICE_CHANGE_BEHAVIOR_TWO_POINT_LOWEST";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPreOrderOffer_PriceChangeBehavior_PreOrderPriceChangeBehaviorUnspecified = @"PRE_ORDER_PRICE_CHANGE_BEHAVIOR_UNSPECIFIED";
+
+// GTLRAndroidPublisher_OneTimeProductPurchaseOption.state
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Active = @"ACTIVE";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Draft = @"DRAFT";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_Inactive = @"INACTIVE";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_InactivePublished = @"INACTIVE_PUBLISHED";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOption_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig.availability
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_Available = @"AVAILABLE";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig_Availability_NoLongerAvailable = @"NO_LONGER_AVAILABLE";
+
+// GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig.availability
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available = @"AVAILABLE";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableIfReleased = @"AVAILABLE_IF_RELEASED";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable = @"NO_LONGER_AVAILABLE";
+
+// GTLRAndroidPublisher_Order.state
+NSString * const kGTLRAndroidPublisher_Order_State_Canceled    = @"CANCELED";
+NSString * const kGTLRAndroidPublisher_Order_State_PartiallyRefunded = @"PARTIALLY_REFUNDED";
+NSString * const kGTLRAndroidPublisher_Order_State_Pending     = @"PENDING";
+NSString * const kGTLRAndroidPublisher_Order_State_PendingRefund = @"PENDING_REFUND";
+NSString * const kGTLRAndroidPublisher_Order_State_Processed   = @"PROCESSED";
+NSString * const kGTLRAndroidPublisher_Order_State_Refunded    = @"REFUNDED";
+NSString * const kGTLRAndroidPublisher_Order_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_PartialRefundEvent.state
+NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_Pending = @"PENDING";
+NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_ProcessedSuccessfully = @"PROCESSED_SUCCESSFULLY";
+NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_PrepaidBasePlanType.timeExtension
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionActive = @"TIME_EXTENSION_ACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionInactive = @"TIME_EXTENSION_INACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified = @"TIME_EXTENSION_UNSPECIFIED";
 
+// GTLRAndroidPublisher_ProductOfferDetails.consumptionState
+NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateConsumed = @"CONSUMPTION_STATE_CONSUMED";
+NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateUnspecified = @"CONSUMPTION_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateYetToBeConsumed = @"CONSUMPTION_STATE_YET_TO_BE_CONSUMED";
+
+// GTLRAndroidPublisher_ProductPurchaseV2.acknowledgementState
+NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateAcknowledged = @"ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED";
+NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStatePending = @"ACKNOWLEDGEMENT_STATE_PENDING";
+NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateUnspecified = @"ACKNOWLEDGEMENT_STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings.withdrawalRightType
+NSString * const kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
+NSString * const kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
+NSString * const kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightTypeUnspecified = @"WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_PurchaseStateContext.purchaseState
+NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Cancelled = @"CANCELLED";
+NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Pending = @"PENDING";
+NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_Purchased = @"PURCHASED";
+NSString * const kGTLRAndroidPublisher_PurchaseStateContext_PurchaseState_PurchaseStateUnspecified = @"PURCHASE_STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_RecurringExternalTransaction.migratedTransactionProgram
-NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AltertnativeBillingOnly = @"ALTERTNATIVE_BILLING_ONLY";
+NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_AlternativeBillingOnly = @"ALTERNATIVE_BILLING_ONLY";
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_ExternalTransactionProgramUnspecified = @"EXTERNAL_TRANSACTION_PROGRAM_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_RecurringExternalTransaction_MigratedTransactionProgram_UserChoiceBilling = @"USER_CHOICE_BILLING";
+
+// GTLRAndroidPublisher_RefundEvent.refundReason
+NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_Chargeback = @"CHARGEBACK";
+NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_Other = @"OTHER";
+NSString * const kGTLRAndroidPublisher_RefundEvent_RefundReason_RefundReasonUnspecified = @"REFUND_REASON_UNSPECIFIED";
 
 // GTLRAndroidPublisher_RegionalPriceMigrationConfig.priceIncreaseType
 NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptIn = @"PRICE_INCREASE_TYPE_OPT_IN";
 NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptOut = @"PRICE_INCREASE_TYPE_OPT_OUT";
 NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeUnspecified = @"PRICE_INCREASE_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_RegionalTaxConfig.streamingTaxType
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel = @"STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioRental = @"STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioSales = @"STREAMING_TAX_TYPE_TELCO_AUDIO_SALES";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoMultiChannel = @"STREAMING_TAX_TYPE_TELCO_VIDEO_MULTI_CHANNEL";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoRental = @"STREAMING_TAX_TYPE_TELCO_VIDEO_RENTAL";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoVideoSales = @"STREAMING_TAX_TYPE_TELCO_VIDEO_SALES";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeUnspecified = @"STREAMING_TAX_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_RegionalTaxConfig.taxTier
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierBooks1 = @"TAX_TIER_BOOKS_1";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierLiveOrBroadcast1 = @"TAX_TIER_LIVE_OR_BROADCAST_1";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierMusicOrAudio1 = @"TAX_TIER_MUSIC_OR_AUDIO_1";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierNews1 = @"TAX_TIER_NEWS_1";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierNews2 = @"TAX_TIER_NEWS_2";
+NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_TaxTier_TaxTierUnspecified = @"TAX_TIER_UNSPECIFIED";
 
 // GTLRAndroidPublisher_RegionalTaxRateInfo.streamingTaxType
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel = @"STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL";
@@ -200,6 +352,12 @@ NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xhdpi = @"XHDP
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xxhdpi = @"XXHDPI";
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Xxxhdpi = @"XXXHDPI";
 
+// GTLRAndroidPublisher_SubscriptionDetails.offerPhase
+NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Base = @"BASE";
+NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_FreeTrial = @"FREE_TRIAL";
+NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Introductory = @"INTRODUCTORY";
+NSString * const kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_OfferPhaseUnspecified = @"OFFER_PHASE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeMode
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_OptOutPriceIncrease = @"OPT_OUT_PRICE_INCREASE";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeMode_PriceChangeModeUnspecified = @"PRICE_CHANGE_MODE_UNSPECIFIED";
@@ -208,6 +366,7 @@ NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceC
 
 // GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails.priceChangeState
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Applied = @"APPLIED";
+NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Canceled = @"CANCELED";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Confirmed = @"CONFIRMED";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_Outstanding = @"OUTSTANDING";
 NSString * const kGTLRAndroidPublisher_SubscriptionItemPriceChangeDetails_PriceChangeState_PriceChangeStateUnspecified = @"PRICE_CHANGE_STATE_UNSPECIFIED";
@@ -231,12 +390,17 @@ NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_
 NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateOnHold = @"SUBSCRIPTION_STATE_ON_HOLD";
 NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStatePaused = @"SUBSCRIPTION_STATE_PAUSED";
 NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStatePending = @"SUBSCRIPTION_STATE_PENDING";
+NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStatePendingPurchaseCanceled = @"SUBSCRIPTION_STATE_PENDING_PURCHASE_CANCELED";
 NSString * const kGTLRAndroidPublisher_SubscriptionPurchaseV2_SubscriptionState_SubscriptionStateUnspecified = @"SUBSCRIPTION_STATE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings.eeaWithdrawalRightType
 NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
 NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
 NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified = @"WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_TestPurchaseContext.fopType
+NSString * const kGTLRAndroidPublisher_TestPurchaseContext_FopType_FopTypeUnspecified = @"FOP_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_TestPurchaseContext_FopType_Test = @"TEST";
 
 // GTLRAndroidPublisher_TextureCompressionFormat.alias
 NSString * const kGTLRAndroidPublisher_TextureCompressionFormat_Alias_Astc = @"ASTC";
@@ -268,6 +432,16 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Halted = @"halted";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InProgress = @"inProgress";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @"statusUnspecified";
 
+// GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_UpdateOneTimeProductRequest.latencyTolerance
+NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
+NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
+NSString * const kGTLRAndroidPublisher_UpdateOneTimeProductRequest_LatencyTolerance_ProductUpdateLatencyToleranceUnspecified = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_UpdateSubscriptionOfferRequest.latencyTolerance
 NSString * const kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
 NSString * const kGTLRAndroidPublisher_UpdateSubscriptionOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
@@ -290,6 +464,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChang
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal = @"CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal = @"CAN_EDIT_GAMES_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageAppContentGlobal = @"CAN_MANAGE_APP_CONTENT_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDeeplinksGlobal = @"CAN_MANAGE_DEEPLINKS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDraftAppsGlobal = @"CAN_MANAGE_DRAFT_APPS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageOrdersGlobal = @"CAN_MANAGE_ORDERS_GLOBAL";
 NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePermissionsGlobal = @"CAN_MANAGE_PERMISSIONS_GLOBAL";
@@ -355,6 +530,26 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ActivateBasePlanRequest
 @dynamic basePlanId, latencyTolerance, packageName, productId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest
+//
+
+@implementation GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest
+@dynamic latencyTolerance, offerId, packageName, productId, purchaseOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ActivatePurchaseOptionRequest
+//
+
+@implementation GTLRAndroidPublisher_ActivatePurchaseOptionRequest
+@dynamic latencyTolerance, packageName, productId, purchaseOptionId;
 @end
 
 
@@ -639,7 +834,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_AutoRenewingPlan
-@dynamic autoRenewEnabled, priceChangeDetails;
+@dynamic autoRenewEnabled, installmentDetails, priceChangeDetails,
+         recurringPrice;
 @end
 
 
@@ -649,13 +845,140 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_BasePlan
-@dynamic autoRenewingBasePlanType, basePlanId, offerTags, otherRegionsConfig,
-         prepaidBasePlanType, regionalConfigs, state;
+@dynamic autoRenewingBasePlanType, basePlanId, installmentsBasePlanType,
+         offerTags, otherRegionsConfig, prepaidBasePlanType, regionalConfigs,
+         state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"offerTags" : [GTLRAndroidPublisher_OfferTag class],
     @"regionalConfigs" : [GTLRAndroidPublisher_RegionalBasePlanConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest
+//
+
+@implementation GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchDeleteOneTimeProductsRequest
+//
+
+@implementation GTLRAndroidPublisher_BatchDeleteOneTimeProductsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAndroidPublisher_DeleteOneTimeProductRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchDeletePurchaseOptionsRequest
+//
+
+@implementation GTLRAndroidPublisher_BatchDeletePurchaseOptionsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAndroidPublisher_DeletePurchaseOptionRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchGetOneTimeProductOffersRequest
+//
+
+@implementation GTLRAndroidPublisher_BatchGetOneTimeProductOffersRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAndroidPublisher_GetOneTimeProductOfferRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchGetOneTimeProductOffersResponse
+//
+
+@implementation GTLRAndroidPublisher_BatchGetOneTimeProductOffersResponse
+@dynamic oneTimeProductOffers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeProductOffers" : [GTLRAndroidPublisher_OneTimeProductOffer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchGetOneTimeProductsResponse
+//
+
+@implementation GTLRAndroidPublisher_BatchGetOneTimeProductsResponse
+@dynamic oneTimeProducts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeProducts" : [GTLRAndroidPublisher_OneTimeProduct class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchGetOrdersResponse
+//
+
+@implementation GTLRAndroidPublisher_BatchGetOrdersResponse
+@dynamic orders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"orders" : [GTLRAndroidPublisher_Order class]
   };
   return map;
 }
@@ -782,6 +1105,150 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"subscriptions" : [GTLRAndroidPublisher_Subscription class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersRequest
+//
+
+@implementation GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersResponse
+//
+
+@implementation GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersResponse
+@dynamic oneTimeProductOffers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeProductOffers" : [GTLRAndroidPublisher_OneTimeProductOffer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesRequest
+//
+
+@implementation GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAndroidPublisher_UpdateOneTimeProductOfferStateRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesResponse
+//
+
+@implementation GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesResponse
+@dynamic oneTimeProductOffers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeProductOffers" : [GTLRAndroidPublisher_OneTimeProductOffer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchUpdateOneTimeProductsRequest
+//
+
+@implementation GTLRAndroidPublisher_BatchUpdateOneTimeProductsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAndroidPublisher_UpdateOneTimeProductRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchUpdateOneTimeProductsResponse
+//
+
+@implementation GTLRAndroidPublisher_BatchUpdateOneTimeProductsResponse
+@dynamic oneTimeProducts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeProducts" : [GTLRAndroidPublisher_OneTimeProduct class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesRequest
+//
+
+@implementation GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRAndroidPublisher_UpdatePurchaseOptionStateRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesResponse
+//
+
+@implementation GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesResponse
+@dynamic oneTimeProducts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeProducts" : [GTLRAndroidPublisher_OneTimeProduct class]
   };
   return map;
 }
@@ -933,6 +1400,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_BuyerAddress
+//
+
+@implementation GTLRAndroidPublisher_BuyerAddress
+@dynamic buyerCountry, buyerPostcode, buyerState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_CancelAppRecoveryRequest
 //
 
@@ -957,6 +1434,26 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_CanceledStateContext
 @dynamic developerInitiatedCancellation, replacementCancellation,
          systemInitiatedCancellation, userInitiatedCancellation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CancellationEvent
+//
+
+@implementation GTLRAndroidPublisher_CancellationEvent
+@dynamic eventTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CancelOneTimeProductOfferRequest
+//
+
+@implementation GTLRAndroidPublisher_CancelOneTimeProductOfferRequest
+@dynamic latencyTolerance, offerId, packageName, productId, purchaseOptionId;
 @end
 
 
@@ -1016,7 +1513,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ConvertRegionPricesResponse
-@dynamic convertedOtherRegionsPrice, convertedRegionPrices;
+@dynamic convertedOtherRegionsPrice, convertedRegionPrices, regionVersion;
 @end
 
 
@@ -1074,6 +1571,26 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest
+//
+
+@implementation GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest
+@dynamic latencyTolerance, offerId, packageName, productId, purchaseOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeactivatePurchaseOptionRequest
+//
+
+@implementation GTLRAndroidPublisher_DeactivatePurchaseOptionRequest
+@dynamic latencyTolerance, packageName, productId, purchaseOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest
 //
 
@@ -1084,11 +1601,50 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_DeferredItemRemoval
+//
+
+@implementation GTLRAndroidPublisher_DeferredItemRemoval
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_DeferredItemReplacement
 //
 
 @implementation GTLRAndroidPublisher_DeferredItemReplacement
 @dynamic productId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest
+//
+
+@implementation GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest
+@dynamic latencyTolerance, offerId, packageName, productId, purchaseOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeleteOneTimeProductRequest
+//
+
+@implementation GTLRAndroidPublisher_DeleteOneTimeProductRequest
+@dynamic latencyTolerance, packageName, productId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_DeletePurchaseOptionRequest
+//
+
+@implementation GTLRAndroidPublisher_DeletePurchaseOptionRequest
+@dynamic force, latencyTolerance, packageName, productId, purchaseOptionId;
 @end
 
 
@@ -1226,14 +1782,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_DeviceSelector
 @dynamic deviceRam, excludedDeviceIds, forbiddenSystemFeatures,
-         includedDeviceIds, requiredSystemFeatures;
+         includedDeviceIds, requiredSystemFeatures, systemOnChips;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludedDeviceIds" : [GTLRAndroidPublisher_DeviceId class],
     @"forbiddenSystemFeatures" : [GTLRAndroidPublisher_SystemFeature class],
     @"includedDeviceIds" : [GTLRAndroidPublisher_DeviceId class],
-    @"requiredSystemFeatures" : [GTLRAndroidPublisher_SystemFeature class]
+    @"requiredSystemFeatures" : [GTLRAndroidPublisher_SystemFeature class],
+    @"systemOnChips" : [GTLRAndroidPublisher_SystemOnChip class]
   };
   return map;
 }
@@ -1389,7 +1946,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @dynamic createTime, currentPreTaxAmount, currentTaxAmount,
          externalTransactionId, oneTimeTransaction, originalPreTaxAmount,
          originalTaxAmount, packageName, recurringTransaction, testPurchase,
-         transactionState, transactionTime, userTaxAddress;
+         transactionProgramCode, transactionState, transactionTime,
+         userTaxAddress;
 @end
 
 
@@ -1509,6 +2067,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_GeneratedUniversalApk
 @dynamic downloadId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_GetOneTimeProductOfferRequest
+//
+
+@implementation GTLRAndroidPublisher_GetOneTimeProductOfferRequest
+@dynamic offerId, packageName, productId, purchaseOptionId;
 @end
 
 
@@ -1783,6 +2351,28 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_InstallmentPlan
+//
+
+@implementation GTLRAndroidPublisher_InstallmentPlan
+@dynamic initialCommittedPaymentsCount, pendingCancellation,
+         remainingCommittedPaymentsCount, subsequentCommittedPaymentsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_InstallmentsBasePlanType
+//
+
+@implementation GTLRAndroidPublisher_InstallmentsBasePlanType
+@dynamic accountHoldDuration, billingPeriodDuration, committedPaymentsCount,
+         gracePeriodDuration, prorationMode, renewalType, resubscribeState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_InternalAppSharingArtifact
 //
 
@@ -1818,6 +2408,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_LineItem
+//
+
+@implementation GTLRAndroidPublisher_LineItem
+@dynamic listingPrice, oneTimePurchaseDetails, paidAppDetails, productId,
+         productTitle, subscriptionDetails, tax, total;
 @end
 
 
@@ -1890,6 +2491,50 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ListOneTimeProductOffersResponse
+//
+
+@implementation GTLRAndroidPublisher_ListOneTimeProductOffersResponse
+@dynamic nextPageToken, oneTimeProductOffers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeProductOffers" : [GTLRAndroidPublisher_OneTimeProductOffer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"oneTimeProductOffers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ListOneTimeProductsResponse
+//
+
+@implementation GTLRAndroidPublisher_ListOneTimeProductsResponse
+@dynamic nextPageToken, oneTimeProducts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeProducts" : [GTLRAndroidPublisher_OneTimeProduct class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"oneTimeProducts";
 }
 
 @end
@@ -2137,11 +2782,263 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_OneTimeCode
+//
+
+@implementation GTLRAndroidPublisher_OneTimeCode
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_OneTimeExternalTransaction
 //
 
 @implementation GTLRAndroidPublisher_OneTimeExternalTransaction
 @dynamic externalTransactionToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProduct
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProduct
+@dynamic listings, offerTags, packageName, productId, purchaseOptions,
+         regionsVersion, restrictedPaymentCountries, taxAndComplianceSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"listings" : [GTLRAndroidPublisher_OneTimeProductListing class],
+    @"offerTags" : [GTLRAndroidPublisher_OfferTag class],
+    @"purchaseOptions" : [GTLRAndroidPublisher_OneTimeProductPurchaseOption class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductBuyPurchaseOption
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductBuyPurchaseOption
+@dynamic legacyCompatible, multiQuantityEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductDiscountedOffer
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductDiscountedOffer
+@dynamic endTime, redemptionLimit, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductListing
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductListing
+@dynamic descriptionProperty, languageCode, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductOffer
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductOffer
+@dynamic discountedOffer, offerId, offerTags, packageName, preOrderOffer,
+         productId, purchaseOptionId, regionalPricingAndAvailabilityConfigs,
+         regionsVersion, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"offerTags" : [GTLRAndroidPublisher_OfferTag class],
+    @"regionalPricingAndAvailabilityConfigs" : [GTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductOfferNoPriceOverrideOptions
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductOfferNoPriceOverrideOptions
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductOfferRegionalPricingAndAvailabilityConfig
+@dynamic absoluteDiscount, availability, noOverride, regionCode,
+         relativeDiscount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductPreOrderOffer
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductPreOrderOffer
+@dynamic endTime, priceChangeBehavior, releaseTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductPurchaseOption
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductPurchaseOption
+@dynamic buyOption, newRegionsConfig, offerTags, purchaseOptionId,
+         regionalPricingAndAvailabilityConfigs, rentOption, state,
+         taxAndComplianceSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"offerTags" : [GTLRAndroidPublisher_OfferTag class],
+    @"regionalPricingAndAvailabilityConfigs" : [GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsConfig
+@dynamic availability, eurPrice, usdPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig
+@dynamic availability, price, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductRentPurchaseOption
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductRentPurchaseOption
+@dynamic expirationPeriod, rentalPeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimeProductTaxAndComplianceSettings
+//
+
+@implementation GTLRAndroidPublisher_OneTimeProductTaxAndComplianceSettings
+@dynamic isTokenizedDigitalAsset, regionalTaxConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionalTaxConfigs" : [GTLRAndroidPublisher_RegionalTaxConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OneTimePurchaseDetails
+//
+
+@implementation GTLRAndroidPublisher_OneTimePurchaseDetails
+@dynamic offerId, purchaseOptionId, quantity, rentalDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_Order
+//
+
+@implementation GTLRAndroidPublisher_Order
+@dynamic buyerAddress, createTime, developerRevenueInBuyerCurrency,
+         lastEventTime, lineItems, orderDetails, orderHistory, orderId,
+         pointsDetails, purchaseToken, state, tax, total;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lineItems" : [GTLRAndroidPublisher_LineItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OrderDetails
+//
+
+@implementation GTLRAndroidPublisher_OrderDetails
+@dynamic taxInclusive;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OrderHistory
+//
+
+@implementation GTLRAndroidPublisher_OrderHistory
+@dynamic cancellationEvent, partialRefundEvents, processedEvent, refundEvent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partialRefundEvents" : [GTLRAndroidPublisher_PartialRefundEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OtherRecurringProduct
+//
+
+@implementation GTLRAndroidPublisher_OtherRecurringProduct
 @end
 
 
@@ -2171,7 +3068,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseConfig
-@dynamic absoluteDiscounts, otherRegionsPrices, relativeDiscount;
+@dynamic absoluteDiscounts, free, otherRegionsPrices, relativeDiscount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride
+//
+
+@implementation GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride
 @end
 
 
@@ -2197,6 +3103,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_PaidAppDetails
+//
+
+@implementation GTLRAndroidPublisher_PaidAppDetails
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_PartialRefund
 //
 
@@ -2207,11 +3122,41 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_PartialRefundEvent
+//
+
+@implementation GTLRAndroidPublisher_PartialRefundEvent
+@dynamic createTime, processTime, refundDetails, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_PausedStateContext
 //
 
 @implementation GTLRAndroidPublisher_PausedStateContext
 @dynamic autoResumeTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PendingCancellation
+//
+
+@implementation GTLRAndroidPublisher_PendingCancellation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PointsDetails
+//
+
+@implementation GTLRAndroidPublisher_PointsDetails
+@dynamic pointsCouponValue, pointsDiscountRateMicros, pointsOfferId,
+         pointsSpent;
 @end
 
 
@@ -2247,6 +3192,45 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ProcessedEvent
+//
+
+@implementation GTLRAndroidPublisher_ProcessedEvent
+@dynamic eventTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ProductLineItem
+//
+
+@implementation GTLRAndroidPublisher_ProductLineItem
+@dynamic productId, productOfferDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ProductOfferDetails
+//
+
+@implementation GTLRAndroidPublisher_ProductOfferDetails
+@dynamic consumptionState, offerId, offerTags, offerToken, purchaseOptionId,
+         quantity, refundableQuantity, rentOfferDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"offerTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ProductPurchase
 //
 
@@ -2254,7 +3238,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @dynamic acknowledgementState, consumptionState, developerPayload, kind,
          obfuscatedExternalAccountId, obfuscatedExternalProfileId, orderId,
          productId, purchaseState, purchaseTimeMillis, purchaseToken,
-         purchaseType, quantity, regionCode;
+         purchaseType, quantity, refundableQuantity, regionCode;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -2277,12 +3261,80 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ProductPurchaseV2
+//
+
+@implementation GTLRAndroidPublisher_ProductPurchaseV2
+@dynamic acknowledgementState, kind, obfuscatedExternalAccountId,
+         obfuscatedExternalProfileId, orderId, productLineItem,
+         purchaseCompletionTime, purchaseStateContext, regionCode,
+         testPurchaseContext;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productLineItem" : [GTLRAndroidPublisher_ProductLineItem class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings
+//
+
+@implementation GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings
+@dynamic withdrawalRightType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PurchaseStateContext
+//
+
+@implementation GTLRAndroidPublisher_PurchaseStateContext
+@dynamic purchaseState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_RecurringExternalTransaction
 //
 
 @implementation GTLRAndroidPublisher_RecurringExternalTransaction
 @dynamic externalSubscription, externalTransactionToken,
-         initialExternalTransactionId, migratedTransactionProgram;
+         initialExternalTransactionId, migratedTransactionProgram,
+         otherRecurringProduct;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RefundDetails
+//
+
+@implementation GTLRAndroidPublisher_RefundDetails
+@dynamic tax, total;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RefundEvent
+//
+
+@implementation GTLRAndroidPublisher_RefundEvent
+@dynamic eventTime, refundDetails, refundReason;
 @end
 
 
@@ -2332,7 +3384,27 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig
-@dynamic absoluteDiscount, price, regionCode, relativeDiscount;
+@dynamic absoluteDiscount, free, price, regionCode, relativeDiscount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride
+//
+
+@implementation GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionalTaxConfig
+//
+
+@implementation GTLRAndroidPublisher_RegionalTaxConfig
+@dynamic eligibleForStreamingServiceTaxRate, regionCode, streamingTaxType,
+         taxTier;
 @end
 
 
@@ -2414,10 +3486,46 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_RentalDetails
+//
+
+@implementation GTLRAndroidPublisher_RentalDetails
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RentOfferDetails
+//
+
+@implementation GTLRAndroidPublisher_RentOfferDetails
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ReplacementCancellation
 //
 
 @implementation GTLRAndroidPublisher_ReplacementCancellation
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RestrictedPaymentCountries
+//
+
+@implementation GTLRAndroidPublisher_RestrictedPaymentCountries
+@dynamic regionCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionCodes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2493,7 +3601,26 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_RevocationContext
-@dynamic proratedRefund;
+@dynamic fullRefund, itemBasedRefund, proratedRefund;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RevocationContextFullRefund
+//
+
+@implementation GTLRAndroidPublisher_RevocationContextFullRefund
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RevocationContextItemBasedRefund
+//
+
+@implementation GTLRAndroidPublisher_RevocationContextItemBasedRefund
+@dynamic productId;
 @end
 
 
@@ -2604,6 +3731,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SignupPromotion
+//
+
+@implementation GTLRAndroidPublisher_SignupPromotion
+@dynamic oneTimeCode, vanityCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SplitApkMetadata
 //
 
@@ -2665,7 +3802,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_Subscription
 @dynamic archived, basePlans, listings, packageName, productId,
-         taxAndComplianceSettings;
+         restrictedPaymentCountries, taxAndComplianceSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2695,6 +3832,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionDeferralInfo
 @dynamic desiredExpiryTimeMillis, expectedExpiryTimeMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionDetails
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionDetails
+@dynamic basePlanId, offerId, offerPhase, servicePeriodEndTime,
+         servicePeriodStartTime;
 @end
 
 
@@ -2820,8 +3968,9 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseLineItem
-@dynamic autoRenewingPlan, deferredItemReplacement, expiryTime, offerDetails,
-         prepaidPlan, productId;
+@dynamic autoRenewingPlan, deferredItemRemoval, deferredItemReplacement,
+         expiryTime, latestSuccessfulOrderId, offerDetails, prepaidPlan,
+         productId, signupPromotion;
 @end
 
 
@@ -2956,6 +4105,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SystemOnChip
+//
+
+@implementation GTLRAndroidPublisher_SystemOnChip
+@dynamic manufacturer, model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Targeting
 //
 
@@ -2989,7 +4148,25 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_TargetingRuleScope
-@dynamic specificSubscriptionInApp;
+@dynamic anySubscriptionInApp, specificSubscriptionInApp, thisSubscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TargetingRuleScopeAnySubscriptionInApp
+//
+
+@implementation GTLRAndroidPublisher_TargetingRuleScopeAnySubscriptionInApp
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TargetingRuleScopeThisSubscription
+//
+
+@implementation GTLRAndroidPublisher_TargetingRuleScopeThisSubscription
 @end
 
 
@@ -3027,6 +4204,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_TestPurchase
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TestPurchaseContext
+//
+
+@implementation GTLRAndroidPublisher_TestPurchaseContext
+@dynamic fopType;
 @end
 
 
@@ -3191,6 +4378,49 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest
+//
+
+@implementation GTLRAndroidPublisher_UpdateOneTimeProductOfferRequest
+@dynamic allowMissing, latencyTolerance, oneTimeProductOffer, regionsVersion,
+         updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UpdateOneTimeProductOfferStateRequest
+//
+
+@implementation GTLRAndroidPublisher_UpdateOneTimeProductOfferStateRequest
+@dynamic activateOneTimeProductOfferRequest, cancelOneTimeProductOfferRequest,
+         deactivateOneTimeProductOfferRequest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UpdateOneTimeProductRequest
+//
+
+@implementation GTLRAndroidPublisher_UpdateOneTimeProductRequest
+@dynamic allowMissing, latencyTolerance, oneTimeProduct, regionsVersion,
+         updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UpdatePurchaseOptionStateRequest
+//
+
+@implementation GTLRAndroidPublisher_UpdatePurchaseOptionStateRequest
+@dynamic activatePurchaseOptionRequest, deactivatePurchaseOptionRequest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_UpdateSubscriptionOfferRequest
 //
 
@@ -3321,6 +4551,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_VanityCode
+//
+
+@implementation GTLRAndroidPublisher_VanityCode
+@dynamic promotionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Variant
 //
 
@@ -3346,8 +4586,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_VoidedPurchase
-@dynamic kind, orderId, purchaseTimeMillis, purchaseToken, voidedReason,
-         voidedSource, voidedTimeMillis;
+@dynamic kind, orderId, purchaseTimeMillis, purchaseToken, voidedQuantity,
+         voidedReason, voidedSource, voidedTimeMillis;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

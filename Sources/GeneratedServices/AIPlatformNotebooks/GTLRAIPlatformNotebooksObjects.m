@@ -16,6 +16,8 @@
 // GTLRAIPlatformNotebooks_AcceleratorConfig.type
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb = @"NVIDIA_H100_80GB";
+NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4 = @"NVIDIA_L4";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
@@ -37,6 +39,10 @@ NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdBalanced = @"PD_BA
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdExtreme = @"PD_EXTREME";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdSsd = @"PD_SSD";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdStandard = @"PD_STANDARD";
+
+// GTLRAIPlatformNotebooks_ConfidentialInstanceConfig.confidentialInstanceType
+NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified = @"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev = @"SEV";
 
 // GTLRAIPlatformNotebooks_DataDisk.diskEncryption
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskEncryption_Cmek = @"CMEK";
@@ -83,6 +89,12 @@ NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_NicType_Gvnic = @"GVN
 NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_NicType_NicTypeUnspecified = @"NIC_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_NicType_VirtioNet = @"VIRTIO_NET";
 
+// GTLRAIPlatformNotebooks_ReservationAffinity.consumeReservationType
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationAny = @"RESERVATION_ANY";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationNone = @"RESERVATION_NONE";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationSpecific = @"RESERVATION_SPECIFIC";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationUnspecified = @"RESERVATION_UNSPECIFIED";
+
 // GTLRAIPlatformNotebooks_UpgradeHistoryEntry.action
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_Rollback = @"ROLLBACK";
@@ -101,6 +113,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_AcceleratorConfig
 @dynamic coreCount, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_AccessConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_AccessConfig
+@dynamic externalIp;
 @end
 
 
@@ -143,6 +165,45 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_CheckAuthorizationRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_CheckAuthorizationRequest
+@dynamic authorizationDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails
+//
+
+@implementation GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_CheckAuthorizationResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_CheckAuthorizationResponse
+@dynamic createTime, oauthUri, success;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"oauthUri" : @"oauth_uri" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_CheckInstanceUpgradabilityResponse
 //
 
@@ -153,11 +214,22 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ConfidentialInstanceConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_ConfidentialInstanceConfig
+@dynamic confidentialInstanceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Config
 //
 
 @implementation GTLRAIPlatformNotebooks_Config
-@dynamic availableImages, defaultValues, supportedValues;
+@dynamic availableImages, defaultValues, disableWorkbenchLegacyCreation,
+         supportedValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -274,10 +346,11 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_GceSetup
-@dynamic acceleratorConfigs, bootDisk, containerImage, dataDisks,
-         disablePublicIp, enableIpForwarding, gpuDriverConfig, machineType,
-         metadata, networkInterfaces, serviceAccounts, shieldedInstanceConfig,
-         tags, vmImage;
+@dynamic acceleratorConfigs, bootDisk, confidentialInstanceConfig,
+         containerImage, dataDisks, disablePublicIp, enableIpForwarding,
+         gpuDriverConfig, machineType, metadata, minCpuPlatform,
+         networkInterfaces, reservationAffinity, serviceAccounts,
+         shieldedInstanceConfig, tags, vmImage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -309,6 +382,36 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_GenerateAccessTokenRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_GenerateAccessTokenRequest
+@dynamic vmToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_GenerateAccessTokenResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_GenerateAccessTokenResponse
+@dynamic accessToken, expiresIn, scope, tokenType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"accessToken" : @"access_token",
+    @"expiresIn" : @"expires_in",
+    @"tokenType" : @"token_type"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_GPUDriverConfig
 //
 
@@ -333,9 +436,11 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_Instance
-@dynamic createTime, creator, disableProxyAccess, gceSetup, healthInfo,
-         healthState, identifier, instanceOwners, labels, name, proxyUri, state,
-         thirdPartyProxyUrl, updateTime, upgradeHistory;
+@dynamic createTime, creator, disableProxyAccess, enableDeletionProtection,
+         enableManagedEuc, enableThirdPartyIdentity, gceSetup, healthInfo,
+         healthState, identifier, instanceOwners, labels, name, proxyUri,
+         satisfiesPzi, satisfiesPzs, state, thirdPartyProxyUrl, updateTime,
+         upgradeHistory;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -491,7 +596,15 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_NetworkInterface
-@dynamic network, nicType, subnet;
+@dynamic accessConfigs, network, nicType, subnet;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessConfigs" : [GTLRAIPlatformNotebooks_AccessConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -578,6 +691,24 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ReservationAffinity
+//
+
+@implementation GTLRAIPlatformNotebooks_ReservationAffinity
+@dynamic consumeReservationType, key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_ResetInstanceRequest
 //
 
@@ -592,6 +723,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_ResizeDiskRequest
 @dynamic bootDisk, dataDisk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RestoreInstanceRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_RestoreInstanceRequest
+@dynamic snapshot;
 @end
 
 
@@ -640,6 +781,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_ShieldedInstanceConfig
 @dynamic enableIntegrityMonitoring, enableSecureBoot, enableVtpm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_Snapshot
+//
+
+@implementation GTLRAIPlatformNotebooks_Snapshot
+@dynamic projectId, snapshotId;
 @end
 
 

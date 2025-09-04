@@ -4,7 +4,7 @@
 // API:
 //   BigQuery Reservation API (bigqueryreservation/v1)
 // Description:
-//   A service to modify your BigQuery flat-rate reservations.
+//   A service to modify your BigQuery reservations.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
@@ -46,7 +46,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryReservationCloudPlatfor
 /**
  *  Service for executing BigQuery Reservation API queries.
  *
- *  A service to modify your BigQuery flat-rate reservations.
+ *  A service to modify your BigQuery reservations.
  */
 @interface GTLRBigQueryReservationService : GTLRService
 

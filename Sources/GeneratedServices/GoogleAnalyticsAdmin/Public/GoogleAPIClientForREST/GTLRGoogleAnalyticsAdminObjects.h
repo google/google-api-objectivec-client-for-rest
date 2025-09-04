@@ -56,6 +56,8 @@
 @class GTLRGoogleAnalyticsAdmin_V1betaDataStreamWebStreamData;
 @class GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink;
+@class GTLRGoogleAnalyticsAdmin_V1betaKeyEvent;
+@class GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue;
 @class GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret;
 @class GTLRGoogleAnalyticsAdmin_V1betaNumericValue;
 @class GTLRGoogleAnalyticsAdmin_V1betaProperty;
@@ -410,7 +412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaCustomMetric_
 
 /**
  *  The data retention time duration is 50 months. Available to 360 properties
- *  only.
+ *  only. Available for event data only.
  *
  *  Value: "FIFTY_MONTHS"
  */
@@ -429,14 +431,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetention
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified;
 /**
  *  The data retention time duration is 38 months. Available to 360 properties
- *  only.
+ *  only. Available for event data only.
  *
  *  Value: "THIRTY_EIGHT_MONTHS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_ThirtyEightMonths;
 /**
  *  The data retention time duration is 26 months. Available to 360 properties
- *  only.
+ *  only. Available for event data only.
  *
  *  Value: "TWENTY_SIX_MONTHS"
  */
@@ -447,6 +449,49 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetention
  *  Value: "TWO_MONTHS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwoMonths;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings.userDataRetention
+
+/**
+ *  The data retention time duration is 50 months. Available to 360 properties
+ *  only. Available for event data only.
+ *
+ *  Value: "FIFTY_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FiftyMonths;
+/**
+ *  The data retention time duration is 14 months.
+ *
+ *  Value: "FOURTEEN_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FourteenMonths;
+/**
+ *  Data retention time duration is not specified.
+ *
+ *  Value: "RETENTION_DURATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_RetentionDurationUnspecified;
+/**
+ *  The data retention time duration is 38 months. Available to 360 properties
+ *  only. Available for event data only.
+ *
+ *  Value: "THIRTY_EIGHT_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_ThirtyEightMonths;
+/**
+ *  The data retention time duration is 26 months. Available to 360 properties
+ *  only. Available for event data only.
+ *
+ *  Value: "TWENTY_SIX_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwentySixMonths;
+/**
+ *  The data retention time duration is 2 months.
+ *
+ *  Value: "TWO_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwoMonths;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1betaDataStream.type
@@ -475,6 +520,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Ty
  *  Value: "WEB_DATA_STREAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_WebDataStream;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.countingMethod
+
+/**
+ *  Counting method not specified.
+ *
+ *  Value: "COUNTING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_CountingMethodUnspecified;
+/**
+ *  Each Event instance is considered a Key Event.
+ *
+ *  Value: "ONCE_PER_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerEvent;
+/**
+ *  An Event instance is considered a Key Event at most once per session per
+ *  user.
+ *
+ *  Value: "ONCE_PER_SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerSession;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1betaProperty.industryCategory
@@ -646,19 +714,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_Indu
 // GTLRGoogleAnalyticsAdmin_V1betaProperty.propertyType
 
 /**
- *  Ordinary GA4 property
+ *  Ordinary Google Analytics property
  *
  *  Value: "PROPERTY_TYPE_ORDINARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeOrdinary;
 /**
- *  GA4 rollup property
+ *  Google Analytics rollup property
  *
  *  Value: "PROPERTY_TYPE_ROLLUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeRollup;
 /**
- *  GA4 subproperty
+ *  Google Analytics subproperty
  *
  *  Value: "PROPERTY_TYPE_SUBPROPERTY"
  */
@@ -696,19 +764,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_Serv
 // GTLRGoogleAnalyticsAdmin_V1betaPropertySummary.propertyType
 
 /**
- *  Ordinary GA4 property
+ *  Ordinary Google Analytics property
  *
  *  Value: "PROPERTY_TYPE_ORDINARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeOrdinary;
 /**
- *  GA4 rollup property
+ *  Google Analytics rollup property
  *
  *  Value: "PROPERTY_TYPE_ROLLUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeRollup;
 /**
- *  GA4 subproperty
+ *  Google Analytics subproperty
  *
  *  Value: "PROPERTY_TYPE_SUBPROPERTY"
  */
@@ -775,6 +843,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *  Value: "CONVERSION_EVENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent;
+/**
+ *  CustomDimension resource
+ *
+ *  Value: "CUSTOM_DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension;
+/**
+ *  CustomMetric resource
+ *
+ *  Value: "CUSTOM_METRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric;
 /**
  *  DataRetentionSettings resource
  *
@@ -1281,6 +1361,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Output only. The URI for a Google Marketing Platform organization resource.
+ *  Only set when this account is connected to a GMP organization. Format:
+ *  marketingplatformadmin.googleapis.com/organizations/{org_id}
+ */
+@property(nonatomic, copy, nullable) NSString *gmpOrganization;
+
+/**
  *  Output only. Resource name of this account. Format: accounts/{account}
  *  Example: "accounts/100"
  */
@@ -1297,7 +1384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 /**
  *  A virtual resource representing an overview of an account and all its child
- *  GA4 properties.
+ *  Google Analytics properties.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaAccountSummary : GTLRObject
 
@@ -1741,12 +1828,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @interface GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings : GTLRObject
 
 /**
- *  The length of time that event-level data is retained.
+ *  Required. The length of time that event-level data is retained.
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_FiftyMonths
  *        The data retention time duration is 50 months. Available to 360
- *        properties only. (Value: "FIFTY_MONTHS")
+ *        properties only. Available for event data only. (Value:
+ *        "FIFTY_MONTHS")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_FourteenMonths
  *        The data retention time duration is 14 months. (Value:
  *        "FOURTEEN_MONTHS")
@@ -1755,10 +1843,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *        "RETENTION_DURATION_UNSPECIFIED")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_ThirtyEightMonths
  *        The data retention time duration is 38 months. Available to 360
- *        properties only. (Value: "THIRTY_EIGHT_MONTHS")
+ *        properties only. Available for event data only. (Value:
+ *        "THIRTY_EIGHT_MONTHS")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwentySixMonths
  *        The data retention time duration is 26 months. Available to 360
- *        properties only. (Value: "TWENTY_SIX_MONTHS")
+ *        properties only. Available for event data only. (Value:
+ *        "TWENTY_SIX_MONTHS")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwoMonths
  *        The data retention time duration is 2 months. (Value: "TWO_MONTHS")
  */
@@ -1778,6 +1868,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  */
 @property(nonatomic, strong, nullable) NSNumber *resetUserDataOnNewActivity;
 
+/**
+ *  Required. The length of time that user-level data is retained.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FiftyMonths
+ *        The data retention time duration is 50 months. Available to 360
+ *        properties only. Available for event data only. (Value:
+ *        "FIFTY_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FourteenMonths
+ *        The data retention time duration is 14 months. (Value:
+ *        "FOURTEEN_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_RetentionDurationUnspecified
+ *        Data retention time duration is not specified. (Value:
+ *        "RETENTION_DURATION_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_ThirtyEightMonths
+ *        The data retention time duration is 38 months. Available to 360
+ *        properties only. Available for event data only. (Value:
+ *        "THIRTY_EIGHT_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwentySixMonths
+ *        The data retention time duration is 26 months. Available to 360
+ *        properties only. Available for event data only. (Value:
+ *        "TWENTY_SIX_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwoMonths
+ *        The data retention time duration is 2 months. (Value: "TWO_MONTHS")
+ */
+@property(nonatomic, copy, nullable) NSString *userDataRetention;
+
 @end
 
 
@@ -1794,17 +1911,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Allows any of Google sales to access the data in order to suggest
- *  configuration changes to improve results.
+ *  Deprecated. This field is no longer used and always returns false.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleAnySalesEnabled;
+@property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleAnySalesEnabled GTLR_DEPRECATED;
 
 /**
- *  Allows Google sales teams that are assigned to the customer to access the
- *  data in order to suggest configuration changes to improve results. Sales
- *  team restrictions still apply when enabled.
+ *  Allows Google access to your Google Analytics account data, including
+ *  account usage and configuration data, product spending, and users associated
+ *  with your Google Analytics account, so that Google can help you make the
+ *  most of Google products, providing you with insights, offers,
+ *  recommendations, and optimization tips across Google Analytics and other
+ *  Google products for business. This field maps to the "Recommendations for
+ *  your business" field in the Google Analytics Admin UI.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1812,21 +1932,30 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 /**
  *  Allows Google to use the data to improve other Google products or services.
+ *  This fields maps to the "Google products & services" field in the Google
+ *  Analytics Admin UI.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleProductsEnabled;
 
 /**
- *  Allows Google support to access the data in order to help troubleshoot
- *  issues.
+ *  Allows Google technical support representatives access to your Google
+ *  Analytics data and account when necessary to provide service and find
+ *  solutions to technical issues. This field maps to the "Technical support"
+ *  field in the Google Analytics Admin UI.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sharingWithGoogleSupportEnabled;
 
 /**
- *  Allows Google to share the data anonymously in aggregate form with others.
+ *  Enable features like predictions, modeled data, and benchmarking that can
+ *  provide you with richer business insights when you contribute aggregated
+ *  measurement data. The data you share (including information about the
+ *  property from which it is shared) is aggregated and de-identified before
+ *  being used to generate business insights. This field maps to the "Modeling
+ *  contributions & business insights" field in the Google Analytics Admin UI.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1958,7 +2087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
- *  A link between a GA4 property and a Firebase project.
+ *  A link between a Google Analytics property and a Firebase project.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink : GTLRObject
 
@@ -1981,7 +2110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
- *  A link between a GA4 property and a Google Ads account.
+ *  A link between a Google Analytics property and a Google Ads account.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink : GTLRObject
 
@@ -2023,6 +2152,91 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 /** Output only. Time when this link was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A key event in a Google Analytics property.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1betaKeyEvent : GTLRObject
+
+/**
+ *  Required. The method by which Key Events will be counted across multiple
+ *  events within a session.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_CountingMethodUnspecified
+ *        Counting method not specified. (Value: "COUNTING_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerEvent
+ *        Each Event instance is considered a Key Event. (Value:
+ *        "ONCE_PER_EVENT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerSession
+ *        An Event instance is considered a Key Event at most once per session
+ *        per user. (Value: "ONCE_PER_SESSION")
+ */
+@property(nonatomic, copy, nullable) NSString *countingMethod;
+
+/** Output only. Time when this key event was created in the property. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. If set to true, this key event refers to a custom event. If set
+ *  to false, this key event refers to a default event in GA. Default events
+ *  typically have special meaning in GA. Default events are usually created for
+ *  you by the GA system, but in some cases can be created by property admins.
+ *  Custom events count towards the maximum number of custom key events that may
+ *  be created per property.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *custom;
+
+/** Optional. Defines a default value/currency for a key event. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue *defaultValue;
+
+/**
+ *  Output only. If set to true, this event can be deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletable;
+
+/**
+ *  Immutable. The event name for this key event. Examples: 'click', 'purchase'
+ */
+@property(nonatomic, copy, nullable) NSString *eventName;
+
+/**
+ *  Output only. Resource name of this key event. Format:
+ *  properties/{property}/keyEvents/{key_event}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Defines a default value/currency for a key event.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue : GTLRObject
+
+/**
+ *  Required. When an occurrence of this Key Event (specified by event_name) has
+ *  no set currency this currency will be applied as the default. Must be in ISO
+ *  4217 currency code format. See https://en.wikipedia.org/wiki/ISO_4217 for
+ *  more information.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Required. This will be used to populate the "value" parameter for all
+ *  occurrences of this Key Event (specified by event_name) where that parameter
+ *  is unset.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numericValue;
 
 @end
 
@@ -2246,6 +2460,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
+ *  Response message for ListKeyEvents RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "keyEvents" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1betaListKeyEventsResponse : GTLRCollectionObject
+
+/**
+ *  The requested Key Events
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1betaKeyEvent *> *keyEvents;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ListMeasurementProtocolSecret RPC
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2347,7 +2588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
- *  A resource message representing a Google Analytics GA4 property.
+ *  A resource message representing a Google Analytics property.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaProperty : GTLRObject
 
@@ -2468,11 +2709,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeOrdinary
- *        Ordinary GA4 property (Value: "PROPERTY_TYPE_ORDINARY")
+ *        Ordinary Google Analytics property (Value: "PROPERTY_TYPE_ORDINARY")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeRollup
- *        GA4 rollup property (Value: "PROPERTY_TYPE_ROLLUP")
+ *        Google Analytics rollup property (Value: "PROPERTY_TYPE_ROLLUP")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeSubproperty
- *        GA4 subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
+ *        Google Analytics subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaProperty_PropertyType_PropertyTypeUnspecified
  *        Unknown or unspecified property type (Value:
  *        "PROPERTY_TYPE_UNSPECIFIED")
@@ -2512,7 +2753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 
 
 /**
- *  A virtual resource representing metadata for a GA4 property.
+ *  A virtual resource representing metadata for a Google Analytics property.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1betaPropertySummary : GTLRObject
 
@@ -2537,11 +2778,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeOrdinary
- *        Ordinary GA4 property (Value: "PROPERTY_TYPE_ORDINARY")
+ *        Ordinary Google Analytics property (Value: "PROPERTY_TYPE_ORDINARY")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeRollup
- *        GA4 rollup property (Value: "PROPERTY_TYPE_ROLLUP")
+ *        Google Analytics rollup property (Value: "PROPERTY_TYPE_ROLLUP")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeSubproperty
- *        GA4 subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
+ *        Google Analytics subproperty (Value: "PROPERTY_TYPE_SUBPROPERTY")
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1betaPropertySummary_PropertyType_PropertyTypeUnspecified
  *        Unknown or unspecified property type (Value:
  *        "PROPERTY_TYPE_UNSPECIFIED")
@@ -2763,10 +3004,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, strong, nullable) GTLRDateTime *latestChangeTime;
 
 /**
- *  Optional. The maximum number of ChangeHistoryEvent items to return. The
- *  service may return fewer than this value, even if there are additional
- *  pages. If unspecified, at most 50 items will be returned. The maximum value
- *  is 200 (higher values will be coerced to the maximum).
+ *  Optional. The maximum number of ChangeHistoryEvent items to return. If
+ *  unspecified, at most 50 items will be returned. The maximum value is 200
+ *  (higher values will be coerced to the maximum). Note that the service may
+ *  return a page with fewer items than this value specifies (potentially even
+ *  zero), and that there still may be additional pages. If you want a
+ *  particular number of items, you'll need to continue requesting additional
+ *  pages using `page_token` until you get the needed number.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2783,7 +3027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 /**
  *  Optional. Resource name for a child property. If set, only return changes
  *  made to this property or its child resources. Format:
- *  properties/{propertyId} Example: "properties/100"
+ *  properties/{propertyId} Example: `properties/100`
  */
 @property(nonatomic, copy, nullable) NSString *property;
 

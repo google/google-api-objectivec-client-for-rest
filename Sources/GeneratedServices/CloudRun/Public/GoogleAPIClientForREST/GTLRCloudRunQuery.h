@@ -37,6 +37,195 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Submits a build in a given project.
+ *
+ *  Method: run.projects.locations.builds.submit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsBuildsSubmit : GTLRCloudRunQuery
+
+/**
+ *  Required. The project and location to build in. Location must be a region,
+ *  e.g., 'us-central1' or 'global' if the global builder is to be used. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2SubmitBuildResponse.
+ *
+ *  Submits a build in a given project.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest to
+ *    include in the query.
+ *  @param parent Required. The project and location to build in. Location must
+ *    be a region, e.g., 'us-central1' or 'global' if the global builder is to
+ *    be used. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsBuildsSubmit
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Export image for a given resource.
+ *
+ *  Method: run.projects.locations.exportImage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsExportImage : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the resource of which image metadata should be
+ *  exported. Format:
+ *  `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *  for Revision
+ *  `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *  for Execution
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ExportImageResponse.
+ *
+ *  Export image for a given resource.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2ExportImageRequest to
+ *    include in the query.
+ *  @param name Required. The name of the resource of which image metadata
+ *    should be exported. Format:
+ *    `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *    for Revision
+ *    `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *    for Execution
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsExportImage
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2ExportImageRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Export image metadata for a given resource.
+ *
+ *  Method: run.projects.locations.exportImageMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsExportImageMetadata : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the resource of which image metadata should be
+ *  exported. Format:
+ *  `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *  for Revision
+ *  `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *  for Execution
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2Metadata.
+ *
+ *  Export image metadata for a given resource.
+ *
+ *  @param name Required. The name of the resource of which image metadata
+ *    should be exported. Format:
+ *    `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *    for Revision
+ *    `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *    for Execution
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsExportImageMetadata
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Export generated customer metadata for a given resource.
+ *
+ *  Method: run.projects.locations.exportMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsExportMetadata : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the resource of which metadata should be exported.
+ *  Format:
+ *  `projects/{project_id_or_number}/locations/{location}/services/{service}`
+ *  for Service
+ *  `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *  for Revision
+ *  `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *  for Execution {project_id_or_number} may contains domain-scoped project IDs
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2Metadata.
+ *
+ *  Export generated customer metadata for a given resource.
+ *
+ *  @param name Required. The name of the resource of which metadata should be
+ *    exported. Format:
+ *    `projects/{project_id_or_number}/locations/{location}/services/{service}`
+ *    for Service
+ *    `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *    for Revision
+ *    `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *    for Execution {project_id_or_number} may contains domain-scoped project
+ *    IDs
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsExportMetadata
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Export generated customer metadata for a given project.
+ *
+ *  Method: run.projects.locations.exportProjectMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsExportProjectMetadata : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the project of which metadata should be exported.
+ *  Format: `projects/{project_id_or_number}/locations/{location}` for Project
+ *  in a given location.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2Metadata.
+ *
+ *  Export generated customer metadata for a given project.
+ *
+ *  @param name Required. The name of the project of which metadata should be
+ *    exported. Format: `projects/{project_id_or_number}/locations/{location}`
+ *    for Project in a given location.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsExportProjectMetadata
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a Job.
  *
  *  Method: run.projects.locations.jobs.create
@@ -207,6 +396,49 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Read the status of an image export operation.
+ *
+ *  Method: run.projects.locations.jobs.executions.exportStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsExportStatus : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the resource of which image export operation status
+ *  has to be fetched. Format:
+ *  `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *  for Revision
+ *  `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *  for Execution
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The operation id returned from ExportImage. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ExportStatusResponse.
+ *
+ *  Read the status of an image export operation.
+ *
+ *  @param name Required. The name of the resource of which image export
+ *    operation status has to be fetched. Format:
+ *    `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *    for Revision
+ *    `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *    for Execution
+ *  @param operationId Required. The operation id returned from ExportImage.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsExportStatus
+ */
++ (instancetype)queryWithName:(NSString *)name
+                  operationId:(NSString *)operationId;
+
+@end
+
+/**
  *  Gets information about an Execution.
  *
  *  Method: run.projects.locations.jobs.executions.get
@@ -239,7 +471,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Executions from a Job.
+ *  Lists Executions from a Job. Results are sorted by creation time,
+ *  descending.
  *
  *  Method: run.projects.locations.jobs.executions.list
  *
@@ -273,7 +506,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListExecutionsResponse.
  *
- *  Lists Executions from a Job.
+ *  Lists Executions from a Job. Results are sorted by creation time,
+ *  descending.
  *
  *  @param parent Required. The Execution from which the Executions should be
  *    listed. To list all Executions across Jobs, use "-" instead of Job name.
@@ -454,7 +688,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Jobs.
+ *  Lists Jobs. Results are sorted by creation time, descending.
  *
  *  Method: run.projects.locations.jobs.list
  *
@@ -487,7 +721,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListJobsResponse.
  *
- *  Lists Jobs.
+ *  Lists Jobs. Results are sorted by creation time, descending.
  *
  *  @param parent Required. The location and project to list resources on.
  *    Format: projects/{project}/locations/{location}, where {project} can be
@@ -514,9 +748,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsPatch : GTLRCloudRunQuery
 
 /**
- *  If set to true, and if the Job does not exist, it will create a new one.
- *  Caller must have both create and update permissions for this call if this is
- *  set to true.
+ *  Optional. If set to true, and if the Job does not exist, it will create a
+ *  new one. Caller must have both create and update permissions for this call
+ *  if this is set to true.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
@@ -997,7 +1231,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Services.
+ *  Lists Services. Results are sorted by creation time, descending.
  *
  *  Method: run.projects.locations.services.list
  *
@@ -1031,7 +1265,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListServicesResponse.
  *
- *  Lists Services.
+ *  Lists Services. Results are sorted by creation time, descending.
  *
  *  @param parent Required. The location and project to list resources on.
  *    Location must be a valid Google Cloud region, and cannot be the "-"
@@ -1059,9 +1293,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesPatch : GTLRCloudRunQuery
 
 /**
- *  If set to true, and if the Service does not exist, it will create a new one.
- *  The caller must have 'run.services.create' permissions if this is set to
- *  true and the Service does not exist.
+ *  Optional. If set to true, and if the Service does not exist, it will create
+ *  a new one. The caller must have 'run.services.create' permissions if this is
+ *  set to true and the Service does not exist.
  */
 @property(nonatomic, assign) BOOL allowMissing;
 
@@ -1072,6 +1306,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  projects/{project}/locations/{location}/services/{service_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
  *  Indicates that the request should be validated and default values populated,
@@ -1141,6 +1382,49 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Read the status of an image export operation.
+ *
+ *  Method: run.projects.locations.services.revisions.exportStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsServicesRevisionsExportStatus : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the resource of which image export operation status
+ *  has to be fetched. Format:
+ *  `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *  for Revision
+ *  `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *  for Execution
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The operation id returned from ExportImage. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ExportStatusResponse.
+ *
+ *  Read the status of an image export operation.
+ *
+ *  @param name Required. The name of the resource of which image export
+ *    operation status has to be fetched. Format:
+ *    `projects/{project_id_or_number}/locations/{location}/services/{service}/revisions/{revision}`
+ *    for Revision
+ *    `projects/{project_id_or_number}/locations/{location}/jobs/{job}/executions/{execution}`
+ *    for Execution
+ *  @param operationId Required. The operation id returned from ExportImage.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsServicesRevisionsExportStatus
+ */
++ (instancetype)queryWithName:(NSString *)name
+                  operationId:(NSString *)operationId;
+
+@end
+
+/**
  *  Gets information about a Revision.
  *
  *  Method: run.projects.locations.services.revisions.get
@@ -1171,7 +1455,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Revisions from a given Service, or from a given location.
+ *  Lists Revisions from a given Service, or from a given location. Results are
+ *  sorted by creation time, descending.
  *
  *  Method: run.projects.locations.services.revisions.list
  *
@@ -1204,7 +1489,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListRevisionsResponse.
  *
- *  Lists Revisions from a given Service, or from a given location.
+ *  Lists Revisions from a given Service, or from a given location. Results are
+ *  sorted by creation time, descending.
  *
  *  @param parent Required. The Service from which the Revisions should be
  *    listed. To list all Revisions across Services, use "-" instead of Service
@@ -1290,6 +1576,500 @@ NS_ASSUME_NONNULL_BEGIN
  *    appropriate value for this field.
  *
  *  @return GTLRCloudRunQuery_ProjectsLocationsServicesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new WorkerPool in a given project and location.
+ *
+ *  Method: run.projects.locations.workerPools.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsCreate : GTLRCloudRunQuery
+
+/**
+ *  Required. The location and project in which this worker pool should be
+ *  created. Format: `projects/{project}/locations/{location}`, where
+ *  `{project}` can be project id or number. Only lowercase characters, digits,
+ *  and hyphens.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Indicates that the request should be validated and default values
+ *  populated, without persisting the request or creating any resources.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Required. The unique identifier for the WorkerPool. It must begin with
+ *  letter, and cannot end with hyphen; must contain fewer than 50 characters.
+ *  The name of the worker pool becomes `{parent}/workerPools/{worker_pool_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPoolId;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Creates a new WorkerPool in a given project and location.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2WorkerPool to include in
+ *    the query.
+ *  @param parent Required. The location and project in which this worker pool
+ *    should be created. Format: `projects/{project}/locations/{location}`,
+ *    where `{project}` can be project id or number. Only lowercase characters,
+ *    digits, and hyphens.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2WorkerPool *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a WorkerPool.
+ *
+ *  Method: run.projects.locations.workerPools.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsDelete : GTLRCloudRunQuery
+
+/**
+ *  A system-generated fingerprint for this version of the resource. May be used
+ *  to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The full name of the WorkerPool. Format:
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`, where
+ *  `{project}` can be project id or number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Indicates that the request should be validated without actually
+ *  deleting any resources.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Deletes a WorkerPool.
+ *
+ *  @param name Required. The full name of the WorkerPool. Format:
+ *    `projects/{project}/locations/{location}/workerPools/{worker_pool}`, where
+ *    `{project}` can be project id or number.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a WorkerPool.
+ *
+ *  Method: run.projects.locations.workerPools.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGet : GTLRCloudRunQuery
+
+/**
+ *  Required. The full name of the WorkerPool. Format:
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`, where
+ *  `{project}` can be project id or number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2WorkerPool.
+ *
+ *  Gets information about a WorkerPool.
+ *
+ *  @param name Required. The full name of the WorkerPool. Format:
+ *    `projects/{project}/locations/{location}/workerPools/{worker_pool}`, where
+ *    `{project}` can be project id or number.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the IAM Access Control policy currently in effect for the given Cloud
+ *  Run WorkerPool. This result does not include any inherited policies.
+ *
+ *  Method: run.projects.locations.workerPools.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGetIamPolicy : GTLRCloudRunQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleIamV1Policy.
+ *
+ *  Gets the IAM Access Control policy currently in effect for the given Cloud
+ *  Run WorkerPool. This result does not include any inherited policies.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists WorkerPools. Results are sorted by creation time, descending.
+ *
+ *  Method: run.projects.locations.workerPools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsList : GTLRCloudRunQuery
+
+/** Maximum number of WorkerPools to return in this call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from a previous call to ListWorkerPools. All other
+ *  parameters must match.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The location and project to list resources on. Location must be a
+ *  valid Google Cloud region, and cannot be the "-" wildcard. Format:
+ *  `projects/{project}/locations/{location}`, where `{project}` can be project
+ *  id or number.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If true, returns deleted (but unexpired) resources along with active ones.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListWorkerPoolsResponse.
+ *
+ *  Lists WorkerPools. Results are sorted by creation time, descending.
+ *
+ *  @param parent Required. The location and project to list resources on.
+ *    Location must be a valid Google Cloud region, and cannot be the "-"
+ *    wildcard. Format: `projects/{project}/locations/{location}`, where
+ *    `{project}` can be project id or number.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a WorkerPool.
+ *
+ *  Method: run.projects.locations.workerPools.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsPatch : GTLRCloudRunQuery
+
+/**
+ *  Optional. If set to true, and if the WorkerPool does not exist, it will
+ *  create a new one. The caller must have 'run.workerpools.create' permissions
+ *  if this is set to true and the WorkerPool does not exist.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. If set to true, a new revision will be created from the template
+ *  even if the system doesn't detect any changes from the previously deployed
+ *  revision. This may be useful for cases where the underlying resources need
+ *  to be recreated or reinitialized. For example if the image is specified by
+ *  label, but the underlying image digest has changed) or if the container
+ *  performs deployment initialization work that needs to be performed again.
+ */
+@property(nonatomic, assign) BOOL forceNewRevision;
+
+/**
+ *  The fully qualified name of this WorkerPool. In CreateWorkerPoolRequest,
+ *  this field is ignored, and instead composed from
+ *  CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
+ *  Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Indicates that the request should be validated and default values
+ *  populated, without persisting the request or updating any resources.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Updates a WorkerPool.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2WorkerPool to include in
+ *    the query.
+ *  @param name The fully qualified name of this WorkerPool. In
+ *    CreateWorkerPoolRequest, this field is ignored, and instead composed from
+ *    CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
+ *    Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2WorkerPool *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a Revision.
+ *
+ *  Method: run.projects.locations.workerPools.revisions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsDelete : GTLRCloudRunQuery
+
+/**
+ *  A system-generated fingerprint for this version of the resource. This may be
+ *  used to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the Revision to delete. Format:
+ *  projects/{project}/locations/{location}/services/{service}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates that the request should be validated without actually deleting any
+ *  resources.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Deletes a Revision.
+ *
+ *  @param name Required. The name of the Revision to delete. Format:
+ *    projects/{project}/locations/{location}/services/{service}/revisions/{revision}
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a Revision.
+ *
+ *  Method: run.projects.locations.workerPools.revisions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsGet : GTLRCloudRunQuery
+
+/**
+ *  Required. The full name of the Revision. Format:
+ *  projects/{project}/locations/{location}/services/{service}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2Revision.
+ *
+ *  Gets information about a Revision.
+ *
+ *  @param name Required. The full name of the Revision. Format:
+ *    projects/{project}/locations/{location}/services/{service}/revisions/{revision}
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Revisions from a given Service, or from a given location. Results are
+ *  sorted by creation time, descending.
+ *
+ *  Method: run.projects.locations.workerPools.revisions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsList : GTLRCloudRunQuery
+
+/** Maximum number of revisions to return in this call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from a previous call to ListRevisions. All other
+ *  parameters must match.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The Service from which the Revisions should be listed. To list all
+ *  Revisions across Services, use "-" instead of Service name. Format:
+ *  projects/{project}/locations/{location}/services/{service}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If true, returns deleted (but unexpired) resources along with active ones.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListRevisionsResponse.
+ *
+ *  Lists Revisions from a given Service, or from a given location. Results are
+ *  sorted by creation time, descending.
+ *
+ *  @param parent Required. The Service from which the Revisions should be
+ *    listed. To list all Revisions across Services, use "-" instead of Service
+ *    name. Format: projects/{project}/locations/{location}/services/{service}
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the IAM Access control policy for the specified WorkerPool. Overwrites
+ *  any existing policy.
+ *
+ *  Method: run.projects.locations.workerPools.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsSetIamPolicy : GTLRCloudRunQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleIamV1Policy.
+ *
+ *  Sets the IAM Access control policy for the specified WorkerPool. Overwrites
+ *  any existing policy.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleIamV1SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified Project. There are no
+ *  permissions required for making this API call.
+ *
+ *  Method: run.projects.locations.workerPools.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsTestIamPermissions : GTLRCloudRunQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified Project. There are no
+ *  permissions required for making this API call.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;

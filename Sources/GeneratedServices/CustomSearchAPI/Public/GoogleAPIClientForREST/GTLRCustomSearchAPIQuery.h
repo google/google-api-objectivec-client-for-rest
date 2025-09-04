@@ -366,6 +366,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 
 /**
+ *  Optional. Enables routing of Programmable Search Engine requests to an
+ *  alternate search handler.
+ */
+@property(nonatomic, assign) BOOL enableAlternateSearchHandler;
+
+/**
  *  Identifies a phrase that all documents in the search results must contain.
  */
 @property(nonatomic, copy, nullable) NSString *exactTerms;
@@ -644,6 +650,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *        the listed sites. (Value: "i")
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
+
+/**
+ *  Optional. Maximum length of snippet text, in characters, to be returned with
+ *  results. Note: this feature is limited to specific engines. * Valid values
+ *  are integers between 161 and 1000, inclusive.
+ */
+@property(nonatomic, assign) NSInteger snippetLength;
 
 /**
  *  The sort expression to apply to the results. The sort parameter specifies
@@ -717,6 +730,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 @property(nonatomic, copy, nullable) NSString *dateRestrict;
 
 /**
+ *  Optional. Enables routing of Programmable Search Engine requests to an
+ *  alternate search handler.
+ */
+@property(nonatomic, assign) BOOL enableAlternateSearchHandler;
+
+/**
  *  Identifies a phrase that all documents in the search results must contain.
  */
 @property(nonatomic, copy, nullable) NSString *exactTerms;
@@ -995,6 +1014,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *        the listed sites. (Value: "i")
  */
 @property(nonatomic, copy, nullable) NSString *siteSearchFilter;
+
+/**
+ *  Optional. Maximum length of snippet text, in characters, to be returned with
+ *  results. Note: this feature is limited to specific engines. * Valid values
+ *  are integers between 161 and 1000, inclusive.
+ */
+@property(nonatomic, assign) NSInteger snippetLength;
 
 /**
  *  The sort expression to apply to the results. The sort parameter specifies

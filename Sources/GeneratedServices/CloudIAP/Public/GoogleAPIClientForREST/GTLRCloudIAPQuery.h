@@ -502,8 +502,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsPatch : GTLRCloudIAPQuery
 
 /**
- *  Required. Immutable. Identifier for the TunnelDestGroup. Must be unique
- *  within the project and contain only lower case letters (a-z) and dashes (-).
+ *  Identifier. Identifier for the TunnelDestGroup. Must be unique within the
+ *  project and contain only lower case letters (a-z) and dashes (-).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -522,9 +522,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a TunnelDestGroup.
  *
  *  @param object The @c GTLRCloudIAP_TunnelDestGroup to include in the query.
- *  @param name Required. Immutable. Identifier for the TunnelDestGroup. Must be
- *    unique within the project and contain only lower case letters (a-z) and
- *    dashes (-).
+ *  @param name Identifier. Identifier for the TunnelDestGroup. Must be unique
+ *    within the project and contain only lower case letters (a-z) and dashes
+ *    (-).
  *
  *  @return GTLRCloudIAPQuery_ProjectsIapTunnelLocationsDestGroupsPatch
  */
@@ -729,7 +729,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Validates a given CEL expression conforms to IAP restrictions.
+ *  Validates that a given CEL expression conforms to IAP restrictions.
  *
  *  Method: iap.validateAttributeExpression
  *
@@ -740,8 +740,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. User input string expression. Should be of the form
- *  'attributes.saml_attributes.filter(attribute, attribute.name in
- *  ['{attribute_name}', '{attribute_name}'])'
+ *  `attributes.saml_attributes.filter(attribute, attribute.name in
+ *  ['{attribute_name}', '{attribute_name}'])`
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
@@ -751,7 +751,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudIAP_ValidateIapAttributeExpressionResponse.
  *
- *  Validates a given CEL expression conforms to IAP restrictions.
+ *  Validates that a given CEL expression conforms to IAP restrictions.
  *
  *  @param name Required. The resource name of the IAP protected resource.
  *

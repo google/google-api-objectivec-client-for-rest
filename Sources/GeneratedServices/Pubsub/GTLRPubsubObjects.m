@@ -22,6 +22,24 @@ NSString * const kGTLRPubsub_AwsKinesis_State_PublishPermissionDenied = @"PUBLIS
 NSString * const kGTLRPubsub_AwsKinesis_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRPubsub_AwsKinesis_State_StreamNotFound   = @"STREAM_NOT_FOUND";
 
+// GTLRPubsub_AwsMsk.state
+NSString * const kGTLRPubsub_AwsMsk_State_Active               = @"ACTIVE";
+NSString * const kGTLRPubsub_AwsMsk_State_ClusterNotFound      = @"CLUSTER_NOT_FOUND";
+NSString * const kGTLRPubsub_AwsMsk_State_MskPermissionDenied  = @"MSK_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_AwsMsk_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_AwsMsk_State_StateUnspecified     = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_AwsMsk_State_TopicNotFound        = @"TOPIC_NOT_FOUND";
+
+// GTLRPubsub_AzureEventHubs.state
+NSString * const kGTLRPubsub_AzureEventHubs_State_Active       = @"ACTIVE";
+NSString * const kGTLRPubsub_AzureEventHubs_State_EventHubNotFound = @"EVENT_HUB_NOT_FOUND";
+NSString * const kGTLRPubsub_AzureEventHubs_State_EventHubsPermissionDenied = @"EVENT_HUBS_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_AzureEventHubs_State_NamespaceNotFound = @"NAMESPACE_NOT_FOUND";
+NSString * const kGTLRPubsub_AzureEventHubs_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_AzureEventHubs_State_ResourceGroupNotFound = @"RESOURCE_GROUP_NOT_FOUND";
+NSString * const kGTLRPubsub_AzureEventHubs_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_AzureEventHubs_State_SubscriptionNotFound = @"SUBSCRIPTION_NOT_FOUND";
+
 // GTLRPubsub_BigQueryConfig.state
 NSString * const kGTLRPubsub_BigQueryConfig_State_Active       = @"ACTIVE";
 NSString * const kGTLRPubsub_BigQueryConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
@@ -30,12 +48,38 @@ NSString * const kGTLRPubsub_BigQueryConfig_State_PermissionDenied = @"PERMISSIO
 NSString * const kGTLRPubsub_BigQueryConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
 NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRPubsub_CloudStorage.state
+NSString * const kGTLRPubsub_CloudStorage_State_Active         = @"ACTIVE";
+NSString * const kGTLRPubsub_CloudStorage_State_BucketNotFound = @"BUCKET_NOT_FOUND";
+NSString * const kGTLRPubsub_CloudStorage_State_CloudStoragePermissionDenied = @"CLOUD_STORAGE_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_CloudStorage_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_CloudStorage_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_CloudStorage_State_TooManyObjects = @"TOO_MANY_OBJECTS";
+
 // GTLRPubsub_CloudStorageConfig.state
 NSString * const kGTLRPubsub_CloudStorageConfig_State_Active   = @"ACTIVE";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_NotFound = @"NOT_FOUND";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRPubsub_ConfluentCloud.state
+NSString * const kGTLRPubsub_ConfluentCloud_State_Active       = @"ACTIVE";
+NSString * const kGTLRPubsub_ConfluentCloud_State_ClusterNotFound = @"CLUSTER_NOT_FOUND";
+NSString * const kGTLRPubsub_ConfluentCloud_State_ConfluentCloudPermissionDenied = @"CONFLUENT_CLOUD_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_ConfluentCloud_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_ConfluentCloud_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_ConfluentCloud_State_TopicNotFound = @"TOPIC_NOT_FOUND";
+NSString * const kGTLRPubsub_ConfluentCloud_State_UnreachableBootstrapServer = @"UNREACHABLE_BOOTSTRAP_SERVER";
+
+// GTLRPubsub_PlatformLogsSettings.severity
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Debug = @"DEBUG";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Disabled = @"DISABLED";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Error = @"ERROR";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Info = @"INFO";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRPubsub_PlatformLogsSettings_Severity_Warning = @"WARNING";
 
 // GTLRPubsub_Schema.type
 NSString * const kGTLRPubsub_Schema_Type_Avro            = @"AVRO";
@@ -82,11 +126,30 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_AnalyticsHubSubscriptionInfo
+//
+
+@implementation GTLRPubsub_AnalyticsHubSubscriptionInfo
+@dynamic listing, subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_AvroConfig
 //
 
 @implementation GTLRPubsub_AvroConfig
-@dynamic writeMetadata;
+@dynamic useTopicSchema, writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_AvroFormat
+//
+
+@implementation GTLRPubsub_AvroFormat
 @end
 
 
@@ -97,6 +160,32 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_AwsKinesis
 @dynamic awsRoleArn, consumerArn, gcpServiceAccount, state, streamArn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_AwsMsk
+//
+
+@implementation GTLRPubsub_AwsMsk
+@dynamic awsRoleArn, clusterArn, gcpServiceAccount, state, topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_AzureEventHubs
+//
+
+@implementation GTLRPubsub_AzureEventHubs
+@dynamic clientId, eventHub, gcpServiceAccount, namespaceProperty,
+         resourceGroup, state, subscriptionId, tenantId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
+}
+
 @end
 
 
@@ -131,12 +220,24 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_CloudStorage
+//
+
+@implementation GTLRPubsub_CloudStorage
+@dynamic avroFormat, bucket, matchGlob, minimumObjectCreateTime,
+         pubsubAvroFormat, state, textFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_CloudStorageConfig
 //
 
 @implementation GTLRPubsub_CloudStorageConfig
-@dynamic avroConfig, bucket, filenamePrefix, filenameSuffix, maxBytes,
-         maxDuration, serviceAccountEmail, state, textConfig;
+@dynamic avroConfig, bucket, filenameDatetimeFormat, filenamePrefix,
+         filenameSuffix, maxBytes, maxDuration, maxMessages,
+         serviceAccountEmail, state, textConfig;
 @end
 
 
@@ -147,6 +248,17 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_CommitSchemaRequest
 @dynamic schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ConfluentCloud
+//
+
+@implementation GTLRPubsub_ConfluentCloud
+@dynamic bootstrapServer, clusterId, gcpServiceAccount, identityPoolId, state,
+         topic;
 @end
 
 
@@ -233,7 +345,18 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_IngestionDataSourceSettings
-@dynamic awsKinesis;
+@dynamic awsKinesis, awsMsk, azureEventHubs, cloudStorage, confluentCloud,
+         platformLogsSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_JavaScriptUDF
+//
+
+@implementation GTLRPubsub_JavaScriptUDF
+@dynamic code, functionName;
 @end
 
 
@@ -427,6 +550,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_MessageTransform
+//
+
+@implementation GTLRPubsub_MessageTransform
+@dynamic disabled, enabled, javascriptUdf;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_ModifyAckDeadlineRequest
 //
 
@@ -470,6 +603,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_OidcToken
 @dynamic audience, serviceAccountEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_PlatformLogsSettings
+//
+
+@implementation GTLRPubsub_PlatformLogsSettings
+@dynamic severity;
 @end
 
 
@@ -692,11 +835,20 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, bigqueryConfig, cloudStorageConfig,
-         deadLetterPolicy, detached, enableExactlyOnceDelivery,
-         enableMessageOrdering, expirationPolicy, filter, labels,
-         messageRetentionDuration, name, pushConfig, retainAckedMessages,
-         retryPolicy, state, topic, topicMessageRetentionDuration;
+@dynamic ackDeadlineSeconds, analyticsHubSubscriptionInfo, bigqueryConfig,
+         cloudStorageConfig, deadLetterPolicy, detached,
+         enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
+         filter, labels, messageRetentionDuration, messageTransforms, name,
+         pushConfig, retainAckedMessages, retryPolicy, state, topic,
+         topicMessageRetentionDuration;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messageTransforms" : [GTLRPubsub_MessageTransform class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -761,13 +913,31 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_TextFormat
+//
+
+@implementation GTLRPubsub_TextFormat
+@dynamic delimiter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_Topic
 //
 
 @implementation GTLRPubsub_Topic
 @dynamic ingestionDataSourceSettings, kmsKeyName, labels,
-         messageRetentionDuration, messageStoragePolicy, name, satisfiesPzs,
-         schemaSettings, state;
+         messageRetentionDuration, messageStoragePolicy, messageTransforms,
+         name, satisfiesPzs, schemaSettings, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messageTransforms" : [GTLRPubsub_MessageTransform class]
+  };
+  return map;
+}
+
 @end
 
 

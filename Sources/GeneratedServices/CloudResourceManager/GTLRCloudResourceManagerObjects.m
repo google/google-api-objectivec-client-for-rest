@@ -123,6 +123,16 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_Capability
+//
+
+@implementation GTLRCloudResourceManager_Capability
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_CreateFolderMetadata
 //
 
@@ -235,6 +245,30 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_EffectiveTagBindingCollection
+//
+
+@implementation GTLRCloudResourceManager_EffectiveTagBindingCollection
+@dynamic effectiveTags, fullResourceName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags
+//
+
+@implementation GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Empty
 //
 
@@ -263,11 +297,32 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_Folder
-@dynamic createTime, deleteTime, displayName, ETag, name, parent, state,
-         updateTime;
+@dynamic configuredCapabilities, createTime, deleteTime, displayName, ETag,
+         managementProject, name, parent, state, tags, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configuredCapabilities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_Folder_Tags
+//
+
+@implementation GTLRCloudResourceManager_Folder_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -649,11 +704,18 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_Project
-@dynamic createTime, deleteTime, displayName, ETag, labels, name, parent,
-         projectId, state, updateTime;
+@dynamic configuredCapabilities, createTime, deleteTime, displayName, ETag,
+         labels, name, parent, projectId, state, tags, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configuredCapabilities" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -665,6 +727,20 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_Project_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_Project_Tags
+//
+
+@implementation GTLRCloudResourceManager_Project_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -798,6 +874,35 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 
 @implementation GTLRCloudResourceManager_TagBinding
 @dynamic name, parent, tagValue, tagValueNamespacedName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagBindingCollection
+//
+
+@implementation GTLRCloudResourceManager_TagBindingCollection
+@dynamic ETag, fullResourceName, name, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagBindingCollection_Tags
+//
+
+@implementation GTLRCloudResourceManager_TagBindingCollection_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

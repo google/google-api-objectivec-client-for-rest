@@ -14,6 +14,8 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMemberships = @"https://www.googleapis.com/auth/chat.app.memberships";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatAppSpaces    = @"https://www.googleapis.com/auth/chat.app.spaces";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatBot          = @"https://www.googleapis.com/auth/chat.bot";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatMemberships  = @"https://www.googleapis.com/auth/chat.memberships";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly = @"https://www.googleapis.com/auth/chat.memberships.readonly";
@@ -23,6 +25,13 @@ NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactionsReadonly = @"
 NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly = @"https://www.googleapis.com/auth/chat.messages.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatSpaces       = @"https://www.googleapis.com/auth/chat.spaces";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly = @"https://www.googleapis.com/auth/chat.spaces.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsDrive            = @"https://www.googleapis.com/auth/drive";
+NSString * const kGTLRAuthScopeWorkspaceEventsDriveFile        = @"https://www.googleapis.com/auth/drive.file";
+NSString * const kGTLRAuthScopeWorkspaceEventsDriveMetadata    = @"https://www.googleapis.com/auth/drive.metadata";
+NSString * const kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly = @"https://www.googleapis.com/auth/drive.metadata.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsDriveReadonly    = @"https://www.googleapis.com/auth/drive.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated = @"https://www.googleapis.com/auth/meetings.space.created";
+NSString * const kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly = @"https://www.googleapis.com/auth/meetings.space.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRWorkspaceEventsService

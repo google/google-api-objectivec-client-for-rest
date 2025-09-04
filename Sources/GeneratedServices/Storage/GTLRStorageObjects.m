@@ -11,6 +11,31 @@
 #import <GoogleAPIClientForREST/GTLRStorageObjects.h>
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig.restrictionMode
+NSString * const kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted = @"FullyRestricted";
+NSString * const kGTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted = @"NotRestricted";
+
+// GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig.restrictionMode
+NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted = @"FullyRestricted";
+NSString * const kGTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig_RestrictionMode_NotRestricted = @"NotRestricted";
+
+// GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig.restrictionMode
+NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_FullyRestricted = @"FullyRestricted";
+NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig_RestrictionMode_NotRestricted = @"NotRestricted";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_AdvanceRelocateBucketOperationRequest
+//
+
+@implementation GTLRStorage_AdvanceRelocateBucketOperationRequest
+@dynamic expireTime, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRStorage_AnywhereCache
 //
@@ -55,12 +80,13 @@
 
 @implementation GTLRStorage_Bucket
 @dynamic acl, autoclass, billing, cors, customPlacementConfig,
-         defaultEventBasedHold, defaultObjectAcl, encryption, ETag,
-         hierarchicalNamespace, iamConfiguration, identifier, kind, labels,
-         lifecycle, location, locationType, logging, metageneration, name,
-         objectRetention, owner, projectNumber, retentionPolicy, rpo,
-         satisfiesPZS, selfLink, softDeletePolicy, storageClass, timeCreated,
-         updated, versioning, website;
+         defaultEventBasedHold, defaultObjectAcl, encryption, ETag, generation,
+         hardDeleteTime, hierarchicalNamespace, iamConfiguration, identifier,
+         ipFilter, kind, labels, lifecycle, location, locationType, logging,
+         metageneration, name, objectRetention, owner, projectNumber,
+         retentionPolicy, rpo, satisfiesPZI, satisfiesPZS, selfLink,
+         softDeletePolicy, softDeleteTime, storageClass, timeCreated, updated,
+         versioning, website;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -147,7 +173,9 @@
 //
 
 @implementation GTLRStorage_Bucket_Encryption
-@dynamic defaultKmsKeyName;
+@dynamic customerManagedEncryptionEnforcementConfig,
+         customerSuppliedEncryptionEnforcementConfig, defaultKmsKeyName,
+         googleManagedEncryptionEnforcementConfig;
 @end
 
 
@@ -168,6 +196,25 @@
 
 @implementation GTLRStorage_Bucket_IamConfiguration
 @dynamic bucketPolicyOnly, publicAccessPrevention, uniformBucketLevelAccess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IpFilter
+//
+
+@implementation GTLRStorage_Bucket_IpFilter
+@dynamic allowAllServiceAgentAccess, allowCrossOrgVpcs, mode,
+         publicNetworkSource, vpcNetworkSources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vpcNetworkSources" : [GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -275,6 +322,36 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig
+//
+
+@implementation GTLRStorage_Bucket_Encryption_CustomerManagedEncryptionEnforcementConfig
+@dynamic effectiveTime, restrictionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig
+//
+
+@implementation GTLRStorage_Bucket_Encryption_CustomerSuppliedEncryptionEnforcementConfig
+@dynamic effectiveTime, restrictionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig
+//
+
+@implementation GTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforcementConfig
+@dynamic effectiveTime, restrictionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly
 //
 
@@ -290,6 +367,42 @@
 
 @implementation GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess
 @dynamic enabled, lockedTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IpFilter_PublicNetworkSource
+//
+
+@implementation GTLRStorage_Bucket_IpFilter_PublicNetworkSource
+@dynamic allowedIpCidrRanges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedIpCidrRanges" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item
+//
+
+@implementation GTLRStorage_Bucket_IpFilter_VpcNetworkSources_Item
+@dynamic allowedIpCidrRanges, network;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedIpCidrRanges" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -404,12 +517,51 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_BucketStorageLayout
+//
+
+@implementation GTLRStorage_BucketStorageLayout
+@dynamic bucket, customPlacementConfig, hierarchicalNamespace, kind, location,
+         locationType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_BucketStorageLayout_CustomPlacementConfig
+//
+
+@implementation GTLRStorage_BucketStorageLayout_CustomPlacementConfig
+@dynamic dataLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataLocations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_BucketStorageLayout_HierarchicalNamespace
+//
+
+@implementation GTLRStorage_BucketStorageLayout_HierarchicalNamespace
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_BulkRestoreObjectsRequest
 //
 
 @implementation GTLRStorage_BulkRestoreObjectsRequest
-@dynamic allowOverwrite, copySourceAcl, matchGlobs, softDeletedAfterTime,
-         softDeletedBeforeTime;
+@dynamic allowOverwrite, copySourceAcl, createdAfterTime, createdBeforeTime,
+         matchGlobs, softDeletedAfterTime, softDeletedBeforeTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -554,7 +706,7 @@
 //
 
 @implementation GTLRStorage_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic kind, nextPageToken, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -576,7 +728,7 @@
 //
 
 @implementation GTLRStorage_GoogleLongrunningOperation
-@dynamic done, error, metadata, name, response;
+@dynamic done, error, kind, metadata, name, response, selfLink;
 @end
 
 
@@ -792,13 +944,13 @@
 
 @implementation GTLRStorage_Object
 @dynamic acl, bucket, cacheControl, componentCount, contentDisposition,
-         contentEncoding, contentLanguage, contentType, crc32c,
+         contentEncoding, contentLanguage, contentType, contexts, crc32c,
          customerEncryption, customTime, ETag, eventBasedHold, generation,
          hardDeleteTime, identifier, kind, kmsKeyName, md5Hash, mediaLink,
-         metadata, metageneration, name, owner, retention,
+         metadata, metageneration, name, owner, restoreToken, retention,
          retentionExpirationTime, selfLink, size, softDeleteTime, storageClass,
-         temporaryHold, timeCreated, timeDeleted, timeStorageClassUpdated,
-         updated;
+         temporaryHold, timeCreated, timeDeleted, timeFinalized,
+         timeStorageClassUpdated, updated;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -815,6 +967,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Object_Contexts
+//
+
+@implementation GTLRStorage_Object_Contexts
+@dynamic custom;
 @end
 
 
@@ -864,6 +1026,20 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorage_Object_Contexts_Custom
+//
+
+@implementation GTLRStorage_Object_Contexts_Custom
+
++ (Class)classForAdditionalProperties {
+  return [GTLRStorage_ObjectCustomContextPayload class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorage_ObjectAccessControl
 //
 
@@ -907,6 +1083,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_ObjectCustomContextPayload
+//
+
+@implementation GTLRStorage_ObjectCustomContextPayload
+@dynamic createTime, updateTime, value;
 @end
 
 
@@ -962,6 +1148,34 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RelocateBucketRequest
+//
+
+@implementation GTLRStorage_RelocateBucketRequest
+@dynamic destinationCustomPlacementConfig, destinationLocation, validateOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig
+//
+
+@implementation GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig
+@dynamic dataLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataLocations" : [NSString class]
   };
   return map;
 }

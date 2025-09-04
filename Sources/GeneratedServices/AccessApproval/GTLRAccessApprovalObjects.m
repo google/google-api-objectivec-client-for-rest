@@ -22,9 +22,22 @@ NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleResponseToProductio
 NSString * const kGTLRAccessApproval_AccessReason_Type_ThirdPartyDataRequest = @"THIRD_PARTY_DATA_REQUEST";
 NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRAccessApproval_CustomerApprovalApprovalPolicy.justificationBasedApprovalPolicy
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledAll = @"JUSTIFICATION_BASED_APPROVAL_ENABLED_ALL";
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledExternalJustifications = @"JUSTIFICATION_BASED_APPROVAL_ENABLED_EXTERNAL_JUSTIFICATIONS";
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalInherited = @"JUSTIFICATION_BASED_APPROVAL_INHERITED";
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalNotEnabled = @"JUSTIFICATION_BASED_APPROVAL_NOT_ENABLED";
+NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalPolicyUnspecified = @"JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED";
+
 // GTLRAccessApproval_EnrolledService.enrollmentLevel
 NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_BlockAll = @"BLOCK_ALL";
 NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified = @"ENROLLMENT_LEVEL_UNSPECIFIED";
+
+// GTLRAccessApproval_Settings.requestScopeMaxWidthPreference
+NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Folder = @"FOLDER";
+NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Organization = @"ORGANIZATION";
+NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Project = @"PROJECT";
+NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_RequestScopeMaxWidthPreferenceUnspecified = @"REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED";
 
 // GTLRAccessApproval_SignatureInfo.googleKeyAlgorithm
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes128Cbc = @"AES_128_CBC";
@@ -34,6 +47,7 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Cbc 
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Ctr = @"AES_256_CTR";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_Aes256Gcm = @"AES_256_GCM";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignEd25519 = @"EC_SIGN_ED25519";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignSecp256k1Sha256 = @"EC_SIGN_SECP256K1_SHA256";
@@ -44,6 +58,12 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha224
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha256 = @"HMAC_SHA256";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha384 = @"HMAC_SHA384";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512 = @"HMAC_SHA512";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemXwing = @"KEM_XWING";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem1024 = @"ML_KEM_1024";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem768 = @"ML_KEM_768";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignHashSlhDsaSha2128sSha256 = @"PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa65 = @"PQ_SIGN_ML_DSA_65";
+NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignSlhDsaSha2128s = @"PQ_SIGN_SLH_DSA_SHA2_128S";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha1 = @"RSA_DECRYPT_OAEP_2048_SHA1";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
 NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep3072Sha1 = @"RSA_DECRYPT_OAEP_3072_SHA1";
@@ -89,9 +109,9 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 //
 
 @implementation GTLRAccessApproval_ApprovalRequest
-@dynamic approve, dismiss, name, requestedDuration, requestedExpiration,
-         requestedLocations, requestedReason, requestedResourceName,
-         requestedResourceProperties, requestTime;
+@dynamic approve, dismiss, name, requestedAugmentedInfo, requestedDuration,
+         requestedExpiration, requestedLocations, requestedReason,
+         requestedResourceName, requestedResourceProperties, requestTime;
 @end
 
 
@@ -111,7 +131,28 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 //
 
 @implementation GTLRAccessApproval_ApproveDecision
-@dynamic approveTime, autoApproved, expireTime, invalidateTime, signatureInfo;
+@dynamic approveTime, autoApproved, expireTime, invalidateTime, policyApproved,
+         signatureInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessApproval_AugmentedInfo
+//
+
+@implementation GTLRAccessApproval_AugmentedInfo
+@dynamic command;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessApproval_CustomerApprovalApprovalPolicy
+//
+
+@implementation GTLRAccessApproval_CustomerApprovalApprovalPolicy
+@dynamic justificationBasedApprovalPolicy;
 @end
 
 
@@ -210,10 +251,11 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 //
 
 @implementation GTLRAccessApproval_Settings
-@dynamic activeKeyVersion, ancestorHasActiveKeyVersion, enrolledAncestor,
-         enrolledServices, invalidKeyVersion, name, notificationEmails,
-         notificationPubsubTopic, preferNoBroadApprovalRequests,
-         preferredRequestExpirationDays;
+@dynamic activeKeyVersion, ancestorHasActiveKeyVersion, approvalPolicy,
+         effectiveApprovalPolicy, enrolledAncestor, enrolledServices,
+         invalidKeyVersion, name, notificationEmails, notificationPubsubTopic,
+         preferNoBroadApprovalRequests, preferredRequestExpirationDays,
+         requestScopeMaxWidthPreference, requireCustomerVisibleJustification;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

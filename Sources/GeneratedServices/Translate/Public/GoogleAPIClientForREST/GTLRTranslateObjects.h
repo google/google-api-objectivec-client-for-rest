@@ -42,6 +42,7 @@
 @class GTLRTranslate_GcsOutputDestination;
 @class GTLRTranslate_GcsSource;
 @class GTLRTranslate_Glossary;
+@class GTLRTranslate_GlossaryConfig;
 @class GTLRTranslate_GlossaryEntry;
 @class GTLRTranslate_GlossaryInputConfig;
 @class GTLRTranslate_GlossaryTerm;
@@ -59,6 +60,9 @@
 @class GTLRTranslate_Operation_Metadata;
 @class GTLRTranslate_Operation_Response;
 @class GTLRTranslate_OutputConfig;
+@class GTLRTranslate_ReferenceSentenceConfig;
+@class GTLRTranslate_ReferenceSentencePair;
+@class GTLRTranslate_ReferenceSentencePairList;
 @class GTLRTranslate_Romanization;
 @class GTLRTranslate_Status;
 @class GTLRTranslate_Status_Details_Item;
@@ -176,10 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRTranslate_AdaptiveMtTranslateRequest : GTLRObject
 
-/**
- *  Required. The content of the input in string format. For now only one
- *  sentence per request is supported.
- */
+/** Required. The content of the input in string format. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *content;
 
 /**
@@ -188,6 +189,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
+/**
+ *  Optional. Glossary to be applied. The glossary must be within the same
+ *  region (have the same location-id) as the model, otherwise an
+ *  INVALID_ARGUMENT (400) error is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRTranslate_GlossaryConfig *glossaryConfig;
+
+/** Configuration for caller provided reference sentences. */
+@property(nonatomic, strong, nullable) GTLRTranslate_ReferenceSentenceConfig *referenceSentenceConfig;
+
 @end
 
 
@@ -195,6 +206,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  An AdaptiveMtTranslate response.
  */
 @interface GTLRTranslate_AdaptiveMtTranslateResponse : GTLRObject
+
+/**
+ *  Text translation response if a glossary is provided in the request. This
+ *  could be the same as 'translation' above if no terms apply.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_AdaptiveMtTranslation *> *glossaryTranslations;
 
 /** Output only. The translation's language code. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -987,7 +1004,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The resource name of the example, in form of
- *  `projects/{project-number-or-id}/locations/{location_id}/datasets/{dataset_id}/examples/{example_id}'
+ *  `projects/{project-number-or-id}/locations/{location_id}/datasets/{dataset_id}/examples/{example_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1135,6 +1152,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Configures which glossary is used for a specific target language and defines
+ *  options for applying that glossary.
+ */
+@interface GTLRTranslate_GlossaryConfig : GTLRObject
+
+/**
+ *  Optional. If set to true, the glossary will be used for contextual
+ *  translation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextualTranslationEnabled;
+
+/**
+ *  Required. The `glossary` to be applied for this translation. The format
+ *  depends on the glossary: - User-provided custom glossary:
+ *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *glossary;
+
+/**
+ *  Optional. Indicates match is case insensitive. The default value is `false`
+ *  if missing.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreCase;
+
+@end
+
+
+/**
  *  Represents a single entry in a glossary.
  */
 @interface GTLRTranslate_GlossaryEntry : GTLRObject
@@ -1147,8 +1196,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. The resource name of the entry. Format: "projects/ * /locations/ *
- *  /glossaries/ * /glossaryEntries/ *"
+ *  Identifier. The resource name of the entry. Format: `projects/ * /locations/
+ *  * /glossaries/ * /glossaryEntries/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1877,6 +1926,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Message of caller-provided reference configuration.
+ */
+@interface GTLRTranslate_ReferenceSentenceConfig : GTLRObject
+
+/**
+ *  Reference sentences pair lists. Each list will be used as the references to
+ *  translate the sentence under "content" field at the corresponding index.
+ *  Length of the list is required to be equal to the length of "content" field.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_ReferenceSentencePairList *> *referenceSentencePairLists;
+
+/** Source language code. */
+@property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
+
+/** Target language code. */
+@property(nonatomic, copy, nullable) NSString *targetLanguageCode;
+
+@end
+
+
+/**
+ *  A pair of sentences used as reference in source and target languages.
+ */
+@interface GTLRTranslate_ReferenceSentencePair : GTLRObject
+
+/** Source sentence in the sentence pair. */
+@property(nonatomic, copy, nullable) NSString *sourceSentence;
+
+/** Target sentence in the sentence pair. */
+@property(nonatomic, copy, nullable) NSString *targetSentence;
+
+@end
+
+
+/**
+ *  A list of reference sentence pairs.
+ */
+@interface GTLRTranslate_ReferenceSentencePairList : GTLRObject
+
+/** Reference sentence pairs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_ReferenceSentencePair *> *referenceSentencePairs;
+
+@end
+
+
+/**
  *  A single romanization response.
  */
 @interface GTLRTranslate_Romanization : GTLRObject
@@ -2032,6 +2127,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_TextGlossaryConfig : GTLRObject
 
 /**
+ *  Optional. If set to true, the glossary will be used for contextual
+ *  translation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextualTranslationEnabled;
+
+/**
  *  Required. The `glossary` to be applied for this translation. The format
  *  depends on the glossary: - User-provided custom glossary:
  *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
@@ -2091,6 +2194,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
+ *  - Translation LLM models:
+ *  `projects/{project-number-or-id}/locations/{location-id}/models/general/translation-llm`,
  *  For global (non-regionalized) requests, use `location-id` `global`. For
  *  example,
  *  `projects/{project-number-or-id}/locations/global/models/general/nmt`. If

@@ -834,6 +834,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_DebugResponse
+//
+
+@implementation GTLRCloudSearch_DebugResponse
+@dynamic gsrRequest, gsrResponse, searchResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_DeleteQueueItemsRequest
 //
 

@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Vertex AI Search for Retail API (retail/v2)
+//   Vertex AI Search for commerce API (retail/v2)
 // Description:
-//   Vertex AI Search for Retail API is made up of Retail Search, Browse and
+//   Vertex AI Search for commerce API is made up of Retail Search, Browse and
 //   Recommendations. These discovery AI solutions help you implement
 //   personalized search, browse and recommendations, based on machine learning
 //   models, across your websites and mobile applications.
@@ -40,9 +40,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRetailCloudPlatform;
 //
 
 /**
- *  Service for executing Vertex AI Search for Retail API queries.
+ *  Service for executing Vertex AI Search for commerce API queries.
  *
- *  Vertex AI Search for Retail API is made up of Retail Search, Browse and
+ *  Vertex AI Search for commerce API is made up of Retail Search, Browse and
  *  Recommendations. These discovery AI solutions help you implement
  *  personalized search, browse and recommendations, based on machine learning
  *  models, across your websites and mobile applications.

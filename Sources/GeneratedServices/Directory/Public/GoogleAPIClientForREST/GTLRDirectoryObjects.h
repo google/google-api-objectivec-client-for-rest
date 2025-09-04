@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/
+//   https://developers.google.com/workspace/admin/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -18,9 +18,11 @@
 
 @class GTLRDirectory_Asp;
 @class GTLRDirectory_AuxiliaryMessage;
+@class GTLRDirectory_BacklightInfo;
 @class GTLRDirectory_Building;
 @class GTLRDirectory_BuildingAddress;
 @class GTLRDirectory_BuildingCoordinates;
+@class GTLRDirectory_ByteUsage;
 @class GTLRDirectory_CalendarResource;
 @class GTLRDirectory_ChangeChromeOsDeviceStatusResult;
 @class GTLRDirectory_ChangeChromeOsDeviceStatusSucceeded;
@@ -47,6 +49,7 @@
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
 @class GTLRDirectory_FailureInfo;
+@class GTLRDirectory_FanInfo;
 @class GTLRDirectory_Feature;
 @class GTLRDirectory_Group;
 @class GTLRDirectory_Member;
@@ -235,6 +238,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatu
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_BatchChangeChromeOsDeviceStatusRequest_DeprovisionReason_DeprovisionReasonUpgradeTransfer;
 
 // ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeOsDevice.chromeOsType
+
+/**
+ *  Chrome OS Type Chrome OS.
+ *
+ *  Value: "chromeOs"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOs;
+/**
+ *  Chrome OS Type Chrome OS Flex.
+ *
+ *  Value: "chromeOsFlex"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsFlex;
+/**
+ *  Chrome OS Type unspecified.
+ *
+ *  Value: "chromeOsTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeOsDevice.deprovisionReason
 
 /**
@@ -332,7 +357,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseTy
  *
  *  Value: "educationUpgrade"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade;
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade GTLR_DEPRECATED;
+/**
+ *  Indicates that the device is consuming a standalone, fixed-term Chrome
+ *  Education Upgrade(AKA Chrome EDU fixed-term license).
+ *
+ *  Value: "educationUpgradeFixedTerm"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradeFixedTerm;
+/**
+ *  Indicates that the device is consuming a standalone, perpetual Chrome
+ *  Education Upgrade(AKA Chrome EDU perpetual license).
+ *
+ *  Value: "educationUpgradePerpetual"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradePerpetual;
 /**
  *  The device is bundled with a perpetual Chrome Enterprise Upgrade.
  *
@@ -344,13 +383,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseTy
  *
  *  Value: "enterpriseUpgrade"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade;
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade GTLR_DEPRECATED;
+/**
+ *  Indicates that the device is consuming a standalone, fixed-term Chrome
+ *  Enterprise Upgrade, a Chrome Enterprise license.
+ *
+ *  Value: "enterpriseUpgradeFixedTerm"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradeFixedTerm;
+/**
+ *  Indicates that the device is consuming a standalone, perpetual Chrome
+ *  Enterprise Upgrade, a Chrome Enterprise license.
+ *
+ *  Value: "enterpriseUpgradePerpetual"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradePerpetual;
 /**
  *  The device has an annual Kiosk Upgrade.
  *
  *  Value: "kioskUpgrade"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_KioskUpgrade;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeOsDevice.osVersionCompliance
+
+/**
+ *  Compliance status unspecified.
+ *
+ *  Value: "complianceUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_ComplianceUnspecified;
+/**
+ *  Compliance status compliant.
+ *
+ *  Value: "compliant"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Compliant;
+/**
+ *  Compliance status not compliant.
+ *
+ *  Value: "notCompliant"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_NotCompliant;
+/**
+ *  Compliance status pending.
+ *
+ *  Value: "pending"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeosdevicesCommand.state
@@ -404,7 +485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_S
 /**
  *  Capture the system logs of a kiosk device. The logs can be downloaded from
  *  the downloadUrl link present in `deviceFiles` field of
- *  [chromeosdevices](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
+ *  [chromeosdevices](https://developers.google.com/workspace/admin/directory/reference/rest/v1/chromeosdevices)
  *
  *  Value: "CAPTURE_LOGS"
  */
@@ -422,8 +503,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_Co
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession;
 /**
- *  Reboot the device. Can only be issued to Kiosk and managed guest session
- *  devices.
+ *  Fetches available type(s) of Chrome Remote Desktop sessions (private or
+ *  shared) that can be used to remotely connect to the device.
+ *
+ *  Value: "FETCH_CRD_AVAILABILITY_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_FetchCrdAvailabilityInfo;
+/**
+ *  Fetch support packet from a device remotely. Support packet is a zip archive
+ *  that contains various system logs and debug data from a ChromeOS device. The
+ *  support packet can be downloaded from the downloadURL link present in the
+ *  `deviceFiles` field of
+ *  [`chromeosdevices`](https://developers.google.com/workspace/admin/directory/reference/rest/v1/chromeosdevices)
+ *
+ *  Value: "FETCH_SUPPORT_PACKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_FetchSupportPacket;
+/**
+ *  Reboot the device. Can be issued to Kiosk and managed guest session devices,
+ *  and regular devices running ChromeOS version 113 or later.
  *
  *  Value: "REBOOT"
  */
@@ -495,7 +593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_R
 /**
  *  Capture the system logs of a kiosk device. The logs can be downloaded from
  *  the downloadUrl link present in `deviceFiles` field of
- *  [chromeosdevices](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
+ *  [chromeosdevices](https://developers.google.com/workspace/admin/directory/reference/rest/v1/chromeosdevices)
  *
  *  Value: "CAPTURE_LOGS"
  */
@@ -513,8 +611,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession;
 /**
- *  Reboot the device. Can only be issued to Kiosk and managed guest session
- *  devices.
+ *  Fetches available type(s) of Chrome Remote Desktop sessions (private or
+ *  shared) that can be used to remotely connect to the device.
+ *
+ *  Value: "FETCH_CRD_AVAILABILITY_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchCrdAvailabilityInfo;
+/**
+ *  Fetch support packet from a device remotely. Support packet is a zip archive
+ *  that contains various system logs and debug data from a ChromeOS device. The
+ *  support packet can be downloaded from the downloadURL link present in the
+ *  `deviceFiles` field of
+ *  [`chromeosdevices`](https://developers.google.com/workspace/admin/directory/reference/rest/v1/chromeosdevices)
+ *
+ *  Value: "FETCH_SUPPORT_PACKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchSupportPacket;
+/**
+ *  Reboot the device. Can be issued to Kiosk and managed guest session devices,
+ *  and regular devices running ChromeOS version 113 or later.
  *
  *  Value: "REBOOT"
  */
@@ -1078,6 +1193,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  Information about the device's backlights.
+ */
+@interface GTLRDirectory_BacklightInfo : GTLRObject
+
+/**
+ *  Output only. Current brightness of the backlight, between 0 and
+ *  max_brightness.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *brightness;
+
+/**
+ *  Output only. Maximum brightness for the backlight.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxBrightness;
+
+/**
+ *  Output only. Path to this backlight on the system. Useful if the caller
+ *  needs to correlate with other information.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
  *  A request for changing the status of a batch of ChromeOS devices.
  */
 @interface GTLRDirectory_BatchChangeChromeOsDeviceStatusRequest : GTLRObject
@@ -1446,6 +1590,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  Represents a data capacity with some amount of current usage in bytes.
+ */
+@interface GTLRDirectory_ByteUsage : GTLRObject
+
+/**
+ *  Output only. The total capacity value, in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *capacityBytes;
+
+/**
+ *  Output only. The current usage value, in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usedBytes;
+
+@end
+
+
+/**
  *  Public API: Resources.calendars
  */
 @interface GTLRDirectory_CalendarResource : GTLRObject
@@ -1663,7 +1829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  Google Chrome devices run on the [Chrome
  *  OS](https://support.google.com/chromeos). For more information about common
  *  API tasks, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-chrome-devices).
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-chrome-devices).
  */
 @interface GTLRDirectory_ChromeOsDevice : GTLRObject
 
@@ -1690,11 +1856,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  (Read-only) The timestamp after which the device will stop receiving Chrome
- *  updates or support
+ *  updates or support. Please use "autoUpdateThrough" instead.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *autoUpdateExpiration;
+@property(nonatomic, strong, nullable) NSNumber *autoUpdateExpiration GTLR_DEPRECATED;
+
+/**
+ *  Output only. The timestamp after which the device will stop receiving Chrome
+ *  updates or support.
+ */
+@property(nonatomic, copy, nullable) NSString *autoUpdateThrough;
+
+/** Output only. Contains backlight information for the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_BacklightInfo *> *backlightInfo;
 
 /**
  *  The boot mode for the device. The possible values are: * `Verified`: The
@@ -1705,6 +1880,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  information](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch).
  */
 @property(nonatomic, copy, nullable) NSString *bootMode;
+
+/**
+ *  Output only. Chrome OS type of the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOs Chrome OS Type
+ *        Chrome OS. (Value: "chromeOs")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsFlex Chrome OS
+ *        Type Chrome OS Flex. (Value: "chromeOsFlex")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_ChromeOsType_ChromeOsTypeUnspecified
+ *        Chrome OS Type unspecified. (Value: "chromeOsTypeUnspecified")
+ */
+@property(nonatomic, copy, nullable) NSString *chromeOsType;
 
 /** Information regarding CPU specs in the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuInfo_Item *> *cpuInfo;
@@ -1776,16 +1964,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgrade
  *        The device has a perpetual standalone Chrome Education Upgrade.
  *        (Value: "educationUpgrade")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradeFixedTerm
+ *        Indicates that the device is consuming a standalone, fixed-term Chrome
+ *        Education Upgrade(AKA Chrome EDU fixed-term license). (Value:
+ *        "educationUpgradeFixedTerm")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EducationUpgradePerpetual
+ *        Indicates that the device is consuming a standalone, perpetual Chrome
+ *        Education Upgrade(AKA Chrome EDU perpetual license). (Value:
+ *        "educationUpgradePerpetual")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_Enterprise The
  *        device is bundled with a perpetual Chrome Enterprise Upgrade. (Value:
  *        "enterprise")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgrade
  *        The device has an annual standalone Chrome Enterprise Upgrade. (Value:
  *        "enterpriseUpgrade")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradeFixedTerm
+ *        Indicates that the device is consuming a standalone, fixed-term Chrome
+ *        Enterprise Upgrade, a Chrome Enterprise license. (Value:
+ *        "enterpriseUpgradeFixedTerm")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_EnterpriseUpgradePerpetual
+ *        Indicates that the device is consuming a standalone, perpetual Chrome
+ *        Enterprise Upgrade, a Chrome Enterprise license. (Value:
+ *        "enterpriseUpgradePerpetual")
  *    @arg @c kGTLRDirectory_ChromeOsDevice_DeviceLicenseType_KioskUpgrade The
  *        device has an annual Kiosk Upgrade. (Value: "kioskUpgrade")
  */
 @property(nonatomic, copy, nullable) NSString *deviceLicenseType;
+
+/**
+ *  Output only. How much disk space the device has available and is currently
+ *  using.
+ */
+@property(nonatomic, strong, nullable) GTLRDirectory_ByteUsage *diskSpaceUsage;
 
 /** Reports of disk space and other info about mounted/connected volumes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item *> *diskVolumeReports;
@@ -1812,6 +2022,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  relevant for some devices.
  */
 @property(nonatomic, copy, nullable) NSString *ethernetMacAddress0;
+
+/**
+ *  Output only. Whether or not the device requires the extended support opt in.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extendedSupportEligible;
+
+/**
+ *  Output only. Whether extended support policy is enabled on the device.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extendedSupportEnabled;
+
+/**
+ *  Output only. Date of the device when extended support policy for automatic
+ *  updates starts.
+ */
+@property(nonatomic, copy, nullable) NSString *extendedSupportStart;
+
+/** Output only. Fan information for the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_FanInfo *> *fanInfo;
 
 /** The Chrome device's firmware version. */
 @property(nonatomic, copy, nullable) NSString *firmwareVersion;
@@ -1856,7 +2089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  plan. If the device does not have this information, this property is not
  *  included in the response. For more information on how to export a MEID/IMEI
  *  list, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-chrome-devices.html#export_meid).
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-chrome-devices.html#export_meid).
  */
 @property(nonatomic, copy, nullable) NSString *meid;
 
@@ -1869,9 +2102,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /**
  *  Notes about this device added by the administrator. This property can be
  *  [searched](https://support.google.com/chrome/a/answer/1698333) with the
- *  [list](/admin-sdk/directory/v1/reference/chromeosdevices/list) method's
- *  `query` parameter. Maximum length is 500 characters. Empty values are
- *  allowed.
+ *  [list](https://developers.google.com/workspace/admin/directory/v1/reference/chromeosdevices/list)
+ *  method's `query` parameter. Maximum length is 500 characters. Empty values
+ *  are allowed.
  */
 @property(nonatomic, copy, nullable) NSString *notes;
 
@@ -1886,7 +2119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  version of orgUnitId. While orgUnitPath may change by renaming an
  *  organizational unit within the path, orgUnitId is unchangeable for one
  *  organizational unit. This property can be
- *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#move_chrome_devices_to_ou)
+ *  [updated](https://developers.google.com/workspace/admin/directory/v1/guides/manage-chrome-devices#move_chrome_devices_to_ou)
  *  using the API. For more information about how to create an organizational
  *  structure for your device, see the [administration help
  *  center](https://support.google.com/a/answer/182433).
@@ -1898,7 +2131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  device. Path names are case insensitive. If the parent organizational unit
  *  is the top-level organization, it is represented as a forward slash, `/`.
  *  This property can be
- *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#move_chrome_devices_to_ou)
+ *  [updated](https://developers.google.com/workspace/admin/directory/v1/guides/manage-chrome-devices#move_chrome_devices_to_ou)
  *  using the API. For more information about how to create an organizational
  *  structure for your device, see the [administration help
  *  center](https://support.google.com/a/answer/182433).
@@ -1910,6 +2143,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /** The Chrome device's operating system version. */
 @property(nonatomic, copy, nullable) NSString *osVersion;
+
+/**
+ *  Output only. Compliance status of the OS version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_ComplianceUnspecified
+ *        Compliance status unspecified. (Value: "complianceUnspecified")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Compliant
+ *        Compliance status compliant. (Value: "compliant")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_NotCompliant
+ *        Compliance status not compliant. (Value: "notCompliant")
+ *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_Pending
+ *        Compliance status pending. (Value: "pending")
+ */
+@property(nonatomic, copy, nullable) NSString *osVersionCompliance;
 
 /** The Chrome device's platform version. */
 @property(nonatomic, copy, nullable) NSString *platformVersion;
@@ -2357,16 +2605,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_CaptureLogs Capture the
  *        system logs of a kiosk device. The logs can be downloaded from the
  *        downloadUrl link present in `deviceFiles` field of
- *        [chromeosdevices](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
+ *        [chromeosdevices](https://developers.google.com/workspace/admin/directory/reference/rest/v1/chromeosdevices)
  *        (Value: "CAPTURE_LOGS")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified
  *        The command type was unspecified. (Value: "COMMAND_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_DeviceStartCrdSession
  *        Starts a Chrome Remote Desktop session. (Value:
  *        "DEVICE_START_CRD_SESSION")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_FetchCrdAvailabilityInfo
+ *        Fetches available type(s) of Chrome Remote Desktop sessions (private
+ *        or shared) that can be used to remotely connect to the device. (Value:
+ *        "FETCH_CRD_AVAILABILITY_INFO")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_FetchSupportPacket
+ *        Fetch support packet from a device remotely. Support packet is a zip
+ *        archive that contains various system logs and debug data from a
+ *        ChromeOS device. The support packet can be downloaded from the
+ *        downloadURL link present in the `deviceFiles` field of
+ *        [`chromeosdevices`](https://developers.google.com/workspace/admin/directory/reference/rest/v1/chromeosdevices)
+ *        (Value: "FETCH_SUPPORT_PACKET")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot Reboot the
- *        device. Can only be issued to Kiosk and managed guest session devices.
- *        (Value: "REBOOT")
+ *        device. Can be issued to Kiosk and managed guest session devices, and
+ *        regular devices running ChromeOS version 113 or later. (Value:
+ *        "REBOOT")
  *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_RemotePowerwash Wipes
  *        the device by performing a power wash. Executing this command in the
  *        device will remove all data including user policies, device policies
@@ -2398,8 +2658,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /**
  *  The payload for the command result. The following commands respond with a
  *  payload: * `DEVICE_START_CRD_SESSION`: Payload is a stringified JSON object
- *  in the form: { "url": url }. The URL provides a link to the Chrome Remote
- *  Desktop session.
+ *  in the form: { "url": url }. The provided URL links to the Chrome Remote
+ *  Desktop session and requires authentication using only the `email`
+ *  associated with the command's issuance. * `FETCH_CRD_AVAILABILITY_INFO`:
+ *  Payload is a stringified JSON object in the form: {
+ *  "deviceIdleTimeInSeconds": number, "userSessionType": string,
+ *  "remoteSupportAvailability": string, "remoteAccessAvailability": string }.
+ *  The "remoteSupportAvailability" field is set to "AVAILABLE" if `shared` CRD
+ *  session to the device is available. The "remoteAccessAvailability" field is
+ *  set to "AVAILABLE" if `private` CRD session to the device is available.
  */
 @property(nonatomic, copy, nullable) NSString *commandResultPayload;
 
@@ -2443,16 +2710,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CaptureLogs
  *        Capture the system logs of a kiosk device. The logs can be downloaded
  *        from the downloadUrl link present in `deviceFiles` field of
- *        [chromeosdevices](https://developers.google.com/admin-sdk/directory/reference/rest/v1/chromeosdevices)
+ *        [chromeosdevices](https://developers.google.com/workspace/admin/directory/reference/rest/v1/chromeosdevices)
  *        (Value: "CAPTURE_LOGS")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified
  *        The command type was unspecified. (Value: "COMMAND_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_DeviceStartCrdSession
  *        Starts a Chrome Remote Desktop session. (Value:
  *        "DEVICE_START_CRD_SESSION")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchCrdAvailabilityInfo
+ *        Fetches available type(s) of Chrome Remote Desktop sessions (private
+ *        or shared) that can be used to remotely connect to the device. (Value:
+ *        "FETCH_CRD_AVAILABILITY_INFO")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_FetchSupportPacket
+ *        Fetch support packet from a device remotely. Support packet is a zip
+ *        archive that contains various system logs and debug data from a
+ *        ChromeOS device. The support packet can be downloaded from the
+ *        downloadURL link present in the `deviceFiles` field of
+ *        [`chromeosdevices`](https://developers.google.com/workspace/admin/directory/reference/rest/v1/chromeosdevices)
+ *        (Value: "FETCH_SUPPORT_PACKET")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot
- *        Reboot the device. Can only be issued to Kiosk and managed guest
- *        session devices. (Value: "REBOOT")
+ *        Reboot the device. Can be issued to Kiosk and managed guest session
+ *        devices, and regular devices running ChromeOS version 113 or later.
+ *        (Value: "REBOOT")
  *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_RemotePowerwash
  *        Wipes the device by performing a power wash. Executing this command in
  *        the device will remove all data including user policies, device
@@ -2479,9 +2758,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  stringified JSON object in the form: { "volume": 50 }. The volume has to be
  *  an integer in the range [0,100]. * `DEVICE_START_CRD_SESSION`: Payload is
  *  optionally a stringified JSON object in the form: { "ackedUserPresence":
- *  true }. `ackedUserPresence` is a boolean. By default, `ackedUserPresence` is
- *  set to `false`. To start a Chrome Remote Desktop session for an active
- *  device, set `ackedUserPresence` to `true`.
+ *  true, "crdSessionType": string }. `ackedUserPresence` is a boolean. By
+ *  default, `ackedUserPresence` is set to `false`. To start a Chrome Remote
+ *  Desktop session for an active device, set `ackedUserPresence` to `true`.
+ *  `crdSessionType` can only select from values `private` (which grants the
+ *  remote admin exclusive control of the ChromeOS device) or `shared` (which
+ *  allows the admin and the local user to share control of the ChromeOS
+ *  device). If not set, `crdSessionType` defaults to `shared`. The
+ *  `FETCH_CRD_AVAILABILITY_INFO` command can be used to determine available
+ *  session types on the device. * `REBOOT`: Payload is a stringified JSON
+ *  object in the form: { "user_session_delay_seconds": 300 }. The
+ *  `user_session_delay_seconds` is the amount of seconds to wait before
+ *  rebooting the device if a user is logged in. It has to be an integer in the
+ *  range [0,300]. When payload is not present for reboot, 0 delay is the
+ *  default. Note: This only applies if an actual user is logged in, including a
+ *  Guest. If the device is in the login screen or in Kiosk mode the value is
+ *  not respected and the device immediately reboots. * `FETCH_SUPPORT_PACKET`:
+ *  Payload is optionally a stringified JSON object in the form:
+ *  {"supportPacketDetails":{ "issueCaseId": optional_support_case_id_string,
+ *  "issueDescription": optional_issue_description_string,
+ *  "requestedDataCollectors": []}} The list of available `data_collector_enums`
+ *  are as following: Chrome System Information (1), Crash IDs (2), Memory
+ *  Details (3), UI Hierarchy (4), Additional ChromeOS Platform Logs (5), Device
+ *  Event (6), Intel WiFi NICs Debug Dump (7), Touch Events (8), Lacros (9),
+ *  Lacros System Information (10), ChromeOS Flex Logs (11), DBus Details (12),
+ *  ChromeOS Network Routes (13), ChromeOS Shill (Connection Manager) Logs (14),
+ *  Policies (15), ChromeOS System State and Logs (16), ChromeOS System Logs
+ *  (17), ChromeOS Chrome User Logs (18), ChromeOS Bluetooth (19), ChromeOS
+ *  Connected Input Devices (20), ChromeOS Traffic Counters (21), ChromeOS
+ *  Virtual Keyboard (22), ChromeOS Network Health (23). See more details in
+ *  [help article](https://support.google.com/chrome/a?p=remote-log).
  */
 @property(nonatomic, copy, nullable) NSString *payload;
 
@@ -2539,7 +2845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  Required. The [unique
- *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *  of the customer's Google Workspace account. Format: `customers/{id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2549,7 +2855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  under a specific organizational unit (OU), then populate the `org_unit_id`.
  *  Otherwise the print server is created under the root OU. The `org_unit_id`
  *  can be retrieved using the [Directory
- *  API](https://developers.google.com/admin-sdk/directory/v1/guides/manage-org-units).
+ *  API](https://developers.google.com/workspace/admin/directory/v1/guides/manage-org-units).
  */
 @property(nonatomic, strong, nullable) GTLRDirectory_PrintServer *printServer;
 
@@ -2593,9 +2899,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  The customer's ISO 639-2 language code. See the [Language
- *  Codes](/admin-sdk/directory/v1/languages) page for the list of supported
- *  codes. Valid language codes outside the supported set will be accepted by
- *  the API but may lead to unexpected behavior. The default value is `en`.
+ *  Codes](https://developers.google.com/workspace/admin/directory/v1/languages)
+ *  page for the list of supported codes. Valid language codes outside the
+ *  supported set will be accepted by the API but may lead to unexpected
+ *  behavior. The default value is `en`.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
@@ -2909,6 +3216,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  Information about the device's fan.
+ */
+@interface GTLRDirectory_FanInfo : GTLRObject
+
+/**
+ *  Output only. Fan speed in RPM.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *speedRpm;
+
+@end
+
+
+/**
  *  JSON template for Feature object in Directory API.
  */
 @interface GTLRDirectory_Feature : GTLRObject
@@ -2987,12 +3309,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  Google Groups provide your users the ability to send messages to groups of
  *  people using the group's email address. For more information about common
  *  tasks, see the [Developer's
- *  Guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-groups).
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-groups).
  *  For information about other types of groups, see the [Cloud Identity Groups
  *  API documentation](https://cloud.google.com/identity/docs/groups). Note: The
  *  user calling the API (or being impersonated by a service account) must have
  *  an assigned
- *  [role](https://developers.google.com/admin-sdk/directory/v1/guides/manage-roles)
+ *  [role](https://developers.google.com/workspace/admin/directory/v1/guides/manage-roles)
  *  that includes Admin API Groups permissions, such as Super Admin or Groups
  *  Admin.
  */
@@ -3221,7 +3543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  A Google Groups member can be a user or another group. This member can be
  *  inside or outside of your account's domains. For more information about
  *  common group member tasks, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-group-members).
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-group-members).
  */
 @interface GTLRDirectory_Member : GTLRObject
 
@@ -3324,7 +3646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  Google Workspace Mobile Management includes Android, [Google
  *  Sync](https://support.google.com/a/answer/135937), and iOS devices. For more
  *  information about common group mobile device API tasks, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices.html).
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-mobile-devices.html).
  */
 @interface GTLRDirectory_MobileDevice : GTLRObject
 
@@ -3383,9 +3705,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /**
  *  The list of the owner's email addresses. If your application needs the
  *  current list of user emails, use the
- *  [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For
- *  additional information, see the [retrieve a
- *  user](/admin-sdk/directory/v1/guides/manage-users#get_user) method.
+ *  [get](https://developers.google.com/workspace/admin/directory/v1/reference/mobiledevices/get.html)
+ *  method. For additional information, see the [retrieve a
+ *  user](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#get_user)
+ *  method.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *email;
 
@@ -3445,18 +3768,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  The mobile device's model name, for example Nexus S. This property can be
- *  [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For
- *  more information, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-mobile=devices#update_mobile_device).
+ *  [updated](https://developers.google.com/workspace/admin/directory/v1/reference/mobiledevices/update.html).
+ *  For more information, see the [Developer's
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-mobile=devices#update_mobile_device).
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
  *  The list of the owner's user names. If your application needs the current
  *  list of device owner names, use the
- *  [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For
- *  more information about retrieving mobile device user information, see the
- *  [Developer's Guide](/admin-sdk/directory/v1/guides/manage-users#get_user).
+ *  [get](https://developers.google.com/workspace/admin/directory/v1/reference/mobiledevices/get.html)
+ *  method. For more information about retrieving mobile device user
+ *  information, see the [Developer's
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#get_user).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *name;
 
@@ -3466,9 +3790,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /**
  *  The mobile device's operating system, for example IOS 4.3 or Android 2.3.5.
  *  This property can be
- *  [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For
- *  more information, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices#update_mobile_device).
+ *  [updated](https://developers.google.com/workspace/admin/directory/v1/reference/mobiledevices/update.html).
+ *  For more information, see the [Developer's
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-mobile-devices#update_mobile_device).
  */
 @property(nonatomic, copy, nullable) NSString *os;
 
@@ -3516,9 +3840,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  Gives information about the device such as `os` version. This property can
- *  be [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html).
+ *  be
+ *  [updated](https://developers.google.com/workspace/admin/directory/v1/reference/mobiledevices/update.html).
  *  For more information, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices#update_mobile_device).
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-mobile-devices#update_mobile_device).
  */
 @property(nonatomic, copy, nullable) NSString *userAgent;
 
@@ -3607,20 +3932,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  Managing your account's organizational units allows you to configure your
  *  users' access to services and custom settings. For more information about
  *  common organizational unit tasks, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-org-units.html). The customer's
- *  organizational unit hierarchy is limited to 35 levels of depth.
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-org-units.html).
+ *  The customer's organizational unit hierarchy is limited to 35 levels of
+ *  depth.
  */
 @interface GTLRDirectory_OrgUnit : GTLRObject
 
 /**
- *  Determines if a sub-organizational unit can inherit the settings of the
- *  parent organization. The default value is `false`, meaning a
- *  sub-organizational unit inherits the settings of the nearest parent
- *  organizational unit. This field is deprecated. Setting it to `true` is no
- *  longer supported and can have _unintended consequences_. For more
- *  information about inheritance and users in an organization structure, see
- *  the [administration help
- *  center](https://support.google.com/a/answer/4352075).
+ *  This field is deprecated and setting its value has no effect.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3664,7 +3983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  information about organization structures, see the [administration help
  *  center](https://support.google.com/a/answer/4352075). For more information
  *  about moving a user to a different organization, see [Update a
- *  user](/admin-sdk/directory/v1/guides/manage-users.html#update_user).
+ *  user](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users.html#update_user).
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
@@ -3789,7 +4108,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @property(nonatomic, copy, nullable) NSString *makeAndModel;
 
 /**
- *  The resource name of the Printer object, in the format
+ *  Identifier. The resource name of the Printer object, in the format
  *  customers/{customer-id}/printers/{printer-id} (During printer creation leave
  *  empty)
  */
@@ -3863,7 +4182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Immutable. Resource name of the print server. Leave empty when creating.
+ *  Identifier. Resource name of the print server. Leave empty when creating.
  *  Format: `customers/{customer.id}/printServers/{print_server.id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3873,7 +4192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  only be set when the print server is initially created. If it's not
  *  populated, the print server is placed under the root OU. The `org_unit_id`
  *  can be retrieved using the [Directory
- *  API](/admin-sdk/directory/reference/rest/v1/orgunits).
+ *  API](https://developers.google.com/workspace/admin/directory/reference/rest/v1/orgunits).
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
@@ -4040,7 +4359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /**
  *  The obfuscated ID of the service this privilege is for. This value is
  *  returned with
- *  [`Privileges.list()`](/admin-sdk/directory/v1/reference/privileges/list).
+ *  [`Privileges.list()`](https://developers.google.com/workspace/admin/directory/v1/reference/privileges/list).
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
@@ -4132,7 +4451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /**
  *  The obfuscated ID of the service this privilege is for. This value is
  *  returned with
- *  [`Privileges.list()`](/admin-sdk/directory/v1/reference/privileges/list).
+ *  [`Privileges.list()`](https://developers.google.com/workspace/admin/directory/v1/reference/privileges/list).
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
@@ -4162,6 +4481,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *        within the domain. (Value: "user")
  */
 @property(nonatomic, copy, nullable) NSString *assigneeType;
+
+/**
+ *  Optional. The condition associated with this role assignment. Note: Feature
+ *  is available to Enterprise Standard, Enterprise Plus, Google Workspace for
+ *  Education Plus and Cloud Identity Premium customers. A `RoleAssignment` with
+ *  the `condition` field set will only take effect when the resource being
+ *  accessed meets the condition. If `condition` is empty, the role (`role_id`)
+ *  is applied to the actor (`assigned_to`) at the scope (`scope_type`)
+ *  unconditionally. Currently, the following conditions are supported: - To
+ *  make the `RoleAssignment` only applicable to [Security
+ *  Groups](https://cloud.google.com/identity/docs/groups#group_types):
+ *  `api.getAttribute('cloudidentity.googleapis.com/groups.labels',
+ *  []).hasAny(['groups.security']) && resource.type ==
+ *  'cloudidentity.googleapis.com/Group'` - To make the `RoleAssignment` not
+ *  applicable to [Security
+ *  Groups](https://cloud.google.com/identity/docs/groups#group_types):
+ *  `!api.getAttribute('cloudidentity.googleapis.com/groups.labels',
+ *  []).hasAny(['groups.security']) && resource.type ==
+ *  'cloudidentity.googleapis.com/Group'` Currently, the condition strings have
+ *  to be verbatim and they only work with the following [pre-built
+ *  administrator roles](https://support.google.com/a/answer/2405986): - Groups
+ *  Editor - Groups Reader The condition follows [Cloud IAM condition
+ *  syntax](https://cloud.google.com/iam/docs/conditions-overview). - To make
+ *  the `RoleAssignment` not applicable to [Locked
+ *  Groups](https://cloud.google.com/identity/docs/groups#group_types):
+ *  `!api.getAttribute('cloudidentity.googleapis.com/groups.labels',
+ *  []).hasAny(['groups.locked']) && resource.type ==
+ *  'cloudidentity.googleapis.com/Group'` This condition can also be used in
+ *  conjunction with a Security-related condition.
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -4294,7 +4644,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  fields to store information such as the projects your users work on, their
  *  physical locations, their hire dates, or whatever else fits your business
  *  needs. For more information, see [Custom User
- *  Fields](/admin-sdk/directory/v1/guides/manage-schemas).
+ *  Fields](https://developers.google.com/workspace/admin/directory/v1/guides/manage-schemas).
  */
 @interface GTLRDirectory_SchemaFieldSpec : GTLRObject
 
@@ -4343,7 +4693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  Specifies who can view values of this field. See [Retrieve users as a
- *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin)
+ *  non-administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#retrieve_users_non_admin)
  *  for more information. Note: It may take up to 24 hours for changes to this
  *  field to be reflected.
  */
@@ -4515,9 +4865,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  The Directory API allows you to create and manage your account's users, user
  *  aliases, and user Google profile photos. For more information about common
  *  tasks, see the [User Accounts Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-users.html) and the [User
- *  Aliases Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-user-aliases.html).
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users.html)
+ *  and the [User Aliases Developer's
+ *  Guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-user-aliases.html).
  */
 @interface GTLRDirectory_User : GTLRObject
 
@@ -4561,12 +4911,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /**
  *  Output only. The customer ID to [retrieve all account
- *  users](/admin-sdk/directory/v1/guides/manage-users.html#get_all_users). You
- *  can use the alias `my_customer` to represent your account's `customerId`. As
- *  a reseller administrator, you can use the resold customer account's
- *  `customerId`. To get a `customerId`, use the account's primary domain in the
- *  `domain` parameter of a
- *  [users.list](/admin-sdk/directory/v1/reference/users/list) request.
+ *  users](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users.html#get_all_users).
+ *  You can use the alias `my_customer` to represent your account's
+ *  `customerId`. As a reseller administrator, you can use the resold customer
+ *  account's `customerId`. To get a `customerId`, use the account's primary
+ *  domain in the `domain` parameter of a
+ *  [users.list](https://developers.google.com/workspace/admin/directory/v1/reference/users/list)
+ *  request.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -4651,15 +5002,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @property(nonatomic, strong, nullable) NSNumber *ipWhitelisted;
 
 /**
- *  Output only. Indicates a user with super admininistrator privileges. The
+ *  Output only. Indicates a user with super administrator privileges. The
  *  `isAdmin` property can only be edited in the [Make a user an
- *  administrator](/admin-sdk/directory/v1/guides/manage-users.html#make_admin)
+ *  administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users.html#make_admin)
  *  operation (
- *  [makeAdmin](/admin-sdk/directory/v1/reference/users/makeAdmin.html) method).
- *  If edited in the user
- *  [insert](/admin-sdk/directory/v1/reference/users/insert.html) or
- *  [update](/admin-sdk/directory/v1/reference/users/update.html) methods, the
- *  edit is ignored by the API service.
+ *  [makeAdmin](https://developers.google.com/workspace/admin/directory/v1/reference/users/makeAdmin.html)
+ *  method). If edited in the user
+ *  [insert](https://developers.google.com/workspace/admin/directory/v1/reference/users/insert.html)
+ *  or
+ *  [update](https://developers.google.com/workspace/admin/directory/v1/reference/users/update.html)
+ *  methods, the edit is ignored by the API service.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5500,7 +5852,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Token used to access next page of this result. */
+/**
+ *  Token used to access next page of this result. The page token is only valid
+ *  for three days.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Event that triggered this response (only used in case of Push Response) */

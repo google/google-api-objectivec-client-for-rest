@@ -19,6 +19,12 @@ NSString * const kGTLRBigqueryDatasetViewDatasetViewUnspecified = @"DATASET_VIEW
 NSString * const kGTLRBigqueryDatasetViewFull                  = @"FULL";
 NSString * const kGTLRBigqueryDatasetViewMetadata              = @"METADATA";
 
+// formatOptionsTimestampOutputFormat
+NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatFloat64 = @"FLOAT64";
+NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatInt64 = @"INT64";
+NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatIso8601String = @"ISO8601_STRING";
+NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatTimestampOutputFormatUnspecified = @"TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED";
+
 // projection
 NSString * const kGTLRBigqueryProjectionFull    = @"full";
 NSString * const kGTLRBigqueryProjectionMinimal = @"minimal";
@@ -27,6 +33,12 @@ NSString * const kGTLRBigqueryProjectionMinimal = @"minimal";
 NSString * const kGTLRBigqueryStateFilterDone    = @"done";
 NSString * const kGTLRBigqueryStateFilterPending = @"pending";
 NSString * const kGTLRBigqueryStateFilterRunning = @"running";
+
+// updateMode
+NSString * const kGTLRBigqueryUpdateModeUpdateAcl             = @"UPDATE_ACL";
+NSString * const kGTLRBigqueryUpdateModeUpdateFull            = @"UPDATE_FULL";
+NSString * const kGTLRBigqueryUpdateModeUpdateMetadata        = @"UPDATE_METADATA";
+NSString * const kGTLRBigqueryUpdateModeUpdateModeUnspecified = @"UPDATE_MODE_UNSPECIFIED";
 
 // view
 NSString * const kGTLRBigqueryViewBasic                        = @"BASIC";
@@ -68,7 +80,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsGet
 
-@dynamic datasetId, datasetView, projectId;
+@dynamic accessPolicyVersion, datasetId, datasetView, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          datasetId:(NSString *)datasetId {
@@ -91,7 +103,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsInsert
 
-@dynamic projectId;
+@dynamic accessPolicyVersion, projectId;
 
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId {
@@ -137,7 +149,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsPatch
 
-@dynamic datasetId, projectId;
+@dynamic accessPolicyVersion, datasetId, projectId, updateMode;
 
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId
@@ -199,7 +211,7 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_DatasetsUpdate
 
-@dynamic datasetId, projectId;
+@dynamic accessPolicyVersion, datasetId, projectId, updateMode;
 
 + (instancetype)queryWithObject:(GTLRBigquery_Dataset *)object
                       projectId:(NSString *)projectId
@@ -298,11 +310,16 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_JobsGetQueryResults
 
-@dynamic formatOptionsUseInt64Timestamp, jobId, location, maxResults, pageToken,
-         projectId, startIndex, timeoutMs;
+@dynamic formatOptionsTimestampOutputFormat, formatOptionsUseInt64Timestamp,
+         jobId, location, maxResults, pageToken, projectId, startIndex,
+         timeoutMs;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"formatOptionsTimestampOutputFormat" : @"formatOptions.timestampOutputFormat",
+    @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp"
+  };
+  return map;
 }
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
@@ -597,6 +614,33 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @end
 
+@implementation GTLRBigqueryQuery_RoutinesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:getIamPolicy";
+  GTLRBigqueryQuery_RoutinesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_Policy class];
+  query.loggingName = @"bigquery.routines.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_RoutinesInsert
 
 @dynamic datasetId, projectId;
@@ -651,6 +695,60 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @end
 
+@implementation GTLRBigqueryQuery_RoutinesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:setIamPolicy";
+  GTLRBigqueryQuery_RoutinesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_Policy class];
+  query.loggingName = @"bigquery.routines.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RoutinesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:testIamPermissions";
+  GTLRBigqueryQuery_RoutinesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_TestIamPermissionsResponse class];
+  query.loggingName = @"bigquery.routines.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_RoutinesUpdate
 
 @dynamic datasetId, projectId, routineId;
@@ -684,6 +782,91 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @end
 
+@implementation GTLRBigqueryQuery_RowAccessPoliciesBatchDelete
+
+@dynamic datasetId, projectId, tableId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_BatchDeleteRowAccessPoliciesRequest *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies:batchDelete";
+  GTLRBigqueryQuery_RowAccessPoliciesBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.loggingName = @"bigquery.rowAccessPolicies.batchDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesDelete
+
+@dynamic datasetId, force, policyId, projectId, tableId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId
+                          policyId:(NSString *)policyId {
+  NSArray *pathParams = @[
+    @"datasetId", @"policyId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies/{+policyId}";
+  GTLRBigqueryQuery_RowAccessPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.policyId = policyId;
+  query.loggingName = @"bigquery.rowAccessPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesGet
+
+@dynamic datasetId, policyId, projectId, tableId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId
+                          policyId:(NSString *)policyId {
+  NSArray *pathParams = @[
+    @"datasetId", @"policyId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies/{+policyId}";
+  GTLRBigqueryQuery_RowAccessPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.policyId = policyId;
+  query.expectedObjectClass = [GTLRBigquery_RowAccessPolicy class];
+  query.loggingName = @"bigquery.rowAccessPolicies.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_RowAccessPoliciesGetIamPolicy
 
 @dynamic resource;
@@ -706,6 +889,39 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
   query.resource = resource;
   query.expectedObjectClass = [GTLRBigquery_Policy class];
   query.loggingName = @"bigquery.rowAccessPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesInsert
+
+@dynamic datasetId, projectId, tableId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_RowAccessPolicy *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies";
+  GTLRBigqueryQuery_RowAccessPoliciesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.expectedObjectClass = [GTLRBigquery_RowAccessPolicy class];
+  query.loggingName = @"bigquery.rowAccessPolicies.insert";
   return query;
 }
 
@@ -763,6 +979,41 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @end
 
+@implementation GTLRBigqueryQuery_RowAccessPoliciesUpdate
+
+@dynamic datasetId, policyId, projectId, tableId;
+
++ (instancetype)queryWithObject:(GTLRBigquery_RowAccessPolicy *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId
+                       policyId:(NSString *)policyId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"datasetId", @"policyId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies/{+policyId}";
+  GTLRBigqueryQuery_RowAccessPoliciesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.policyId = policyId;
+  query.expectedObjectClass = [GTLRBigquery_RowAccessPolicy class];
+  query.loggingName = @"bigquery.rowAccessPolicies.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_TabledataInsertAll
 
 @dynamic datasetId, projectId, tableId;
@@ -798,11 +1049,16 @@ NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified = @"TABLE_METADAT
 
 @implementation GTLRBigqueryQuery_TabledataList
 
-@dynamic datasetId, formatOptionsUseInt64Timestamp, maxResults, pageToken,
-         projectId, selectedFields, startIndex, tableId;
+@dynamic datasetId, formatOptionsTimestampOutputFormat,
+         formatOptionsUseInt64Timestamp, maxResults, pageToken, projectId,
+         selectedFields, startIndex, tableId;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"formatOptionsTimestampOutputFormat" : @"formatOptions.timestampOutputFormat",
+    @"formatOptionsUseInt64Timestamp" : @"formatOptions.useInt64Timestamp"
+  };
+  return map;
 }
 
 + (instancetype)queryWithProjectId:(NSString *)projectId

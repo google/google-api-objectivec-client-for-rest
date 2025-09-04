@@ -19,12 +19,18 @@ NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_Recommendatio
 NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_BusinessLocationSuspended = @"BUSINESS_LOCATION_SUSPENDED";
 NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_RecommendationReasonUnspecified = @"RECOMMENDATION_REASON_UNSPECIFIED";
 
+// GTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse.result
+NSString * const kGTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse_Result_Failed = @"FAILED";
+NSString * const kGTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse_Result_ResultUnspecified = @"RESULT_UNSPECIFIED";
+NSString * const kGTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse_Result_Succeeded = @"SUCCEEDED";
+
 // GTLRMyBusinessVerifications_Verification.method
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Address = @"ADDRESS";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Auto = @"AUTO";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Email = @"EMAIL";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_PhoneCall = @"PHONE_CALL";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Sms = @"SMS";
+NSString * const kGTLRMyBusinessVerifications_Verification_Method_TrustedPartner = @"TRUSTED_PARTNER";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_VerificationMethodUnspecified = @"VERIFICATION_METHOD_UNSPECIFIED";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_VettedPartner = @"VETTED_PARTNER";
 
@@ -40,6 +46,7 @@ NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMet
 NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_Email = @"EMAIL";
 NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_PhoneCall = @"PHONE_CALL";
 NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_Sms = @"SMS";
+NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_TrustedPartner = @"TRUSTED_PARTNER";
 NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VerificationMethodUnspecified = @"VERIFICATION_METHOD_UNSPECIFIED";
 NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VettedPartner = @"VETTED_PARTNER";
 
@@ -49,6 +56,7 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Auto 
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Email = @"EMAIL";
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_PhoneCall = @"PHONE_CALL";
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Sms = @"SMS";
+NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_TrustedPartner = @"TRUSTED_PARTNER";
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VerificationMethodUnspecified = @"VERIFICATION_METHOD_UNSPECIFIED";
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VettedPartner = @"VETTED_PARTNER";
 
@@ -132,6 +140,26 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMyBusinessVerifications_GenerateInstantVerificationTokenRequest
+//
+
+@implementation GTLRMyBusinessVerifications_GenerateInstantVerificationTokenRequest
+@dynamic locationData, locationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse
+//
+
+@implementation GTLRMyBusinessVerifications_GenerateInstantVerificationTokenResponse
+@dynamic instantVerificationToken, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMyBusinessVerifications_ListVerificationsResponse
 //
 
@@ -149,6 +177,16 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
   return @"verifications";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessVerifications_LocationData
+//
+
+@implementation GTLRMyBusinessVerifications_LocationData
+@dynamic address, name;
 @end
 
 
@@ -238,7 +276,7 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
 
 @implementation GTLRMyBusinessVerifications_VerifyLocationRequest
 @dynamic context, emailAddress, languageCode, mailerContact, method,
-         phoneNumber, token;
+         phoneNumber, token, trustedPartnerToken;
 @end
 
 

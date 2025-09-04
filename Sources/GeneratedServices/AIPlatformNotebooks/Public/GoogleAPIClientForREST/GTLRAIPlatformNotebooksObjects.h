@@ -15,8 +15,11 @@
 #endif
 
 @class GTLRAIPlatformNotebooks_AcceleratorConfig;
+@class GTLRAIPlatformNotebooks_AccessConfig;
 @class GTLRAIPlatformNotebooks_Binding;
 @class GTLRAIPlatformNotebooks_BootDisk;
+@class GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails;
+@class GTLRAIPlatformNotebooks_ConfidentialInstanceConfig;
 @class GTLRAIPlatformNotebooks_ContainerImage;
 @class GTLRAIPlatformNotebooks_DataDisk;
 @class GTLRAIPlatformNotebooks_DefaultValues;
@@ -39,8 +42,10 @@
 @class GTLRAIPlatformNotebooks_Operation_Metadata;
 @class GTLRAIPlatformNotebooks_Operation_Response;
 @class GTLRAIPlatformNotebooks_Policy;
+@class GTLRAIPlatformNotebooks_ReservationAffinity;
 @class GTLRAIPlatformNotebooks_ServiceAccount;
 @class GTLRAIPlatformNotebooks_ShieldedInstanceConfig;
+@class GTLRAIPlatformNotebooks_Snapshot;
 @class GTLRAIPlatformNotebooks_Status;
 @class GTLRAIPlatformNotebooks_Status_Details_Item;
 @class GTLRAIPlatformNotebooks_SupportedValues;
@@ -72,6 +77,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  *  Value: "NVIDIA_A100_80GB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb;
+/**
+ *  Accelerator type is Nvidia Tesla H100 - 80GB.
+ *
+ *  Value: "NVIDIA_H100_80GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb;
+/**
+ *  Accelerator type is Nvidia Tesla H100 - MEGA 80GB.
+ *
+ *  Value: "NVIDIA_H100_MEGA_80GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb;
 /**
  *  Accelerator type is Nvidia Tesla L4.
  *
@@ -182,6 +199,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_Pd
  *  Value: "PD_STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdStandard;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_ConfidentialInstanceConfig.confidentialInstanceType
+
+/**
+ *  No type specified. Do not use this value.
+ *
+ *  Value: "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified;
+/**
+ *  AMD Secure Encrypted Virtualization.
+ *
+ *  Value: "SEV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_DataDisk.diskEncryption
@@ -416,6 +449,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_Nic
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_NetworkInterface_NicType_VirtioNet;
 
 // ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_ReservationAffinity.consumeReservationType
+
+/**
+ *  Consume any reservation available.
+ *
+ *  Value: "RESERVATION_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationAny;
+/**
+ *  Do not consume from any allocated capacity.
+ *
+ *  Value: "RESERVATION_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationNone;
+/**
+ *  Must consume from a specific reservation. Must specify key value fields for
+ *  specifying the reservations.
+ *
+ *  Value: "RESERVATION_SPECIFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationSpecific;
+/**
+ *  Default type.
+ *
+ *  Value: "RESERVATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_UpgradeHistoryEntry.action
 
 /**
@@ -491,6 +553,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb
  *        Accelerator type is Nvidia Tesla A100 - 80GB. (Value:
  *        "NVIDIA_A100_80GB")
+ *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb
+ *        Accelerator type is Nvidia Tesla H100 - 80GB. (Value:
+ *        "NVIDIA_H100_80GB")
+ *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb
+ *        Accelerator type is Nvidia Tesla H100 - MEGA 80GB. (Value:
+ *        "NVIDIA_H100_MEGA_80GB")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4
  *        Accelerator type is Nvidia Tesla L4. (Value: "NVIDIA_L4")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100
@@ -515,6 +583,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        Accelerator type is Nvidia Tesla V100. (Value: "NVIDIA_TESLA_V100")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  An access configuration attached to an instance's network interface.
+ */
+@interface GTLRAIPlatformNotebooks_AccessConfig : GTLRObject
+
+/**
+ *  An external IP address associated with this instance. Specify an unused
+ *  static external IP address available to the project or leave this field
+ *  undefined to use an IP from a shared ephemeral IP address pool. If you
+ *  specify a static external IP address, it must live in the same region as the
+ *  zone of the instance.
+ */
+@property(nonatomic, copy, nullable) NSString *externalIp;
 
 @end
 
@@ -594,7 +679,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -666,6 +755,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Request message for checking authorization for the instance owner.
+ */
+@interface GTLRAIPlatformNotebooks_CheckAuthorizationRequest : GTLRObject
+
+/**
+ *  Optional. The details of the OAuth authorization response. This may include
+ *  additional params such as dry_run, version_info, origin, propagate, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails *authorizationDetails;
+
+@end
+
+
+/**
+ *  Optional. The details of the OAuth authorization response. This may include
+ *  additional params such as dry_run, version_info, origin, propagate, etc.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_CheckAuthorizationRequest_AuthorizationDetails : GTLRObject
+@end
+
+
+/**
+ *  Response message for checking authorization for the instance owner.
+ */
+@interface GTLRAIPlatformNotebooks_CheckAuthorizationResponse : GTLRObject
+
+/** Output only. Timestamp when this Authorization request was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  If the user has not completed OAuth consent, then the oauth_url is returned.
+ *  Otherwise, this field is not set.
+ */
+@property(nonatomic, copy, nullable) NSString *oauthUri;
+
+/**
+ *  Success indicates that the user completed OAuth consent and access tokens
+ *  can be generated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *success;
+
+@end
+
+
+/**
  *  Response for checking if a notebook instance is upgradeable.
  */
 @interface GTLRAIPlatformNotebooks_CheckInstanceUpgradabilityResponse : GTLRObject
@@ -697,6 +838,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  A set of Confidential Instance options.
+ */
+@interface GTLRAIPlatformNotebooks_ConfidentialInstanceConfig : GTLRObject
+
+/**
+ *  Optional. Defines the type of technology used by the confidential instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified
+ *        No type specified. Do not use this value. (Value:
+ *        "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev
+ *        AMD Secure Encrypted Virtualization. (Value: "SEV")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialInstanceType;
+
+@end
+
+
+/**
  *  Response for getting WbI configurations in a location
  */
 @interface GTLRAIPlatformNotebooks_Config : GTLRObject
@@ -706,6 +867,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /** Output only. The default values for configuration. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DefaultValues *defaultValues;
+
+/**
+ *  Output only. Flag to disable the creation of legacy Workbench notebooks
+ *  (User-managed notebooks and Google-managed notebooks).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableWorkbenchLegacyCreation;
 
 /** Output only. The supported values for configuration. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_SupportedValues *supportedValues;
@@ -813,7 +982,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DiagnosticConfig *diagnosticConfig;
 
 /**
- *  Optional. Maxmium amount of time in minutes before the operation times out.
+ *  Optional. Maximum amount of time in minutes before the operation times out.
  *
  *  Uses NSNumber of intValue.
  */
@@ -999,6 +1168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 /** Optional. The boot disk for the VM. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_BootDisk *bootDisk;
 
+/** Optional. Confidential instance configuration. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ConfidentialInstanceConfig *confidentialInstanceConfig;
+
 /** Optional. Use a container image to start the notebook instance. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ContainerImage *containerImage;
 
@@ -1036,9 +1208,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_GceSetup_Metadata *metadata;
 
 /**
+ *  Optional. The minimum CPU platform to use for this instance. The list of
+ *  valid values can be found in
+ *  https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform#availablezones
+ */
+@property(nonatomic, copy, nullable) NSString *minCpuPlatform;
+
+/**
  *  Optional. The network interfaces for the VM. Supports only one interface.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_NetworkInterface *> *networkInterfaces;
+
+/**
+ *  Optional. Specifies the reservations that this instance can consume from.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ReservationAffinity *reservationAffinity;
 
 /**
  *  Optional. The service account that serves as an identity for the VM
@@ -1053,8 +1237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ShieldedInstanceConfig *shieldedInstanceConfig;
 
 /**
- *  Optional. The Compute Engine tags to add to runtime (see [Tagging
- *  instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+ *  Optional. The Compute Engine network tags to add to runtime (see [Add
+ *  network tags](https://cloud.google.com/vpc/docs/add-remove-network-tags)).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -1073,6 +1257,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        fetch them all at once.
  */
 @interface GTLRAIPlatformNotebooks_GceSetup_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Request message for generating an EUC for the instance owner.
+ */
+@interface GTLRAIPlatformNotebooks_GenerateAccessTokenRequest : GTLRObject
+
+/**
+ *  Required. The VM identity token (a JWT) for authenticating the VM.
+ *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ */
+@property(nonatomic, copy, nullable) NSString *vmToken;
+
+@end
+
+
+/**
+ *  Response message for generating an EUC for the instance owner.
+ */
+@interface GTLRAIPlatformNotebooks_GenerateAccessTokenResponse : GTLRObject
+
+/**
+ *  Short-lived access token string which may be used to access Google APIs.
+ */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/**
+ *  The time in seconds when the access token expires. Typically that's 3600.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
+
+/**
+ *  Space-separated list of scopes contained in the returned token.
+ *  https://cloud.google.com/docs/authentication/token-types#access-contents
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Type of the returned access token (e.g. "Bearer"). It specifies how the
+ *  token must be used. Bearer tokens may be used by any entity without proof of
+ *  identity.
+ */
+@property(nonatomic, copy, nullable) NSString *tokenType;
+
 @end
 
 
@@ -1139,6 +1370,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) NSNumber *disableProxyAccess;
 
 /**
+ *  Optional. If true, deletion protection will be enabled for this Workbench
+ *  Instance. If false, deletion protection will be disabled for this Workbench
+ *  Instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableDeletionProtection;
+
+/**
+ *  Optional. Flag to enable managed end user credentials for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableManagedEuc;
+
+/**
+ *  Optional. Flag that specifies that a notebook can be accessed with third
+ *  party identity provider.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableThirdPartyIdentity;
+
+/**
  *  Optional. Compute Engine setup for the notebook. Uses notebook-defined
  *  fields.
  */
@@ -1181,7 +1436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Optional. Input only. The owner of this instance after creation. Format:
+ *  Optional. The owner of this instance after creation. Format:
  *  `alias\@example.com` Currently supports one owner only. If not specified,
  *  all of the service account users of your VM instance's service account can
  *  use the instance.
@@ -1204,6 +1459,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Output only. The proxy endpoint that is used to access the Jupyter notebook.
  */
 @property(nonatomic, copy, nullable) NSString *proxyUri;
+
+/**
+ *  Output only. Reserved for future use for Zone Isolation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use for Zone Separation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The state of this instance.
@@ -1427,6 +1696,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @interface GTLRAIPlatformNotebooks_NetworkInterface : GTLRObject
 
 /**
+ *  Optional. An array of configurations for this interface. Currently, only one
+ *  access config, ONE_TO_ONE_NAT, is supported. If no accessConfigs specified,
+ *  the instance will have an external internet access through an ephemeral
+ *  external IP address.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_AccessConfig *> *accessConfigs;
+
+/**
  *  Optional. The name of the VPC that this VM instance is in. Format:
  *  `projects/{project_id}/global/networks/{network_id}`
  */
@@ -1554,8 +1831,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have Operation.error value
- *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+ *  Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1679,6 +1957,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  A reservation that an instance can consume from.
+ */
+@interface GTLRAIPlatformNotebooks_ReservationAffinity : GTLRObject
+
+/**
+ *  Required. Specifies the type of reservation from which this instance can
+ *  consume resources: RESERVATION_ANY (default), RESERVATION_SPECIFIC, or
+ *  RESERVATION_NONE. See Consuming reserved instances for examples.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationAny
+ *        Consume any reservation available. (Value: "RESERVATION_ANY")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationNone
+ *        Do not consume from any allocated capacity. (Value:
+ *        "RESERVATION_NONE")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationSpecific
+ *        Must consume from a specific reservation. Must specify key value
+ *        fields for specifying the reservations. (Value:
+ *        "RESERVATION_SPECIFIC")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_ReservationUnspecified
+ *        Default type. (Value: "RESERVATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *consumeReservationType;
+
+/**
+ *  Optional. Corresponds to the label key of a reservation resource. To target
+ *  a RESERVATION_SPECIFIC by name, use compute.googleapis.com/reservation-name
+ *  as the key and specify the name of your reservation as its value.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Optional. Corresponds to the label values of a reservation resource. This
+ *  can be either a name to a reservation in the same project or
+ *  "projects/different-project/reservations/some-reservation-name" to target a
+ *  shared reservation in the same zone but in a different project.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
  *  Request for resetting a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_ResetInstanceRequest : GTLRObject
@@ -1695,6 +2016,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /** Required. The data disk to be resized. Only disk_size_gb will be used. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DataDisk *dataDisk;
+
+@end
+
+
+/**
+ *  Request for restoring the notebook instance from a BackupSource.
+ */
+@interface GTLRAIPlatformNotebooks_RestoreInstanceRequest : GTLRObject
+
+/** Snapshot to be used for restore. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Snapshot *snapshot;
 
 @end
 
@@ -1760,7 +2092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Enables monitoring and attestation of the boot integrity of the VM instance.
  *  The attestation is performed against the integrity policy baseline. This
  *  baseline is initially derived from the implicitly trusted boot image when
- *  the VM instance is created. Enabled by default.
+ *  the VM instance is created.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1777,12 +2109,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
 
 /**
- *  Optional. Defines whether the VM instance has the vTPM enabled. Enabled by
- *  default.
+ *  Optional. Defines whether the VM instance has the vTPM enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableVtpm;
+
+@end
+
+
+/**
+ *  Snapshot represents the snapshot of the data disk used to restore the
+ *  Workbench Instance from. Refers to:
+ *  compute/v1/projects/{project_id}/global/snapshots/{snapshot_id}
+ */
+@interface GTLRAIPlatformNotebooks_Snapshot : GTLRObject
+
+/** Required. The project ID of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The ID of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotId;
 
 @end
 

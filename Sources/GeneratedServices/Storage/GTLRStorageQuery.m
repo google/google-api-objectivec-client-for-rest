@@ -394,8 +394,8 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_BucketsGet
 
-@dynamic bucket, ifMetagenerationMatch, ifMetagenerationNotMatch, projection,
-         userProject;
+@dynamic bucket, generation, ifMetagenerationMatch, ifMetagenerationNotMatch,
+         projection, softDeleted, userProject;
 
 + (instancetype)queryWithBucket:(NSString *)bucket {
   NSArray *pathParams = @[ @"bucket" ];
@@ -431,6 +431,25 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_BucketsGetStorageLayout
+
+@dynamic bucket, prefix;
+
++ (instancetype)queryWithBucket:(NSString *)bucket {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/storageLayout";
+  GTLRStorageQuery_BucketsGetStorageLayout *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_BucketStorageLayout class];
+  query.loggingName = @"storage.buckets.getStorageLayout";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_BucketsInsert
 
 @dynamic enableObjectRetention, predefinedAcl, predefinedDefaultObjectAcl,
@@ -460,7 +479,8 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_BucketsList
 
-@dynamic maxResults, pageToken, prefix, project, projection, userProject;
+@dynamic maxResults, pageToken, prefix, project, projection, softDeleted,
+         userProject;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSString *pathURITemplate = @"b";
@@ -520,6 +540,54 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.bucket = bucket;
   query.expectedObjectClass = [GTLRStorage_Bucket class];
   query.loggingName = @"storage.buckets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_BucketsRelocate
+
+@dynamic bucket;
+
++ (instancetype)queryWithObject:(GTLRStorage_RelocateBucketRequest *)object
+                         bucket:(NSString *)bucket {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/relocate";
+  GTLRStorageQuery_BucketsRelocate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.buckets.relocate";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_BucketsRestore
+
+@dynamic bucket, generation, projection, userProject;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                     generation:(long long)generation {
+  NSArray *pathParams = @[ @"bucket" ];
+  NSString *pathURITemplate = @"b/{bucket}/restore";
+  GTLRStorageQuery_BucketsRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.generation = generation;
+  query.expectedObjectClass = [GTLRStorage_Bucket class];
+  query.loggingName = @"storage.buckets.restore";
   return query;
 }
 
@@ -901,7 +969,8 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ManagedFoldersDelete
 
-@dynamic bucket, ifMetagenerationMatch, ifMetagenerationNotMatch, managedFolder;
+@dynamic allowNonEmpty, bucket, ifMetagenerationMatch, ifMetagenerationNotMatch,
+         managedFolder;
 
 + (instancetype)queryWithBucket:(NSString *)bucket
                   managedFolder:(NSString *)managedFolder {
@@ -1463,7 +1532,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @dynamic bucket, generation, ifGenerationMatch, ifGenerationNotMatch,
          ifMetagenerationMatch, ifMetagenerationNotMatch, object, projection,
-         softDeleted, userProject;
+         restoreToken, softDeleted, userProject;
 
 + (instancetype)queryWithBucket:(NSString *)bucket
                          object:(NSString *)object_param {
@@ -1551,7 +1620,7 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_ObjectsList
 
-@dynamic bucket, delimiter, endOffset, includeFoldersAsPrefixes,
+@dynamic bucket, delimiter, endOffset, filter, includeFoldersAsPrefixes,
          includeTrailingDelimiter, matchGlob, maxResults, pageToken, prefix,
          projection, softDeleted, startOffset, userProject, versions;
 
@@ -1565,6 +1634,35 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.bucket = bucket;
   query.expectedObjectClass = [GTLRStorage_Objects class];
   query.loggingName = @"storage.objects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_ObjectsMove
+
+@dynamic bucket, destinationObject, ifGenerationMatch, ifGenerationNotMatch,
+         ifMetagenerationMatch, ifMetagenerationNotMatch,
+         ifSourceGenerationMatch, ifSourceGenerationNotMatch,
+         ifSourceMetagenerationMatch, ifSourceMetagenerationNotMatch,
+         projection, sourceObject, userProject;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   sourceObject:(NSString *)sourceObject
+              destinationObject:(NSString *)destinationObject {
+  NSArray *pathParams = @[
+    @"bucket", @"destinationObject", @"sourceObject"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/o/{sourceObject}/moveTo/o/{destinationObject}";
+  GTLRStorageQuery_ObjectsMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.sourceObject = sourceObject;
+  query.destinationObject = destinationObject;
+  query.expectedObjectClass = [GTLRStorage_Object class];
+  query.loggingName = @"storage.objects.move";
   return query;
 }
 
@@ -1607,18 +1705,11 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @dynamic bucket, copySourceAcl, generation, ifGenerationMatch,
          ifGenerationNotMatch, ifMetagenerationMatch, ifMetagenerationNotMatch,
-         object, projection, userProject;
+         object, projection, restoreToken, userProject;
 
-+ (instancetype)queryWithObject:(GTLRStorage_Object *)object
-                         bucket:(NSString *)bucket
++ (instancetype)queryWithBucket:(NSString *)bucket
                          object:(NSString *)object_param
                      generation:(long long)generation {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
   NSArray *pathParams = @[
     @"bucket", @"object"
   ];
@@ -1627,7 +1718,6 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
   query.bucket = bucket;
   query.object = object_param;
   query.generation = generation;
@@ -1799,6 +1889,36 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
   query.bucket = bucket;
   query.expectedObjectClass = [GTLRStorage_Channel class];
   query.loggingName = @"storage.objects.watchAll";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageQuery_OperationsAdvanceRelocateBucket
+
+@dynamic bucket, operationId;
+
++ (instancetype)queryWithObject:(GTLRStorage_AdvanceRelocateBucketOperationRequest *)object
+                         bucket:(NSString *)bucket
+                    operationId:(NSString *)operationId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"bucket", @"operationId"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/operations/{operationId}/advanceRelocateBucket";
+  GTLRStorageQuery_OperationsAdvanceRelocateBucket *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.bucket = bucket;
+  query.operationId = operationId;
+  query.loggingName = @"storage.buckets.operations.advanceRelocateBucket";
   return query;
 }
 

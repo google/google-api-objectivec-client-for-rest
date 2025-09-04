@@ -20,6 +20,12 @@
 
 @class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHash;
 @class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail;
+@class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList;
+@class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata;
+@class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded128Bit;
+@class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded256Bit;
+@class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded32Bit;
+@class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded64Bit;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -59,19 +65,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail.threatType
 
 /**
- *  Malware threat type.
+ *  Malware threat type. Malware is any software or mobile application
+ *  specifically designed to harm a computer, a mobile device, the software it's
+ *  running, or its users. Malware exhibits malicious behavior that can include
+ *  installing software without user consent and installing harmful software
+ *  such as viruses. More information can be found
+ *  [here](https://developers.google.com/search/docs/monitor-debug/security/malware).
  *
  *  Value: "MALWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_Malware;
 /**
- *  Potentially harmful application threat type.
+ *  Potentially harmful application threat type [as used by Google Play Protect
+ *  for the Play
+ *  Store](https://developers.google.com/android/play-protect/potentially-harmful-applications).
  *
  *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_PotentiallyHarmfulApplication;
 /**
- *  Social engineering threat type.
+ *  Social engineering threat type. Social engineering pages falsely purport to
+ *  act on behalf of a third party with the intention of confusing viewers into
+ *  performing an action with which the viewer would only trust a true agent of
+ *  that third party. Phishing is a type of social engineering that tricks the
+ *  viewer into performing the specific action of providing information, such as
+ *  login credentials. More information can be found
+ *  [here](https://developers.google.com/search/docs/monitor-debug/security/social-engineering).
  *
  *  Value: "SOCIAL_ENGINEERING"
  */
@@ -84,11 +103,141 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_ThreatTypeUnspecified;
 /**
- *  Unwanted software threat type.
+ *  Unwanted software threat type. Unwanted software is any software that does
+ *  not adhere to [Google's Software
+ *  Principles](https://www.google.com/about/software-principles.html) but isn't
+ *  malware.
  *
  *  Value: "UNWANTED_SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_UnwantedSoftware;
+
+// ----------------------------------------------------------------------------
+// GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata.hashLength
+
+/**
+ *  Each hash is an eight-byte prefix.
+ *
+ *  Value: "EIGHT_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_EightBytes;
+/**
+ *  Each hash is a four-byte prefix.
+ *
+ *  Value: "FOUR_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_FourBytes;
+/**
+ *  Unspecified length.
+ *
+ *  Value: "HASH_LENGTH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_HashLengthUnspecified;
+/**
+ *  Each hash is a sixteen-byte prefix.
+ *
+ *  Value: "SIXTEEN_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_SixteenBytes;
+/**
+ *  Each hash is a thirty-two-byte full hash.
+ *
+ *  Value: "THIRTY_TWO_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_ThirtyTwoBytes;
+
+// ----------------------------------------------------------------------------
+// GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata.likelySafeTypes
+
+/**
+ *  This site is likely safe enough that there is no need to run Client-Side
+ *  Detection models or password protection checks.
+ *
+ *  Value: "CSD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_LikelySafeTypes_Csd;
+/**
+ *  This site is likely safe enough that downloads from the site need not be
+ *  checked.
+ *
+ *  Value: "DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_LikelySafeTypes_Download;
+/**
+ *  This site is likely safe enough for general browsing. This is also known as
+ *  the global cache.
+ *
+ *  Value: "GENERAL_BROWSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_LikelySafeTypes_GeneralBrowsing;
+/**
+ *  Unknown.
+ *
+ *  Value: "LIKELY_SAFE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_LikelySafeTypes_LikelySafeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata.threatTypes
+
+/**
+ *  Malware threat type. Malware is any software or mobile application
+ *  specifically designed to harm a computer, a mobile device, the software it's
+ *  running, or its users. Malware exhibits malicious behavior that can include
+ *  installing software without user consent and installing harmful software
+ *  such as viruses. More information can be found
+ *  [here](https://developers.google.com/search/docs/monitor-debug/security/malware).
+ *
+ *  Value: "MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_Malware;
+/**
+ *  Potentially harmful application threat type [as used by Google Play Protect
+ *  for the Play
+ *  Store](https://developers.google.com/android/play-protect/potentially-harmful-applications).
+ *
+ *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_PotentiallyHarmfulApplication;
+/**
+ *  Social engineering threat type. Social engineering pages falsely purport to
+ *  act on behalf of a third party with the intention of confusing viewers into
+ *  performing an action with which the viewer would only trust a true agent of
+ *  that third party. Phishing is a type of social engineering that tricks the
+ *  viewer into performing the specific action of providing information, such as
+ *  login credentials. More information can be found
+ *  [here](https://developers.google.com/search/docs/monitor-debug/security/social-engineering).
+ *
+ *  Value: "SOCIAL_ENGINEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_SocialEngineering;
+/**
+ *  Unknown threat type. If this is returned by the server, the client shall
+ *  disregard the enclosing `FullHashDetail` altogether.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_ThreatTypeUnspecified;
+/**
+ *  Unwanted software threat type. Unwanted software is any software that does
+ *  not adhere to [Google's Software
+ *  Principles](https://www.google.com/about/software-principles.html) but isn't
+ *  malware.
+ *
+ *  Value: "UNWANTED_SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_UnwantedSoftware;
+
+/**
+ *  The response containing multiple hash lists.
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5BatchGetHashListsResponse : GTLRObject
+
+/** The hash lists in the same order given in the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList *> *hashLists;
+
+@end
+
 
 /**
  *  The full hash identified with one or more matches.
@@ -139,20 +288,409 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *
  *  Likely values:
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_Malware
- *        Malware threat type. (Value: "MALWARE")
+ *        Malware threat type. Malware is any software or mobile application
+ *        specifically designed to harm a computer, a mobile device, the
+ *        software it's running, or its users. Malware exhibits malicious
+ *        behavior that can include installing software without user consent and
+ *        installing harmful software such as viruses. More information can be
+ *        found
+ *        [here](https://developers.google.com/search/docs/monitor-debug/security/malware).
+ *        (Value: "MALWARE")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_PotentiallyHarmfulApplication
- *        Potentially harmful application threat type. (Value:
- *        "POTENTIALLY_HARMFUL_APPLICATION")
+ *        Potentially harmful application threat type [as used by Google Play
+ *        Protect for the Play
+ *        Store](https://developers.google.com/android/play-protect/potentially-harmful-applications).
+ *        (Value: "POTENTIALLY_HARMFUL_APPLICATION")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_SocialEngineering
- *        Social engineering threat type. (Value: "SOCIAL_ENGINEERING")
+ *        Social engineering threat type. Social engineering pages falsely
+ *        purport to act on behalf of a third party with the intention of
+ *        confusing viewers into performing an action with which the viewer
+ *        would only trust a true agent of that third party. Phishing is a type
+ *        of social engineering that tricks the viewer into performing the
+ *        specific action of providing information, such as login credentials.
+ *        More information can be found
+ *        [here](https://developers.google.com/search/docs/monitor-debug/security/social-engineering).
+ *        (Value: "SOCIAL_ENGINEERING")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_ThreatTypeUnspecified
  *        Unknown threat type. If this is returned by the server, the client
  *        shall disregard the enclosing `FullHashDetail` altogether. (Value:
  *        "THREAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_UnwantedSoftware
- *        Unwanted software threat type. (Value: "UNWANTED_SOFTWARE")
+ *        Unwanted software threat type. Unwanted software is any software that
+ *        does not adhere to [Google's Software
+ *        Principles](https://www.google.com/about/software-principles.html) but
+ *        isn't malware. (Value: "UNWANTED_SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *threatType;
+
+@end
+
+
+/**
+ *  A list of hashes identified by its name.
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList : GTLRObject
+
+/** The 8-byte additions. */
+@property(nonatomic, strong, nullable) GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded64Bit *additionsEightBytes;
+
+/** The 4-byte additions. */
+@property(nonatomic, strong, nullable) GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded32Bit *additionsFourBytes;
+
+/** The 16-byte additions. */
+@property(nonatomic, strong, nullable) GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded128Bit *additionsSixteenBytes;
+
+/** The 32-byte additions. */
+@property(nonatomic, strong, nullable) GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded256Bit *additionsThirtyTwoBytes;
+
+/**
+ *  The Rice-delta encoded version of removal indices. Since each hash list
+ *  definitely has less than 2^32 entries, the indices are treated as 32-bit
+ *  integers and encoded.
+ */
+@property(nonatomic, strong, nullable) GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded32Bit *compressedRemovals;
+
+/**
+ *  Metadata about the hash list. This is not populated by the `GetHashList`
+ *  method, but this is populated by the `ListHashLists` method.
+ */
+@property(nonatomic, strong, nullable) GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata *metadata;
+
+/**
+ *  Clients should wait at least this long to get the hash list again. If
+ *  omitted or zero, clients SHOULD fetch immediately because it indicates that
+ *  the server has an additional update to be sent to the client, but could not
+ *  due to the client-specified constraints.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minimumWaitDuration;
+
+/**
+ *  The name of the hash list. Note that the Global Cache is also just a hash
+ *  list and can be referred to here.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  When true, this is a partial diff containing additions and removals based on
+ *  what the client already has. When false, this is the complete hash list.
+ *  When false, the client MUST delete any locally stored version for this hash
+ *  list. This means that either the version possessed by the client is
+ *  seriously out-of-date or the client data is believed to be corrupt. The
+ *  `compressed_removals` field will be empty. When true, the client MUST apply
+ *  an incremental update by applying removals and then additions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partialUpdate;
+
+/**
+ *  The sorted list of all hashes, hashed again with SHA256. This is the
+ *  checksum for the sorted list of all hashes present in the database after
+ *  applying the provided update. In the case that no updates were provided, the
+ *  server will omit this field to indicate that the client should use the
+ *  existing checksum.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sha256Checksum;
+
+/**
+ *  The version of the hash list. The client MUST NOT manipulate those bytes.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Metadata about a particular hash list.
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata : GTLRObject
+
+/**
+ *  A human-readable description about this list. Written in English.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The supported hash length for this hash list. Each hash list will support
+ *  exactly one length. If a different hash length is introduced for the same
+ *  set of threat types or safe types, it will be introduced as a separate list
+ *  with a distinct name and respective hash length set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_EightBytes
+ *        Each hash is an eight-byte prefix. (Value: "EIGHT_BYTES")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_FourBytes
+ *        Each hash is a four-byte prefix. (Value: "FOUR_BYTES")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_HashLengthUnspecified
+ *        Unspecified length. (Value: "HASH_LENGTH_UNSPECIFIED")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_SixteenBytes
+ *        Each hash is a sixteen-byte prefix. (Value: "SIXTEEN_BYTES")
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_ThirtyTwoBytes
+ *        Each hash is a thirty-two-byte full hash. (Value: "THIRTY_TWO_BYTES")
+ */
+@property(nonatomic, copy, nullable) NSString *hashLength;
+
+/**
+ *  Unordered list. If not empty, this specifies that the hash list represents a
+ *  list of likely safe hashes, and this enumerates the ways they are considered
+ *  likely safe. This field is mutually exclusive with the threat_types field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *likelySafeTypes;
+
+/**
+ *  Unordered list. If not empty, this specifies that the hash list is a kind of
+ *  threat list, and this enumerates the kind of threats associated with hashes
+ *  or hash prefixes in this hash list. May be empty if the entry does not
+ *  represent a threat, i.e. in the case that it represents a likely safe type.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *threatTypes;
+
+@end
+
+
+/**
+ *  The response containing metadata about hash lists.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "hashLists" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ListHashListsResponse : GTLRCollectionObject
+
+/**
+ *  The hash lists in an arbitrary order. Only metadata about the hash lists
+ *  will be included, not the contents.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList *> *hashLists;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Same as `RiceDeltaEncoded32Bit` except this encodes 128-bit numbers.
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded128Bit : GTLRObject
+
+/**
+ *  The encoded deltas that are encoded using the Golomb-Rice coder.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encodedData;
+
+/**
+ *  The number of entries that are delta encoded in the encoded data. If only a
+ *  single integer was encoded, this will be zero and the single value will be
+ *  stored in `first_value`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entriesCount;
+
+/**
+ *  The upper 64 bits of the first entry in the encoded data (hashes). If the
+ *  field is empty, the upper 64 bits are all zero.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValueHi;
+
+/**
+ *  The lower 64 bits of the first entry in the encoded data (hashes). If the
+ *  field is empty, the lower 64 bits are all zero.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValueLo;
+
+/**
+ *  The Golomb-Rice parameter. This parameter is guaranteed to be between 99 and
+ *  126, inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *riceParameter;
+
+@end
+
+
+/**
+ *  Same as `RiceDeltaEncoded32Bit` except this encodes 256-bit numbers.
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded256Bit : GTLRObject
+
+/**
+ *  The encoded deltas that are encoded using the Golomb-Rice coder.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encodedData;
+
+/**
+ *  The number of entries that are delta encoded in the encoded data. If only a
+ *  single integer was encoded, this will be zero and the single value will be
+ *  stored in `first_value`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entriesCount;
+
+/**
+ *  The first 64 bits of the first entry in the encoded data (hashes). If the
+ *  field is empty, the first 64 bits are all zero.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValueFirstPart;
+
+/**
+ *  The last 64 bits of the first entry in the encoded data (hashes). If the
+ *  field is empty, the last 64 bits are all zero.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValueFourthPart;
+
+/**
+ *  The 65 through 128th bits of the first entry in the encoded data (hashes).
+ *  If the field is empty, the 65 through 128th bits are all zero.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValueSecondPart;
+
+/**
+ *  The 129 through 192th bits of the first entry in the encoded data (hashes).
+ *  If the field is empty, the 129 through 192th bits are all zero.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValueThirdPart;
+
+/**
+ *  The Golomb-Rice parameter. This parameter is guaranteed to be between 227
+ *  and 254, inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *riceParameter;
+
+@end
+
+
+/**
+ *  The Rice-Golomb encoded data. Used for either hashes or removal indices. It
+ *  is guaranteed that every hash or index here has the same length, and this
+ *  length is exactly 32 bits. Generally speaking, if we sort all the entries
+ *  lexicographically, we will find that the higher order bits tend not to
+ *  change as frequently as lower order bits. This means that if we also take
+ *  the adjacent difference between entries, the higher order bits have a high
+ *  probability of being zero. This exploits this high probability of zero by
+ *  essentially choosing a certain number of bits; all bits more significant
+ *  than this are likely to be zero so we use unary encoding. See the
+ *  `rice_parameter` field. Historical note: the Rice-delta encoding was first
+ *  used in V4 of this API. In V5, two significant improvements were made:
+ *  firstly, the Rice-delta encoding is now available with hash prefixes longer
+ *  than 4 bytes; secondly, the encoded data are now treated as big-endian so as
+ *  to avoid a costly sorting step.
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded32Bit : GTLRObject
+
+/**
+ *  The encoded deltas that are encoded using the Golomb-Rice coder.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encodedData;
+
+/**
+ *  The number of entries that are delta encoded in the encoded data. If only a
+ *  single integer was encoded, this will be zero and the single value will be
+ *  stored in `first_value`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entriesCount;
+
+/**
+ *  The first entry in the encoded data (hashes or indices), or, if only a
+ *  single hash prefix or index was encoded, that entry's value. If the field is
+ *  empty, the entry is zero.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValue;
+
+/**
+ *  The Golomb-Rice parameter. This parameter is guaranteed to be between 3 and
+ *  30, inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *riceParameter;
+
+@end
+
+
+/**
+ *  Same as `RiceDeltaEncoded32Bit` except this encodes 64-bit numbers.
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded64Bit : GTLRObject
+
+/**
+ *  The encoded deltas that are encoded using the Golomb-Rice coder.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *encodedData;
+
+/**
+ *  The number of entries that are delta encoded in the encoded data. If only a
+ *  single integer was encoded, this will be zero and the single value will be
+ *  stored in `first_value`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entriesCount;
+
+/**
+ *  The first entry in the encoded data (hashes), or, if only a single hash
+ *  prefix was encoded, that entry's value. If the field is empty, the entry is
+ *  zero.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstValue;
+
+/**
+ *  The Golomb-Rice parameter. This parameter is guaranteed to be between 35 and
+ *  62, inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *riceParameter;
 
 @end
 
@@ -162,7 +700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  the server will return an OK status (HTTP status code 200) with the
  *  `full_hashes` field empty, rather than returning a NOT_FOUND status (HTTP
  *  status code 404). **What's new in V5**: There is a separation between
- *  FullHash and FullHashDetail. In the case when a hash represents a site
+ *  `FullHash` and `FullHashDetail`. In the case when a hash represents a site
  *  having multiple threats (e.g. both MALWARE and SOCIAL_ENGINEERING), the full
  *  hash does not need to be sent twice as in V4. Furthermore, the cache
  *  duration has been simplified into a single `cache_duration` field.
@@ -175,10 +713,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  applies to every hash prefix queried by the client in the request,
  *  regardless of how many full hashes are returned in the response. Even if the
  *  server returns no full hashes for a particular hash prefix, this fact MUST
- *  also be cached by the client. Important: the client MUST NOT assume that the
- *  server will return the same cache duration for all responses. The server MAY
- *  choose different cache durations for different responses depending on the
- *  situation.
+ *  also be cached by the client. If and only if the field `full_hashes` is
+ *  empty, the client MAY increase the `cache_duration` to determine a new
+ *  expiration that is later than that specified by the server. In any case, the
+ *  increased cache duration must not be longer than 24 hours. Important: the
+ *  client MUST NOT assume that the server will return the same cache duration
+ *  for all responses. The server MAY choose different cache durations for
+ *  different responses depending on the situation.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *cacheDuration;
 

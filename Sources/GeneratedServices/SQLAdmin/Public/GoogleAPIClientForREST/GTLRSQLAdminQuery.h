@@ -23,6 +23,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// flagScope
+
+/**
+ *  connection pool configuration flags
+ *
+ *  Value: "SQL_FLAG_SCOPE_CONNECTION_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeConnectionPool;
+/**
+ *  database flags
+ *
+ *  Value: "SQL_FLAG_SCOPE_DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeDatabase;
+/**
+ *  Assume database flags if unspecified
+ *
+ *  Value: "SQL_FLAG_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other SQL Admin query classes.
  */
@@ -204,6 +233,201 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Creates a backup for a Cloud SQL instance. This API can be used only to
+ *  create on-demand backups.
+ *
+ *  Method: sql.Backups.CreateBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsCreateBackup : GTLRSQLAdminQuery
+
+/**
+ *  Required. The parent resource where this backup is created. Format:
+ *  projects/{project}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Creates a backup for a Cloud SQL instance. This API can be used only to
+ *  create on-demand backups.
+ *
+ *  @param object The @c GTLRSQLAdmin_Backup to include in the query.
+ *  @param parent Required. The parent resource where this backup is created.
+ *    Format: projects/{project}
+ *
+ *  @return GTLRSQLAdminQuery_BackupsCreateBackup
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_Backup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the backup.
+ *
+ *  Method: sql.Backups.DeleteBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsDeleteBackup : GTLRSQLAdminQuery
+
+/**
+ *  Required. The name of the backup to delete. Format:
+ *  projects/{project}/backups/{backup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Deletes the backup.
+ *
+ *  @param name Required. The name of the backup to delete. Format:
+ *    projects/{project}/backups/{backup}
+ *
+ *  @return GTLRSQLAdminQuery_BackupsDeleteBackup
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a resource containing information about a backup.
+ *
+ *  Method: sql.Backups.GetBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsGetBackup : GTLRSQLAdminQuery
+
+/**
+ *  Required. The name of the backup to retrieve. Format:
+ *  projects/{project}/backups/{backup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Backup.
+ *
+ *  Retrieves a resource containing information about a backup.
+ *
+ *  @param name Required. The name of the backup to retrieve. Format:
+ *    projects/{project}/backups/{backup}
+ *
+ *  @return GTLRSQLAdminQuery_BackupsGetBackup
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all backups associated with the project.
+ *
+ *  Method: sql.Backups.ListBackups
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsListBackups : GTLRSQLAdminQuery
+
+/**
+ *  Multiple filter queries are separated by spaces. For example, 'instance:abc
+ *  AND type:FINAL, 'location:us',
+ *  'backupInterval.startTime>=1950-01-01T01:01:25.771Z'. You can filter by
+ *  type, instance, backupInterval.startTime (creation time), or location.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of backups to return per response. The service might
+ *  return fewer backups than this value. If a value for this parameter isn't
+ *  specified, then, at most, 500 backups are returned. The maximum value is
+ *  2,000. Any values that you set, which are greater than 2,000, are changed to
+ *  2,000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListBackups` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListBackups` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent that owns this collection of backups. Format:
+ *  projects/{project}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_ListBackupsResponse.
+ *
+ *  Lists all backups associated with the project.
+ *
+ *  @param parent Required. The parent that owns this collection of backups.
+ *    Format: projects/{project}
+ *
+ *  @return GTLRSQLAdminQuery_BackupsListBackups
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the retention period and description of the backup. You can use this
+ *  API to update final backups only.
+ *
+ *  Method: sql.Backups.UpdateBackup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_BackupsUpdateBackup : GTLRSQLAdminQuery
+
+/**
+ *  Output only. The resource name of the backup. Format:
+ *  projects/{project}/backups/{backup}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields that you can update. You can update only the description
+ *  and retention period of the final backup.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Updates the retention period and description of the backup. You can use this
+ *  API to update final backups only.
+ *
+ *  @param object The @c GTLRSQLAdmin_Backup to include in the query.
+ *  @param name Output only. The resource name of the backup. Format:
+ *    projects/{project}/backups/{backup}.
+ *
+ *  @return GTLRSQLAdminQuery_BackupsUpdateBackup
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_Backup *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -532,6 +756,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
 /**
+ *  Optional. Specify the scope of flags to be returned by SqlFlagsListService.
+ *  Return list of database flags if unspecified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified Assume database
+ *        flags if unspecified (Value: "SQL_FLAG_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdminFlagScopeSqlFlagScopeDatabase database flags (Value:
+ *        "SQL_FLAG_SCOPE_DATABASE")
+ *    @arg @c kGTLRSQLAdminFlagScopeSqlFlagScopeConnectionPool connection pool
+ *        configuration flags (Value: "SQL_FLAG_SCOPE_CONNECTION_POOL")
+ */
+@property(nonatomic, copy, nullable) NSString *flagScope;
+
+/**
  *  Fetches a @c GTLRSQLAdmin_FlagsListResponse.
  *
  *  Lists all available database flags for Cloud SQL instances.
@@ -543,11 +781,60 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Acquire a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  Method: sql.instances.acquireSsrsLease
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesAcquireSsrsLease : GTLRSQLAdminQuery
+
+/**
+ *  Required. Cloud SQL instance ID. This doesn't include the project ID. It's
+ *  composed of lowercase letters, numbers, and hyphens, and it must start with
+ *  a letter. The total length must be 98 characters or less (Example:
+ *  instance-id).
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Required. Project ID of the project that contains the instance (Example:
+ *  project-id).
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesAcquireSsrsLeaseResponse.
+ *
+ *  Acquire a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesAcquireSsrsLeaseRequest to
+ *    include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance (Example: project-id).
+ *  @param instance Required. Cloud SQL instance ID. This doesn't include the
+ *    project ID. It's composed of lowercase letters, numbers, and hyphens, and
+ *    it must start with a letter. The total length must be 98 characters or
+ *    less (Example: instance-id).
+ *
+ *  @return GTLRSQLAdminQuery_InstancesAcquireSsrsLease
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesAcquireSsrsLeaseRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Adds a new trusted Certificate Authority (CA) version for the specified
  *  instance. Required to prepare for a certificate rotation. If a CA version
  *  was previously added but never used in a certificate rotation, this
  *  operation replaces that version. There cannot be more than one CA version
- *  waiting to be rotated in.
+ *  waiting to be rotated in. For instances that have enabled Certificate
+ *  Authority Service (CAS) based server CA, use AddServerCertificate to add a
+ *  new server certificate.
  *
  *  Method: sql.instances.addServerCa
  *
@@ -570,12 +857,56 @@ NS_ASSUME_NONNULL_BEGIN
  *  instance. Required to prepare for a certificate rotation. If a CA version
  *  was previously added but never used in a certificate rotation, this
  *  operation replaces that version. There cannot be more than one CA version
- *  waiting to be rotated in.
+ *  waiting to be rotated in. For instances that have enabled Certificate
+ *  Authority Service (CAS) based server CA, use AddServerCertificate to add a
+ *  new server certificate.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_InstancesAddServerCa
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Add a new trusted server certificate version for the specified instance
+ *  using Certificate Authority Service (CAS) server CA. Required to prepare for
+ *  a certificate rotation. If a server certificate version was previously added
+ *  but never used in a certificate rotation, this operation replaces that
+ *  version. There cannot be more than one certificate version waiting to be
+ *  rotated in. For instances not using CAS server CA, use AddServerCa instead.
+ *
+ *  Method: sql.instances.addServerCertificate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesAddServerCertificate : GTLRSQLAdminQuery
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Add a new trusted server certificate version for the specified instance
+ *  using Certificate Authority Service (CAS) server CA. Required to prepare for
+ *  a certificate rotation. If a server certificate version was previously added
+ *  but never used in a certificate rotation, this operation replaces that
+ *  version. There cannot be more than one certificate version waiting to be
+ *  rotated in. For instances not using CAS server CA, use AddServerCa instead.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesAddServerCertificate
  */
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance;
@@ -634,6 +965,21 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesDelete : GTLRSQLAdminQuery
+
+/** Flag to opt-in for final backup. By default, it is turned off. */
+@property(nonatomic, assign) BOOL enableFinalBackup;
+
+/** Optional. The description of the final backup. */
+@property(nonatomic, copy, nullable) NSString *finalBackupDescription;
+
+/**
+ *  Optional. Final Backup expiration time. Timestamp in UTC of when this
+ *  resource is considered expired.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *finalBackupExpiryTime;
+
+/** Optional. Retention period of the final backup. */
+@property(nonatomic, assign) long long finalBackupTtlDays;
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -726,6 +1072,42 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSQLAdminQuery_InstancesDemoteMaster
  */
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesDemoteMasterRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Execute SQL statements.
+ *
+ *  Method: sql.instances.executeSql
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesExecuteSql : GTLRSQLAdminQuery
+
+/** Required. Database instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesExecuteSqlResponse.
+ *
+ *  Execute SQL statements.
+ *
+ *  @param object The @c GTLRSQLAdmin_ExecuteSqlPayload to include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Database instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesExecuteSql
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_ExecuteSqlPayload *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
 
@@ -1011,6 +1393,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists all versions of server certificates and certificate authorities (CAs)
+ *  for the specified instance. There can be up to three sets of certs listed:
+ *  the certificate that is currently in use, a future that has been added but
+ *  not yet used to sign a certificate, and a certificate that has been rotated
+ *  out. For instances not using Certificate Authority Service (CAS) server CA,
+ *  use ListServerCas instead.
+ *
+ *  Method: sql.instances.ListServerCertificates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesListServerCertificates : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_InstancesListServerCertificatesResponse.
+ *
+ *  Lists all versions of server certificates and certificate authorities (CAs)
+ *  for the specified instance. There can be up to three sets of certs listed:
+ *  the certificate that is currently in use, a future that has been added but
+ *  not yet used to sign a certificate, and a certificate that has been rotated
+ *  out. For instances not using Certificate Authority Service (CAS) server CA,
+ *  use ListServerCas instead.
+ *
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesListServerCertificates
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Partially updates settings of a Cloud SQL instance by merging the request
  *  with the current configuration. This method supports patch semantics.
  *
@@ -1047,8 +1473,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Promotes the read replica instance to be a stand-alone Cloud SQL instance.
- *  Using this operation might cause your instance to restart.
+ *  Point in time restore for an instance managed by Google Cloud Backup and
+ *  Disaster Recovery.
+ *
+ *  Method: sql.instances.pointInTimeRestore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesPointInTimeRestore : GTLRSQLAdminQuery
+
+/**
+ *  Required. The parent resource where you created this instance. Format:
+ *  projects/{project}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Point in time restore for an instance managed by Google Cloud Backup and
+ *  Disaster Recovery.
+ *
+ *  @param object The @c GTLRSQLAdmin_PointInTimeRestoreContext to include in
+ *    the query.
+ *  @param parent Required. The parent resource where you created this instance.
+ *    Format: projects/{project}
+ *
+ *  @return GTLRSQLAdminQuery_InstancesPointInTimeRestore
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_PointInTimeRestoreContext *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Promotes the read replica instance to be an independent Cloud SQL primary
+ *  instance. Using this operation might cause your instance to restart.
  *
  *  Method: sql.instances.promoteReplica
  *
@@ -1059,9 +1521,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdminQuery_InstancesPromoteReplica : GTLRSQLAdminQuery
 
 /**
- *  Set to true if the promote operation should attempt to re-add the original
- *  primary as a replica when it comes back online. Otherwise, if this value is
- *  false or not set, the original primary will be a standalone instance.
+ *  Set to true to invoke a replica failover to the DR replica. As part of
+ *  replica failover, the promote operation attempts to add the original primary
+ *  instance as a replica of the promoted DR replica when the original primary
+ *  instance comes back online. If set to false or not specified, then the
+ *  original primary instance becomes an independent Cloud SQL primary instance.
  */
 @property(nonatomic, assign) BOOL failover;
 
@@ -1074,8 +1538,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Promotes the read replica instance to be a stand-alone Cloud SQL instance.
- *  Using this operation might cause your instance to restart.
+ *  Promotes the read replica instance to be an independent Cloud SQL primary
+ *  instance. Using this operation might cause your instance to restart.
  *
  *  @param project ID of the project that contains the read replica.
  *  @param instance Cloud SQL read replica instance name.
@@ -1119,6 +1583,46 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesReencryptRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Release a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  Method: sql.instances.releaseSsrsLease
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesReleaseSsrsLease : GTLRSQLAdminQuery
+
+/**
+ *  Required. The Cloud SQL instance ID. This doesn't include the project ID.
+ *  The instance ID contains lowercase letters, numbers, and hyphens, and it
+ *  must start with a letter. This ID can have a maximum length of 98
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. The project ID that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_SqlInstancesReleaseSsrsLeaseResponse.
+ *
+ *  Release a lease for the setup of SQL Server Reporting Services (SSRS).
+ *
+ *  @param project Required. The project ID that contains the instance.
+ *  @param instance Required. The Cloud SQL instance ID. This doesn't include
+ *    the project ID. The instance ID contains lowercase letters, numbers, and
+ *    hyphens, and it must start with a letter. This ID can have a maximum
+ *    length of 98 characters.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesReleaseSsrsLease
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
 
 @end
 
@@ -1228,7 +1732,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Rotates the server certificate to one signed by the Certificate Authority
- *  (CA) version previously added with the addServerCA method.
+ *  (CA) version previously added with the addServerCA method. For instances
+ *  that have enabled Certificate Authority Service (CAS) based server CA, use
+ *  RotateServerCertificate to rotate the server certificate.
  *
  *  Method: sql.instances.rotateServerCa
  *
@@ -1248,7 +1754,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
  *  Rotates the server certificate to one signed by the Certificate Authority
- *  (CA) version previously added with the addServerCA method.
+ *  (CA) version previously added with the addServerCA method. For instances
+ *  that have enabled Certificate Authority Service (CAS) based server CA, use
+ *  RotateServerCertificate to rotate the server certificate.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesRotateServerCaRequest to include
  *    in the query.
@@ -1258,6 +1766,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSQLAdminQuery_InstancesRotateServerCa
  */
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCaRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Rotates the server certificate version to one previously added with the
+ *  addServerCertificate method. For instances not using Certificate Authority
+ *  Service (CAS) server CA, use RotateServerCa instead.
+ *
+ *  Method: sql.instances.RotateServerCertificate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesRotateServerCertificate : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Rotates the server certificate version to one previously added with the
+ *  addServerCertificate method. For instances not using Certificate Authority
+ *  Service (CAS) server CA, use RotateServerCa instead.
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesRotateServerCertificateRequest to
+ *    include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesRotateServerCertificate
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCertificateRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
 
@@ -1328,7 +1877,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Switches over from the primary instance to the replica instance.
+ *  Switches over from the primary instance to the DR replica instance.
  *
  *  Method: sql.instances.switchover
  *
@@ -1339,9 +1888,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdminQuery_InstancesSwitchover : GTLRSQLAdminQuery
 
 /**
- *  Optional. (MySQL only) Cloud SQL instance operations timeout, which is a sum
- *  of all database operations. Default value is 10 minutes and can be modified
- *  to a maximum value of 24 hours.
+ *  Optional. (MySQL and PostgreSQL only) Cloud SQL instance operations timeout,
+ *  which is a sum of all database operations. Default value is 10 minutes and
+ *  can be modified to a maximum value of 24 hours.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *dbTimeout;
 
@@ -1354,7 +1903,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Switches over from the primary instance to the replica instance.
+ *  Switches over from the primary instance to the DR replica instance.
  *
  *  @param project ID of the project that contains the replica.
  *  @param instance Cloud SQL read replica instance name.
@@ -1594,6 +2143,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The timestamp used to identify the time when the source instance is deleted.
+ *  If this instance is deleted, then you must set the timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *sourceInstanceDeletionTime;
 
 /**
  *  Fetches a @c GTLRSQLAdmin_SqlInstancesGetLatestRecoveryTimeResponse.

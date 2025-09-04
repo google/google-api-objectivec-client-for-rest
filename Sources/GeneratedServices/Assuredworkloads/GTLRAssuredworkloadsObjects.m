@@ -16,25 +16,59 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeV
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_ExistingChildResourceViolations = @"EXISTING_CHILD_RESOURCE_VIOLATIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_SingleViolation = @"SINGLE_VIOLATION";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata.action
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_Apply = @"APPLY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_WorkloadUpdateActionUnspecified = @"WORKLOAD_UPDATE_ACTION_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest.action
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_Apply = @"APPLY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified = @"WORKLOAD_UPDATE_ACTION_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners = @"ASSURED_WORKLOADS_FOR_PARTNERS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport = @"AU_REGIONS_AND_US_SUPPORT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AustraliaDataBoundaryAndSupport = @"AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaControlledGoods = @"CANADA_CONTROLLED_GOODS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaDataBoundaryAndSupport = @"CANADA_DATA_BOUNDARY_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaProtectedB = @"CA_PROTECTED_B";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport = @"CA_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Cjis = @"CJIS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified = @"COMPLIANCE_REGIME_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCanadaControlledGoods = @"DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCanadaProtectedB = @"DATA_BOUNDARY_FOR_CANADA_PROTECTED_B";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCjis = @"DATA_BOUNDARY_FOR_CJIS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForFedrampHigh = @"DATA_BOUNDARY_FOR_FEDRAMP_HIGH";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForFedrampModerate = @"DATA_BOUNDARY_FOR_FEDRAMP_MODERATE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl2 = @"DATA_BOUNDARY_FOR_IL2";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl4 = @"DATA_BOUNDARY_FOR_IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl5 = @"DATA_BOUNDARY_FOR_IL5";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIrsPublication1075 = @"DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForItar = @"DATA_BOUNDARY_FOR_ITAR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuDataBoundaryAndSupport = @"EU_DATA_BOUNDARY_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport = @"EU_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampHigh = @"FEDRAMP_HIGH";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate = @"FEDRAMP_MODERATE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControls = @"HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport = @"HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il2 = @"IL2";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4 = @"IL4";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il5 = @"IL5";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Irs1075 = @"IRS_1075";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsraelDataBoundaryAndSupport = @"ISRAEL_DATA_BOUNDARY_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions = @"ISR_REGIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport = @"ISR_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar = @"ITAR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JapanDataBoundary = @"JAPAN_DATA_BOUNDARY";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport = @"JP_REGIONS_AND_SUPPORT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaDataBoundaryWithAccessJustifications = @"KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls = @"KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls = @"REGIONAL_CONTROLS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalDataBoundary = @"REGIONAL_DATA_BOUNDARY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryAndSupport = @"US_DATA_BOUNDARY_AND_SUPPORT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest.restrictionType
@@ -59,28 +93,55 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRem
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationListAllowedValuesOrgPolicyViolation = @"REMEDIATION_LIST_ALLOWED_VALUES_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationListDeniedValuesOrgPolicyViolation = @"REMEDIATION_LIST_DENIED_VALUES_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation = @"REMEDIATION_RESOURCE_VIOLATION";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolationNonCmekServices = @"REMEDIATION_RESOURCE_VIOLATION_NON_CMEK_SERVICES";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationRestrictCmekCryptoKeyProjectsOrgPolicyViolation = @"REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationTypeUnspecified = @"REMEDIATION_TYPE_UNSPECIFIED";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AssuredWorkloadsForPartners = @"ASSURED_WORKLOADS_FOR_PARTNERS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport = @"AU_REGIONS_AND_US_SUPPORT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AustraliaDataBoundaryAndSupport = @"AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaControlledGoods = @"CANADA_CONTROLLED_GOODS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaDataBoundaryAndSupport = @"CANADA_DATA_BOUNDARY_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaProtectedB = @"CA_PROTECTED_B";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport = @"CA_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Cjis = @"CJIS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified = @"COMPLIANCE_REGIME_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCanadaControlledGoods = @"DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCanadaProtectedB = @"DATA_BOUNDARY_FOR_CANADA_PROTECTED_B";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCjis = @"DATA_BOUNDARY_FOR_CJIS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForFedrampHigh = @"DATA_BOUNDARY_FOR_FEDRAMP_HIGH";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForFedrampModerate = @"DATA_BOUNDARY_FOR_FEDRAMP_MODERATE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl2 = @"DATA_BOUNDARY_FOR_IL2";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl4 = @"DATA_BOUNDARY_FOR_IL4";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl5 = @"DATA_BOUNDARY_FOR_IL5";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIrsPublication1075 = @"DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForItar = @"DATA_BOUNDARY_FOR_ITAR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuDataBoundaryAndSupport = @"EU_DATA_BOUNDARY_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport = @"EU_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampHigh = @"FEDRAMP_HIGH";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate = @"FEDRAMP_MODERATE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControls = @"HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport = @"HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa = @"HIPAA";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust = @"HITRUST";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il2 = @"IL2";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4 = @"IL4";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il5 = @"IL5";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Irs1075 = @"IRS_1075";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsraelDataBoundaryAndSupport = @"ISRAEL_DATA_BOUNDARY_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions = @"ISR_REGIONS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport = @"ISR_REGIONS_AND_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar = @"ITAR";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JapanDataBoundary = @"JAPAN_DATA_BOUNDARY";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport = @"JP_REGIONS_AND_SUPPORT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaDataBoundaryWithAccessJustifications = @"KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls = @"KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls = @"REGIONAL_CONTROLS";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalDataBoundary = @"REGIONAL_DATA_BOUNDARY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryAndSupport = @"US_DATA_BOUNDARY_AND_SUPPORT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport = @"US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.kajEnrollmentState
@@ -91,6 +152,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Kaj
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.partner
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns = @"LOCAL_CONTROLS_BY_S3NS";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified = @"PARTNER_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxt = @"SOVEREIGN_CONTROLS_BY_CNTXT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxtNoEkm = @"SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByPsn = @"SOVEREIGN_CONTROLS_BY_PSN";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsBySiaMinsait = @"SOVEREIGN_CONTROLS_BY_SIA_MINSAIT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems = @"SOVEREIGN_CONTROLS_BY_T_SYSTEMS";
@@ -141,6 +204,16 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete = @"STATUS_COMPLETE";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending = @"STATUS_PENDING";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate.state
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Applied = @"APPLIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Available = @"AVAILABLE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Withdrawn = @"WITHDRAWN";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions.kajEnrollmentType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KajEnrollmentTypeUnspecified = @"KAJ_ENROLLMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KeyAccessTransparencyOff = @"KEY_ACCESS_TRANSPARENCY_OFF";
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
@@ -188,6 +261,36 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata
+@dynamic action, createTime, updateName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest
+@dynamic action;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateResponse
+@dynamic appliedUpdate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis
 //
 
@@ -211,6 +314,15 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata
 @dynamic complianceRegime, createTime, displayName, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse
 @end
 
 
@@ -262,6 +374,28 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 + (NSString *)collectionItemsKey {
   return @"workloads";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListWorkloadUpdatesResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListWorkloadUpdatesResponse
+@dynamic nextPageToken, workloadUpdates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workloadUpdates" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workloadUpdates";
 }
 
 @end
@@ -323,6 +457,55 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy
+@dynamic constraint, inherit, reset, resource, rule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule
+@dynamic allowAll, denyAll, enforce, values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues
+@dynamic allowedValues, deniedValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedValues" : [NSString class],
+    @"deniedValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate
+@dynamic appliedPolicy, suggestedPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest
 //
 
@@ -337,6 +520,16 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails
+@dynamic orgPolicyUpdate;
 @end
 
 
@@ -454,9 +647,10 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
          compliantButDisallowedServices, createTime, displayName,
          ekmProvisioningResponse, enableSovereignControls, ETag,
          kajEnrollmentState, kmsSettings, labels, name, partner,
-         partnerPermissions, provisionedResourcesParent,
-         resourceMonitoringEnabled, resources, resourceSettings,
-         saaEnrollmentResponse, violationNotificationsEnabled;
+         partnerPermissions, partnerServicesBillingAccount,
+         provisionedResourcesParent, resourceMonitoringEnabled, resources,
+         resourceSettings, saaEnrollmentResponse, violationNotificationsEnabled,
+         workloadOptions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -526,7 +720,8 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions
-@dynamic assuredWorkloadsMonitoring, dataLogsViewer, serviceAccessApprover;
+@dynamic accessTransparencyLogsSupportCaseViewer, assuredWorkloadsMonitoring,
+         dataLogsViewer, serviceAccessApprover;
 @end
 
 
@@ -565,6 +760,26 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate
+@dynamic createTime, details, name, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions
+@dynamic kajEnrollmentType;
 @end
 
 

@@ -373,7 +373,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `deviceBrand = "Google". * `deviceType`: Matches error issues that occurred
  *  in the requested device types. Example: `deviceType = "PHONE"`. *
  *  `errorIssueType`: Matches error issues of the requested types only. Valid
- *  candidates: `CRASH`, `ANR`. Example: `errorIssueType = CRASH OR
+ *  candidates: `CRASH`, `ANR`, `NON_FATAL`. Example: `errorIssueType = CRASH OR
  *  errorIssueType = ANR`. * `appProcessState`: Matches error issues on the
  *  process state of an app, indicating whether an app runs in the foreground
  *  (user-visible) or background. Valid candidates: `FOREGROUND`, `BACKGROUND`.
@@ -429,10 +429,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) NSInteger intervalEndTimeSeconds;
 
-/** IANA Time Zone Database time zone, e.g. "America/New_York". */
+/** IANA Time Zone Database time zone. For example "America/New_York". */
 @property(nonatomic, copy, nullable) NSString *intervalEndTimeTimeZoneId;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *intervalEndTimeTimeZoneVersion;
 
 /**
@@ -481,10 +481,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) NSInteger intervalStartTimeSeconds;
 
-/** IANA Time Zone Database time zone, e.g. "America/New_York". */
+/** IANA Time Zone Database time zone. For example "America/New_York". */
 @property(nonatomic, copy, nullable) NSString *intervalStartTimeTimeZoneId;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *intervalStartTimeTimeZoneVersion;
 
 /**
@@ -530,6 +530,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. Number of sample error reports to return per ErrorIssue. If
+ *  unspecified, 0 will be used. *Note:* currently only 0 and 1 are supported.
+ */
+@property(nonatomic, assign) NSInteger sampleErrorReportLimit;
+
+/**
  *  Fetches a @c
  *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1SearchErrorIssuesResponse.
  *
@@ -572,27 +578,29 @@ NS_ASSUME_NONNULL_BEGIN
  *  `deviceBrand = "Google". * `deviceType`: Matches error reports that occurred
  *  in the requested device types. Example: `deviceType = "PHONE"`. *
  *  `errorIssueType`: Matches error reports of the requested types only. Valid
- *  candidates: `JAVA_CRASH`, `NATIVE_CRASH`, `ANR`. Example: `errorIssueType =
- *  JAVA_CRASH OR errorIssueType = NATIVE_CRASH`. * `errorIssueId`: Matches
- *  error reports belonging to the requested error issue ids only. Example:
- *  `errorIssueId = 1234 OR errorIssueId = 4567`. * `appProcessState`: Matches
- *  error reports on the process state of an app, indicating whether an app runs
- *  in the foreground (user-visible) or background. Valid candidates:
- *  `FOREGROUND`, `BACKGROUND`. Example: `appProcessState = FOREGROUND`. *
- *  `isUserPerceived`: Matches error reports that are user-perceived. It is not
- *  accompanied by any operators. Example: `isUserPerceived`. ** Supported
- *  operators:** * Comparison operators: The only supported comparison operator
- *  is equality. The filtered field must appear on the left hand side of the
- *  comparison. * Logical Operators: Logical operators `AND` and `OR` can be
- *  used to build complex filters following a conjunctive normal form (CNF),
- *  i.e., conjunctions of disjunctions. The `OR` operator takes precedence over
- *  `AND` so the use of parenthesis is not necessary when building CNF. The `OR`
- *  operator is only supported to build disjunctions that apply to the same
- *  field, e.g., `versionCode = 123 OR versionCode = ANR`. The filter expression
- *  `versionCode = 123 OR errorIssueType = ANR` is not valid. ** Examples **
- *  Some valid filtering expressions: * `versionCode = 123 AND errorIssueType =
- *  ANR` * `versionCode = 123 AND errorIssueType = OR errorIssueType = CRASH` *
- *  `versionCode = 123 AND (errorIssueType = OR errorIssueType = CRASH)`
+ *  candidates: `CRASH`, `ANR`, `NON_FATAL`. Example: `errorIssueType = CRASH OR
+ *  errorIssueType = ANR`. * `errorIssueId`: Matches error reports belonging to
+ *  the requested error issue ids only. Example: `errorIssueId = 1234 OR
+ *  errorIssueId = 4567`. * `errorReportId`: Matches error reports with the
+ *  requested error report id. Example: `errorReportId = 1234 OR errorReportId =
+ *  4567`. * `appProcessState`: Matches error reports on the process state of an
+ *  app, indicating whether an app runs in the foreground (user-visible) or
+ *  background. Valid candidates: `FOREGROUND`, `BACKGROUND`. Example:
+ *  `appProcessState = FOREGROUND`. * `isUserPerceived`: Matches error reports
+ *  that are user-perceived. It is not accompanied by any operators. Example:
+ *  `isUserPerceived`. ** Supported operators:** * Comparison operators: The
+ *  only supported comparison operator is equality. The filtered field must
+ *  appear on the left hand side of the comparison. * Logical Operators: Logical
+ *  operators `AND` and `OR` can be used to build complex filters following a
+ *  conjunctive normal form (CNF), i.e., conjunctions of disjunctions. The `OR`
+ *  operator takes precedence over `AND` so the use of parenthesis is not
+ *  necessary when building CNF. The `OR` operator is only supported to build
+ *  disjunctions that apply to the same field, e.g., `versionCode = 123 OR
+ *  versionCode = ANR`. The filter expression `versionCode = 123 OR
+ *  errorIssueType = ANR` is not valid. ** Examples ** Some valid filtering
+ *  expressions: * `versionCode = 123 AND errorIssueType = ANR` * `versionCode =
+ *  123 AND errorIssueType = OR errorIssueType = CRASH` * `versionCode = 123 AND
+ *  (errorIssueType = OR errorIssueType = CRASH)`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -630,10 +638,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) NSInteger intervalEndTimeSeconds;
 
-/** IANA Time Zone Database time zone, e.g. "America/New_York". */
+/** IANA Time Zone Database time zone. For example "America/New_York". */
 @property(nonatomic, copy, nullable) NSString *intervalEndTimeTimeZoneId;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *intervalEndTimeTimeZoneVersion;
 
 /**
@@ -682,10 +690,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) NSInteger intervalStartTimeSeconds;
 
-/** IANA Time Zone Database time zone, e.g. "America/New_York". */
+/** IANA Time Zone Database time zone. For example "America/New_York". */
 @property(nonatomic, copy, nullable) NSString *intervalStartTimeTimeZoneId;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *intervalStartTimeTimeZoneVersion;
 
 /**
@@ -800,6 +808,64 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRPlaydeveloperreportingQuery_VitalsExcessivewakeuprateQuery
  */
 + (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Describes the properties of the metric set.
+ *
+ *  Method: playdeveloperreporting.vitals.lmkrate.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_VitalsLmkrateGet : GTLRPlaydeveloperreportingQuery
+
+/** Required. The resource name. Format: apps/{app}/lmkRateMetricSet */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1LmkRateMetricSet.
+ *
+ *  Describes the properties of the metric set.
+ *
+ *  @param name Required. The resource name. Format: apps/{app}/lmkRateMetricSet
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_VitalsLmkrateGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Queries the metrics in the metric set.
+ *
+ *  Method: playdeveloperreporting.vitals.lmkrate.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlaydeveloperreporting
+ */
+@interface GTLRPlaydeveloperreportingQuery_VitalsLmkrateQuery : GTLRPlaydeveloperreportingQuery
+
+/** Required. The resource name. Format: apps/{app}/lmkRateMetricSet */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetResponse.
+ *
+ *  Queries the metrics in the metric set.
+ *
+ *  @param object The @c
+ *    GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest
+ *    to include in the query.
+ *  @param name Required. The resource name. Format: apps/{app}/lmkRateMetricSet
+ *
+ *  @return GTLRPlaydeveloperreportingQuery_VitalsLmkrateQuery
+ */
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest *)object
                            name:(NSString *)name;
 
 @end

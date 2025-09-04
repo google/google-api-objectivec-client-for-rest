@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   OS Config API (osconfig/v1)
+//   OS Config API (osconfig/v2)
 // Description:
 //   OS management tools that can be used for patch management, patch
 //   compliance, and configuration management on VM instances.
@@ -24,35 +24,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Constants - For some of the query classes' properties below.
-
-// ----------------------------------------------------------------------------
-// view
-
-/**
- *  Returns the basic inventory information that includes `os_info`.
- *
- *  Value: "BASIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLROSConfigViewBasic;
-/**
- *  Returns all fields.
- *
- *  Value: "FULL"
- */
-FOUNDATION_EXTERN NSString * const kGTLROSConfigViewFull;
-/**
- *  The default value. The API defaults to the BASIC view.
- *
- *  Value: "INVENTORY_VIEW_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 /**
  *  Parent class for other OS Config query classes.
  */
@@ -64,482 +35,171 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 @end
 
 /**
- *  Get inventory data for the specified VM instance. If the VM has no
- *  associated inventory, the message `NOT_FOUND` is returned.
+ *  Creates a new policy orchestrator under the given folder resource. `name`
+ *  field of the given orchestrator are ignored and instead replaced by a
+ *  product of `parent` and `policy_orchestrator_id`. Orchestrator state field
+ *  might be only set to `ACTIVE`, `STOPPED` or omitted (in which case, the
+ *  created resource will be in `ACTIVE` state anyway).
  *
- *  Method: osconfig.projects.locations.instances.inventories.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet : GTLROSConfigQuery
-
-/**
- *  Required. API resource name for inventory resource. Format:
- *  `projects/{project}/locations/{location}/instances/{instance}/inventory` For
- *  `{project}`, either `project-number` or `project-id` can be provided. For
- *  `{instance}`, either Compute Engine `instance-id` or `instance-name` can be
- *  provided.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Inventory view indicating what information should be included in the
- *  inventory resource. If unspecified, the default view is BASIC.
- *
- *  Likely values:
- *    @arg @c kGTLROSConfigViewInventoryViewUnspecified The default value. The
- *        API defaults to the BASIC view. (Value: "INVENTORY_VIEW_UNSPECIFIED")
- *    @arg @c kGTLROSConfigViewBasic Returns the basic inventory information
- *        that includes `os_info`. (Value: "BASIC")
- *    @arg @c kGTLROSConfigViewFull Returns all fields. (Value: "FULL")
- */
-@property(nonatomic, copy, nullable) NSString *view;
-
-/**
- *  Fetches a @c GTLROSConfig_Inventory.
- *
- *  Get inventory data for the specified VM instance. If the VM has no
- *  associated inventory, the message `NOT_FOUND` is returned.
- *
- *  @param name Required. API resource name for inventory resource. Format:
- *    `projects/{project}/locations/{location}/instances/{instance}/inventory`
- *    For `{project}`, either `project-number` or `project-id` can be provided.
- *    For `{instance}`, either Compute Engine `instance-id` or `instance-name`
- *    can be provided.
- *
- *  @return GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List inventory data for all VM instances in the specified zone.
- *
- *  Method: osconfig.projects.locations.instances.inventories.list
+ *  Method: osconfig.folders.locations.global.policyOrchestrators.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesList : GTLROSConfigQuery
+@interface GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsCreate : GTLROSConfigQuery
 
 /**
- *  If provided, this field specifies the criteria that must be met by a
- *  `Inventory` API resource to be included in the response.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The maximum number of results to return. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A pagination token returned from a previous call to `ListInventories` that
- *  indicates where this listing should continue from.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent resource name. Format:
- *  `projects/{project}/locations/{location}/instances/-` For `{project}`,
- *  either `project-number` or `project-id` can be provided.
+ *  Required. The parent resource name in the form of: *
+ *  `organizations/{organization_id}/locations/global` *
+ *  `folders/{folder_id}/locations/global` *
+ *  `projects/{project_id_or_number}/locations/global`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Inventory view indicating what information should be included in the
- *  inventory resource. If unspecified, the default view is BASIC.
- *
- *  Likely values:
- *    @arg @c kGTLROSConfigViewInventoryViewUnspecified The default value. The
- *        API defaults to the BASIC view. (Value: "INVENTORY_VIEW_UNSPECIFIED")
- *    @arg @c kGTLROSConfigViewBasic Returns the basic inventory information
- *        that includes `os_info`. (Value: "BASIC")
- *    @arg @c kGTLROSConfigViewFull Returns all fields. (Value: "FULL")
+ *  Required. The logical identifier of the policy orchestrator, with the
+ *  following restrictions: * Must contain only lowercase letters, numbers, and
+ *  hyphens. * Must start with a letter. * Must be between 1-63 characters. *
+ *  Must end with a number or a letter. * Must be unique within the parent.
  */
-@property(nonatomic, copy, nullable) NSString *view;
+@property(nonatomic, copy, nullable) NSString *policyOrchestratorId;
 
 /**
- *  Fetches a @c GTLROSConfig_ListInventoriesResponse.
- *
- *  List inventory data for all VM instances in the specified zone.
- *
- *  @param parent Required. The parent resource name. Format:
- *    `projects/{project}/locations/{location}/instances/-` For `{project}`,
- *    either `project-number` or `project-id` can be provided.
- *
- *  @return GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
  */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Get the OS policy assignment report for the specified Compute Engine VM
- *  instance.
- *
- *  Method: osconfig.projects.locations.instances.osPolicyAssignments.reports.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsLocationsInstancesOsPolicyAssignmentsReportsGet : GTLROSConfigQuery
-
-/**
- *  Required. API resource name for OS policy assignment report. Format:
- *  `/projects/{project}/locations/{location}/instances/{instance}/osPolicyAssignments/{assignment}/report`
- *  For `{project}`, either `project-number` or `project-id` can be provided.
- *  For `{instance_id}`, either Compute Engine `instance-id` or `instance-name`
- *  can be provided. For `{assignment_id}`, the OSPolicyAssignment id must be
- *  provided.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLROSConfig_OSPolicyAssignmentReport.
- *
- *  Get the OS policy assignment report for the specified Compute Engine VM
- *  instance.
- *
- *  @param name Required. API resource name for OS policy assignment report.
- *    Format:
- *    `/projects/{project}/locations/{location}/instances/{instance}/osPolicyAssignments/{assignment}/report`
- *    For `{project}`, either `project-number` or `project-id` can be provided.
- *    For `{instance_id}`, either Compute Engine `instance-id` or
- *    `instance-name` can be provided. For `{assignment_id}`, the
- *    OSPolicyAssignment id must be provided.
- *
- *  @return GTLROSConfigQuery_ProjectsLocationsInstancesOsPolicyAssignmentsReportsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List OS policy assignment reports for all Compute Engine VM instances in the
- *  specified zone.
- *
- *  Method: osconfig.projects.locations.instances.osPolicyAssignments.reports.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsLocationsInstancesOsPolicyAssignmentsReportsList : GTLROSConfigQuery
-
-/**
- *  If provided, this field specifies the criteria that must be met by the
- *  `OSPolicyAssignmentReport` API resource that is included in the response.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The maximum number of results to return. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A pagination token returned from a previous call to the
- *  `ListOSPolicyAssignmentReports` method that indicates where this listing
- *  should continue from.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent resource name. Format:
- *  `projects/{project}/locations/{location}/instances/{instance}/osPolicyAssignments/{assignment}/reports`
- *  For `{project}`, either `project-number` or `project-id` can be provided.
- *  For `{instance}`, either `instance-name`, `instance-id`, or `-` can be
- *  provided. If '-' is provided, the response will include
- *  OSPolicyAssignmentReports for all instances in the project/location. For
- *  `{assignment}`, either `assignment-id` or `-` can be provided. If '-' is
- *  provided, the response will include OSPolicyAssignmentReports for all
- *  OSPolicyAssignments in the project/location. Either {instance} or
- *  {assignment} must be `-`. For example:
- *  `projects/{project}/locations/{location}/instances/{instance}/osPolicyAssignments/-/reports`
- *  returns all reports for the instance
- *  `projects/{project}/locations/{location}/instances/-/osPolicyAssignments/{assignment-id}/reports`
- *  returns all the reports for the given assignment across all instances.
- *  `projects/{project}/locations/{location}/instances/-/osPolicyAssignments/-/reports`
- *  returns all the reports for all assignments across all instances.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLROSConfig_ListOSPolicyAssignmentReportsResponse.
- *
- *  List OS policy assignment reports for all Compute Engine VM instances in the
- *  specified zone.
- *
- *  @param parent Required. The parent resource name. Format:
- *    `projects/{project}/locations/{location}/instances/{instance}/osPolicyAssignments/{assignment}/reports`
- *    For `{project}`, either `project-number` or `project-id` can be provided.
- *    For `{instance}`, either `instance-name`, `instance-id`, or `-` can be
- *    provided. If '-' is provided, the response will include
- *    OSPolicyAssignmentReports for all instances in the project/location. For
- *    `{assignment}`, either `assignment-id` or `-` can be provided. If '-' is
- *    provided, the response will include OSPolicyAssignmentReports for all
- *    OSPolicyAssignments in the project/location. Either {instance} or
- *    {assignment} must be `-`. For example:
- *    `projects/{project}/locations/{location}/instances/{instance}/osPolicyAssignments/-/reports`
- *    returns all reports for the instance
- *    `projects/{project}/locations/{location}/instances/-/osPolicyAssignments/{assignment-id}/reports`
- *    returns all the reports for the given assignment across all instances.
- *    `projects/{project}/locations/{location}/instances/-/osPolicyAssignments/-/reports`
- *    returns all the reports for all assignments across all instances.
- *
- *  @return GTLROSConfigQuery_ProjectsLocationsInstancesOsPolicyAssignmentsReportsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Gets the vulnerability report for the specified VM instance. Only VMs with
- *  inventory data have vulnerability reports associated with them.
- *
- *  Method: osconfig.projects.locations.instances.vulnerabilityReports.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsGet : GTLROSConfigQuery
-
-/**
- *  Required. API resource name for vulnerability resource. Format:
- *  `projects/{project}/locations/{location}/instances/{instance}/vulnerabilityReport`
- *  For `{project}`, either `project-number` or `project-id` can be provided.
- *  For `{instance}`, either Compute Engine `instance-id` or `instance-name` can
- *  be provided.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLROSConfig_VulnerabilityReport.
- *
- *  Gets the vulnerability report for the specified VM instance. Only VMs with
- *  inventory data have vulnerability reports associated with them.
- *
- *  @param name Required. API resource name for vulnerability resource. Format:
- *    `projects/{project}/locations/{location}/instances/{instance}/vulnerabilityReport`
- *    For `{project}`, either `project-number` or `project-id` can be provided.
- *    For `{instance}`, either Compute Engine `instance-id` or `instance-name`
- *    can be provided.
- *
- *  @return GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  List vulnerability reports for all VM instances in the specified zone.
- *
- *  Method: osconfig.projects.locations.instances.vulnerabilityReports.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsList : GTLROSConfigQuery
-
-/**
- *  This field supports filtering by the severity level for the vulnerability.
- *  For a list of severity levels, see [Severity levels for
- *  vulnerabilities](https://cloud.google.com/container-analysis/docs/container-scanning-overview#severity_levels_for_vulnerabilities).
- *  The filter field follows the rules described in the
- *  [AIP-160](https://google.aip.dev/160) guidelines as follows: + **Filter for
- *  a specific severity type**: you can list reports that contain
- *  vulnerabilities that are classified as medium by specifying
- *  `vulnerabilities.details.severity:MEDIUM`. + **Filter for a range of
- *  severities** : you can list reports that have vulnerabilities that are
- *  classified as critical or high by specifying
- *  `vulnerabilities.details.severity:HIGH OR
- *  vulnerabilities.details.severity:CRITICAL`
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The maximum number of results to return. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A pagination token returned from a previous call to
- *  `ListVulnerabilityReports` that indicates where this listing should continue
- *  from.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent resource name. Format:
- *  `projects/{project}/locations/{location}/instances/-` For `{project}`,
- *  either `project-number` or `project-id` can be provided.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLROSConfig_ListVulnerabilityReportsResponse.
- *
- *  List vulnerability reports for all VM instances in the specified zone.
- *
- *  @param parent Required. The parent resource name. Format:
- *    `projects/{project}/locations/{location}/instances/-` For `{project}`,
- *    either `project-number` or `project-id` can be provided.
- *
- *  @return GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Create an OS policy assignment. This method also creates the first revision
- *  of the OS policy assignment. This method returns a long running operation
- *  (LRO) that contains the rollout details. The rollout can be cancelled by
- *  cancelling the LRO. For more information, see [Method:
- *  projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel).
- *
- *  Method: osconfig.projects.locations.osPolicyAssignments.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsCreate : GTLROSConfigQuery
-
-/**
- *  Required. The logical name of the OS policy assignment in the project with
- *  the following restrictions: * Must contain only lowercase letters, numbers,
- *  and hyphens. * Must start with a letter. * Must be between 1-63 characters.
- *  * Must end with a number or a letter. * Must be unique within the project.
- */
-@property(nonatomic, copy, nullable) NSString *osPolicyAssignmentId;
-
-/**
- *  Required. The parent resource name in the form:
- *  projects/{project}/locations/{location}. Note: Specify the zone of your VMs
- *  as the location.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLROSConfig_Operation.
  *
- *  Create an OS policy assignment. This method also creates the first revision
- *  of the OS policy assignment. This method returns a long running operation
- *  (LRO) that contains the rollout details. The rollout can be cancelled by
- *  cancelling the LRO. For more information, see [Method:
- *  projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel).
+ *  Creates a new policy orchestrator under the given folder resource. `name`
+ *  field of the given orchestrator are ignored and instead replaced by a
+ *  product of `parent` and `policy_orchestrator_id`. Orchestrator state field
+ *  might be only set to `ACTIVE`, `STOPPED` or omitted (in which case, the
+ *  created resource will be in `ACTIVE` state anyway).
  *
- *  @param object The @c GTLROSConfig_OSPolicyAssignment to include in the
- *    query.
- *  @param parent Required. The parent resource name in the form:
- *    projects/{project}/locations/{location}. Note: Specify the zone of your
- *    VMs as the location.
+ *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
+ *    include in the query.
+ *  @param parent Required. The parent resource name in the form of: *
+ *    `organizations/{organization_id}/locations/global` *
+ *    `folders/{folder_id}/locations/global` *
+ *    `projects/{project_id_or_number}/locations/global`
  *
- *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsCreate
+ *  @return GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsCreate
  */
-+ (instancetype)queryWithObject:(GTLROSConfig_OSPolicyAssignment *)object
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
                          parent:(NSString *)parent;
 
 @end
 
 /**
- *  Delete the OS policy assignment. This method creates a new revision of the
- *  OS policy assignment. This method returns a long running operation (LRO)
- *  that contains the rollout details. The rollout can be cancelled by
- *  cancelling the LRO. If the LRO completes and is not cancelled, all revisions
- *  associated with the OS policy assignment are deleted. For more information,
- *  see [Method:
- *  projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel).
+ *  Deletes an existing policy orchestrator resource, parented by a folder.
  *
- *  Method: osconfig.projects.locations.osPolicyAssignments.delete
+ *  Method: osconfig.folders.locations.global.policyOrchestrators.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsDelete : GTLROSConfigQuery
+@interface GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsDelete : GTLROSConfigQuery
 
-/** Required. The name of the OS policy assignment to be deleted */
+/**
+ *  Optional. The current etag of the policy orchestrator. If an etag is
+ *  provided and does not match the current etag of the policy orchestrator,
+ *  deletion will be blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. Name of the resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLROSConfig_Operation.
  *
- *  Delete the OS policy assignment. This method creates a new revision of the
- *  OS policy assignment. This method returns a long running operation (LRO)
- *  that contains the rollout details. The rollout can be cancelled by
- *  cancelling the LRO. If the LRO completes and is not cancelled, all revisions
- *  associated with the OS policy assignment are deleted. For more information,
- *  see [Method:
- *  projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel).
+ *  Deletes an existing policy orchestrator resource, parented by a folder.
  *
- *  @param name Required. The name of the OS policy assignment to be deleted
+ *  @param name Required. Name of the resource to be deleted.
  *
- *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsDelete
+ *  @return GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Retrieve an existing OS policy assignment. This method always returns the
- *  latest revision. In order to retrieve a previous revision of the assignment,
- *  also provide the revision ID in the `name` parameter.
+ *  Retrieves an existing policy orchestrator, parented by a folder.
  *
- *  Method: osconfig.projects.locations.osPolicyAssignments.get
+ *  Method: osconfig.folders.locations.global.policyOrchestrators.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsGet : GTLROSConfigQuery
+@interface GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsGet : GTLROSConfigQuery
 
-/**
- *  Required. The resource name of OS policy assignment. Format:
- *  `projects/{project}/locations/{location}/osPolicyAssignments/{os_policy_assignment}\@{revisionId}`
- */
+/** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLROSConfig_OSPolicyAssignment.
+ *  Fetches a @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator.
  *
- *  Retrieve an existing OS policy assignment. This method always returns the
- *  latest revision. In order to retrieve a previous revision of the assignment,
- *  also provide the revision ID in the `name` parameter.
+ *  Retrieves an existing policy orchestrator, parented by a folder.
  *
- *  @param name Required. The resource name of OS policy assignment. Format:
- *    `projects/{project}/locations/{location}/osPolicyAssignments/{os_policy_assignment}\@{revisionId}`
+ *  @param name Required. The resource name.
  *
- *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsGet
+ *  @return GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  List the OS policy assignments under the parent resource. For each OS policy
- *  assignment, the latest revision is returned.
+ *  Lists the policy orchestrators under the given parent folder resource.
  *
- *  Method: osconfig.projects.locations.osPolicyAssignments.list
+ *  Method: osconfig.folders.locations.global.policyOrchestrators.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsList : GTLROSConfigQuery
+@interface GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsList : GTLROSConfigQuery
 
-/** The maximum number of assignments to return. */
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to
- *  `ListOSPolicyAssignments` that indicates where this listing should continue
- *  from.
+ *  Optional. A token identifying a page of results the server should return.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -547,14 +207,14 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLROSConfig_ListOSPolicyAssignmentsResponse.
+ *  Fetches a @c
+ *  GTLROSConfig_GoogleCloudOsconfigV2ListPolicyOrchestratorsResponse.
  *
- *  List the OS policy assignments under the parent resource. For each OS policy
- *  assignment, the latest revision is returned.
+ *  Lists the policy orchestrators under the given parent folder resource.
  *
  *  @param parent Required. The parent resource name.
  *
- *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsList
+ *  @return GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -565,43 +225,63 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 @end
 
 /**
- *  List the OS policy assignment revisions for a given OS policy assignment.
+ *  Updates an existing policy orchestrator, parented by a folder.
  *
- *  Method: osconfig.projects.locations.osPolicyAssignments.listRevisions
+ *  Method: osconfig.folders.locations.global.policyOrchestrators.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsListRevisions : GTLROSConfigQuery
+@interface GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsPatch : GTLROSConfigQuery
 
-/** Required. The name of the OS policy assignment to list revisions for. */
+/**
+ *  Immutable. Identifier. In form of *
+ *  `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *  *
+ *  `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *  *
+ *  `projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The maximum number of revisions to return. */
-@property(nonatomic, assign) NSInteger pageSize;
+/**
+ *  Optional. The list of fields to merge into the existing policy orchestrator.
+ *  A special ["*"] field mask can be used to simply replace the entire
+ *  resource. Otherwise, for all paths referenced in the mask, following merge
+ *  rules are used: * output only fields are ignored, * primitive fields are
+ *  replaced, * repeated fields are replaced, * map fields are merged key by
+ *  key, * message fields are cleared if not set in the request, otherwise they
+ *  are merged recursively (in particular - message fields set to an empty
+ *  message has no side effects) If field mask (or its paths) is not specified,
+ *  it is automatically inferred from the request using following rules: *
+ *  primitive fields are listed, if set to a non-default value (as there is no
+ *  way to distinguish between default and unset value), * map and repeated
+ *  fields are listed, * `google.protobuf.Any` fields are listed, * other
+ *  message fields are traversed recursively. Note: implicit mask does not allow
+ *  clearing fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  A pagination token returned from a previous call to
- *  `ListOSPolicyAssignmentRevisions` that indicates where this listing should
- *  continue from.
+ *  Fetches a @c GTLROSConfig_Operation.
+ *
+ *  Updates an existing policy orchestrator, parented by a folder.
+ *
+ *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
+ *    include in the query.
+ *  @param name Immutable. Identifier. In form of *
+ *    `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *    *
+ *    `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *    *
+ *    `projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *
+ *  @return GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsPatch
  */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLROSConfig_ListOSPolicyAssignmentRevisionsResponse.
- *
- *  List the OS policy assignment revisions for a given OS policy assignment.
- *
- *  @param name Required. The name of the OS policy assignment to list revisions
- *    for.
- *
- *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsListRevisions
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -613,15 +293,15 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
- *  Method: osconfig.projects.locations.osPolicyAssignments.operations.cancel
+ *  Method: osconfig.folders.locations.operations.cancel
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsOperationsCancel : GTLROSConfigQuery
+@interface GTLROSConfigQuery_FoldersLocationsOperationsCancel : GTLROSConfigQuery
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -636,17 +316,49 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLROSConfig_CancelOperationRequest to include in the
  *    query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsOperationsCancel
+ *  @return GTLROSConfigQuery_FoldersLocationsOperationsCancel
  */
 + (instancetype)queryWithObject:(GTLROSConfig_CancelOperationRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: osconfig.folders.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_FoldersLocationsOperationsDelete : GTLROSConfigQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROSConfig_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLROSConfigQuery_FoldersLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -655,12 +367,12 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
  *
- *  Method: osconfig.projects.locations.osPolicyAssignments.operations.get
+ *  Method: osconfig.folders.locations.operations.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsOperationsGet : GTLROSConfigQuery
+@interface GTLROSConfigQuery_FoldersLocationsOperationsGet : GTLROSConfigQuery
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -674,36 +386,280 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
  *
  *  @param name The name of the operation resource.
  *
- *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsOperationsGet
+ *  @return GTLROSConfigQuery_FoldersLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Update an existing OS policy assignment. This method creates a new revision
- *  of the OS policy assignment. This method returns a long running operation
- *  (LRO) that contains the rollout details. The rollout can be cancelled by
- *  cancelling the LRO. For more information, see [Method:
- *  projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel).
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
- *  Method: osconfig.projects.locations.osPolicyAssignments.patch
+ *  Method: osconfig.folders.locations.operations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsPatch : GTLROSConfigQuery
+@interface GTLROSConfigQuery_FoldersLocationsOperationsList : GTLROSConfigQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Resource name. Format:
- *  `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}`
- *  This field is ignored when you create an OS policy assignment.
+ *  Fetches a @c GTLROSConfig_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLROSConfigQuery_FoldersLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new policy orchestrator under the given organizations resource.
+ *  `name` field of the given orchestrator are ignored and instead replaced by a
+ *  product of `parent` and `policy_orchestrator_id`. Orchestrator state field
+ *  might be only set to `ACTIVE`, `STOPPED` or omitted (in which case, the
+ *  created resource will be in `ACTIVE` state anyway).
+ *
+ *  Method: osconfig.organizations.locations.global.policyOrchestrators.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsCreate : GTLROSConfigQuery
+
+/**
+ *  Required. The parent resource name in the form of: *
+ *  `organizations/{organization_id}/locations/global` *
+ *  `folders/{folder_id}/locations/global` *
+ *  `projects/{project_id_or_number}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The logical identifier of the policy orchestrator, with the
+ *  following restrictions: * Must contain only lowercase letters, numbers, and
+ *  hyphens. * Must start with a letter. * Must be between 1-63 characters. *
+ *  Must end with a number or a letter. * Must be unique within the parent.
+ */
+@property(nonatomic, copy, nullable) NSString *policyOrchestratorId;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROSConfig_Operation.
+ *
+ *  Creates a new policy orchestrator under the given organizations resource.
+ *  `name` field of the given orchestrator are ignored and instead replaced by a
+ *  product of `parent` and `policy_orchestrator_id`. Orchestrator state field
+ *  might be only set to `ACTIVE`, `STOPPED` or omitted (in which case, the
+ *  created resource will be in `ACTIVE` state anyway).
+ *
+ *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
+ *    include in the query.
+ *  @param parent Required. The parent resource name in the form of: *
+ *    `organizations/{organization_id}/locations/global` *
+ *    `folders/{folder_id}/locations/global` *
+ *    `projects/{project_id_or_number}/locations/global`
+ *
+ *  @return GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsCreate
+ */
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing policy orchestrator resource, parented by an
+ *  organization.
+ *
+ *  Method: osconfig.organizations.locations.global.policyOrchestrators.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsDelete : GTLROSConfigQuery
+
+/**
+ *  Optional. The current etag of the policy orchestrator. If an etag is
+ *  provided and does not match the current etag of the policy orchestrator,
+ *  deletion will be blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. Name of the resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROSConfig_Operation.
+ *
+ *  Deletes an existing policy orchestrator resource, parented by an
+ *  organization.
+ *
+ *  @param name Required. Name of the resource to be deleted.
+ *
+ *  @return GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves an existing policy orchestrator, parented by an organization.
+ *
+ *  Method: osconfig.organizations.locations.global.policyOrchestrators.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsGet : GTLROSConfigQuery
+
+/** Required. The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator.
+ *
+ *  Retrieves an existing policy orchestrator, parented by an organization.
+ *
+ *  @param name Required. The resource name.
+ *
+ *  @return GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the policy orchestrators under the given parent organization resource.
+ *
+ *  Method: osconfig.organizations.locations.global.policyOrchestrators.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsList : GTLROSConfigQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource name. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLROSConfig_GoogleCloudOsconfigV2ListPolicyOrchestratorsResponse.
+ *
+ *  Lists the policy orchestrators under the given parent organization resource.
+ *
+ *  @param parent Required. The parent resource name.
+ *
+ *  @return GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing policy orchestrator, parented by an organization.
+ *
+ *  Method: osconfig.organizations.locations.global.policyOrchestrators.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsPatch : GTLROSConfigQuery
+
+/**
+ *  Immutable. Identifier. In form of *
+ *  `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *  *
+ *  `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *  *
+ *  `projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Field mask that controls which fields of the assignment should be
- *  updated.
+ *  Optional. The list of fields to merge into the existing policy orchestrator.
+ *  A special ["*"] field mask can be used to simply replace the entire
+ *  resource. Otherwise, for all paths referenced in the mask, following merge
+ *  rules are used: * output only fields are ignored, * primitive fields are
+ *  replaced, * repeated fields are replaced, * map fields are merged key by
+ *  key, * message fields are cleared if not set in the request, otherwise they
+ *  are merged recursively (in particular - message fields set to an empty
+ *  message has no side effects) If field mask (or its paths) is not specified,
+ *  it is automatically inferred from the request using following rules: *
+ *  primitive fields are listed, if set to a non-default value (as there is no
+ *  way to distinguish between default and unset value), * map and repeated
+ *  fields are listed, * `google.protobuf.Any` fields are listed, * other
+ *  message fields are traversed recursively. Note: implicit mask does not allow
+ *  clearing fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -712,159 +668,353 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 /**
  *  Fetches a @c GTLROSConfig_Operation.
  *
- *  Update an existing OS policy assignment. This method creates a new revision
- *  of the OS policy assignment. This method returns a long running operation
- *  (LRO) that contains the rollout details. The rollout can be cancelled by
- *  cancelling the LRO. For more information, see [Method:
- *  projects.locations.osPolicyAssignments.operations.cancel](https://cloud.google.com/compute/docs/osconfig/rest/v1/projects.locations.osPolicyAssignments.operations/cancel).
+ *  Updates an existing policy orchestrator, parented by an organization.
  *
- *  @param object The @c GTLROSConfig_OSPolicyAssignment to include in the
- *    query.
- *  @param name Resource name. Format:
- *    `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}`
- *    This field is ignored when you create an OS policy assignment.
+ *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
+ *    include in the query.
+ *  @param name Immutable. Identifier. In form of *
+ *    `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *    *
+ *    `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *    *
+ *    `projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}`
  *
- *  @return GTLROSConfigQuery_ProjectsLocationsOsPolicyAssignmentsPatch
+ *  @return GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsPatch
  */
-+ (instancetype)queryWithObject:(GTLROSConfig_OSPolicyAssignment *)object
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
                            name:(NSString *)name;
 
 @end
 
 /**
- *  Create an OS Config patch deployment.
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
  *
- *  Method: osconfig.projects.patchDeployments.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsPatchDeploymentsCreate : GTLROSConfigQuery
-
-/**
- *  Required. The project to apply this patch deployment to in the form
- *  `projects/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Required. A name for the patch deployment in the project. When creating a
- *  name the following rules apply: * Must contain only lowercase letters,
- *  numbers, and hyphens. * Must start with a letter. * Must be between 1-63
- *  characters. * Must end with a number or a letter. * Must be unique within
- *  the project.
- */
-@property(nonatomic, copy, nullable) NSString *patchDeploymentId;
-
-/**
- *  Fetches a @c GTLROSConfig_PatchDeployment.
- *
- *  Create an OS Config patch deployment.
- *
- *  @param object The @c GTLROSConfig_PatchDeployment to include in the query.
- *  @param parent Required. The project to apply this patch deployment to in the
- *    form `projects/ *`.
- *
- *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsCreate
- */
-+ (instancetype)queryWithObject:(GTLROSConfig_PatchDeployment *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Delete an OS Config patch deployment.
- *
- *  Method: osconfig.projects.patchDeployments.delete
+ *  Method: osconfig.organizations.locations.operations.cancel
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsPatchDeploymentsDelete : GTLROSConfigQuery
+@interface GTLROSConfigQuery_OrganizationsLocationsOperationsCancel : GTLROSConfigQuery
 
-/**
- *  Required. The resource name of the patch deployment in the form `projects/ *
- *  /patchDeployments/ *`.
- */
+/** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLROSConfig_Empty.
  *
- *  Delete an OS Config patch deployment.
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
  *
- *  @param name Required. The resource name of the patch deployment in the form
- *    `projects/ * /patchDeployments/ *`.
+ *  @param object The @c GTLROSConfig_CancelOperationRequest to include in the
+ *    query.
+ *  @param name The name of the operation resource to be cancelled.
  *
- *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsDelete
+ *  @return GTLROSConfigQuery_OrganizationsLocationsOperationsCancel
  */
-+ (instancetype)queryWithName:(NSString *)name;
++ (instancetype)queryWithObject:(GTLROSConfig_CancelOperationRequest *)object
+                           name:(NSString *)name;
 
 @end
 
 /**
- *  Get an OS Config patch deployment.
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
  *
- *  Method: osconfig.projects.patchDeployments.get
+ *  Method: osconfig.organizations.locations.operations.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsPatchDeploymentsGet : GTLROSConfigQuery
+@interface GTLROSConfigQuery_OrganizationsLocationsOperationsDelete : GTLROSConfigQuery
 
-/**
- *  Required. The resource name of the patch deployment in the form `projects/ *
- *  /patchDeployments/ *`.
- */
+/** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLROSConfig_PatchDeployment.
+ *  Fetches a @c GTLROSConfig_Empty.
  *
- *  Get an OS Config patch deployment.
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
  *
- *  @param name Required. The resource name of the patch deployment in the form
- *    `projects/ * /patchDeployments/ *`.
+ *  @param name The name of the operation resource to be deleted.
  *
- *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsGet
+ *  @return GTLROSConfigQuery_OrganizationsLocationsOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Get a page of OS Config patch deployments.
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
  *
- *  Method: osconfig.projects.patchDeployments.list
+ *  Method: osconfig.organizations.locations.operations.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsPatchDeploymentsList : GTLROSConfigQuery
+@interface GTLROSConfigQuery_OrganizationsLocationsOperationsGet : GTLROSConfigQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The maximum number of patch deployments to return. Default is 100.
+ *  Fetches a @c GTLROSConfig_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLROSConfigQuery_OrganizationsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: osconfig.organizations.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_OrganizationsLocationsOperationsList : GTLROSConfigQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLROSConfig_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLROSConfigQuery_OrganizationsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new policy orchestrator under the given project resource. `name`
+ *  field of the given orchestrator are ignored and instead replaced by a
+ *  product of `parent` and `policy_orchestrator_id`. Orchestrator state field
+ *  might be only set to `ACTIVE`, `STOPPED` or omitted (in which case, the
+ *  created resource will be in `ACTIVE` state anyway).
+ *
+ *  Method: osconfig.projects.locations.global.policyOrchestrators.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsCreate : GTLROSConfigQuery
+
+/**
+ *  Required. The parent resource name in the form of: *
+ *  `organizations/{organization_id}/locations/global` *
+ *  `folders/{folder_id}/locations/global` *
+ *  `projects/{project_id_or_number}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The logical identifier of the policy orchestrator, with the
+ *  following restrictions: * Must contain only lowercase letters, numbers, and
+ *  hyphens. * Must start with a letter. * Must be between 1-63 characters. *
+ *  Must end with a number or a letter. * Must be unique within the parent.
+ */
+@property(nonatomic, copy, nullable) NSString *policyOrchestratorId;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROSConfig_Operation.
+ *
+ *  Creates a new policy orchestrator under the given project resource. `name`
+ *  field of the given orchestrator are ignored and instead replaced by a
+ *  product of `parent` and `policy_orchestrator_id`. Orchestrator state field
+ *  might be only set to `ACTIVE`, `STOPPED` or omitted (in which case, the
+ *  created resource will be in `ACTIVE` state anyway).
+ *
+ *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
+ *    include in the query.
+ *  @param parent Required. The parent resource name in the form of: *
+ *    `organizations/{organization_id}/locations/global` *
+ *    `folders/{folder_id}/locations/global` *
+ *    `projects/{project_id_or_number}/locations/global`
+ *
+ *  @return GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsCreate
+ */
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an existing policy orchestrator resource, parented by a project.
+ *
+ *  Method: osconfig.projects.locations.global.policyOrchestrators.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsDelete : GTLROSConfigQuery
+
+/**
+ *  Optional. The current etag of the policy orchestrator. If an etag is
+ *  provided and does not match the current etag of the policy orchestrator,
+ *  deletion will be blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. Name of the resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROSConfig_Operation.
+ *
+ *  Deletes an existing policy orchestrator resource, parented by a project.
+ *
+ *  @param name Required. Name of the resource to be deleted.
+ *
+ *  @return GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves an existing policy orchestrator, parented by a project.
+ *
+ *  Method: osconfig.projects.locations.global.policyOrchestrators.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsGet : GTLROSConfigQuery
+
+/** Required. The resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator.
+ *
+ *  Retrieves an existing policy orchestrator, parented by a project.
+ *
+ *  @param name Required. The resource name.
+ *
+ *  @return GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the policy orchestrators under the given parent project resource.
+ *
+ *  Method: osconfig.projects.locations.global.policyOrchestrators.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsList : GTLROSConfigQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A pagination token returned from a previous call to
- *  ListPatchDeployments that indicates where this listing should continue from.
+ *  Optional. A token identifying a page of results the server should return.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The resource name of the parent in the form `projects/ *`. */
+/** Required. The parent resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLROSConfig_ListPatchDeploymentsResponse.
+ *  Fetches a @c
+ *  GTLROSConfig_GoogleCloudOsconfigV2ListPolicyOrchestratorsResponse.
  *
- *  Get a page of OS Config patch deployments.
+ *  Lists the policy orchestrators under the given parent project resource.
  *
- *  @param parent Required. The resource name of the parent in the form
- *    `projects/ *`.
+ *  @param parent Required. The parent resource name.
  *
- *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsList
+ *  @return GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -875,307 +1025,211 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
 @end
 
 /**
- *  Update an OS Config patch deployment.
+ *  Updates an existing policy orchestrator, parented by a project.
  *
- *  Method: osconfig.projects.patchDeployments.patch
+ *  Method: osconfig.projects.locations.global.policyOrchestrators.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsPatchDeploymentsPatch : GTLROSConfigQuery
+@interface GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsPatch : GTLROSConfigQuery
 
 /**
- *  Unique name for the patch deployment resource in a project. The patch
- *  deployment name is in the form:
- *  `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field
- *  is ignored when you create a new patch deployment.
+ *  Immutable. Identifier. In form of *
+ *  `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *  *
+ *  `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *  *
+ *  `projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Field mask that controls which fields of the patch deployment
- *  should be updated.
+ *  Optional. The list of fields to merge into the existing policy orchestrator.
+ *  A special ["*"] field mask can be used to simply replace the entire
+ *  resource. Otherwise, for all paths referenced in the mask, following merge
+ *  rules are used: * output only fields are ignored, * primitive fields are
+ *  replaced, * repeated fields are replaced, * map fields are merged key by
+ *  key, * message fields are cleared if not set in the request, otherwise they
+ *  are merged recursively (in particular - message fields set to an empty
+ *  message has no side effects) If field mask (or its paths) is not specified,
+ *  it is automatically inferred from the request using following rules: *
+ *  primitive fields are listed, if set to a non-default value (as there is no
+ *  way to distinguish between default and unset value), * map and repeated
+ *  fields are listed, * `google.protobuf.Any` fields are listed, * other
+ *  message fields are traversed recursively. Note: implicit mask does not allow
+ *  clearing fields.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLROSConfig_PatchDeployment.
+ *  Fetches a @c GTLROSConfig_Operation.
  *
- *  Update an OS Config patch deployment.
+ *  Updates an existing policy orchestrator, parented by a project.
  *
- *  @param object The @c GTLROSConfig_PatchDeployment to include in the query.
- *  @param name Unique name for the patch deployment resource in a project. The
- *    patch deployment name is in the form:
- *    `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field
- *    is ignored when you create a new patch deployment.
+ *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
+ *    include in the query.
+ *  @param name Immutable. Identifier. In form of *
+ *    `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *    *
+ *    `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
+ *    *
+ *    `projects/{project_id_or_number}/locations/global/policyOrchestrators/{orchestrator_id}`
  *
- *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsPatch
+ *  @return GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsPatch
  */
-+ (instancetype)queryWithObject:(GTLROSConfig_PatchDeployment *)object
++ (instancetype)queryWithObject:(GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator *)object
                            name:(NSString *)name;
 
 @end
 
 /**
- *  Change state of patch deployment to "PAUSED". Patch deployment in paused
- *  state doesn't generate patch jobs.
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
  *
- *  Method: osconfig.projects.patchDeployments.pause
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsPatchDeploymentsPause : GTLROSConfigQuery
-
-/**
- *  Required. The resource name of the patch deployment in the form `projects/ *
- *  /patchDeployments/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLROSConfig_PatchDeployment.
- *
- *  Change state of patch deployment to "PAUSED". Patch deployment in paused
- *  state doesn't generate patch jobs.
- *
- *  @param object The @c GTLROSConfig_PausePatchDeploymentRequest to include in
- *    the query.
- *  @param name Required. The resource name of the patch deployment in the form
- *    `projects/ * /patchDeployments/ *`.
- *
- *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsPause
- */
-+ (instancetype)queryWithObject:(GTLROSConfig_PausePatchDeploymentRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Change state of patch deployment back to "ACTIVE". Patch deployment in
- *  active state continues to generate patch jobs.
- *
- *  Method: osconfig.projects.patchDeployments.resume
+ *  Method: osconfig.projects.locations.operations.cancel
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsPatchDeploymentsResume : GTLROSConfigQuery
+@interface GTLROSConfigQuery_ProjectsLocationsOperationsCancel : GTLROSConfigQuery
 
-/**
- *  Required. The resource name of the patch deployment in the form `projects/ *
- *  /patchDeployments/ *`.
- */
+/** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLROSConfig_PatchDeployment.
+ *  Fetches a @c GTLROSConfig_Empty.
  *
- *  Change state of patch deployment back to "ACTIVE". Patch deployment in
- *  active state continues to generate patch jobs.
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
  *
- *  @param object The @c GTLROSConfig_ResumePatchDeploymentRequest to include in
- *    the query.
- *  @param name Required. The resource name of the patch deployment in the form
- *    `projects/ * /patchDeployments/ *`.
- *
- *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsResume
- */
-+ (instancetype)queryWithObject:(GTLROSConfig_ResumePatchDeploymentRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Cancel a patch job. The patch job must be active. Canceled patch jobs cannot
- *  be restarted.
- *
- *  Method: osconfig.projects.patchJobs.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsPatchJobsCancel : GTLROSConfigQuery
-
-/** Required. Name of the patch in the form `projects/ * /patchJobs/ *` */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLROSConfig_PatchJob.
- *
- *  Cancel a patch job. The patch job must be active. Canceled patch jobs cannot
- *  be restarted.
- *
- *  @param object The @c GTLROSConfig_CancelPatchJobRequest to include in the
+ *  @param object The @c GTLROSConfig_CancelOperationRequest to include in the
  *    query.
- *  @param name Required. Name of the patch in the form `projects/ * /patchJobs/
- *    *`
+ *  @param name The name of the operation resource to be cancelled.
  *
- *  @return GTLROSConfigQuery_ProjectsPatchJobsCancel
+ *  @return GTLROSConfigQuery_ProjectsLocationsOperationsCancel
  */
-+ (instancetype)queryWithObject:(GTLROSConfig_CancelPatchJobRequest *)object
++ (instancetype)queryWithObject:(GTLROSConfig_CancelOperationRequest *)object
                            name:(NSString *)name;
 
 @end
 
 /**
- *  Patch VM instances by creating and running a patch job.
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
  *
- *  Method: osconfig.projects.patchJobs.execute
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeOSConfigCloudPlatform
- */
-@interface GTLROSConfigQuery_ProjectsPatchJobsExecute : GTLROSConfigQuery
-
-/**
- *  Required. The project in which to run this patch in the form `projects/ *`
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLROSConfig_PatchJob.
- *
- *  Patch VM instances by creating and running a patch job.
- *
- *  @param object The @c GTLROSConfig_ExecutePatchJobRequest to include in the
- *    query.
- *  @param parent Required. The project in which to run this patch in the form
- *    `projects/ *`
- *
- *  @return GTLROSConfigQuery_ProjectsPatchJobsExecute
- */
-+ (instancetype)queryWithObject:(GTLROSConfig_ExecutePatchJobRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Get the patch job. This can be used to track the progress of an ongoing
- *  patch job or review the details of completed jobs.
- *
- *  Method: osconfig.projects.patchJobs.get
+ *  Method: osconfig.projects.locations.operations.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsPatchJobsGet : GTLROSConfigQuery
+@interface GTLROSConfigQuery_ProjectsLocationsOperationsDelete : GTLROSConfigQuery
 
-/** Required. Name of the patch in the form `projects/ * /patchJobs/ *` */
+/** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLROSConfig_PatchJob.
+ *  Fetches a @c GTLROSConfig_Empty.
  *
- *  Get the patch job. This can be used to track the progress of an ongoing
- *  patch job or review the details of completed jobs.
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
  *
- *  @param name Required. Name of the patch in the form `projects/ * /patchJobs/
- *    *`
+ *  @param name The name of the operation resource to be deleted.
  *
- *  @return GTLROSConfigQuery_ProjectsPatchJobsGet
+ *  @return GTLROSConfigQuery_ProjectsLocationsOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Get a list of instance details for a given patch job.
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
  *
- *  Method: osconfig.projects.patchJobs.instanceDetails.list
+ *  Method: osconfig.projects.locations.operations.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsPatchJobsInstanceDetailsList : GTLROSConfigQuery
+@interface GTLROSConfigQuery_ProjectsLocationsOperationsGet : GTLROSConfigQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A filter expression that filters results listed in the response. This field
- *  supports filtering results by instance zone, name, state, or
- *  `failure_reason`.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  The maximum number of instance details records to return. Default is 100.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  A pagination token returned from a previous call that indicates where this
- *  listing should continue from.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent for the instances are in the form of `projects/ *
- *  /patchJobs/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLROSConfig_ListPatchJobInstanceDetailsResponse.
+ *  Fetches a @c GTLROSConfig_Operation.
  *
- *  Get a list of instance details for a given patch job.
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
  *
- *  @param parent Required. The parent for the instances are in the form of
- *    `projects/ * /patchJobs/ *`.
+ *  @param name The name of the operation resource.
  *
- *  @return GTLROSConfigQuery_ProjectsPatchJobsInstanceDetailsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
+ *  @return GTLROSConfigQuery_ProjectsLocationsOperationsGet
  */
-+ (instancetype)queryWithParent:(NSString *)parent;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Get a list of patch jobs.
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
- *  Method: osconfig.projects.patchJobs.list
+ *  Method: osconfig.projects.locations.operations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
-@interface GTLROSConfigQuery_ProjectsPatchJobsList : GTLROSConfigQuery
+@interface GTLROSConfigQuery_ProjectsLocationsOperationsList : GTLROSConfigQuery
 
-/**
- *  If provided, this field specifies the criteria that must be met by patch
- *  jobs to be included in the response. Currently, filtering is only available
- *  on the patch_deployment field.
- */
+/** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of instance status to return. */
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  A pagination token returned from a previous call that indicates where this
- *  listing should continue from.
- */
+/** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. In the form of `projects/ *` */
-@property(nonatomic, copy, nullable) NSString *parent;
-
 /**
- *  Fetches a @c GTLROSConfig_ListPatchJobsResponse.
+ *  Fetches a @c GTLROSConfig_ListOperationsResponse.
  *
- *  Get a list of patch jobs.
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
- *  @param parent Required. In the form of `projects/ *`
+ *  @param name The name of the operation's parent resource.
  *
- *  @return GTLROSConfigQuery_ProjectsPatchJobsList
+ *  @return GTLROSConfigQuery_ProjectsLocationsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithParent:(NSString *)parent;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -18,6 +18,8 @@
 @class GTLRAccessApproval_AccessReason;
 @class GTLRAccessApproval_ApprovalRequest;
 @class GTLRAccessApproval_ApproveDecision;
+@class GTLRAccessApproval_AugmentedInfo;
+@class GTLRAccessApproval_CustomerApprovalApprovalPolicy;
 @class GTLRAccessApproval_DismissDecision;
 @class GTLRAccessApproval_EnrolledService;
 @class GTLRAccessApproval_ResourceProperties;
@@ -92,6 +94,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_ThirdPa
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAccessApproval_CustomerApprovalApprovalPolicy.justificationBasedApprovalPolicy
+
+/**
+ *  Instant approval is enabled for all accesses.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_ENABLED_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledAll;
+/**
+ *  Instant approval is enabled for external justifications.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_ENABLED_EXTERNAL_JUSTIFICATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledExternalJustifications;
+/**
+ *  Instant approval is inherited from the parent.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_INHERITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalInherited;
+/**
+ *  Instant approval is not enabled for any accesses.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_NOT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalNotEnabled;
+/**
+ *  Default value for proto.
+ *
+ *  Value: "JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAccessApproval_EnrolledService.enrollmentLevel
 
 /**
@@ -106,6 +142,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  Value: "ENROLLMENT_LEVEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_EnrollmentLevel_EnrollmentLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessApproval_Settings.requestScopeMaxWidthPreference
+
+/**
+ *  Customer allows the scope of Access Approval requests as broad as the Folder
+ *  level.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Folder;
+/**
+ *  This is the widest scope possible. It means the customer has no scope
+ *  restriction when it comes to Access Approval requests.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Organization;
+/**
+ *  Customer allows the scope of Access Approval requests as broad as the
+ *  Project level.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Project;
+/**
+ *  Default value for proto, shouldn't be used.
+ *
+ *  Value: "REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_RequestScopeMaxWidthPreferenceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessApproval_SignatureInfo.googleKeyAlgorithm
@@ -152,6 +219,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignEd25519;
 /**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
@@ -218,6 +291,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem768;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -423,6 +536,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** This field contains the augmented information of the request. */
+@property(nonatomic, strong, nullable) GTLRAccessApproval_AugmentedInfo *requestedAugmentedInfo;
+
 /** The requested access duration. */
 @property(nonatomic, strong, nullable) GTLRDuration *requestedDuration;
 
@@ -492,8 +608,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
 /** If set, denotes the timestamp at which the approval is invalidated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *invalidateTime;
 
+/**
+ *  True when the request has been approved by the customer's defined policy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyApproved;
+
 /** The signature for the ApprovalRequest and details on how it was signed. */
 @property(nonatomic, strong, nullable) GTLRAccessApproval_SignatureInfo *signatureInfo;
+
+@end
+
+
+/**
+ *  This field contains the augmented information of the request.
+ */
+@interface GTLRAccessApproval_AugmentedInfo : GTLRObject
+
+/**
+ *  For command-line tools, the full command-line exactly as entered by the
+ *  actor without adding any additional characters (such as quotation marks).
+ */
+@property(nonatomic, copy, nullable) NSString *command;
+
+@end
+
+
+/**
+ *  Represents all the policies that can be set for Customer Approval.
+ */
+@interface GTLRAccessApproval_CustomerApprovalApprovalPolicy : GTLRObject
+
+/**
+ *  Optional. Policy for approval based on the justification given.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledAll
+ *        Instant approval is enabled for all accesses. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_ENABLED_ALL")
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalEnabledExternalJustifications
+ *        Instant approval is enabled for external justifications. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_ENABLED_EXTERNAL_JUSTIFICATIONS")
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalInherited
+ *        Instant approval is inherited from the parent. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_INHERITED")
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalNotEnabled
+ *        Instant approval is not enabled for any accesses. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_NOT_ENABLED")
+ *    @arg @c kGTLRAccessApproval_CustomerApprovalApprovalPolicy_JustificationBasedApprovalPolicy_JustificationBasedApprovalPolicyUnspecified
+ *        Default value for proto. (Value:
+ *        "JUSTIFICATION_BASED_APPROVAL_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *justificationBasedApprovalPolicy;
 
 @end
 
@@ -675,6 +842,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 @property(nonatomic, strong, nullable) NSNumber *ancestorHasActiveKeyVersion;
 
+/** Optional. Policy for approval. This contains all policies. */
+@property(nonatomic, strong, nullable) GTLRAccessApproval_CustomerApprovalApprovalPolicy *approvalPolicy;
+
+/**
+ *  Output only. Policy for approval included inherited settings to understand
+ *  the exact policy applied to this resource. This is a read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessApproval_CustomerApprovalApprovalPolicy *effectiveApprovalPolicy;
+
 /**
  *  Output only. This field is read only (not settable via
  *  UpdateAccessApprovalSettings method). If the field is true, that indicates
@@ -751,6 +927,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  */
 @property(nonatomic, strong, nullable) NSNumber *preferredRequestExpirationDays;
 
+/**
+ *  Optional. A setting to indicate the maximum width of an Access Approval
+ *  request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Folder
+ *        Customer allows the scope of Access Approval requests as broad as the
+ *        Folder level. (Value: "FOLDER")
+ *    @arg @c kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Organization
+ *        This is the widest scope possible. It means the customer has no scope
+ *        restriction when it comes to Access Approval requests. (Value:
+ *        "ORGANIZATION")
+ *    @arg @c kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_Project
+ *        Customer allows the scope of Access Approval requests as broad as the
+ *        Project level. (Value: "PROJECT")
+ *    @arg @c kGTLRAccessApproval_Settings_RequestScopeMaxWidthPreference_RequestScopeMaxWidthPreferenceUnspecified
+ *        Default value for proto, shouldn't be used. (Value:
+ *        "REQUEST_SCOPE_MAX_WIDTH_PREFERENCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *requestScopeMaxWidthPreference;
+
+/**
+ *  Optional. A setting to require approval request justifications to be
+ *  customer visible.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireCustomerVisibleJustification;
+
 @end
 
 
@@ -785,6 +990,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *        "AES_256_GCM")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:
@@ -816,6 +1024,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_KemXwing
+ *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa65
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")

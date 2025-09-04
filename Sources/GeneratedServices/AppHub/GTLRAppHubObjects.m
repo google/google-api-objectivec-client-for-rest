@@ -43,6 +43,7 @@ NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Ret
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
 
 // GTLRAppHub_Scope.type
+NSString * const kGTLRAppHub_Scope_Type_Global          = @"GLOBAL";
 NSString * const kGTLRAppHub_Scope_Type_Regional        = @"REGIONAL";
 NSString * const kGTLRAppHub_Scope_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
@@ -475,6 +476,26 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_LookupDiscoveredServiceResponse
+//
+
+@implementation GTLRAppHub_LookupDiscoveredServiceResponse
+@dynamic discoveredService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_LookupDiscoveredWorkloadResponse
+//
+
+@implementation GTLRAppHub_LookupDiscoveredWorkloadResponse
+@dynamic discoveredWorkload;
 @end
 
 

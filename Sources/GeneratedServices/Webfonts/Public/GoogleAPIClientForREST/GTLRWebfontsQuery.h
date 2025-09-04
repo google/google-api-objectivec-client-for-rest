@@ -125,6 +125,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *capability;
 
 /**
+ *  Filters by Webfont.category, if category is found in Webfont.categories. If
+ *  not set, returns all families.
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
  *  Filters by Webfont.family, using literal match. If not set, returns all
  *  families
  */

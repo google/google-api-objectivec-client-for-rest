@@ -282,6 +282,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsDomainRegistrant;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsHostedAdClientId;
 /**
+ *  Not supported.
+ *
+ *  Value: "HOSTED_CUSTOM_CHANNEL_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsHostedCustomChannelId GTLR_DEPRECATED;
+/**
  *  Month dimension in YYYY-MM format (e.g. "2010-02").
  *
  *  Value: "MONTH"
@@ -455,8 +461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsAdRequestsCtr;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsAdRequestsRpm;
 /**
- *  Fraction of ad requests considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of ad requests considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "AD_REQUESTS_SPAM_RATIO"
  */
@@ -474,8 +480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsAdsPerImpression;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsClicks;
 /**
- *  Fraction of clicks considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of clicks considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "CLICKS_SPAM_RATIO"
  */
@@ -531,7 +537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsFunnelRequests;
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsFunnelRpm;
 /**
  *  Impressions. An impression is counted for each ad request where at least one
- *  ad has been downloaded to the user’s device and has begun to load. It is the
+ *  ad has been downloaded to the user's device and has begun to load. It is the
  *  number of ad units (for content ads) or search queries (for search ads) that
  *  showed ads.
  *
@@ -552,8 +558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsImpressionsCtr;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsImpressionsRpm;
 /**
- *  Fraction of impressions considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of impressions considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "IMPRESSIONS_SPAM_RATIO"
  */
@@ -582,8 +588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsIndividualAdImpressionsCtr
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsIndividualAdImpressionsRpm;
 /**
- *  Fraction of ad impressions considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of ad impressions considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO"
  */
@@ -609,7 +615,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsMatchedAdRequestsCtr;
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsMatchedAdRequestsRpm;
 /**
  *  Fraction of ad requests that returned ads considered to be spam. Only
- *  available to premium accounts.
+ *  available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "MATCHED_AD_REQUESTS_SPAM_RATIO"
  */
@@ -640,8 +647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsPageViewsCtr;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsPageViewsRpm;
 /**
- *  Fraction of page views considered to be spam. Only available to premium
- *  accounts.
+ *  Fraction of page views considered to be spam. Only available to [premium
+ *  accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *
  *  Value: "PAGE_VIEWS_SPAM_RATIO"
  */
@@ -655,7 +662,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsPageViewsSpamRatio;
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsTotalEarnings;
 /**
  *  Impressions. An impression is counted for each ad request where at least one
- *  ad has been downloaded to the user’s device and has begun to load. It is the
+ *  ad has been downloaded to the user's device and has begun to load. It is the
  *  number of ad units (for content ads) or search queries (for search ads) that
  *  showed ads.
  *
@@ -663,7 +670,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsTotalEarnings;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseMetricsTotalImpressions;
 /**
- *  Number of results pages.
+ *  Number of results pages. This metric can only be used when generating a
+ *  report in the Google timezone, not the account timezone. Since the account
+ *  timezone is the default for report generation, this metric can only be used
+ *  by explicitly specifying `reportingTimeZone=GOOGLE_TIME_ZONE`.
  *
  *  Value: "WEBSEARCH_RESULT_PAGES"
  */
@@ -706,10 +716,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Creates an ad unit. This method can only be used by projects enabled for the
- *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
- *  product. Note that ad units can only be created for ad clients with an "AFC"
- *  product code. For more info see the [AdClient
+ *  Creates an ad unit. This method can be called only by a restricted set of
+ *  projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method. Note that ad
+ *  units can only be created for ad clients with an "AFC" product code. For
+ *  more info see the [AdClient
  *  resource](/adsense/management/reference/rest/v2/accounts.adclients). For
  *  now, this method can only be used to create `DISPLAY` ad units. See:
  *  https://support.google.com/adsense/answer/9183566
@@ -730,10 +742,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_AdUnit.
  *
- *  Creates an ad unit. This method can only be used by projects enabled for the
- *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
- *  product. Note that ad units can only be created for ad clients with an "AFC"
- *  product code. For more info see the [AdClient
+ *  Creates an ad unit. This method can be called only by a restricted set of
+ *  projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method. Note that ad
+ *  units can only be created for ad clients with an "AFC" product code. For
+ *  more info see the [AdClient
  *  resource](/adsense/management/reference/rest/v2/accounts.adclients). For
  *  now, this method can only be used to create `DISPLAY` ad units. See:
  *  https://support.google.com/adsense/answer/9183566
@@ -917,10 +931,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Updates an ad unit. This method can only be used by projects enabled for the
- *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
- *  product. For now, this method can only be used to update `DISPLAY` ad units.
- *  See: https://support.google.com/adsense/answer/9183566
+ *  Updates an ad unit. This method can be called only by a restricted set of
+ *  projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method. For now, this
+ *  method can only be used to update `DISPLAY` ad units. See:
+ *  https://support.google.com/adsense/answer/9183566
  *
  *  Method: adsense.accounts.adclients.adunits.patch
  *
@@ -945,10 +961,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_AdUnit.
  *
- *  Updates an ad unit. This method can only be used by projects enabled for the
- *  [AdSense for Platforms](https://developers.google.com/adsense/platforms/)
- *  product. For now, this method can only be used to update `DISPLAY` ad units.
- *  See: https://support.google.com/adsense/answer/9183566
+ *  Updates an ad unit. This method can be called only by a restricted set of
+ *  projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method. For now, this
+ *  method can only be used to update `DISPLAY` ad units. See:
+ *  https://support.google.com/adsense/answer/9183566
  *
  *  @param object The @c GTLRAdsense_AdUnit to include in the query.
  *  @param name Output only. Resource name of the ad unit. Format:
@@ -962,9 +980,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Creates a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Creates a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  Method: adsense.accounts.adclients.customchannels.create
  *
@@ -982,9 +1001,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_CustomChannel.
  *
- *  Creates a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Creates a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  @param object The @c GTLRAdsense_CustomChannel to include in the query.
  *  @param parent Required. The ad client to create a custom channel under.
@@ -998,9 +1018,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Deletes a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Deletes a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  Method: adsense.accounts.adclients.customchannels.delete
  *
@@ -1018,9 +1039,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_Empty.
  *
- *  Deletes a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Deletes a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  @param name Required. Name of the custom channel to delete. Format:
  *    accounts/{account}/adclients/{adclient}/customchannels/{customchannel}
@@ -1164,9 +1186,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
- *  Updates a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Updates a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  Method: adsense.accounts.adclients.customchannels.patch
  *
@@ -1191,9 +1214,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 /**
  *  Fetches a @c GTLRAdsense_CustomChannel.
  *
- *  Updates a custom channel. This method can only be used by projects enabled
- *  for the [AdSense for
- *  Platforms](https://developers.google.com/adsense/platforms/) product.
+ *  Updates a custom channel. This method can be called only by a restricted set
+ *  of projects, which are usually owned by [AdSense for
+ *  Platforms](https://developers.google.com/adsense/platforms/) publishers.
+ *  Contact your account manager if you need to use this method.
  *
  *  @param object The @c GTLRAdsense_CustomChannel to include in the query.
  *  @param name Output only. Resource name of the custom channel. Format:
@@ -1625,6 +1649,89 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 @end
 
 /**
+ *  Gets information about the selected policy issue.
+ *
+ *  Method: adsense.accounts.policyIssues.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdsense
+ *    @c kGTLRAuthScopeAdsenseReadonly
+ */
+@interface GTLRAdsenseQuery_AccountsPolicyIssuesGet : GTLRAdsenseQuery
+
+/**
+ *  Required. Name of the policy issue. Format:
+ *  accounts/{account}/policyIssues/{policy_issue}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAdsense_PolicyIssue.
+ *
+ *  Gets information about the selected policy issue.
+ *
+ *  @param name Required. Name of the policy issue. Format:
+ *    accounts/{account}/policyIssues/{policy_issue}
+ *
+ *  @return GTLRAdsenseQuery_AccountsPolicyIssuesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the policy issues where the specified account is involved, both
+ *  directly and through any AFP child accounts.
+ *
+ *  Method: adsense.accounts.policyIssues.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdsense
+ *    @c kGTLRAuthScopeAdsenseReadonly
+ */
+@interface GTLRAdsenseQuery_AccountsPolicyIssuesList : GTLRAdsenseQuery
+
+/**
+ *  The maximum number of policy issues to include in the response, used for
+ *  paging. If unspecified, at most 10000 policy issues will be returned. The
+ *  maximum value is 10000; values above 10000 will be coerced to 10000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListPolicyIssues` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListPolicyIssues` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The account for which policy issues are being retrieved. Format:
+ *  accounts/{account}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAdsense_ListPolicyIssuesResponse.
+ *
+ *  Lists all the policy issues where the specified account is involved, both
+ *  directly and through any AFP child accounts.
+ *
+ *  @param parent Required. The account for which policy issues are being
+ *    retrieved. Format: accounts/{account}
+ *
+ *  @return GTLRAdsenseQuery_AccountsPolicyIssuesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Generates an ad hoc report.
  *
  *  Method: adsense.accounts.reports.generate
@@ -1718,6 +1825,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseDimensionsCustomChannelId Unique ID of a custom
  *        channel. The members of this dimension match the values from
  *        CustomChannel.reporting_dimension_id. (Value: "CUSTOM_CHANNEL_ID")
+ *    @arg @c kGTLRAdsenseDimensionsHostedCustomChannelId Not supported. (Value:
+ *        "HOSTED_CUSTOM_CHANNEL_ID")
  *    @arg @c kGTLRAdsenseDimensionsOwnedSiteDomainName Domain name of a
  *        verified site (e.g. "example.com"). The members of this dimension
  *        match the values from Site.domain. (Value: "OWNED_SITE_DOMAIN_NAME")
@@ -1878,12 +1987,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        least one ad. (Value: "MATCHED_AD_REQUESTS")
  *    @arg @c kGTLRAdsenseMetricsTotalImpressions Impressions. An impression is
  *        counted for each ad request where at least one ad has been downloaded
- *        to the user’s device and has begun to load. It is the number of ad
+ *        to the user's device and has begun to load. It is the number of ad
  *        units (for content ads) or search queries (for search ads) that showed
  *        ads. (Value: "TOTAL_IMPRESSIONS")
  *    @arg @c kGTLRAdsenseMetricsImpressions Impressions. An impression is
  *        counted for each ad request where at least one ad has been downloaded
- *        to the user’s device and has begun to load. It is the number of ad
+ *        to the user's device and has begun to load. It is the number of ad
  *        units (for content ads) or search queries (for search ads) that showed
  *        ads. (Value: "IMPRESSIONS")
  *    @arg @c kGTLRAdsenseMetricsIndividualAdImpressions Ads shown. Different ad
@@ -1895,23 +2004,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseMetricsClicks Number of times a user clicked on a
  *        standard content ad. (Value: "CLICKS")
  *    @arg @c kGTLRAdsenseMetricsPageViewsSpamRatio Fraction of page views
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "PAGE_VIEWS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "PAGE_VIEWS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsAdRequestsSpamRatio Fraction of ad requests
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "AD_REQUESTS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "AD_REQUESTS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsMatchedAdRequestsSpamRatio Fraction of ad
  *        requests that returned ads considered to be spam. Only available to
- *        premium accounts. (Value: "MATCHED_AD_REQUESTS_SPAM_RATIO")
+ *        [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "MATCHED_AD_REQUESTS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsImpressionsSpamRatio Fraction of impressions
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "IMPRESSIONS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "IMPRESSIONS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsIndividualAdImpressionsSpamRatio Fraction of ad
- *        impressions considered to be spam. Only available to premium accounts.
+ *        impressions considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *        (Value: "INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsClicksSpamRatio Fraction of clicks considered
- *        to be spam. Only available to premium accounts. (Value:
- *        "CLICKS_SPAM_RATIO")
+ *        to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "CLICKS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsAdRequestsCoverage Ratio of requested ad units
  *        or queries to the number returned to the site. (Value:
  *        "AD_REQUESTS_COVERAGE")
@@ -1964,7 +2080,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        estimated earnings from revenue shared traffic before any parent and
  *        child account revenue share is applied. (Value: "TOTAL_EARNINGS")
  *    @arg @c kGTLRAdsenseMetricsWebsearchResultPages Number of results pages.
- *        (Value: "WEBSEARCH_RESULT_PAGES")
+ *        This metric can only be used when generating a report in the Google
+ *        timezone, not the account timezone. Since the account timezone is the
+ *        default for report generation, this metric can only be used by
+ *        explicitly specifying `reportingTimeZone=GOOGLE_TIME_ZONE`. (Value:
+ *        "WEBSEARCH_RESULT_PAGES")
  *    @arg @c kGTLRAdsenseMetricsFunnelRequests Number of requests for non-ad
  *        units (for example a related search unit). For more information, see
  *        [Funnel requests](https://support.google.com/adsense/answer/11586959).
@@ -2137,6 +2257,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseDimensionsCustomChannelId Unique ID of a custom
  *        channel. The members of this dimension match the values from
  *        CustomChannel.reporting_dimension_id. (Value: "CUSTOM_CHANNEL_ID")
+ *    @arg @c kGTLRAdsenseDimensionsHostedCustomChannelId Not supported. (Value:
+ *        "HOSTED_CUSTOM_CHANNEL_ID")
  *    @arg @c kGTLRAdsenseDimensionsOwnedSiteDomainName Domain name of a
  *        verified site (e.g. "example.com"). The members of this dimension
  *        match the values from Site.domain. (Value: "OWNED_SITE_DOMAIN_NAME")
@@ -2297,12 +2419,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        least one ad. (Value: "MATCHED_AD_REQUESTS")
  *    @arg @c kGTLRAdsenseMetricsTotalImpressions Impressions. An impression is
  *        counted for each ad request where at least one ad has been downloaded
- *        to the user’s device and has begun to load. It is the number of ad
+ *        to the user's device and has begun to load. It is the number of ad
  *        units (for content ads) or search queries (for search ads) that showed
  *        ads. (Value: "TOTAL_IMPRESSIONS")
  *    @arg @c kGTLRAdsenseMetricsImpressions Impressions. An impression is
  *        counted for each ad request where at least one ad has been downloaded
- *        to the user’s device and has begun to load. It is the number of ad
+ *        to the user's device and has begun to load. It is the number of ad
  *        units (for content ads) or search queries (for search ads) that showed
  *        ads. (Value: "IMPRESSIONS")
  *    @arg @c kGTLRAdsenseMetricsIndividualAdImpressions Ads shown. Different ad
@@ -2314,23 +2436,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *    @arg @c kGTLRAdsenseMetricsClicks Number of times a user clicked on a
  *        standard content ad. (Value: "CLICKS")
  *    @arg @c kGTLRAdsenseMetricsPageViewsSpamRatio Fraction of page views
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "PAGE_VIEWS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "PAGE_VIEWS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsAdRequestsSpamRatio Fraction of ad requests
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "AD_REQUESTS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "AD_REQUESTS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsMatchedAdRequestsSpamRatio Fraction of ad
  *        requests that returned ads considered to be spam. Only available to
- *        premium accounts. (Value: "MATCHED_AD_REQUESTS_SPAM_RATIO")
+ *        [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "MATCHED_AD_REQUESTS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsImpressionsSpamRatio Fraction of impressions
- *        considered to be spam. Only available to premium accounts. (Value:
- *        "IMPRESSIONS_SPAM_RATIO")
+ *        considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "IMPRESSIONS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsIndividualAdImpressionsSpamRatio Fraction of ad
- *        impressions considered to be spam. Only available to premium accounts.
+ *        impressions considered to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
  *        (Value: "INDIVIDUAL_AD_IMPRESSIONS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsClicksSpamRatio Fraction of clicks considered
- *        to be spam. Only available to premium accounts. (Value:
- *        "CLICKS_SPAM_RATIO")
+ *        to be spam. Only available to [premium
+ *        accounts](https://developers.google.com/adsense/management/reference/rest/v2/accounts#Account.FIELDS.premium).
+ *        (Value: "CLICKS_SPAM_RATIO")
  *    @arg @c kGTLRAdsenseMetricsAdRequestsCoverage Ratio of requested ad units
  *        or queries to the number returned to the site. (Value:
  *        "AD_REQUESTS_COVERAGE")
@@ -2383,7 +2512,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        estimated earnings from revenue shared traffic before any parent and
  *        child account revenue share is applied. (Value: "TOTAL_EARNINGS")
  *    @arg @c kGTLRAdsenseMetricsWebsearchResultPages Number of results pages.
- *        (Value: "WEBSEARCH_RESULT_PAGES")
+ *        This metric can only be used when generating a report in the Google
+ *        timezone, not the account timezone. Since the account timezone is the
+ *        default for report generation, this metric can only be used by
+ *        explicitly specifying `reportingTimeZone=GOOGLE_TIME_ZONE`. (Value:
+ *        "WEBSEARCH_RESULT_PAGES")
  *    @arg @c kGTLRAdsenseMetricsFunnelRequests Number of requests for non-ad
  *        units (for example a related search unit). For more information, see
  *        [Funnel requests](https://support.google.com/adsense/answer/11586959).

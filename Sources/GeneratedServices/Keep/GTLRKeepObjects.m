@@ -7,7 +7,7 @@
 //   The Google Keep API is used in an enterprise environment to manage Google
 //   Keep content and resolve issues identified by cloud security software.
 // Documentation:
-//   https://developers.google.com/keep/api
+//   https://developers.google.com/workspace/keep/api
 
 #import <GoogleAPIClientForREST/GTLRKeepObjects.h>
 

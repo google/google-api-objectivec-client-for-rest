@@ -489,6 +489,25 @@
 
 @end
 
+@implementation GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesLookup
+
+@dynamic parent, uri;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/discoveredServices:lookup";
+  GTLRAppHubQuery_ProjectsLocationsDiscoveredServicesLookup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAppHub_LookupDiscoveredServiceResponse class];
+  query.loggingName = @"apphub.projects.locations.discoveredServices.lookup";
+  return query;
+}
+
+@end
+
 @implementation GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsGet
 
 @dynamic name;
@@ -527,6 +546,25 @@
 
 @end
 
+@implementation GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsLookup
+
+@dynamic parent, uri;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/discoveredWorkloads:lookup";
+  GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsLookup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAppHub_LookupDiscoveredWorkloadResponse class];
+  query.loggingName = @"apphub.projects.locations.discoveredWorkloads.lookup";
+  return query;
+}
+
+@end
+
 @implementation GTLRAppHubQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -548,7 +586,14 @@
 
 @implementation GTLRAppHubQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

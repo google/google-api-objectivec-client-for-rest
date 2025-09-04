@@ -37,6 +37,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Writes recall bits for the device where Play Integrity API token is
+ *  obtained. The endpoint is available to select Play partners in an early
+ *  access program (EAP).
+ *
+ *  Method: playintegrity.deviceRecall.write
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlayIntegrity
+ */
+@interface GTLRPlayIntegrityQuery_DeviceRecallWrite : GTLRPlayIntegrityQuery
+
+/**
+ *  Required. Package name of the app the attached integrity token belongs to.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRPlayIntegrity_WriteDeviceRecallResponse.
+ *
+ *  Writes recall bits for the device where Play Integrity API token is
+ *  obtained. The endpoint is available to select Play partners in an early
+ *  access program (EAP).
+ *
+ *  @param object The @c GTLRPlayIntegrity_WriteDeviceRecallRequest to include
+ *    in the query.
+ *  @param packageName Required. Package name of the app the attached integrity
+ *    token belongs to.
+ *
+ *  @return GTLRPlayIntegrityQuery_DeviceRecallWrite
+ */
++ (instancetype)queryWithObject:(GTLRPlayIntegrity_WriteDeviceRecallRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
  *  Decodes the integrity token and returns the token payload.
  *
  *  Method: playintegrity.decodeIntegrityToken
@@ -62,6 +98,36 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRPlayIntegrityQuery_V1DecodeIntegrityToken
  */
 + (instancetype)queryWithObject:(GTLRPlayIntegrity_DecodeIntegrityTokenRequest *)object
+                    packageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Decodes the PC integrity token and returns the PC token payload.
+ *
+ *  Method: playintegrity.decodePcIntegrityToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePlayIntegrity
+ */
+@interface GTLRPlayIntegrityQuery_V1DecodePcIntegrityToken : GTLRPlayIntegrityQuery
+
+/** Package name of the app the attached integrity token belongs to. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRPlayIntegrity_DecodePcIntegrityTokenResponse.
+ *
+ *  Decodes the PC integrity token and returns the PC token payload.
+ *
+ *  @param object The @c GTLRPlayIntegrity_DecodePcIntegrityTokenRequest to
+ *    include in the query.
+ *  @param packageName Package name of the app the attached integrity token
+ *    belongs to.
+ *
+ *  @return GTLRPlayIntegrityQuery_V1DecodePcIntegrityToken
+ */
++ (instancetype)queryWithObject:(GTLRPlayIntegrity_DecodePcIntegrityTokenRequest *)object
                     packageName:(NSString *)packageName;
 
 @end

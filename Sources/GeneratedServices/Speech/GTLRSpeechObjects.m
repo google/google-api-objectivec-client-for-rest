@@ -24,6 +24,7 @@ NSString * const kGTLRSpeech_PhraseSet_State_Deleted          = @"DELETED";
 NSString * const kGTLRSpeech_PhraseSet_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRSpeech_RecognitionConfig.encoding
+NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Alaw   = @"ALAW";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Amr    = @"AMR";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_AmrWb  = @"AMR_WB";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";

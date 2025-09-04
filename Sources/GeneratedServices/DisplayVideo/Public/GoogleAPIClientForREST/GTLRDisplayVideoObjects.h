@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Display & Video 360 API (displayvideo/v3)
+//   Display & Video 360 API (displayvideo/v4)
 // Description:
 //   Display & Video 360 API allows users to automate complex Display & Video
 //   360 workflows, such as creating insertion orders and setting targeting
@@ -33,6 +33,7 @@
 @class GTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_AgeRangeTargetingOptionDetails;
 @class GTLRDisplayVideo_AlgorithmRulesComparisonValue;
+@class GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal;
 @class GTLRDisplayVideo_AlgorithmRulesRule;
 @class GTLRDisplayVideo_AlgorithmRulesRuleCondition;
 @class GTLRDisplayVideo_AlgorithmRulesRuleset;
@@ -92,6 +93,8 @@
 @class GTLRDisplayVideo_ContentOutstreamPositionTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_ContentThemeTargetingOptionDetails;
 @class GTLRDisplayVideo_ConversionCountingConfig;
 @class GTLRDisplayVideo_CounterEvent;
 @class GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest;
@@ -135,9 +138,9 @@
 @class GTLRDisplayVideo_ExchangeReviewStatus;
 @class GTLRDisplayVideo_ExchangeTargetingOptionDetails;
 @class GTLRDisplayVideo_ExitEvent;
-@class GTLRDisplayVideo_FirstAndThirdPartyAudience;
-@class GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup;
-@class GTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting;
+@class GTLRDisplayVideo_FirstPartyAndPartnerAudience;
+@class GTLRDisplayVideo_FirstPartyAndPartnerAudienceGroup;
+@class GTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting;
 @class GTLRDisplayVideo_FixedBidStrategy;
 @class GTLRDisplayVideo_FloodlightActivity;
 @class GTLRDisplayVideo_FloodlightGroup_CustomVariables;
@@ -228,7 +231,6 @@
 @class GTLRDisplayVideo_ProductFeedData;
 @class GTLRDisplayVideo_ProductMatchDimension;
 @class GTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails;
-@class GTLRDisplayVideo_PublisherReviewStatus;
 @class GTLRDisplayVideo_RateDetails;
 @class GTLRDisplayVideo_RegionalLocationListAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_RemarketingConfig;
@@ -261,6 +263,7 @@
 @class GTLRDisplayVideo_User;
 @class GTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_UserRewardedContentTargetingOptionDetails;
+@class GTLRDisplayVideo_VideoAdInventoryControl;
 @class GTLRDisplayVideo_VideoAdSequenceSettings;
 @class GTLRDisplayVideo_VideoAdSequenceStep;
 @class GTLRDisplayVideo_VideoDiscoveryAd;
@@ -535,6 +538,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGro
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper;
 /**
+ *  Demand Gen ads.
+ *
+ *  Value: "AD_GROUP_FORMAT_DEMAND_GEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen;
+/**
  *  In-stream ads.
  *
  *  Value: "AD_GROUP_FORMAT_IN_STREAM"
@@ -662,10 +671,226 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroupAd_EntityStatus_Enti
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroupAd_EntityStatus_EntityStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.adultExplicitSexualContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.armsAmmunitionContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.crimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.deathInjuryMilitaryConflictContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.debatedSensitiveSocialIssueContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.displayIabViewability
+
+/**
+ *  10%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability10;
+/**
+ *  20%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability20;
+/**
+ *  35%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability35;
+/**
+ *  50%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_50"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability50;
+/**
+ *  75%+ in view (IAB display viewability standard).
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_75"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability75;
+/**
+ *  Default value when not specified or is unknown in this version.
+ *
+ *  Value: "DISPLAY_IAB_VIEWABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewabilityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_Adloox.excludedAdlooxCategories
 
 /**
- *  This enum is only a placeholder and it doesn't specify any Adloox option.
+ *  Default value when a Scope3 category is not specified or is unknown in this
+ *  version.
  *
  *  Value: "ADLOOX_UNSPECIFIED"
  */
@@ -718,6 +943,308 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCatego
  *  Value: "VIOLENT_CONTENT_WEAPONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedAdlooxCategories_ViolentContentWeapons;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.excludedFraudIvtMfaCategories
+
+/**
+ *  FRAUD, IVT, MFA.
+ *
+ *  Value: "FRAUD_IVT_MFA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedFraudIvtMfaCategories_FraudIvtMfa;
+/**
+ *  Default value when a Scope3 Fraud, IVT, MFA category is not specified or is
+ *  unknown in this version.
+ *
+ *  Value: "FRAUD_IVT_MFA_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ExcludedFraudIvtMfaCategories_FraudIvtMfaCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.hateSpeechActsAggressionContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.illegalDrugsTobaccoEcigarettesVapingAlcoholContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.misinformationContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.obscenityProfanityContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.onlinePiracyContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.spamHarmfulContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.terrorismContent
+
+/**
+ *  Exclude floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_FLOOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionFloor;
+/**
+ *  Exclude high and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionHigh;
+/**
+ *  Exclude all levels of risk (low, medium, high and floor).
+ *
+ *  Value: "GARM_RISK_EXCLUSION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionLow;
+/**
+ *  Exclude medium, high, and floor risk.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionMedium;
+/**
+ *  This enum is only a placeholder and it doesn't specify any GARM risk
+ *  exclusion option.
+ *
+ *  Value: "GARM_RISK_EXCLUSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Adloox.videoIabViewability
+
+/**
+ *  10%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability10;
+/**
+ *  20%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability20;
+/**
+ *  35%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability35;
+/**
+ *  50%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_50"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability50;
+/**
+ *  75%+ in view (IAB video viewability standard).
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_75"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability75;
+/**
+ *  Default value when not specified or is unknown in this version.
+ *
+ *  Value: "VIDEO_IAB_VIEWABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewabilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AdUrl.type
@@ -1149,7 +1676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -1179,7 +1706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -1215,17 +1742,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -1238,6 +1777,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDrax;
 /**
  *  Five.
  *
@@ -1263,7 +1808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -1358,6 +1903,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -1503,6 +2054,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -1545,7 +2102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -1563,6 +2120,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -1575,7 +2138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -1647,6 +2210,107 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_OnScreenPositionValue_OnScreenPositionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesComparisonValue.videoPlayerSizeValue
+
+/**
+ *  The dimensions of the video player are 1280×720 or greater (desktop), or
+ *  over 90% of the screen covered (mobile).
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_HD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeHd;
+/**
+ *  The dimensions of the video player are between 400x300 and 1280x720 pixels
+ *  (desktop), or 20% to 90% of the screen covered (mobile).
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeLarge;
+/**
+ *  The dimensions of the video player are less than 400×300 (desktop), or up to
+ *  20% of screen covered (mobile).
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeSmall;
+/**
+ *  The dimensions of the video player are unknown.
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeUnknown;
+/**
+ *  Video player size is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real video player size.
+ *
+ *  Value: "VIDEO_PLAYER_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal.conversionCounting
+
+/**
+ *  All conversions.
+ *
+ *  Value: "ALL_CONVERSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_AllConversions;
+/**
+ *  The action is not specified.
+ *
+ *  Value: "CONVERSION_COUNTING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_ConversionCountingUnspecified;
+/**
+ *  Post-click conversions.
+ *
+ *  Value: "POST_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_PostClick;
+/**
+ *  Post-view conversions.
+ *
+ *  Value: "POST_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_PostView;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal.countingMethod
+
+/**
+ *  The count of conversions associated with the conversion activity.
+ *
+ *  Value: "CONVERSIONS_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_ConversionsCount;
+/**
+ *  The action is not specified.
+ *
+ *  Value: "COUNTING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_CountingMethodUnspecified;
+/**
+ *  The number of sales items associated with the conversion activity.
+ *
+ *  Value: "SALES_QUANTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_SalesQuantity;
+/**
+ *  The sales revenue associated with the conversion activity.
+ *
+ *  Value: "SALES_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_SalesValue;
+/**
+ *  The count of unique conversions associated with the conversion activity.
+ *  Only one conversion can be counted per impression.
+ *
+ *  Value: "UNIQUE_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_UniqueCount;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AlgorithmRulesRuleset.aggregationType
 
 /**
@@ -1673,6 +2337,75 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesRuleset_Aggre
  *  Value: "SUM_OF_VALUES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesRuleset_AggregationType_SumOfValues;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesSignal.activeViewSignal
+
+/**
+ *  Unknown signal.
+ *
+ *  Value: "ACTIVE_VIEW_SIGNAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewSignalUnspecified;
+/**
+ *  Whether Active View detects that your ad has been viewed. Value is stored in
+ *  the boolValue field of the comparison value.
+ *
+ *  Value: "ACTIVE_VIEW_VIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewViewed;
+/**
+ *  Whether Active View detects that your ad was audible. Value is stored in the
+ *  boolValue field of the comparison value.
+ *
+ *  Value: "AUDIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_Audible;
+/**
+ *  Whether the ad was completed in view and audible. Value is stored in the
+ *  boolValue field of the comparison value.
+ *
+ *  Value: "COMPLETED_IN_VIEW_AUDIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_CompletedInViewAudible;
+/**
+ *  The time the ad was on screen in seconds. Value is stored in the int64Value
+ *  field of the comparison value.
+ *
+ *  Value: "TIME_ON_SCREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_TimeOnScreen;
+/**
+ *  Whether the video was completed. Value is stored in the boolValue field of
+ *  the comparison value.
+ *
+ *  Value: "VIDEO_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoCompleted;
+/**
+ *  The size of the video player displaying the ad. Value is stored in the
+ *  videoPlayerSizeValue field of the comparison value.
+ *
+ *  Value: "VIDEO_PLAYER_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoPlayerSize;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesSignal.clickSignal
+
+/**
+ *  Whether the ad was clicked. Value is stored in the boolValue field of the
+ *  comparison value.
+ *
+ *  Value: "CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ClickSignal_Click;
+/**
+ *  Unknown signal.
+ *
+ *  Value: "CLICK_SIGNAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ClickSignal_ClickSignalUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AlgorithmRulesSignal.impressionSignal
@@ -1778,29 +2511,81 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalCompari
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_Equal;
 /**
- *  First value is greater than the comparison value.
+ *  Signal value is greater than the comparison value.
  *
  *  Value: "GREATER_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThan;
 /**
- *  First value is greater than or equal to the second.
+ *  Signal value is greater than or equal to the second.
  *
  *  Value: "GREATER_THAN_OR_EQUAL_TO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThanOrEqualTo;
 /**
- *  First value is less than the second.
+ *  Signal value is less than the second.
  *
  *  Value: "LESS_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThan;
 /**
- *  First value is less or equals to the comparison value.
+ *  Signal value is less than or equal to the comparison value.
  *
  *  Value: "LESS_THAN_OR_EQUAL_TO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThanOrEqualTo;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesSignalValue.activeViewSignal
+
+/**
+ *  Unknown signal.
+ *
+ *  Value: "ACTIVE_VIEW_SIGNAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewSignalUnspecified;
+/**
+ *  Whether Active View detects that your ad has been viewed. Value is stored in
+ *  the boolValue field of the comparison value.
+ *
+ *  Value: "ACTIVE_VIEW_VIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewViewed;
+/**
+ *  Whether Active View detects that your ad was audible. Value is stored in the
+ *  boolValue field of the comparison value.
+ *
+ *  Value: "AUDIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_Audible;
+/**
+ *  Whether the ad was completed in view and audible. Value is stored in the
+ *  boolValue field of the comparison value.
+ *
+ *  Value: "COMPLETED_IN_VIEW_AUDIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_CompletedInViewAudible;
+/**
+ *  The time the ad was on screen in seconds. Value is stored in the int64Value
+ *  field of the comparison value.
+ *
+ *  Value: "TIME_ON_SCREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_TimeOnScreen;
+/**
+ *  Whether the video was completed. Value is stored in the boolValue field of
+ *  the comparison value.
+ *
+ *  Value: "VIDEO_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoCompleted;
+/**
+ *  The size of the video player displaying the ad. Value is stored in the
+ *  videoPlayerSizeValue field of the comparison value.
+ *
+ *  Value: "VIDEO_PLAYER_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoPlayerSize;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AppAssignedTargetingOptionDetails.appPlatform
@@ -1842,6 +2627,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionD
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformIos;
 /**
+ *  The app platform is LG TV.
+ *
+ *  Value: "APP_PLATFORM_LG_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformLgTv;
+/**
  *  The app platform is Playstation.
  *
  *  Value: "APP_PLATFORM_PLAYSTATION"
@@ -1868,6 +2659,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionD
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformUnspecified;
 /**
+ *  The app platform is VIZIO TV.
+ *
+ *  Value: "APP_PLATFORM_VIZIO_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVizioTv;
+/**
  *  The app platform is Xbox.
  *
  *  Value: "APP_PLATFORM_XBOX"
@@ -1878,9 +2675,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionD
 // GTLRDisplayVideo_AssetAssociation.role
 
 /**
+ *  The accent color to use in a creative. This role is only supported and
+ *  required in the following creative_type: *
+ *  `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_ACCENT_COLOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAccentColor;
+/**
  *  The text that identifies the advertiser or brand name. The content must be
  *  UTF-8 encoded with a length of no more than 25 characters. This role is only
- *  supported in following creative_type: * `CREATIVE_TYPE_NATIVE` *
+ *  supported in the following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
  *  Value: "ASSET_ROLE_ADVERTISER_NAME"
@@ -1889,12 +2694,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
 /**
  *  The ID of an Android app in the Google play store. You can find this ID in
  *  the App’s Google Play Store URL after ‘id’. For example, in
- *  https://play.google.com/store/apps/details?id=com.company.appname the
+ *  `https://play.google.com/store/apps/details?id=com.company.appname` the
  *  identifier is com.company.appname. Assets of this role are read-only.
  *
  *  Value: "ASSET_ROLE_ANDROID_APP_ID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAndroidAppId;
+/**
+ *  The main color to use in a creative. This role is only supported and
+ *  required in the following creative_type: *
+ *  `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_BACKGROUND_COLOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBackgroundColor;
 /**
  *  The asset is a backup asset of the creative.
  *
@@ -1903,7 +2716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBackup;
 /**
  *  Body text of a native creative. The content must be UTF-8 encoded with a
- *  length of no more than 90 characters. This role is only supported in
+ *  length of no more than 90 characters. This role is only supported in the
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
@@ -1913,7 +2726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
 /**
  *  The text to use on the call-to-action button of a native creative. The
  *  content must be UTF-8 encoded with a length of no more than 15 characters.
- *  This role is only supported in following creative_type: *
+ *  This role is only supported in the following creative_type: *
  *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
  *  `CREATIVE_TYPE_NATIVE_VIDEO`
  *
@@ -1927,7 +2740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  than 30 characters. For example, if the landing page URL is
  *  'http://www.example.com/page', the caption URL can be 'example.com'. The
  *  protocol (http://) is optional, but the URL can't contain spaces or special
- *  characters. This role is only supported in following creative_type: *
+ *  characters. This role is only supported in the following creative_type: *
  *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
  *  `CREATIVE_TYPE_NATIVE_VIDEO`
  *
@@ -1936,14 +2749,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCaptionUrl;
 /**
  *  The cover image of a native video creative. This role is only supported and
- *  required in following creative_type: * `CREATIVE_TYPE_VIDEO`
+ *  required in the following creative_type: * `CREATIVE_TYPE_VIDEO`
  *
  *  Value: "ASSET_ROLE_COVER_IMAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCoverImage;
 /**
+ *  Whether asset enhancements can be applied to the creative. This role is only
+ *  supported and required in the following creative_type: *
+ *  `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_ENABLE_ASSET_ENHANCEMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleEnableAssetEnhancements;
+/**
  *  Headline of a native creative. The content must be UTF-8 encoded with a
- *  length of no more than 25 characters. This role is only supported in
+ *  length of no more than 25 characters. This role is only supported in the
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
@@ -1951,7 +2772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleHeadline;
 /**
- *  The icon of a creative. This role is only supported and required in
+ *  The icon of a creative. This role is only supported and required in the
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE`
  *
@@ -1961,15 +2782,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
 /**
  *  The ID of an iOS app in the Apple app store. This ID number can be found in
  *  the Apple App Store URL as the string of numbers directly after "id". For
- *  example, in https://apps.apple.com/us/app/gmail-email-by-google/id422689480
- *  the ID is 422689480. Assets of this role are read-only.
+ *  example, in
+ *  `https://apps.apple.com/us/app/gmail-email-by-google/id422689480` the ID is
+ *  422689480. Assets of this role are read-only.
  *
  *  Value: "ASSET_ROLE_IOS_APP_ID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleIosAppId;
 /**
  *  Long body text of a native creative. The content must be UTF-8 encoded with
- *  a length of no more than 150 characters. This role is only supported in
+ *  a length of no more than 150 characters. This role is only supported in the
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
@@ -1978,7 +2800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleLongBody;
 /**
  *  Long headline of a native creative. The content must be UTF-8 encoded with a
- *  length of no more than 50 characters. This role is only supported in
+ *  length of no more than 50 characters. This role is only supported in the
  *  following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *
@@ -2016,6 +2838,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_Asset
  *  Value: "ASSET_ROLE_RATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRating;
+/**
+ *  Whether the creative must use an image asset. This role is only supported
+ *  and required in the following creative_type: *
+ *  `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_REQUIRE_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRequireImage;
+/**
+ *  Whether the creative must use a logo asset. This role is only supported and
+ *  required in the following creative_type: *
+ *  `CREATIVE_TYPE_ASSET_BASED_CREATIVE`
+ *
+ *  Value: "ASSET_ROLE_REQUIRE_LOGO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRequireLogo;
 /**
  *  Asset role is not specified or is unknown in this version.
  *
@@ -2158,6 +2996,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentStreamType;
+/**
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentThemeExclusion;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -2644,6 +3491,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeAutonomousCommunity;
 /**
+ *  The geographic region is a barrio.
+ *
+ *  Value: "GEO_REGION_TYPE_BARRIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeBarrio;
+/**
  *  The geographic region is a borough.
  *
  *  Value: "GEO_REGION_TYPE_BOROUGH"
@@ -2667,6 +3520,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptio
  *  Value: "GEO_REGION_TYPE_CITY_REGION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCityRegion;
+/**
+ *  The geographic region is a colloquial area.
+ *
+ *  Value: "GEO_REGION_TYPE_COLLOQUIAL_AREA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeColloquialArea;
+/**
+ *  The geographic region is a commune.
+ *
+ *  Value: "GEO_REGION_TYPE_COMMUNE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCommune;
 /**
  *  The geographic region is a congressional district.
  *
@@ -2698,6 +3563,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDistrict;
 /**
+ *  The geographic region is a division.
+ *
+ *  Value: "GEO_REGION_TYPE_DIVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDivision;
+/**
  *  The geographic region is a designated market area (DMA) region.
  *
  *  Value: "GEO_REGION_TYPE_DMA_REGION"
@@ -2721,6 +3592,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptio
  *  Value: "GEO_REGION_TYPE_MUNICIPALITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipality;
+/**
+ *  The geographic region is a municipality district.
+ *
+ *  Value: "GEO_REGION_TYPE_MUNICIPALITY_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipalityDistrict;
+/**
+ *  The geographic region is a national park.
+ *
+ *  Value: "GEO_REGION_TYPE_NATIONAL_PARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeNationalPark;
 /**
  *  The geographic region is a neighborhood.
  *
@@ -2758,6 +3641,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeProvince;
 /**
+ *  The geographic region is a quarter.
+ *
+ *  Value: "GEO_REGION_TYPE_QUARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeQuarter;
+/**
  *  The geographic region type is region.
  *
  *  Value: "GEO_REGION_TYPE_REGION"
@@ -2769,6 +3658,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptio
  *  Value: "GEO_REGION_TYPE_STATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeState;
+/**
+ *  The geographic region is a sub district.
+ *
+ *  Value: "GEO_REGION_TYPE_SUB_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubDistrict;
+/**
+ *  The geographic region is a sub ward.
+ *
+ *  Value: "GEO_REGION_TYPE_SUB_WARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubWard;
 /**
  *  The geographic region is a territory.
  *
@@ -3358,6 +4259,198 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingO
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails_ContentStreamType_ContentStreamTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails.contentTheme
+
+/**
+ *  Fighting video games.
+ *
+ *  Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames;
+/**
+ *  Mature games.
+ *
+ *  Value: "CONTENT_THEME_MATURE_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeMatureGames;
+/**
+ *  Not yet determined health sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources;
+/**
+ *  Not yet determined news sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources;
+/**
+ *  Politics.
+ *
+ *  Value: "CONTENT_THEME_POLITICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemePolitics;
+/**
+ *  Recent news.
+ *
+ *  Value: "CONTENT_THEME_RECENT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeRecentNews;
+/**
+ *  Religion.
+ *
+ *  Value: "CONTENT_THEME_RELIGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeReligion;
+/**
+ *  Unpleasant health content.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent;
+/**
+ *  Unpleasant news.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews;
+/**
+ *  Content theme is not specified or is unknown in this version.
+ *
+ *  Value: "CONTENT_THEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails.excludedContentTheme
+
+/**
+ *  Fighting video games.
+ *
+ *  Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeFightingVideoGames;
+/**
+ *  Mature games.
+ *
+ *  Value: "CONTENT_THEME_MATURE_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeMatureGames;
+/**
+ *  Not yet determined health sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedHealthSources;
+/**
+ *  Not yet determined news sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedNewsSources;
+/**
+ *  Politics.
+ *
+ *  Value: "CONTENT_THEME_POLITICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemePolitics;
+/**
+ *  Recent news.
+ *
+ *  Value: "CONTENT_THEME_RECENT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeRecentNews;
+/**
+ *  Religion.
+ *
+ *  Value: "CONTENT_THEME_RELIGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeReligion;
+/**
+ *  Unpleasant health content.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantHealthContent;
+/**
+ *  Unpleasant news.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantNews;
+/**
+ *  Content theme is not specified or is unknown in this version.
+ *
+ *  Value: "CONTENT_THEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentThemeTargetingOptionDetails.contentTheme
+
+/**
+ *  Fighting video games.
+ *
+ *  Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames;
+/**
+ *  Mature games.
+ *
+ *  Value: "CONTENT_THEME_MATURE_GAMES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeMatureGames;
+/**
+ *  Not yet determined health sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources;
+/**
+ *  Not yet determined news sources.
+ *
+ *  Value: "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources;
+/**
+ *  Politics.
+ *
+ *  Value: "CONTENT_THEME_POLITICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemePolitics;
+/**
+ *  Recent news.
+ *
+ *  Value: "CONTENT_THEME_RECENT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeRecentNews;
+/**
+ *  Religion.
+ *
+ *  Value: "CONTENT_THEME_RELIGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeReligion;
+/**
+ *  Unpleasant health content.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent;
+/**
+ *  Unpleasant news.
+ *
+ *  Value: "CONTENT_THEME_UNPLEASANT_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews;
+/**
+ *  Content theme is not specified or is unknown in this version.
+ *
+ *  Value: "CONTENT_THEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest.targetingType
 
 /**
@@ -3463,6 +4556,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType;
+/**
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -3731,28 +4833,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *
  *  Value: "SDF_VERSION_5_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54 GTLR_DEPRECATED;
 /**
  *  SDF version 5.5
  *
  *  Value: "SDF_VERSION_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion55 GTLR_DEPRECATED;
 /**
  *  SDF version 6
  *
  *  Value: "SDF_VERSION_6"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion6 GTLR_DEPRECATED;
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
- *  migrating to this version. Currently in beta. Only available for use by a
- *  subset of users.
+ *  migrating to this version.
  *
  *  Value: "SDF_VERSION_7"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7;
+/**
+ *  SDF version 7.1. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_7_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion71;
+/**
+ *  SDF version 8. Read the [v8 migration
+ *  guide](/display-video/api/structured-data-file/v8-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion8;
+/**
+ *  SDF version 8.1.
+ *
+ *  Value: "SDF_VERSION_8_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -3791,6 +4914,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeAttributes
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_Creative.creativeType
 
+/**
+ *  Asset-based creative. Create and update methods are supported for this
+ *  creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`.
+ *
+ *  Value: "CREATIVE_TYPE_ASSET_BASED_CREATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeAssetBasedCreative;
 /**
  *  Audio creative. Create and update methods are supported for this creative
  *  type if the hosting_source is `HOSTING_SOURCE_HOSTED`
@@ -4069,6 +5199,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_Host
 // GTLRDisplayVideo_CreativeConfig.creativeType
 
 /**
+ *  Asset-based creative. Create and update methods are supported for this
+ *  creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`.
+ *
+ *  Value: "CREATIVE_TYPE_ASSET_BASED_CREATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAssetBasedCreative;
+/**
  *  Audio creative. Create and update methods are supported for this creative
  *  type if the hosting_source is `HOSTING_SOURCE_HOSTED`
  *
@@ -4180,23 +5317,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType
 // GTLRDisplayVideo_CustomBiddingAlgorithm.customBiddingAlgorithmType
 
 /**
- *  Algorithm created through Ads Data Hub product.
- *
- *  Value: "ADS_DATA_HUB_BASED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_AdsDataHubBased;
-/**
  *  Algorithm type is not specified or is unknown in this version.
  *
  *  Value: "CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_CustomBiddingAlgorithmTypeUnspecified;
-/**
- *  Algorithm created through goal builder in DV3 UI.
- *
- *  Value: "GOAL_BUILDER_BASED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_GoalBuilderBased;
 /**
  *  Algorithm based in defined rules. These rules are defined in the API using
  *  the AlgorithmRules object. This algorithm type is only available to
@@ -4253,6 +5378,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_Enti
  *  Value: "ENTITY_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_CustomBiddingAlgorithm.thirdPartyOptimizationPartner
+
+/**
+ *  Third party attention measurement service provider that DV3
+ *  partners/advertisers can partner with.
+ *
+ *  Value: "ADELAIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Adelaide;
+/**
+ *  Third party data science service provider that DV3 partners/advertisers can
+ *  partner with.
+ *
+ *  Value: "SCIBIDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Scibids;
+/**
+ *  Type value is not specified or is unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CustomBiddingAlgorithmRules.state
@@ -4703,6 +5852,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType;
 /**
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion;
+/**
  *  Target ads during a chosen time period on a specific day.
  *
  *  Value: "TARGETING_TYPE_DAY_AND_TIME"
@@ -4924,6 +6082,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeComputer;
 /**
+ *  Connected device.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice;
+/**
  *  Connected TV.
  *
  *  Value: "DEVICE_TYPE_CONNECTED_TV"
@@ -4959,6 +6123,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeAssignedTargeting
  *  Value: "DEVICE_TYPE_COMPUTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeComputer;
+/**
+ *  Connected device.
+ *
+ *  Value: "DEVICE_TYPE_CONNECTED_DEVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice;
 /**
  *  Connected TV.
  *
@@ -5765,7 +6935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -5795,7 +6965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -5831,17 +7001,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -5854,6 +7036,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -5879,7 +7067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -5974,6 +7162,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -6119,6 +7313,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -6161,7 +7361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -6179,6 +7379,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -6191,7 +7397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -6255,7 +7461,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -6285,7 +7491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -6321,17 +7527,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -6344,6 +7562,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -6369,7 +7593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -6464,6 +7688,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -6609,6 +7839,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -6651,7 +7887,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -6669,6 +7905,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -6681,7 +7923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -6745,7 +7987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -6775,7 +8017,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -6811,17 +8053,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -6834,6 +8088,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -6859,7 +8119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -6954,6 +8214,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -7099,6 +8365,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -7141,7 +8413,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -7159,6 +8431,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -7171,7 +8449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -7263,7 +8541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -7293,7 +8571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -7329,17 +8607,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -7352,6 +8642,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -7377,7 +8673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -7472,6 +8768,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -7617,6 +8919,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -7659,7 +8967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -7677,6 +8985,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -7689,7 +9003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -7755,318 +9069,330 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExitEvent_Type_ExitEventTyp
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExitEvent_Type_ExitEventTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDisplayVideo_FirstAndThirdPartyAudience.audienceSource
+// GTLRDisplayVideo_FirstPartyAndPartnerAudience.audienceSource
 
 /**
  *  Originated from Google Ad Manager.
  *
  *  Value: "AD_MANAGER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AdManager;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_AdManager;
 /**
  *  Originated from Ads Data Hub.
  *
  *  Value: "ADS_DATA_HUB"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AdsDataHub;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_AdsDataHub;
 /**
  *  Default value when audience source is not specified or is unknown.
  *
  *  Value: "AUDIENCE_SOURCE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AudienceSourceUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_AudienceSourceUnspecified;
 /**
  *  Originated from Campaign Manager 360.
  *
  *  Value: "CAMPAIGN_MANAGER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_CampaignManager;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_CampaignManager;
 /**
  *  Originated from Display & Video 360.
  *
  *  Value: "DISPLAY_VIDEO_360"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_DisplayVideo360;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_DisplayVideo360;
 /**
  *  Originated from Search Ads 360.
  *
  *  Value: "SEARCH_ADS_360"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_SearchAds360;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_SearchAds360;
 /**
  *  Originated from Youtube.
  *
  *  Value: "YOUTUBE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_Youtube;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_Youtube;
 
 // ----------------------------------------------------------------------------
-// GTLRDisplayVideo_FirstAndThirdPartyAudience.audienceType
+// GTLRDisplayVideo_FirstPartyAndPartnerAudience.audienceType
 
 /**
  *  Audience was created based on campaign activity.
  *
  *  Value: "ACTIVITY_BASED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ActivityBased GTLR_DEPRECATED;
 /**
  *  Default value when type is not specified or is unknown.
  *
  *  Value: "AUDIENCE_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_AudienceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_AudienceTypeUnspecified;
+/**
+ *  Audience provided by commerce partners for a fee.
+ *
+ *  Value: "COMMERCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Commerce;
 /**
  *  Audience was generated through matching customers to known contact
  *  information.
  *
  *  Value: "CUSTOMER_MATCH_CONTACT_INFO"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchContactInfo;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_CustomerMatchContactInfo;
 /**
  *  Audience was generated through matching customers to known Mobile device
  *  IDs.
  *
  *  Value: "CUSTOMER_MATCH_DEVICE_ID"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchDeviceId;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_CustomerMatchDeviceId;
 /**
  *  Audience was generated through matching customers to known User IDs.
  *
  *  Value: "CUSTOMER_MATCH_USER_ID"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchUserId;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_CustomerMatchUserId;
 /**
  *  Audience was created based on excluding the number of impressions they were
  *  served.
  *
  *  Value: "FREQUENCY_CAP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_FrequencyCap GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_FrequencyCap GTLR_DEPRECATED;
 /**
- *  Subtype of third party audience type.
+ *  Audience for Linear TV content.
  *
- *  Value: "LICENSED"
+ *  Value: "LINEAR"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_Licensed;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Linear;
 /**
  *  Audience was created based on custom variables attached to pixel.
  *
  *  Value: "TAG_BASED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_TagBased;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_TagBased;
+/**
+ *  Audience has been licensed for use from a third party.
+ *
+ *  Value: "THIRD_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ThirdParty;
 /**
  *  Audience was created based on past interactions with videos, YouTube ads, or
  *  YouTube channel.
  *
  *  Value: "YOUTUBE_USERS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_YoutubeUsers;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_YoutubeUsers;
 
 // ----------------------------------------------------------------------------
-// GTLRDisplayVideo_FirstAndThirdPartyAudience.firstAndThirdPartyAudienceType
+// GTLRDisplayVideo_FirstPartyAndPartnerAudience.firstPartyAndPartnerAudienceType
 
-/**
- *  Audience that is created via usage of client data.
- *
- *  Value: "FIRST_AND_THIRD_PARTY_AUDIENCE_TYPE_FIRST_PARTY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_FirstAndThirdPartyAudienceType_FirstAndThirdPartyAudienceTypeFirstParty;
-/**
- *  Audience that is provided by Third Party data providers.
- *
- *  Value: "FIRST_AND_THIRD_PARTY_AUDIENCE_TYPE_THIRD_PARTY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_FirstAndThirdPartyAudienceType_FirstAndThirdPartyAudienceTypeThirdParty;
 /**
  *  Default value when type is not specified or is unknown.
  *
- *  Value: "FIRST_AND_THIRD_PARTY_AUDIENCE_TYPE_UNSPECIFIED"
+ *  Value: "FIRST_PARTY_AND_PARTNER_AUDIENCE_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudience_FirstAndThirdPartyAudienceType_FirstAndThirdPartyAudienceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_FirstPartyAndPartnerAudienceType_FirstPartyAndPartnerAudienceTypeUnspecified;
+/**
+ *  Audience that is created via usage of client data.
+ *
+ *  Value: "TYPE_FIRST_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_FirstPartyAndPartnerAudienceType_TypeFirstParty;
+/**
+ *  Audience that is provided by Third Party data providers.
+ *
+ *  Value: "TYPE_PARTNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_FirstPartyAndPartnerAudienceType_TypePartner;
 
 // ----------------------------------------------------------------------------
-// GTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting.recency
+// GTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting.recency
 
 /**
  *  Recency is 10 days.
  *
  *  Value: "RECENCY_10_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency10Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency10Days;
 /**
  *  Recency is 10 minutes.
  *
  *  Value: "RECENCY_10_MINUTES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency10Minutes;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency10Minutes;
 /**
  *  Recency is 120 days.
  *
  *  Value: "RECENCY_120_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency120Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency120Days;
 /**
  *  Recency is 12 hours.
  *
  *  Value: "RECENCY_12_HOURS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency12Hours;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency12Hours;
 /**
  *  Recency is 14 days.
  *
  *  Value: "RECENCY_14_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency14Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency14Days;
 /**
  *  Recency is 15 days.
  *
  *  Value: "RECENCY_15_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency15Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency15Days;
 /**
  *  Recency is 15 minutes.
  *
  *  Value: "RECENCY_15_MINUTES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency15Minutes;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency15Minutes;
 /**
  *  Recency is 180 days.
  *
  *  Value: "RECENCY_180_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency180Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency180Days;
 /**
  *  Recency is 1 day.
  *
  *  Value: "RECENCY_1_DAY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency1Day;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency1Day;
 /**
  *  Recency is 1 hour.
  *
  *  Value: "RECENCY_1_HOUR"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency1Hour;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency1Hour;
 /**
  *  Recency is 1 minute.
  *
  *  Value: "RECENCY_1_MINUTE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency1Minute;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency1Minute;
 /**
  *  Recency is 21 days.
  *
  *  Value: "RECENCY_21_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency21Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency21Days;
 /**
  *  Recency is 270 days.
  *
  *  Value: "RECENCY_270_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency270Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency270Days;
 /**
  *  Recency is 28 days.
  *
  *  Value: "RECENCY_28_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency28Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency28Days;
 /**
  *  Recency is 2 days.
  *
  *  Value: "RECENCY_2_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency2Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency2Days;
 /**
  *  Recency is 2 hours.
  *
  *  Value: "RECENCY_2_HOURS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency2Hours;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency2Hours;
 /**
  *  Recency is 30 days.
  *
  *  Value: "RECENCY_30_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency30Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency30Days;
 /**
  *  Recency is 30 minutes.
  *
  *  Value: "RECENCY_30_MINUTES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency30Minutes;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency30Minutes;
 /**
  *  Recency is 365 days.
  *
  *  Value: "RECENCY_365_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency365Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency365Days;
 /**
  *  Recency is 3 days.
  *
  *  Value: "RECENCY_3_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency3Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency3Days;
 /**
  *  Recency is 3 hours.
  *
  *  Value: "RECENCY_3_HOURS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency3Hours;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency3Hours;
 /**
  *  Recency is 40 days.
  *
  *  Value: "RECENCY_40_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency40Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency40Days;
 /**
  *  Recency is 45 days.
  *
  *  Value: "RECENCY_45_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency45Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency45Days;
 /**
  *  Recency is 5 days.
  *
  *  Value: "RECENCY_5_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency5Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency5Days;
 /**
  *  Recency is 5 minutes.
  *
  *  Value: "RECENCY_5_MINUTES"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency5Minutes;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency5Minutes;
 /**
  *  Recency is 60 days.
  *
  *  Value: "RECENCY_60_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency60Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency60Days;
 /**
  *  Recency is 6 hours.
  *
  *  Value: "RECENCY_6_HOURS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency6Hours;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency6Hours;
 /**
  *  Recency is 7 days.
  *
  *  Value: "RECENCY_7_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency7Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency7Days;
 /**
  *  Recency is 90 days.
  *
  *  Value: "RECENCY_90_DAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency90Days;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency90Days;
 /**
  *  No limit of recency.
  *
  *  Value: "RECENCY_NO_LIMIT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_RecencyNoLimit;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_RecencyNoLimit;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_FloodlightActivity.servingStatus
@@ -8138,7 +9464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FrequencyCap_TimeUnit_TimeU
  *
  *  Value: "TIME_UNIT_LIFETIME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FrequencyCap_TimeUnit_TimeUnitLifetime;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FrequencyCap_TimeUnit_TimeUnitLifetime GTLR_DEPRECATED;
 /**
  *  The frequency cap will be applied to a number of minutes.
  *
@@ -8407,6 +9733,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeAutonomousCommunity;
 /**
+ *  The geographic region is a barrio.
+ *
+ *  Value: "GEO_REGION_TYPE_BARRIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeBarrio;
+/**
  *  The geographic region is a borough.
  *
  *  Value: "GEO_REGION_TYPE_BOROUGH"
@@ -8430,6 +9762,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingO
  *  Value: "GEO_REGION_TYPE_CITY_REGION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeCityRegion;
+/**
+ *  The geographic region is a colloquial area.
+ *
+ *  Value: "GEO_REGION_TYPE_COLLOQUIAL_AREA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeColloquialArea;
+/**
+ *  The geographic region is a commune.
+ *
+ *  Value: "GEO_REGION_TYPE_COMMUNE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeCommune;
 /**
  *  The geographic region is a congressional district.
  *
@@ -8461,6 +9805,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeDistrict;
 /**
+ *  The geographic region is a division.
+ *
+ *  Value: "GEO_REGION_TYPE_DIVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeDivision;
+/**
  *  The geographic region is a designated market area (DMA) region.
  *
  *  Value: "GEO_REGION_TYPE_DMA_REGION"
@@ -8484,6 +9834,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingO
  *  Value: "GEO_REGION_TYPE_MUNICIPALITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipality;
+/**
+ *  The geographic region is a municipality district.
+ *
+ *  Value: "GEO_REGION_TYPE_MUNICIPALITY_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipalityDistrict;
+/**
+ *  The geographic region is a national park.
+ *
+ *  Value: "GEO_REGION_TYPE_NATIONAL_PARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeNationalPark;
 /**
  *  The geographic region is a neighborhood.
  *
@@ -8521,6 +9883,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeProvince;
 /**
+ *  The geographic region is a quarter.
+ *
+ *  Value: "GEO_REGION_TYPE_QUARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeQuarter;
+/**
  *  The geographic region type is region.
  *
  *  Value: "GEO_REGION_TYPE_REGION"
@@ -8532,6 +9900,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingO
  *  Value: "GEO_REGION_TYPE_STATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeState;
+/**
+ *  The geographic region is a sub district.
+ *
+ *  Value: "GEO_REGION_TYPE_SUB_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubDistrict;
+/**
+ *  The geographic region is a sub ward.
+ *
+ *  Value: "GEO_REGION_TYPE_SUB_WARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubWard;
 /**
  *  The geographic region is a territory.
  *
@@ -8585,6 +9965,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDet
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeAutonomousCommunity;
 /**
+ *  The geographic region is a barrio.
+ *
+ *  Value: "GEO_REGION_TYPE_BARRIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeBarrio;
+/**
  *  The geographic region is a borough.
  *
  *  Value: "GEO_REGION_TYPE_BOROUGH"
@@ -8608,6 +9994,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDet
  *  Value: "GEO_REGION_TYPE_CITY_REGION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeCityRegion;
+/**
+ *  The geographic region is a colloquial area.
+ *
+ *  Value: "GEO_REGION_TYPE_COLLOQUIAL_AREA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeColloquialArea;
+/**
+ *  The geographic region is a commune.
+ *
+ *  Value: "GEO_REGION_TYPE_COMMUNE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeCommune;
 /**
  *  The geographic region is a congressional district.
  *
@@ -8639,6 +10037,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDet
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeDistrict;
 /**
+ *  The geographic region is a division.
+ *
+ *  Value: "GEO_REGION_TYPE_DIVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeDivision;
+/**
  *  The geographic region is a designated market area (DMA) region.
  *
  *  Value: "GEO_REGION_TYPE_DMA_REGION"
@@ -8662,6 +10066,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDet
  *  Value: "GEO_REGION_TYPE_MUNICIPALITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipality;
+/**
+ *  The geographic region is a municipality district.
+ *
+ *  Value: "GEO_REGION_TYPE_MUNICIPALITY_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipalityDistrict;
+/**
+ *  The geographic region is a national park.
+ *
+ *  Value: "GEO_REGION_TYPE_NATIONAL_PARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeNationalPark;
 /**
  *  The geographic region is a neighborhood.
  *
@@ -8699,6 +10115,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDet
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeProvince;
 /**
+ *  The geographic region is a quarter.
+ *
+ *  Value: "GEO_REGION_TYPE_QUARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeQuarter;
+/**
  *  The geographic region type is region.
  *
  *  Value: "GEO_REGION_TYPE_REGION"
@@ -8710,6 +10132,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDet
  *  Value: "GEO_REGION_TYPE_STATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeState;
+/**
+ *  The geographic region is a sub district.
+ *
+ *  Value: "GEO_REGION_TYPE_SUB_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubDistrict;
+/**
+ *  The geographic region is a sub ward.
+ *
+ *  Value: "GEO_REGION_TYPE_SUB_WARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubWard;
 /**
  *  The geographic region is a territory.
  *
@@ -8809,7 +10243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -8839,7 +10273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -8875,17 +10309,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -8898,6 +10344,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -8923,7 +10375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -9018,6 +10470,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -9163,6 +10621,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -9205,7 +10669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -9223,6 +10687,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -9235,7 +10705,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -9511,6 +10981,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrd
  *  Value: "RTB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_InsertionOrder.optimizationObjective
+
+/**
+ *  Prioritize impressions of specific quality.
+ *
+ *  Value: "BRAND_AWARENESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_BrandAwareness;
+/**
+ *  Prioritize impressions that increase website traffic, apps, app stores.
+ *
+ *  Value: "CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Click;
+/**
+ *  Prioritize impressions that increase sales and conversions.
+ *
+ *  Value: "CONVERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Conversion;
+/**
+ *  Objective is defined by the assigned custom bidding algorithm.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Custom;
+/**
+ *  Objective is not defined. Any KPI or bidding strategy can be used.
+ *
+ *  Value: "NO_OBJECTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_NoObjective;
+/**
+ *  Type value is not specified or is unknown in this version.
+ *
+ *  Value: "OPTIMIZATION_OBJECTIVE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_OptimizationObjectiveUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_InsertionOrder.reservationType
@@ -9999,7 +11509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdmixer;
 /**
- *  Admost using the gBid SDK.
+ *  AdMost.
  *
  *  Value: "EXCHANGE_ADMOST_GBID"
  */
@@ -10029,7 +11539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeApplovin;
 /**
- *  AppLovin using the gBid SDK.
+ *  AppLovin MAX.
  *
  *  Value: "EXCHANGE_APPLOVIN_GBID"
  */
@@ -10065,17 +11575,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadreon;
 /**
- *  Chartboost using the gBid SDK.
+ *  Chartboost Mediation.
  *
  *  Value: "EXCHANGE_CHARTBOOST_GBID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeChartboostGbid;
+/**
+ *  Commerce Grid.
+ *
+ *  Value: "EXCHANGE_COMMERCE_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCommerceGrid;
 /**
  *  Connatix.
  *
  *  Value: "EXCHANGE_CONNATIX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeConnatix;
+/**
+ *  Core.
+ *
+ *  Value: "EXCHANGE_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCore;
 /**
  *  Dailymotion.
  *
@@ -10088,6 +11610,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_DAX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax;
+/**
+ *  Drax.
+ *
+ *  Value: "EXCHANGE_DRAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDrax;
 /**
  *  Five.
  *
@@ -10113,7 +11641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyber;
 /**
- *  Fyber using the gBid SDK.
+ *  DT Fairbid.
  *
  *  Value: "EXCHANGE_FYBER_GBID"
  */
@@ -10208,6 +11736,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_NEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNend;
+/**
+ *  Netflix.
+ *
+ *  Value: "EXCHANGE_NETFLIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNetflix;
 /**
  *  Nexstar Digital.
  *
@@ -10353,6 +11887,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSovrn;
 /**
+ *  Spotify.
+ *
+ *  Value: "EXCHANGE_SPOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSpotify;
+/**
  *  SpotXchange.
  *
  *  Value: "EXCHANGE_SPOTXCHANGE"
@@ -10395,7 +11935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTelaria;
 /**
- *  Topon using the gBid SDK.
+ *  TopOn.
  *
  *  Value: "EXCHANGE_TOPON_GBID"
  */
@@ -10413,6 +11953,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton;
 /**
+ *  Tubi.
+ *
+ *  Value: "EXCHANGE_TUBI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTubi;
+/**
  *  TVN.
  *
  *  Value: "EXCHANGE_TVN"
@@ -10425,7 +11971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited;
 /**
- *  Unity using the gBid SDK.
+ *  Unity LevelPlay.
  *
  *  Value: "EXCHANGE_UNITY_GBID"
  */
@@ -10714,6 +12260,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpa;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpc;
 /**
+ *  The KPI is set in CPCL (cost per complete audio listen).
+ *
+ *  Value: "KPI_TYPE_CPCL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcl;
+/**
+ *  The KPI is set in CPCV (cost per complete video view).
+ *
+ *  Value: "KPI_TYPE_CPCV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcv;
+/**
  *  The KPI is CPE (cost per engagement).
  *
  *  Value: "KPI_TYPE_CPE"
@@ -10732,11 +12290,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpiavc;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpm;
 /**
+ *  The KPI is set in CPV (cost per view).
+ *
+ *  Value: "KPI_TYPE_CPV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpv;
+/**
  *  The KPI is CTR (click-through rate) percentage.
  *
  *  Value: "KPI_TYPE_CTR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCtr;
+/**
+ *  The KPI is set in custom impression value divided by cost.
+ *
+ *  Value: "KPI_TYPE_CUSTOM_IMPRESSION_VALUE_OVER_COST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCustomImpressionValueOverCost;
 /**
  *  The KPI is impression conversion rate (conversions per impression)
  *  percentage.
@@ -10745,11 +12315,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCtr;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeImpressionCvr;
 /**
+ *  The KPI is set to maximize brand impact while prioritizing spending the full
+ *  budget.
+ *
+ *  Value: "KPI_TYPE_MAXIMIZE_PACING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeMaximizePacing;
+/**
  *  The KPI is some other value.
  *
  *  Value: "KPI_TYPE_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeOther;
+/**
+ *  The KPI is set in rate of time on screen 10+ seconds (Percentage of
+ *  measurable, non-skippable impressions that were on the screen for at least
+ *  10 seconds).
+ *
+ *  Value: "KPI_TYPE_TOS10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeTos10;
 /**
  *  KPI type is not specified or is unknown in this version.
  *
@@ -11670,6 +13255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeAdGroup;
 /**
+ *  YouTube Ad Group - QA format.
+ *
+ *  Value: "FILE_TYPE_AD_GROUP_QA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeAdGroupQa;
+/**
  *  Campaign.
  *
  *  Value: "FILE_TYPE_CAMPAIGN"
@@ -11687,6 +13278,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType
  *  Value: "FILE_TYPE_LINE_ITEM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeLineItem;
+/**
+ *  Line Item - QA format.
+ *
+ *  Value: "FILE_TYPE_LINE_ITEM_QA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FileType_FileTypeLineItemQa;
 /**
  *  Media Product.
  *
@@ -11721,8 +13318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FilterTy
  *  Insertion Order ID. If selected, all filter IDs must be Insertion Order IDs
  *  that belong to the Advertiser or Partner specified in
  *  CreateSdfDownloadTaskRequest. Can only be used for downloading
- *  `FILE_TYPE_INSERTION_ORDER`, `FILE_TYPE_LINE_ITEM`, `FILE_TYPE_AD_GROUP`,
- *  and `FILE_TYPE_AD`.
+ *  `FILE_TYPE_INSERTION_ORDER`, `FILE_TYPE_LINE_ITEM`,
+ *  `FILE_TYPE_LINE_ITEM_QA`, `FILE_TYPE_AD_GROUP`, `FILE_TYPE_AD_GROUP_QA`, and
+ *  `FILE_TYPE_AD`.
  *
  *  Value: "FILTER_TYPE_INSERTION_ORDER_ID"
  */
@@ -11730,8 +13328,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ParentEntityFilter_FilterTy
 /**
  *  Line Item ID. If selected, all filter IDs must be Line Item IDs that belong
  *  to the Advertiser or Partner specified in CreateSdfDownloadTaskRequest. Can
- *  only be used for downloading `FILE_TYPE_LINE_ITEM`, `FILE_TYPE_AD_GROUP`,
- *  and `FILE_TYPE_AD`.
+ *  only be used for downloading `FILE_TYPE_LINE_ITEM`,
+ *  `FILE_TYPE_LINE_ITEM_QA`,`FILE_TYPE_AD_GROUP`, `FILE_TYPE_AD_GROUP_QA`, and
+ *  `FILE_TYPE_AD`.
  *
  *  Value: "FILTER_TYPE_LINE_ITEM_ID"
  */
@@ -11804,19 +13403,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Partner_EntityStatus_Entity
 // GTLRDisplayVideo_PartnerCost.costType
 
 /**
- *  The cost is charged for using AdLingo. Billed through DV360.
- *
- *  Value: "PARTNER_COST_TYPE_ADLINGO_FEE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlingoFee;
-/**
- *  The cost is charged for using Adloox. Billed by the partner.
+ *  The cost is charged for using Scope3 (previously known as Adloox). Billed by
+ *  the partner.
  *
  *  Value: "PARTNER_COST_TYPE_ADLOOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdloox;
 /**
- *  The cost is charged for using Adloox Pre-Bid. Billed through DV360.
+ *  The cost is charged for using Scope3 (previously known as Adloox) Pre-Bid.
+ *  Billed through DV360.
  *
  *  Value: "PARTNER_COST_TYPE_ADLOOX_PREBID"
  */
@@ -12126,6 +13721,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_Performance
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpm;
 /**
+ *  The performance goal is set in CPV (cost per view).
+ *
+ *  Value: "PERFORMANCE_GOAL_TYPE_CPV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpv;
+/**
  *  The performance goal is set in CTR (click-through rate) percentage.
  *
  *  Value: "PERFORMANCE_GOAL_TYPE_CTR"
@@ -12351,34 +13952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ProximityLocationListAssign
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails_ProximityRadiusUnit_ProximityRadiusUnitUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDisplayVideo_PublisherReviewStatus.status
-
-/**
- *  The creative is approved.
- *
- *  Value: "REVIEW_STATUS_APPROVED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PublisherReviewStatus_Status_ReviewStatusApproved;
-/**
- *  The creative is pending review.
- *
- *  Value: "REVIEW_STATUS_PENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PublisherReviewStatus_Status_ReviewStatusPending;
-/**
- *  The creative is rejected.
- *
- *  Value: "REVIEW_STATUS_REJECTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PublisherReviewStatus_Status_ReviewStatusRejected;
-/**
- *  Type value is not specified or is unknown in this version.
- *
- *  Value: "REVIEW_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PublisherReviewStatus_Status_ReviewStatusUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_RateDetails.inventorySourceRateType
 
 /**
@@ -12588,28 +14161,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  *
  *  Value: "SDF_VERSION_5_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54 GTLR_DEPRECATED;
 /**
  *  SDF version 5.5
  *
  *  Value: "SDF_VERSION_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion55 GTLR_DEPRECATED;
 /**
  *  SDF version 6
  *
  *  Value: "SDF_VERSION_6"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion6 GTLR_DEPRECATED;
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
- *  migrating to this version. Currently in beta. Only available for use by a
- *  subset of users.
+ *  migrating to this version.
  *
  *  Value: "SDF_VERSION_7"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7;
+/**
+ *  SDF version 7.1. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_7_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71;
+/**
+ *  SDF version 8. Read the [v8 migration
+ *  guide](/display-video/api/structured-data-file/v8-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8;
+/**
+ *  SDF version 8.1.
+ *
+ *  Value: "SDF_VERSION_8_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -12673,28 +14267,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *
  *  Value: "SDF_VERSION_5_4"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54 GTLR_DEPRECATED;
 /**
  *  SDF version 5.5
  *
  *  Value: "SDF_VERSION_5_5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion55 GTLR_DEPRECATED;
 /**
  *  SDF version 6
  *
  *  Value: "SDF_VERSION_6"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion6 GTLR_DEPRECATED;
 /**
  *  SDF version 7. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
- *  migrating to this version. Currently in beta. Only available for use by a
- *  subset of users.
+ *  migrating to this version.
  *
  *  Value: "SDF_VERSION_7"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7;
+/**
+ *  SDF version 7.1. Read the [v7 migration
+ *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_7_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71;
+/**
+ *  SDF version 8. Read the [v8 migration
+ *  guide](/display-video/api/structured-data-file/v8-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8;
+/**
+ *  SDF version 8.1.
+ *
+ *  Value: "SDF_VERSION_8_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -12742,8 +14357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryDrugs;
 /**
- *  YouTube videos embedded on websites outside of YouTube.com. Only applicable
- *  to YouTube and Partners line items.
+ *  YouTube videos embedded on websites outside of YouTube.com.
  *
  *  Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO"
  */
@@ -12756,8 +14370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling;
 /**
- *  Video of live events streamed over the internet. Only applicable to YouTube
- *  and Partners line items.
+ *  Video of live events streamed over the internet.
  *
  *  Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO"
  */
@@ -12890,8 +14503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryDrugs;
 /**
- *  YouTube videos embedded on websites outside of YouTube.com. Only applicable
- *  to YouTube and Partners line items.
+ *  YouTube videos embedded on websites outside of YouTube.com.
  *
  *  Value: "SENSITIVE_CATEGORY_EMBEDDED_VIDEO"
  */
@@ -12904,8 +14516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingO
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling;
 /**
- *  Video of live events streamed over the internet. Only applicable to YouTube
- *  and Partners line items.
+ *  Video of live events streamed over the internet.
  *
  *  Value: "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO"
  */
@@ -13034,7 +14645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_Ti
  *
  *  Value: "TIME_UNIT_LIFETIME"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitLifetime;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetFrequency_TimeUnit_TimeUnitLifetime GTLR_DEPRECATED;
 /**
  *  The frequency cap will be applied to a number of minutes.
  *
@@ -13200,6 +14811,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  *  Value: "TARGETING_TYPE_CONTENT_STREAM_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentStreamType;
+/**
+ *  Filter website content by content themes (for example, religion). Only
+ *  supported for Advertiser resources. Targeting of this type cannot be created
+ *  or updated using the API. This targeting is only inherited by child YouTube
+ *  and Demand Gen line item resources.
+ *
+ *  Value: "TARGETING_TYPE_CONTENT_THEME_EXCLUSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentThemeExclusion;
 /**
  *  Target ads during a chosen time period on a specific day.
  *
@@ -13576,6 +15196,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vend
  *  Value: "THIRD_PARTY_VENDOR_TELEMETRY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorTelemetry;
+/**
+ *  Transunion.
+ *
+ *  Value: "THIRD_PARTY_VENDOR_TRANSUNION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorTransunion;
 /**
  *  Unknown third-party vendor.
  *
@@ -14030,6 +15656,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeLift;
 /**
+ *  A bidding strategy for YouTube Instant Reserve line items that pays a fixed
+ *  amount per impression.
+ *
+ *  Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_CPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeReserveCpm;
+/**
  *  A bidding strategy that automatically optimizes conversions per dollar.
  *
  *  Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA"
@@ -14287,6 +15920,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Non-skippable in-stream audio ads. (Value: "AD_GROUP_FORMAT_AUDIO")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper Bumper
  *        ads. (Value: "AD_GROUP_FORMAT_BUMPER")
+ *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen
+ *        Demand Gen ads. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream
  *        In-stream ads. (Value: "AD_GROUP_FORMAT_IN_STREAM")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead
@@ -14522,12 +16157,329 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Details of Adloox settings.
+ *  Details of Scope3 (previously known as Adloox) brand safety settings.
  */
 @interface GTLRDisplayVideo_Adloox : GTLRObject
 
-/** Adloox's brand safety settings. */
+/**
+ *  Optional. Adult and Explicit Sexual Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_AdultExplicitSexualContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *adultExplicitSexualContent;
+
+/**
+ *  Optional. Arms and Ammunition Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ArmsAmmunitionContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *armsAmmunitionContent;
+
+/**
+ *  Optional. Crime and Harmful Acts Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_CrimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crimeHarmfulActsIndividualsSocietyHumanRightsViolationsContent;
+
+/**
+ *  Optional. Death, Injury, or Military Conflict Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DeathInjuryMilitaryConflictContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deathInjuryMilitaryConflictContent;
+
+/**
+ *  Optional. Debated Sensitive Social Issue Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DebatedSensitiveSocialIssueContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *debatedSensitiveSocialIssueContent;
+
+/**
+ *  Optional. IAB viewability threshold for display ads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability10
+ *        10%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_10")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability20
+ *        20%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_20")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability35
+ *        35%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_35")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability50
+ *        50%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_50")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewability75
+ *        75%+ in view (IAB display viewability standard). (Value:
+ *        "DISPLAY_IAB_VIEWABILITY_75")
+ *    @arg @c kGTLRDisplayVideo_Adloox_DisplayIabViewability_DisplayIabViewabilityUnspecified
+ *        Default value when not specified or is unknown in this version.
+ *        (Value: "DISPLAY_IAB_VIEWABILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *displayIabViewability;
+
+/** Scope3 categories to exclude. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedAdlooxCategories;
+
+/** Optional. Scope3's fraud IVT MFA categories to exclude. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedFraudIvtMfaCategories;
+
+/**
+ *  Optional. Hate Speech and Acts of Aggression Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_HateSpeechActsAggressionContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *hateSpeechActsAggressionContent;
+
+/**
+ *  Optional. Illegal Drugs/Alcohol Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_IllegalDrugsTobaccoEcigarettesVapingAlcoholContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *illegalDrugsTobaccoEcigarettesVapingAlcoholContent;
+
+/**
+ *  Optional. Misinformation Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_MisinformationContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *misinformationContent;
+
+/**
+ *  Optional. Obscenity and Profanity Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_ObscenityProfanityContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *obscenityProfanityContent;
+
+/**
+ *  Optional. Online Piracy Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_OnlinePiracyContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *onlinePiracyContent;
+
+/**
+ *  Optional. Spam or Harmful Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_SpamHarmfulContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spamHarmfulContent;
+
+/**
+ *  Optional. Terrorism Content
+ *  [GARM](https://wfanet.org/leadership/garm/about-garm) risk ranges to
+ *  exclude.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionFloor
+ *        Exclude floor risk. (Value: "GARM_RISK_EXCLUSION_FLOOR")
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionHigh
+ *        Exclude high and floor risk. (Value: "GARM_RISK_EXCLUSION_HIGH")
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionLow
+ *        Exclude all levels of risk (low, medium, high and floor). (Value:
+ *        "GARM_RISK_EXCLUSION_LOW")
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionMedium
+ *        Exclude medium, high, and floor risk. (Value:
+ *        "GARM_RISK_EXCLUSION_MEDIUM")
+ *    @arg @c kGTLRDisplayVideo_Adloox_TerrorismContent_GarmRiskExclusionUnspecified
+ *        This enum is only a placeholder and it doesn't specify any GARM risk
+ *        exclusion option. (Value: "GARM_RISK_EXCLUSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *terrorismContent;
+
+/**
+ *  Optional. IAB viewability threshold for video ads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability10
+ *        10%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_10")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability20
+ *        20%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_20")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability35
+ *        35%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_35")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability50
+ *        50%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_50")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability75
+ *        75%+ in view (IAB video viewability standard). (Value:
+ *        "VIDEO_IAB_VIEWABILITY_75")
+ *    @arg @c kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewabilityUnspecified
+ *        Default value when not specified or is unknown in this version.
+ *        (Value: "VIDEO_IAB_VIEWABILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *videoIabViewability;
 
 @end
 
@@ -14580,7 +16532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
-/** Optional. Required. Billing related settings of the advertiser. */
+/** Required. Billing related settings of the advertiser. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserBillingConfig *billingConfig;
 
 /** Required. Creative related settings of the advertiser. */
@@ -14694,7 +16646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_AdvertiserBillingConfig : GTLRObject
 
 /**
- *  Optional. The ID of a billing profile assigned to the advertiser.
+ *  Required. The ID of a billing profile assigned to the advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -15021,8 +16973,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_AlgorithmRules : GTLRObject
 
+/**
+ *  Attribution model for the algorithm. This field is only supported for
+ *  allowlisted partners.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attributionModelId;
+
 /** Rules for the impression signals. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AlgorithmRulesRuleset *impressionSignalRuleset;
+
+/**
+ *  Rules for the post-impression signals. This field is only supported for
+ *  allowlisted partners.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AlgorithmRulesRuleset *postImpressionSignalRuleset;
 
 @end
 
@@ -15111,7 +17077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAdswizz
@@ -15121,7 +17087,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeBidswitch
@@ -15135,13 +17101,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCore
+ *        Core. (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDax
  *        DAX. (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeDrax
+ *        Drax. (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFluct
@@ -15151,7 +17123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeGoogleAdManager
@@ -15182,6 +17154,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNend
  *        Nend. (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeOneByAolDisplay
@@ -15231,6 +17205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeStroer
@@ -15246,17 +17222,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTubi
+ *        Tubi. (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeUnspecified
@@ -15302,6 +17280,88 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** String value. */
 @property(nonatomic, copy, nullable) NSString *stringValue;
+
+/**
+ *  Video player size value. This field is only supported for allowlisted
+ *  partners.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeHd
+ *        The dimensions of the video player are 1280×720 or greater (desktop),
+ *        or over 90% of the screen covered (mobile). (Value:
+ *        "VIDEO_PLAYER_SIZE_HD")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeLarge
+ *        The dimensions of the video player are between 400x300 and 1280x720
+ *        pixels (desktop), or 20% to 90% of the screen covered (mobile).
+ *        (Value: "VIDEO_PLAYER_SIZE_LARGE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeSmall
+ *        The dimensions of the video player are less than 400×300 (desktop), or
+ *        up to 20% of screen covered (mobile). (Value:
+ *        "VIDEO_PLAYER_SIZE_SMALL")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeUnknown
+ *        The dimensions of the video player are unknown. (Value:
+ *        "VIDEO_PLAYER_SIZE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_VideoPlayerSizeValue_VideoPlayerSizeUnspecified
+ *        Video player size is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real video
+ *        player size. (Value: "VIDEO_PLAYER_SIZE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *videoPlayerSizeValue;
+
+@end
+
+
+/**
+ *  The rule to score impressions based on Floodlight conversion events.
+ */
+@interface GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal : GTLRObject
+
+/**
+ *  Required. The type of conversions to be used in impression value
+ *  computation, for example, post-click conversions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_AllConversions
+ *        All conversions. (Value: "ALL_CONVERSIONS")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_ConversionCountingUnspecified
+ *        The action is not specified. (Value:
+ *        "CONVERSION_COUNTING_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_PostClick
+ *        Post-click conversions. (Value: "POST_CLICK")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_ConversionCounting_PostView
+ *        Post-view conversions. (Value: "POST_VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *conversionCounting;
+
+/**
+ *  Required. The way to acquire value from the floodlight activity, for
+ *  example, count of the conversion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_ConversionsCount
+ *        The count of conversions associated with the conversion activity.
+ *        (Value: "CONVERSIONS_COUNT")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_CountingMethodUnspecified
+ *        The action is not specified. (Value: "COUNTING_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_SalesQuantity
+ *        The number of sales items associated with the conversion activity.
+ *        (Value: "SALES_QUANTITY")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_SalesValue
+ *        The sales revenue associated with the conversion activity. (Value:
+ *        "SALES_VALUE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal_CountingMethod_UniqueCount
+ *        The count of unique conversions associated with the conversion
+ *        activity. Only one conversion can be counted per impression. (Value:
+ *        "UNIQUE_COUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *countingMethod;
+
+/**
+ *  Required. Id of the floodlight activity.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floodlightActivityId;
 
 @end
 
@@ -15384,6 +17444,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_AlgorithmRulesSignal : GTLRObject
 
 /**
+ *  Signal based on active views. This field is only supported for allowlisted
+ *  partners.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewSignalUnspecified
+ *        Unknown signal. (Value: "ACTIVE_VIEW_SIGNAL_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_ActiveViewViewed
+ *        Whether Active View detects that your ad has been viewed. Value is
+ *        stored in the boolValue field of the comparison value. (Value:
+ *        "ACTIVE_VIEW_VIEWED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_Audible
+ *        Whether Active View detects that your ad was audible. Value is stored
+ *        in the boolValue field of the comparison value. (Value: "AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_CompletedInViewAudible
+ *        Whether the ad was completed in view and audible. Value is stored in
+ *        the boolValue field of the comparison value. (Value:
+ *        "COMPLETED_IN_VIEW_AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_TimeOnScreen
+ *        The time the ad was on screen in seconds. Value is stored in the
+ *        int64Value field of the comparison value. (Value: "TIME_ON_SCREEN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoCompleted
+ *        Whether the video was completed. Value is stored in the boolValue
+ *        field of the comparison value. (Value: "VIDEO_COMPLETED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ActiveViewSignal_VideoPlayerSize
+ *        The size of the video player displaying the ad. Value is stored in the
+ *        videoPlayerSizeValue field of the comparison value. (Value:
+ *        "VIDEO_PLAYER_SIZE")
+ */
+@property(nonatomic, copy, nullable) NSString *activeViewSignal;
+
+/**
+ *  Signal based on clicks. This field is only supported for allowlisted
+ *  partners.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ClickSignal_Click Whether
+ *        the ad was clicked. Value is stored in the boolValue field of the
+ *        comparison value. (Value: "CLICK")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ClickSignal_ClickSignalUnspecified
+ *        Unknown signal. (Value: "CLICK_SIGNAL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *clickSignal;
+
+/**
  *  Signal based on impressions.
  *
  *  Likely values:
@@ -15449,15 +17553,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_Equal
  *        Values are equal. (Value: "EQUAL")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThan
- *        First value is greater than the comparison value. (Value:
+ *        Signal value is greater than the comparison value. (Value:
  *        "GREATER_THAN")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThanOrEqualTo
- *        First value is greater than or equal to the second. (Value:
+ *        Signal value is greater than or equal to the second. (Value:
  *        "GREATER_THAN_OR_EQUAL_TO")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThan
- *        First value is less than the second. (Value: "LESS_THAN")
+ *        Signal value is less than the second. (Value: "LESS_THAN")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThanOrEqualTo
- *        First value is less or equals to the comparison value. (Value:
+ *        Signal value is less than or equal to the comparison value. (Value:
  *        "LESS_THAN_OR_EQUAL_TO")
  */
 @property(nonatomic, copy, nullable) NSString *comparisonOperator;
@@ -15475,6 +17579,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Adjusted value of the signal used for rule evaluation.
  */
 @interface GTLRDisplayVideo_AlgorithmRulesSignalValue : GTLRObject
+
+/**
+ *  Signal based on active views. Only `TIME_ON_SCREEN` is supported. This field
+ *  is only supported for allowlisted partners.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewSignalUnspecified
+ *        Unknown signal. (Value: "ACTIVE_VIEW_SIGNAL_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewViewed
+ *        Whether Active View detects that your ad has been viewed. Value is
+ *        stored in the boolValue field of the comparison value. (Value:
+ *        "ACTIVE_VIEW_VIEWED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_Audible
+ *        Whether Active View detects that your ad was audible. Value is stored
+ *        in the boolValue field of the comparison value. (Value: "AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_CompletedInViewAudible
+ *        Whether the ad was completed in view and audible. Value is stored in
+ *        the boolValue field of the comparison value. (Value:
+ *        "COMPLETED_IN_VIEW_AUDIBLE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_TimeOnScreen
+ *        The time the ad was on screen in seconds. Value is stored in the
+ *        int64Value field of the comparison value. (Value: "TIME_ON_SCREEN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoCompleted
+ *        Whether the video was completed. Value is stored in the boolValue
+ *        field of the comparison value. (Value: "VIDEO_COMPLETED")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_VideoPlayerSize
+ *        The size of the video player displaying the ad. Value is stored in the
+ *        videoPlayerSizeValue field of the comparison value. (Value:
+ *        "VIDEO_PLAYER_SIZE")
+ */
+@property(nonatomic, copy, nullable) NSString *activeViewSignal;
+
+/**
+ *  Signal based on floodlight conversion events. This field is only supported
+ *  for allowlisted partners.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AlgorithmRulesFloodlightActivityConversionSignal *floodlightActivityConversionSignal;
 
 /**
  *  Value to use as result.
@@ -15520,6 +17661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        elsewhere. (Value: "APP_PLATFORM_GENERIC_CTV")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformIos
  *        The app platform is iOS. (Value: "APP_PLATFORM_IOS")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformLgTv
+ *        The app platform is LG TV. (Value: "APP_PLATFORM_LG_TV")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformPlaystation
  *        The app platform is Playstation. (Value: "APP_PLATFORM_PLAYSTATION")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformRoku
@@ -15530,6 +17673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Default value when app platform is not specified in this version. This
  *        enum is a placeholder for default value and does not represent a real
  *        platform option. (Value: "APP_PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVizioTv
+ *        The app platform is VIZIO TV. (Value: "APP_PLATFORM_VIZIO_TV")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformXbox
  *        The app platform is Xbox. (Value: "APP_PLATFORM_XBOX")
  */
@@ -15618,39 +17763,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_AssetAssociation : GTLRObject
 
-/** The associated asset. */
+/** Optional. The associated asset. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Asset *asset;
 
 /**
- *  The role of this asset for the creative.
+ *  Optional. The role of this asset for the creative.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAccentColor The
+ *        accent color to use in a creative. This role is only supported and
+ *        required in the following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_ACCENT_COLOR")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAdvertiserName
  *        The text that identifies the advertiser or brand name. The content
  *        must be UTF-8 encoded with a length of no more than 25 characters.
- *        This role is only supported in following creative_type: *
+ *        This role is only supported in the following creative_type: *
  *        `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
  *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_ADVERTISER_NAME")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAndroidAppId The
  *        ID of an Android app in the Google play store. You can find this ID in
  *        the App’s Google Play Store URL after ‘id’. For example, in
- *        https://play.google.com/store/apps/details?id=com.company.appname the
- *        identifier is com.company.appname. Assets of this role are read-only.
- *        (Value: "ASSET_ROLE_ANDROID_APP_ID")
+ *        `https://play.google.com/store/apps/details?id=com.company.appname`
+ *        the identifier is com.company.appname. Assets of this role are
+ *        read-only. (Value: "ASSET_ROLE_ANDROID_APP_ID")
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBackgroundColor
+ *        The main color to use in a creative. This role is only supported and
+ *        required in the following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_BACKGROUND_COLOR")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBackup The asset
  *        is a backup asset of the creative. (Value: "ASSET_ROLE_BACKUP")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleBody Body text of
  *        a native creative. The content must be UTF-8 encoded with a length of
- *        no more than 90 characters. This role is only supported in following
- *        creative_type: * `CREATIVE_TYPE_NATIVE` *
+ *        no more than 90 characters. This role is only supported in the
+ *        following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *        (Value: "ASSET_ROLE_BODY")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCallToAction The
  *        text to use on the call-to-action button of a native creative. The
  *        content must be UTF-8 encoded with a length of no more than 15
- *        characters. This role is only supported in following creative_type: *
- *        `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
- *        `CREATIVE_TYPE_NATIVE_VIDEO` (Value: "ASSET_ROLE_CALL_TO_ACTION")
+ *        characters. This role is only supported in the following
+ *        creative_type: * `CREATIVE_TYPE_NATIVE` *
+ *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *        (Value: "ASSET_ROLE_CALL_TO_ACTION")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCaptionUrl A
  *        short, friendly version of the landing page URL to show in the
  *        creative. This URL gives people an idea of where they'll arrive after
@@ -15659,40 +17815,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        URL is 'http://www.example.com/page', the caption URL can be
  *        'example.com'. The protocol (http://) is optional, but the URL can't
  *        contain spaces or special characters. This role is only supported in
- *        following creative_type: * `CREATIVE_TYPE_NATIVE` *
+ *        the following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *        (Value: "ASSET_ROLE_CAPTION_URL")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleCoverImage The
  *        cover image of a native video creative. This role is only supported
- *        and required in following creative_type: * `CREATIVE_TYPE_VIDEO`
+ *        and required in the following creative_type: * `CREATIVE_TYPE_VIDEO`
  *        (Value: "ASSET_ROLE_COVER_IMAGE")
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleEnableAssetEnhancements
+ *        Whether asset enhancements can be applied to the creative. This role
+ *        is only supported and required in the following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_ENABLE_ASSET_ENHANCEMENTS")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleHeadline Headline
  *        of a native creative. The content must be UTF-8 encoded with a length
- *        of no more than 25 characters. This role is only supported in
+ *        of no more than 25 characters. This role is only supported in the
  *        following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *        (Value: "ASSET_ROLE_HEADLINE")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleIcon The icon of
- *        a creative. This role is only supported and required in following
+ *        a creative. This role is only supported and required in the following
  *        creative_type: * `CREATIVE_TYPE_NATIVE` *
  *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` (Value: "ASSET_ROLE_ICON")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleIosAppId The ID
  *        of an iOS app in the Apple app store. This ID number can be found in
  *        the Apple App Store URL as the string of numbers directly after "id".
  *        For example, in
- *        https://apps.apple.com/us/app/gmail-email-by-google/id422689480 the ID
- *        is 422689480. Assets of this role are read-only. (Value:
+ *        `https://apps.apple.com/us/app/gmail-email-by-google/id422689480` the
+ *        ID is 422689480. Assets of this role are read-only. (Value:
  *        "ASSET_ROLE_IOS_APP_ID")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleLongBody Long
  *        body text of a native creative. The content must be UTF-8 encoded with
  *        a length of no more than 150 characters. This role is only supported
- *        in following creative_type: * `CREATIVE_TYPE_NATIVE` *
+ *        in the following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *        (Value: "ASSET_ROLE_LONG_BODY")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleLongHeadline Long
  *        headline of a native creative. The content must be UTF-8 encoded with
  *        a length of no more than 50 characters. This role is only supported in
- *        following creative_type: * `CREATIVE_TYPE_NATIVE` *
+ *        the following creative_type: * `CREATIVE_TYPE_NATIVE` *
  *        `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
  *        (Value: "ASSET_ROLE_LONG_HEADLINE")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleMain The asset is
@@ -15712,6 +17873,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        value is not automatically synced with the actual rating in the store.
  *        It will always be the one provided when save the creative. Assets of
  *        this role are read-only. (Value: "ASSET_ROLE_RATING")
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRequireImage
+ *        Whether the creative must use an image asset. This role is only
+ *        supported and required in the following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_REQUIRE_IMAGE")
+ *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleRequireLogo
+ *        Whether the creative must use a logo asset. This role is only
+ *        supported and required in the following creative_type: *
+ *        `CREATIVE_TYPE_ASSET_BASED_CREATIVE` (Value:
+ *        "ASSET_ROLE_REQUIRE_LOGO")
  *    @arg @c kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleUnspecified Asset
  *        role is not specified or is unknown in this version. (Value:
  *        "ASSET_ROLE_UNSPECIFIED")
@@ -15900,6 +18071,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  TargetingType is `TARGETING_TYPE_CONTENT_STREAM_TYPE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentStreamTypeAssignedTargetingOptionDetails *contentStreamTypeDetails;
+
+/**
+ *  Content theme details. This field will be populated when the targeting_type
+ *  is `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`. Content theme are targeting
+ *  exclusions. Advertiser level content theme exclusions, if set, are always
+ *  applied in serving (even though they aren't visible in resource settings).
+ *  Resource settings can exclude content theme in addition to advertiser
+ *  exclusions.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails *contentThemeExclusionDetails;
 
 /**
  *  Day and time details. This field will be populated when the targeting_type
@@ -16142,6 +18323,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentStreamType
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -16395,48 +18582,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_AudienceGroupAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  The first and third party audience ids and recencies of the excluded first
- *  and third party audience group. Used for negative targeting. The COMPLEMENT
- *  of the UNION of this group and other excluded audience groups is used as an
- *  INTERSECTION to any positive audience targeting. All items are logically
- *  ‘OR’ of each other.
+ *  Optional. The first party and partner audience ids and recencies of the
+ *  excluded first party and partner audience group. Used for negative
+ *  targeting. The COMPLEMENT of the UNION of this group and other excluded
+ *  audience groups is used as an INTERSECTION to any positive audience
+ *  targeting. All items are logically ‘OR’ of each other.
  */
-@property(nonatomic, strong, nullable) GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup *excludedFirstAndThirdPartyAudienceGroup;
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_FirstPartyAndPartnerAudienceGroup *excludedFirstPartyAndPartnerAudienceGroup;
 
 /**
- *  The Google audience ids of the excluded Google audience group. Used for
- *  negative targeting. The COMPLEMENT of the UNION of this group and other
- *  excluded audience groups is used as an INTERSECTION to any positive audience
- *  targeting. Only contains Affinity, In-market and Installed-apps type Google
- *  audiences. All items are logically ‘OR’ of each other.
+ *  Optional. The Google audience ids of the excluded Google audience group.
+ *  Used for negative targeting. The COMPLEMENT of the UNION of this group and
+ *  other excluded audience groups is used as an INTERSECTION to any positive
+ *  audience targeting. Only contains Affinity, In-market and Installed-apps
+ *  type Google audiences. All items are logically ‘OR’ of each other.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GoogleAudienceGroup *excludedGoogleAudienceGroup;
 
 /**
- *  The combined audience ids of the included combined audience group. Contains
- *  combined audience ids only.
+ *  Optional. The combined audience ids of the included combined audience group.
+ *  Contains combined audience ids only.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CombinedAudienceGroup *includedCombinedAudienceGroup;
 
 /**
- *  The custom list ids of the included custom list group. Contains custom list
- *  ids only.
+ *  Optional. The custom list ids of the included custom list group. Contains
+ *  custom list ids only.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CustomListGroup *includedCustomListGroup;
 
 /**
- *  The first and third party audience ids and recencies of included first and
- *  third party audience groups. Each first and third party audience group
- *  contains first and third party audience ids only. The relation between each
- *  first and third party audience group is INTERSECTION, and the result is
- *  UNION'ed with other audience groups. Repeated groups with same settings will
- *  be ignored.
+ *  Optional. The first party and partner audience ids and recencies of included
+ *  first party and partner audience groups. Each first party and partner
+ *  audience group contains first party and partner audience ids only. The
+ *  relation between each first party and partner audience group is
+ *  INTERSECTION, and the result is UNION'ed with other audience groups.
+ *  Repeated groups with the same settings will be ignored.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup *> *includedFirstAndThirdPartyAudienceGroups;
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_FirstPartyAndPartnerAudienceGroup *> *includedFirstPartyAndPartnerAudienceGroups;
 
 /**
- *  The Google audience ids of the included Google audience group. Contains
- *  Google audience ids only.
+ *  Optional. The Google audience ids of the included Google audience group.
+ *  Contains Google audience ids only.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GoogleAudienceGroup *includedGoogleAudienceGroup;
 
@@ -16537,14 +18724,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_AudioVideoOffset : GTLRObject
 
 /**
- *  The offset in percentage of the audio or video duration.
+ *  Optional. The offset in percentage of the audio or video duration.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *percentage;
 
 /**
- *  The offset in seconds from the start of the audio or video.
+ *  Optional. The offset in seconds from the start of the audio or video.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16852,7 +19039,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The assigned targeting options to create in batch, specified as a list of
  *  `CreateAssignedTargetingOptionsRequest`. Supported targeting types: *
  *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
- *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest *> *createRequests;
 
@@ -16860,7 +19048,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  The assigned targeting options to delete in batch, specified as a list of
  *  `DeleteAssignedTargetingOptionsRequest`. Supported targeting types: *
  *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
- *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
+ *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest *> *deleteRequests;
 
@@ -17393,7 +19582,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. A field mask identifying which fields to update. Only the
- *  following fields are currently supported: * entityStatus
+ *  following fields are currently supported: * entityStatus *
+ *  containsEuPoliticalAdvertising
  *
  *  String format is a comma-separated list of fields.
  */
@@ -17547,6 +19737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeAutonomousCommunity
  *        The geographic region is an autonomous community. (Value:
  *        "GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeBarrio
+ *        The geographic region is a barrio. (Value: "GEO_REGION_TYPE_BARRIO")
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeBorough
  *        The geographic region is a borough. (Value: "GEO_REGION_TYPE_BOROUGH")
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCanton
@@ -17556,6 +19748,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCityRegion
  *        The geographic region is a city region. (Value:
  *        "GEO_REGION_TYPE_CITY_REGION")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeColloquialArea
+ *        The geographic region is a colloquial area. (Value:
+ *        "GEO_REGION_TYPE_COLLOQUIAL_AREA")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCommune
+ *        The geographic region is a commune. (Value: "GEO_REGION_TYPE_COMMUNE")
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCongressionalDistrict
  *        The geographic region is a congressional district. (Value:
  *        "GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT")
@@ -17569,6 +19766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDistrict
  *        The geographic region is a district. (Value:
  *        "GEO_REGION_TYPE_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDivision
+ *        The geographic region is a division. (Value:
+ *        "GEO_REGION_TYPE_DIVISION")
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDmaRegion
  *        The geographic region is a designated market area (DMA) region.
  *        (Value: "GEO_REGION_TYPE_DMA_REGION")
@@ -17580,6 +19780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipality
  *        The geographic region is a municipality. (Value:
  *        "GEO_REGION_TYPE_MUNICIPALITY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipalityDistrict
+ *        The geographic region is a municipality district. (Value:
+ *        "GEO_REGION_TYPE_MUNICIPALITY_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeNationalPark
+ *        The geographic region is a national park. (Value:
+ *        "GEO_REGION_TYPE_NATIONAL_PARK")
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeNeighborhood
  *        The geographic region is a neighborhood. (Value:
  *        "GEO_REGION_TYPE_NEIGHBORHOOD")
@@ -17596,11 +19802,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeProvince
  *        The geographic region is a province. (Value:
  *        "GEO_REGION_TYPE_PROVINCE")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeQuarter
+ *        The geographic region is a quarter. (Value: "GEO_REGION_TYPE_QUARTER")
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeRegion
  *        The geographic region type is region. (Value:
  *        "GEO_REGION_TYPE_REGION")
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeState
  *        The geographic region is a state. (Value: "GEO_REGION_TYPE_STATE")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubDistrict
+ *        The geographic region is a sub district. (Value:
+ *        "GEO_REGION_TYPE_SUB_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubWard
+ *        The geographic region is a sub ward. (Value:
+ *        "GEO_REGION_TYPE_SUB_WARD")
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeTerritory
  *        The geographic region is a territory. (Value:
  *        "GEO_REGION_TYPE_TERRITORY")
@@ -17689,7 +19903,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *entityStatus;
 
-/** Required. The frequency cap setting of the campaign. */
+/**
+ *  Required. The frequency cap setting of the campaign. *Warning*: On
+ *  **February 28, 2025**, frequency cap time periods greater than 30 days will
+ *  no longer be accepted. [Read more about this announced
+ *  change](/display-video/api/deprecations#features.lifetime_frequency_cap)
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FrequencyCap *frequencyCap;
 
 /** Output only. The resource name of the campaign. */
@@ -18115,21 +20334,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_CmTrackingAd : GTLRObject
 
 /**
- *  The ad ID of the campaign manager 360 tracking Ad.
+ *  Optional. The ad ID of the campaign manager 360 tracking Ad.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cmAdId;
 
 /**
- *  The creative ID of the campaign manager 360 tracking Ad.
+ *  Optional. The creative ID of the campaign manager 360 tracking Ad.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cmCreativeId;
 
 /**
- *  The placement ID of the campaign manager 360 tracking Ad.
+ *  Optional. The placement ID of the campaign manager 360 tracking Ad.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -18167,7 +20386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. All combined audience targeting settings in combined audience
- *  group. Repeated settings with same id will be ignored. The number of
+ *  group. Repeated settings with the same id will be ignored. The number of
  *  combined audience settings should be no more than five, error will be thrown
  *  otherwise.
  */
@@ -18708,6 +20927,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  Targeting details for content theme. This will be populated in the details
+ *  field of an AssignedTargetingOption when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`.
+ */
+@interface GTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. An enum for the DV360 content theme classifier.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames
+ *        Fighting video games. (Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeMatureGames
+ *        Mature games. (Value: "CONTENT_THEME_MATURE_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources
+ *        Not yet determined health sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources
+ *        Not yet determined news sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemePolitics
+ *        Politics. (Value: "CONTENT_THEME_POLITICS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeRecentNews
+ *        Recent news. (Value: "CONTENT_THEME_RECENT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeReligion
+ *        Religion. (Value: "CONTENT_THEME_RELIGION")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent
+ *        Unpleasant health content. (Value:
+ *        "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews
+ *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ContentTheme_ContentThemeUnspecified
+ *        Content theme is not specified or is unknown in this version. (Value:
+ *        "CONTENT_THEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentTheme;
+
+/**
+ *  Required. An enum for the DV360 content theme classified to be EXCLUDED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeFightingVideoGames
+ *        Fighting video games. (Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeMatureGames
+ *        Mature games. (Value: "CONTENT_THEME_MATURE_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedHealthSources
+ *        Not yet determined health sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeNotYetDeterminedNewsSources
+ *        Not yet determined news sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemePolitics
+ *        Politics. (Value: "CONTENT_THEME_POLITICS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeRecentNews
+ *        Recent news. (Value: "CONTENT_THEME_RECENT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeReligion
+ *        Religion. (Value: "CONTENT_THEME_RELIGION")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantHealthContent
+ *        Unpleasant health content. (Value:
+ *        "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnpleasantNews
+ *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeAssignedTargetingOptionDetails_ExcludedContentTheme_ContentThemeUnspecified
+ *        Content theme is not specified or is unknown in this version. (Value:
+ *        "CONTENT_THEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *excludedContentTheme;
+
+/** Required. ID of the content theme to be EXCLUDED. */
+@property(nonatomic, copy, nullable) NSString *excludedTargetingOptionId;
+
+@end
+
+
+/**
+ *  Represents a targetable content theme. This will be populated in the
+ *  content_theme_details field of the TargetingOption when targeting_type is
+ *  `TARGETING_TYPE_CONTENT_THEME_EXCLUSION`.
+ */
+@interface GTLRDisplayVideo_ContentThemeTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. An enum for the DV360 content theme content classifier.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeFightingVideoGames
+ *        Fighting video games. (Value: "CONTENT_THEME_FIGHTING_VIDEO_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeMatureGames
+ *        Mature games. (Value: "CONTENT_THEME_MATURE_GAMES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedHealthSources
+ *        Not yet determined health sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_HEALTH_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeNotYetDeterminedNewsSources
+ *        Not yet determined news sources. (Value:
+ *        "CONTENT_THEME_NOT_YET_DETERMINED_NEWS_SOURCES")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemePolitics
+ *        Politics. (Value: "CONTENT_THEME_POLITICS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeRecentNews
+ *        Recent news. (Value: "CONTENT_THEME_RECENT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeReligion
+ *        Religion. (Value: "CONTENT_THEME_RELIGION")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantHealthContent
+ *        Unpleasant health content. (Value:
+ *        "CONTENT_THEME_UNPLEASANT_HEALTH_CONTENT")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnpleasantNews
+ *        Unpleasant news. (Value: "CONTENT_THEME_UNPLEASANT_NEWS")
+ *    @arg @c kGTLRDisplayVideo_ContentThemeTargetingOptionDetails_ContentTheme_ContentThemeUnspecified
+ *        Content theme is not specified or is unknown in this version. (Value:
+ *        "CONTENT_THEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentTheme;
+
+@end
+
+
+/**
  *  Settings that control how conversions are counted. All post-click
  *  conversions will be counted. A percentage value can be set for post-view
  *  conversions counting.
@@ -18717,7 +21052,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The Floodlight activity configs used to track conversions. The number of
  *  conversions counted is the sum of all of the conversions counted by all of
- *  the Floodlight activity IDs specified in this field.
+ *  the Floodlight activity IDs specified in this field. This field can't be
+ *  updated if a custom bidding algorithm is assigned to the line item. If you
+ *  set this field and assign a custom bidding algorithm in the same request,
+ *  the floodlight activities must match the ones used by the custom bidding
+ *  algorithm.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_TrackingFloodlightActivityConfig *> *floodlightActivityConfigs;
 
@@ -18838,6 +21177,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -19015,8 +21360,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7
  *        SDF version 7. Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
- *        before migrating to this version. Currently in beta. Only available
- *        for use by a subset of users. (Value: "SDF_VERSION_7")
+ *        before migrating to this version. (Value: "SDF_VERSION_7")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion71
+ *        SDF version 7.1. Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_7_1")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion8
+ *        SDF version 8. Read the [v8 migration
+ *        guide](/display-video/api/structured-data-file/v8-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_8")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81
+ *        SDF version 8.1. (Value: "SDF_VERSION_8_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -19032,7 +21386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_Creative : GTLRObject
 
 /**
- *  Additional dimensions. Applicable when creative_type is one of: *
+ *  Optional. Additional dimensions. Applicable when creative_type is one of: *
  *  `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE` *
  *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
  *  `CREATIVE_TYPE_LIGHTBOX` * `CREATIVE_TYPE_PUBLISHER_HOSTED` If this field is
@@ -19048,7 +21402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
-/** Third-party HTML tracking tag to be appended to the creative tag. */
+/**
+ *  Optional. Third-party HTML tracking tag to be appended to the creative tag.
+ */
 @property(nonatomic, copy, nullable) NSString *appendedTag;
 
 /** Required. Assets associated to this creative. */
@@ -19064,32 +21420,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *cmPlacementId;
 
 /**
- *  The Campaign Manager 360 tracking ad associated with the creative. Optional
- *  for the following creative_type when created by an advertiser that uses both
- *  Campaign Manager 360 and third-party ad serving: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` Output only for other cases.
+ *  Optional. The Campaign Manager 360 tracking ad associated with the creative.
+ *  Optional for the following creative_type when created by an advertiser that
+ *  uses both Campaign Manager 360 and third-party ad serving: *
+ *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` Output only for
+ *  other cases.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CmTrackingAd *cmTrackingAd;
 
 /**
- *  The IDs of companion creatives for a video creative. You can assign existing
- *  display creatives (with image or HTML5 assets) to serve surrounding the
- *  publisher's video player. Companions display around the video player while
- *  the video is playing and remain after the video has completed. Creatives
- *  contain additional dimensions can not be companion creatives. This field is
- *  only supported for following creative_type: * `CREATIVE_TYPE_AUDIO` *
- *  `CREATIVE_TYPE_VIDEO`
+ *  Optional. The IDs of companion creatives for a video creative. You can
+ *  assign existing display creatives (with image or HTML5 assets) to serve
+ *  surrounding the publisher's video player. Companions display around the
+ *  video player while the video is playing and remain after the video has
+ *  completed. Creatives contain additional dimensions can not be companion
+ *  creatives. This field is only supported for the following creative_type: *
+ *  `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_VIDEO`
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *companionCreativeIds;
 
 /**
- *  Counter events for a rich media creative. Counters track the number of times
- *  that a user interacts with any part of a rich media creative in a specified
- *  way (mouse-overs, mouse-outs, clicks, taps, data loading, keyboard entries,
- *  etc.). Any event that can be captured in the creative can be recorded as a
- *  counter. Leave it empty or unset for creatives containing image assets only.
+ *  Optional. Counter events for a rich media creative. Counters track the
+ *  number of times that a user interacts with any part of a rich media creative
+ *  in a specified way (mouse-overs, mouse-outs, clicks, taps, data loading,
+ *  keyboard entries, etc.). Any event that can be captured in the creative can
+ *  be recorded as a counter. Leave it empty or unset for creatives containing
+ *  image assets only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CounterEvent *> *counterEvents;
 
@@ -19116,6 +21474,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Required. Immutable. The type of the creative.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeAssetBasedCreative
+ *        Asset-based creative. Create and update methods are supported for this
+ *        creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`.
+ *        (Value: "CREATIVE_TYPE_ASSET_BASED_CREATIVE")
  *    @arg @c kGTLRDisplayVideo_Creative_CreativeType_CreativeTypeAudio Audio
  *        creative. Create and update methods are supported for this creative
  *        type if the hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
@@ -19339,8 +21701,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *html5Video;
 
 /**
- *  Indicates whether Integral Ad Science (IAS) campaign monitoring is enabled.
- *  To enable this for the creative, make sure the
+ *  Optional. Indicates whether Integral Ad Science (IAS) campaign monitoring is
+ *  enabled. To enable this for the creative, make sure the
  *  Advertiser.creative_config.ias_client_id has been set to your IAS client ID.
  *
  *  Uses NSNumber of boolValue.
@@ -19348,15 +21710,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *iasCampaignMonitoring;
 
 /**
- *  ID information used to link this creative to an external system. Must be
- *  UTF-8 encoded with a length of no more than 10,000 characters.
+ *  Optional. ID information used to link this creative to an external system.
+ *  Must be UTF-8 encoded with a length of no more than 10,000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *integrationCode;
 
 /**
- *  JavaScript measurement URL from supported third-party verification providers
- *  (ComScore, DoubleVerify, IAS, Moat). HTML script tags are not supported.
- *  This field is only writeable in following creative_type: *
+ *  Optional. JavaScript measurement URL from supported third-party verification
+ *  providers (ComScore, DoubleVerify, IAS, Moat). HTML script tags are not
+ *  supported. This field is only writeable in the following creative_type: *
  *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
  *  `CREATIVE_TYPE_NATIVE_VIDEO`
  */
@@ -19392,14 +21754,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  User notes for this creative. Must be UTF-8 encoded with a length of no more
- *  than 20,000 characters.
+ *  Optional. User notes for this creative. Must be UTF-8 encoded with a length
+ *  of no more than 20,000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *notes;
 
 /**
- *  Specifies the OBA icon for a video creative. This field is only supported in
- *  following creative_type: * `CREATIVE_TYPE_VIDEO`
+ *  Optional. Specifies the OBA icon for a video creative. This field is only
+ *  supported in the following creative_type: * `CREATIVE_TYPE_VIDEO`
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ObaIcon *obaIcon;
 
@@ -19415,9 +21777,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *oggAudio;
 
 /**
- *  Amount of time to play the video before counting a view. This field is
- *  required when skippable is true. This field is only supported for the
- *  following creative_type: * `CREATIVE_TYPE_VIDEO`
+ *  Optional. Amount of time to play the video before counting a view. This
+ *  field is required when skippable is true. This field is only supported for
+ *  the following creative_type: * `CREATIVE_TYPE_VIDEO`
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AudioVideoOffset *progressOffset;
 
@@ -19465,15 +21827,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ReviewStatusInfo *reviewStatus;
 
 /**
- *  Amount of time to play the video before the skip button appears. This field
- *  is required when skippable is true. This field is only supported for the
- *  following creative_type: * `CREATIVE_TYPE_VIDEO`
+ *  Optional. Amount of time to play the video before the skip button appears.
+ *  This field is required when skippable is true. This field is only supported
+ *  for the following creative_type: * `CREATIVE_TYPE_VIDEO`
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AudioVideoOffset *skipOffset;
 
 /**
- *  Whether the user can choose to skip a video creative. This field is only
- *  supported for the following creative_type: * `CREATIVE_TYPE_VIDEO`
+ *  Optional. Whether the user can choose to skip a video creative. This field
+ *  is only supported for the following creative_type: * `CREATIVE_TYPE_VIDEO`
  *
  *  Uses NSNumber of boolValue.
  */
@@ -19489,28 +21851,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *thirdPartyTag;
 
 /**
- *  Tracking URLs from third parties to track interactions with a video
- *  creative. This field is only supported for the following creative_type: *
- *  `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_VIDEO` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  Optional. Tracking URLs from third parties to track interactions with a
+ *  video creative. This field is only supported for the following
+ *  creative_type: * `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_VIDEO` *
+ *  `CREATIVE_TYPE_NATIVE_VIDEO`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyUrl *> *thirdPartyUrls;
 
 /**
- *  Timer custom events for a rich media creative. Timers track the time during
- *  which a user views and interacts with a specified part of a rich media
- *  creative. A creative can have multiple timer events, each timed
+ *  Optional. Timer custom events for a rich media creative. Timers track the
+ *  time during which a user views and interacts with a specified part of a rich
+ *  media creative. A creative can have multiple timer events, each timed
  *  independently. Leave it empty or unset for creatives containing image assets
  *  only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_TimerEvent *> *timerEvents;
 
 /**
- *  Tracking URLs for analytics providers or third-party ad technology vendors.
- *  The URLs must start with https (except on inventory that doesn't require SSL
- *  compliance). If using macros in your URL, use only macros supported by
- *  Display & Video 360. Standard URLs only, no IMG or SCRIPT tags. This field
- *  is only writeable in following creative_type: * `CREATIVE_TYPE_NATIVE` *
- *  `CREATIVE_TYPE_NATIVE_SITE_SQUARE` * `CREATIVE_TYPE_NATIVE_VIDEO`
+ *  Optional. Tracking URLs for analytics providers or third-party ad technology
+ *  vendors. The URLs must start with `https:` (except on inventory that doesn't
+ *  require SSL compliance). If using macros in your URL, use only macros
+ *  supported by Display & Video 360. Standard URLs only, no IMG or SCRIPT tags.
+ *  This field is only writeable in the following creative_type: *
+ *  `CREATIVE_TYPE_NATIVE` * `CREATIVE_TYPE_NATIVE_SITE_SQUARE` *
+ *  `CREATIVE_TYPE_NATIVE_VIDEO`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trackerUrls;
 
@@ -19522,7 +21886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  transcodes give a publisher's system more options to choose from for each
  *  impression on your video and ensures that the appropriate file serves based
  *  on the viewer’s connection and screen size. This field is only supported in
- *  following creative_type: * `CREATIVE_TYPE_VIDEO` *
+ *  the following creative_type: * `CREATIVE_TYPE_VIDEO` *
  *  `CREATIVE_TYPE_NATIVE_VIDEO` * `CREATIVE_TYPE_AUDIO`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Transcode *> *transcodes;
@@ -19575,6 +21939,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `CREATIVE_TYPE_VIDEO`
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAssetBasedCreative
+ *        Asset-based creative. Create and update methods are supported for this
+ *        creative type if the hosting_source is `HOSTING_SOURCE_HOSTED`.
+ *        (Value: "CREATIVE_TYPE_ASSET_BASED_CREATIVE")
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAudio
  *        Audio creative. Create and update methods are supported for this
  *        creative type if the hosting_source is `HOSTING_SOURCE_HOSTED` (Value:
@@ -19680,15 +22048,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Required. Immutable. The type of custom bidding algorithm.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_AdsDataHubBased
- *        Algorithm created through Ads Data Hub product. (Value:
- *        "ADS_DATA_HUB_BASED")
  *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_CustomBiddingAlgorithmTypeUnspecified
  *        Algorithm type is not specified or is unknown in this version. (Value:
  *        "CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_GoalBuilderBased
- *        Algorithm created through goal builder in DV3 UI. (Value:
- *        "GOAL_BUILDER_BASED")
  *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_RuleBased
  *        Algorithm based in defined rules. These rules are defined in the API
  *        using the AlgorithmRules object. This algorithm type is only available
@@ -19766,6 +22128,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *sharedAdvertiserIds;
+
+/**
+ *  Optional. Immutable. Designates the third party optimization partner that
+ *  manages this algorithm.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Adelaide
+ *        Third party attention measurement service provider that DV3
+ *        partners/advertisers can partner with. (Value: "ADELAIDE")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Scibids
+ *        Third party data science service provider that DV3
+ *        partners/advertisers can partner with. (Value: "SCIBIDS")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_ThirdPartyOptimizationPartner_Unknown
+ *        Type value is not specified or is unknown in this version. (Value:
+ *        "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *thirdPartyOptimizationPartner;
 
 @end
 
@@ -20079,7 +22458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. All custom list targeting settings in custom list group. Repeated
- *  settings with same id will be ignored.
+ *  settings with the same id will be ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CustomListTargetingSetting *> *settings;
 
@@ -20348,6 +22727,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentStreamType
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -20513,6 +22898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeComputer
  *        Computer. (Value: "DEVICE_TYPE_COMPUTER")
+ *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice
+ *        Connected device. (Value: "DEVICE_TYPE_CONNECTED_DEVICE")
  *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeConnectedTv
  *        Connected TV. (Value: "DEVICE_TYPE_CONNECTED_TV")
  *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeSmartPhone
@@ -20555,6 +22942,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeComputer
  *        Computer. (Value: "DEVICE_TYPE_COMPUTER")
+ *    @arg @c kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeConnectedDevice
+ *        Connected device. (Value: "DEVICE_TYPE_CONNECTED_DEVICE")
  *    @arg @c kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeConnectedTv
  *        Connected TV. (Value: "DEVICE_TYPE_CONNECTED_TV")
  *    @arg @c kGTLRDisplayVideo_DeviceTypeTargetingOptionDetails_DeviceType_DeviceTypeSmartPhone
@@ -21024,6 +23413,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
+/**
+ *  Input only. A list of contact information to define the members to be
+ *  removed.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContactInfoList *removedContactInfoList;
+
+/**
+ *  Input only. A list of mobile device IDs to define the members to be removed.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_MobileDeviceIdList *removedMobileDeviceIdList;
+
 @end
 
 
@@ -21033,11 +23433,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_EditCustomerMatchMembersResponse : GTLRObject
 
 /**
- *  Required. The ID of the updated Customer Match FirstAndThirdPartyAudience.
+ *  Required. The ID of the updated Customer Match FirstPartyAndPartnerAudience.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *firstAndThirdPartyAudienceId;
+@property(nonatomic, strong, nullable) NSNumber *firstPartyAndPartnerAudienceId;
 
 @end
 
@@ -21255,7 +23655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAdswizz
@@ -21265,7 +23665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeBidswitch
@@ -21279,13 +23679,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCore
+ *        Core. (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDax
  *        DAX. (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeDrax
+ *        Drax. (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFluct
@@ -21295,7 +23701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeGoogleAdManager
@@ -21326,6 +23732,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNend
  *        Nend. (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeOneByAolDisplay
@@ -21375,6 +23783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeStroer
@@ -21390,17 +23800,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTubi
+ *        Tubi. (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeUnspecified
@@ -21450,7 +23862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAdswizz
@@ -21460,7 +23872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeBidswitch
@@ -21474,13 +23886,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCore
+ *        Core. (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDax
  *        DAX. (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeDrax
+ *        Drax. (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFluct
@@ -21490,7 +23908,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeGoogleAdManager
@@ -21521,6 +23939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNend
  *        Nend. (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeOneByAolDisplay
@@ -21570,6 +23990,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeStroer
@@ -21585,17 +24007,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTubi
+ *        Tubi. (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnspecified
@@ -21646,7 +24070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAdswizz
@@ -21656,7 +24080,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeBidswitch
@@ -21670,13 +24094,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCore Core.
+ *        (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDax DAX.
  *        (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeDrax Drax.
+ *        (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFluct
@@ -21686,7 +24116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeGoogleAdManager
@@ -21717,6 +24147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNend Nend.
  *        (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOneByAolDisplay
@@ -21766,6 +24198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeStroer
@@ -21781,17 +24215,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTubi Tubi.
+ *        (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnspecified
@@ -21845,7 +24281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAdswizz
@@ -21855,7 +24291,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeBidswitch
@@ -21869,13 +24305,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCore
+ *        Core. (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDax
  *        DAX. (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeDrax
+ *        Drax. (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFive
  *        Five. (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFluct
@@ -21885,7 +24327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFyber
  *        Fyber. (Value: "EXCHANGE_FYBER")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeFyberGbid
- *        Fyber using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *        DT Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGeniee
  *        Geniee. (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeGoogleAdManager
@@ -21916,6 +24358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        MoPub. (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNend
  *        Nend. (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOneByAolDisplay
@@ -21965,6 +24409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeStroer
@@ -21980,17 +24426,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeToponGbid
- *        Topon using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTubi
+ *        Tubi. (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTvn
  *        TVN. (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnityGbid
- *        Unity using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        Unity LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnspecified
@@ -22016,15 +24464,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_ExitEvent : GTLRObject
 
 /**
- *  The name of the click tag of the exit event. The name must be unique within
- *  one creative. Leave it empty or unset for creatives containing image assets
- *  only.
+ *  Optional. The name of the click tag of the exit event. The name must be
+ *  unique within one creative. Leave it empty or unset for creatives containing
+ *  image assets only.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The name used to identify this event in reports. Leave it empty or unset for
- *  creatives containing image assets only.
+ *  Optional. The name used to identify this event in reports. Leave it empty or
+ *  unset for creatives containing image assets only.
  */
 @property(nonatomic, copy, nullable) NSString *reportingName;
 
@@ -22053,12 +24501,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Describes a first or third party audience list used for targeting. First
- *  party audiences are created via usage of client data. Third party audiences
- *  are provided by Third Party data providers and can only be licensed to
+ *  Describes a first or partner audience list used for targeting. First party
+ *  audiences are created via usage of client data. Partner audiences are
+ *  provided by Third Party data providers and can only be licensed to
  *  customers.
  */
-@interface GTLRDisplayVideo_FirstAndThirdPartyAudience : GTLRObject
+@interface GTLRDisplayVideo_FirstPartyAndPartnerAudience : GTLRObject
 
 /**
  *  Output only. The estimated audience size for the Display network in the past
@@ -22071,8 +24519,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *activeDisplayAudienceSize;
 
 /**
- *  The app_id matches with the type of the mobile_device_ids being uploaded.
- *  Only applicable to audience_type `CUSTOMER_MATCH_DEVICE_ID`
+ *  Optional. The app_id matches with the type of the mobile_device_ids being
+ *  uploaded. Only applicable to audience_type `CUSTOMER_MATCH_DEVICE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
@@ -22080,52 +24528,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Output only. The source of the audience.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AdManager
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_AdManager
  *        Originated from Google Ad Manager. (Value: "AD_MANAGER")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AdsDataHub
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_AdsDataHub
  *        Originated from Ads Data Hub. (Value: "ADS_DATA_HUB")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_AudienceSourceUnspecified
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_AudienceSourceUnspecified
  *        Default value when audience source is not specified or is unknown.
  *        (Value: "AUDIENCE_SOURCE_UNSPECIFIED")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_CampaignManager
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_CampaignManager
  *        Originated from Campaign Manager 360. (Value: "CAMPAIGN_MANAGER")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_DisplayVideo360
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_DisplayVideo360
  *        Originated from Display & Video 360. (Value: "DISPLAY_VIDEO_360")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_SearchAds360
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_SearchAds360
  *        Originated from Search Ads 360. (Value: "SEARCH_ADS_360")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceSource_Youtube
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_Youtube
  *        Originated from Youtube. (Value: "YOUTUBE")
  */
 @property(nonatomic, copy, nullable) NSString *audienceSource;
 
 /**
- *  The type of the audience.
+ *  Output only. The type of the audience.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ActivityBased
  *        Audience was created based on campaign activity. (Value:
  *        "ACTIVITY_BASED")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_AudienceTypeUnspecified
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_AudienceTypeUnspecified
  *        Default value when type is not specified or is unknown. (Value:
  *        "AUDIENCE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchContactInfo
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Commerce
+ *        Audience provided by commerce partners for a fee. (Value: "COMMERCE")
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_CustomerMatchContactInfo
  *        Audience was generated through matching customers to known contact
  *        information. (Value: "CUSTOMER_MATCH_CONTACT_INFO")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchDeviceId
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_CustomerMatchDeviceId
  *        Audience was generated through matching customers to known Mobile
  *        device IDs. (Value: "CUSTOMER_MATCH_DEVICE_ID")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_CustomerMatchUserId
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_CustomerMatchUserId
  *        Audience was generated through matching customers to known User IDs.
  *        (Value: "CUSTOMER_MATCH_USER_ID")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_FrequencyCap
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_FrequencyCap
  *        Audience was created based on excluding the number of impressions they
  *        were served. (Value: "FREQUENCY_CAP")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_Licensed
- *        Subtype of third party audience type. (Value: "LICENSED")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_TagBased
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Linear
+ *        Audience for Linear TV content. (Value: "LINEAR")
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_TagBased
  *        Audience was created based on custom variables attached to pixel.
  *        (Value: "TAG_BASED")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_YoutubeUsers
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ThirdParty
+ *        Audience has been licensed for use from a third party. (Value:
+ *        "THIRD_PARTY")
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_YoutubeUsers
  *        Audience was created based on past interactions with videos, YouTube
  *        ads, or YouTube channel. (Value: "YOUTUBE_USERS")
  */
@@ -22138,8 +24591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContactInfoList *contactInfoList;
 
 /**
- *  The user-provided description of the audience. Only applicable to first
- *  party audiences.
+ *  Output only. The user-provided description of the audience. Only applicable
+ *  to first party audiences.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -22188,32 +24641,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *displayMobileWebAudienceSize;
 
-/** The display name of the first and third party audience. */
+/** Output only. The display name of the first party and partner audience. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. The unique ID of the first and third party audience. Assigned
+ *  Identifier. The unique ID of the first party and partner audience. Assigned
  *  by the system.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *firstAndThirdPartyAudienceId;
+@property(nonatomic, strong, nullable) NSNumber *firstPartyAndPartnerAudienceId;
 
 /**
- *  Whether the audience is a first or third party audience.
+ *  Output only. Whether the audience is a first party and partner audience.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_FirstAndThirdPartyAudienceType_FirstAndThirdPartyAudienceTypeFirstParty
- *        Audience that is created via usage of client data. (Value:
- *        "FIRST_AND_THIRD_PARTY_AUDIENCE_TYPE_FIRST_PARTY")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_FirstAndThirdPartyAudienceType_FirstAndThirdPartyAudienceTypeThirdParty
- *        Audience that is provided by Third Party data providers. (Value:
- *        "FIRST_AND_THIRD_PARTY_AUDIENCE_TYPE_THIRD_PARTY")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_FirstAndThirdPartyAudienceType_FirstAndThirdPartyAudienceTypeUnspecified
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_FirstPartyAndPartnerAudienceType_FirstPartyAndPartnerAudienceTypeUnspecified
  *        Default value when type is not specified or is unknown. (Value:
- *        "FIRST_AND_THIRD_PARTY_AUDIENCE_TYPE_UNSPECIFIED")
+ *        "FIRST_PARTY_AND_PARTNER_AUDIENCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_FirstPartyAndPartnerAudienceType_TypeFirstParty
+ *        Audience that is created via usage of client data. (Value:
+ *        "TYPE_FIRST_PARTY")
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_FirstPartyAndPartnerAudienceType_TypePartner
+ *        Audience that is provided by Third Party data providers. (Value:
+ *        "TYPE_PARTNER")
  */
-@property(nonatomic, copy, nullable) NSString *firstAndThirdPartyAudienceType;
+@property(nonatomic, copy, nullable) NSString *firstPartyAndPartnerAudienceType;
 
 /**
  *  Output only. The estimated audience size for Gmail network. If the size is
@@ -22227,9 +24680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *gmailAudienceSize;
 
 /**
- *  The duration in days that an entry remains in the audience after the
- *  qualifying event. If the audience has no expiration, set the value of this
- *  field to 10000. Otherwise, the set value must be greater than 0 and less
+ *  Output only. The duration in days that an entry remains in the audience
+ *  after the qualifying event. The set value must be greater than 0 and less
  *  than or equal to 540. Only applicable to first party audiences. This field
  *  is required if one of the following audience_type is used: *
  *  `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
@@ -22244,7 +24696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_MobileDeviceIdList *mobileDeviceIdList;
 
-/** Output only. The resource name of the first and third party audience. */
+/** Output only. The resource name of the first party and partner audience. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -22262,100 +24714,101 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Details of first and third party audience group. All first and third party
- *  audience targeting settings are logically ‘OR’ of each other.
+ *  Details of first party and partner audience group. All first party and
+ *  partner audience targeting settings are logically ‘OR’ of each other.
  */
-@interface GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup : GTLRObject
+@interface GTLRDisplayVideo_FirstPartyAndPartnerAudienceGroup : GTLRObject
 
 /**
- *  Required. All first and third party audience targeting settings in first and
- *  third party audience group. Repeated settings with same id are not allowed.
+ *  Required. All first party and partner audience targeting settings in first
+ *  party and partner audience group. Repeated settings with the same id are not
+ *  allowed.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting *> *settings;
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting *> *settings;
 
 @end
 
 
 /**
- *  Details of first and third party audience targeting setting.
+ *  Details of first party and partner audience targeting setting.
  */
-@interface GTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting : GTLRObject
+@interface GTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting : GTLRObject
 
 /**
- *  Required. First and third party audience id of the first and third party
- *  audience targeting setting. This id is first_and_third_party_audience_id.
+ *  Required. First party and partner audience id of the first party and partner
+ *  audience targeting setting. This id is first_party_and_partner_audience_id.
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *firstAndThirdPartyAudienceId;
+@property(nonatomic, strong, nullable) NSNumber *firstPartyAndPartnerAudienceId;
 
 /**
- *  The recency of the first and third party audience targeting setting. Only
- *  applicable to first party audiences, otherwise will be ignored. For more
- *  info, refer to
+ *  Required. The recency of the first party and partner audience targeting
+ *  setting. Only applicable to first party audiences, otherwise will be
+ *  ignored. For more info, refer to
  *  https://support.google.com/displayvideo/answer/2949947#recency When
  *  unspecified, no recency limit will be used.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency10Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency10Days
  *        Recency is 10 days. (Value: "RECENCY_10_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency10Minutes
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency10Minutes
  *        Recency is 10 minutes. (Value: "RECENCY_10_MINUTES")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency120Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency120Days
  *        Recency is 120 days. (Value: "RECENCY_120_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency12Hours
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency12Hours
  *        Recency is 12 hours. (Value: "RECENCY_12_HOURS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency14Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency14Days
  *        Recency is 14 days. (Value: "RECENCY_14_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency15Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency15Days
  *        Recency is 15 days. (Value: "RECENCY_15_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency15Minutes
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency15Minutes
  *        Recency is 15 minutes. (Value: "RECENCY_15_MINUTES")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency180Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency180Days
  *        Recency is 180 days. (Value: "RECENCY_180_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency1Day
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency1Day
  *        Recency is 1 day. (Value: "RECENCY_1_DAY")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency1Hour
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency1Hour
  *        Recency is 1 hour. (Value: "RECENCY_1_HOUR")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency1Minute
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency1Minute
  *        Recency is 1 minute. (Value: "RECENCY_1_MINUTE")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency21Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency21Days
  *        Recency is 21 days. (Value: "RECENCY_21_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency270Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency270Days
  *        Recency is 270 days. (Value: "RECENCY_270_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency28Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency28Days
  *        Recency is 28 days. (Value: "RECENCY_28_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency2Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency2Days
  *        Recency is 2 days. (Value: "RECENCY_2_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency2Hours
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency2Hours
  *        Recency is 2 hours. (Value: "RECENCY_2_HOURS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency30Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency30Days
  *        Recency is 30 days. (Value: "RECENCY_30_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency30Minutes
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency30Minutes
  *        Recency is 30 minutes. (Value: "RECENCY_30_MINUTES")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency365Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency365Days
  *        Recency is 365 days. (Value: "RECENCY_365_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency3Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency3Days
  *        Recency is 3 days. (Value: "RECENCY_3_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency3Hours
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency3Hours
  *        Recency is 3 hours. (Value: "RECENCY_3_HOURS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency40Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency40Days
  *        Recency is 40 days. (Value: "RECENCY_40_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency45Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency45Days
  *        Recency is 45 days. (Value: "RECENCY_45_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency5Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency5Days
  *        Recency is 5 days. (Value: "RECENCY_5_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency5Minutes
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency5Minutes
  *        Recency is 5 minutes. (Value: "RECENCY_5_MINUTES")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency60Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency60Days
  *        Recency is 60 days. (Value: "RECENCY_60_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency6Hours
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency6Hours
  *        Recency is 6 hours. (Value: "RECENCY_6_HOURS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency7Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency7Days
  *        Recency is 7 days. (Value: "RECENCY_7_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency90Days
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_Recency90Days
  *        Recency is 90 days. (Value: "RECENCY_90_DAYS")
- *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_RecencyNoLimit
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudienceTargetingSetting_Recency_RecencyNoLimit
  *        No limit of recency. (Value: "RECENCY_NO_LIMIT")
  */
 @property(nonatomic, copy, nullable) NSString *recency;
@@ -22598,11 +25051,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The number of time_unit the frequency cap will last. Required when unlimited
  *  is `false`. The following restrictions apply based on the value of
- *  time_unit: * `TIME_UNIT_LIFETIME` - this field is output only and will
- *  default to 1 * `TIME_UNIT_MONTHS` - must be between 1 and 2 *
- *  `TIME_UNIT_WEEKS` - must be between 1 and 4 * `TIME_UNIT_DAYS` - must be
- *  between 1 and 6 * `TIME_UNIT_HOURS` - must be between 1 and 23 *
- *  `TIME_UNIT_MINUTES` - must be between 1 and 59
+ *  time_unit: * `TIME_UNIT_MONTHS` - must be 1 * `TIME_UNIT_WEEKS` - must be
+ *  between 1 and 4 * `TIME_UNIT_DAYS` - must be between 1 and 6 *
+ *  `TIME_UNIT_HOURS` - must be between 1 and 23 * `TIME_UNIT_MINUTES` - must be
+ *  between 1 and 59
  *
  *  Uses NSNumber of intValue.
  */
@@ -22829,6 +25281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeAutonomousCommunity
  *        The geographic region is an autonomous community. (Value:
  *        "GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeBarrio
+ *        The geographic region is a barrio. (Value: "GEO_REGION_TYPE_BARRIO")
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeBorough
  *        The geographic region is a borough. (Value: "GEO_REGION_TYPE_BOROUGH")
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeCanton
@@ -22838,6 +25292,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeCityRegion
  *        The geographic region is a city region. (Value:
  *        "GEO_REGION_TYPE_CITY_REGION")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeColloquialArea
+ *        The geographic region is a colloquial area. (Value:
+ *        "GEO_REGION_TYPE_COLLOQUIAL_AREA")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeCommune
+ *        The geographic region is a commune. (Value: "GEO_REGION_TYPE_COMMUNE")
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeCongressionalDistrict
  *        The geographic region is a congressional district. (Value:
  *        "GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT")
@@ -22851,6 +25310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeDistrict
  *        The geographic region is a district. (Value:
  *        "GEO_REGION_TYPE_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeDivision
+ *        The geographic region is a division. (Value:
+ *        "GEO_REGION_TYPE_DIVISION")
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeDmaRegion
  *        The geographic region is a designated market area (DMA) region.
  *        (Value: "GEO_REGION_TYPE_DMA_REGION")
@@ -22862,6 +25324,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipality
  *        The geographic region is a municipality. (Value:
  *        "GEO_REGION_TYPE_MUNICIPALITY")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipalityDistrict
+ *        The geographic region is a municipality district. (Value:
+ *        "GEO_REGION_TYPE_MUNICIPALITY_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeNationalPark
+ *        The geographic region is a national park. (Value:
+ *        "GEO_REGION_TYPE_NATIONAL_PARK")
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeNeighborhood
  *        The geographic region is a neighborhood. (Value:
  *        "GEO_REGION_TYPE_NEIGHBORHOOD")
@@ -22878,11 +25346,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeProvince
  *        The geographic region is a province. (Value:
  *        "GEO_REGION_TYPE_PROVINCE")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeQuarter
+ *        The geographic region is a quarter. (Value: "GEO_REGION_TYPE_QUARTER")
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeRegion
  *        The geographic region type is region. (Value:
  *        "GEO_REGION_TYPE_REGION")
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeState
  *        The geographic region is a state. (Value: "GEO_REGION_TYPE_STATE")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubDistrict
+ *        The geographic region is a sub district. (Value:
+ *        "GEO_REGION_TYPE_SUB_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubWard
+ *        The geographic region is a sub ward. (Value:
+ *        "GEO_REGION_TYPE_SUB_WARD")
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeTerritory
  *        The geographic region is a territory. (Value:
  *        "GEO_REGION_TYPE_TERRITORY")
@@ -22956,6 +25432,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeAutonomousCommunity
  *        The geographic region is an autonomous community. (Value:
  *        "GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeBarrio
+ *        The geographic region is a barrio. (Value: "GEO_REGION_TYPE_BARRIO")
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeBorough
  *        The geographic region is a borough. (Value: "GEO_REGION_TYPE_BOROUGH")
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeCanton
@@ -22965,6 +25443,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeCityRegion
  *        The geographic region is a city region. (Value:
  *        "GEO_REGION_TYPE_CITY_REGION")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeColloquialArea
+ *        The geographic region is a colloquial area. (Value:
+ *        "GEO_REGION_TYPE_COLLOQUIAL_AREA")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeCommune
+ *        The geographic region is a commune. (Value: "GEO_REGION_TYPE_COMMUNE")
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeCongressionalDistrict
  *        The geographic region is a congressional district. (Value:
  *        "GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT")
@@ -22978,6 +25461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeDistrict
  *        The geographic region is a district. (Value:
  *        "GEO_REGION_TYPE_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeDivision
+ *        The geographic region is a division. (Value:
+ *        "GEO_REGION_TYPE_DIVISION")
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeDmaRegion
  *        The geographic region is a designated market area (DMA) region.
  *        (Value: "GEO_REGION_TYPE_DMA_REGION")
@@ -22989,6 +25475,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipality
  *        The geographic region is a municipality. (Value:
  *        "GEO_REGION_TYPE_MUNICIPALITY")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipalityDistrict
+ *        The geographic region is a municipality district. (Value:
+ *        "GEO_REGION_TYPE_MUNICIPALITY_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeNationalPark
+ *        The geographic region is a national park. (Value:
+ *        "GEO_REGION_TYPE_NATIONAL_PARK")
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeNeighborhood
  *        The geographic region is a neighborhood. (Value:
  *        "GEO_REGION_TYPE_NEIGHBORHOOD")
@@ -23005,11 +25497,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeProvince
  *        The geographic region is a province. (Value:
  *        "GEO_REGION_TYPE_PROVINCE")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeQuarter
+ *        The geographic region is a quarter. (Value: "GEO_REGION_TYPE_QUARTER")
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeRegion
  *        The geographic region type is region. (Value:
  *        "GEO_REGION_TYPE_REGION")
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeState
  *        The geographic region is a state. (Value: "GEO_REGION_TYPE_STATE")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubDistrict
+ *        The geographic region is a sub district. (Value:
+ *        "GEO_REGION_TYPE_SUB_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeSubWard
+ *        The geographic region is a sub ward. (Value:
+ *        "GEO_REGION_TYPE_SUB_WARD")
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeTerritory
  *        The geographic region is a territory. (Value:
  *        "GEO_REGION_TYPE_TERRITORY")
@@ -23088,7 +25588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. All Google audience targeting settings in Google audience group.
- *  Repeated settings with same id will be ignored.
+ *  Repeated settings with the same id will be ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_GoogleAudienceTargetingSetting *> *settings;
 
@@ -23164,7 +25664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAdswizz
@@ -23174,7 +25674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBidswitch
@@ -23188,13 +25688,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCore Core.
+ *        (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDax DAX.
  *        (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeDrax Drax.
+ *        (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFluct Fluct.
@@ -23203,8 +25709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyber Fyber.
  *        (Value: "EXCHANGE_FYBER")
- *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyberGbid Fyber
- *        using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeFyberGbid DT
+ *        Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGeniee Geniee.
  *        (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeGoogleAdManager
@@ -23235,6 +25741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNend Nend.
  *        (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeOneByAolDisplay
@@ -23284,6 +25792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSovrn Sovrn.
  *        (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeStroer Ströer
@@ -23298,18 +25808,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
- *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeToponGbid Topon
- *        using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeToponGbid
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTriton Triton.
  *        (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTubi Tubi.
+ *        (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnited United.
  *        (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnityGbid Unity
- *        using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeUnspecified
@@ -23563,6 +26075,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *adGroupIds;
 
 /**
+ *  Optional. YouTube Ad Groups, by ID, to download in QA format. All IDs must
+ *  belong to the same Advertiser or Partner specified in
+ *  CreateSdfDownloadTaskRequest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *adGroupQaIds;
+
+/**
  *  Campaigns to download by ID. All IDs must belong to the same Advertiser or
  *  Partner specified in CreateSdfDownloadTaskRequest.
  *
@@ -23585,6 +26106,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *lineItemIds;
+
+/**
+ *  Optional. Line Items, by ID, to download in QA format. All IDs must belong
+ *  to the same Advertiser or Partner specified in CreateSdfDownloadTaskRequest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *lineItemQaIds;
 
 /**
  *  Media Products to download by ID. All IDs must belong to the same Advertiser
@@ -23631,7 +26160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
 /**
- *  The bidding strategy of the insertion order. By default, fixed_bid is set.
+ *  Optional. The bidding strategy of the insertion order. By default, fixed_bid
+ *  is set.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BiddingStrategy *bidStrategy;
 
@@ -23696,8 +26226,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *insertionOrderId;
 
 /**
- *  The type of insertion order. If this field is unspecified in creation, the
- *  value defaults to `RTB`.
+ *  Optional. The type of insertion order. If this field is unspecified in
+ *  creation, the value defaults to `RTB`.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_InsertionOrderTypeUnspecified
@@ -23710,7 +26240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *insertionOrderType;
 
-/** Additional integration details of the insertion order. */
+/** Optional. Additional integration details of the insertion order. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_IntegrationDetails *integrationDetails;
 
 /**
@@ -23723,13 +26253,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Output only. The resource name of the insertion order. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Required. The budget spending speed setting of the insertion order. */
+/**
+ *  Optional. Required. The optimization objective of the insertion order.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_BrandAwareness
+ *        Prioritize impressions of specific quality. (Value: "BRAND_AWARENESS")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Click
+ *        Prioritize impressions that increase website traffic, apps, app
+ *        stores. (Value: "CLICK")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Conversion
+ *        Prioritize impressions that increase sales and conversions. (Value:
+ *        "CONVERSION")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_Custom
+ *        Objective is defined by the assigned custom bidding algorithm. (Value:
+ *        "CUSTOM")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_NoObjective
+ *        Objective is not defined. Any KPI or bidding strategy can be used.
+ *        (Value: "NO_OBJECTIVE")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_OptimizationObjective_OptimizationObjectiveUnspecified
+ *        Type value is not specified or is unknown in this version. (Value:
+ *        "OPTIMIZATION_OBJECTIVE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *optimizationObjective;
+
+/**
+ *  Required. The budget spending speed setting of the insertion order.
+ *  pacing_type `PACING_TYPE_ASAP` is not compatible with pacing_period
+ *  `PACING_PERIOD_FLIGHT`.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Pacing *pacing;
 
 /**
- *  The partner costs associated with the insertion order. If absent or empty in
- *  CreateInsertionOrder method, the newly created insertion order will inherit
- *  partner costs from the partner settings.
+ *  Optional. The partner costs associated with the insertion order. If absent
+ *  or empty in CreateInsertionOrder method, the newly created insertion order
+ *  will inherit partner costs from the partner settings.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PartnerCost *> *partnerCosts;
 
@@ -23773,9 +26331,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_InsertionOrderBudget : GTLRObject
 
 /**
- *  The type of automation used to manage bid and budget for the insertion
- *  order. If this field is unspecified in creation, the value defaults to
- *  `INSERTION_ORDER_AUTOMATION_TYPE_NONE`.
+ *  Optional. The type of automation used to manage bid and budget for the
+ *  insertion order. If this field is unspecified in creation, the value
+ *  defaults to `INSERTION_ORDER_AUTOMATION_TYPE_NONE`.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_InsertionOrderBudget_AutomationType_InsertionOrderAutomationTypeBidBudget
@@ -23836,8 +26394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *budgetAmountMicros;
 
 /**
- *  The budget_id of the campaign budget that this insertion order budget
- *  segment is a part of.
+ *  Optional. The budget_id of the campaign budget that this insertion order
+ *  budget segment is a part of.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -23854,9 +26412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DateRange *dateRange;
 
 /**
- *  The budget segment description. It can be used to enter Purchase Order
- *  information for each budget segment and have that information printed on the
- *  invoices. Must be UTF-8 encoded.
+ *  Optional. The budget segment description. It can be used to enter Purchase
+ *  Order information for each budget segment and have that information printed
+ *  on the invoices. Must be UTF-8 encoded.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -23898,7 +26456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  The custom segment ID provided by Integral Ad Science. The ID must be
- *  between `1000001` and `1999999`, inclusive.
+ *  between `1000001` and `1999999` or `3000001` and `3999999`, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -24065,6 +26623,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *excludeUnrateable;
 
 /**
+ *  Optional. The quality sync custom segment ID provided by Integral Ad
+ *  Science. The ID must be between `3000000` and `4999999`, inclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *qualitySyncCustomSegmentId;
+
+/**
  *  True advertising quality (applicable to Display line items only).
  *
  *  Likely values:
@@ -24206,7 +26772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdmixer
  *        Admixer. (Value: "EXCHANGE_ADMIXER")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdmostGbid
- *        Admost using the gBid SDK. (Value: "EXCHANGE_ADMOST_GBID")
+ *        AdMost. (Value: "EXCHANGE_ADMOST_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdsmogo
  *        AdsMogo. (Value: "EXCHANGE_ADSMOGO")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAdswizz
@@ -24216,7 +26782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeApplovin
  *        AppLovin. (Value: "EXCHANGE_APPLOVIN")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeApplovinGbid
- *        AppLovin using the gBid SDK. (Value: "EXCHANGE_APPLOVIN_GBID")
+ *        AppLovin MAX. (Value: "EXCHANGE_APPLOVIN_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAppnexus
  *        AppNexus. (Value: "EXCHANGE_APPNEXUS")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeBidswitch
@@ -24230,13 +26796,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeChartboostGbid
- *        Chartboost using the gBid SDK. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *        Chartboost Mediation. (Value: "EXCHANGE_CHARTBOOST_GBID")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCommerceGrid
+ *        Commerce Grid. (Value: "EXCHANGE_COMMERCE_GRID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeConnatix
  *        Connatix. (Value: "EXCHANGE_CONNATIX")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCore Core.
+ *        (Value: "EXCHANGE_CORE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDailymotion
  *        Dailymotion. (Value: "EXCHANGE_DAILYMOTION")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDax DAX.
  *        (Value: "EXCHANGE_DAX")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeDrax Drax.
+ *        (Value: "EXCHANGE_DRAX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFive Five.
  *        (Value: "EXCHANGE_FIVE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFluct Fluct.
@@ -24245,8 +26817,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        FreeWheel SSP. (Value: "EXCHANGE_FREEWHEEL")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyber Fyber.
  *        (Value: "EXCHANGE_FYBER")
- *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyberGbid Fyber
- *        using the gBid SDK. (Value: "EXCHANGE_FYBER_GBID")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeFyberGbid DT
+ *        Fairbid. (Value: "EXCHANGE_FYBER_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGeniee Geniee.
  *        (Value: "EXCHANGE_GENIEE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeGoogleAdManager
@@ -24277,6 +26849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "EXCHANGE_MOPUB")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNend Nend.
  *        (Value: "EXCHANGE_NEND")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNetflix
+ *        Netflix. (Value: "EXCHANGE_NETFLIX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeNexstarDigital
  *        Nexstar Digital. (Value: "EXCHANGE_NEXSTAR_DIGITAL")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOneByAolDisplay
@@ -24326,6 +26900,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSovrn Sovrn.
  *        (Value: "EXCHANGE_SOVRN")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSpotify
+ *        Spotify. (Value: "EXCHANGE_SPOTIFY")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSpotxchange
  *        SpotXchange. (Value: "EXCHANGE_SPOTXCHANGE")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeStroer Ströer
@@ -24340,18 +26916,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
- *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeToponGbid Topon
- *        using the gBid SDK. (Value: "EXCHANGE_TOPON_GBID")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeToponGbid
+ *        TopOn. (Value: "EXCHANGE_TOPON_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriplelift
  *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton Triton.
  *        (Value: "EXCHANGE_TRITON")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTubi Tubi.
+ *        (Value: "EXCHANGE_TUBI")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited United.
  *        (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnityGbid Unity
- *        using the gBid SDK. (Value: "EXCHANGE_UNITY_GBID")
+ *        LevelPlay. (Value: "EXCHANGE_UNITY_GBID")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnrulyx
  *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnspecified
@@ -24910,6 +27488,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_Kpi : GTLRObject
 
 /**
+ *  Optional. Custom Bidding Algorithm ID associated with
+ *  KPI_CUSTOM_IMPRESSION_VALUE_OVER_COST. This field is ignored if the proper
+ *  KPI is not selected.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *kpiAlgorithmId;
+
+/**
  *  The goal amount, in micros of the advertiser's currency. Applicable when
  *  kpi_type is one of: * `KPI_TYPE_CPM` * `KPI_TYPE_CPC` * `KPI_TYPE_CPA` *
  *  `KPI_TYPE_CPIAVC` * `KPI_TYPE_VCPM` For example: 1500000 represents 1.5
@@ -24950,6 +27537,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        action). (Value: "KPI_TYPE_CPA")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpc The KPI is CPC (cost per
  *        click). (Value: "KPI_TYPE_CPC")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcl The KPI is set in CPCL
+ *        (cost per complete audio listen). (Value: "KPI_TYPE_CPCL")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpcv The KPI is set in CPCV
+ *        (cost per complete video view). (Value: "KPI_TYPE_CPCV")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpe The KPI is CPE (cost per
  *        engagement). (Value: "KPI_TYPE_CPE")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpiavc The KPI is CPIAVC
@@ -24957,13 +27548,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "KPI_TYPE_CPIAVC")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpm The KPI is CPM (cost per
  *        mille). (Value: "KPI_TYPE_CPM")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCpv The KPI is set in CPV
+ *        (cost per view). (Value: "KPI_TYPE_CPV")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCtr The KPI is CTR
  *        (click-through rate) percentage. (Value: "KPI_TYPE_CTR")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeCustomImpressionValueOverCost
+ *        The KPI is set in custom impression value divided by cost. (Value:
+ *        "KPI_TYPE_CUSTOM_IMPRESSION_VALUE_OVER_COST")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeImpressionCvr The KPI is
  *        impression conversion rate (conversions per impression) percentage.
  *        (Value: "KPI_TYPE_IMPRESSION_CVR")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeMaximizePacing The KPI is set
+ *        to maximize brand impact while prioritizing spending the full budget.
+ *        (Value: "KPI_TYPE_MAXIMIZE_PACING")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeOther The KPI is some other
  *        value. (Value: "KPI_TYPE_OTHER")
+ *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeTos10 The KPI is set in rate
+ *        of time on screen 10+ seconds (Percentage of measurable, non-skippable
+ *        impressions that were on the screen for at least 10 seconds). (Value:
+ *        "KPI_TYPE_TOS10")
  *    @arg @c kGTLRDisplayVideo_Kpi_KpiType_KpiTypeUnspecified KPI type is not
  *        specified or is unknown in this version. (Value:
  *        "KPI_TYPE_UNSPECIFIED")
@@ -25883,28 +28486,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  GTLRDisplayVideo_ListFirstAndThirdPartyAudiencesResponse
+ *  GTLRDisplayVideo_ListFirstPartyAndPartnerAudiencesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "firstAndThirdPartyAudiences" property. If returned as the result
- *        of a query, it should support automatic pagination (when @c
+ *        its "firstPartyAndPartnerAudiences" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
  *        shouldFetchNextPages is enabled).
  */
-@interface GTLRDisplayVideo_ListFirstAndThirdPartyAudiencesResponse : GTLRCollectionObject
+@interface GTLRDisplayVideo_ListFirstPartyAndPartnerAudiencesResponse : GTLRCollectionObject
 
 /**
- *  The list of first and third party audiences. Audience size properties will
+ *  The list of first party and partner audiences. Audience size properties will
  *  not be included. This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_FirstAndThirdPartyAudience *> *firstAndThirdPartyAudiences;
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_FirstPartyAndPartnerAudience *> *firstPartyAndPartnerAudiences;
 
 /**
  *  A token to retrieve the next page of results. Pass this value in the
- *  page_token field in the subsequent call to `ListFirstAndThirdPartyAudiences`
- *  method to retrieve the next page of results.
+ *  page_token field in the subsequent call to
+ *  `ListFirstPartyAndPartnerAudiences` method to retrieve the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -26584,7 +29188,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The ID of the Custom Bidding Algorithm used by this strategy. Only
  *  applicable when performance_goal_type is set to
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`.
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom
+ *  bidding algorithm that uses floodlight activities not identified in
+ *  floodlightActivityConfigs will return an error.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -26949,21 +29555,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. The click tracking URL of the OBA icon. Only URLs of the following
- *  domains are allowed: * https://info.evidon.com * https://l.betrad.com
+ *  domains are allowed: * `https://info.evidon.com` * `https://l.betrad.com`
  */
 @property(nonatomic, copy, nullable) NSString *clickTrackingUrl;
 
-/** The dimensions of the OBA icon. */
+/** Optional. The dimensions of the OBA icon. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Dimensions *dimensions;
 
 /**
  *  Required. The landing page URL of the OBA icon. Only URLs of the following
- *  domains are allowed: * https://info.evidon.com * https://l.betrad.com
+ *  domains are allowed: * `https://info.evidon.com` * `https://l.betrad.com`
  */
 @property(nonatomic, copy, nullable) NSString *landingPageUrl;
 
 /**
- *  The position of the OBA icon on the creative.
+ *  Optional. The position of the OBA icon on the creative.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ObaIcon_Position_ObaIconPositionLowerLeft At the
@@ -26984,18 +29590,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, copy, nullable) NSString *position;
 
-/** The program of the OBA icon. For example: “AdChoices”. */
+/** Optional. The program of the OBA icon. For example: “AdChoices”. */
 @property(nonatomic, copy, nullable) NSString *program;
 
-/** The MIME type of the OBA icon resource. */
+/** Optional. The MIME type of the OBA icon resource. */
 @property(nonatomic, copy, nullable) NSString *resourceMimeType;
 
-/** The URL of the OBA icon resource. */
+/** Optional. The URL of the OBA icon resource. */
 @property(nonatomic, copy, nullable) NSString *resourceUrl;
 
 /**
  *  Required. The view tracking URL of the OBA icon. Only URLs of the following
- *  domains are allowed: * https://info.evidon.com * https://l.betrad.com
+ *  domains are allowed: * `https://info.evidon.com` * `https://l.betrad.com`
  */
 @property(nonatomic, copy, nullable) NSString *viewTrackingUrl;
 
@@ -27306,7 +29912,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. The type of pacing that defines how the budget amount will be
- *  spent across the pacing_period.
+ *  spent across the pacing_period. `PACING_TYPE_ASAP` is not compatible with
+ *  pacing_period `PACING_PERIOD_FLIGHT` for insertion orders.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_Pacing_PacingType_PacingTypeAhead Only
@@ -27418,14 +30025,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Order IDs that belong to the Advertiser or Partner specified in
  *        CreateSdfDownloadTaskRequest. Can only be used for downloading
  *        `FILE_TYPE_INSERTION_ORDER`, `FILE_TYPE_LINE_ITEM`,
- *        `FILE_TYPE_AD_GROUP`, and `FILE_TYPE_AD`. (Value:
+ *        `FILE_TYPE_LINE_ITEM_QA`, `FILE_TYPE_AD_GROUP`,
+ *        `FILE_TYPE_AD_GROUP_QA`, and `FILE_TYPE_AD`. (Value:
  *        "FILTER_TYPE_INSERTION_ORDER_ID")
  *    @arg @c kGTLRDisplayVideo_ParentEntityFilter_FilterType_FilterTypeLineItemId
  *        Line Item ID. If selected, all filter IDs must be Line Item IDs that
  *        belong to the Advertiser or Partner specified in
  *        CreateSdfDownloadTaskRequest. Can only be used for downloading
- *        `FILE_TYPE_LINE_ITEM`, `FILE_TYPE_AD_GROUP`, and `FILE_TYPE_AD`.
- *        (Value: "FILTER_TYPE_LINE_ITEM_ID")
+ *        `FILE_TYPE_LINE_ITEM`, `FILE_TYPE_LINE_ITEM_QA`,`FILE_TYPE_AD_GROUP`,
+ *        `FILE_TYPE_AD_GROUP_QA`, and `FILE_TYPE_AD`. (Value:
+ *        "FILTER_TYPE_LINE_ITEM_ID")
  *    @arg @c kGTLRDisplayVideo_ParentEntityFilter_FilterType_FilterTypeMediaProductId
  *        Media Product ID. If selected, all filter IDs must be Media Product
  *        IDs that belong to the Advertiser or Partner specified in
@@ -27555,15 +30164,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Required. The type of the partner cost.
  *
  *  Likely values:
- *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlingoFee
- *        The cost is charged for using AdLingo. Billed through DV360. (Value:
- *        "PARTNER_COST_TYPE_ADLINGO_FEE")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdloox The
- *        cost is charged for using Adloox. Billed by the partner. (Value:
- *        "PARTNER_COST_TYPE_ADLOOX")
+ *        cost is charged for using Scope3 (previously known as Adloox). Billed
+ *        by the partner. (Value: "PARTNER_COST_TYPE_ADLOOX")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdlooxPrebid
- *        The cost is charged for using Adloox Pre-Bid. Billed through DV360.
- *        (Value: "PARTNER_COST_TYPE_ADLOOX_PREBID")
+ *        The cost is charged for using Scope3 (previously known as Adloox)
+ *        Pre-Bid. Billed through DV360. (Value:
+ *        "PARTNER_COST_TYPE_ADLOOX_PREBID")
  *    @arg @c kGTLRDisplayVideo_PartnerCost_CostType_PartnerCostTypeAdsafe The
  *        cost is charged for using AdSafe. Billed by the partner. (Value:
  *        "PARTNER_COST_TYPE_ADSAFE")
@@ -27855,6 +30462,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpm
  *        The performance goal is set in CPM (cost per mille). (Value:
  *        "PERFORMANCE_GOAL_TYPE_CPM")
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpv
+ *        The performance goal is set in CPV (cost per view). (Value:
+ *        "PERFORMANCE_GOAL_TYPE_CPV")
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCtr
  *        The performance goal is set in CTR (click-through rate) percentage.
  *        (Value: "PERFORMANCE_GOAL_TYPE_CTR")
@@ -27896,7 +30506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  The ID of the Custom Bidding Algorithm used by this strategy. Only
  *  applicable when performance_goal_type is set to
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`.
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO`. Assigning a custom
+ *  bidding algorithm that uses floodlight activities not identified in
+ *  floodlightActivityConfigs will return an error.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -28242,33 +30854,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Publisher review status for the creative.
- */
-@interface GTLRDisplayVideo_PublisherReviewStatus : GTLRObject
-
-/** The publisher reviewing the creative. */
-@property(nonatomic, copy, nullable) NSString *publisherName;
-
-/**
- *  Status of the publisher review.
- *
- *  Likely values:
- *    @arg @c kGTLRDisplayVideo_PublisherReviewStatus_Status_ReviewStatusApproved
- *        The creative is approved. (Value: "REVIEW_STATUS_APPROVED")
- *    @arg @c kGTLRDisplayVideo_PublisherReviewStatus_Status_ReviewStatusPending
- *        The creative is pending review. (Value: "REVIEW_STATUS_PENDING")
- *    @arg @c kGTLRDisplayVideo_PublisherReviewStatus_Status_ReviewStatusRejected
- *        The creative is rejected. (Value: "REVIEW_STATUS_REJECTED")
- *    @arg @c kGTLRDisplayVideo_PublisherReviewStatus_Status_ReviewStatusUnspecified
- *        Type value is not specified or is unknown in this version. (Value:
- *        "REVIEW_STATUS_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *status;
-
-@end
-
-
-/**
  *  The rate related settings of the inventory source.
  */
 @interface GTLRDisplayVideo_RateDetails : GTLRObject
@@ -28498,9 +31083,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Exchange review statuses for the creative. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ExchangeReviewStatus *> *exchangeReviewStatuses;
 
-/** Publisher review statuses for the creative. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_PublisherReviewStatus *> *publisherReviewStatuses;
-
 @end
 
 
@@ -28586,8 +31168,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7 SDF version 7.
  *        Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
- *        before migrating to this version. Currently in beta. Only available
- *        for use by a subset of users. (Value: "SDF_VERSION_7")
+ *        before migrating to this version. (Value: "SDF_VERSION_7")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71 SDF version 7.1.
+ *        Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_7_1")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8 SDF version 8.
+ *        Read the [v8 migration
+ *        guide](/display-video/api/structured-data-file/v8-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_8")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81 SDF version 8.1.
+ *        (Value: "SDF_VERSION_8_1")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -28599,7 +31190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Type for the response returned by
- *  [SdfDownloadTaskService.CreateSdfDownloadTask].
+ *  SdfDownloadTaskService.CreateSdfDownloadTask.
  */
 @interface GTLRDisplayVideo_SdfDownloadTask : GTLRObject
 
@@ -28616,7 +31207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Type for the metadata returned by
- *  [SdfDownloadTaskService.CreateSdfDownloadTask].
+ *  SdfDownloadTaskService.CreateSdfDownloadTask.
  */
 @interface GTLRDisplayVideo_SdfDownloadTaskMetadata : GTLRObject
 
@@ -28655,8 +31246,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7 SDF
  *        version 7. Read the [v7 migration
  *        guide](/display-video/api/structured-data-file/v7-migration-guide)
- *        before migrating to this version. Currently in beta. Only available
- *        for use by a subset of users. (Value: "SDF_VERSION_7")
+ *        before migrating to this version. (Value: "SDF_VERSION_7")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71 SDF
+ *        version 7.1. Read the [v7 migration
+ *        guide](/display-video/api/structured-data-file/v7-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_7_1")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8 SDF
+ *        version 8. Read the [v8 migration
+ *        guide](/display-video/api/structured-data-file/v8-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_8")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81 SDF
+ *        version 8.1. (Value: "SDF_VERSION_8_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -28778,15 +31378,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        drugs, as well as to drug paraphernalia or cultivation. (Value:
  *        "SENSITIVE_CATEGORY_DRUGS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryEmbeddedVideo
- *        YouTube videos embedded on websites outside of YouTube.com. Only
- *        applicable to YouTube and Partners line items. (Value:
+ *        YouTube videos embedded on websites outside of YouTube.com. (Value:
  *        "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryGambling
  *        Contains content related to betting or wagering in a real-world or
  *        online setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryLiveStreamingVideo
- *        Video of live events streamed over the internet. Only applicable to
- *        YouTube and Partners line items. (Value:
+ *        Video of live events streamed over the internet. (Value:
  *        "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_ExcludedSensitiveCategory_SensitiveCategoryPolitics
  *        Political news and media, including discussions of social,
@@ -28874,15 +31472,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        drugs, as well as to drug paraphernalia or cultivation. (Value:
  *        "SENSITIVE_CATEGORY_DRUGS")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryEmbeddedVideo
- *        YouTube videos embedded on websites outside of YouTube.com. Only
- *        applicable to YouTube and Partners line items. (Value:
+ *        YouTube videos embedded on websites outside of YouTube.com. (Value:
  *        "SENSITIVE_CATEGORY_EMBEDDED_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryGambling
  *        Contains content related to betting or wagering in a real-world or
  *        online setting. (Value: "SENSITIVE_CATEGORY_GAMBLING")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryLiveStreamingVideo
- *        Video of live events streamed over the internet. Only applicable to
- *        YouTube and Partners line items. (Value:
+ *        Video of live events streamed over the internet. (Value:
  *        "SENSITIVE_CATEGORY_LIVE_STREAMING_VIDEO")
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails_SensitiveCategory_SensitiveCategoryPolitics
  *        Political news and media, including discussions of social,
@@ -29158,7 +31754,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *audienceExpansionSeedListExcluded;
 
 /**
- *  Required. Whether to enable Optimized Targeting for the line item.
+ *  Required. Whether to enable Optimized Targeting for the line item. Optimized
+ *  targeting is not compatible with all bid strategies. Attempting to set this
+ *  field to `true` for a line item using the BiddingStrategy field fixed_bid or
+ *  one of the following combinations of BiddingStrategy fields and
+ *  BiddingStrategyPerformanceGoalType will result in an error:
+ *  maximize_auto_spend_bid: * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` *
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` *
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED`
+ *  performance_goal_auto_bid: *
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM`
  *
  *  Uses NSNumber of boolValue.
  */
@@ -29211,6 +31816,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** Content stream type resource details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentStreamTypeTargetingOptionDetails *contentStreamTypeDetails;
+
+/** Content theme details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentThemeTargetingOptionDetails *contentThemeDetails;
 
 /** Device make and model resource details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DeviceMakeModelTargetingOptionDetails *deviceMakeModelDetails;
@@ -29329,6 +31937,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentStreamType
  *        Target ads to a specific video content stream type. (Value:
  *        "TARGETING_TYPE_CONTENT_STREAM_TYPE")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeContentThemeExclusion
+ *        Filter website content by content themes (for example, religion). Only
+ *        supported for Advertiser resources. Targeting of this type cannot be
+ *        created or updated using the API. This targeting is only inherited by
+ *        child YouTube and Demand Gen line item resources. (Value:
+ *        "TARGETING_TYPE_CONTENT_THEME_EXCLUSION")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeDayAndTime
  *        Target ads during a chosen time period on a specific day. (Value:
  *        "TARGETING_TYPE_DAY_AND_TIME")
@@ -29460,7 +32074,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. The third-party vendors measuring brand lift. The following
  *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_DYNATA` *
- *  `THIRD_PARTY_VENDOR_KANTAR`
+ *  `THIRD_PARTY_VENDOR_KANTAR` * `THIRD_PARTY_VENDOR_KANTAR_MILLWARD_BROWN` *
+ *  `THIRD_PARTY_VENDOR_GOOGLE_INTERNAL` * `THIRD_PARTY_VENDOR_INTAGE` *
+ *  `THIRD_PARTY_VENDOR_NIELSEN` * `THIRD_PARTY_VENDOR_MACROMILL`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *brandLiftVendorConfigs;
 
@@ -29468,14 +32084,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Optional. The third-party vendors measuring brand safety. The following
  *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_ZERF` *
  *  `THIRD_PARTY_VENDOR_DOUBLE_VERIFY` *
- *  `THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE`
+ *  `THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE` *
+ *  `THIRD_PARTY_VENDOR_GOOGLE_INTERNAL` * `THIRD_PARTY_VENDOR_ZEFR`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *brandSafetyVendorConfigs;
 
 /**
  *  Optional. The third-party vendors measuring reach. The following third-party
  *  vendors are applicable: * `THIRD_PARTY_VENDOR_NIELSEN` *
- *  `THIRD_PARTY_VENDOR_COMSCORE` * `THIRD_PARTY_VENDOR_KANTAR`
+ *  `THIRD_PARTY_VENDOR_COMSCORE` * `THIRD_PARTY_VENDOR_KANTAR` *
+ *  `THIRD_PARTY_VENDOR_GOOGLE_INTERNAL` *
+ *  `THIRD_PARTY_VENDOR_KANTAR_MILLWARD_BROWN` *
+ *  `THIRD_PARTY_VENDOR_VIDEO_RESEARCH` * `THIRD_PARTY_VENDOR_MEDIA_SCOPE` *
+ *  `THIRD_PARTY_VENDOR_AUDIENCE_PROJECT` * `THIRD_PARTY_VENDOR_VIDEO_AMP` *
+ *  `THIRD_PARTY_VENDOR_ISPOT_TV`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *reachVendorConfigs;
 
@@ -29484,7 +32106,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_MOAT` *
  *  `THIRD_PARTY_VENDOR_DOUBLE_VERIFY` *
  *  `THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE` * `THIRD_PARTY_VENDOR_COMSCORE` *
- *  `THIRD_PARTY_VENDOR_TELEMETRY` * `THIRD_PARTY_VENDOR_MEETRICS`
+ *  `THIRD_PARTY_VENDOR_TELEMETRY` * `THIRD_PARTY_VENDOR_MEETRICS` *
+ *  `THIRD_PARTY_VENDOR_GOOGLE_INTERNAL`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *viewabilityVendorConfigs;
 
@@ -29514,7 +32137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_ThirdPartyUrl : GTLRObject
 
 /**
- *  The type of interaction needs to be tracked by the tracking URL
+ *  Optional. The type of interaction needs to be tracked by the tracking URL
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ThirdPartyUrl_Type_ThirdPartyUrlTypeAudioVideoComplete
@@ -29572,9 +32195,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Tracking URL used to track the interaction. Provide a URL with optional path
- *  or query string, beginning with `https:`. For example,
- *  https://www.example.com/path
+ *  Optional. Tracking URL used to track the interaction. Provide a URL with
+ *  optional path or query string, beginning with `https:`. For example,
+ *  `https://www.example.com/path`
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -29614,6 +32237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Nielsen. (Value: "THIRD_PARTY_VENDOR_NIELSEN")
  *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorTelemetry
  *        Telemetry. (Value: "THIRD_PARTY_VENDOR_TELEMETRY")
+ *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorTransunion
+ *        Transunion. (Value: "THIRD_PARTY_VENDOR_TRANSUNION")
  *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorUnspecified
  *        Unknown third-party vendor. (Value: "THIRD_PARTY_VENDOR_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_ThirdPartyVendorConfig_Vendor_ThirdPartyVendorZefr
@@ -29631,7 +32256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @interface GTLRDisplayVideo_ThirdPartyVerifierAssignedTargetingOptionDetails : GTLRObject
 
-/** Third party brand verifier -- Adloox. */
+/** Third party brand verifier -- Scope3 (previously known as Adloox). */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Adloox *adloox;
 
 /** Third party brand verifier -- DoubleVerify. */
@@ -29708,53 +32333,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_Transcode : GTLRObject
 
 /**
- *  The bit rate for the audio stream of the transcoded video, or the bit rate
- *  for the transcoded audio, in kilobits per second.
+ *  Optional. The bit rate for the audio stream of the transcoded video, or the
+ *  bit rate for the transcoded audio, in kilobits per second.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *audioBitRateKbps;
 
 /**
- *  The sample rate for the audio stream of the transcoded video, or the sample
- *  rate for the transcoded audio, in hertz.
+ *  Optional. The sample rate for the audio stream of the transcoded video, or
+ *  the sample rate for the transcoded audio, in hertz.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *audioSampleRateHz;
 
 /**
- *  The transcoding bit rate of the transcoded video, in kilobits per second.
+ *  Optional. The transcoding bit rate of the transcoded video, in kilobits per
+ *  second.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bitRateKbps;
 
-/** The dimensions of the transcoded video. */
+/** Optional. The dimensions of the transcoded video. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Dimensions *dimensions;
 
 /**
- *  The size of the transcoded file, in bytes.
+ *  Optional. The size of the transcoded file, in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fileSizeBytes;
 
 /**
- *  The frame rate of the transcoded video, in frames per second.
+ *  Optional. The frame rate of the transcoded video, in frames per second.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *frameRate;
 
-/** The MIME type of the transcoded file. */
+/** Optional. The MIME type of the transcoded file. */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
-/** The name of the transcoded file. */
+/** Optional. The name of the transcoded file. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Indicates if the transcoding was successful.
+ *  Optional. Indicates if the transcoding was successful.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -29770,14 +32396,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_UniversalAdId : GTLRObject
 
 /**
- *  The unique creative identifier.
+ *  Optional. The unique creative identifier.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The registry provides unique creative identifiers.
+ *  Optional. The registry provides unique creative identifiers.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_UniversalAdId_Registry_UniversalAdRegistryAdId
@@ -29919,6 +32545,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "USER_REWARDED_CONTENT_USER_REWARDED")
  */
 @property(nonatomic, copy, nullable) NSString *userRewardedContent;
+
+@end
+
+
+/**
+ *  The video ad inventory control used in certain YouTube line item types.
+ */
+@interface GTLRDisplayVideo_VideoAdInventoryControl : GTLRObject
+
+/**
+ *  Optional. Whether ads can serve as in-feed format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowInFeed;
+
+/**
+ *  Optional. Whether ads can serve as in-stream format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowInStream;
+
+/**
+ *  Optional. Whether ads can serve as shorts format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowShorts;
 
 @end
 
@@ -30313,6 +32968,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeMaximizeLift
  *        An automated bidding strategy that sets bids to achieve maximum lift.
  *        (Value: "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MAXIMIZE_LIFT")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeReserveCpm
+ *        A bidding strategy for YouTube Instant Reserve line items that pays a
+ *        fixed amount per impression. (Value:
+ *        "YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_CPM")
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy_Type_YoutubeAndPartnersBiddingStrategyTypeTargetCpa
  *        A bidding strategy that automatically optimizes conversions per
  *        dollar. (Value:
@@ -30345,6 +33004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPV` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPM` *
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_CPM` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` If not using an
  *  applicable strategy, the value of this field will be 0.
  *
@@ -30394,7 +33054,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_YoutubeAndPartnersSettings : GTLRObject
 
 /**
- *  The kind of content on which the YouTube and Partners ads will be shown.
+ *  Output only. The kind of content on which the YouTube and Partners ads will
+ *  be shown. *Warning*: This field will be removed in the near future. Use
+ *  effective_content_category instead.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersSettings_ContentCategory_YoutubeAndPartnersContentCategoryExpanded
@@ -30421,7 +33083,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Output only. The content category which takes effect when serving the line
  *  item. When content category is set in both line item and advertiser, the
- *  stricter one will take effect when serving the line item.
+ *  stricter one will take effect when serving the line item. New line items
+ *  will only inherit the advertiser level setting.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryExpanded
@@ -30480,6 +33143,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /** Optional. The third-party measurement configs of the line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ThirdPartyMeasurementConfigs *thirdPartyMeasurementConfigs;
+
+/**
+ *  Optional. The settings to control which inventory is allowed for this line
+ *  item.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoAdInventoryControl *videoAdInventoryControl;
 
 /** Optional. The settings related to VideoAdSequence. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoAdSequenceSettings *videoAdSequenceSettings;

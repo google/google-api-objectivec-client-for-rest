@@ -114,7 +114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleclicksearch_Conversion_AdUserDataC
 
 
 /**
- *  A conversion containing data relevant to DoubleClick Search.
+ *  A conversion containing data relevant to DoubleClick Search. Common DS3 API
+ *  conversion fields: Id Range [1 - 2800]. Next Id to use: 33
  */
 @interface GTLRDoubleclicksearch_Conversion : GTLRObject
 

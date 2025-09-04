@@ -29,6 +29,7 @@ NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Ios = @
 NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Other = @"OTHER";
 
 // GTLRFirebaseDynamicLinks_DynamicLinkWarning.warningCode
+NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_ApiDeprecated = @"API_DEPRECATED";
 NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadAdParam = @"BAD_AD_PARAM";
 NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadDebugParam = @"BAD_DEBUG_PARAM";
 NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadUriSchemeAndroidFallbackLink = @"BAD_URI_SCHEME_ANDROID_FALLBACK_LINK";
@@ -223,11 +224,12 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 //
 
 @implementation GTLRFirebaseDynamicLinks_DynamicLinkStats
-@dynamic linkEventStats;
+@dynamic linkEventStats, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"linkEventStats" : [GTLRFirebaseDynamicLinks_DynamicLinkEventStat class]
+    @"linkEventStats" : [GTLRFirebaseDynamicLinks_DynamicLinkEventStat class],
+    @"warnings" : [GTLRFirebaseDynamicLinks_DynamicLinkWarning class]
   };
   return map;
 }
@@ -286,7 +288,15 @@ NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable = @"UNGUESS
 
 @implementation GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse
 @dynamic deepLink, invitationId, iosMinAppVersion, resolvedLink, utmCampaign,
-         utmContent, utmMedium, utmSource, utmTerm;
+         utmContent, utmMedium, utmSource, utmTerm, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warning" : [GTLRFirebaseDynamicLinks_DynamicLinkWarning class]
+  };
+  return map;
+}
+
 @end
 
 

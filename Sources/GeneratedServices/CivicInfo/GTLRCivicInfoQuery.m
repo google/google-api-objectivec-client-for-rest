@@ -13,41 +13,26 @@
 
 #import <GoogleAPIClientForREST/GTLRCivicInfoObjects.h>
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// levels
-NSString * const kGTLRCivicInfoLevelsAdministrativeArea1 = @"administrativeArea1";
-NSString * const kGTLRCivicInfoLevelsAdministrativeArea2 = @"administrativeArea2";
-NSString * const kGTLRCivicInfoLevelsCountry             = @"country";
-NSString * const kGTLRCivicInfoLevelsInternational       = @"international";
-NSString * const kGTLRCivicInfoLevelsLocality            = @"locality";
-NSString * const kGTLRCivicInfoLevelsRegional            = @"regional";
-NSString * const kGTLRCivicInfoLevelsSpecial             = @"special";
-NSString * const kGTLRCivicInfoLevelsSubLocality1        = @"subLocality1";
-NSString * const kGTLRCivicInfoLevelsSubLocality2        = @"subLocality2";
-
-// roles
-NSString * const kGTLRCivicInfoRolesDeputyHeadOfGovernment = @"deputyHeadOfGovernment";
-NSString * const kGTLRCivicInfoRolesExecutiveCouncil       = @"executiveCouncil";
-NSString * const kGTLRCivicInfoRolesGovernmentOfficer      = @"governmentOfficer";
-NSString * const kGTLRCivicInfoRolesHeadOfGovernment       = @"headOfGovernment";
-NSString * const kGTLRCivicInfoRolesHeadOfState            = @"headOfState";
-NSString * const kGTLRCivicInfoRolesHighestCourtJudge      = @"highestCourtJudge";
-NSString * const kGTLRCivicInfoRolesJudge                  = @"judge";
-NSString * const kGTLRCivicInfoRolesLegislatorLowerBody    = @"legislatorLowerBody";
-NSString * const kGTLRCivicInfoRolesLegislatorUpperBody    = @"legislatorUpperBody";
-NSString * const kGTLRCivicInfoRolesOtherRole              = @"otherRole";
-NSString * const kGTLRCivicInfoRolesSchoolBoard            = @"schoolBoard";
-NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOfficer";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRCivicInfoQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRCivicInfoQuery_DivisionsQueryDivisionByAddress
+
+@dynamic address;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"civicinfo/v2/divisionsByAddress";
+  GTLRCivicInfoQuery_DivisionsQueryDivisionByAddress *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCivicInfo_ApiprotosV2DivisionByAddressResponse class];
+  query.loggingName = @"civicinfo.divisions.queryDivisionByAddress";
+  return query;
+}
 
 @end
 
@@ -61,7 +46,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCivicInfo_DivisionSearchResponse class];
+  query.expectedObjectClass = [GTLRCivicInfo_CivicinfoApiprotosV2DivisionSearchResponse class];
   query.loggingName = @"civicinfo.divisions.search";
   return query;
 }
@@ -78,7 +63,7 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCivicInfo_ElectionsQueryResponse class];
+  query.expectedObjectClass = [GTLRCivicInfo_CivicinfoApiprotosV2ElectionsQueryResponse class];
   query.loggingName = @"civicinfo.elections.electionQuery";
   return query;
 }
@@ -90,67 +75,14 @@ NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOff
 @dynamic address, electionId, officialOnly, productionDataOnly,
          returnAllAvailableData;
 
-+ (instancetype)queryWithAddress:(NSString *)address {
++ (instancetype)query {
   NSString *pathURITemplate = @"civicinfo/v2/voterinfo";
   GTLRCivicInfoQuery_ElectionsVoterInfoQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.address = address;
-  query.expectedObjectClass = [GTLRCivicInfo_VoterInfoResponse class];
+  query.expectedObjectClass = [GTLRCivicInfo_CivicinfoApiprotosV2VoterInfoResponse class];
   query.loggingName = @"civicinfo.elections.voterInfoQuery";
-  return query;
-}
-
-@end
-
-@implementation GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByAddress
-
-@dynamic address, includeOffices, levels, roles;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"levels" : [NSString class],
-    @"roles" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"civicinfo/v2/representatives";
-  GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByAddress *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCivicInfo_RepresentativeInfoResponse class];
-  query.loggingName = @"civicinfo.representatives.representativeInfoByAddress";
-  return query;
-}
-
-@end
-
-@implementation GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByDivision
-
-@dynamic levels, ocdId, recursive, roles;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"levels" : [NSString class],
-    @"roles" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithOcdId:(NSString *)ocdId {
-  NSArray *pathParams = @[ @"ocdId" ];
-  NSString *pathURITemplate = @"civicinfo/v2/representatives/{ocdId}";
-  GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByDivision *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.ocdId = ocdId;
-  query.expectedObjectClass = [GTLRCivicInfo_RepresentativeInfoData class];
-  query.loggingName = @"civicinfo.representatives.representativeInfoByDivision";
   return query;
 }
 

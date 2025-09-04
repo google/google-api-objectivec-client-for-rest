@@ -6,7 +6,7 @@
 // Description:
 //   Manipulates events and other calendar data.
 // Documentation:
-//   https://developers.google.com/google-apps/calendar/firstapp
+//   https://developers.google.com/workspace/calendar/firstapp
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -32,17 +32,96 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendar;
 /**
+ *  Authorization scope: See and change the sharing permissions of Google
+ *  calendars you own
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.acls"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarAcls;
+/**
+ *  Authorization scope: See the sharing permissions of Google calendars you own
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.acls.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarAclsReadonly;
+/**
+ *  Authorization scope: Make secondary Google calendars, and see, create,
+ *  change, and delete events on them
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.app.created"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarAppCreated;
+/**
+ *  Authorization scope: See, add, and remove Google calendars you’re subscribed
+ *  to
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.calendarlist"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarCalendarlist;
+/**
+ *  Authorization scope: See the list of Google calendars you’re subscribed to
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.calendarlist.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarCalendarlistReadonly;
+/**
+ *  Authorization scope: See and change the properties of Google calendars you
+ *  have access to, and create secondary calendars
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.calendars"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarCalendars;
+/**
+ *  Authorization scope: See the title, description, default time zone, and
+ *  other properties of Google calendars you have access to
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.calendars.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarCalendarsReadonly;
+/**
  *  Authorization scope: View and edit events on all your calendars
  *
  *  Value "https://www.googleapis.com/auth/calendar.events"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEvents;
 /**
+ *  Authorization scope: See the availability on Google calendars you have
+ *  access to
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.events.freebusy"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEventsFreebusy;
+/**
+ *  Authorization scope: See, create, change, and delete events on Google
+ *  calendars you own
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.events.owned"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEventsOwned;
+/**
+ *  Authorization scope: See the events on Google calendars you own
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.events.owned.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEventsOwnedReadonly;
+/**
+ *  Authorization scope: See the events on public calendars
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.events.public.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEventsPublicReadonly;
+/**
  *  Authorization scope: View events on all your calendars
  *
  *  Value "https://www.googleapis.com/auth/calendar.events.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEventsReadonly;
+/**
+ *  Authorization scope: View your availability in your calendars
+ *
+ *  Value "https://www.googleapis.com/auth/calendar.freebusy"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarFreebusy;
 /**
  *  Authorization scope: See and download any calendar you can access using your
  *  Google Calendar

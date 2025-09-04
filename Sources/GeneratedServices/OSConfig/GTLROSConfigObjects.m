@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   OS Config API (osconfig/v1)
+//   OS Config API (osconfig/v2)
 // Description:
 //   OS management tools that can be used for patch management, patch
 //   compliance, and configuration management on VM instances.
@@ -13,63 +13,6 @@
 
 // ----------------------------------------------------------------------------
 // Constants
-
-// GTLROSConfig_AptSettings.type
-NSString * const kGTLROSConfig_AptSettings_Type_Dist           = @"DIST";
-NSString * const kGTLROSConfig_AptSettings_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-NSString * const kGTLROSConfig_AptSettings_Type_Upgrade        = @"UPGRADE";
-
-// GTLROSConfig_CVSSv3.attackComplexity
-NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
-NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
-NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityUnspecified = @"ATTACK_COMPLEXITY_UNSPECIFIED";
-
-// GTLROSConfig_CVSSv3.attackVector
-NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorAdjacent = @"ATTACK_VECTOR_ADJACENT";
-NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorLocal = @"ATTACK_VECTOR_LOCAL";
-NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorNetwork = @"ATTACK_VECTOR_NETWORK";
-NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorPhysical = @"ATTACK_VECTOR_PHYSICAL";
-NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorUnspecified = @"ATTACK_VECTOR_UNSPECIFIED";
-
-// GTLROSConfig_CVSSv3.availabilityImpact
-NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactHigh = @"IMPACT_HIGH";
-NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactLow = @"IMPACT_LOW";
-NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactNone = @"IMPACT_NONE";
-NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
-
-// GTLROSConfig_CVSSv3.confidentialityImpact
-NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactHigh = @"IMPACT_HIGH";
-NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactLow = @"IMPACT_LOW";
-NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactNone = @"IMPACT_NONE";
-NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
-
-// GTLROSConfig_CVSSv3.integrityImpact
-NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
-NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactLow = @"IMPACT_LOW";
-NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactNone = @"IMPACT_NONE";
-NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
-
-// GTLROSConfig_CVSSv3.privilegesRequired
-NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredHigh = @"PRIVILEGES_REQUIRED_HIGH";
-NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredLow = @"PRIVILEGES_REQUIRED_LOW";
-NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredNone = @"PRIVILEGES_REQUIRED_NONE";
-NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredUnspecified = @"PRIVILEGES_REQUIRED_UNSPECIFIED";
-
-// GTLROSConfig_CVSSv3.scope
-NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeChanged     = @"SCOPE_CHANGED";
-NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeUnchanged   = @"SCOPE_UNCHANGED";
-NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
-
-// GTLROSConfig_CVSSv3.userInteraction
-NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionNone = @"USER_INTERACTION_NONE";
-NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionRequired = @"USER_INTERACTION_REQUIRED";
-NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionUnspecified = @"USER_INTERACTION_UNSPECIFIED";
-
-// GTLROSConfig_ExecStepConfig.interpreter
-NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_InterpreterUnspecified = @"INTERPRETER_UNSPECIFIED";
-NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_None = @"NONE";
-NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Powershell = @"POWERSHELL";
-NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Shell = @"SHELL";
 
 // GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata.apiMethod
 NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_ApiMethodUnspecified = @"API_METHOD_UNSPECIFIED";
@@ -84,14 +27,13 @@ NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationM
 NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_RolloutStateUnspecified = @"ROLLOUT_STATE_UNSPECIFIED";
 NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded = @"SUCCEEDED";
 
-// GTLROSConfig_InventoryItem.originType
-NSString * const kGTLROSConfig_InventoryItem_OriginType_InventoryReport = @"INVENTORY_REPORT";
-NSString * const kGTLROSConfig_InventoryItem_OriginType_OriginTypeUnspecified = @"ORIGIN_TYPE_UNSPECIFIED";
-
-// GTLROSConfig_InventoryItem.type
-NSString * const kGTLROSConfig_InventoryItem_Type_AvailablePackage = @"AVAILABLE_PACKAGE";
-NSString * const kGTLROSConfig_InventoryItem_Type_InstalledPackage = @"INSTALLED_PACKAGE";
-NSString * const kGTLROSConfig_InventoryItem_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+// GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState.state
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState_State_Cancelled = @"CANCELLED";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState_State_Completed = @"COMPLETED";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState_State_Failed = @"FAILED";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState_State_Processing = @"PROCESSING";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState_State_Unknown = @"UNKNOWN";
 
 // GTLROSConfig_OSPolicy.mode
 NSString * const kGTLROSConfig_OSPolicy_Mode_Enforcement     = @"ENFORCEMENT";
@@ -118,23 +60,6 @@ NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_
 NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_RolloutStateUnspecified = @"ROLLOUT_STATE_UNSPECIFIED";
 NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded = @"SUCCEEDED";
 
-// GTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance.complianceState
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_Compliant = @"COMPLIANT";
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_NonCompliant = @"NON_COMPLIANT";
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_Unknown = @"UNKNOWN";
-
-// GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance.complianceState
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_Compliant = @"COMPLIANT";
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_NonCompliant = @"NON_COMPLIANT";
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_Unknown = @"UNKNOWN";
-
-// GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep.type
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateCheck = @"DESIRED_STATE_CHECK";
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateCheckPostEnforcement = @"DESIRED_STATE_CHECK_POST_ENFORCEMENT";
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateEnforcement = @"DESIRED_STATE_ENFORCEMENT";
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_Validation = @"VALIDATION";
-
 // GTLROSConfig_OSPolicyResourceExecResourceExec.interpreter
 NSString * const kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_InterpreterUnspecified = @"INTERPRETER_UNSPECIFIED";
 NSString * const kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_None = @"NONE";
@@ -157,106 +82,9 @@ NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_A
 NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_Deb = @"DEB";
 NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_DebSrc = @"DEB_SRC";
 
-// GTLROSConfig_PatchConfig.rebootConfig
-NSString * const kGTLROSConfig_PatchConfig_RebootConfig_Always = @"ALWAYS";
-NSString * const kGTLROSConfig_PatchConfig_RebootConfig_Default = @"DEFAULT";
-NSString * const kGTLROSConfig_PatchConfig_RebootConfig_Never  = @"NEVER";
-NSString * const kGTLROSConfig_PatchConfig_RebootConfig_RebootConfigUnspecified = @"REBOOT_CONFIG_UNSPECIFIED";
-
-// GTLROSConfig_PatchDeployment.state
-NSString * const kGTLROSConfig_PatchDeployment_State_Active    = @"ACTIVE";
-NSString * const kGTLROSConfig_PatchDeployment_State_Paused    = @"PAUSED";
-NSString * const kGTLROSConfig_PatchDeployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLROSConfig_PatchJob.state
-NSString * const kGTLROSConfig_PatchJob_State_Canceled         = @"CANCELED";
-NSString * const kGTLROSConfig_PatchJob_State_CompletedWithErrors = @"COMPLETED_WITH_ERRORS";
-NSString * const kGTLROSConfig_PatchJob_State_InstanceLookup   = @"INSTANCE_LOOKUP";
-NSString * const kGTLROSConfig_PatchJob_State_Patching         = @"PATCHING";
-NSString * const kGTLROSConfig_PatchJob_State_Started          = @"STARTED";
-NSString * const kGTLROSConfig_PatchJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLROSConfig_PatchJob_State_Succeeded        = @"SUCCEEDED";
-NSString * const kGTLROSConfig_PatchJob_State_TimedOut         = @"TIMED_OUT";
-
-// GTLROSConfig_PatchJobInstanceDetails.state
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_Acked = @"ACKED";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_ApplyingPatches = @"APPLYING_PATCHES";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_DownloadingPatches = @"DOWNLOADING_PATCHES";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_Failed = @"FAILED";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_Inactive = @"INACTIVE";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_NoAgentDetected = @"NO_AGENT_DETECTED";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_Notified = @"NOTIFIED";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_PatchStateUnspecified = @"PATCH_STATE_UNSPECIFIED";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_Pending = @"PENDING";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_Rebooting = @"REBOOTING";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_RunningPostPatchStep = @"RUNNING_POST_PATCH_STEP";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_RunningPrePatchStep = @"RUNNING_PRE_PATCH_STEP";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_Started = @"STARTED";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_Succeeded = @"SUCCEEDED";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_SucceededRebootRequired = @"SUCCEEDED_REBOOT_REQUIRED";
-NSString * const kGTLROSConfig_PatchJobInstanceDetails_State_TimedOut = @"TIMED_OUT";
-
-// GTLROSConfig_PatchRollout.mode
-NSString * const kGTLROSConfig_PatchRollout_Mode_ConcurrentZones = @"CONCURRENT_ZONES";
-NSString * const kGTLROSConfig_PatchRollout_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
-NSString * const kGTLROSConfig_PatchRollout_Mode_ZoneByZone    = @"ZONE_BY_ZONE";
-
-// GTLROSConfig_RecurringSchedule.frequency
-NSString * const kGTLROSConfig_RecurringSchedule_Frequency_Daily = @"DAILY";
-NSString * const kGTLROSConfig_RecurringSchedule_Frequency_FrequencyUnspecified = @"FREQUENCY_UNSPECIFIED";
-NSString * const kGTLROSConfig_RecurringSchedule_Frequency_Monthly = @"MONTHLY";
-NSString * const kGTLROSConfig_RecurringSchedule_Frequency_Weekly = @"WEEKLY";
-
-// GTLROSConfig_WeekDayOfMonth.dayOfWeek
-NSString * const kGTLROSConfig_WeekDayOfMonth_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
-NSString * const kGTLROSConfig_WeekDayOfMonth_DayOfWeek_Friday = @"FRIDAY";
-NSString * const kGTLROSConfig_WeekDayOfMonth_DayOfWeek_Monday = @"MONDAY";
-NSString * const kGTLROSConfig_WeekDayOfMonth_DayOfWeek_Saturday = @"SATURDAY";
-NSString * const kGTLROSConfig_WeekDayOfMonth_DayOfWeek_Sunday = @"SUNDAY";
-NSString * const kGTLROSConfig_WeekDayOfMonth_DayOfWeek_Thursday = @"THURSDAY";
-NSString * const kGTLROSConfig_WeekDayOfMonth_DayOfWeek_Tuesday = @"TUESDAY";
-NSString * const kGTLROSConfig_WeekDayOfMonth_DayOfWeek_Wednesday = @"WEDNESDAY";
-
-// GTLROSConfig_WeeklySchedule.dayOfWeek
-NSString * const kGTLROSConfig_WeeklySchedule_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
-NSString * const kGTLROSConfig_WeeklySchedule_DayOfWeek_Friday = @"FRIDAY";
-NSString * const kGTLROSConfig_WeeklySchedule_DayOfWeek_Monday = @"MONDAY";
-NSString * const kGTLROSConfig_WeeklySchedule_DayOfWeek_Saturday = @"SATURDAY";
-NSString * const kGTLROSConfig_WeeklySchedule_DayOfWeek_Sunday = @"SUNDAY";
-NSString * const kGTLROSConfig_WeeklySchedule_DayOfWeek_Thursday = @"THURSDAY";
-NSString * const kGTLROSConfig_WeeklySchedule_DayOfWeek_Tuesday = @"TUESDAY";
-NSString * const kGTLROSConfig_WeeklySchedule_DayOfWeek_Wednesday = @"WEDNESDAY";
-
-// GTLROSConfig_WindowsUpdateSettings.classifications
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_ClassificationUnspecified = @"CLASSIFICATION_UNSPECIFIED";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_Critical = @"CRITICAL";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_Definition = @"DEFINITION";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_Driver = @"DRIVER";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_FeaturePack = @"FEATURE_PACK";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_Security = @"SECURITY";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_ServicePack = @"SERVICE_PACK";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_Tool = @"TOOL";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_Update = @"UPDATE";
-NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollup = @"UPDATE_ROLLUP";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_AptSettings
-//
-
-@implementation GTLROSConfig_AptSettings
-@dynamic excludes, exclusivePackages, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"excludes" : [NSString class],
-    @"exclusivePackages" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -264,37 +92,6 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 //
 
 @implementation GTLROSConfig_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_CancelPatchJobRequest
-//
-
-@implementation GTLROSConfig_CancelPatchJobRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_CVSSv3
-//
-
-@implementation GTLROSConfig_CVSSv3
-@dynamic attackComplexity, attackVector, availabilityImpact, baseScore,
-         confidentialityImpact, exploitabilityScore, impactScore,
-         integrityImpact, privilegesRequired, scope, userInteraction;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_Date
-//
-
-@implementation GTLROSConfig_Date
-@dynamic day, month, year;
 @end
 
 
@@ -309,65 +106,11 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_ExecStep
-//
-
-@implementation GTLROSConfig_ExecStep
-@dynamic linuxExecStepConfig, windowsExecStepConfig;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ExecStepConfig
-//
-
-@implementation GTLROSConfig_ExecStepConfig
-@dynamic allowedSuccessCodes, gcsObject, interpreter, localPath;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedSuccessCodes" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ExecutePatchJobRequest
-//
-
-@implementation GTLROSConfig_ExecutePatchJobRequest
-@dynamic descriptionProperty, displayName, dryRun, duration, instanceFilter,
-         patchConfig, rollout;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLROSConfig_FixedOrPercent
 //
 
 @implementation GTLROSConfig_FixedOrPercent
 @dynamic fixed, percent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_GcsObject
-//
-
-@implementation GTLROSConfig_GcsObject
-@dynamic bucket, generationNumber, object;
 @end
 
 
@@ -384,32 +127,159 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_GooSettings
+//   GTLROSConfig_GoogleCloudOsconfigV2betaOperationMetadata
 //
 
-@implementation GTLROSConfig_GooSettings
+@implementation GTLROSConfig_GoogleCloudOsconfigV2betaOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_Inventory
+//   GTLROSConfig_GoogleCloudOsconfigV2ListPolicyOrchestratorsResponse
 //
 
-@implementation GTLROSConfig_Inventory
-@dynamic items, name, osInfo, updateTime;
+@implementation GTLROSConfig_GoogleCloudOsconfigV2ListPolicyOrchestratorsResponse
+@dynamic nextPageToken, policyOrchestrators, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyOrchestrators" : [GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"policyOrchestrators";
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_Inventory_Items
+//   GTLROSConfig_GoogleCloudOsconfigV2OperationMetadata
 //
 
-@implementation GTLROSConfig_Inventory_Items
+@implementation GTLROSConfig_GoogleCloudOsconfigV2OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigV2OrchestratedResource
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV2OrchestratedResource
+@dynamic identifier, osPolicyAssignmentV1Payload;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScope
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScope
+@dynamic selectors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"selectors" : [GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScopeSelector class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScopeLocationSelector
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScopeLocationSelector
+@dynamic includedLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"includedLocations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScopeResourceHierarchySelector
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScopeResourceHierarchySelector
+@dynamic includedFolders, includedProjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"includedFolders" : [NSString class],
+    @"includedProjects" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScopeSelector
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV2OrchestrationScopeSelector
+@dynamic locationSelector, resourceHierarchySelector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator
+@dynamic action, createTime, descriptionProperty, ETag, labels, name,
+         orchestratedResource, orchestrationScope, orchestrationState,
+         reconciling, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator_Labels
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator_Labels
 
 + (Class)classForAdditionalProperties {
-  return [GTLROSConfig_InventoryItem class];
+  return [NSString class];
 }
 
 @end
@@ -417,145 +287,42 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_InventoryItem
+//   GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState
 //
 
-@implementation GTLROSConfig_InventoryItem
-@dynamic availablePackage, createTime, identifier, installedPackage, originType,
-         type, updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
+@implementation GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorIterationState
+@dynamic error, failedActions, finishTime, iterationId, performedActions,
+         progress, startTime, state;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_InventoryOsInfo
+//   GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorOrchestrationState
 //
 
-@implementation GTLROSConfig_InventoryOsInfo
-@dynamic architecture, hostname, kernelRelease, kernelVersion, longName,
-         osconfigAgentVersion, shortName, version;
+@implementation GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorOrchestrationState
+@dynamic currentIterationState, previousIterationState;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_InventorySoftwarePackage
+//   GTLROSConfig_ListOperationsResponse
 //
 
-@implementation GTLROSConfig_InventorySoftwarePackage
-@dynamic aptPackage, cosPackage, googetPackage, qfePackage, windowsApplication,
-         wuaPackage, yumPackage, zypperPackage, zypperPatch;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_InventoryVersionedPackage
-//
-
-@implementation GTLROSConfig_InventoryVersionedPackage
-@dynamic architecture, packageName, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_InventoryWindowsApplication
-//
-
-@implementation GTLROSConfig_InventoryWindowsApplication
-@dynamic displayName, displayVersion, helpLink, installDate, publisher;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_InventoryWindowsQuickFixEngineeringPackage
-//
-
-@implementation GTLROSConfig_InventoryWindowsQuickFixEngineeringPackage
-@dynamic caption, descriptionProperty, hotFixId, installTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_InventoryWindowsUpdatePackage
-//
-
-@implementation GTLROSConfig_InventoryWindowsUpdatePackage
-@dynamic categories, descriptionProperty, kbArticleIds,
-         lastDeploymentChangeTime, moreInfoUrls, revisionNumber, supportUrl,
-         title, updateId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
+@implementation GTLROSConfig_ListOperationsResponse
+@dynamic nextPageToken, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"categories" : [GTLROSConfig_InventoryWindowsUpdatePackageWindowsUpdateCategory class],
-    @"kbArticleIds" : [NSString class],
-    @"moreInfoUrls" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_InventoryWindowsUpdatePackageWindowsUpdateCategory
-//
-
-@implementation GTLROSConfig_InventoryWindowsUpdatePackageWindowsUpdateCategory
-@dynamic identifier, name;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_InventoryZypperPatch
-//
-
-@implementation GTLROSConfig_InventoryZypperPatch
-@dynamic category, patchName, severity, summary;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ListInventoriesResponse
-//
-
-@implementation GTLROSConfig_ListInventoriesResponse
-@dynamic inventories, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"inventories" : [GTLROSConfig_Inventory class]
+    @"operations" : [GTLROSConfig_Operation class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"inventories";
+  return @"operations";
 }
 
 @end
@@ -563,175 +330,10 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_ListOSPolicyAssignmentReportsResponse
+//   GTLROSConfig_MessageSet
 //
 
-@implementation GTLROSConfig_ListOSPolicyAssignmentReportsResponse
-@dynamic nextPageToken, osPolicyAssignmentReports;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"osPolicyAssignmentReports" : [GTLROSConfig_OSPolicyAssignmentReport class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"osPolicyAssignmentReports";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ListOSPolicyAssignmentRevisionsResponse
-//
-
-@implementation GTLROSConfig_ListOSPolicyAssignmentRevisionsResponse
-@dynamic nextPageToken, osPolicyAssignments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"osPolicyAssignments" : [GTLROSConfig_OSPolicyAssignment class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"osPolicyAssignments";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ListOSPolicyAssignmentsResponse
-//
-
-@implementation GTLROSConfig_ListOSPolicyAssignmentsResponse
-@dynamic nextPageToken, osPolicyAssignments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"osPolicyAssignments" : [GTLROSConfig_OSPolicyAssignment class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"osPolicyAssignments";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ListPatchDeploymentsResponse
-//
-
-@implementation GTLROSConfig_ListPatchDeploymentsResponse
-@dynamic nextPageToken, patchDeployments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"patchDeployments" : [GTLROSConfig_PatchDeployment class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"patchDeployments";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ListPatchJobInstanceDetailsResponse
-//
-
-@implementation GTLROSConfig_ListPatchJobInstanceDetailsResponse
-@dynamic nextPageToken, patchJobInstanceDetails;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"patchJobInstanceDetails" : [GTLROSConfig_PatchJobInstanceDetails class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"patchJobInstanceDetails";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ListPatchJobsResponse
-//
-
-@implementation GTLROSConfig_ListPatchJobsResponse
-@dynamic nextPageToken, patchJobs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"patchJobs" : [GTLROSConfig_PatchJob class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"patchJobs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ListVulnerabilityReportsResponse
-//
-
-@implementation GTLROSConfig_ListVulnerabilityReportsResponse
-@dynamic nextPageToken, vulnerabilityReports;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"vulnerabilityReports" : [GTLROSConfig_VulnerabilityReport class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"vulnerabilityReports";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_MonthlySchedule
-//
-
-@implementation GTLROSConfig_MonthlySchedule
-@dynamic monthDay, weekDayOfMonth;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_OneTimeSchedule
-//
-
-@implementation GTLROSConfig_OneTimeSchedule
-@dynamic executeTime;
+@implementation GTLROSConfig_MessageSet
 @end
 
 
@@ -890,83 +492,6 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 @implementation GTLROSConfig_OSPolicyAssignmentOperationMetadata
 @dynamic apiMethod, osPolicyAssignment, rolloutStartTime, rolloutState,
          rolloutUpdateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_OSPolicyAssignmentReport
-//
-
-@implementation GTLROSConfig_OSPolicyAssignmentReport
-@dynamic instance, lastRunId, name, osPolicyAssignment, osPolicyCompliances,
-         updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"osPolicyCompliances" : [GTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance
-//
-
-@implementation GTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance
-@dynamic complianceState, complianceStateReason, osPolicyId,
-         osPolicyResourceCompliances;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"osPolicyResourceCompliances" : [GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance
-//
-
-@implementation GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance
-@dynamic complianceState, complianceStateReason, configSteps,
-         execResourceOutput, osPolicyResourceId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"configSteps" : [GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceExecResourceOutput
-//
-
-@implementation GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceExecResourceOutput
-@dynamic enforcementOutput;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep
-//
-
-@implementation GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep
-@dynamic errorMessage, type;
 @end
 
 
@@ -1264,162 +789,6 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_PatchConfig
-//
-
-@implementation GTLROSConfig_PatchConfig
-@dynamic apt, goo, migInstancesAllowed, postStep, preStep, rebootConfig,
-         windowsUpdate, yum, zypper;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PatchDeployment
-//
-
-@implementation GTLROSConfig_PatchDeployment
-@dynamic createTime, descriptionProperty, duration, instanceFilter,
-         lastExecuteTime, name, oneTimeSchedule, patchConfig, recurringSchedule,
-         rollout, state, updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PatchInstanceFilter
-//
-
-@implementation GTLROSConfig_PatchInstanceFilter
-@dynamic all, groupLabels, instanceNamePrefixes, instances, zones;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"groupLabels" : [GTLROSConfig_PatchInstanceFilterGroupLabel class],
-    @"instanceNamePrefixes" : [NSString class],
-    @"instances" : [NSString class],
-    @"zones" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PatchInstanceFilterGroupLabel
-//
-
-@implementation GTLROSConfig_PatchInstanceFilterGroupLabel
-@dynamic labels;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PatchInstanceFilterGroupLabel_Labels
-//
-
-@implementation GTLROSConfig_PatchInstanceFilterGroupLabel_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PatchJob
-//
-
-@implementation GTLROSConfig_PatchJob
-@dynamic createTime, descriptionProperty, displayName, dryRun, duration,
-         errorMessage, instanceDetailsSummary, instanceFilter, name,
-         patchConfig, patchDeployment, percentComplete, rollout, state,
-         updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PatchJobInstanceDetails
-//
-
-@implementation GTLROSConfig_PatchJobInstanceDetails
-@dynamic attemptCount, failureReason, instanceSystemId, name, state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PatchJobInstanceDetailsSummary
-//
-
-@implementation GTLROSConfig_PatchJobInstanceDetailsSummary
-@dynamic ackedInstanceCount, applyingPatchesInstanceCount,
-         downloadingPatchesInstanceCount, failedInstanceCount,
-         inactiveInstanceCount, noAgentDetectedInstanceCount,
-         notifiedInstanceCount, pendingInstanceCount,
-         postPatchStepInstanceCount, prePatchStepInstanceCount,
-         rebootingInstanceCount, startedInstanceCount, succeededInstanceCount,
-         succeededRebootRequiredInstanceCount, timedOutInstanceCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PatchRollout
-//
-
-@implementation GTLROSConfig_PatchRollout
-@dynamic disruptionBudget, mode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_PausePatchDeploymentRequest
-//
-
-@implementation GTLROSConfig_PausePatchDeploymentRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_RecurringSchedule
-//
-
-@implementation GTLROSConfig_RecurringSchedule
-@dynamic endTime, frequency, lastExecuteTime, monthly, nextExecuteTime,
-         startTime, timeOfDay, timeZone, weekly;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ResumePatchDeploymentRequest
-//
-
-@implementation GTLROSConfig_ResumePatchDeploymentRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLROSConfig_Status
 //
 
@@ -1452,187 +821,11 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROSConfig_TimeOfDay
+//   GTLROSConfig_StatusProto
 //
 
-@implementation GTLROSConfig_TimeOfDay
-@dynamic hours, minutes, nanos, seconds;
+@implementation GTLROSConfig_StatusProto
+@dynamic canonicalCode, code, message, messageSet, space;
 @end
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_TimeZone
-//
-
-@implementation GTLROSConfig_TimeZone
-@dynamic identifier, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_VulnerabilityReport
-//
-
-@implementation GTLROSConfig_VulnerabilityReport
-@dynamic name, updateTime, vulnerabilities;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"vulnerabilities" : [GTLROSConfig_VulnerabilityReportVulnerability class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_VulnerabilityReportVulnerability
-//
-
-@implementation GTLROSConfig_VulnerabilityReportVulnerability
-@dynamic availableInventoryItemIds, createTime, details,
-         installedInventoryItemIds, items, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"availableInventoryItemIds" : [NSString class],
-    @"installedInventoryItemIds" : [NSString class],
-    @"items" : [GTLROSConfig_VulnerabilityReportVulnerabilityItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_VulnerabilityReportVulnerabilityDetails
-//
-
-@implementation GTLROSConfig_VulnerabilityReportVulnerabilityDetails
-@dynamic cve, cvssV2Score, cvssV3, descriptionProperty, references, severity;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"references" : [GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference
-//
-
-@implementation GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference
-@dynamic source, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_VulnerabilityReportVulnerabilityItem
-//
-
-@implementation GTLROSConfig_VulnerabilityReportVulnerabilityItem
-@dynamic availableInventoryItemId, fixedCpeUri, installedInventoryItemId,
-         upstreamFix;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_WeekDayOfMonth
-//
-
-@implementation GTLROSConfig_WeekDayOfMonth
-@dynamic dayOffset, dayOfWeek, weekOrdinal;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_WeeklySchedule
-//
-
-@implementation GTLROSConfig_WeeklySchedule
-@dynamic dayOfWeek;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_WindowsUpdateSettings
-//
-
-@implementation GTLROSConfig_WindowsUpdateSettings
-@dynamic classifications, excludes, exclusivePatches;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"classifications" : [NSString class],
-    @"excludes" : [NSString class],
-    @"exclusivePatches" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_YumSettings
-//
-
-@implementation GTLROSConfig_YumSettings
-@dynamic excludes, exclusivePackages, minimal, security;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"excludes" : [NSString class],
-    @"exclusivePackages" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROSConfig_ZypperSettings
-//
-
-@implementation GTLROSConfig_ZypperSettings
-@dynamic categories, excludes, exclusivePatches, severities, withOptional,
-         withUpdate;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"categories" : [NSString class],
-    @"excludes" : [NSString class],
-    @"exclusivePatches" : [NSString class],
-    @"severities" : [NSString class]
-  };
-  return map;
-}
-
-@end
+#pragma clang diagnostic pop

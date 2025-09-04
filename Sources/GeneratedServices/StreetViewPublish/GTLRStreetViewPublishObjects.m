@@ -31,6 +31,7 @@ NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Rejected = @"REJECT
 NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnknown = @"TRANSFER_STATUS_UNKNOWN";
 
 // GTLRStreetViewPublish_PhotoSequence.failureReason
+NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_CameraCovered = @"CAMERA_COVERED";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_CorruptVideo = @"CORRUPT_VIDEO";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_Duplicate = @"DUPLICATE";
 NSString * const kGTLRStreetViewPublish_PhotoSequence_FailureReason_FailedToRefinePositions = @"FAILED_TO_REFINE_POSITIONS";

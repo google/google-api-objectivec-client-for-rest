@@ -30,21 +30,16 @@ NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluat
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
 NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
 
-// GTLRPlayIntegrity_AppAccessRiskVerdict.otherApps
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing = @"CAPTURING";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Controlling = @"CONTROLLING";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Installed = @"INSTALLED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_NotInstalled = @"NOT_INSTALLED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unevaluated = @"UNEVALUATED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unknown = @"UNKNOWN";
-
-// GTLRPlayIntegrity_AppAccessRiskVerdict.playOrSystemApps
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Capturing = @"CAPTURING";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Controlling = @"CONTROLLING";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Installed = @"INSTALLED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_NotInstalled = @"NOT_INSTALLED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unevaluated = @"UNEVALUATED";
-NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unknown = @"UNKNOWN";
+// GTLRPlayIntegrity_AppAccessRiskVerdict.appsDetected
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_AppsDetectedUnspecified = @"APPS_DETECTED_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownCapturing = @"KNOWN_CAPTURING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownControlling = @"KNOWN_CONTROLLING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownInstalled = @"KNOWN_INSTALLED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownOverlays = @"KNOWN_OVERLAYS";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownCapturing = @"UNKNOWN_CAPTURING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownControlling = @"UNKNOWN_CONTROLLING";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownInstalled = @"UNKNOWN_INSTALLED";
+NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownOverlays = @"UNKNOWN_OVERLAYS";
 
 // GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
 NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_PlayRecognized = @"PLAY_RECOGNIZED";
@@ -59,6 +54,13 @@ NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Mee
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity = @"MEETS_VIRTUAL_INTEGRITY";
 NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown = @"UNKNOWN";
 
+// GTLRPlayIntegrity_DeviceIntegrity.legacyDeviceRecognitionVerdict
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsBasicIntegrity = @"MEETS_BASIC_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsDeviceIntegrity = @"MEETS_DEVICE_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsStrongIntegrity = @"MEETS_STRONG_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsVirtualIntegrity = @"MEETS_VIRTUAL_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_Unknown = @"UNKNOWN";
+
 // GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_HighRisk = @"HIGH_RISK";
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_MediumRisk = @"MEDIUM_RISK";
@@ -68,6 +70,16 @@ NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PlayPr
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_PossibleRisk = @"POSSIBLE_RISK";
 NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated = @"UNEVALUATED";
 
+// GTLRPlayIntegrity_PcAccountDetails.appLicensingVerdict
+NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Licensed = @"LICENSED";
+NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
+NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
+
+// GTLRPlayIntegrity_PcDeviceIntegrity.deviceRecognitionVerdict
+NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_DeviceRecognitionVerdictUnspecified = @"DEVICE_RECOGNITION_VERDICT_UNSPECIFIED";
+NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_MeetsPcIntegrity = @"MEETS_PC_INTEGRITY";
+
 // GTLRPlayIntegrity_RecentDeviceActivity.deviceActivityLevel
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_DeviceActivityLevelUnspecified = @"DEVICE_ACTIVITY_LEVEL_UNSPECIFIED";
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level1 = @"LEVEL_1";
@@ -75,6 +87,10 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Lev
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level3 = @"LEVEL_3";
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Level4 = @"LEVEL_4";
 NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Unevaluated = @"UNEVALUATED";
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -102,7 +118,15 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 //
 
 @implementation GTLRPlayIntegrity_AppAccessRiskVerdict
-@dynamic otherApps, playOrSystemApps;
+@dynamic appsDetected;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appsDetected" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -147,11 +171,91 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlayIntegrity_DecodePcIntegrityTokenRequest
+//
+
+@implementation GTLRPlayIntegrity_DecodePcIntegrityTokenRequest
+@dynamic integrityToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_DecodePcIntegrityTokenResponse
+//
+
+@implementation GTLRPlayIntegrity_DecodePcIntegrityTokenResponse
+@dynamic tokenPayloadExternal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_DeviceAttributes
+//
+
+@implementation GTLRPlayIntegrity_DeviceAttributes
+@dynamic sdkVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlayIntegrity_DeviceIntegrity
 //
 
 @implementation GTLRPlayIntegrity_DeviceIntegrity
-@dynamic deviceRecognitionVerdict, recentDeviceActivity;
+@dynamic deviceAttributes, deviceRecall, deviceRecognitionVerdict,
+         legacyDeviceRecognitionVerdict, recentDeviceActivity;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceRecognitionVerdict" : [NSString class],
+    @"legacyDeviceRecognitionVerdict" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_DeviceRecall
+//
+
+@implementation GTLRPlayIntegrity_DeviceRecall
+@dynamic values, writeDates;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_EnvironmentDetails
+//
+
+@implementation GTLRPlayIntegrity_EnvironmentDetails
+@dynamic appAccessRiskVerdict, playProtectVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_PcAccountDetails
+//
+
+@implementation GTLRPlayIntegrity_PcAccountDetails
+@dynamic appLicensingVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_PcDeviceIntegrity
+//
+
+@implementation GTLRPlayIntegrity_PcDeviceIntegrity
+@dynamic deviceRecognitionVerdict;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -165,11 +269,21 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPlayIntegrity_EnvironmentDetails
+//   GTLRPlayIntegrity_PcRequestDetails
 //
 
-@implementation GTLRPlayIntegrity_EnvironmentDetails
-@dynamic appAccessRiskVerdict, playProtectVerdict;
+@implementation GTLRPlayIntegrity_PcRequestDetails
+@dynamic requestHash, requestPackageName, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_PcTokenPayloadExternal
+//
+
+@implementation GTLRPlayIntegrity_PcTokenPayloadExternal
+@dynamic accountDetails, deviceIntegrity, requestDetails;
 @end
 
 
@@ -212,3 +326,44 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 @dynamic accountDetails, appIntegrity, deviceIntegrity, environmentDetails,
          requestDetails, testingDetails;
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_Values
+//
+
+@implementation GTLRPlayIntegrity_Values
+@dynamic bitFirst, bitSecond, bitThird;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_WriteDates
+//
+
+@implementation GTLRPlayIntegrity_WriteDates
+@dynamic yyyymmFirst, yyyymmSecond, yyyymmThird;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_WriteDeviceRecallRequest
+//
+
+@implementation GTLRPlayIntegrity_WriteDeviceRecallRequest
+@dynamic integrityToken, newValues;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_WriteDeviceRecallResponse
+//
+
+@implementation GTLRPlayIntegrity_WriteDeviceRecallResponse
+@end
+
+#pragma clang diagnostic pop

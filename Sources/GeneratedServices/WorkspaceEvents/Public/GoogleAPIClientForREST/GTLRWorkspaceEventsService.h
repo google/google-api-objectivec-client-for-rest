@@ -26,6 +26,21 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see, add,
+ *  update, and remove members from conversations and spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.memberships"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMemberships;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can create
+ *  conversations and spaces and see or update their metadata (including history
+ *  settings and access settings)
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.spaces"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppSpaces;
+/**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/chat.bot
  *
@@ -33,8 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatBot;
 /**
- *  Authorization scope: View, add, and remove members from conversations in
- *  Google Chat
+ *  Authorization scope: See, add, update, and remove members from conversations
+ *  and spaces in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.memberships"
  */
@@ -46,33 +61,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMemberships;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly;
 /**
- *  Authorization scope: View, compose, send, update, and delete messages, and
- *  add, view, and delete reactions to messages.
+ *  Authorization scope: See, compose, send, update, and delete messages as well
+ *  as their message content; add, see, and delete reactions to messages.
  *
  *  Value "https://www.googleapis.com/auth/chat.messages"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessages;
 /**
- *  Authorization scope: View, add, and delete reactions to messages in Google
- *  Chat
+ *  Authorization scope: See, add, and delete reactions as well as their
+ *  reaction content to messages in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactions;
 /**
- *  Authorization scope: View reactions to messages in Google Chat
+ *  Authorization scope: View reactions as well as their reaction content to
+ *  messages in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactionsReadonly;
 /**
- *  Authorization scope: View messages and reactions in Google Chat
+ *  Authorization scope: See messages as well as their reactions and message
+ *  content in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly;
 /**
- *  Authorization scope: Create conversations and spaces and see or edit
+ *  Authorization scope: Create conversations and spaces and see or update
  *  metadata (including history settings and access settings) in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.spaces"
@@ -84,6 +101,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatSpaces;
  *  Value "https://www.googleapis.com/auth/chat.spaces.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly;
+/**
+ *  Authorization scope: See, edit, create, and delete all of your Google Drive
+ *  files
+ *
+ *  Value "https://www.googleapis.com/auth/drive"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDrive;
+/**
+ *  Authorization scope: See, edit, create, and delete only the specific Google
+ *  Drive files you use with this app
+ *
+ *  Value "https://www.googleapis.com/auth/drive.file"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDriveFile;
+/**
+ *  Authorization scope: View and manage metadata of files in your Google Drive
+ *
+ *  Value "https://www.googleapis.com/auth/drive.metadata"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDriveMetadata;
+/**
+ *  Authorization scope: See information about your Google Drive files
+ *
+ *  Value "https://www.googleapis.com/auth/drive.metadata.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly;
+/**
+ *  Authorization scope: See and download all your Google Drive files
+ *
+ *  Value "https://www.googleapis.com/auth/drive.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsDriveReadonly;
+/**
+ *  Authorization scope: Create, edit, and see information about your Google
+ *  Meet conferences created by the app.
+ *
+ *  Value "https://www.googleapis.com/auth/meetings.space.created"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated;
+/**
+ *  Authorization scope: Read information about any of your Google Meet
+ *  conferences
+ *
+ *  Value "https://www.googleapis.com/auth/meetings.space.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRWorkspaceEventsService

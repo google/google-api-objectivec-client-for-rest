@@ -4,7 +4,7 @@
 // API:
 //   Batch API (batch/v1)
 // Description:
-//   An API to manage the running of batch resources on Google Cloud Platform.
+//   An API to manage the running of Batch resources on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/batch/
 
@@ -27,6 +27,8 @@
 @class GTLRCloudBatch_AgentScript;
 @class GTLRCloudBatch_AgentTask;
 @class GTLRCloudBatch_AgentTaskInfo;
+@class GTLRCloudBatch_AgentTaskLoggingOption;
+@class GTLRCloudBatch_AgentTaskLoggingOption_Labels;
 @class GTLRCloudBatch_AgentTaskRunnable;
 @class GTLRCloudBatch_AgentTaskSpec;
 @class GTLRCloudBatch_AgentTaskUserAccount;
@@ -188,13 +190,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_AgentTask_TaskSource_User;
  *
  *  Value: "PREEMPTIBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible GTLR_DEPRECATED;
 /**
  *  Unspecified.
  *
  *  Value: "PROVISIONING_MODEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ProvisioningModelUnspecified;
+/**
+ *  Bound to the lifecycle of the reservation in which it is provisioned.
+ *
+ *  Value: "RESERVATION_BOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ReservationBound;
 /**
  *  SPOT VM.
  *
@@ -219,13 +227,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningMo
  *
  *  Value: "PREEMPTIBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Preemptible;
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Preemptible GTLR_DEPRECATED;
 /**
  *  Unspecified.
  *
  *  Value: "PROVISIONING_MODEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ProvisioningModelUnspecified;
+/**
+ *  Bound to the lifecycle of the reservation in which it is provisioned.
+ *
+ *  Value: "RESERVATION_BOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ReservationBound;
 /**
  *  SPOT VM.
  *
@@ -242,6 +256,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningMo
 // ----------------------------------------------------------------------------
 // GTLRCloudBatch_JobStatus.state
 
+/**
+ *  The Job cancellation is in progress, this is because the resources used by
+ *  the Job are still being cleaned up.
+ *
+ *  Value: "CANCELLATION_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_JobStatus_State_CancellationInProgress;
+/**
+ *  The Job has been cancelled, the task executions were stopped and the
+ *  resources were cleaned up.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_JobStatus_State_Cancelled;
 /**
  *  The Job will be deleted, but has not been deleted yet. Typically this is
  *  because resources used by the Job are still being cleaned up.
@@ -315,19 +343,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_LifecyclePolicy_Action_RetryT
 // GTLRCloudBatch_LogsPolicy.destination
 
 /**
- *  Logs are streamed to Cloud Logging.
+ *  Logs are streamed to Cloud Logging. Optionally, you can configure additional
+ *  settings in the `cloudLoggingOption` field.
  *
  *  Value: "CLOUD_LOGGING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_LogsPolicy_Destination_CloudLogging;
 /**
- *  Logs are not preserved.
+ *  (Default) Logs are not preserved.
  *
  *  Value: "DESTINATION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_LogsPolicy_Destination_DestinationUnspecified;
 /**
- *  Logs are saved to a file path.
+ *  Logs are saved to the file path specified in the `logsPath` field.
  *
  *  Value: "PATH"
  */
@@ -336,6 +365,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_LogsPolicy_Destination_Path;
 // ----------------------------------------------------------------------------
 // GTLRCloudBatch_Message.newJobState
 
+/**
+ *  The Job cancellation is in progress, this is because the resources used by
+ *  the Job are still being cleaned up.
+ *
+ *  Value: "CANCELLATION_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_NewJobState_CancellationInProgress;
+/**
+ *  The Job has been cancelled, the task executions were stopped and the
+ *  resources were cleaned up.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_Message_NewJobState_Cancelled;
 /**
  *  The Job will be deleted, but has not been deleted yet. Typically this is
  *  because resources used by the Job are still being cleaned up.
@@ -790,6 +833,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  */
 @property(nonatomic, strong, nullable) NSNumber *instancePreemptionNoticeReceived;
 
+/** Optional. machine type of the VM */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
 /** parsed contents of /etc/os-release */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_AgentMetadata_OsRelease *osRelease;
 
@@ -939,6 +985,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
+ *  AgentTaskLoggingOption contains the options for the logging of the task.
+ */
+@interface GTLRCloudBatch_AgentTaskLoggingOption : GTLRObject
+
+/**
+ *  Labels to be added to the log entry. Now only cloud logging is supported.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentTaskLoggingOption_Labels *labels;
+
+@end
+
+
+/**
+ *  Labels to be added to the log entry. Now only cloud logging is supported.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBatch_AgentTaskLoggingOption_Labels : GTLRObject
+@end
+
+
+/**
  *  AgentTaskRunnable is the Runnable representation between Agent and CLH
  *  communication.
  */
@@ -1000,9 +1071,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** Environment variables to set before running the Task. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_AgentEnvironment *environment;
 
+/** Logging option for the task. */
+@property(nonatomic, strong, nullable) GTLRCloudBatch_AgentTaskLoggingOption *loggingOption;
+
 /**
- *  Maximum duration the task should run. The task will be killed and marked as
- *  FAILED if over this limit.
+ *  Maximum duration the task should run before being automatically retried (if
+ *  enabled) or automatically failed. Format the value of this field as a time
+ *  limit in seconds followed by `s`—for example, `3600s` for 1 hour. The field
+ *  accepts any value between 0 and the maximum listed for the `Duration` field
+ *  type at https://protobuf.dev/reference/protobuf/google.protobuf/#duration;
+ *  however, the actual maximum run time for a job will be limited to the
+ *  maximum run time for a job listed at
+ *  https://cloud.google.com/batch/quotas#max-job-duration.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
 
@@ -1073,11 +1153,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_InstancePolicyOrTemplate *> *instances;
 
 /**
- *  Labels applied to all VM instances and other resources created by
- *  AllocationPolicy. Labels could be user provided or system generated. You can
- *  assign up to 64 labels. [Google Compute Engine label
- *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
- *  apply. Label names that start with "goog-" or "google-" are reserved.
+ *  Custom labels to apply to the job and all the Compute Engine resources that
+ *  both are created by this allocation policy and support labels. Use labels to
+ *  group and describe the resources they are applied to. Batch automatically
+ *  applies predefined labels and supports multiple `labels` fields for each
+ *  job, which each let you apply custom labels to various resources. Label
+ *  names that start with "goog-" or "google-" are reserved for predefined
+ *  labels. For more information about labels with Batch, see [Organize
+ *  resources using
+ *  labels](https://cloud.google.com/batch/docs/organize-resources-using-labels).
  */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_AllocationPolicy_Labels *labels;
 
@@ -1094,7 +1178,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** The placement policy. */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_PlacementPolicy *placement;
 
-/** Service account that VMs will run as. */
+/**
+ *  Defines the service account for Batch-created VMs. If omitted, the [default
+ *  Compute Engine service
+ *  account](https://cloud.google.com/compute/docs/access/service-accounts#default_service_account)
+ *  is used. Must match the service account specified in any used instance
+ *  template configured in the Batch job. Includes the following fields: *
+ *  email: The service account's email address. If not set, the default Compute
+ *  Engine service account is used. * scopes: Additional OAuth scopes to grant
+ *  the service account, beyond the default cloud-platform scope. (list of
+ *  strings)
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_ServiceAccount *serviceAccount;
 
 /**
@@ -1108,11 +1202,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Labels applied to all VM instances and other resources created by
- *  AllocationPolicy. Labels could be user provided or system generated. You can
- *  assign up to 64 labels. [Google Compute Engine label
- *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
- *  apply. Label names that start with "goog-" or "google-" are reserved.
+ *  Custom labels to apply to the job and all the Compute Engine resources that
+ *  both are created by this allocation policy and support labels. Use labels to
+ *  group and describe the resources they are applied to. Batch automatically
+ *  applies predefined labels and supports multiple `labels` fields for each
+ *  job, which each let you apply custom labels to various resources. Label
+ *  names that start with "goog-" or "google-" are reserved for predefined
+ *  labels. For more information about labels with Batch, see [Organize
+ *  resources using
+ *  labels](https://cloud.google.com/batch/docs/organize-resources-using-labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1146,7 +1244,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Barrier runnable blocks until all tasks in a taskgroup reach it.
+ *  A barrier runnable automatically blocks the execution of subsequent
+ *  runnables until all the tasks in the task group reach the barrier.
  */
 @interface GTLRCloudBatch_Barrier : GTLRObject
 
@@ -1155,6 +1254,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  required, but if present should be an identifier.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  CancelJob Request.
+ */
+@interface GTLRCloudBatch_CancelJobRequest : GTLRObject
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 @end
 
@@ -1173,7 +1295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @interface GTLRCloudBatch_CloudLoggingOption : GTLRObject
 
 /**
- *  Optional. Set this flag to true to change the [monitored resource
+ *  Optional. Set this field to `true` to change the [monitored resource
  *  type](https://cloud.google.com/monitoring/api/resources) for Cloud Logging
  *  logs generated by this Batch job from the
  *  [`batch.googleapis.com/Job`](https://cloud.google.com/monitoring/api/resources#tag_batch.googleapis.com/Job)
@@ -1261,9 +1383,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *blockExternalNetwork;
 
 /**
- *  Overrides the `CMD` specified in the container. If there is an ENTRYPOINT
- *  (either in the container image or with the entrypoint field below) then
- *  commands are appended as arguments to the ENTRYPOINT.
+ *  Required for some container images. Overrides the `CMD` specified in the
+ *  container. If there is an `ENTRYPOINT` (either in the container image or
+ *  with the `entrypoint` field below) then these commands are appended as
+ *  arguments to the `ENTRYPOINT`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *commands;
 
@@ -1284,15 +1407,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  */
 @property(nonatomic, strong, nullable) NSNumber *enableImageStreaming;
 
-/** Overrides the `ENTRYPOINT` specified in the container. */
+/**
+ *  Required for some container images. Overrides the `ENTRYPOINT` specified in
+ *  the container.
+ */
 @property(nonatomic, copy, nullable) NSString *entrypoint;
 
-/** The URI to pull the container image from. */
+/** Required. The URI to pull the container image from. */
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
 /**
- *  Arbitrary additional options to include in the "docker run" command when
- *  running this container, e.g. "--network host".
+ *  Required for some container images. Arbitrary additional options to include
+ *  in the `docker run` command when running this container—for example,
+ *  `--network host`. For the `--volume` option, use the `volumes` field for the
+ *  container.
  */
 @property(nonatomic, copy, nullable) NSString *options;
 
@@ -1327,14 +1455,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 /**
  *  Volumes to mount (bind mount) from the host machine files or directories
- *  into the container, formatted to match docker run's --volume option, e.g.
- *  /foo:/bar, or /foo:/bar:ro If the `TaskSpec.Volumes` field is specified but
- *  this field is not, Batch will mount each volume from the host machine to the
- *  container with the same mount path by default. In this case, the default
- *  mount option for containers will be read-only (ro) for existing persistent
- *  disks and read-write (rw) for other volume types, regardless of the original
- *  mount options specified in `TaskSpec.Volumes`. If you need different mount
- *  settings, you can explicitly configure them in this field.
+ *  into the container, formatted to match `--volume` option for the `docker
+ *  run` command—for example, `/foo:/bar` or `/foo:/bar:ro`. If the
+ *  `TaskSpec.Volumes` field is specified but this field is not, Batch will
+ *  mount each volume from the host machine to the container with the same mount
+ *  path by default. In this case, the default mount option for containers will
+ *  be read-only (`ro`) for existing persistent disks and read-write (`rw`) for
+ *  other volume types, regardless of the original mount options specified in
+ *  `TaskSpec.Volumes`. If you need different mount settings, you can explicitly
+ *  configure them in this field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *volumes;
 
@@ -1364,9 +1493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  version: projects/{project}/global/images/{image_version} You can also use
  *  Batch customized image in short names. The following image values are
  *  supported for a boot disk: * `batch-debian`: use Batch Debian images. *
- *  `batch-centos`: use Batch CentOS images. * `batch-cos`: use Batch
- *  Container-Optimized images. * `batch-hpc-centos`: use Batch HPC CentOS
- *  images. * `batch-hpc-rocky`: use Batch HPC Rocky Linux images.
+ *  `batch-cos`: use Batch Container-Optimized images. * `batch-hpc-rocky`: use
+ *  Batch HPC Rocky Linux images.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -1397,7 +1525,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /**
  *  Disk type as shown in `gcloud compute disk-types list`. For example, local
  *  SSD uses type "local-ssd". Persistent disks and boot disks use
- *  "pd-balanced", "pd-extreme", "pd-ssd" or "pd-standard".
+ *  "pd-balanced", "pd-extreme", "pd-ssd" or "pd-standard". If not specified,
+ *  "pd-standard" will be used as the default type for non-boot disks,
+ *  "pd-balanced" will be used as the default type for boot disks.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1522,6 +1652,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        supported. (Value: "PREEMPTIBLE")
  *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ProvisioningModelUnspecified
  *        Unspecified. (Value: "PROVISIONING_MODEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_ReservationBound
+ *        Bound to the lifecycle of the reservation in which it is provisioned.
+ *        (Value: "RESERVATION_BOUND")
  *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Spot SPOT VM.
  *        (Value: "SPOT")
  *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Standard Standard
@@ -1530,8 +1663,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, copy, nullable) NSString *provisioningModel;
 
 /**
- *  Optional. If specified, VMs will consume only the specified reservation. If
- *  not specified (default), VMs will consume any applicable reservation.
+ *  Optional. If not specified (default), VMs will consume any applicable
+ *  reservation. If "NO_RESERVATION" is specified, VMs will not consume any
+ *  reservation. Otherwise, if specified, VMs will consume only the specified
+ *  reservation.
  */
 @property(nonatomic, copy, nullable) NSString *reservation;
 
@@ -1547,12 +1682,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @interface GTLRCloudBatch_InstancePolicyOrTemplate : GTLRObject
 
 /**
- *  Set this field true if users want Batch to help fetch drivers from a third
- *  party location and install them for GPUs specified in policy.accelerators or
- *  instance_template on their behalf. Default is false. For Container-Optimized
- *  Image cases, Batch will install the accelerator driver following milestones
- *  of https://cloud.google.com/container-optimized-os/docs/release-notes. For
- *  non Container-Optimized Image cases, following
+ *  Optional. Set this field to `true` if you want Batch to block project-level
+ *  SSH keys from accessing this job's VMs. Alternatively, you can configure the
+ *  job to specify a VM instance template that blocks project-level SSH keys. In
+ *  either case, Batch blocks project-level SSH keys while creating the VMs for
+ *  this job. Batch allows project-level SSH keys for a job's VMs only if all
+ *  the following are true: + This field is undefined or set to `false`. + The
+ *  job's VM instance template (if any) doesn't block project-level SSH keys.
+ *  Notably, you can override this behavior by manually updating a VM to block
+ *  or allow project-level SSH keys. For more information about blocking
+ *  project-level SSH keys, see the Compute Engine documentation:
+ *  https://cloud.google.com/compute/docs/connect/restrict-ssh-keys#block-keys
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blockProjectSshKeys;
+
+/**
+ *  Set this field true if you want Batch to help fetch drivers from a third
+ *  party location and install them for GPUs specified in `policy.accelerators`
+ *  or `instance_template` on your behalf. Default is false. For
+ *  Container-Optimized Image cases, Batch will install the accelerator driver
+ *  following milestones of
+ *  https://cloud.google.com/container-optimized-os/docs/release-notes. For non
+ *  Container-Optimized Image cases, following
  *  https://github.com/GoogleCloudPlatform/compute-gpu-installation/blob/main/linux/install_gpu_driver.py.
  *
  *  Uses NSNumber of boolValue.
@@ -1560,8 +1713,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *installGpuDrivers;
 
 /**
+ *  Optional. Set this field true if you want Batch to install Ops Agent on your
+ *  behalf. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *installOpsAgent;
+
+/**
  *  Name of an instance template used to create VMs. Named the field as
- *  'instance_template' instead of 'template' to avoid c++ keyword conflict.
+ *  'instance_template' instead of 'template' to avoid C++ keyword conflict.
+ *  Batch only supports global instance templates from the same project as the
+ *  job. You can specify the global instance template as a full or partial URL.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
 
@@ -1594,6 +1757,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        supported. (Value: "PREEMPTIBLE")
  *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ProvisioningModelUnspecified
  *        Unspecified. (Value: "PROVISIONING_MODEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_ReservationBound
+ *        Bound to the lifecycle of the reservation in which it is provisioned.
+ *        (Value: "RESERVATION_BOUND")
  *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Spot SPOT VM.
  *        (Value: "SPOT")
  *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Standard Standard
@@ -1623,11 +1789,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Labels for the Job. Labels could be user provided or system generated. For
- *  example, "labels": { "department": "finance", "environment": "test" } You
- *  can assign up to 64 labels. [Google Compute Engine label
- *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
- *  apply. Label names that start with "goog-" or "google-" are reserved.
+ *  Custom labels to apply to the job and any Cloud Logging
+ *  [LogEntry](https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry)
+ *  that it generates. Use labels to group and describe the resources they are
+ *  applied to. Batch automatically applies predefined labels and supports
+ *  multiple `labels` fields for each job, which each let you apply custom
+ *  labels to various resources. Label names that start with "goog-" or
+ *  "google-" are reserved for predefined labels. For more information about
+ *  labels with Batch, see [Organize resources using
+ *  labels](https://cloud.google.com/batch/docs/organize-resources-using-labels).
  */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Job_Labels *labels;
 
@@ -1668,11 +1838,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Labels for the Job. Labels could be user provided or system generated. For
- *  example, "labels": { "department": "finance", "environment": "test" } You
- *  can assign up to 64 labels. [Google Compute Engine label
- *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
- *  apply. Label names that start with "goog-" or "google-" are reserved.
+ *  Custom labels to apply to the job and any Cloud Logging
+ *  [LogEntry](https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry)
+ *  that it generates. Use labels to group and describe the resources they are
+ *  applied to. Batch automatically applies predefined labels and supports
+ *  multiple `labels` fields for each job, which each let you apply custom
+ *  labels to various resources. Label names that start with "goog-" or
+ *  "google-" are reserved for predefined labels. For more information about
+ *  labels with Batch, see [Organize resources using
+ *  labels](https://cloud.google.com/batch/docs/organize-resources-using-labels).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1695,10 +1869,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Message *message;
 
 /**
- *  The Pub/Sub topic where notifications like the job state changes will be
- *  published. The topic must exist in the same project as the job and billings
- *  will be charged to this project. If not specified, no Pub/Sub messages will
- *  be sent. Topic format: `projects/{project}/topics/{topic}`.
+ *  The Pub/Sub topic where notifications for the job, like state changes, will
+ *  be published. If undefined, no Pub/Sub notifications are sent for this job.
+ *  Specify the topic using the following format:
+ *  `projects/{project}/topics/{topic}`. Notably, if you want to specify a
+ *  Pub/Sub topic that is in a different project than the job, your
+ *  administrator must grant your project's Batch service agent permission to
+ *  publish to that topic. For more information about configuring Pub/Sub
+ *  notifications for a job, see
+ *  https://cloud.google.com/batch/docs/enable-notifications.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -1717,6 +1896,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  Job state
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBatch_JobStatus_State_CancellationInProgress The Job
+ *        cancellation is in progress, this is because the resources used by the
+ *        Job are still being cleaned up. (Value: "CANCELLATION_IN_PROGRESS")
+ *    @arg @c kGTLRCloudBatch_JobStatus_State_Cancelled The Job has been
+ *        cancelled, the task executions were stopped and the resources were
+ *        cleaned up. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudBatch_JobStatus_State_DeletionInProgress The Job will be
  *        deleted, but has not been deleted yet. Typically this is because
  *        resources used by the Job are still being cleaned up. (Value:
@@ -1982,11 +2167,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  can be a region or a zone. Only one region or multiple zones in one region
  *  is supported now. For example, ["regions/us-central1"] allow VMs in any
  *  zones in region us-central1. ["zones/us-central1-a", "zones/us-central1-c"]
- *  only allow VMs in zones us-central1-a and us-central1-c. All locations end
- *  up in different regions would cause errors. For example,
+ *  only allow VMs in zones us-central1-a and us-central1-c. Mixing locations
+ *  from different regions would cause errors. For example,
  *  ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
- *  "zones/us-west1-a"] contains 2 regions "us-central1" and "us-west1". An
- *  error is expected in this case.
+ *  "zones/us-west1-a"] contains locations from two distinct regions:
+ *  us-central1 and us-west1. This combination will trigger an error.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedLocations;
 
@@ -1994,34 +2179,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  LogsPolicy describes how outputs from a Job's Tasks (stdout/stderr) will be
- *  preserved.
+ *  LogsPolicy describes if and how a job's logs are preserved. Logs include
+ *  information that is automatically written by the Batch service agent and any
+ *  information that you configured the job's runnables to write to the `stdout`
+ *  or `stderr` streams.
  */
 @interface GTLRCloudBatch_LogsPolicy : GTLRObject
 
 /**
- *  Optional. Additional settings for Cloud Logging. It will only take effect
- *  when the destination of `LogsPolicy` is set to `CLOUD_LOGGING`.
+ *  Optional. When `destination` is set to `CLOUD_LOGGING`, you can optionally
+ *  set this field to configure additional settings for Cloud Logging.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_CloudLoggingOption *cloudLoggingOption;
 
 /**
- *  Where logs should be saved.
+ *  If and where logs should be saved.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBatch_LogsPolicy_Destination_CloudLogging Logs are
- *        streamed to Cloud Logging. (Value: "CLOUD_LOGGING")
- *    @arg @c kGTLRCloudBatch_LogsPolicy_Destination_DestinationUnspecified Logs
- *        are not preserved. (Value: "DESTINATION_UNSPECIFIED")
- *    @arg @c kGTLRCloudBatch_LogsPolicy_Destination_Path Logs are saved to a
- *        file path. (Value: "PATH")
+ *        streamed to Cloud Logging. Optionally, you can configure additional
+ *        settings in the `cloudLoggingOption` field. (Value: "CLOUD_LOGGING")
+ *    @arg @c kGTLRCloudBatch_LogsPolicy_Destination_DestinationUnspecified
+ *        (Default) Logs are not preserved. (Value: "DESTINATION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBatch_LogsPolicy_Destination_Path Logs are saved to the
+ *        file path specified in the `logsPath` field. (Value: "PATH")
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
 /**
- *  The path to which logs are saved when the destination = PATH. This can be a
- *  local file path on the VM, or under the mount point of a Persistent Disk or
- *  Filestore, or a Cloud Storage path.
+ *  When `destination` is set to `PATH`, you must set this field to the path
+ *  where you want logs to be saved. This path can point to a local directory on
+ *  the VM or (if congifured) a directory under the mount path of any Cloud
+ *  Storage bucket, network file system (NFS), or writable persistent disk that
+ *  is mounted to the job. For example, if the job has a bucket with `mountPath`
+ *  set to `/mnt/disks/my-bucket`, you can write logs to the root directory of
+ *  the `remotePath` of that bucket by setting this field to
+ *  `/mnt/disks/my-bucket/`.
  */
 @property(nonatomic, copy, nullable) NSString *logsPath;
 
@@ -2041,6 +2234,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  The new job state.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBatch_Message_NewJobState_CancellationInProgress The Job
+ *        cancellation is in progress, this is because the resources used by the
+ *        Job are still being cleaned up. (Value: "CANCELLATION_IN_PROGRESS")
+ *    @arg @c kGTLRCloudBatch_Message_NewJobState_Cancelled The Job has been
+ *        cancelled, the task executions were stopped and the resources were
+ *        cleaned up. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudBatch_Message_NewJobState_DeletionInProgress The Job
  *        will be deleted, but has not been deleted yet. Typically this is
  *        because resources used by the Job are still being cleaned up. (Value:
@@ -2261,8 +2460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2372,9 +2571,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *alwaysRun;
 
 /**
- *  This flag allows a Runnable to continue running in the background while the
- *  Task executes subsequent Runnables. This is useful to provide services to
- *  other Runnables (or to provide debugging support tools like SSH servers).
+ *  Normally, a runnable that doesn't exit causes its task to fail. However, you
+ *  can set this field to `true` to configure a background runnable. Background
+ *  runnables are allowed continue running in the background while the task
+ *  executes subsequent runnables. For example, background runnables are useful
+ *  for providing services to other runnables or providing debugging-support
+ *  tools like SSH servers. Specifically, background runnables are killed
+ *  automatically (if they have not already exited) a short time after all
+ *  foreground runnables have completed. Even though this is likely to result in
+ *  a non-zero exit status for the background runnable, these automatic kills
+ *  are not treated as task failures.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2401,8 +2607,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) GTLRCloudBatch_Environment *environment;
 
 /**
- *  Normally, a non-zero exit status causes the Task to fail. This flag allows
- *  execution of other Runnables to continue instead.
+ *  Normally, a runnable that returns a non-zero exit status fails and causes
+ *  the task to fail. However, you can set this field to `true` to allow the
+ *  task to continue executing its other runnables even if this runnable fails.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2438,22 +2645,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @interface GTLRCloudBatch_Script : GTLRObject
 
 /**
- *  Script file path on the host VM. To specify an interpreter, please add a
- *  `#!`(also known as [shebang
- *  line](https://en.wikipedia.org/wiki/Shebang_(Unix))) as the first line of
- *  the file.(For example, to execute the script using bash, `#!/bin/bash`
- *  should be the first line of the file. To execute the script using`Python3`,
- *  `#!/usr/bin/env python3` should be the first line of the file.) Otherwise,
- *  the file will by default be executed by `/bin/sh`.
+ *  The path to a script file that is accessible from the host VM(s). Unless the
+ *  script file supports the default `#!/bin/sh` shell interpreter, you must
+ *  specify an interpreter by including a [shebang
+ *  line](https://en.wikipedia.org/wiki/Shebang_(Unix) as the first line of the
+ *  file. For example, to execute the script using bash, include `#!/bin/bash`
+ *  as the first line of the file. Alternatively, to execute the script using
+ *  Python3, include `#!/usr/bin/env python3` as the first line of the file.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Shell script text. To specify an interpreter, please add a `#!\\n` at the
- *  beginning of the text.(For example, to execute the script using bash,
- *  `#!/bin/bash\\n` should be added. To execute the script using`Python3`,
- *  `#!/usr/bin/env python3\\n` should be added.) Otherwise, the script will by
- *  default be executed by `/bin/sh`.
+ *  The text for a script. Unless the script text supports the default
+ *  `#!/bin/sh` shell interpreter, you must specify an interpreter by including
+ *  a [shebang line](https://en.wikipedia.org/wiki/Shebang_(Unix) at the
+ *  beginning of the text. For example, to execute the script using bash,
+ *  include `#!/bin/bash\\n` at the beginning of the text. Alternatively, to
+ *  execute the script using Python3, include `#!/usr/bin/env python3\\n` at the
+ *  beginning of the text.
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -2465,18 +2674,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  */
 @interface GTLRCloudBatch_ServiceAccount : GTLRObject
 
-/**
- *  Email address of the service account. If not specified, the default Compute
- *  Engine service account for the project will be used. If instance template is
- *  being used, the service account has to be specified in the instance template
- *  and it has to match the email field here.
- */
+/** Email address of the service account. */
 @property(nonatomic, copy, nullable) NSString *email;
 
-/**
- *  List of scopes to be enabled for this service account on the VM, in addition
- *  to the cloud-platform API scope that will be added by default.
- */
+/** List of scopes to be enabled for this service account. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 @end
@@ -2528,7 +2729,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 
 
 /**
- *  Status event
+ *  Status event.
  */
 @interface GTLRCloudBatch_StatusEvent : GTLRObject
 
@@ -2542,11 +2743,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 /** The time this event occurred. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
-/** Task Execution */
+/**
+ *  Task Execution. This field is only defined for task-level status events
+ *  where the task fails.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBatch_TaskExecution *taskExecution;
 
 /**
- *  Task State
+ *  Task State. This field is only defined for task-level status events.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBatch_StatusEvent_TaskState_Assigned The Task is
@@ -2597,8 +2801,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @interface GTLRCloudBatch_TaskExecution : GTLRObject
 
 /**
- *  When task is completed as the status of FAILED or SUCCEEDED, exit code is
- *  for one task execution result, default is 0 as success.
+ *  The exit code of a finished task. If the task succeeded, the exit code will
+ *  be 0. If the task failed but not due to the following reasons, the exit code
+ *  will be 50000. Otherwise, it can be from different sources: * Batch known
+ *  failures:
+ *  https://cloud.google.com/batch/docs/troubleshooting#reserved-exit-codes. *
+ *  Batch runnable execution failures; you can rely on Batch logs to further
+ *  diagnose: https://cloud.google.com/batch/docs/analyze-job-using-logs. If
+ *  there are multiple runnables failures, Batch only exposes the first error.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2770,20 +2980,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
 @property(nonatomic, strong, nullable) NSNumber *maxRetryCount;
 
 /**
- *  Maximum duration the task should run. The task will be killed and marked as
- *  FAILED if over this limit.
+ *  Maximum duration the task should run before being automatically retried (if
+ *  enabled) or automatically failed. Format the value of this field as a time
+ *  limit in seconds followed by `s`—for example, `3600s` for 1 hour. The field
+ *  accepts any value between 0 and the maximum listed for the `Duration` field
+ *  type at https://protobuf.dev/reference/protobuf/google.protobuf/#duration;
+ *  however, the actual maximum run time for a job will be limited to the
+ *  maximum run time for a job listed at
+ *  https://cloud.google.com/batch/quotas#max-job-duration.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
 
 /**
- *  The sequence of scripts or containers to run for this Task. Each Task using
- *  this TaskSpec executes its list of runnables in order. The Task succeeds if
- *  all of its runnables either exit with a zero status or any that exit with a
- *  non-zero status have the ignore_exit_status flag. Background runnables are
- *  killed automatically (if they have not already exited) a short time after
- *  all foreground runnables have completed. Even though this is likely to
- *  result in a non-zero exit status for the background runnable, these
- *  automatic kills are not treated as Task failures.
+ *  Required. The sequence of one or more runnables (executable scripts,
+ *  executable containers, and/or barriers) for each task in this task group to
+ *  run. Each task runs this list of runnables in order. For a task to succeed,
+ *  all of its script and container runnables each must meet at least one of the
+ *  following conditions: + The runnable exited with a zero status. + The
+ *  runnable didn't finish, but you enabled its `background` subfield. + The
+ *  runnable exited with a non-zero status, but you enabled its
+ *  `ignore_exit_status` subfield.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_Runnable *> *runnables;
 
@@ -2807,12 +3023,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  Status of a task
+ *  Status of a task.
  */
 @interface GTLRCloudBatch_TaskStatus : GTLRObject
 
 /**
- *  Task state
+ *  Task state.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBatch_TaskStatus_State_Assigned The Task is assigned to
@@ -2856,15 +3072,15 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudBatch_GCS *gcs;
 
 /**
- *  For Google Cloud Storage (GCS), mount options are the options supported by
- *  the gcsfuse tool (https://github.com/GoogleCloudPlatform/gcsfuse). For
- *  existing persistent disks, mount options provided by the mount command
- *  (https://man7.org/linux/man-pages/man8/mount.8.html) except writing are
- *  supported. This is due to restrictions of multi-writer mode
- *  (https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms). For
- *  other attached disks and Network File System (NFS), mount options are these
- *  supported by the mount command
- *  (https://man7.org/linux/man-pages/man8/mount.8.html).
+ *  Mount options vary based on the type of storage volume: * For a Cloud
+ *  Storage bucket, all the mount options provided by the [`gcsfuse`
+ *  tool](https://cloud.google.com/storage/docs/gcsfuse-cli) are supported. *
+ *  For an existing persistent disk, all mount options provided by the [`mount`
+ *  command](https://man7.org/linux/man-pages/man8/mount.8.html) except writing
+ *  are supported. This is due to restrictions of [multi-writer
+ *  mode](https://cloud.google.com/compute/docs/disks/sharing-disks-between-vms).
+ *  * For any other disk or a Network File System (NFS), all the mount options
+ *  provided by the `mount` command are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mountOptions;
 

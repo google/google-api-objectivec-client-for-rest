@@ -544,7 +544,14 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @implementation GTLRAppengineQuery_AppsLocationsList
 
-@dynamic appsId, filter, pageSize, pageToken;
+@dynamic appsId, extraLocationTypes, filter, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithAppsId:(NSString *)appsId {
   NSArray *pathParams = @[ @"appsId" ];
@@ -999,6 +1006,408 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
   query.versionsId = versionsId;
   query.expectedObjectClass = [GTLRAppengine_Operation class];
   query.loggingName = @"appengine.apps.services.versions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesCreate
+
+@dynamic applicationsId, locationsId, projectsId;
+
++ (instancetype)queryWithObject:(GTLRAppengine_AuthorizedCertificate *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/authorizedCertificates";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.expectedObjectClass = [GTLRAppengine_AuthorizedCertificate class];
+  query.loggingName = @"appengine.projects.locations.applications.authorizedCertificates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesDelete
+
+@dynamic applicationsId, authorizedCertificatesId, locationsId, projectsId;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+           authorizedCertificatesId:(NSString *)authorizedCertificatesId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"authorizedCertificatesId", @"locationsId",
+    @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/authorizedCertificates/{authorizedCertificatesId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.authorizedCertificatesId = authorizedCertificatesId;
+  query.expectedObjectClass = [GTLRAppengine_Empty class];
+  query.loggingName = @"appengine.projects.locations.applications.authorizedCertificates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesGet
+
+@dynamic applicationsId, authorizedCertificatesId, locationsId, projectsId,
+         view;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+           authorizedCertificatesId:(NSString *)authorizedCertificatesId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"authorizedCertificatesId", @"locationsId",
+    @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/authorizedCertificates/{authorizedCertificatesId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.authorizedCertificatesId = authorizedCertificatesId;
+  query.expectedObjectClass = [GTLRAppengine_AuthorizedCertificate class];
+  query.loggingName = @"appengine.projects.locations.applications.authorizedCertificates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesList
+
+@dynamic applicationsId, locationsId, pageSize, pageToken, projectsId, view;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/authorizedCertificates";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.expectedObjectClass = [GTLRAppengine_ListAuthorizedCertificatesResponse class];
+  query.loggingName = @"appengine.projects.locations.applications.authorizedCertificates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesPatch
+
+@dynamic applicationsId, authorizedCertificatesId, locationsId, projectsId,
+         updateMask;
+
++ (instancetype)queryWithObject:(GTLRAppengine_AuthorizedCertificate *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+       authorizedCertificatesId:(NSString *)authorizedCertificatesId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"applicationsId", @"authorizedCertificatesId", @"locationsId",
+    @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/authorizedCertificates/{authorizedCertificatesId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedCertificatesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.authorizedCertificatesId = authorizedCertificatesId;
+  query.expectedObjectClass = [GTLRAppengine_AuthorizedCertificate class];
+  query.loggingName = @"appengine.projects.locations.applications.authorizedCertificates.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedDomainsList
+
+@dynamic applicationsId, locationsId, pageSize, pageToken, projectsId;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/authorizedDomains";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsAuthorizedDomainsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.expectedObjectClass = [GTLRAppengine_ListAuthorizedDomainsResponse class];
+  query.loggingName = @"appengine.projects.locations.applications.authorizedDomains.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsCreate
+
+@dynamic applicationsId, locationsId, overrideStrategy, projectsId;
+
++ (instancetype)queryWithObject:(GTLRAppengine_DomainMapping *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/domainMappings";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.domainMappings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsGet
+
+@dynamic applicationsId, domainMappingsId, locationsId, projectsId;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                   domainMappingsId:(NSString *)domainMappingsId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"domainMappingsId", @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/domainMappings/{domainMappingsId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.domainMappingsId = domainMappingsId;
+  query.expectedObjectClass = [GTLRAppengine_DomainMapping class];
+  query.loggingName = @"appengine.projects.locations.applications.domainMappings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsPatch
+
+@dynamic applicationsId, locationsId, projectsId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAppengine_Application *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesDelete
+
+@dynamic applicationsId, locationsId, projectsId, servicesId;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                         servicesId:(NSString *)servicesId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId", @"servicesId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.servicesId = servicesId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.services.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesPatch
+
+@dynamic applicationsId, locationsId, migrateTraffic, projectsId, servicesId,
+         updateMask;
+
++ (instancetype)queryWithObject:(GTLRAppengine_Service *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+                     servicesId:(NSString *)servicesId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId", @"servicesId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.servicesId = servicesId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.services.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsDelete
+
+@dynamic applicationsId, locationsId, projectsId, servicesId, versionsId;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                         servicesId:(NSString *)servicesId
+                         versionsId:(NSString *)versionsId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId", @"servicesId",
+    @"versionsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}/versions/{versionsId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.servicesId = servicesId;
+  query.versionsId = versionsId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.services.versions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsPatch
+
+@dynamic applicationsId, locationsId, projectsId, servicesId, updateMask,
+         versionsId;
+
++ (instancetype)queryWithObject:(GTLRAppengine_Version *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+                     servicesId:(NSString *)servicesId
+                     versionsId:(NSString *)versionsId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"applicationsId", @"locationsId", @"projectsId", @"servicesId",
+    @"versionsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}/versions/{versionsId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.servicesId = servicesId;
+  query.versionsId = versionsId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.services.versions.patch";
   return query;
 }
 

@@ -17,18 +17,29 @@
 
 @class GTLRArtifactRegistry_AptArtifact;
 @class GTLRArtifactRegistry_AptRepository;
+@class GTLRArtifactRegistry_Attachment;
+@class GTLRArtifactRegistry_Attachment_Annotations;
 @class GTLRArtifactRegistry_Binding;
 @class GTLRArtifactRegistry_CleanupPolicy;
 @class GTLRArtifactRegistry_CleanupPolicyCondition;
 @class GTLRArtifactRegistry_CleanupPolicyMostRecentVersions;
+@class GTLRArtifactRegistry_CommonRemoteRepository;
 @class GTLRArtifactRegistry_DockerImage;
 @class GTLRArtifactRegistry_DockerRepository;
 @class GTLRArtifactRegistry_DockerRepositoryConfig;
 @class GTLRArtifactRegistry_Expr;
 @class GTLRArtifactRegistry_GoogetArtifact;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File_Annotations;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryCustomRepository;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigDockerRepositoryCustomRepository;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigMavenRepositoryCustomRepository;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigNpmRepositoryCustomRepository;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigPythonRepositoryCustomRepository;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryCustomRepository;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository;
+@class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule;
 @class GTLRArtifactRegistry_Hash;
 @class GTLRArtifactRegistry_ImportAptArtifactsErrorInfo;
 @class GTLRArtifactRegistry_ImportAptArtifactsGcsSource;
@@ -48,6 +59,7 @@
 @class GTLRArtifactRegistry_Operation_Metadata;
 @class GTLRArtifactRegistry_Operation_Response;
 @class GTLRArtifactRegistry_Package;
+@class GTLRArtifactRegistry_Package_Annotations;
 @class GTLRArtifactRegistry_Policy;
 @class GTLRArtifactRegistry_PythonPackage;
 @class GTLRArtifactRegistry_PythonRepository;
@@ -62,8 +74,10 @@
 @class GTLRArtifactRegistry_UpstreamPolicy;
 @class GTLRArtifactRegistry_UsernamePasswordCredentials;
 @class GTLRArtifactRegistry_Version;
+@class GTLRArtifactRegistry_Version_Annotations;
 @class GTLRArtifactRegistry_Version_Metadata;
 @class GTLRArtifactRegistry_VirtualRepositoryConfig;
+@class GTLRArtifactRegistry_VulnerabilityScanningConfig;
 @class GTLRArtifactRegistry_YumArtifact;
 @class GTLRArtifactRegistry_YumRepository;
 
@@ -240,6 +254,44 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactr
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository_RepositoryBase_Rocky;
 
 // ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.action
+
+/**
+ *  Action not specified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_ActionUnspecified;
+/**
+ *  Allow the operation.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Allow;
+/**
+ *  Deny the operation.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.operation
+
+/**
+ *  Download operation.
+ *
+ *  Value: "DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_Download;
+/**
+ *  Operation not specified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_OperationUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_Hash.type
 
 /**
@@ -332,11 +384,23 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyR
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoEnabled;
 /**
+ *  Redirection is enabled and missing images are copied from GCR
+ *
+ *  Value: "REDIRECTION_FROM_GCR_IO_ENABLED_AND_COPYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoEnabledAndCopying;
+/**
  *  Redirection is enabled, and has been finalized so cannot be reverted.
  *
  *  Value: "REDIRECTION_FROM_GCR_IO_FINALIZED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoFinalized GTLR_DEPRECATED;
+/**
+ *  Redirection is partially enabled and missing images are copied from GCR
+ *
+ *  Value: "REDIRECTION_FROM_GCR_IO_PARTIAL_AND_COPYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoPartialAndCopying;
 /**
  *  No redirection status has been set.
  *
@@ -381,6 +445,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Docke
  *  Value: "FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified;
+/**
+ *  Generic package format.
+ *
+ *  Value: "GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Generic;
 /**
  *  Go package format.
  *
@@ -427,6 +497,18 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_Repository.mode
 
+/**
+ *  An AOSS repository provides artifacts from AOSS upstreams.
+ *
+ *  Value: "AOSS_REPOSITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_AossRepository;
+/**
+ *  Replacement of AOSS_REPOSITORY.
+ *
+ *  Value: "ASSURED_OSS_REPOSITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Mode_AssuredOssRepository;
 /**
  *  Unspecified mode.
  *
@@ -477,6 +559,56 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy
  *  Value: "VPCSC_POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy_VpcscPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_VulnerabilityScanningConfig.enablementConfig
+
+/**
+ *  No automatic vulnerability scanning will be performed for this repository.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Disabled;
+/**
+ *  Not set. This will be treated as INHERITED.
+ *
+ *  Value: "ENABLEMENT_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_EnablementConfigUnspecified;
+/**
+ *  Scanning is Enabled, but dependent on API enablement.
+ *
+ *  Value: "INHERITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Inherited;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_VulnerabilityScanningConfig.enablementState
+
+/**
+ *  Enablement state is unclear.
+ *
+ *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_EnablementStateUnspecified;
+/**
+ *  Vulnerability scanning is active for this repository.
+ *
+ *  Value: "SCANNING_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningActive;
+/**
+ *  Vulnerability scanning is disabled for this repository.
+ *
+ *  Value: "SCANNING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningDisabled;
+/**
+ *  Repository does not support vulnerability scanning.
+ *
+ *  Value: "SCANNING_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningUnsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_YumArtifact.packageType
@@ -548,12 +680,89 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_AptRepository : GTLRObject
 
+/** Customer-specified remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryCustomRepository *customRepository;
+
 /**
  *  One of the publicly available Apt repositories supported by Artifact
  *  Registry.
  */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryPublicRepository *publicRepository;
 
+@end
+
+
+/**
+ *  An Attachment refers to additional metadata that can be attached to
+ *  artifacts in Artifact Registry. An attachment consists of one or more files.
+ */
+@interface GTLRArtifactRegistry_Attachment : GTLRObject
+
+/**
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Artifact Registry. See
+ *  https://google.aip.dev/128#annotations for more details such as format and
+ *  size limitations.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Attachment_Annotations *annotations;
+
+/**
+ *  The namespace this attachment belongs to. E.g. If an attachment is created
+ *  by artifact analysis, namespace is set to `artifactanalysis.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *attachmentNamespace;
+
+/** Output only. The time when the attachment was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The files that belong to this attachment. If the file ID part
+ *  contains slashes, they are escaped. E.g.
+ *  `projects/p1/locations/us-central1/repositories/repo1/files/sha:`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *files;
+
+/**
+ *  The name of the attachment. E.g.
+ *  `projects/p1/locations/us/repositories/repo/attachments/sbom`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The name of the OCI version that this attachment created. Only
+ *  populated for Docker attachments. E.g.
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/p1/versions/v1`.
+ */
+@property(nonatomic, copy, nullable) NSString *ociVersionName;
+
+/**
+ *  Required. The target the attachment is for, can be a Version, Package or
+ *  Repository. E.g.
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/p1/versions/v1`.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Type of attachment. E.g. `application/vnd.spdx+json` */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. The time when the attachment was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Artifact Registry. See
+ *  https://google.aip.dev/128#annotations for more details such as format and
+ *  size limitations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Attachment_Annotations : GTLRObject
 @end
 
 
@@ -574,8 +783,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_BatchDeleteVersionsRequest : GTLRObject
 
 /**
- *  Required. The names of the versions to delete. A maximum of 10000 versions
- *  can be deleted in a batch.
+ *  Required. The names of the versions to delete. The maximum number of
+ *  versions deleted per batch is determined by the service and is dependent on
+ *  the available resources in the region.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -772,6 +982,17 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  Common remote repository settings type.
+ */
+@interface GTLRArtifactRegistry_CommonRemoteRepository : GTLRObject
+
+/** Required. A common public repository base for remote repository. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  DockerImage represents a docker artifact. The following fields are returned
  *  as untyped metadata in the Version resource, using camelcase keys (i.e.
  *  metadata.imageSizeBytes): * imageSizeBytes * mediaType * buildTime
@@ -803,7 +1024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  Required. registry_location, project_id, repository_name and image id forms
- *  a unique image name:`projects//locations//repository//dockerImages/`. For
+ *  a unique image name:`projects//locations//repositories//dockerImages/`. For
  *  example,
  *  "projects/test-project/locations/us-west4/repositories/test-repo/dockerImages/
  *  nginx\@sha256:e9954c1fc875017be1c3e36eca16be2d9e9bccc4bf072163515467d6a823c7cf",
@@ -837,6 +1058,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_DockerRepository : GTLRObject
 
+/** Customer-specified remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigDockerRepositoryCustomRepository *customRepository;
+
 /**
  *  One of the publicly available Docker repositories supported by Artifact
  *  Registry.
@@ -866,6 +1090,13 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, strong, nullable) NSNumber *immutableTags;
 
+@end
+
+
+/**
+ *  The response to download a file.
+ */
+@interface GTLRArtifactRegistry_DownloadFileResponse : GTLRObject
 @end
 
 
@@ -929,6 +1160,31 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  GenericArtifact represents a generic artifact
+ */
+@interface GTLRArtifactRegistry_GenericArtifact : GTLRObject
+
+/** Output only. The time when the Generic module is created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Resource name of the generic artifact. project, location, repository,
+ *  package_id and version_id create a unique generic artifact. i.e.
+ *  "projects/test-project/locations/us-west4/repositories/test-repo/
+ *  genericArtifacts/package_id:version_id"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time when the Generic module is updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The version of the generic artifact. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  GoModule represents a Go module.
  */
 @interface GTLRArtifactRegistry_GoModule : GTLRObject
@@ -974,6 +1230,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File : GTLRObject
 
+/** Optional. Client specified annotations. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File_Annotations *annotations;
+
 /** Output only. The time when the File was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -988,7 +1247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the file, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt".
+ *  `projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt`.
  *  If the file ID part contains slashes, they are escaped.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1005,6 +1264,32 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** Output only. The time when the File was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Client specified annotations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Customer-specified publicly available remote repository.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigAptRepositoryCustomRepository : GTLRObject
+
+/**
+ *  An http/https uri reference to the upstream remote repository, for ex:
+ *  "https://my.apt.registry/".
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -1032,6 +1317,76 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** A custom field to define a path to a specific repository from the base. */
 @property(nonatomic, copy, nullable) NSString *repositoryPath;
+
+@end
+
+
+/**
+ *  Customer-specified publicly available remote repository.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigDockerRepositoryCustomRepository : GTLRObject
+
+/**
+ *  An http/https uri reference to the custom remote repository, for ex:
+ *  "https://registry-1.docker.io".
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Customer-specified publicly available remote repository.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigMavenRepositoryCustomRepository : GTLRObject
+
+/**
+ *  An http/https uri reference to the upstream remote repository, for ex:
+ *  "https://my.maven.registry/".
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Customer-specified publicly available remote repository.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigNpmRepositoryCustomRepository : GTLRObject
+
+/**
+ *  An http/https uri reference to the upstream remote repository, for ex:
+ *  "https://my.npm.registry/".
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Customer-specified publicly available remote repository.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigPythonRepositoryCustomRepository : GTLRObject
+
+/**
+ *  An http/https uri reference to the upstream remote repository, for ex:
+ *  "https://my.python.registry/".
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Customer-specified publicly available remote repository.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryCustomRepository : GTLRObject
+
+/**
+ *  An http/https uri reference to the upstream remote repository, for ex:
+ *  "https://my.yum.registry/".
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -1065,6 +1420,58 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** A custom field to define a path to a specific repository from the base. */
 @property(nonatomic, copy, nullable) NSString *repositoryPath;
+
+@end
+
+
+/**
+ *  A rule defines the deny or allow action of the operation it applies to and
+ *  the conditions required for the rule to apply. You can set one rule for an
+ *  entire repository and one rule for each package within.
+ */
+@interface GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule : GTLRObject
+
+/**
+ *  The action this rule takes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_ActionUnspecified
+ *        Action not specified. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Allow
+ *        Allow the operation. (Value: "ALLOW")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Action_Deny
+ *        Deny the operation. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Optional. A CEL expression for conditions that must be met in order for the
+ *  rule to apply. If not provided, the rule matches all objects.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Expr *condition;
+
+/**
+ *  The name of the rule, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/rules/rule1`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  operation
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_Download
+ *        Download operation. (Value: "DOWNLOAD")
+ *    @arg @c kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_OperationUnspecified
+ *        Operation not specified. (Value: "OPERATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  The package ID the rule applies to. If empty, this rule applies to all
+ *  packages inside the repository.
+ */
+@property(nonatomic, copy, nullable) NSString *packageId;
 
 @end
 
@@ -1312,6 +1719,33 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  The response from listing attachments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "attachments" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRArtifactRegistry_ListAttachmentsResponse : GTLRCollectionObject
+
+/**
+ *  The attachments returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Attachment *> *attachments;
+
+/**
+ *  The token to retrieve the next page of attachments, or empty if there are no
+ *  more attachments to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response from listing docker images.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1525,6 +1959,33 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  The response from listing rules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rules" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRArtifactRegistry_ListRulesResponse : GTLRCollectionObject
+
+/**
+ *  The token to retrieve the next page of rules, or empty if there are no more
+ *  rules to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The rules returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule *> *rules;
+
+@end
+
+
+/**
  *  The response from listing tags.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1683,6 +2144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_MavenRepository : GTLRObject
 
+/** Customer-specified remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigMavenRepositoryCustomRepository *customRepository;
+
 /**
  *  One of the publicly available Maven repositories supported by Artifact
  *  Registry.
@@ -1769,6 +2233,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Configuration for a Npm remote repository.
  */
 @interface GTLRArtifactRegistry_NpmRepository : GTLRObject
+
+/** Customer-specified remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigNpmRepositoryCustomRepository *customRepository;
 
 /**
  *  One of the publicly available Npm repositories supported by Artifact
@@ -1877,6 +2344,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_Package : GTLRObject
 
+/** Optional. Client specified annotations. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Package_Annotations *annotations;
+
 /** The time when the package was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1896,6 +2366,18 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Client specified annotations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Package_Annotations : GTLRObject
 @end
 
 
@@ -2000,9 +2482,15 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        Redirection is disabled. (Value: "REDIRECTION_FROM_GCR_IO_DISABLED")
  *    @arg @c kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoEnabled
  *        Redirection is enabled. (Value: "REDIRECTION_FROM_GCR_IO_ENABLED")
+ *    @arg @c kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoEnabledAndCopying
+ *        Redirection is enabled and missing images are copied from GCR (Value:
+ *        "REDIRECTION_FROM_GCR_IO_ENABLED_AND_COPYING")
  *    @arg @c kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoFinalized
  *        Redirection is enabled, and has been finalized so cannot be reverted.
  *        (Value: "REDIRECTION_FROM_GCR_IO_FINALIZED")
+ *    @arg @c kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoPartialAndCopying
+ *        Redirection is partially enabled and missing images are copied from
+ *        GCR (Value: "REDIRECTION_FROM_GCR_IO_PARTIAL_AND_COPYING")
  *    @arg @c kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionStateUnspecified
  *        No redirection status has been set. (Value:
  *        "REDIRECTION_STATE_UNSPECIFIED")
@@ -2015,6 +2503,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  response: always set
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The percentage of pull traffic to redirect from GCR to AR when using partial
+ *  redirection.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pullPercent;
 
 @end
 
@@ -2061,6 +2557,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_PythonRepository : GTLRObject
 
+/** Customer-specified remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigPythonRepositoryCustomRepository *customRepository;
+
 /**
  *  One of the publicly available Python repositories supported by Artifact
  *  Registry.
@@ -2085,11 +2584,25 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_AptRepository *aptRepository;
 
 /**
+ *  Common remote repository settings. Used as the remote repository upstream
+ *  URL.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_CommonRemoteRepository *commonRepository;
+
+/**
  *  The description of the remote source.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Input only. A create/update remote repo option to avoid making a HEAD/GET
+ *  request to validate a remote repo and any supplied upstream credentials.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableUpstreamValidation;
 
 /** Specific settings for a Docker remote repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_DockerRepository *dockerRepository;
@@ -2144,9 +2657,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. If this is true, aunspecified repo type will be treated as error.
- *  Is used for new repo types that don't have any specific fields. Right now is
- *  used by AOSS team when creating repos for customers.
+ *  Optional. If this is true, an unspecified repo type will be treated as error
+ *  rather than defaulting to standard.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2168,6 +2680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
  *        Unspecified package format. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Generic Generic package
+ *        format. (Value: "GENERIC")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Go Go package format.
  *        (Value: "GO")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Googet GooGet package
@@ -2211,6 +2725,11 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Optional. The mode of the repository.
  *
  *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_Repository_Mode_AossRepository An AOSS
+ *        repository provides artifacts from AOSS upstreams. (Value:
+ *        "AOSS_REPOSITORY")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Mode_AssuredOssRepository
+ *        Replacement of AOSS_REPOSITORY. (Value: "ASSURED_OSS_REPOSITORY")
  *    @arg @c kGTLRArtifactRegistry_Repository_Mode_ModeUnspecified Unspecified
  *        mode. (Value: "MODE_UNSPECIFIED")
  *    @arg @c kGTLRArtifactRegistry_Repository_Mode_RemoteRepository A remote
@@ -2226,15 +2745,29 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the repository, for example:
- *  `projects/p1/locations/us-central1/repositories/repo1`.
+ *  `projects/p1/locations/us-central1/repositories/repo1`. For each location in
+ *  a project, repository names must be unique.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The repository endpoint, for example:
+ *  `us-docker.pkg.dev/my-proj/my-repo`.
+ */
+@property(nonatomic, copy, nullable) NSString *registryUri;
 
 /** Configuration specific for a Remote Repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_RemoteRepositoryConfig *remoteRepositoryConfig;
 
 /**
- *  Output only. If set, the repository satisfies physical zone separation.
+ *  Output only. Whether or not this repository satisfies PZI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Whether or not this repository satisfies PZS.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2254,6 +2787,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** Configuration specific for a Virtual Repository. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_VirtualRepositoryConfig *virtualRepositoryConfig;
+
+/**
+ *  Optional. Config and state for vulnerability scanning of resources within
+ *  this Repository.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_VulnerabilityScanningConfig *vulnerabilityScanningConfig;
 
 @end
 
@@ -2365,7 +2904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the version the tag refers to, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/sha256:5243811"
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/sha256:5243811`
  *  If the package or version ID parts contain slashes, the slashes are escaped.
  */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -2434,6 +2973,84 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /** The Apt artifacts updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_AptArtifact *> *aptArtifacts;
+
+@end
+
+
+/**
+ *  The response to upload a generic artifact.
+ */
+@interface GTLRArtifactRegistry_UploadFileMediaResponse : GTLRObject
+
+/** Operation that will be returned to the user. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Operation *operation;
+
+@end
+
+
+/**
+ *  The request to upload a file.
+ */
+@interface GTLRArtifactRegistry_UploadFileRequest : GTLRObject
+
+/**
+ *  Optional. The ID of the file. If left empty will default to sha256 digest of
+ *  the content uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+@end
+
+
+/**
+ *  The response to upload a generic artifact.
+ */
+@interface GTLRArtifactRegistry_UploadGenericArtifactMediaResponse : GTLRObject
+
+/** Operation that will be returned to the user. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Operation *operation;
+
+@end
+
+
+/**
+ *  The operation metadata for uploading generic artifacts.
+ */
+@interface GTLRArtifactRegistry_UploadGenericArtifactMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request to upload a generic artifact. The created GenericArtifact will
+ *  have the resource name {parent}/genericArtifacts/package_id:version_id. The
+ *  created file will have the resource name
+ *  {parent}/files/package_id:version_id:filename.
+ */
+@interface GTLRArtifactRegistry_UploadGenericArtifactRequest : GTLRObject
+
+/**
+ *  The name of the file of the generic artifact to be uploaded. E.g.
+ *  `example-file.zip` The filename is limited to letters, numbers, and url safe
+ *  characters, i.e. [a-zA-Z0-9-_.~\@].
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  The ID of the package of the generic artifact. If the package does not
+ *  exist, a new package will be created. The `package_id` should start and end
+ *  with a letter or number, only contain letters, numbers, hyphens,
+ *  underscores, and periods, and not exceed 256 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *packageId;
+
+/**
+ *  The ID of the version of the generic artifact. If the version does not
+ *  exist, a new version will be created. The version_id must start and end with
+ *  a letter or number, can only contain lowercase letters, numbers, the
+ *  following characters [-.+~:], i.e.[a-z0-9-.+~:] and cannot exceed a total of
+ *  128 characters. Creating a version called `latest` is not allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *versionId;
 
 @end
 
@@ -2637,6 +3254,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @interface GTLRArtifactRegistry_Version : GTLRObject
 
+/** Optional. Client specified annotations. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Version_Annotations *annotations;
+
 /** The time when the version was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2656,7 +3276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 /**
  *  The name of the version, for example:
- *  "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1".
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1`.
  *  If the package or version ID parts contain slashes, the slashes are escaped.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2670,6 +3290,18 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /** The time when the version was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Client specified annotations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Version_Annotations : GTLRObject
 @end
 
 
@@ -2735,6 +3367,57 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  Config on whether to perform vulnerability scanning for resources in this
+ *  repository, as well as output fields describing current state.
+ */
+@interface GTLRArtifactRegistry_VulnerabilityScanningConfig : GTLRObject
+
+/**
+ *  Optional. Config for whether this repository has vulnerability scanning
+ *  disabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Disabled
+ *        No automatic vulnerability scanning will be performed for this
+ *        repository. (Value: "DISABLED")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_EnablementConfigUnspecified
+ *        Not set. This will be treated as INHERITED. (Value:
+ *        "ENABLEMENT_CONFIG_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Inherited
+ *        Scanning is Enabled, but dependent on API enablement. (Value:
+ *        "INHERITED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementConfig;
+
+/**
+ *  Output only. State of feature enablement, combining repository enablement
+ *  config and API enablement state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_EnablementStateUnspecified
+ *        Enablement state is unclear. (Value: "ENABLEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningActive
+ *        Vulnerability scanning is active for this repository. (Value:
+ *        "SCANNING_ACTIVE")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningDisabled
+ *        Vulnerability scanning is disabled for this repository. (Value:
+ *        "SCANNING_DISABLED")
+ *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementState_ScanningUnsupported
+ *        Repository does not support vulnerability scanning. (Value:
+ *        "SCANNING_UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *enablementState;
+
+/** Output only. Reason for the repository state. */
+@property(nonatomic, copy, nullable) NSString *enablementStateReason;
+
+/** Output only. The last time this repository config was enabled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastEnableTime;
+
+@end
+
+
+/**
  *  A detailed representation of a Yum artifact.
  */
 @interface GTLRArtifactRegistry_YumArtifact : GTLRObject
@@ -2768,6 +3451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Configuration for a Yum remote repository.
  */
 @interface GTLRArtifactRegistry_YumRepository : GTLRObject
+
+/** Customer-specified remote repository. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryCustomRepository *customRepository;
 
 /**
  *  One of the publicly available Yum repositories supported by Artifact

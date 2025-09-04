@@ -4,9 +4,15 @@
 // API:
 //   Cloud Source Repositories API (sourcerepo/v1)
 // Description:
-//   Accesses source code repositories hosted by Google.
+//   Accesses source code repositories hosted by Google. Important: Cloud Source
+//   Repositories is scheduled for end of sales starting June 17, 2024.
+//   Customers who have enabled the API prior to this date will not be affected
+//   and can continue to use Cloud Source Repositories. Organizations or
+//   projects who have not previously enabled the API cannot use Cloud Source
+//   Repositories after this date. View Cloud Source Repositories documentation
+//   for more info.
 // Documentation:
-//   https://cloud.google.com/source-repositories/docs/apis
+//   https://cloud.google.com/source-repositories/docs
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -159,8 +165,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
+ *  Gets the IAM policy policy for a resource. Returns an empty policy if the
+ *  resource exists and does not have a policy set.
  *
  *  Method: sourcerepo.projects.repos.getIamPolicy
  *
@@ -196,8 +202,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSourceRepositories_Policy.
  *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
+ *  Gets the IAM policy policy for a resource. Returns an empty policy if the
+ *  resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
  *    requested. See [Resource
@@ -296,8 +302,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  Sets the IAM policy on the specified resource. Replaces any existing policy.
  *
  *  Method: sourcerepo.projects.repos.setIamPolicy
  *
@@ -317,8 +322,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudSourceRepositories_Policy.
  *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
+ *  Sets the IAM policy on the specified resource. Replaces any existing policy.
  *
  *  @param object The @c GTLRCloudSourceRepositories_SetIamPolicyRequest to
  *    include in the query.

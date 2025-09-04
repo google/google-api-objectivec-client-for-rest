@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Forms and responses.
 // Documentation:
-//   https://developers.google.com/forms/api
+//   https://developers.google.com/workspace/forms/api
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 

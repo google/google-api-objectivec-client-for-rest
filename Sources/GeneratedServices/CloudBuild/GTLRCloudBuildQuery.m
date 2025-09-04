@@ -141,7 +141,7 @@ NSString * const kGTLRCloudBuildRefTypeTag                = @"TAG";
 
 @implementation GTLRCloudBuildQuery_ProjectsLocationsConnectionsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -387,7 +387,7 @@ NSString * const kGTLRCloudBuildRefTypeTag                = @"TAG";
 
 @implementation GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -479,7 +479,14 @@ NSString * const kGTLRCloudBuildRefTypeTag                = @"TAG";
 
 @implementation GTLRCloudBuildQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

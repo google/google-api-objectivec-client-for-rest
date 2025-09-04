@@ -4,8 +4,9 @@
 // API:
 //   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
-//   Creates short-lived credentials for impersonating IAM service accounts. To
-//   enable this API, you must enable the IAM API (iam.googleapis.com).
+//   Creates short-lived credentials for impersonating IAM service accounts.
+//   Disabling this API also disables the IAM API (iam.googleapis.com). However,
+//   enabling this API doesn't enable the IAM API.
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
@@ -14,6 +15,44 @@
 @implementation GTLRIAMCredentialsQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/allowedLocations";
+  GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIAMCredentials_WorkforcePoolAllowedLocations class];
+  query.loggingName = @"iamcredentials.locations.workforcePools.getAllowedLocations";
+  return query;
+}
+
+@end
+
+@implementation GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/allowedLocations";
+  GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations class];
+  query.loggingName = @"iamcredentials.projects.locations.workloadIdentityPools.getAllowedLocations";
+  return query;
+}
 
 @end
 
@@ -66,6 +105,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRIAMCredentials_GenerateIdTokenResponse class];
   query.loggingName = @"iamcredentials.projects.serviceAccounts.generateIdToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRIAMCredentialsQuery_ProjectsServiceAccountsGetAllowedLocations
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/allowedLocations";
+  GTLRIAMCredentialsQuery_ProjectsServiceAccountsGetAllowedLocations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIAMCredentials_ServiceAccountAllowedLocations class];
+  query.loggingName = @"iamcredentials.projects.serviceAccounts.getAllowedLocations";
   return query;
 }
 

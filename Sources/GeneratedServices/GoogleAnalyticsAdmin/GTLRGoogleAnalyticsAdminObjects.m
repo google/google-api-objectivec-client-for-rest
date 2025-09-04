@@ -95,11 +95,24 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventData
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwentySixMonths = @"TWENTY_SIX_MONTHS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_EventDataRetention_TwoMonths = @"TWO_MONTHS";
 
+// GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings.userDataRetention
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FiftyMonths = @"FIFTY_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_FourteenMonths = @"FOURTEEN_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_RetentionDurationUnspecified = @"RETENTION_DURATION_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_ThirtyEightMonths = @"THIRTY_EIGHT_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwentySixMonths = @"TWENTY_SIX_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings_UserDataRetention_TwoMonths = @"TWO_MONTHS";
+
 // GTLRGoogleAnalyticsAdmin_V1betaDataStream.type
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_AndroidAppDataStream = @"ANDROID_APP_DATA_STREAM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_DataStreamTypeUnspecified = @"DATA_STREAM_TYPE_UNSPECIFIED";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_IosAppDataStream = @"IOS_APP_DATA_STREAM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaDataStream_Type_WebDataStream = @"WEB_DATA_STREAM";
+
+// GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.countingMethod
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_CountingMethodUnspecified = @"COUNTING_METHOD_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerEvent = @"ONCE_PER_EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaKeyEvent_CountingMethod_OncePerSession = @"ONCE_PER_SESSION";
 
 // GTLRGoogleAnalyticsAdmin_V1betaProperty.industryCategory
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaProperty_IndustryCategory_ArtsAndEntertainment = @"ARTS_AND_ENTERTAINMENT";
@@ -158,6 +171,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_AttributionSettings = @"ATTRIBUTION_SETTINGS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified = @"CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent = @"CONVERSION_EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension = @"CUSTOM_DIMENSION";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric = @"CUSTOM_METRIC";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_DataRetentionSettings = @"DATA_RETENTION_SETTINGS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_DataStream = @"DATA_STREAM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLink = @"DISPLAY_VIDEO_360_ADVERTISER_LINK";
@@ -409,7 +424,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1betaAccount
-@dynamic createTime, deleted, displayName, name, regionCode, updateTime;
+@dynamic createTime, deleted, displayName, gmpOrganization, name, regionCode,
+         updateTime;
 @end
 
 
@@ -578,7 +594,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings
-@dynamic eventDataRetention, name, resetUserDataOnNewActivity;
+@dynamic eventDataRetention, name, resetUserDataOnNewActivity,
+         userDataRetention;
 @end
 
 
@@ -654,6 +671,27 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 @implementation GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink
 @dynamic adsPersonalizationEnabled, canManageClients, createTime,
          creatorEmailAddress, customerId, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1betaKeyEvent
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1betaKeyEvent
+@dynamic countingMethod, createTime, custom, defaultValue, deletable, eventName,
+         name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1betaKeyEventDefaultValue
+@dynamic currencyCode, numericValue;
 @end
 
 
@@ -828,6 +866,28 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsReques
 
 + (NSString *)collectionItemsKey {
   return @"googleAdsLinks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1betaListKeyEventsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1betaListKeyEventsResponse
+@dynamic keyEvents, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keyEvents" : [GTLRGoogleAnalyticsAdmin_V1betaKeyEvent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"keyEvents";
 }
 
 @end

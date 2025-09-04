@@ -6,7 +6,7 @@
 // Description:
 //   Allows external bidders to manage their RTB integration with Google. This
 //   includes managing bidder endpoints, QPS quotas, configuring what ad
-//   inventory to receive via pretargeting, submitting creatives for
+//   inventory to receive with pretargeting, submitting creatives for
 //   verification, and accessing creative metadata such as approval status.
 // Documentation:
 //   https://developers.google.com/authorized-buyers/apis/realtimebidding/reference/rest/
@@ -127,6 +127,11 @@ NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_RichMediaCapabilityTypeSsl = @"RICH_MEDIA_CAPABILITY_TYPE_SSL";
 NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedAttributes_SkippableInstreamVideo = @"SKIPPABLE_INSTREAM_VIDEO";
 
+// GTLRRealTimeBidding_CreativeServingDecision.detectedCategoriesTaxonomy
+NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_AdCategoryTaxonomyUnspecified = @"AD_CATEGORY_TAXONOMY_UNSPECIFIED";
+NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_GoogleAdCategoryTaxonomy = @"GOOGLE_AD_CATEGORY_TAXONOMY";
+NSString * const kGTLRRealTimeBidding_CreativeServingDecision_DetectedCategoriesTaxonomy_IabContent10 = @"IAB_CONTENT_1_0";
+
 // GTLRRealTimeBidding_DestinationNotCrawlableEvidence.reason
 NSString * const kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
 NSString * const kGTLRRealTimeBidding_DestinationNotCrawlableEvidence_Reason_RobotedDenied = @"ROBOTED_DENIED";
@@ -229,6 +234,8 @@ NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedPlatforms_Table
 NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_DeviceId = @"DEVICE_ID";
 NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_GoogleCookie = @"GOOGLE_COOKIE";
 NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_HostedMatchData = @"HOSTED_MATCH_DATA";
+NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_PublisherFirstPartyId = @"PUBLISHER_FIRST_PARTY_ID";
+NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_PublisherProvidedId = @"PUBLISHER_PROVIDED_ID";
 NSString * const kGTLRRealTimeBidding_PretargetingConfig_IncludedUserIdTypes_UserIdTypeUnspecified = @"USER_ID_TYPE_UNSPECIFIED";
 
 // GTLRRealTimeBidding_PretargetingConfig.interstitialTargeting
@@ -540,8 +547,9 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 
 @implementation GTLRRealTimeBidding_CreativeServingDecision
 @dynamic adTechnologyProviders, chinaPolicyCompliance, dealsPolicyCompliance,
-         detectedAdvertisers, detectedAttributes, detectedClickThroughUrls,
-         detectedDomains, detectedLanguages, detectedProductCategories,
+         detectedAdvertisers, detectedAttributes, detectedCategories,
+         detectedCategoriesTaxonomy, detectedClickThroughUrls, detectedDomains,
+         detectedLanguages, detectedProductCategories,
          detectedSensitiveCategories, detectedVendorIds, lastStatusUpdate,
          networkPolicyCompliance, platformPolicyCompliance,
          russiaPolicyCompliance;
@@ -550,6 +558,7 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
   NSDictionary<NSString *, Class> *map = @{
     @"detectedAdvertisers" : [GTLRRealTimeBidding_AdvertiserAndBrand class],
     @"detectedAttributes" : [NSString class],
+    @"detectedCategories" : [NSString class],
     @"detectedClickThroughUrls" : [NSString class],
     @"detectedDomains" : [NSString class],
     @"detectedLanguages" : [NSString class],

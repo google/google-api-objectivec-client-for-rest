@@ -30,8 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 // datasetView
 
 /**
- *  Includes ACL information for the dataset, which defines dataset access for
- *  one or more entities.
+ *  View ACL information for the dataset, which defines dataset access for one
+ *  or more entities.
  *
  *  Value: "ACL"
  */
@@ -43,18 +43,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewAcl;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewDatasetViewUnspecified;
 /**
- *  Includes both dataset metadata and ACL information.
+ *  View both dataset metadata and ACL information.
  *
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewFull;
 /**
- *  Includes metadata information for the dataset, such as location, etag,
- *  lastModifiedTime, etc.
+ *  View metadata information for the dataset, such as friendlyName,
+ *  description, labels, etc.
  *
  *  Value: "METADATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryDatasetViewMetadata;
+
+// ----------------------------------------------------------------------------
+// formatOptionsTimestampOutputFormat
+
+/**
+ *  Timestamp is output as float64 seconds since Unix epoch.
+ *
+ *  Value: "FLOAT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatFloat64;
+/**
+ *  Timestamp is output as int64 microseconds since Unix epoch.
+ *
+ *  Value: "INT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatInt64;
+/**
+ *  Timestamp is output as ISO 8601 String
+ *  ("YYYY-MM-DDTHH:MM:SS.FFFFFFFFFFFFZ").
+ *
+ *  Value: "ISO8601_STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatIso8601String;
+/**
+ *  Corresponds to default API output behavior, which is FLOAT64.
+ *
+ *  Value: "TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryFormatOptionsTimestampOutputFormatTimestampOutputFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // projection
@@ -93,6 +122,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterPending;
  *  Value: "running"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
+
+// ----------------------------------------------------------------------------
+// updateMode
+
+/**
+ *  Includes ACL information for the dataset, which defines dataset access for
+ *  one or more entities.
+ *
+ *  Value: "UPDATE_ACL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryUpdateModeUpdateAcl;
+/**
+ *  Includes both dataset metadata and ACL information.
+ *
+ *  Value: "UPDATE_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryUpdateModeUpdateFull;
+/**
+ *  Includes metadata information for the dataset, such as friendlyName,
+ *  description, labels, etc.
+ *
+ *  Value: "UPDATE_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryUpdateModeUpdateMetadata;
+/**
+ *  The default value. Default to the UPDATE_FULL.
+ *
+ *  Value: "UPDATE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigqueryUpdateModeUpdateModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // view
@@ -199,6 +258,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_DatasetsGet : GTLRBigqueryQuery
 
+/**
+ *  Optional. The version of the access policy schema to fetch. Valid values are
+ *  0, 1, and 3. Requests specifying an invalid value will be rejected. Requests
+ *  for conditional access policy binding in datasets must specify version 3.
+ *  Dataset with no conditional role bindings in access policy may specify any
+ *  valid value or leave the field unset. This field will be mapped to [IAM
+ *  Policy version] (https://cloud.google.com/iam/docs/policies#versions) and
+ *  will be used to fetch policy from IAM. If unset or if 0 or 1 value is used
+ *  for dataset with conditional bindings, access entry with condition will have
+ *  role string appended by 'withcond' string followed by a hash value. For
+ *  example : { "access": [ { "role":
+ *  "roles/bigquery.dataViewer_with_conditionalbinding_7a34awqsda",
+ *  "userByEmail": "user\@example.com", } ] } Please refer
+ *  https://cloud.google.com/iam/docs/troubleshooting-withcond for more details.
+ */
+@property(nonatomic, assign) NSInteger accessPolicyVersion;
+
 /** Required. Dataset ID of the requested dataset */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
@@ -209,14 +285,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Likely values:
  *    @arg @c kGTLRBigqueryDatasetViewDatasetViewUnspecified The default value.
  *        Default to the FULL view. (Value: "DATASET_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRBigqueryDatasetViewMetadata Includes metadata information for
- *        the dataset, such as location, etag, lastModifiedTime, etc. (Value:
+ *    @arg @c kGTLRBigqueryDatasetViewMetadata View metadata information for the
+ *        dataset, such as friendlyName, description, labels, etc. (Value:
  *        "METADATA")
- *    @arg @c kGTLRBigqueryDatasetViewAcl Includes ACL information for the
- *        dataset, which defines dataset access for one or more entities.
- *        (Value: "ACL")
- *    @arg @c kGTLRBigqueryDatasetViewFull Includes both dataset metadata and
- *        ACL information. (Value: "FULL")
+ *    @arg @c kGTLRBigqueryDatasetViewAcl View ACL information for the dataset,
+ *        which defines dataset access for one or more entities. (Value: "ACL")
+ *    @arg @c kGTLRBigqueryDatasetViewFull View both dataset metadata and ACL
+ *        information. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *datasetView;
 
@@ -248,6 +323,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_DatasetsInsert : GTLRBigqueryQuery
+
+/**
+ *  Optional. The version of the provided access policy schema. Valid values are
+ *  0, 1, and 3. Requests specifying an invalid value will be rejected. This
+ *  version refers to the schema version of the access policy and not the
+ *  version of access policy. This field's value can be equal or more than the
+ *  access policy schema provided in the request. For example, * Requests with
+ *  conditional access policy binding in datasets must specify version 3. * But
+ *  dataset with no conditional role bindings in access policy may specify any
+ *  valid value or leave the field unset. If unset or if 0 or 1 value is used
+ *  for dataset with conditional bindings, request will be rejected. This field
+ *  will be mapped to IAM Policy version
+ *  (https://cloud.google.com/iam/docs/policies#versions) and will be used to
+ *  set policy in IAM.
+ */
+@property(nonatomic, assign) NSInteger accessPolicyVersion;
 
 /** Required. Project ID of the new dataset */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -285,10 +376,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  An expression for filtering the results of the request by label. The syntax
- *  is \\"labels.<name>[:<value>]\\". Multiple filters can be ANDed together by
- *  connecting with a space. Example: \\"labels.department:receiving
- *  labels.active\\". See [Filtering datasets using
- *  labels](/bigquery/docs/labeling-datasets#filtering_datasets_using_labels)
+ *  is `labels.[:]`. Multiple filters can be AND-ed together by connecting with
+ *  a space. Example: `labels.department:receiving labels.active`. See
+ *  [Filtering datasets using
+ *  labels](https://cloud.google.com/bigquery/docs/filtering-labels#filtering_datasets_using_labels)
  *  for details.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -339,11 +430,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_DatasetsPatch : GTLRBigqueryQuery
 
+/**
+ *  Optional. The version of the provided access policy schema. Valid values are
+ *  0, 1, and 3. Requests specifying an invalid value will be rejected. This
+ *  version refers to the schema version of the access policy and not the
+ *  version of access policy. This field's value can be equal or more than the
+ *  access policy schema provided in the request. For example, * Operations
+ *  updating conditional access policy binding in datasets must specify version
+ *  3. Some of the operations are : - Adding a new access policy entry with
+ *  condition. - Removing an access policy entry with condition. - Updating an
+ *  access policy entry with condition. * But dataset with no conditional role
+ *  bindings in access policy may specify any valid value or leave the field
+ *  unset. If unset or if 0 or 1 value is used for dataset with conditional
+ *  bindings, request will be rejected. This field will be mapped to IAM Policy
+ *  version (https://cloud.google.com/iam/docs/policies#versions) and will be
+ *  used to set policy in IAM.
+ */
+@property(nonatomic, assign) NSInteger accessPolicyVersion;
+
 /** Required. Dataset ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Required. Project ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Optional. Specifies the fields of dataset that update/patch operation is
+ *  targeting By default, both metadata and ACL fields are updated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateModeUnspecified The default value.
+ *        Default to the UPDATE_FULL. (Value: "UPDATE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateMetadata Includes metadata
+ *        information for the dataset, such as friendlyName, description,
+ *        labels, etc. (Value: "UPDATE_METADATA")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateAcl Includes ACL information for the
+ *        dataset, which defines dataset access for one or more entities.
+ *        (Value: "UPDATE_ACL")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateFull Includes both dataset metadata
+ *        and ACL information. (Value: "UPDATE_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *updateMode;
 
 /**
  *  Fetches a @c GTLRBigquery_Dataset.
@@ -417,11 +544,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_DatasetsUpdate : GTLRBigqueryQuery
 
+/**
+ *  Optional. The version of the provided access policy schema. Valid values are
+ *  0, 1, and 3. Requests specifying an invalid value will be rejected. This
+ *  version refers to the schema version of the access policy and not the
+ *  version of access policy. This field's value can be equal or more than the
+ *  access policy schema provided in the request. For example, * Operations
+ *  updating conditional access policy binding in datasets must specify version
+ *  3. Some of the operations are : - Adding a new access policy entry with
+ *  condition. - Removing an access policy entry with condition. - Updating an
+ *  access policy entry with condition. * But dataset with no conditional role
+ *  bindings in access policy may specify any valid value or leave the field
+ *  unset. If unset or if 0 or 1 value is used for dataset with conditional
+ *  bindings, request will be rejected. This field will be mapped to IAM Policy
+ *  version (https://cloud.google.com/iam/docs/policies#versions) and will be
+ *  used to set policy in IAM.
+ */
+@property(nonatomic, assign) NSInteger accessPolicyVersion;
+
 /** Required. Dataset ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** Required. Project ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Optional. Specifies the fields of dataset that update/patch operation is
+ *  targeting By default, both metadata and ACL fields are updated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateModeUnspecified The default value.
+ *        Default to the UPDATE_FULL. (Value: "UPDATE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateMetadata Includes metadata
+ *        information for the dataset, such as friendlyName, description,
+ *        labels, etc. (Value: "UPDATE_METADATA")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateAcl Includes ACL information for the
+ *        dataset, which defines dataset access for one or more entities.
+ *        (Value: "UPDATE_ACL")
+ *    @arg @c kGTLRBigqueryUpdateModeUpdateFull Includes both dataset metadata
+ *        and ACL information. (Value: "UPDATE_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *updateMode;
 
 /**
  *  Fetches a @c GTLRBigquery_Dataset.
@@ -459,11 +622,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location of the job. You must specify the location to run the
- *  job for the following scenarios: - If the location to run a job is not in
- *  the `us` or the `eu` multi-regional location - If the job's location is in a
- *  single region (for example, `us-central1`) For more information, see
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  The geographic location of the job. You must [specify the
+ *  location](https://cloud.google.com/bigquery/docs/locations#specify_locations)
+ *  to run the job for the following scenarios: * If the location to run a job
+ *  is not in the `us` or the `eu` multi-regional location * If the job's
+ *  location is in a single region (for example, `us-central1`)
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -508,8 +671,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  The geographic location of the job. Required. See details at:
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  The geographic location of the job. Required. For more information, see how
+ *  to [specify
+ *  locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -556,10 +720,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  The geographic location of the job. You must specify the location to run the
- *  job for the following scenarios: - If the location to run a job is not in
- *  the `us` or the `eu` multi-regional location - If the job's location is in a
- *  single region (for example, `us-central1`) For more information, see
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  job for the following scenarios: * If the location to run a job is not in
+ *  the `us` or the `eu` multi-regional location * If the job's location is in a
+ *  single region (for example, `us-central1`) For more information, see how to
+ *  [specify
+ *  locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -595,6 +760,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 @interface GTLRBigqueryQuery_JobsGetQueryResults : GTLRBigqueryQuery
 
+/**
+ *  Optional. The API output format for a timestamp. This offers more explicit
+ *  control over the timestamp output format as compared to the existing
+ *  `use_int64_timestamp` option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatTimestampOutputFormatUnspecified
+ *        Corresponds to default API output behavior, which is FLOAT64. (Value:
+ *        "TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatFloat64 Timestamp
+ *        is output as float64 seconds since Unix epoch. (Value: "FLOAT64")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatInt64 Timestamp is
+ *        output as int64 microseconds since Unix epoch. (Value: "INT64")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatIso8601String
+ *        Timestamp is output as ISO 8601 String
+ *        ("YYYY-MM-DDTHH:MM:SS.FFFFFFFFFFFFZ"). (Value: "ISO8601_STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *formatOptionsTimestampOutputFormat;
+
 /** Optional. Output timestamp as usec int64. Default is false. */
 @property(nonatomic, assign) BOOL formatOptionsUseInt64Timestamp;
 
@@ -603,10 +787,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /**
  *  The geographic location of the job. You must specify the location to run the
- *  job for the following scenarios: - If the location to run a job is not in
- *  the `us` or the `eu` multi-regional location - If the job's location is in a
- *  single region (for example, `us-central1`) For more information, see
- *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ *  job for the following scenarios: * If the location to run a job is not in
+ *  the `us` or the `eu` multi-regional location * If the job's location is in a
+ *  single region (for example, `us-central1`) For more information, see how to
+ *  [specify
+ *  locations](https://cloud.google.com/bigquery/docs/locations#specify_locations).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -1156,6 +1341,46 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: bigquery.routines.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RoutinesGetIamPolicy : GTLRBigqueryQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigquery_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param object The @c GTLRBigquery_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigqueryQuery_RoutinesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a new routine in the dataset.
  *
  *  Method: bigquery.routines.insert
@@ -1258,6 +1483,93 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: bigquery.routines.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_RoutinesSetIamPolicy : GTLRBigqueryQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigquery_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRBigquery_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigqueryQuery_RoutinesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: bigquery.routines.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RoutinesTestIamPermissions : GTLRBigqueryQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigquery_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRBigquery_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigqueryQuery_RoutinesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Updates information in an existing routine. The update method replaces the
  *  entire Routine resource.
  *
@@ -1299,6 +1611,150 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
+ *  Deletes provided row access policies.
+ *
+ *  Method: bigquery.rowAccessPolicies.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesBatchDelete : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to delete the row access policies. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the table to delete the row access policies. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to delete the row access policies. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes provided row access policies.
+ *
+ *  @param object The @c GTLRBigquery_BatchDeleteRowAccessPoliciesRequest to
+ *    include in the query.
+ *  @param projectId Required. Project ID of the table to delete the row access
+ *    policies.
+ *  @param datasetId Required. Dataset ID of the table to delete the row access
+ *    policies.
+ *  @param tableId Required. Table ID of the table to delete the row access
+ *    policies.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_BatchDeleteRowAccessPoliciesRequest *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId;
+
+@end
+
+/**
+ *  Deletes a row access policy.
+ *
+ *  Method: bigquery.rowAccessPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesDelete : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to delete the row access policy. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  If set to true, it deletes the row access policy even if it's the last row
+ *  access policy on the table and the deletion will widen the access rather
+ *  narrowing it.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. Policy ID of the row access policy. */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/** Required. Project ID of the table to delete the row access policy. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to delete the row access policy. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a row access policy.
+ *
+ *  @param projectId Required. Project ID of the table to delete the row access
+ *    policy.
+ *  @param datasetId Required. Dataset ID of the table to delete the row access
+ *    policy.
+ *  @param tableId Required. Table ID of the table to delete the row access
+ *    policy.
+ *  @param policyId Required. Policy ID of the row access policy.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesDelete
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId
+                          policyId:(NSString *)policyId;
+
+@end
+
+/**
+ *  Gets the specified row access policy by policy ID.
+ *
+ *  Method: bigquery.rowAccessPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesGet : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Policy ID of the row access policy. */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/** Required. Project ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Fetches a @c GTLRBigquery_RowAccessPolicy.
+ *
+ *  Gets the specified row access policy by policy ID.
+ *
+ *  @param projectId Required. Project ID of the table to get the row access
+ *    policy.
+ *  @param datasetId Required. Dataset ID of the table to get the row access
+ *    policy.
+ *  @param tableId Required. Table ID of the table to get the row access policy.
+ *  @param policyId Required. Policy ID of the row access policy.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesGet
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId
+                          policyId:(NSString *)policyId;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -1335,6 +1791,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  */
 + (instancetype)queryWithObject:(GTLRBigquery_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a row access policy.
+ *
+ *  Method: bigquery.rowAccessPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesInsert : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Project ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Fetches a @c GTLRBigquery_RowAccessPolicy.
+ *
+ *  Creates a row access policy.
+ *
+ *  @param object The @c GTLRBigquery_RowAccessPolicy to include in the query.
+ *  @param projectId Required. Project ID of the table to get the row access
+ *    policy.
+ *  @param datasetId Required. Dataset ID of the table to get the row access
+ *    policy.
+ *  @param tableId Required. Table ID of the table to get the row access policy.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_RowAccessPolicy *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId;
 
 @end
 
@@ -1439,6 +1937,53 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 @end
 
 /**
+ *  Updates a row access policy.
+ *
+ *  Method: bigquery.rowAccessPolicies.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesUpdate : GTLRBigqueryQuery
+
+/** Required. Dataset ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. Policy ID of the row access policy. */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/** Required. Project ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to get the row access policy. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Fetches a @c GTLRBigquery_RowAccessPolicy.
+ *
+ *  Updates a row access policy.
+ *
+ *  @param object The @c GTLRBigquery_RowAccessPolicy to include in the query.
+ *  @param projectId Required. Project ID of the table to get the row access
+ *    policy.
+ *  @param datasetId Required. Dataset ID of the table to get the row access
+ *    policy.
+ *  @param tableId Required. Table ID of the table to get the row access policy.
+ *  @param policyId Required. Policy ID of the row access policy.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRBigquery_RowAccessPolicy *)object
+                      projectId:(NSString *)projectId
+                      datasetId:(NSString *)datasetId
+                        tableId:(NSString *)tableId
+                       policyId:(NSString *)policyId;
+
+@end
+
+/**
  *  Streams data into BigQuery one record at a time without needing to run a
  *  load job.
  *
@@ -1495,6 +2040,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
 
 /** Required. Dataset id of the table to list. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  Optional. The API output format for a timestamp. This offers more explicit
+ *  control over the timestamp output format as compared to the existing
+ *  `use_int64_timestamp` option.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatTimestampOutputFormatUnspecified
+ *        Corresponds to default API output behavior, which is FLOAT64. (Value:
+ *        "TIMESTAMP_OUTPUT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatFloat64 Timestamp
+ *        is output as float64 seconds since Unix epoch. (Value: "FLOAT64")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatInt64 Timestamp is
+ *        output as int64 microseconds since Unix epoch. (Value: "INT64")
+ *    @arg @c kGTLRBigqueryFormatOptionsTimestampOutputFormatIso8601String
+ *        Timestamp is output as ISO 8601 String
+ *        ("YYYY-MM-DDTHH:MM:SS.FFFFFFFFFFFFZ"). (Value: "ISO8601_STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *formatOptionsTimestampOutputFormat;
 
 /** Optional. Output timestamp as usec int64. Default is false. */
 @property(nonatomic, assign) BOOL formatOptionsUseInt64Timestamp;

@@ -59,6 +59,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroup
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly;
 /**
+ *  Authorization scope: See and edit all of the Inbound SSO profiles and their
+ *  assignments to any Org Units or Google Groups in your Cloud Identity
+ *  Organization.
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.inboundsso"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityInboundsso;
+/**
+ *  Authorization scope: See all of the Inbound SSO profiles and their
+ *  assignments to any Org Units or Google Groups in your Cloud Identity
+ *  Organization.
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.inboundsso.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityInboundssoReadonly;
+/**
+ *  Authorization scope: See and edit policies in your Cloud Identity
+ *  Organization.
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.policies"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityPolicies;
+/**
+ *  Authorization scope: See policies in your Cloud Identity Organization.
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.policies.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityPoliciesReadonly;
+/**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
  *

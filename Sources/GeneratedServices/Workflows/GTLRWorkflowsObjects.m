@@ -24,6 +24,11 @@ NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogAllCalls = @"LOG_ALL_CA
 NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogErrorsOnly = @"LOG_ERRORS_ONLY";
 NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogNone  = @"LOG_NONE";
 
+// GTLRWorkflows_Workflow.executionHistoryLevel
+NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryBasic = @"EXECUTION_HISTORY_BASIC";
+NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryDetailed = @"EXECUTION_HISTORY_DETAILED";
+NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryLevelUnspecified = @"EXECUTION_HISTORY_LEVEL_UNSPECIFIED";
+
 // GTLRWorkflows_Workflow.state
 NSString * const kGTLRWorkflows_Workflow_State_Active          = @"ACTIVE";
 NSString * const kGTLRWorkflows_Workflow_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -261,12 +266,22 @@ NSString * const kGTLRWorkflows_Workflow_State_Unavailable     = @"UNAVAILABLE";
 //
 
 @implementation GTLRWorkflows_Workflow
-@dynamic callLogLevel, createTime, cryptoKeyName, descriptionProperty, labels,
-         name, revisionCreateTime, revisionId, serviceAccount, sourceContents,
-         state, stateError, updateTime, userEnvVars;
+@dynamic allKmsKeys, allKmsKeysVersions, callLogLevel, createTime,
+         cryptoKeyName, cryptoKeyVersion, descriptionProperty,
+         executionHistoryLevel, labels, name, revisionCreateTime, revisionId,
+         serviceAccount, sourceContents, state, stateError, tags, updateTime,
+         userEnvVars;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allKmsKeys" : [NSString class],
+    @"allKmsKeysVersions" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -278,6 +293,20 @@ NSString * const kGTLRWorkflows_Workflow_State_Unavailable     = @"UNAVAILABLE";
 //
 
 @implementation GTLRWorkflows_Workflow_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkflows_Workflow_Tags
+//
+
+@implementation GTLRWorkflows_Workflow_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

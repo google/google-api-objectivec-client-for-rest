@@ -526,7 +526,14 @@
 
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesCreate
 
-@dynamic parent, releaseId, requestId, validateOnly;
+@dynamic overrideDeployPolicy, parent, releaseId, requestId, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRCloudDeploy_Release *)object
                          parent:(NSString *)parent {
@@ -672,7 +679,15 @@
 
 @implementation GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCreate
 
-@dynamic parent, requestId, rolloutId, startingPhaseId, validateOnly;
+@dynamic overrideDeployPolicy, parent, requestId, rolloutId, startingPhaseId,
+         validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRCloudDeploy_Rollout *)object
                          parent:(NSString *)parent {
@@ -935,6 +950,171 @@
 
 @end
 
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesCreate
+
+@dynamic deployPolicyId, parent, requestId, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_DeployPolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deployPolicies";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesDelete
+
+@dynamic allowMissing, ETag, name, requestId, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_DeployPolicy class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudDeploy_Policy class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deployPolicies";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDeploy_ListDeployPoliciesResponse class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesPatch
+
+@dynamic allowMissing, name, requestId, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_DeployPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDeploy_Operation class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudDeploy_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudDeploy_Policy class];
+  query.loggingName = @"clouddeploy.projects.locations.deployPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDeployQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -975,7 +1155,14 @@
 
 @implementation GTLRCloudDeployQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

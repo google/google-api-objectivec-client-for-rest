@@ -8,7 +8,7 @@
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
 //   available through the Gmail Postmaster Tools UI currently.
 // Documentation:
-//   https://developers.google.com/gmail/postmaster
+//   https://developers.google.com/workspace/gmail/postmaster
 
 #import "GTLRPostmasterToolsObjects.h"
 #import "GTLRPostmasterToolsQuery.h"

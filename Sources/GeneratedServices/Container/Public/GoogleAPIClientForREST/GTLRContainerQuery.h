@@ -7,7 +7,7 @@
 //   Builds and manages container-based applications, powered by the open source
 //   Kubernetes technology.
 // Documentation:
-//   https://cloud.google.com/container-engine/
+//   https://cloud.google.com/kubernetes-engine/docs/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -161,7 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a cluster, consisting of the specified number and type of Google
  *  Compute Engine instances. By default, the cluster is created in the
  *  project's [default
- *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
+ *  network](https://{$universe.dns_names.final_documentation_domain}/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation, the Kubelet
  *  creates routes for each node to allow the containers on that node to
  *  communicate with all other instances in the cluster. Finally, an entry is
@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a cluster, consisting of the specified number and type of Google
  *  Compute Engine instances. By default, the cluster is created in the
  *  project's [default
- *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
+ *  network](https://{$universe.dns_names.final_documentation_domain}/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation, the Kubelet
  *  creates routes for each node to allow the containers on that node to
  *  communicate with all other instances in the cluster. Finally, an entry is
@@ -234,16 +234,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -262,6 +262,41 @@ NS_ASSUME_NONNULL_BEGIN
  *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch upgrade information of a specific cluster.
+ *
+ *  Method: container.projects.locations.clusters.fetchClusterUpgradeInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersFetchClusterUpgradeInfo : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster) of the cluster to get.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *` or
+ *  `projects/ * /zones/ * /clusters/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Fetches a @c GTLRContainer_ClusterUpgradeInfo.
+ *
+ *  Fetch upgrade information of a specific cluster.
+ *
+ *  @param name Required. The name (project, location, cluster) of the cluster
+ *    to get. Specified in the format `projects/ * /locations/ * /clusters/ *`
+ *    or `projects/ * /zones/ * /clusters/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersFetchClusterUpgradeInfo
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -291,16 +326,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -370,16 +405,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides, or "-" for all zones. This field has been deprecated and
- *  replaced by the parent field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides, or "-" for all zones. This field has been
+ *  deprecated and replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -503,16 +538,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -528,6 +563,42 @@ NS_ASSUME_NONNULL_BEGIN
  *    /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch upgrade information of a specific nodepool.
+ *
+ *  Method: container.projects.locations.clusters.nodePools.fetchNodePoolUpgradeInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsFetchNodePoolUpgradeInfo : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster, nodepool) of the nodepool to
+ *  get. Specified in the format `projects/ * /locations/ * /clusters/ *
+ *  /nodePools/ *` or `projects/ * /zones/ * /clusters/ * /nodePools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Fetches a @c GTLRContainer_NodePoolUpgradeInfo.
+ *
+ *  Fetch upgrade information of a specific nodepool.
+ *
+ *  @param name Required. The name (project, location, cluster, nodepool) of the
+ *    nodepool to get. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ * /nodePools/ *` or `projects/ * /zones/ * /clusters/ *
+ *    /nodePools/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsFetchNodePoolUpgradeInfo
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -564,16 +635,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -618,16 +689,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the parent
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -896,7 +967,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the locations for a specific cluster. Deprecated. Use
- *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
+ *  [projects.locations.clusters.update](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  Method: container.projects.locations.clusters.setLocations
@@ -917,7 +988,7 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRContainer_Operation.
  *
  *  Sets the locations for a specific cluster. Deprecated. Use
- *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
+ *  [projects.locations.clusters.update](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
@@ -1289,16 +1360,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) to return
- *  operations for. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  to return operations for. This field has been deprecated and replaced by the
+ *  name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1376,16 +1447,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1424,16 +1495,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) to return
- *  operations for, or `-` for all zones. This field has been deprecated and
- *  replaced by the parent field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  to return operations for, or `-` for all zones. This field has been
+ *  deprecated and replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1472,16 +1543,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1496,12 +1567,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -1532,16 +1603,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1556,12 +1627,12 @@ GTLR_DEPRECATED
  *    the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster. This field has been
  *    deprecated and replaced by the name field.
  *
@@ -1578,7 +1649,7 @@ GTLR_DEPRECATED
  *  Creates a cluster, consisting of the specified number and type of Google
  *  Compute Engine instances. By default, the cluster is created in the
  *  project's [default
- *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
+ *  network](https://{$universe.dns_names.final_documentation_domain}/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation, the Kubelet
  *  creates routes for each node to allow the containers on that node to
  *  communicate with all other instances in the cluster. Finally, an entry is
@@ -1594,16 +1665,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the parent
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1615,7 +1686,7 @@ GTLR_DEPRECATED
  *  Creates a cluster, consisting of the specified number and type of Google
  *  Compute Engine instances. By default, the cluster is created in the
  *  project's [default
- *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
+ *  network](https://{$universe.dns_names.final_documentation_domain}/compute/docs/networks-and-firewalls#networks).
  *  One firewall is added for the cluster. After cluster creation, the Kubelet
  *  creates routes for each node to allow the containers on that node to
  *  communicate with all other instances in the cluster. Finally, an entry is
@@ -1626,12 +1697,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the parent
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the parent field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersCreate
  */
@@ -1669,16 +1740,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1695,12 +1766,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to delete. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -1709,6 +1780,41 @@ GTLR_DEPRECATED
 + (instancetype)queryWithProjectId:(NSString *)projectId
                       zoneProperty:(NSString *)zoneProperty
                          clusterId:(NSString *)clusterId;
+
+@end
+
+/**
+ *  Fetch upgrade information of a specific cluster.
+ *
+ *  Method: container.projects.zones.clusters.fetchClusterUpgradeInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersFetchClusterUpgradeInfo : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster) of the cluster to get.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ *` or
+ *  `projects/ * /zones/ * /clusters/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Fetches a @c GTLRContainer_ClusterUpgradeInfo.
+ *
+ *  Fetch upgrade information of a specific cluster.
+ *
+ *  @param name Required. The name (project, location, cluster) of the cluster
+ *    to get. Specified in the format `projects/ * /locations/ * /clusters/ *`
+ *    or `projects/ * /zones/ * /clusters/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsZonesClustersFetchClusterUpgradeInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1736,16 +1842,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1758,12 +1864,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to retrieve. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -1793,16 +1899,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1817,12 +1923,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to update. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -1855,16 +1961,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides, or "-" for all zones. This field has been deprecated and
- *  replaced by the parent field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides, or "-" for all zones. This field has been
+ *  deprecated and replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1878,12 +1984,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides, or "-" for all zones. This field has been deprecated and
- *    replaced by the parent field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides, or "-" for all zones. This field has been
+ *    deprecated and replaced by the parent field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersList
  */
@@ -1894,7 +2000,7 @@ GTLR_DEPRECATED
 
 /**
  *  Sets the locations for a specific cluster. Deprecated. Use
- *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
+ *  [projects.locations.clusters.update](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  Method: container.projects.zones.clusters.locations
@@ -1913,16 +2019,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1932,19 +2038,19 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRContainer_Operation.
  *
  *  Sets the locations for a specific cluster. Deprecated. Use
- *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
+ *  [projects.locations.clusters.update](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -1975,16 +2081,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -1999,12 +2105,12 @@ GTLR_DEPRECATED
  *    the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -2035,16 +2141,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2059,12 +2165,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -2095,16 +2201,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2119,12 +2225,12 @@ GTLR_DEPRECATED
  *    the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -2161,16 +2267,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2185,12 +2291,12 @@ GTLR_DEPRECATED
  *    in the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to upgrade. This
@@ -2224,16 +2330,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the parent
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2248,12 +2354,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the parent
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the parent field.
  *  @param clusterId Deprecated. The name of the cluster. This field has been
  *    deprecated and replaced by the parent field.
  *
@@ -2297,16 +2403,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2319,12 +2425,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster. This field has been
  *    deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to delete. This
@@ -2336,6 +2442,42 @@ GTLR_DEPRECATED
                       zoneProperty:(NSString *)zoneProperty
                          clusterId:(NSString *)clusterId
                         nodePoolId:(NSString *)nodePoolId;
+
+@end
+
+/**
+ *  Fetch upgrade information of a specific nodepool.
+ *
+ *  Method: container.projects.zones.clusters.nodePools.fetchNodePoolUpgradeInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerCloudPlatform
+ */
+@interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsFetchNodePoolUpgradeInfo : GTLRContainerQuery
+
+/**
+ *  Required. The name (project, location, cluster, nodepool) of the nodepool to
+ *  get. Specified in the format `projects/ * /locations/ * /clusters/ *
+ *  /nodePools/ *` or `projects/ * /zones/ * /clusters/ * /nodePools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** API request version that initiates this operation. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Fetches a @c GTLRContainer_NodePoolUpgradeInfo.
+ *
+ *  Fetch upgrade information of a specific nodepool.
+ *
+ *  @param name Required. The name (project, location, cluster, nodepool) of the
+ *    nodepool to get. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ * /nodePools/ *` or `projects/ * /zones/ * /clusters/ *
+ *    /nodePools/ *`.
+ *
+ *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsFetchNodePoolUpgradeInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2370,16 +2512,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2392,12 +2534,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster. This field has been
  *    deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool. This field has been
@@ -2436,16 +2578,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the parent
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2458,12 +2600,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the parent
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the parent field.
  *  @param clusterId Deprecated. The name of the cluster. This field has been
  *    deprecated and replaced by the parent field.
  *
@@ -2500,16 +2642,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2525,12 +2667,12 @@ GTLR_DEPRECATED
  *    in the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to rollback. This field
  *    has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to rollback. This
@@ -2570,16 +2712,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2594,12 +2736,12 @@ GTLR_DEPRECATED
  *    in the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to update. This field
  *    has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to update. This
@@ -2640,16 +2782,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2665,12 +2807,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to update. This field
  *    has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to update. This
@@ -2710,16 +2852,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2734,12 +2876,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *  @param nodePoolId Deprecated. The name of the node pool to upgrade. This
@@ -2773,16 +2915,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2796,12 +2938,12 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRContainer_SetLabelsRequest to include in the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster. This field has been
  *    deprecated and replaced by the name field.
  *
@@ -2829,14 +2971,14 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Required. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2851,10 +2993,10 @@ GTLR_DEPRECATED
  *    the query.
  *  @param projectId Required. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  @param zoneProperty Required. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides.
  *  @param clusterId Required. The name of the cluster to update.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy
@@ -2886,16 +3028,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2912,12 +3054,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -2948,16 +3090,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -2972,12 +3114,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster. This field has been
  *    deprecated and replaced by the name field.
  *
@@ -3008,16 +3150,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3032,12 +3174,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster. This field has been
  *    deprecated and replaced by the name field.
  *
@@ -3068,16 +3210,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3092,12 +3234,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
  *    has been deprecated and replaced by the name field.
  *
@@ -3128,16 +3270,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) to return
- *  operations for. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  to return operations for. This field has been deprecated and replaced by the
+ *  name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3150,12 +3292,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) to return
- *    operations for. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    to return operations for. This field has been deprecated and replaced by
+ *    the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesGetServerconfig
  */
@@ -3182,16 +3324,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  operation resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the operation resides. This field has been deprecated and replaced
+ *  by the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3206,12 +3348,12 @@ GTLR_DEPRECATED
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    operation resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the operation resides. This field has been deprecated and
+ *    replaced by the name field.
  *  @param operationId Deprecated. The server-assigned `name` of the operation.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -3248,16 +3390,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3270,12 +3412,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *    cluster resides. This field has been deprecated and replaced by the name
- *    field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    in which the cluster resides. This field has been deprecated and replaced
+ *    by the name field.
  *  @param operationId Deprecated. The server-assigned `name` of the operation.
  *    This field has been deprecated and replaced by the name field.
  *
@@ -3306,16 +3448,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) to return
- *  operations for, or `-` for all zones. This field has been deprecated and
- *  replaced by the parent field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  to return operations for, or `-` for all zones. This field has been
+ *  deprecated and replaced by the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3328,12 +3470,12 @@ GTLR_DEPRECATED
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
  *    project
- *    number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *    number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *    This field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
- *    [zone](https://cloud.google.com/compute/docs/zones#available) to return
- *    operations for, or `-` for all zones. This field has been deprecated and
- *    replaced by the parent field.
+ *    [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *    to return operations for, or `-` for all zones. This field has been
+ *    deprecated and replaced by the parent field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesOperationsList
  */

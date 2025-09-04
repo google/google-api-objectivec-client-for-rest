@@ -29,6 +29,44 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashD
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashDetail_ThreatType_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
+// GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata.hashLength
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_EightBytes = @"EIGHT_BYTES";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_FourBytes = @"FOUR_BYTES";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_HashLengthUnspecified = @"HASH_LENGTH_UNSPECIFIED";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_SixteenBytes = @"SIXTEEN_BYTES";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_HashLength_ThirtyTwoBytes = @"THIRTY_TWO_BYTES";
+
+// GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata.likelySafeTypes
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_LikelySafeTypes_Csd = @"CSD";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_LikelySafeTypes_Download = @"DOWNLOAD";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_LikelySafeTypes_GeneralBrowsing = @"GENERAL_BROWSING";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_LikelySafeTypes_LikelySafeTypeUnspecified = @"LIKELY_SAFE_TYPE_UNSPECIFIED";
+
+// GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata.threatTypes
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_Malware = @"MALWARE";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_PotentiallyHarmfulApplication = @"POTENTIALLY_HARMFUL_APPLICATION";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_SocialEngineering = @"SOCIAL_ENGINEERING";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5BatchGetHashListsResponse
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5BatchGetHashListsResponse
+@dynamic hashLists;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hashLists" : [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList class]
+  };
+  return map;
+}
+
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHash
@@ -62,6 +100,104 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHashFullHashD
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList
+@dynamic additionsEightBytes, additionsFourBytes, additionsSixteenBytes,
+         additionsThirtyTwoBytes, compressedRemovals, metadata,
+         minimumWaitDuration, name, partialUpdate, sha256Checksum, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata
+@dynamic descriptionProperty, hashLength, likelySafeTypes, threatTypes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"likelySafeTypes" : [NSString class],
+    @"threatTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ListHashListsResponse
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ListHashListsResponse
+@dynamic hashLists, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hashLists" : [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"hashLists";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded128Bit
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded128Bit
+@dynamic encodedData, entriesCount, firstValueHi, firstValueLo, riceParameter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded256Bit
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded256Bit
+@dynamic encodedData, entriesCount, firstValueFirstPart, firstValueFourthPart,
+         firstValueSecondPart, firstValueThirdPart, riceParameter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded32Bit
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded32Bit
+@dynamic encodedData, entriesCount, firstValue, riceParameter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded64Bit
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded64Bit
+@dynamic encodedData, entriesCount, firstValue, riceParameter;
 @end
 
 

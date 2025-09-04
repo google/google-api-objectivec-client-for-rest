@@ -14,6 +14,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudAsset_AssetException.exceptionType
+NSString * const kGTLRCloudAsset_AssetException_ExceptionType_ExceptionTypeUnspecified = @"EXCEPTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_AssetException_ExceptionType_Truncation = @"TRUNCATION";
+
 // GTLRCloudAsset_AuditLogConfig.logType
 NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -61,7 +65,9 @@ NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_ActionType_D
 // GTLRCloudAsset_GoogleCloudAssetV1CustomConstraint.methodTypes
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Create = @"CREATE";
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Delete = @"DELETE";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_GovernTags = @"GOVERN_TAGS";
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_MethodTypeUnspecified = @"METHOD_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_RemoveGrant = @"REMOVE_GRANT";
 NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Update = @"UPDATE";
 
 // GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
@@ -343,18 +349,39 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_Asset
-@dynamic accessLevel, accessPolicy, ancestors, assetType, iamPolicy, name,
-         orgPolicy, osInventory, relatedAsset, relatedAssets, resource,
-         servicePerimeter, updateTime;
+@dynamic accessLevel, accessPolicy, ancestors, assetExceptions, assetType,
+         iamPolicy, name, orgPolicy, osInventory, relatedAsset, relatedAssets,
+         resource, servicePerimeter, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ancestors" : [NSString class],
+    @"assetExceptions" : [GTLRCloudAsset_AssetException class],
     @"orgPolicy" : [GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AssetEnrichment
+//
+
+@implementation GTLRCloudAsset_AssetEnrichment
+@dynamic resourceOwners;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AssetException
+//
+
+@implementation GTLRCloudAsset_AssetException
+@dynamic details, exceptionType;
 @end
 
 
@@ -1233,7 +1260,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressPolicy
-@dynamic egressFrom, egressTo;
+@dynamic egressFrom, egressTo, title;
 @end
 
 
@@ -1243,7 +1270,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressSource
-@dynamic accessLevel;
+@dynamic accessLevel, resource;
 @end
 
 
@@ -1253,13 +1280,14 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo
-@dynamic externalResources, operations, resources;
+@dynamic externalResources, operations, resources, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"externalResources" : [NSString class],
     @"operations" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation class],
-    @"resources" : [NSString class]
+    @"resources" : [NSString class],
+    @"roles" : [NSString class]
   };
   return map;
 }
@@ -1292,7 +1320,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressPolicy
-@dynamic ingressFrom, ingressTo;
+@dynamic ingressFrom, ingressTo, title;
 @end
 
 
@@ -1312,12 +1340,13 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressTo
-@dynamic operations, resources;
+@dynamic operations, resources, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"operations" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation class],
-    @"resources" : [NSString class]
+    @"resources" : [NSString class],
+    @"roles" : [NSString class]
   };
   return map;
 }
@@ -1351,11 +1380,15 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter
-@dynamic descriptionProperty, name, perimeterType, spec, status, title,
+@dynamic descriptionProperty, ETag, name, perimeterType, spec, status, title,
          useExplicitDryRunSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end
@@ -2007,13 +2040,31 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_ResourceOwners
+//
+
+@implementation GTLRCloudAsset_ResourceOwners
+@dynamic resourceOwners;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceOwners" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_ResourceSearchResult
 //
 
 @implementation GTLRCloudAsset_ResourceSearchResult
 @dynamic additionalAttributes, assetType, attachedResources, createTime,
-         descriptionProperty, displayName, effectiveTags, folders, kmsKey,
-         kmsKeys, labels, location, name, networkTags, organization,
+         descriptionProperty, displayName, effectiveTags, enrichments, folders,
+         kmsKey, kmsKeys, labels, location, name, networkTags, organization,
          parentAssetType, parentFullResourceName, project, relationships,
          sccSecurityMarks, state, tagKeys, tags, tagValueIds, tagValues,
          updateTime, versionedResources;
@@ -2026,6 +2077,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   NSDictionary<NSString *, Class> *map = @{
     @"attachedResources" : [GTLRCloudAsset_AttachedResource class],
     @"effectiveTags" : [GTLRCloudAsset_EffectiveTagDetails class],
+    @"enrichments" : [GTLRCloudAsset_AssetEnrichment class],
     @"folders" : [NSString class],
     @"kmsKeys" : [NSString class],
     @"networkTags" : [NSString class],
@@ -2266,7 +2318,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_Tag
-@dynamic tagKey, tagValue, tagValueId;
+@dynamic tagKey, tagKeyId, tagValue, tagValueId;
 @end
 
 

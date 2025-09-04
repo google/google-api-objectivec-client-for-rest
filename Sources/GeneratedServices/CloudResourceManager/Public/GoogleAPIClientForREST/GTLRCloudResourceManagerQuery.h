@@ -83,6 +83,82 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves the Capability identified by the supplied resource name.
+ *
+ *  Method: cloudresourcemanager.folders.capabilities.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilitiesGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The name of the capability to get. For example,
+ *  `folders/123/capabilities/app-management`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Capability.
+ *
+ *  Retrieves the Capability identified by the supplied resource name.
+ *
+ *  @param name Required. The name of the capability to get. For example,
+ *    `folders/123/capabilities/app-management`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilitiesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the Capability.
+ *
+ *  Method: cloudresourcemanager.folders.capabilities.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_FoldersCapabilitiesPatch : GTLRCloudResourceManagerQuery
+
+/**
+ *  Immutable. Identifier. The resource name of the capability. Must be in the
+ *  following form: * `folders/{folder_id}/capabilities/{capability_name}` For
+ *  example, `folders/123/capabilities/app-management` Following are the allowed
+ *  {capability_name} values: * `app-management`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. Only [Capability.value] can be
+ *  updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates the Capability.
+ *
+ *  @param object The @c GTLRCloudResourceManager_Capability to include in the
+ *    query.
+ *  @param name Immutable. Identifier. The resource name of the capability. Must
+ *    be in the following form: *
+ *    `folders/{folder_id}/capabilities/{capability_name}` For example,
+ *    `folders/123/capabilities/app-management` Following are the allowed
+ *    {capability_name} values: * `app-management`
+ *
+ *  @return GTLRCloudResourceManagerQuery_FoldersCapabilitiesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Capability *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a folder in the resource hierarchy. Returns an `Operation` which can
  *  be used to track the progress of the folder creation workflow. Upon success,
  *  the `Operation.response` field will be populated with the created Folder. In
@@ -404,7 +480,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_FoldersPatch : GTLRCloudResourceManagerQuery
 
 /**
- *  Output only. The resource name of the folder. Its format is
+ *  Identifier. The resource name of the folder. Its format is
  *  `folders/{folder_id}`, for example: "folders/1234".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -432,7 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudResourceManager_Folder to include in the
  *    query.
- *  @param name Output only. The resource name of the folder. Its format is
+ *  @param name Identifier. The resource name of the folder. Its format is
  *    `folders/{folder_id}`, for example: "folders/1234".
  *
  *  @return GTLRCloudResourceManagerQuery_FoldersPatch
@@ -783,6 +859,121 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns effective tag bindings on a GCP resource.
+ *
+ *  Method: cloudresourcemanager.locations.effectiveTagBindingCollections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_LocationsEffectiveTagBindingCollectionsGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The full name of the EffectiveTagBindingCollection in format:
+ *  `locations/{location}/effectiveTagBindingCollections/{encoded-full-resource-name}`
+ *  where the encoded-full-resource-name is the UTF-8 encoded name of the
+ *  resource the TagBindings are bound to. E.g.
+ *  "locations/global/effectiveTagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_EffectiveTagBindingCollection.
+ *
+ *  Returns effective tag bindings on a GCP resource.
+ *
+ *  @param name Required. The full name of the EffectiveTagBindingCollection in
+ *    format:
+ *    `locations/{location}/effectiveTagBindingCollections/{encoded-full-resource-name}`
+ *    where the encoded-full-resource-name is the UTF-8 encoded name of the
+ *    resource the TagBindings are bound to. E.g.
+ *    "locations/global/effectiveTagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ *
+ *  @return GTLRCloudResourceManagerQuery_LocationsEffectiveTagBindingCollectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns tag bindings directly attached to a GCP resource.
+ *
+ *  Method: cloudresourcemanager.locations.tagBindingCollections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatformReadOnly
+ */
+@interface GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsGet : GTLRCloudResourceManagerQuery
+
+/**
+ *  Required. The full name of the TagBindingCollection in format:
+ *  `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *  where the enoded-full-resource-name is the UTF-8 encoded name of the
+ *  resource the TagBindings are bound to. E.g.
+ *  "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_TagBindingCollection.
+ *
+ *  Returns tag bindings directly attached to a GCP resource.
+ *
+ *  @param name Required. The full name of the TagBindingCollection in format:
+ *    `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *    where the enoded-full-resource-name is the UTF-8 encoded name of the
+ *    resource the TagBindings are bound to. E.g.
+ *    "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ *
+ *  @return GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates tag bindings directly attached to a GCP resource.
+ *
+ *  Method: cloudresourcemanager.locations.tagBindingCollections.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
+ */
+@interface GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsUpdate : GTLRCloudResourceManagerQuery
+
+/**
+ *  Identifier. The name of the TagBindingCollection, following the convention:
+ *  `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *  where the encoded-full-resource-name is the UTF-8 encoded name of the GCP
+ *  resource the TagBindings are bound to.
+ *  "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudResourceManager_Operation.
+ *
+ *  Updates tag bindings directly attached to a GCP resource.
+ *
+ *  @param object The @c GTLRCloudResourceManager_TagBindingCollection to
+ *    include in the query.
+ *  @param name Identifier. The name of the TagBindingCollection, following the
+ *    convention:
+ *    `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *    where the encoded-full-resource-name is the UTF-8 encoded name of the GCP
+ *    resource the TagBindings are bound to.
+ *    "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ *
+ *  @return GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagBindingCollection *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -1084,9 +1275,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  checked by retrieving the project with GetProject, and the project remains
  *  visible to ListProjects. However, you cannot update the project. After the
  *  deletion completes, the project is not retrievable by the GetProject,
- *  ListProjects, and SearchProjects methods. This method behaves idempotently,
- *  such that deleting a `DELETE_REQUESTED` project will not cause an error, but
- *  also won't do anything. The caller must have
+ *  ListProjects, and SearchProjects methods. The caller must have
  *  `resourcemanager.projects.delete` permissions for this project.
  *
  *  Method: cloudresourcemanager.projects.delete
@@ -1113,9 +1302,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  checked by retrieving the project with GetProject, and the project remains
  *  visible to ListProjects. However, you cannot update the project. After the
  *  deletion completes, the project is not retrievable by the GetProject,
- *  ListProjects, and SearchProjects methods. This method behaves idempotently,
- *  such that deleting a `DELETE_REQUESTED` project will not cause an error, but
- *  also won't do anything. The caller must have
+ *  ListProjects, and SearchProjects methods. The caller must have
  *  `resourcemanager.projects.delete` permissions for this project.
  *
  *  @param name Required. The name of the Project (for example,

@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Docs documents.
 // Documentation:
-//   https://developers.google.com/docs/
+//   https://developers.google.com/workspace/docs/
 
 #import <GoogleAPIClientForREST/GTLRDocsQuery.h>
 
@@ -80,7 +80,7 @@ NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline = @"SUGGESTIONS_I
 
 @implementation GTLRDocsQuery_DocumentsGet
 
-@dynamic documentId, suggestionsViewMode;
+@dynamic documentId, includeTabsContent, suggestionsViewMode;
 
 + (instancetype)queryWithDocumentId:(NSString *)documentId {
   NSArray *pathParams = @[ @"documentId" ];

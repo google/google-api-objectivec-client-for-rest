@@ -411,8 +411,8 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_ContainerVersionHeader
 @dynamic accountId, containerId, containerVersionId, deleted, name, numClients,
-         numCustomTemplates, numGtagConfigs, numMacros, numRules, numTags,
-         numTransformations, numTriggers, numVariables, numZones, path;
+         numCustomTemplates, numGtagConfigs, numTags, numTransformations,
+         numTriggers, numVariables, numZones, path;
 @end
 
 
@@ -546,7 +546,8 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_GalleryReference
-@dynamic host, isModified, owner, repository, signature, version;
+@dynamic galleryTemplateId, host, isModified, owner, repository, signature,
+         templateDeveloperId, version;
 @end
 
 
@@ -556,7 +557,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_GetContainerSnippetResponse
-@dynamic snippet;
+@dynamic containerConfig, snippet;
 @end
 
 
@@ -1173,18 +1174,15 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Tag
-@dynamic accountId, blockingRuleId, blockingTriggerId, consentSettings,
-         containerId, fingerprint, firingRuleId, firingTriggerId, liveOnly,
-         monitoringMetadata, monitoringMetadataTagNameKey, name, notes,
-         parameter, parentFolderId, path, paused, priority, scheduleEndMs,
-         scheduleStartMs, setupTag, tagFiringOption, tagId, tagManagerUrl,
-         teardownTag, type, workspaceId;
+@dynamic accountId, blockingTriggerId, consentSettings, containerId,
+         fingerprint, firingTriggerId, liveOnly, monitoringMetadata,
+         monitoringMetadataTagNameKey, name, notes, parameter, parentFolderId,
+         path, paused, priority, scheduleEndMs, scheduleStartMs, setupTag,
+         tagFiringOption, tagId, tagManagerUrl, teardownTag, type, workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"blockingRuleId" : [NSString class],
     @"blockingTriggerId" : [NSString class],
-    @"firingRuleId" : [NSString class],
     @"firingTriggerId" : [NSString class],
     @"parameter" : [GTLRTagManager_Parameter class],
     @"setupTag" : [GTLRTagManager_SetupTag class],

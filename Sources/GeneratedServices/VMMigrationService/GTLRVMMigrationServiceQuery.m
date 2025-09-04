@@ -216,9 +216,165 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
 
 @end
 
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsCreate
+
+@dynamic imageImportId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_ImageImport *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/imageImports";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.imageImports.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.imageImports.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_ImageImport class];
+  query.loggingName = @"vmmigration.projects.locations.imageImports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_CancelImageImportJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.imageImports.imageImportJobs.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_ImageImportJob class];
+  query.loggingName = @"vmmigration.projects.locations.imageImports.imageImportJobs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/imageImportJobs";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsImageImportJobsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMMigrationService_ListImageImportJobsResponse class];
+  query.loggingName = @"vmmigration.projects.locations.imageImports.imageImportJobs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/imageImports";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsImageImportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMMigrationService_ListImageImportsResponse class];
+  query.loggingName = @"vmmigration.projects.locations.imageImports.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMMigrationServiceQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -758,6 +914,33 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
   query.name = name;
   query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
   query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsExtendMigration
+
+@dynamic migratingVm;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_ExtendMigrationRequest *)object
+                    migratingVm:(NSString *)migratingVm {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"migratingVm" ];
+  NSString *pathURITemplate = @"v1/{+migratingVm}:extendMigration";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsExtendMigration *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.migratingVm = migratingVm;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.sources.migratingVms.extendMigration";
   return query;
 }
 

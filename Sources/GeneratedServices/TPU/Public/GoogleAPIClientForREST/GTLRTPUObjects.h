@@ -57,6 +57,7 @@
 @class GTLRTPU_SuspendingData;
 @class GTLRTPU_Symptom;
 @class GTLRTPU_Tpu;
+@class GTLRTPU_UpcomingMaintenance;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -95,6 +96,24 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V3;
  *  Value: "V4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V4;
+/**
+ *  TPU v5lite pod.
+ *
+ *  Value: "V5LITE_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V5litePod;
+/**
+ *  TPU v5p.
+ *
+ *  Value: "V5P"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V5p;
+/**
+ *  TPU v6e.
+ *
+ *  Value: "V6E"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_AcceleratorConfig_Type_V6e;
 
 // ----------------------------------------------------------------------------
 // GTLRTPU_AttachedDisk.mode
@@ -284,6 +303,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
  *  Value: "UNHIDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
+/**
+ *  TPU node has unknown state after a failed repair.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRTPU_QueuedResourceState.state
@@ -434,6 +459,51 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_ProjectAbuse;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRTPU_UpcomingMaintenance.maintenanceStatus
+
+/**
+ *  There is ongoing maintenance on this VM.
+ *
+ *  Value: "ONGOING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Ongoing;
+/**
+ *  There is pending maintenance.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Pending;
+/**
+ *  Unknown maintenance status. Do not use this value.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRTPU_UpcomingMaintenance.type
+
+/**
+ *  Scheduled maintenance (e.g. maintenance after uptime guarantee is complete).
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_Scheduled;
+/**
+ *  No type specified. Do not use this value.
+ *
+ *  Value: "UNKNOWN_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_UnknownType;
+/**
+ *  Unscheduled maintenance (e.g. emergency maintenance during uptime
+ *  guarantee).
+ *
+ *  Value: "UNSCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled;
+
 /**
  *  A TPU accelerator configuration.
  */
@@ -451,6 +521,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V2 TPU v2. (Value: "V2")
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V3 TPU v3. (Value: "V3")
  *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V4 TPU v4. (Value: "V4")
+ *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5litePod TPU v5lite pod. (Value:
+ *        "V5LITE_POD")
+ *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V5p TPU v5p. (Value: "V5P")
+ *    @arg @c kGTLRTPU_AcceleratorConfig_Type_V6e TPU v6e. (Value: "V6E")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -933,7 +1007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /**
  *  Required. Number of nodes with this spec. The system will attempt to
- *  provison "node_count" nodes as part of the request. This needs to be > 1.
+ *  provision "node_count" nodes as part of the request. This needs to be > 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1120,8 +1194,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** Output only. Immutable. The name of the TPU. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Network configurations for the TPU node. */
+/**
+ *  Network configurations for the TPU node. network_config and network_configs
+ *  are mutually exclusive, you can only specify one of them. If both are
+ *  specified, an error will be returned.
+ */
 @property(nonatomic, strong, nullable) GTLRTPU_NetworkConfig *networkConfig;
+
+/**
+ *  Optional. Repeated network configurations for the TPU node. This field is
+ *  used to specify multiple networks configs for the TPU node. network_config
+ *  and network_configs are mutually exclusive, you can only specify one of
+ *  them. If both are specified, an error will be returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_NetworkConfig *> *networkConfigs;
 
 /**
  *  Output only. The network endpoints where TPU workers can be accessed and
@@ -1187,6 +1273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        nodes). (Value: "TERMINATED")
  *    @arg @c kGTLRTPU_Node_State_Unhiding TPU node is currently unhiding.
  *        (Value: "UNHIDING")
+ *    @arg @c kGTLRTPU_Node_State_Unknown TPU node has unknown state after a
+ *        failed repair. (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1198,6 +1286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *  targets for network firewalls.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/** Output only. Upcoming maintenance on this TPU node. */
+@property(nonatomic, strong, nullable) GTLRTPU_UpcomingMaintenance *upcomingMaintenance;
 
 @end
 
@@ -1761,6 +1852,67 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /** Optional. The TPU node(s) being requested. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_NodeSpec *> *nodeSpec;
+
+@end
+
+
+/**
+ *  Upcoming Maintenance notification information.
+ */
+@interface GTLRTPU_UpcomingMaintenance : GTLRObject
+
+/**
+ *  Indicates if the maintenance can be customer triggered.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canReschedule;
+
+/**
+ *  The latest time for the planned maintenance window to start. This timestamp
+ *  value is in RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *latestWindowStartTime;
+
+/**
+ *  The status of the maintenance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Ongoing There is
+ *        ongoing maintenance on this VM. (Value: "ONGOING")
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Pending There is
+ *        pending maintenance. (Value: "PENDING")
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Unknown Unknown
+ *        maintenance status. Do not use this value. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceStatus;
+
+/**
+ *  Defines the type of maintenance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_Type_Scheduled Scheduled maintenance
+ *        (e.g. maintenance after uptime guarantee is complete). (Value:
+ *        "SCHEDULED")
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_Type_UnknownType No type specified.
+ *        Do not use this value. (Value: "UNKNOWN_TYPE")
+ *    @arg @c kGTLRTPU_UpcomingMaintenance_Type_Unscheduled Unscheduled
+ *        maintenance (e.g. emergency maintenance during uptime guarantee).
+ *        (Value: "UNSCHEDULED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The time by which the maintenance disruption will be completed. This
+ *  timestamp value is in RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *windowEndTime;
+
+/**
+ *  The current start time of the maintenance window. This timestamp value is in
+ *  RFC3339 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *windowStartTime;
 
 @end
 

@@ -7,7 +7,7 @@
 //   The Search Console API provides access to both Search Console data
 //   (verified users only) and to public information on an URL basis (anyone)
 // Documentation:
-//   https://developers.google.com/webmaster-tools/search-console-api/
+//   https://developers.google.com/webmaster-tools/about
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -25,6 +25,7 @@
 @class GTLRSearchConsole_Image;
 @class GTLRSearchConsole_IndexStatusInspectionResult;
 @class GTLRSearchConsole_Item;
+@class GTLRSearchConsole_Metadata;
 @class GTLRSearchConsole_MobileFriendlyIssue;
 @class GTLRSearchConsole_MobileUsabilityInspectionResult;
 @class GTLRSearchConsole_MobileUsabilityIssue;
@@ -762,21 +763,62 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryReques
  *  Value: "FINAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_Final;
+/**
+ *  Include hourly data, full and partial. Required when grouping by HOUR.
+ *
+ *  Value: "HOURLY_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_HourlyAll;
 
 // ----------------------------------------------------------------------------
 // GTLRSearchConsole_SearchAnalyticsQueryRequest.dimensions
 
-/** Value: "COUNTRY" */
+/**
+ *  Group by country, specified by 3-letter country code ([ISO 3166-1
+ *  alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3)).
+ *
+ *  Value: "COUNTRY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Country;
-/** Value: "DATE" */
+/**
+ *  Group by date, which is returned in YYYY-MM-DD format, in PT time (UTC -
+ *  7:00/8:00).
+ *
+ *  Value: "DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Date;
-/** Value: "DEVICE" */
+/**
+ *  Group by device type (DESKTOP, MOBILE and TABLET).
+ *
+ *  Value: "DEVICE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Device;
-/** Value: "PAGE" */
+/**
+ *  Group by hour, which is returned in YYYY-MM-DDThh:mm:ss[+|-]hh:mm format
+ *  (ISO-8601 extended offset date-time format) in PT time (UTC - 7:00/8:00).
+ *  Data is available up to 10 days. Requires setting the dataState to
+ *  HOURLY_ALL.
+ *
+ *  Value: "HOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Hour;
+/**
+ *  Group by page, a URI string.
+ *
+ *  Value: "PAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Page;
-/** Value: "QUERY" */
+/**
+ *  Group by query string.
+ *
+ *  Value: "QUERY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Query;
-/** Value: "SEARCH_APPEARANCE" */
+/**
+ *  Group by search result feature.
+ *
+ *  Value: "SEARCH_APPEARANCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_SearchAppearance;
 
 // ----------------------------------------------------------------------------
@@ -1478,6 +1520,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
 
 
 /**
+ *  An object that may be returned with your query results, providing context
+ *  about the state of the data. When you request recent data (using `all` or
+ *  `hourly_all` for `dataState`), some of the rows returned may represent data
+ *  that is incomplete, which means that the data is still being collected and
+ *  processed. This metadata object helps you identify exactly when this starts
+ *  and ends. All dates and times provided in this object are in the
+ *  `America/Los_Angeles` time zone. The specific field returned within this
+ *  object depends on how you've grouped your data in the request. See details
+ *  in inner fields.
+ */
+@interface GTLRSearchConsole_Metadata : GTLRObject
+
+/**
+ *  The first date for which the data is still being collected and processed,
+ *  presented in `YYYY-MM-DD` format (ISO-8601 extended local date format). This
+ *  field is populated only when the request's `dataState` is "`all`", data is
+ *  grouped by "`DATE`", and the requested date range contains incomplete data
+ *  points. All values after the `first_incomplete_date` may still change
+ *  noticeably.
+ */
+@property(nonatomic, copy, nullable) NSString *firstIncompleteDate;
+
+/**
+ *  The first hour for which the data is still being collected and processed,
+ *  presented in `YYYY-MM-DDThh:mm:ss[+|-]hh:mm` format (ISO-8601 extended
+ *  offset date-time format). This field is populated only when the request's
+ *  `dataState` is "`hourly_all`", data is grouped by "`HOUR`" and the requested
+ *  date range contains incomplete data points. All values after the
+ *  `first_incomplete_hour` may still change noticeably.
+ */
+@property(nonatomic, copy, nullable) NSString *firstIncompleteHour;
+
+@end
+
+
+/**
  *  Mobile-friendly issue.
  */
 @interface GTLRSearchConsole_MobileFriendlyIssue : GTLRObject
@@ -1776,6 +1854,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *        Default value, should not be used. (Value: "DATA_STATE_UNSPECIFIED")
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_Final
  *        Include full final data only, without partial. (Value: "FINAL")
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_HourlyAll
+ *        Include hourly data, full and partial. Required when grouping by HOUR.
+ *        (Value: "HOURLY_ALL")
  */
 @property(nonatomic, copy, nullable) NSString *dataState;
 
@@ -1873,6 +1954,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *  specified by the aggregation type parameter.
  */
 @interface GTLRSearchConsole_SearchAnalyticsQueryResponse : GTLRObject
+
+/**
+ *  An object that may be returned with your query results, providing context
+ *  about the state of the data. See details in Metadata object documentation.
+ */
+@property(nonatomic, strong, nullable) GTLRSearchConsole_Metadata *metadata;
 
 /**
  *  How the results were aggregated.
@@ -1973,7 +2060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
 @property(nonatomic, copy, nullable) NSString *inspectionResultLink;
 
 /** Result of the Mobile usability analysis. */
-@property(nonatomic, strong, nullable) GTLRSearchConsole_MobileUsabilityInspectionResult *mobileUsabilityResult;
+@property(nonatomic, strong, nullable) GTLRSearchConsole_MobileUsabilityInspectionResult *mobileUsabilityResult GTLR_DEPRECATED;
 
 /**
  *  Result of the Rich Results analysis. Absent if there are no rich results

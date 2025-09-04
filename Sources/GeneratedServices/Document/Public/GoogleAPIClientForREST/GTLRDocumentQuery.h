@@ -137,6 +137,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDocumentQuery_ProjectsLocationsList : GTLRDocumentQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -183,7 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: documentai.projects.locations.operations.cancel
@@ -206,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -328,7 +334,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a processor from the ProcessorType provided. The processor will be
- *  at `ENABLED` state by default after its creation.
+ *  at `ENABLED` state by default after its creation. Note that this method
+ *  requires the `documentai.processors.create` permission on the project, which
+ *  is highly privileged. A user or service account with this permission can
+ *  create new processors that can interact with any gcs bucket in your project.
  *
  *  Method: documentai.projects.locations.processors.create
  *
@@ -347,7 +356,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1Processor.
  *
  *  Creates a processor from the ProcessorType provided. The processor will be
- *  at `ENABLED` state by default after its creation.
+ *  at `ENABLED` state by default after its creation. Note that this method
+ *  requires the `documentai.processors.create` permission on the project, which
+ *  is highly privileged. A user or service account with this permission can
+ *  create new processors that can interact with any gcs bucket in your project.
  *
  *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1Processor to
  *    include in the query.

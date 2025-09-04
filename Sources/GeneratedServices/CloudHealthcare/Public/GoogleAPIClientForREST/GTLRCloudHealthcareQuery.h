@@ -1714,6 +1714,142 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: healthcare.projects.locations.datasets.dataMapperWorkspaces.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesGetIamPolicy : GTLRCloudHealthcareQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: healthcare.projects.locations.datasets.dataMapperWorkspaces.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesSetIamPolicy : GTLRCloudHealthcareQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRCloudHealthcare_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: healthcare.projects.locations.datasets.dataMapperWorkspaces.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesTestIamPermissions : GTLRCloudHealthcareQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudHealthcare_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDataMapperWorkspacesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a new dataset containing de-identified data from the source dataset.
  *  The metadata field type is OperationMetadata. If the request is successful,
  *  the response field type is DeidentifySummary. If errors occur, error is set.
@@ -1734,7 +1870,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Required. Source dataset resource name. For example,
- *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`. R5
+ *  FHIR stores are not supported and will be skipped.
  */
 @property(nonatomic, copy, nullable) NSString *sourceDataset;
 
@@ -1754,7 +1891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param object The @c GTLRCloudHealthcare_DeidentifyDatasetRequest to include
  *    in the query.
  *  @param sourceDataset Required. Source dataset resource name. For example,
- *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`. R5
+ *    FHIR stores are not supported and will be skipped.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDeidentify
  */
@@ -1971,6 +2109,88 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesGetSeriesMetrics
  */
 + (instancetype)queryWithSeries:(NSString *)series;
+
+@end
+
+/**
+ *  GetStorageInfo returns the storage info of the specified resource.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.series.instances.getStorageInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesGetStorageInfo : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The path of the instance to return storage info for, in the form:
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_StorageInfo.
+ *
+ *  GetStorageInfo returns the storage info of the specified resource.
+ *
+ *  @param resource Required. The path of the instance to return storage info
+ *    for, in the form:
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSeriesInstancesGetStorageInfo
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  SetBlobStorageSettings sets the blob storage settings of the specified
+ *  resources.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.dicomWeb.studies.setBlobStorageSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSetBlobStorageSettings : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The path of the resource to update the blob storage settings in
+ *  the format of
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}`,
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/`,
+ *  or
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`.
+ *  If `filter_config` is specified, set the value of `resource` to the resource
+ *  name of a DICOM store in the format
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  SetBlobStorageSettings sets the blob storage settings of the specified
+ *  resources.
+ *
+ *  @param object The @c GTLRCloudHealthcare_SetBlobStorageSettingsRequest to
+ *    include in the query.
+ *  @param resource Required. The path of the resource to update the blob
+ *    storage settings in the format of
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}`,
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/`,
+ *    or
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`.
+ *    If `filter_config` is specified, set the value of `resource` to the
+ *    resource name of a DICOM store in the format
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDicomWebStudiesSetBlobStorageSettings
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetBlobStorageSettingsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -2443,6 +2663,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  SetBlobStorageSettings sets the blob storage settings of the specified
+ *  resources.
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.setBlobStorageSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetBlobStorageSettings : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The path of the resource to update the blob storage settings in
+ *  the format of
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}`,
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/`,
+ *  or
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`.
+ *  If `filter_config` is specified, set the value of `resource` to the resource
+ *  name of a DICOM store in the format
+ *  `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  SetBlobStorageSettings sets the blob storage settings of the specified
+ *  resources.
+ *
+ *  @param object The @c GTLRCloudHealthcare_SetBlobStorageSettingsRequest to
+ *    include in the query.
+ *  @param resource Required. The path of the resource to update the blob
+ *    storage settings in the format of
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}`,
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/`,
+ *    or
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}/dicomWeb/studies/{studyUID}/series/{seriesUID}/instances/{instanceUID}`.
+ *    If `filter_config` is specified, set the value of `resource` to the
+ *    resource name of a DICOM store in the format
+ *    `projects/{projectID}/locations/{locationID}/datasets/{datasetID}/dicomStores/{dicomStoreID}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetBlobStorageSettings
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetBlobStorageSettingsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
@@ -2590,7 +2860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  RetrieveStudyMetadata returns instance associated with the given study
- *  presented as metadata with the bulk data removed. See [RetrieveTransaction]
+ *  presented as metadata. See [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveStudyMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -2622,7 +2892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveStudyMetadata returns instance associated with the given study
- *  presented as metadata with the bulk data removed. See [RetrieveTransaction]
+ *  presented as metadata. See [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveStudyMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -2864,6 +3134,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Returns uncompressed, unencoded bytes representing the referenced bulkdata
+ *  tag from an instance. See [Retrieve
+ *  Transaction](http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  For details on the implementation of RetrieveBulkdata, see [Bulkdata
+ *  resources](https://cloud.google.com/healthcare/docs/dicom#bulkdata-resources)
+ *  in the Cloud Healthcare API conformance statement. For samples that show how
+ *  to call RetrieveBulkdata, see [Retrieve
+ *  bulkdata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-bulkdata).
+ *
+ *  Method: healthcare.projects.locations.datasets.dicomStores.studies.series.instances.bulkdata.retrieveBulkdata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesBulkdataRetrieveBulkdata : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The path for the `RetrieveBulkdata` DICOMweb request. For example,
+ *  `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/bukdata/{bulkdata_uri}`.
+ */
+@property(nonatomic, copy, nullable) NSString *dicomWebPath;
+
+/**
+ *  Required. The name of the DICOM store that is being accessed. For example,
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Returns uncompressed, unencoded bytes representing the referenced bulkdata
+ *  tag from an instance. See [Retrieve
+ *  Transaction](http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  For details on the implementation of RetrieveBulkdata, see [Bulkdata
+ *  resources](https://cloud.google.com/healthcare/docs/dicom#bulkdata-resources)
+ *  in the Cloud Healthcare API conformance statement. For samples that show how
+ *  to call RetrieveBulkdata, see [Retrieve
+ *  bulkdata](https://cloud.google.com/healthcare/docs/how-tos/dicomweb#retrieve-bulkdata).
+ *
+ *  @param parent Required. The name of the DICOM store that is being accessed.
+ *    For example,
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
+ *  @param dicomWebPath Required. The path for the `RetrieveBulkdata` DICOMweb
+ *    request. For example,
+ *    `studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/bukdata/{bulkdata_uri}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesBulkdataRetrieveBulkdata
+ */
++ (instancetype)queryWithParent:(NSString *)parent
+                   dicomWebPath:(NSString *)dicomWebPath;
+
+@end
+
+/**
  *  DeleteInstance deletes an instance associated with the given study, series,
  *  and SOP Instance UID. Delete requests are equivalent to the GET requests
  *  specified in the Retrieve transaction. Study and series search results can
@@ -3006,6 +3332,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. The viewport setting to use as specified in
+ *  https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.3.5.html#sect_8.3.5.1.3
+ */
+@property(nonatomic, copy, nullable) NSString *viewport;
+
+/**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveRenderedFrames returns instances associated with the given study,
@@ -3094,8 +3426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  RetrieveInstanceMetadata returns instance associated with the given study,
- *  series, and SOP Instance UID presented as metadata with the bulk data
- *  removed. See [RetrieveTransaction]
+ *  series, and SOP Instance UID presented as metadata. See
+ *  [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveInstanceMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -3128,8 +3460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveInstanceMetadata returns instance associated with the given study,
- *  series, and SOP Instance UID presented as metadata with the bulk data
- *  removed. See [RetrieveTransaction]
+ *  series, and SOP Instance UID presented as metadata. See
+ *  [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveInstanceMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -3184,6 +3516,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. The viewport setting to use as specified in
+ *  https://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_8.3.5.html#sect_8.3.5.1.3
+ */
+@property(nonatomic, copy, nullable) NSString *viewport;
+
+/**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveRenderedInstance returns instance associated with the given study,
@@ -3212,8 +3550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  RetrieveSeriesMetadata returns instance associated with the given study and
- *  series, presented as metadata with the bulk data removed. See
- *  [RetrieveTransaction]
+ *  series, presented as metadata. See [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveSeriesMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -3245,8 +3582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  RetrieveSeriesMetadata returns instance associated with the given study and
- *  series, presented as metadata with the bulk data removed. See
- *  [RetrieveTransaction]
+ *  series, presented as metadata. See [RetrieveTransaction]
  *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveSeriesMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
@@ -3484,6 +3820,256 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Applies the admin Consent resources for the FHIR store and reindexes the
+ *  underlying resources in the FHIR store according to the aggregate consents.
+ *  This method also updates the `consent_config.enforced_admin_consents` field
+ *  of the FhirStore unless `validate_only=true` in ApplyAdminConsentsRequest.
+ *  Any admin Consent resource change after this operation execution (including
+ *  deletion) requires you to call ApplyAdminConsents again for the change to
+ *  take effect. This method returns an Operation that can be used to track the
+ *  progress of the resources that were reindexed, by calling GetOperation. Upon
+ *  completion, the ApplyAdminConsentsResponse additionally contains the number
+ *  of resources that were reindexed. If at least one Consent resource contains
+ *  an error or fails be be enforced for any reason, the method returns an error
+ *  instead of an Operation. No resources will be reindexed and the
+ *  `consent_config.enforced_admin_consents` field will be unchanged. To enforce
+ *  a consent check for data access, `consent_config.access_enforced` must be
+ *  set to true for the FhirStore. FHIR Consent is not supported in DSTU2 or R5.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.applyAdminConsents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresApplyAdminConsents : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the FHIR store to enforce, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Applies the admin Consent resources for the FHIR store and reindexes the
+ *  underlying resources in the FHIR store according to the aggregate consents.
+ *  This method also updates the `consent_config.enforced_admin_consents` field
+ *  of the FhirStore unless `validate_only=true` in ApplyAdminConsentsRequest.
+ *  Any admin Consent resource change after this operation execution (including
+ *  deletion) requires you to call ApplyAdminConsents again for the change to
+ *  take effect. This method returns an Operation that can be used to track the
+ *  progress of the resources that were reindexed, by calling GetOperation. Upon
+ *  completion, the ApplyAdminConsentsResponse additionally contains the number
+ *  of resources that were reindexed. If at least one Consent resource contains
+ *  an error or fails be be enforced for any reason, the method returns an error
+ *  instead of an Operation. No resources will be reindexed and the
+ *  `consent_config.enforced_admin_consents` field will be unchanged. To enforce
+ *  a consent check for data access, `consent_config.access_enforced` must be
+ *  set to true for the FhirStore. FHIR Consent is not supported in DSTU2 or R5.
+ *
+ *  @param object The @c GTLRCloudHealthcare_ApplyAdminConsentsRequest to
+ *    include in the query.
+ *  @param name Required. The name of the FHIR store to enforce, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresApplyAdminConsents
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ApplyAdminConsentsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Apply the Consent resources for the FHIR store and reindex the underlying
+ *  resources in the FHIR store according to the aggregate consent. The
+ *  aggregate consent of the patient in scope in this request replaces any
+ *  previous call of this method. Any Consent resource change after this
+ *  operation execution (including deletion) requires you to call ApplyConsents
+ *  again to have effect. This method returns an Operation that can be used to
+ *  track the progress of the consent resources that were processed by calling
+ *  GetOperation. Upon completion, the ApplyConsentsResponse additionally
+ *  contains the number of resources that was reindexed. Errors are logged to
+ *  Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). To
+ *  enforce consent check for data access, `consent_config.access_enforced` must
+ *  be set to true for the FhirStore. FHIR Consent is not supported in DSTU2 or
+ *  R5.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.applyConsents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresApplyConsents : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the FHIR store to enforce, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Apply the Consent resources for the FHIR store and reindex the underlying
+ *  resources in the FHIR store according to the aggregate consent. The
+ *  aggregate consent of the patient in scope in this request replaces any
+ *  previous call of this method. Any Consent resource change after this
+ *  operation execution (including deletion) requires you to call ApplyConsents
+ *  again to have effect. This method returns an Operation that can be used to
+ *  track the progress of the consent resources that were processed by calling
+ *  GetOperation. Upon completion, the ApplyConsentsResponse additionally
+ *  contains the number of resources that was reindexed. Errors are logged to
+ *  Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). To
+ *  enforce consent check for data access, `consent_config.access_enforced` must
+ *  be set to true for the FhirStore. FHIR Consent is not supported in DSTU2 or
+ *  R5.
+ *
+ *  @param object The @c GTLRCloudHealthcare_ApplyConsentsRequest to include in
+ *    the query.
+ *  @param name Required. The name of the FHIR store to enforce, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresApplyConsents
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ApplyConsentsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Bulk exports a Group resource and resources in the member field, including
+ *  related resources for each Patient member. The export for each Patient is
+ *  identical to a GetPatientEverything request. Implements the FHIR
+ *  implementation guide [$export group of
+ *  patients](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients).
+ *  The following headers must be set in the request: * `Accept`: specifies the
+ *  format of the `OperationOutcome` response. Only `application/fhir+json` is
+ *  supported. * `Prefer`: specifies whether the response is immediate or
+ *  asynchronous. Must be to `respond-async` because only asynchronous responses
+ *  are supported. Specify the destination for the server to write result files
+ *  by setting the Cloud Storage location bulk_export_gcs_destination on the
+ *  FHIR store. URI of an existing Cloud Storage directory where the server
+ *  writes result files, in the format
+ *  gs://{bucket-id}/{path/to/destination/dir}. If there is no trailing slash,
+ *  the service appends one when composing the object path. The user is
+ *  responsible for creating the Cloud Storage bucket referenced. Supports the
+ *  following query parameters: * `_type`: string of comma-delimited FHIR
+ *  resource types. If provided, only resources of the specified type(s) are
+ *  exported. * `_since`: if provided, only resources updated after the
+ *  specified time are exported. * `_outputFormat`: optional, specify ndjson to
+ *  export data in NDJSON format. Exported file names use the format:
+ *  {export_id}_{resource_type}.ndjson. * `organizeOutputBy`: resource type to
+ *  organize the output by. Required and must be set to `Patient`. When
+ *  specified, output files are organized by instances of the specified resource
+ *  type, including the resource, referenced resources, and resources that
+ *  contain references to that resource. On success, the `Content-Location`
+ *  header of response is set to a URL that you can use to query the status of
+ *  the export. The URL is in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/operations/{export_id}`.
+ *  See get-fhir-operation-status for more information. Errors generated by the
+ *  FHIR store contain a JSON-encoded `OperationOutcome` resource describing the
+ *  reason for the error.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.bulk-export-group
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkExportGroup : GTLRCloudHealthcareQuery
+
+/**
+ *  Optional. If provided, only resources updated after this time are exported.
+ *  The time uses the format YYYY-MM-DDThh:mm:ss.sss+zz:zz. For example,
+ *  `2015-02-07T13:28:17.239+02:00` or `2017-01-01T00:00:00Z`. The time must be
+ *  specified to the second and include a time zone.
+ */
+@property(nonatomic, copy, nullable) NSString *xSince;
+
+/**
+ *  Optional. String of comma-delimited FHIR resource types. If provided, only
+ *  resources of the specified resource type(s) are exported.
+ */
+@property(nonatomic, copy, nullable) NSString *xType;
+
+/**
+ *  Required. Name of the Group resource that is exported, in format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Group/{group_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Required. The FHIR resource type used to organize exported
+ *  resources. Only supports "Patient". When organized by Patient resource,
+ *  output files are grouped as follows: * Patient file(s) containing the
+ *  Patient resources. Each Patient is sequentially followed by all resources
+ *  the Patient references, and all resources that reference the Patient
+ *  (equivalent to a GetPatientEverything request). * Individual files grouped
+ *  by resource type for resources in the Group's member field and the Group
+ *  resource itself. Resources may be duplicated across multiple Patients. For
+ *  example, if two Patient resources reference the same Organization resource,
+ *  it will appear twice, once after each Patient. The Group resource from the
+ *  request does not appear in the Patient files.
+ */
+@property(nonatomic, copy, nullable) NSString *organizeOutputBy;
+
+/**
+ *  Optional. Output format of the export. This field is optional and only
+ *  `application/fhir+ndjson` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *outputFormat;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Bulk exports a Group resource and resources in the member field, including
+ *  related resources for each Patient member. The export for each Patient is
+ *  identical to a GetPatientEverything request. Implements the FHIR
+ *  implementation guide [$export group of
+ *  patients](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---group-of-patients).
+ *  The following headers must be set in the request: * `Accept`: specifies the
+ *  format of the `OperationOutcome` response. Only `application/fhir+json` is
+ *  supported. * `Prefer`: specifies whether the response is immediate or
+ *  asynchronous. Must be to `respond-async` because only asynchronous responses
+ *  are supported. Specify the destination for the server to write result files
+ *  by setting the Cloud Storage location bulk_export_gcs_destination on the
+ *  FHIR store. URI of an existing Cloud Storage directory where the server
+ *  writes result files, in the format
+ *  gs://{bucket-id}/{path/to/destination/dir}. If there is no trailing slash,
+ *  the service appends one when composing the object path. The user is
+ *  responsible for creating the Cloud Storage bucket referenced. Supports the
+ *  following query parameters: * `_type`: string of comma-delimited FHIR
+ *  resource types. If provided, only resources of the specified type(s) are
+ *  exported. * `_since`: if provided, only resources updated after the
+ *  specified time are exported. * `_outputFormat`: optional, specify ndjson to
+ *  export data in NDJSON format. Exported file names use the format:
+ *  {export_id}_{resource_type}.ndjson. * `organizeOutputBy`: resource type to
+ *  organize the output by. Required and must be set to `Patient`. When
+ *  specified, output files are organized by instances of the specified resource
+ *  type, including the resource, referenced resources, and resources that
+ *  contain references to that resource. On success, the `Content-Location`
+ *  header of response is set to a URL that you can use to query the status of
+ *  the export. The URL is in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/operations/{export_id}`.
+ *  See get-fhir-operation-status for more information. Errors generated by the
+ *  FHIR store contain a JSON-encoded `OperationOutcome` resource describing the
+ *  reason for the error.
+ *
+ *  @param name Required. Name of the Group resource that is exported, in format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Group/{group_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkExportGroup
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new FHIR store within the parent dataset.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.create
@@ -3537,6 +4123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Required. Source FHIR store resource name. For example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *  R5 stores are not supported.
  */
 @property(nonatomic, copy, nullable) NSString *sourceStore;
 
@@ -3554,6 +4141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    include in the query.
  *  @param sourceStore Required. Source FHIR store resource name. For example,
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *    R5 stores are not supported.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify
  */
@@ -3584,6 +4172,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param name Required. The resource name of the FHIR store to delete.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Explains all the permitted/denied actor, purpose and environment for a given
+ *  resource. FHIR Consent is not supported in DSTU2 or R5.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.explainDataAccess
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExplainDataAccess : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the FHIR store to enforce, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The ID (`{resourceType}/{id}`) of the resource to explain data
+ *  access on.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_ExplainDataAccessResponse.
+ *
+ *  Explains all the permitted/denied actor, purpose and environment for a given
+ *  resource. FHIR Consent is not supported in DSTU2 or R5.
+ *
+ *  @param name Required. The name of the FHIR store to enforce, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExplainDataAccess
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -3640,20 +4267,389 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Creates a FHIR Binary resource. This method can be used to create a Binary
+ *  resource either by using one of the accepted FHIR JSON content types, or as
+ *  a raw data stream. If a resource is created with this method using the FHIR
+ *  content type this method's behavior is the same as
+ *  [`fhir.create`](https://cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores.fhir/create).
+ *  If a resource type other than Binary is used in the request it's treated in
+ *  the same way as non-FHIR data (e.g., images, zip archives, pdf files,
+ *  documents). When a non-FHIR content type is used in the request, a Binary
+ *  resource will be generated, and the uploaded data will be stored in the
+ *  `content` field (`DSTU2` and `STU3`), or the `data` field (`R4` and `R5`).
+ *  The Binary resource's `contentType` will be filled in using the value of the
+ *  `Content-Type` header, and the `securityContext` field (not present in
+ *  `DSTU2`) will be populated from the `X-Security-Context` header if it
+ *  exists. At this time `securityContext` has no special behavior in the Cloud
+ *  Healthcare API. Note: the limit on data ingested through this method is 1
+ *  GB. For best performance, use a non-FHIR data type instead of wrapping the
+ *  data in a Binary resource. Some of the Healthcare API features, such as
+ *  [exporting to
+ *  BigQuery](https://cloud.google.com/healthcare-api/docs/how-tos/fhir-export-bigquery)
+ *  or [Pub/Sub
+ *  notifications](https://cloud.google.com/healthcare-api/docs/fhir-pubsub#behavior_when_a_fhir_resource_is_too_large_or_traffic_is_high)
+ *  with full resource content, do not support Binary resources that are larger
+ *  than 10 MB. In these cases the resource's `data` field will be omitted.
+ *  Instead, the "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+ *  extension will be present to indicate that including the data is
+ *  `unsupported`. On success, an empty `201 Created` response is returned. The
+ *  newly created resource's ID and version are returned in the Location header.
+ *  Using `Prefer: representation=resource` is not allowed for this method. The
+ *  definition of the Binary REST API can be found at
+ *  https://hl7.org/fhir/binary.html#rest.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Binary-create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBinaryCreate : GTLRCloudHealthcareQuery
+
+/** Required. The name of the FHIR store this resource belongs to. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Creates a FHIR Binary resource. This method can be used to create a Binary
+ *  resource either by using one of the accepted FHIR JSON content types, or as
+ *  a raw data stream. If a resource is created with this method using the FHIR
+ *  content type this method's behavior is the same as
+ *  [`fhir.create`](https://cloud.google.com/healthcare-api/docs/reference/rest/v1/projects.locations.datasets.fhirStores.fhir/create).
+ *  If a resource type other than Binary is used in the request it's treated in
+ *  the same way as non-FHIR data (e.g., images, zip archives, pdf files,
+ *  documents). When a non-FHIR content type is used in the request, a Binary
+ *  resource will be generated, and the uploaded data will be stored in the
+ *  `content` field (`DSTU2` and `STU3`), or the `data` field (`R4` and `R5`).
+ *  The Binary resource's `contentType` will be filled in using the value of the
+ *  `Content-Type` header, and the `securityContext` field (not present in
+ *  `DSTU2`) will be populated from the `X-Security-Context` header if it
+ *  exists. At this time `securityContext` has no special behavior in the Cloud
+ *  Healthcare API. Note: the limit on data ingested through this method is 1
+ *  GB. For best performance, use a non-FHIR data type instead of wrapping the
+ *  data in a Binary resource. Some of the Healthcare API features, such as
+ *  [exporting to
+ *  BigQuery](https://cloud.google.com/healthcare-api/docs/how-tos/fhir-export-bigquery)
+ *  or [Pub/Sub
+ *  notifications](https://cloud.google.com/healthcare-api/docs/fhir-pubsub#behavior_when_a_fhir_resource_is_too_large_or_traffic_is_high)
+ *  with full resource content, do not support Binary resources that are larger
+ *  than 10 MB. In these cases the resource's `data` field will be omitted.
+ *  Instead, the "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+ *  extension will be present to indicate that including the data is
+ *  `unsupported`. On success, an empty `201 Created` response is returned. The
+ *  newly created resource's ID and version are returned in the Location header.
+ *  Using `Prefer: representation=resource` is not allowed for this method. The
+ *  definition of the Binary REST API can be found at
+ *  https://hl7.org/fhir/binary.html#rest.
+ *
+ *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
+ *  @param parent Required. The name of the FHIR store this resource belongs to.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBinaryCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the contents of a FHIR Binary resource. This method can be used to
+ *  retrieve a Binary resource either by using the FHIR JSON mimetype as the
+ *  value for the Accept header, or as a raw data stream. If the FHIR Accept
+ *  type is used this method will return a Binary resource with the data
+ *  base64-encoded, regardless of how the resource was created. The resource
+ *  data can be retrieved in base64-decoded form if the Accept type of the
+ *  request matches the value of the resource's `contentType` field. The
+ *  definition of the Binary REST API can be found at
+ *  https://hl7.org/fhir/binary.html#rest.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Binary-read
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBinaryRead : GTLRCloudHealthcareQuery
+
+/** Required. The name of the Binary resource to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Gets the contents of a FHIR Binary resource. This method can be used to
+ *  retrieve a Binary resource either by using the FHIR JSON mimetype as the
+ *  value for the Accept header, or as a raw data stream. If the FHIR Accept
+ *  type is used this method will return a Binary resource with the data
+ *  base64-encoded, regardless of how the resource was created. The resource
+ *  data can be retrieved in base64-decoded form if the Accept type of the
+ *  request matches the value of the resource's `contentType` field. The
+ *  definition of the Binary REST API can be found at
+ *  https://hl7.org/fhir/binary.html#rest.
+ *
+ *  @param name Required. The name of the Binary resource to retrieve.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBinaryRead
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the entire contents of a Binary resource. If the specified resource
+ *  does not exist and the FHIR store has enable_update_create set, creates the
+ *  resource with the client-specified ID. It is strongly advised not to include
+ *  or encode any sensitive data such as patient identifiers in client-specified
+ *  resource IDs. Those IDs are part of the FHIR resource path recorded in Cloud
+ *  Audit Logs and Pub/Sub notifications. Those IDs can also be contained in
+ *  reference fields within other resources. This method can be used to update a
+ *  Binary resource either by using one of the accepted FHIR JSON content types,
+ *  or as a raw data stream. If a resource is updated with this method using the
+ *  FHIR content type this method's behavior is the same as `update`. If a
+ *  resource type other than Binary is used in the request it will be treated in
+ *  the same way as non-FHIR data. When a non-FHIR content type is used in the
+ *  request, a Binary resource will be generated using the ID from the resource
+ *  path, and the uploaded data will be stored in the `content` field (`DSTU2`
+ *  and `STU3`), or the `data` field (`R4` and `R5`). The Binary resource's
+ *  `contentType` will be filled in using the value of the `Content-Type`
+ *  header, and the `securityContext` field (not present in `DSTU2`) will be
+ *  populated from the `X-Security-Context` header if it exists. At this time
+ *  `securityContext` has no special behavior in the Cloud Healthcare API. Note:
+ *  the limit on data ingested through this method is 2 GB. For best
+ *  performance, use a non-FHIR data type instead of wrapping the data in a
+ *  Binary resource. Some of the Healthcare API features, such as [exporting to
+ *  BigQuery](https://cloud.google.com/healthcare-api/docs/how-tos/fhir-export-bigquery)
+ *  or [Pub/Sub
+ *  notifications](https://cloud.google.com/healthcare-api/docs/fhir-pubsub#behavior_when_a_fhir_resource_is_too_large_or_traffic_is_high)
+ *  with full resource content, do not support Binary resources that are larger
+ *  than 10 MB. In these cases the resource's `data` field will be omitted.
+ *  Instead, the "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+ *  extension will be present to indicate that including the data is
+ *  `unsupported`. On success, an empty 200 OK response will be returned, or a
+ *  201 Created if the resource did not exit. The resource's ID and version are
+ *  returned in the Location header. Using `Prefer: representation=resource` is
+ *  not allowed for this method. The definition of the Binary REST API can be
+ *  found at https://hl7.org/fhir/binary.html#rest.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Binary-update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBinaryUpdate : GTLRCloudHealthcareQuery
+
+/** Required. The name of the resource to update. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Updates the entire contents of a Binary resource. If the specified resource
+ *  does not exist and the FHIR store has enable_update_create set, creates the
+ *  resource with the client-specified ID. It is strongly advised not to include
+ *  or encode any sensitive data such as patient identifiers in client-specified
+ *  resource IDs. Those IDs are part of the FHIR resource path recorded in Cloud
+ *  Audit Logs and Pub/Sub notifications. Those IDs can also be contained in
+ *  reference fields within other resources. This method can be used to update a
+ *  Binary resource either by using one of the accepted FHIR JSON content types,
+ *  or as a raw data stream. If a resource is updated with this method using the
+ *  FHIR content type this method's behavior is the same as `update`. If a
+ *  resource type other than Binary is used in the request it will be treated in
+ *  the same way as non-FHIR data. When a non-FHIR content type is used in the
+ *  request, a Binary resource will be generated using the ID from the resource
+ *  path, and the uploaded data will be stored in the `content` field (`DSTU2`
+ *  and `STU3`), or the `data` field (`R4` and `R5`). The Binary resource's
+ *  `contentType` will be filled in using the value of the `Content-Type`
+ *  header, and the `securityContext` field (not present in `DSTU2`) will be
+ *  populated from the `X-Security-Context` header if it exists. At this time
+ *  `securityContext` has no special behavior in the Cloud Healthcare API. Note:
+ *  the limit on data ingested through this method is 2 GB. For best
+ *  performance, use a non-FHIR data type instead of wrapping the data in a
+ *  Binary resource. Some of the Healthcare API features, such as [exporting to
+ *  BigQuery](https://cloud.google.com/healthcare-api/docs/how-tos/fhir-export-bigquery)
+ *  or [Pub/Sub
+ *  notifications](https://cloud.google.com/healthcare-api/docs/fhir-pubsub#behavior_when_a_fhir_resource_is_too_large_or_traffic_is_high)
+ *  with full resource content, do not support Binary resources that are larger
+ *  than 10 MB. In these cases the resource's `data` field will be omitted.
+ *  Instead, the "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+ *  extension will be present to indicate that including the data is
+ *  `unsupported`. On success, an empty 200 OK response will be returned, or a
+ *  201 Created if the resource did not exit. The resource's ID and version are
+ *  returned in the Location header. Using `Prefer: representation=resource` is
+ *  not allowed for this method. The definition of the Binary REST API can be
+ *  found at https://hl7.org/fhir/binary.html#rest.
+ *
+ *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
+ *  @param name Required. The name of the resource to update.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBinaryUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the contents of a version (current or historical) of a FHIR Binary
+ *  resource by version ID. This method can be used to retrieve a Binary
+ *  resource version either by using the FHIR JSON mimetype as the value for the
+ *  Accept header, or as a raw data stream. If the FHIR Accept type is used this
+ *  method will return a Binary resource with the data base64-encoded,
+ *  regardless of how the resource version was created. The resource data can be
+ *  retrieved in base64-decoded form if the Accept type of the request matches
+ *  the value of the resource version's `contentType` field. The definition of
+ *  the Binary REST API can be found at https://hl7.org/fhir/binary.html#rest.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Binary-vread
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBinaryVread : GTLRCloudHealthcareQuery
+
+/** Required. The name of the Binary resource version to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Gets the contents of a version (current or historical) of a FHIR Binary
+ *  resource by version ID. This method can be used to retrieve a Binary
+ *  resource version either by using the FHIR JSON mimetype as the value for the
+ *  Accept header, or as a raw data stream. If the FHIR Accept type is used this
+ *  method will return a Binary resource with the data base64-encoded,
+ *  regardless of how the resource version was created. The resource data can be
+ *  retrieved in base64-decoded form if the Accept type of the request matches
+ *  the value of the resource version's `contentType` field. The definition of
+ *  the Binary REST API can be found at https://hl7.org/fhir/binary.html#rest.
+ *
+ *  @param name Required. The name of the Binary resource version to retrieve.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBinaryVread
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Bulk exports all resources from the FHIR store to the specified destination.
+ *  Implements the FHIR implementation guide [system level
+ *  $export](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---system-level-export.
+ *  The following headers must be set in the request: * `Accept`: specifies the
+ *  format of the `OperationOutcome` response. Only `application/fhir+json` is
+ *  supported. * `Prefer`: specifies whether the response is immediate or
+ *  asynchronous. Must be to `respond-async` because only asynchronous responses
+ *  are supported. Specify the destination for the server to write result files
+ *  by setting the Cloud Storage location bulk_export_gcs_destination on the
+ *  FHIR store. URI of an existing Cloud Storage directory where the server
+ *  writes result files, in the format
+ *  gs://{bucket-id}/{path/to/destination/dir}. If there is no trailing slash,
+ *  the service appends one when composing the object path. The user is
+ *  responsible for creating the Cloud Storage bucket referenced. Supports the
+ *  following query parameters: * `_type`: string of comma-delimited FHIR
+ *  resource types. If provided, only the resources of the specified type(s) are
+ *  exported. * `_since`: if provided, only the resources that are updated after
+ *  the specified time are exported. * `_outputFormat`: optional, specify ndjson
+ *  to export data in NDJSON format. Exported file names use the format:
+ *  {export_id}_{resource_type}.ndjson. On success, the `Content-Location`
+ *  header of the response is set to a URL that the user can use to query the
+ *  status of the export. The URL is in the format:
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/operations/{export_id}`.
+ *  See get-fhir-operation-status for more information. Errors generated by the
+ *  FHIR store contain a JSON-encoded `OperationOutcome` resource describing the
+ *  reason for the error.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.bulk-export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBulkExport : GTLRCloudHealthcareQuery
+
+/**
+ *  Optional. If provided, only resources updated after this time are exported.
+ *  The time uses the format YYYY-MM-DDThh:mm:ss.sss+zz:zz. For example,
+ *  `2015-02-07T13:28:17.239+02:00` or `2017-01-01T00:00:00Z`. The time must be
+ *  specified to the second and include a time zone.
+ */
+@property(nonatomic, copy, nullable) NSString *xSince;
+
+/**
+ *  Optional. String of comma-delimited FHIR resource types. If provided, only
+ *  resources of the specified resource type(s) are exported.
+ */
+@property(nonatomic, copy, nullable) NSString *xType;
+
+/**
+ *  Required. The name of the FHIR store to export resources from, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Output format of the export. This field is optional and only
+ *  `application/fhir+ndjson` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *outputFormat;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Bulk exports all resources from the FHIR store to the specified destination.
+ *  Implements the FHIR implementation guide [system level
+ *  $export](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---system-level-export.
+ *  The following headers must be set in the request: * `Accept`: specifies the
+ *  format of the `OperationOutcome` response. Only `application/fhir+json` is
+ *  supported. * `Prefer`: specifies whether the response is immediate or
+ *  asynchronous. Must be to `respond-async` because only asynchronous responses
+ *  are supported. Specify the destination for the server to write result files
+ *  by setting the Cloud Storage location bulk_export_gcs_destination on the
+ *  FHIR store. URI of an existing Cloud Storage directory where the server
+ *  writes result files, in the format
+ *  gs://{bucket-id}/{path/to/destination/dir}. If there is no trailing slash,
+ *  the service appends one when composing the object path. The user is
+ *  responsible for creating the Cloud Storage bucket referenced. Supports the
+ *  following query parameters: * `_type`: string of comma-delimited FHIR
+ *  resource types. If provided, only the resources of the specified type(s) are
+ *  exported. * `_since`: if provided, only the resources that are updated after
+ *  the specified time are exported. * `_outputFormat`: optional, specify ndjson
+ *  to export data in NDJSON format. Exported file names use the format:
+ *  {export_id}_{resource_type}.ndjson. On success, the `Content-Location`
+ *  header of the response is set to a URL that the user can use to query the
+ *  status of the export. The URL is in the format:
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/operations/{export_id}`.
+ *  See get-fhir-operation-status for more information. Errors generated by the
+ *  FHIR store contain a JSON-encoded `OperationOutcome` resource describing the
+ *  reason for the error.
+ *
+ *  @param name Required. The name of the FHIR store to export resources from,
+ *    in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirBulkExport
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the FHIR capability statement
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/capabilitystatement.html)),
- *  or the [conformance
- *  statement](http://hl7.org/implement/standards/fhir/DSTU2/conformance.html)
- *  in the DSTU2 case for the store, which contains a description of
- *  functionality supported by the server. Implements the FHIR standard
- *  capabilities interaction
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#capabilities)), or
- *  the [conformance
- *  interaction](http://hl7.org/implement/standards/fhir/DSTU2/http.html#conformance)
- *  in the DSTU2 case. On success, the response body contains a JSON-encoded
- *  representation of a `CapabilityStatement` resource.
+ *  ([STU3](https://hl7.org/fhir/STU3/capabilitystatement.html),
+ *  [R4](https://hl7.org/fhir/R4/capabilitystatement.html),
+ *  [R5](https://hl7.org/fhir/R5/capabilitystatement.html)), or the [conformance
+ *  statement](https://hl7.org/fhir/DSTU2/conformance.html) in the DSTU2 case
+ *  for the store, which contains a description of functionality supported by
+ *  the server. Implements the FHIR standard capabilities interaction
+ *  ([STU3](https://hl7.org/fhir/STU3/http.html#capabilities),
+ *  [R4](https://hl7.org/fhir/R4/http.html#capabilities),
+ *  [R5](https://hl7.org/fhir/R5/http.html#capabilities)), or the [conformance
+ *  interaction](https://hl7.org/fhir/DSTU2/http.html#conformance) in the DSTU2
+ *  case. On success, the response body contains a JSON-encoded representation
+ *  of a `CapabilityStatement` resource.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.capabilities
  *
@@ -3670,19 +4666,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Gets the FHIR capability statement
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/capabilitystatement.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/capabilitystatement.html)),
- *  or the [conformance
- *  statement](http://hl7.org/implement/standards/fhir/DSTU2/conformance.html)
- *  in the DSTU2 case for the store, which contains a description of
- *  functionality supported by the server. Implements the FHIR standard
- *  capabilities interaction
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#capabilities),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#capabilities)), or
- *  the [conformance
- *  interaction](http://hl7.org/implement/standards/fhir/DSTU2/http.html#conformance)
- *  in the DSTU2 case. On success, the response body contains a JSON-encoded
- *  representation of a `CapabilityStatement` resource.
+ *  ([STU3](https://hl7.org/fhir/STU3/capabilitystatement.html),
+ *  [R4](https://hl7.org/fhir/R4/capabilitystatement.html),
+ *  [R5](https://hl7.org/fhir/R5/capabilitystatement.html)), or the [conformance
+ *  statement](https://hl7.org/fhir/DSTU2/conformance.html) in the DSTU2 case
+ *  for the store, which contains a description of functionality supported by
+ *  the server. Implements the FHIR standard capabilities interaction
+ *  ([STU3](https://hl7.org/fhir/STU3/http.html#capabilities),
+ *  [R4](https://hl7.org/fhir/R4/http.html#capabilities),
+ *  [R5](https://hl7.org/fhir/R5/http.html#capabilities)), or the [conformance
+ *  interaction](https://hl7.org/fhir/DSTU2/http.html#conformance) in the DSTU2
+ *  case. On success, the response body contains a JSON-encoded representation
+ *  of a `CapabilityStatement` resource.
  *
  *  @param name Required. Name of the FHIR store to retrieve the capabilities
  *    for.
@@ -3721,9 +4716,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Required. The FHIR resource type to delete, such as Patient or Observation.
  *  For a complete list, see the FHIR Resource Index
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3746,9 +4742,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param parent Required. The name of the FHIR store this resource belongs to.
  *  @param type Required. The FHIR resource type to delete, such as Patient or
  *    Observation. For a complete list, see the FHIR Resource Index
- *    ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *    [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+ *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalDelete
  */
@@ -3792,9 +4789,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Required. The FHIR resource type to update, such as Patient or Observation.
  *  For a complete list, see the FHIR Resource Index
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3825,9 +4823,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param parent Required. The name of the FHIR store this resource belongs to.
  *  @param type Required. The FHIR resource type to update, such as Patient or
  *    Observation. For a complete list, see the FHIR Resource Index
- *    ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *    [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+ *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalPatch
  */
@@ -3879,10 +4878,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Required. The FHIR resource type to update, such as Patient or Observation.
  *  For a complete list, see the FHIR Resource Index
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
- *  match the resource type in the provided content.
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
+ *  type in the provided content.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3920,10 +4920,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param parent Required. The name of the FHIR store this resource belongs to.
  *  @param type Required. The FHIR resource type to update, such as Patient or
  *    Observation. For a complete list, see the FHIR Resource Index
- *    ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](https://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *    [R4](https://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
- *    match the resource type in the provided content.
+ *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
+ *    type in the provided content.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConditionalUpdate
  */
@@ -3934,23 +4935,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Returns the consent enforcement status of a single consent resource. On
+ *  success, the response body contains a JSON-encoded representation of a
+ *  `Parameters` (http://hl7.org/fhir/parameters.html) FHIR resource, containing
+ *  the current enforcement status. Does not support DSTU2.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Consent-enforcement-status
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConsentEnforcementStatus : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the consent resource to find enforcement status, in
+ *  the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Consent/{consent_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Returns the consent enforcement status of a single consent resource. On
+ *  success, the response body contains a JSON-encoded representation of a
+ *  `Parameters` (http://hl7.org/fhir/parameters.html) FHIR resource, containing
+ *  the current enforcement status. Does not support DSTU2.
+ *
+ *  @param name Required. The name of the consent resource to find enforcement
+ *    status, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Consent/{consent_id}`
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirConsentEnforcementStatus
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a FHIR resource. Implements the FHIR standard create interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#create),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#create)), which
- *  creates a new resource with a server-assigned resource ID. Also supports the
- *  FHIR standard conditional create interaction
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#ccreate),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#ccreate)),
- *  specified by supplying an `If-None-Exist` header containing a FHIR search
- *  query, limited to searching by resource identifier. If no resources match
- *  this search query, the server processes the create operation as normal. When
- *  using conditional create, the search term for identifier should be in the
- *  pattern `identifier=system|value` or `identifier=value` - similar to the
- *  `search` method on resources with a specific identifier. The request body
- *  must contain a JSON-encoded FHIR resource, and the request headers must
- *  contain `Content-Type: application/fhir+json`. On success, the response body
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#create),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#create),
+ *  [R4](https://hl7.org/fhir/R4/http.html#create),
+ *  [R5](https://hl7.org/fhir/R5/http.html#create)), which creates a new
+ *  resource with a server-assigned resource ID. Also supports the FHIR standard
+ *  conditional create interaction
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#ccreate),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#ccreate),
+ *  [R4](https://hl7.org/fhir/R4/http.html#ccreate),
+ *  [R5](https://hl7.org/fhir/R5/http.html#ccreate)), specified by supplying an
+ *  `If-None-Exist` header containing a FHIR search query, limited to searching
+ *  by resource identifier. If no resources match this search query, the server
+ *  processes the create operation as normal. When using conditional create, the
+ *  search term for identifier should be in the pattern
+ *  `identifier=system|value` or `identifier=value` - similar to the `search`
+ *  method on resources with a specific identifier. The request body must
+ *  contain a JSON-encoded FHIR resource, and the request headers must contain
+ *  `Content-Type: application/fhir+json`. On success, the response body
  *  contains a JSON-encoded representation of the resource as it was created on
  *  the server, including the server-assigned resource ID and version ID. Errors
  *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
@@ -3974,10 +5016,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Required. The FHIR resource type to create, such as Patient or Observation.
  *  For a complete list, see the FHIR Resource Index
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
- *  match the resource type in the provided content.
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
+ *  type in the provided content.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3985,22 +5028,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Creates a FHIR resource. Implements the FHIR standard create interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#create),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#create),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#create)), which
- *  creates a new resource with a server-assigned resource ID. Also supports the
- *  FHIR standard conditional create interaction
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#ccreate),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#ccreate),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#ccreate)),
- *  specified by supplying an `If-None-Exist` header containing a FHIR search
- *  query, limited to searching by resource identifier. If no resources match
- *  this search query, the server processes the create operation as normal. When
- *  using conditional create, the search term for identifier should be in the
- *  pattern `identifier=system|value` or `identifier=value` - similar to the
- *  `search` method on resources with a specific identifier. The request body
- *  must contain a JSON-encoded FHIR resource, and the request headers must
- *  contain `Content-Type: application/fhir+json`. On success, the response body
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#create),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#create),
+ *  [R4](https://hl7.org/fhir/R4/http.html#create),
+ *  [R5](https://hl7.org/fhir/R5/http.html#create)), which creates a new
+ *  resource with a server-assigned resource ID. Also supports the FHIR standard
+ *  conditional create interaction
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#ccreate),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#ccreate),
+ *  [R4](https://hl7.org/fhir/R4/http.html#ccreate),
+ *  [R5](https://hl7.org/fhir/R5/http.html#ccreate)), specified by supplying an
+ *  `If-None-Exist` header containing a FHIR search query, limited to searching
+ *  by resource identifier. If no resources match this search query, the server
+ *  processes the create operation as normal. When using conditional create, the
+ *  search term for identifier should be in the pattern
+ *  `identifier=system|value` or `identifier=value` - similar to the `search`
+ *  method on resources with a specific identifier. The request body must
+ *  contain a JSON-encoded FHIR resource, and the request headers must contain
+ *  `Content-Type: application/fhir+json`. On success, the response body
  *  contains a JSON-encoded representation of the resource as it was created on
  *  the server, including the server-assigned resource ID and version ID. Errors
  *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
@@ -4014,10 +5059,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param parent Required. The name of the FHIR store this resource belongs to.
  *  @param type Required. The FHIR resource type to create, such as Patient or
  *    Observation. For a complete list, see the FHIR Resource Index
- *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *    [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
- *    match the resource type in the provided content.
+ *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
+ *    type in the provided content.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate
  */
@@ -4029,14 +5075,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Deletes a FHIR resource. Implements the FHIR standard delete interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#delete),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#delete),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#delete)). Note:
- *  Unless resource versioning is disabled by setting the
- *  disable_resource_versioning flag on the FHIR store, the deleted resources
- *  will be moved to a history repository that can still be retrieved through
- *  vread and related methods, unless they are removed by the purge method. For
- *  samples that show how to call `delete`, see [Deleting a FHIR
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#delete),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#delete),
+ *  [R4](https://hl7.org/fhir/R4/http.html#delete),
+ *  [R5](https://hl7.org/fhir/R5/http.html#delete)). Note: Unless resource
+ *  versioning is disabled by setting the disable_resource_versioning flag on
+ *  the FHIR store, the deleted resources will be moved to a history repository
+ *  that can still be retrieved through vread and related methods, unless they
+ *  are removed by the purge method. For samples that show how to call `delete`,
+ *  see [Deleting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.delete
@@ -4054,14 +5101,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Deletes a FHIR resource. Implements the FHIR standard delete interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#delete),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#delete),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#delete)). Note:
- *  Unless resource versioning is disabled by setting the
- *  disable_resource_versioning flag on the FHIR store, the deleted resources
- *  will be moved to a history repository that can still be retrieved through
- *  vread and related methods, unless they are removed by the purge method. For
- *  samples that show how to call `delete`, see [Deleting a FHIR
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#delete),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#delete),
+ *  [R4](https://hl7.org/fhir/R4/http.html#delete),
+ *  [R5](https://hl7.org/fhir/R5/http.html#delete)). Note: Unless resource
+ *  versioning is disabled by setting the disable_resource_versioning flag on
+ *  the FHIR store, the deleted resources will be moved to a history repository
+ *  that can still be retrieved through vread and related methods, unless they
+ *  are removed by the purge method. For samples that show how to call `delete`,
+ *  see [Deleting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#deleting_a_fhir_resource).
  *
  *  @param name Required. The name of the resource to delete.
@@ -4075,26 +5123,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Executes all the requests in the given Bundle. Implements the FHIR standard
  *  batch/transaction interaction
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#transaction),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#transaction),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#transaction)).
- *  Supports all interactions within a bundle, except search. This method
- *  accepts Bundles of type `batch` and `transaction`, processing them according
- *  to the batch processing rules
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.1),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#brules)) and
- *  transaction processing rules
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.2),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#trules)). The
- *  request body must contain a JSON-encoded FHIR `Bundle` resource, and the
- *  request headers must contain `Content-Type: application/fhir+json`. For a
- *  batch bundle or a successful transaction, the response body contains a
- *  JSON-encoded representation of a `Bundle` resource of type `batch-response`
- *  or `transaction-response` containing one entry for each entry in the
- *  request, with the outcome of processing the entry. In the case of an error
- *  for a transaction bundle, the response body contains a JSON-encoded
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#transaction),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#transaction),
+ *  [R4](https://hl7.org/fhir/R4/http.html#transaction),
+ *  [R5](https://hl7.org/fhir/R5/http.html#transaction)). Supports all
+ *  interactions within a bundle, except search. This method accepts Bundles of
+ *  type `batch` and `transaction`, processing them according to the batch
+ *  processing rules ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#2.1.0.16.1),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#2.21.0.17.1),
+ *  [R4](https://hl7.org/fhir/R4/http.html#brules),
+ *  [R5](https://hl7.org/fhir/R5/http.html#brules)) and transaction processing
+ *  rules ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#2.1.0.16.2),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#2.21.0.17.2),
+ *  [R4](https://hl7.org/fhir/R4/http.html#trules),
+ *  [R5](https://hl7.org/fhir/R5/http.html#trules)). The request body must
+ *  contain a JSON-encoded FHIR `Bundle` resource, and the request headers must
+ *  contain `Content-Type: application/fhir+json`. For a batch bundle or a
+ *  successful transaction, the response body contains a JSON-encoded
+ *  representation of a `Bundle` resource of type `batch-response` or
+ *  `transaction-response` containing one entry for each entry in the request,
+ *  with the outcome of processing the entry. In the case of an error for a
+ *  transaction bundle, the response body contains a JSON-encoded
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead. This method checks permissions for each
@@ -4126,26 +5175,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Executes all the requests in the given Bundle. Implements the FHIR standard
  *  batch/transaction interaction
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#transaction),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#transaction),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#transaction)).
- *  Supports all interactions within a bundle, except search. This method
- *  accepts Bundles of type `batch` and `transaction`, processing them according
- *  to the batch processing rules
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.1),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.1),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#brules)) and
- *  transaction processing rules
- *  ([DSTU2](https://hl7.org/implement/standards/fhir/DSTU2/http.html#2.1.0.16.2),
- *  [STU3](https://hl7.org/implement/standards/fhir/STU3/http.html#2.21.0.17.2),
- *  [R4](https://hl7.org/implement/standards/fhir/R4/http.html#trules)). The
- *  request body must contain a JSON-encoded FHIR `Bundle` resource, and the
- *  request headers must contain `Content-Type: application/fhir+json`. For a
- *  batch bundle or a successful transaction, the response body contains a
- *  JSON-encoded representation of a `Bundle` resource of type `batch-response`
- *  or `transaction-response` containing one entry for each entry in the
- *  request, with the outcome of processing the entry. In the case of an error
- *  for a transaction bundle, the response body contains a JSON-encoded
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#transaction),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#transaction),
+ *  [R4](https://hl7.org/fhir/R4/http.html#transaction),
+ *  [R5](https://hl7.org/fhir/R5/http.html#transaction)). Supports all
+ *  interactions within a bundle, except search. This method accepts Bundles of
+ *  type `batch` and `transaction`, processing them according to the batch
+ *  processing rules ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#2.1.0.16.1),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#2.21.0.17.1),
+ *  [R4](https://hl7.org/fhir/R4/http.html#brules),
+ *  [R5](https://hl7.org/fhir/R5/http.html#brules)) and transaction processing
+ *  rules ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#2.1.0.16.2),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#2.21.0.17.2),
+ *  [R4](https://hl7.org/fhir/R4/http.html#trules),
+ *  [R5](https://hl7.org/fhir/R5/http.html#trules)). The request body must
+ *  contain a JSON-encoded FHIR `Bundle` resource, and the request headers must
+ *  contain `Content-Type: application/fhir+json`. For a batch bundle or a
+ *  successful transaction, the response body contains a JSON-encoded
+ *  representation of a `Bundle` resource of type `batch-response` or
+ *  `transaction-response` containing one entry for each entry in the request,
+ *  with the outcome of processing the entry. In the case of an error for a
+ *  transaction bundle, the response body contains a JSON-encoded
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead. This method checks permissions for each
@@ -4176,16 +5226,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Lists all the versions of a resource (including the current version and
  *  deleted versions) from the FHIR store. Implements the per-resource form of
  *  the FHIR standard history interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#history),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#history)). On
- *  success, the response body contains a JSON-encoded representation of a
- *  `Bundle` resource of type `history`, containing the version history sorted
- *  from most recent to oldest versions. Errors generated by the FHIR store
- *  contain a JSON-encoded `OperationOutcome` resource describing the reason for
- *  the error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. For samples that show
- *  how to call `history`, see [Listing FHIR resource
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#history),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#history),
+ *  [R4](https://hl7.org/fhir/R4/http.html#history),
+ *  [R5](https://hl7.org/fhir/R5/http.html#history)). On success, the response
+ *  body contains a JSON-encoded representation of a `Bundle` resource of type
+ *  `history`, containing the version history sorted from most recent to oldest
+ *  versions. Errors generated by the FHIR store contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead. For samples that show how to call
+ *  `history`, see [Listing FHIR resource
  *  versions](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.history
@@ -4239,16 +5290,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Lists all the versions of a resource (including the current version and
  *  deleted versions) from the FHIR store. Implements the per-resource form of
  *  the FHIR standard history interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#history),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#history)). On
- *  success, the response body contains a JSON-encoded representation of a
- *  `Bundle` resource of type `history`, containing the version history sorted
- *  from most recent to oldest versions. Errors generated by the FHIR store
- *  contain a JSON-encoded `OperationOutcome` resource describing the reason for
- *  the error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. For samples that show
- *  how to call `history`, see [Listing FHIR resource
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#history),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#history),
+ *  [R4](https://hl7.org/fhir/R4/http.html#history),
+ *  [R5](https://hl7.org/fhir/R5/http.html#history)). On success, the response
+ *  body contains a JSON-encoded representation of a `Bundle` resource of type
+ *  `history`, containing the version history sorted from most recent to oldest
+ *  versions. Errors generated by the FHIR store contain a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error. If the
+ *  request cannot be mapped to a valid API method on a FHIR store, a generic
+ *  GCP error might be returned instead. For samples that show how to call
+ *  `history`, see [Listing FHIR resource
  *  versions](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#listing_fhir_resource_versions).
  *
  *  @param name Required. The name of the resource to retrieve.
@@ -4262,18 +5314,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Updates part of an existing resource by applying the operations specified in
  *  a [JSON Patch](http://jsonpatch.com/) document. Implements the FHIR standard
- *  patch interaction
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#patch)). DSTU2
- *  doesn't define a patch method, but the server supports it in the same way it
- *  supports STU3. The request body must contain a JSON Patch document, and the
- *  request headers must contain `Content-Type: application/json-patch+json`. On
- *  success, the response body contains a JSON-encoded representation of the
- *  updated resource, including the server-assigned version ID. Errors generated
- *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
- *  describing the reason for the error. If the request cannot be mapped to a
- *  valid API method on a FHIR store, a generic GCP error might be returned
- *  instead. For samples that show how to call `patch`, see [Patching a FHIR
+ *  patch interaction ([STU3](https://hl7.org/fhir/STU3/http.html#patch),
+ *  [R4](https://hl7.org/fhir/R4/http.html#patch),
+ *  [R5](https://hl7.org/fhir/R5/http.html#patch)). DSTU2 doesn't define a patch
+ *  method, but the server supports it in the same way it supports STU3. The
+ *  request body must contain a JSON Patch document, and the request headers
+ *  must contain `Content-Type: application/json-patch+json`. On success, the
+ *  response body contains a JSON-encoded representation of the updated
+ *  resource, including the server-assigned version ID. Errors generated by the
+ *  FHIR store contain a JSON-encoded `OperationOutcome` resource describing the
+ *  reason for the error. If the request cannot be mapped to a valid API method
+ *  on a FHIR store, a generic GCP error might be returned instead. For samples
+ *  that show how to call `patch`, see [Patching a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.patch
@@ -4292,18 +5344,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Updates part of an existing resource by applying the operations specified in
  *  a [JSON Patch](http://jsonpatch.com/) document. Implements the FHIR standard
- *  patch interaction
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#patch),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#patch)). DSTU2
- *  doesn't define a patch method, but the server supports it in the same way it
- *  supports STU3. The request body must contain a JSON Patch document, and the
- *  request headers must contain `Content-Type: application/json-patch+json`. On
- *  success, the response body contains a JSON-encoded representation of the
- *  updated resource, including the server-assigned version ID. Errors generated
- *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
- *  describing the reason for the error. If the request cannot be mapped to a
- *  valid API method on a FHIR store, a generic GCP error might be returned
- *  instead. For samples that show how to call `patch`, see [Patching a FHIR
+ *  patch interaction ([STU3](https://hl7.org/fhir/STU3/http.html#patch),
+ *  [R4](https://hl7.org/fhir/R4/http.html#patch),
+ *  [R5](https://hl7.org/fhir/R5/http.html#patch)). DSTU2 doesn't define a patch
+ *  method, but the server supports it in the same way it supports STU3. The
+ *  request body must contain a JSON Patch document, and the request headers
+ *  must contain `Content-Type: application/json-patch+json`. On success, the
+ *  response body contains a JSON-encoded representation of the updated
+ *  resource, including the server-assigned version ID. Errors generated by the
+ *  FHIR store contain a JSON-encoded `OperationOutcome` resource describing the
+ *  reason for the error. If the request cannot be mapped to a valid API method
+ *  on a FHIR store, a generic GCP error might be returned instead. For samples
+ *  that show how to call `patch`, see [Patching a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#patching_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
@@ -4317,12 +5369,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Returns the consent enforcement status of all consent resources for a
+ *  patient. On success, the response body contains a JSON-encoded
+ *  representation of a bundle of `Parameters`
+ *  (http://hl7.org/fhir/parameters.html) FHIR resources, containing the current
+ *  enforcement status for each consent resource of the patient. Does not
+ *  support DSTU2.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Patient-consent-enforcement-status
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientConsentEnforcementStatus : GTLRCloudHealthcareQuery
+
+/**
+ *  Optional. The maximum number of results on a page. If not specified, 100 is
+ *  used. May not be larger than 1000.
+ */
+@property(nonatomic, assign) NSInteger xCount;
+
+/**
+ *  Optional. Used to retrieve the first, previous, next, or last page of
+ *  consent enforcement statuses when using pagination. Value should be set to
+ *  the value of `_page_token` set in next or previous page links' URLs. Next
+ *  and previous page are returned in the response bundle's links field, where
+ *  `link.relation` is "previous" or "next". Omit `_page_token` if no previous
+ *  request has been made.
+ */
+@property(nonatomic, copy, nullable) NSString *xPageToken;
+
+/**
+ *  Required. The name of the patient to find enforcement statuses, in the
+ *  format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Patient/{patient_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Returns the consent enforcement status of all consent resources for a
+ *  patient. On success, the response body contains a JSON-encoded
+ *  representation of a bundle of `Parameters`
+ *  (http://hl7.org/fhir/parameters.html) FHIR resources, containing the current
+ *  enforcement status for each consent resource of the patient. Does not
+ *  support DSTU2.
+ *
+ *  @param name Required. The name of the patient to find enforcement statuses,
+ *    in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/fhir/Patient/{patient_id}`
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientConsentEnforcementStatus
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves a Patient resource and resources related to that patient.
  *  Implements the FHIR extended operation Patient-everything
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/patient-operations.html#everything),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/patient-operations.html#everything),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/patient-operations.html#everything)).
- *  On success, the response body contains a JSON-encoded representation of a
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/patient-operations.html#everything),
+ *  [STU3](https://hl7.org/fhir/STU3/patient-operations.html#everything),
+ *  [R4](https://hl7.org/fhir/R4/patient-operation-everything.html),
+ *  [R5](https://hl7.org/fhir/R5/patient-operation-everything.html)). On
+ *  success, the response body contains a JSON-encoded representation of a
  *  `Bundle` resource of type `searchset`, containing the results of the
  *  operation. Errors generated by the FHIR store contain a JSON-encoded
  *  `OperationOutcome` resource describing the reason for the error. If the
@@ -4334,7 +5446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  on the membership rules in the patient compartment definition
  *  ([DSTU2](http://hl7.org/fhir/DSTU2/compartment-patient.html),
  *  [STU3](http://www.hl7.org/fhir/stu3/compartmentdefinition-patient.html),
- *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html)), which
+ *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html),
+ *  [R5](http://hl7.org/fhir/R5/compartmentdefinition-patient.html)), which
  *  details the eligible resource types and referencing search parameters. For
  *  samples that show how to call `Patient-everything`, see [Getting all patient
  *  compartment
@@ -4405,10 +5518,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Retrieves a Patient resource and resources related to that patient.
  *  Implements the FHIR extended operation Patient-everything
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/patient-operations.html#everything),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/patient-operations.html#everything),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/patient-operations.html#everything)).
- *  On success, the response body contains a JSON-encoded representation of a
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/patient-operations.html#everything),
+ *  [STU3](https://hl7.org/fhir/STU3/patient-operations.html#everything),
+ *  [R4](https://hl7.org/fhir/R4/patient-operation-everything.html),
+ *  [R5](https://hl7.org/fhir/R5/patient-operation-everything.html)). On
+ *  success, the response body contains a JSON-encoded representation of a
  *  `Bundle` resource of type `searchset`, containing the results of the
  *  operation. Errors generated by the FHIR store contain a JSON-encoded
  *  `OperationOutcome` resource describing the reason for the error. If the
@@ -4420,7 +5534,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  on the membership rules in the patient compartment definition
  *  ([DSTU2](http://hl7.org/fhir/DSTU2/compartment-patient.html),
  *  [STU3](http://www.hl7.org/fhir/stu3/compartmentdefinition-patient.html),
- *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html)), which
+ *  [R4](http://hl7.org/fhir/R4/compartmentdefinition-patient.html),
+ *  [R5](http://hl7.org/fhir/R5/compartmentdefinition-patient.html)), which
  *  details the eligible resource types and referencing search parameters. For
  *  samples that show how to call `Patient-everything`, see [Getting all patient
  *  compartment
@@ -4437,21 +5552,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Gets the contents of a FHIR resource. Implements the FHIR standard read
- *  interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#read),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#read),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#read)). Also
- *  supports the FHIR standard conditional read interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#cread),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cread),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#cread)) specified
- *  by supplying an `If-Modified-Since` header with a date/time value or an
- *  `If-None-Match` header with an ETag value. On success, the response body
- *  contains a JSON-encoded representation of the resource. Errors generated by
- *  the FHIR store contain a JSON-encoded `OperationOutcome` resource describing
- *  the reason for the error. If the request cannot be mapped to a valid API
- *  method on a FHIR store, a generic GCP error might be returned instead. For
- *  samples that show how to call `read`, see [Getting a FHIR
+ *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#read),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#read),
+ *  [R4](https://hl7.org/fhir/R4/http.html#read),
+ *  [R5](https://hl7.org/fhir/R5/http.html#read)). Also supports the FHIR
+ *  standard conditional read interaction
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#cread),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#cread),
+ *  [R4](https://hl7.org/fhir/R4/http.html#cread),
+ *  [R5](https://hl7.org/fhir/R5/http.html#cread)) specified by supplying an
+ *  `If-Modified-Since` header with a date/time value or an `If-None-Match`
+ *  header with an ETag value. On success, the response body contains a
+ *  JSON-encoded representation of the resource. Errors generated by the FHIR
+ *  store contain a JSON-encoded `OperationOutcome` resource describing the
+ *  reason for the error. If the request cannot be mapped to a valid API method
+ *  on a FHIR store, a generic GCP error might be returned instead. For samples
+ *  that show how to call `read`, see [Getting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.read
@@ -4469,21 +5585,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Gets the contents of a FHIR resource. Implements the FHIR standard read
- *  interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#read),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#read),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#read)). Also
- *  supports the FHIR standard conditional read interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#cread),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#cread),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#cread)) specified
- *  by supplying an `If-Modified-Since` header with a date/time value or an
- *  `If-None-Match` header with an ETag value. On success, the response body
- *  contains a JSON-encoded representation of the resource. Errors generated by
- *  the FHIR store contain a JSON-encoded `OperationOutcome` resource describing
- *  the reason for the error. If the request cannot be mapped to a valid API
- *  method on a FHIR store, a generic GCP error might be returned instead. For
- *  samples that show how to call `read`, see [Getting a FHIR
+ *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#read),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#read),
+ *  [R4](https://hl7.org/fhir/R4/http.html#read),
+ *  [R5](https://hl7.org/fhir/R5/http.html#read)). Also supports the FHIR
+ *  standard conditional read interaction
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#cread),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#cread),
+ *  [R4](https://hl7.org/fhir/R4/http.html#cread),
+ *  [R5](https://hl7.org/fhir/R5/http.html#cread)) specified by supplying an
+ *  `If-Modified-Since` header with a date/time value or an `If-None-Match`
+ *  header with an ETag value. On success, the response body contains a
+ *  JSON-encoded representation of the resource. Errors generated by the FHIR
+ *  store contain a JSON-encoded `OperationOutcome` resource describing the
+ *  reason for the error. If the request cannot be mapped to a valid API method
+ *  on a FHIR store, a generic GCP error might be returned instead. For samples
+ *  that show how to call `read`, see [Getting a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
  *  @param name Required. The name of the resource to retrieve.
@@ -4535,19 +5652,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Validates an input FHIR resource's conformance to its profiles and the
  *  profiles configured on the FHIR store. Implements the FHIR extended
  *  operation $validate
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resource-operations.html#validate),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resource-operations.html#validate),
- *  or
- *  [R4](http://hl7.org/implement/standards/fhir/R4/resource-operation-validate.html)).
- *  The request body must contain a JSON-encoded FHIR resource, and the request
- *  headers must contain `Content-Type: application/fhir+json`. The `Parameters`
- *  input syntax is not supported. The `profile` query parameter can be used to
- *  request that the resource only be validated against a specific profile. If a
- *  profile with the given URL cannot be found in the FHIR store then an error
- *  is returned. Errors generated by validation contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead.
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resource-operations.html#validate),
+ *  [STU3](https://hl7.org/fhir/STU3/resource-operations.html#validate),
+ *  [R4](https://hl7.org/fhir/R4/resource-operation-validate.html). or
+ *  [R5](https://hl7.org/fhir/R5/resource-operation-validate.html)). The request
+ *  body must contain a JSON-encoded FHIR resource, and the request headers must
+ *  contain `Content-Type: application/fhir+json`. The `Parameters` input syntax
+ *  is not supported. The `profile` query parameter can be used to request that
+ *  the resource only be validated against a specific profile. If a profile with
+ *  the given URL cannot be found in the FHIR store then an error is returned.
+ *  Errors generated by validation contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.Resource-validate
  *
@@ -4564,7 +5681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. The canonical URL of a profile that this resource should be
+ *  Optional. The canonical URL of a profile that this resource should be
  *  validated against. For example, to validate a Patient resource against the
  *  US Core Patient profile this parameter would be
  *  `http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient`. A
@@ -4575,10 +5692,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Required. The FHIR resource type of the resource being validated. For a
  *  complete list, see the FHIR Resource Index
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html), or
- *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
- *  match the resource type in the provided content.
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html), or
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
+ *  type in the provided content.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4588,29 +5706,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Validates an input FHIR resource's conformance to its profiles and the
  *  profiles configured on the FHIR store. Implements the FHIR extended
  *  operation $validate
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resource-operations.html#validate),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resource-operations.html#validate),
- *  or
- *  [R4](http://hl7.org/implement/standards/fhir/R4/resource-operation-validate.html)).
- *  The request body must contain a JSON-encoded FHIR resource, and the request
- *  headers must contain `Content-Type: application/fhir+json`. The `Parameters`
- *  input syntax is not supported. The `profile` query parameter can be used to
- *  request that the resource only be validated against a specific profile. If a
- *  profile with the given URL cannot be found in the FHIR store then an error
- *  is returned. Errors generated by validation contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead.
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resource-operations.html#validate),
+ *  [STU3](https://hl7.org/fhir/STU3/resource-operations.html#validate),
+ *  [R4](https://hl7.org/fhir/R4/resource-operation-validate.html). or
+ *  [R5](https://hl7.org/fhir/R5/resource-operation-validate.html)). The request
+ *  body must contain a JSON-encoded FHIR resource, and the request headers must
+ *  contain `Content-Type: application/fhir+json`. The `Parameters` input syntax
+ *  is not supported. The `profile` query parameter can be used to request that
+ *  the resource only be validated against a specific profile. If a profile with
+ *  the given URL cannot be found in the FHIR store then an error is returned.
+ *  Errors generated by validation contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead.
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent Required. The name of the FHIR store that holds the profiles
  *    being used for validation.
  *  @param type Required. The FHIR resource type of the resource being
  *    validated. For a complete list, see the FHIR Resource Index
- *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html), or
- *    [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)). Must
- *    match the resource type in the provided content.
+ *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html), or
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)). Must match the resource
+ *    type in the provided content.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourceValidate
  */
@@ -4623,38 +5742,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Searches for resources in the given FHIR store according to criteria
  *  specified as query parameters. Implements the FHIR standard search
- *  interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#search)) using the
- *  search semantics described in the FHIR Search specification
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/search.html)). Supports four
- *  methods of search defined by the specification: * `GET [base]?[parameters]`
- *  to search across all resources. * `GET [base]/[type]?[parameters]` to search
- *  resources of a specified type. * `POST [base]/_search?[parameters]` as an
- *  alternate form having the same semantics as the `GET` method across all
- *  resources. * `POST [base]/[type]/_search?[parameters]` as an alternate form
- *  having the same semantics as the `GET` method for the specified type. The
- *  `GET` and `POST` methods do not support compartment searches. The `POST`
- *  method does not support `application/x-www-form-urlencoded` search
- *  parameters. On success, the response body contains a JSON-encoded
- *  representation of a `Bundle` resource of type `searchset`, containing the
- *  results of the search. Errors generated by the FHIR store contain a
- *  JSON-encoded `OperationOutcome` resource describing the reason for the
- *  error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. The server's
- *  capability statement, retrieved through capabilities, indicates what search
- *  parameters are supported on each FHIR resource. A list of all search
- *  parameters defined by the specification can be found in the FHIR Search
- *  Parameter Registry
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/searchparameter-registry.html)).
- *  FHIR search parameters for DSTU2 can be found on each resource's definition
- *  page. Supported search modifiers: `:missing`, `:exact`, `:contains`,
- *  `:text`, `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and
- *  `recurse` (DSTU2 and STU3) or `:iterate` (R4). Supported search result
+ *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#search),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#search),
+ *  [R4](https://hl7.org/fhir/R4/http.html#search),
+ *  [R5](https://hl7.org/fhir/R5/http.html#search)) using the search semantics
+ *  described in the FHIR Search specification
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/search.html),
+ *  [STU3](https://hl7.org/fhir/STU3/search.html),
+ *  [R4](https://hl7.org/fhir/R4/search.html),
+ *  [R5](https://hl7.org/fhir/R5/search.html)). Supports four methods of search
+ *  defined by the specification: * `GET [base]?[parameters]` to search across
+ *  all resources. * `GET [base]/[type]?[parameters]` to search resources of a
+ *  specified type. * `POST [base]/_search?[parameters]` as an alternate form
+ *  having the same semantics as the `GET` method across all resources. * `POST
+ *  [base]/[type]/_search?[parameters]` as an alternate form having the same
+ *  semantics as the `GET` method for the specified type. The `GET` and `POST`
+ *  methods do not support compartment searches. The `POST` method does not
+ *  support `application/x-www-form-urlencoded` search parameters. On success,
+ *  the response body contains a JSON-encoded representation of a `Bundle`
+ *  resource of type `searchset`, containing the results of the search. Errors
+ *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead. The server's capability statement, retrieved through
+ *  capabilities, indicates what search parameters are supported on each FHIR
+ *  resource. A list of all search parameters defined by the specification can
+ *  be found in the FHIR Search Parameter Registry
+ *  ([STU3](https://hl7.org/fhir/STU3/searchparameter-registry.html),
+ *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html),
+ *  [R5](https://hl7.org/fhir/R5/searchparameter-registry.html)). FHIR search
+ *  parameters for DSTU2 can be found on each resource's definition page.
+ *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
+ *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse`
+ *  (DSTU2 and STU3) or `:iterate` (R4 and R5). Supported search result
  *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
@@ -4705,38 +5825,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Searches for resources in the given FHIR store according to criteria
  *  specified as query parameters. Implements the FHIR standard search
- *  interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#search)) using the
- *  search semantics described in the FHIR Search specification
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/search.html)). Supports four
- *  methods of search defined by the specification: * `GET [base]?[parameters]`
- *  to search across all resources. * `GET [base]/[type]?[parameters]` to search
- *  resources of a specified type. * `POST [base]/_search?[parameters]` as an
- *  alternate form having the same semantics as the `GET` method across all
- *  resources. * `POST [base]/[type]/_search?[parameters]` as an alternate form
- *  having the same semantics as the `GET` method for the specified type. The
- *  `GET` and `POST` methods do not support compartment searches. The `POST`
- *  method does not support `application/x-www-form-urlencoded` search
- *  parameters. On success, the response body contains a JSON-encoded
- *  representation of a `Bundle` resource of type `searchset`, containing the
- *  results of the search. Errors generated by the FHIR store contain a
- *  JSON-encoded `OperationOutcome` resource describing the reason for the
- *  error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. The server's
- *  capability statement, retrieved through capabilities, indicates what search
- *  parameters are supported on each FHIR resource. A list of all search
- *  parameters defined by the specification can be found in the FHIR Search
- *  Parameter Registry
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/searchparameter-registry.html)).
- *  FHIR search parameters for DSTU2 can be found on each resource's definition
- *  page. Supported search modifiers: `:missing`, `:exact`, `:contains`,
- *  `:text`, `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and
- *  `recurse` (DSTU2 and STU3) or `:iterate` (R4). Supported search result
+ *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#search),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#search),
+ *  [R4](https://hl7.org/fhir/R4/http.html#search),
+ *  [R5](https://hl7.org/fhir/R5/http.html#search)) using the search semantics
+ *  described in the FHIR Search specification
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/search.html),
+ *  [STU3](https://hl7.org/fhir/STU3/search.html),
+ *  [R4](https://hl7.org/fhir/R4/search.html),
+ *  [R5](https://hl7.org/fhir/R5/search.html)). Supports four methods of search
+ *  defined by the specification: * `GET [base]?[parameters]` to search across
+ *  all resources. * `GET [base]/[type]?[parameters]` to search resources of a
+ *  specified type. * `POST [base]/_search?[parameters]` as an alternate form
+ *  having the same semantics as the `GET` method across all resources. * `POST
+ *  [base]/[type]/_search?[parameters]` as an alternate form having the same
+ *  semantics as the `GET` method for the specified type. The `GET` and `POST`
+ *  methods do not support compartment searches. The `POST` method does not
+ *  support `application/x-www-form-urlencoded` search parameters. On success,
+ *  the response body contains a JSON-encoded representation of a `Bundle`
+ *  resource of type `searchset`, containing the results of the search. Errors
+ *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead. The server's capability statement, retrieved through
+ *  capabilities, indicates what search parameters are supported on each FHIR
+ *  resource. A list of all search parameters defined by the specification can
+ *  be found in the FHIR Search Parameter Registry
+ *  ([STU3](https://hl7.org/fhir/STU3/searchparameter-registry.html),
+ *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html),
+ *  [R5](https://hl7.org/fhir/R5/searchparameter-registry.html)). FHIR search
+ *  parameters for DSTU2 can be found on each resource's definition page.
+ *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
+ *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse`
+ *  (DSTU2 and STU3) or `:iterate` (R4 and R5). Supported search result
  *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
@@ -4785,38 +5906,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Searches for resources in the given FHIR store according to criteria
  *  specified as query parameters. Implements the FHIR standard search
- *  interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#search)) using the
- *  search semantics described in the FHIR Search specification
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/search.html)). Supports four
- *  methods of search defined by the specification: * `GET [base]?[parameters]`
- *  to search across all resources. * `GET [base]/[type]?[parameters]` to search
- *  resources of a specified type. * `POST [base]/_search?[parameters]` as an
- *  alternate form having the same semantics as the `GET` method across all
- *  resources. * `POST [base]/[type]/_search?[parameters]` as an alternate form
- *  having the same semantics as the `GET` method for the specified type. The
- *  `GET` and `POST` methods do not support compartment searches. The `POST`
- *  method does not support `application/x-www-form-urlencoded` search
- *  parameters. On success, the response body contains a JSON-encoded
- *  representation of a `Bundle` resource of type `searchset`, containing the
- *  results of the search. Errors generated by the FHIR store contain a
- *  JSON-encoded `OperationOutcome` resource describing the reason for the
- *  error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. The server's
- *  capability statement, retrieved through capabilities, indicates what search
- *  parameters are supported on each FHIR resource. A list of all search
- *  parameters defined by the specification can be found in the FHIR Search
- *  Parameter Registry
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/searchparameter-registry.html)).
- *  FHIR search parameters for DSTU2 can be found on each resource's definition
- *  page. Supported search modifiers: `:missing`, `:exact`, `:contains`,
- *  `:text`, `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and
- *  `recurse` (DSTU2 and STU3) or `:iterate` (R4). Supported search result
+ *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#search),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#search),
+ *  [R4](https://hl7.org/fhir/R4/http.html#search),
+ *  [R5](https://hl7.org/fhir/R5/http.html#search)) using the search semantics
+ *  described in the FHIR Search specification
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/search.html),
+ *  [STU3](https://hl7.org/fhir/STU3/search.html),
+ *  [R4](https://hl7.org/fhir/R4/search.html),
+ *  [R5](https://hl7.org/fhir/R5/search.html)). Supports four methods of search
+ *  defined by the specification: * `GET [base]?[parameters]` to search across
+ *  all resources. * `GET [base]/[type]?[parameters]` to search resources of a
+ *  specified type. * `POST [base]/_search?[parameters]` as an alternate form
+ *  having the same semantics as the `GET` method across all resources. * `POST
+ *  [base]/[type]/_search?[parameters]` as an alternate form having the same
+ *  semantics as the `GET` method for the specified type. The `GET` and `POST`
+ *  methods do not support compartment searches. The `POST` method does not
+ *  support `application/x-www-form-urlencoded` search parameters. On success,
+ *  the response body contains a JSON-encoded representation of a `Bundle`
+ *  resource of type `searchset`, containing the results of the search. Errors
+ *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead. The server's capability statement, retrieved through
+ *  capabilities, indicates what search parameters are supported on each FHIR
+ *  resource. A list of all search parameters defined by the specification can
+ *  be found in the FHIR Search Parameter Registry
+ *  ([STU3](https://hl7.org/fhir/STU3/searchparameter-registry.html),
+ *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html),
+ *  [R5](https://hl7.org/fhir/R5/searchparameter-registry.html)). FHIR search
+ *  parameters for DSTU2 can be found on each resource's definition page.
+ *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
+ *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse`
+ *  (DSTU2 and STU3) or `:iterate` (R4 and R5). Supported search result
  *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
@@ -4863,11 +5985,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. The FHIR resource type to search, such as Patient or Observation.
+ *  Optional. The FHIR resource type to search, such as Patient or Observation.
  *  For a complete list, see the FHIR Resource Index
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html)),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -4876,38 +5999,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Searches for resources in the given FHIR store according to criteria
  *  specified as query parameters. Implements the FHIR standard search
- *  interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#search),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#search),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#search)) using the
- *  search semantics described in the FHIR Search specification
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/search.html),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/search.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/search.html)). Supports four
- *  methods of search defined by the specification: * `GET [base]?[parameters]`
- *  to search across all resources. * `GET [base]/[type]?[parameters]` to search
- *  resources of a specified type. * `POST [base]/_search?[parameters]` as an
- *  alternate form having the same semantics as the `GET` method across all
- *  resources. * `POST [base]/[type]/_search?[parameters]` as an alternate form
- *  having the same semantics as the `GET` method for the specified type. The
- *  `GET` and `POST` methods do not support compartment searches. The `POST`
- *  method does not support `application/x-www-form-urlencoded` search
- *  parameters. On success, the response body contains a JSON-encoded
- *  representation of a `Bundle` resource of type `searchset`, containing the
- *  results of the search. Errors generated by the FHIR store contain a
- *  JSON-encoded `OperationOutcome` resource describing the reason for the
- *  error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. The server's
- *  capability statement, retrieved through capabilities, indicates what search
- *  parameters are supported on each FHIR resource. A list of all search
- *  parameters defined by the specification can be found in the FHIR Search
- *  Parameter Registry
- *  ([STU3](http://hl7.org/implement/standards/fhir/STU3/searchparameter-registry.html),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/searchparameter-registry.html)).
- *  FHIR search parameters for DSTU2 can be found on each resource's definition
- *  page. Supported search modifiers: `:missing`, `:exact`, `:contains`,
- *  `:text`, `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and
- *  `recurse` (DSTU2 and STU3) or `:iterate` (R4). Supported search result
+ *  interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#search),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#search),
+ *  [R4](https://hl7.org/fhir/R4/http.html#search),
+ *  [R5](https://hl7.org/fhir/R5/http.html#search)) using the search semantics
+ *  described in the FHIR Search specification
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/search.html),
+ *  [STU3](https://hl7.org/fhir/STU3/search.html),
+ *  [R4](https://hl7.org/fhir/R4/search.html),
+ *  [R5](https://hl7.org/fhir/R5/search.html)). Supports four methods of search
+ *  defined by the specification: * `GET [base]?[parameters]` to search across
+ *  all resources. * `GET [base]/[type]?[parameters]` to search resources of a
+ *  specified type. * `POST [base]/_search?[parameters]` as an alternate form
+ *  having the same semantics as the `GET` method across all resources. * `POST
+ *  [base]/[type]/_search?[parameters]` as an alternate form having the same
+ *  semantics as the `GET` method for the specified type. The `GET` and `POST`
+ *  methods do not support compartment searches. The `POST` method does not
+ *  support `application/x-www-form-urlencoded` search parameters. On success,
+ *  the response body contains a JSON-encoded representation of a `Bundle`
+ *  resource of type `searchset`, containing the results of the search. Errors
+ *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead. The server's capability statement, retrieved through
+ *  capabilities, indicates what search parameters are supported on each FHIR
+ *  resource. A list of all search parameters defined by the specification can
+ *  be found in the FHIR Search Parameter Registry
+ *  ([STU3](https://hl7.org/fhir/STU3/searchparameter-registry.html),
+ *  [R4](https://hl7.org/fhir/R4/searchparameter-registry.html),
+ *  [R5](https://hl7.org/fhir/R5/searchparameter-registry.html)). FHIR search
+ *  parameters for DSTU2 can be found on each resource's definition page.
+ *  Supported search modifiers: `:missing`, `:exact`, `:contains`, `:text`,
+ *  `:in`, `:not-in`, `:above`, `:below`, `:[type]`, `:not`, and `recurse`
+ *  (DSTU2 and STU3) or `:iterate` (R4 and R5). Supported search result
  *  parameters: `_sort`, `_count`, `_include`, `_revinclude`, `_summary=text`,
  *  `_summary=data`, and `_elements`. The maximum number of search results
  *  returned defaults to 100, which can be overridden by the `_count` parameter
@@ -4945,11 +6069,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
  *    in the query.
  *  @param parent Required. Name of the FHIR store to retrieve resources from.
- *  @param resourceType Required. The FHIR resource type to search, such as
+ *  @param resourceType Optional. The FHIR resource type to search, such as
  *    Patient or Observation. For a complete list, see the FHIR Resource Index
- *    ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/resourcelist.html),
- *    [STU3](http://hl7.org/implement/standards/fhir/STU3/resourcelist.html),
- *    [R4](http://hl7.org/implement/standards/fhir/R4/resourcelist.html)).
+ *    ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *    [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *    [R4](https://hl7.org/fhir/R4/resourcelist.html)),
+ *    [R5](https://hl7.org/fhir/R5/resourcelist.html)).
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchType
  */
@@ -4961,26 +6086,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Updates the entire contents of a resource. Implements the FHIR standard
- *  update interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#update),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#update),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#update)). If the
- *  specified resource does not exist and the FHIR store has
- *  enable_update_create set, creates the resource with the client-specified ID.
- *  It is strongly advised not to include or encode any sensitive data such as
- *  patient identifiers in client-specified resource IDs. Those IDs are part of
- *  the FHIR resource path recorded in Cloud Audit Logs and Pub/Sub
- *  notifications. Those IDs can also be contained in reference fields within
- *  other resources. The request body must contain a JSON-encoded FHIR resource,
- *  and the request headers must contain `Content-Type: application/fhir+json`.
- *  The resource must contain an `id` element having an identical value to the
- *  ID in the REST path of the request. On success, the response body contains a
- *  JSON-encoded representation of the updated resource, including the
- *  server-assigned version ID. Errors generated by the FHIR store contain a
- *  JSON-encoded `OperationOutcome` resource describing the reason for the
- *  error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. For samples that show
- *  how to call `update`, see [Updating a FHIR
+ *  update interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#update),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#update),
+ *  [R4](https://hl7.org/fhir/R4/http.html#update),
+ *  [R5](https://hl7.org/fhir/R5/http.html#update)). If the specified resource
+ *  does not exist and the FHIR store has enable_update_create set, creates the
+ *  resource with the client-specified ID. It is strongly advised not to include
+ *  or encode any sensitive data such as patient identifiers in client-specified
+ *  resource IDs. Those IDs are part of the FHIR resource path recorded in Cloud
+ *  Audit Logs and Pub/Sub notifications. Those IDs can also be contained in
+ *  reference fields within other resources. The request body must contain a
+ *  JSON-encoded FHIR resource, and the request headers must contain
+ *  `Content-Type: application/fhir+json`. The resource must contain an `id`
+ *  element having an identical value to the ID in the REST path of the request.
+ *  On success, the response body contains a JSON-encoded representation of the
+ *  updated resource, including the server-assigned version ID. Errors generated
+ *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
+ *  describing the reason for the error. If the request cannot be mapped to a
+ *  valid API method on a FHIR store, a generic GCP error might be returned
+ *  instead. The conditional update interaction If-None-Match is supported,
+ *  including the wildcard behaviour, as defined by the R5 spec. This
+ *  functionality is supported in R4 and R5. For samples that show how to call
+ *  `update`, see [Updating a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.update
@@ -4998,26 +6125,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Updates the entire contents of a resource. Implements the FHIR standard
- *  update interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#update),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#update),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#update)). If the
- *  specified resource does not exist and the FHIR store has
- *  enable_update_create set, creates the resource with the client-specified ID.
- *  It is strongly advised not to include or encode any sensitive data such as
- *  patient identifiers in client-specified resource IDs. Those IDs are part of
- *  the FHIR resource path recorded in Cloud Audit Logs and Pub/Sub
- *  notifications. Those IDs can also be contained in reference fields within
- *  other resources. The request body must contain a JSON-encoded FHIR resource,
- *  and the request headers must contain `Content-Type: application/fhir+json`.
- *  The resource must contain an `id` element having an identical value to the
- *  ID in the REST path of the request. On success, the response body contains a
- *  JSON-encoded representation of the updated resource, including the
- *  server-assigned version ID. Errors generated by the FHIR store contain a
- *  JSON-encoded `OperationOutcome` resource describing the reason for the
- *  error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. For samples that show
- *  how to call `update`, see [Updating a FHIR
+ *  update interaction ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#update),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#update),
+ *  [R4](https://hl7.org/fhir/R4/http.html#update),
+ *  [R5](https://hl7.org/fhir/R5/http.html#update)). If the specified resource
+ *  does not exist and the FHIR store has enable_update_create set, creates the
+ *  resource with the client-specified ID. It is strongly advised not to include
+ *  or encode any sensitive data such as patient identifiers in client-specified
+ *  resource IDs. Those IDs are part of the FHIR resource path recorded in Cloud
+ *  Audit Logs and Pub/Sub notifications. Those IDs can also be contained in
+ *  reference fields within other resources. The request body must contain a
+ *  JSON-encoded FHIR resource, and the request headers must contain
+ *  `Content-Type: application/fhir+json`. The resource must contain an `id`
+ *  element having an identical value to the ID in the REST path of the request.
+ *  On success, the response body contains a JSON-encoded representation of the
+ *  updated resource, including the server-assigned version ID. Errors generated
+ *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
+ *  describing the reason for the error. If the request cannot be mapped to a
+ *  valid API method on a FHIR store, a generic GCP error might be returned
+ *  instead. The conditional update interaction If-None-Match is supported,
+ *  including the wildcard behaviour, as defined by the R5 spec. This
+ *  functionality is supported in R4 and R5. For samples that show how to call
+ *  `update`, see [Updating a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#updating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
@@ -5033,15 +6162,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Gets the contents of a version (current or historical) of a FHIR resource by
  *  version ID. Implements the FHIR standard vread interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#vread),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#vread)). On
- *  success, the response body contains a JSON-encoded representation of the
- *  resource. Errors generated by the FHIR store contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead. For samples that show how to call
- *  `vread`, see [Retrieving a FHIR resource
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#vread),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#vread),
+ *  [R4](https://hl7.org/fhir/R4/http.html#vread),
+ *  [R5](https://hl7.org/fhir/R5/http.html#vread)). On success, the response
+ *  body contains a JSON-encoded representation of the resource. Errors
+ *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead. For samples that show how to call `vread`, see [Retrieving
+ *  a FHIR resource
  *  version](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.vread
@@ -5060,15 +6190,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Gets the contents of a version (current or historical) of a FHIR resource by
  *  version ID. Implements the FHIR standard vread interaction
- *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#vread),
- *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread),
- *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#vread)). On
- *  success, the response body contains a JSON-encoded representation of the
- *  resource. Errors generated by the FHIR store contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead. For samples that show how to call
- *  `vread`, see [Retrieving a FHIR resource
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/http.html#vread),
+ *  [STU3](https://hl7.org/fhir/STU3/http.html#vread),
+ *  [R4](https://hl7.org/fhir/R4/http.html#vread),
+ *  [R5](https://hl7.org/fhir/R5/http.html#vread)). On success, the response
+ *  body contains a JSON-encoded representation of the resource. Errors
+ *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead. For samples that show how to call `vread`, see [Retrieving
+ *  a FHIR resource
  *  version](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#retrieving_a_fhir_resource_version).
  *
  *  @param name Required. The name of the resource version to retrieve.
@@ -5397,6 +6528,98 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Deletes operations as defined in the FHIR specification. Implements the FHIR
+ *  implementation guide [bulk data delete
+ *  request](https://build.fhir.org/ig/HL7/bulk-data/export.html#bulk-data-delete-request).
+ *  Returns success if the operation was successfully cancelled. If the
+ *  operation is complete, or has already been cancelled, returns an error
+ *  response.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.operations.delete-fhir-operation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresOperationsDeleteFhirOperation : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. Name of the operation to be deleted, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/operations/{operation_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Deletes operations as defined in the FHIR specification. Implements the FHIR
+ *  implementation guide [bulk data delete
+ *  request](https://build.fhir.org/ig/HL7/bulk-data/export.html#bulk-data-delete-request).
+ *  Returns success if the operation was successfully cancelled. If the
+ *  operation is complete, or has already been cancelled, returns an error
+ *  response.
+ *
+ *  @param name Required. Name of the operation to be deleted, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/operations/{operation_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresOperationsDeleteFhirOperation
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the status of operations as defined in the FHIR specification.
+ *  Implements the FHIR implementation guide [bulk data status
+ *  request](https://build.fhir.org/ig/HL7/bulk-data/export.html#bulk-data-status-request).
+ *  Operations can have one of these states: * in-progress: response status code
+ *  is `202` and `X-Progress` header is set to `in progress`. * complete:
+ *  response status code is `200` and the body is a JSON-encoded operation
+ *  response as defined by the spec. For a bulk export, this response is defined
+ *  in
+ *  https://build.fhir.org/ig/HL7/bulk-data/export.html#response---complete-status.
+ *  * error: response status code is `5XX`, and the body is a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.operations.get-fhir-operation-status
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresOperationsGetFhirOperationStatus : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. Name of the operation to query, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/operations/{operation_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_HttpBody.
+ *
+ *  Gets the status of operations as defined in the FHIR specification.
+ *  Implements the FHIR implementation guide [bulk data status
+ *  request](https://build.fhir.org/ig/HL7/bulk-data/export.html#bulk-data-status-request).
+ *  Operations can have one of these states: * in-progress: response status code
+ *  is `202` and `X-Progress` header is set to `in progress`. * complete:
+ *  response status code is `200` and the body is a JSON-encoded operation
+ *  response as defined by the spec. For a bulk export, this response is defined
+ *  in
+ *  https://build.fhir.org/ig/HL7/bulk-data/export.html#response---complete-status.
+ *  * error: response status code is `5XX`, and the body is a JSON-encoded
+ *  `OperationOutcome` resource describing the reason for the error.
+ *
+ *  @param name Required. Name of the operation to query, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}/operations/{operation_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresOperationsGetFhirOperationStatus
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Updates the configuration of the specified FHIR store.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.patch
@@ -5409,7 +6632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Output only. Identifier. Resource name of the FHIR store, of the form
- *  `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *  `projects/{project_id}/locations/{location}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5430,7 +6653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param object The @c GTLRCloudHealthcare_FhirStore to include in the query.
  *  @param name Output only. Identifier. Resource name of the FHIR store, of the
  *    form
- *    `projects/{project_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *    `projects/{project_id}/locations/{location}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresPatch
  */
@@ -6323,7 +7546,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Output only. Resource name of the Message, of the form
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
- *  Assigned by the server.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6348,7 +7570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @param object The @c GTLRCloudHealthcare_Message to include in the query.
  *  @param name Output only. Resource name of the Message, of the form
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7V2Stores/{hl7_v2_store_id}/messages/{message_id}`.
- *    Assigned by the server.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesPatch
  */
@@ -6395,6 +7616,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudHealthcare_Hl7V2Store *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rolls back messages from the HL7v2 store to the specified time. This method
+ *  returns an Operation that can be used to track the status of the rollback by
+ *  calling GetOperation. Immediate fatal errors appear in the error field,
+ *  errors are also logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  RollbackHl7V2MessagesResponse is returned in the response field. The
+ *  metadata field type for this operation is OperationMetadata.
+ *
+ *  Method: healthcare.projects.locations.datasets.hl7V2Stores.rollback
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresRollback : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the HL7v2 store to rollback, in the format of
+ *  "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}
+ *  /hl7V2Stores/{hl7v2_store_id}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Rolls back messages from the HL7v2 store to the specified time. This method
+ *  returns an Operation that can be used to track the status of the rollback by
+ *  calling GetOperation. Immediate fatal errors appear in the error field,
+ *  errors are also logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  RollbackHl7V2MessagesResponse is returned in the response field. The
+ *  metadata field type for this operation is OperationMetadata.
+ *
+ *  @param object The @c GTLRCloudHealthcare_RollbackHl7V2MessagesRequest to
+ *    include in the query.
+ *  @param name Required. The name of the HL7v2 store to rollback, in the format
+ *    of "projects/{project_id}/locations/{location_id}/datasets/{dataset_id}
+ *    /hl7V2Stores/{hl7v2_store_id}".
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresRollback
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_RollbackHl7V2MessagesRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -6539,7 +7810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: healthcare.projects.locations.datasets.operations.cancel
@@ -6563,7 +7834,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudHealthcare_CancelOperationRequest to include
@@ -6815,6 +8086,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsList : GTLRCloudHealthcareQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

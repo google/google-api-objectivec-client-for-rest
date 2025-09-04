@@ -269,57 +269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Inline;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Path;
 
-// ----------------------------------------------------------------------------
-// GTLRCloudSupport_WorkflowOperationMetadata.operationAction
-
-/**
- *  Operation pertains to the creation of a new support account.
- *
- *  Value: "CREATE_SUPPORT_ACCOUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_CreateSupportAccount;
-/**
- *  Operation action is not specified.
- *
- *  Value: "OPERATION_ACTION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_OperationActionUnspecified;
-/**
- *  Operation pertains to the purchasing of a support plan that may either
- *  create or update a support account.
- *
- *  Value: "PURCHASE_SUPPORT_ACCOUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_PurchaseSupportAccount;
-/**
- *  Operation pertains to the updating of an existing support account.
- *
- *  Value: "UPDATE_SUPPORT_ACCOUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_UpdateSupportAccount;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudSupport_WorkflowOperationMetadata.workflowOperationType
-
-/**
- *  Unknown version.
- *
- *  Value: "UNKNOWN_OPERATION_TYPE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_UnknownOperationType;
-/**
- *  Version 1.
- *
- *  Value: "WORKFLOWS_V1"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV1;
-/**
- *  Version 2.
- *
- *  Value: "WORKFLOWS_V2"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV2;
-
 /**
  *  An Actor represents an entity that performed an action. For example, an
  *  actor could be a user who posted a comment on a support case, a user who
@@ -339,7 +288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  The email address of the actor. If not provided, it is inferred from the
  *  credentials supplied during case creation. When a name is provided, an email
  *  must also be provided. If the user is a Google Support agent, this is
- *  obfuscated. This field is deprecated. Use **username** field instead.
+ *  obfuscated. This field is deprecated. Use `username` instead.
  */
 @property(nonatomic, copy, nullable) NSString *email GTLR_DEPRECATED;
 
@@ -385,7 +334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 /** Output only. The MIME type of the attachment (e.g. text/plain). */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
-/** Output only. The resource name of the attachment. */
+/** Output only. Identifier. The resource name of the attachment. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -445,7 +394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  Projects have two unique identifiers, an ID and a number, and they look like
  *  this: ``` projects/abc/cases/456 ``` ``` projects/123/cases/456 ``` You can
  *  use either of them when calling the API. To learn more about project
- *  identifiers, see [AIP-2510](https://google.aip.dev/cloud/2510). Next ID: 38
+ *  identifiers, see [AIP-2510](https://google.aip.dev/cloud/2510).
  */
 @interface GTLRCloudSupport_Case : GTLRObject
 
@@ -496,7 +445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/** The resource name for the case. */
+/** Identifier. The resource name for the case. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -603,32 +552,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 
 
 /**
- *  Case comments are the main way Google Support communicates with a user who
- *  has opened a case. When a user responds to Google Support, the user's
- *  responses also appear as comments.
+ *  A comment associated with a support case. Case comments are the primary way
+ *  for Google Support to communicate with a user who has opened a case. When a
+ *  user responds to Google Support, the user's responses also appear as
+ *  comments.
  */
 @interface GTLRCloudSupport_Comment : GTLRObject
 
-/**
- *  The full comment body. Maximum of 12800 characters. This can contain rich
- *  text syntax.
- */
+/** The full comment body. Maximum of 12800 characters. */
 @property(nonatomic, copy, nullable) NSString *body;
 
-/** Output only. The time when this comment was created. */
+/** Output only. The time when the comment was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. The user or Google Support agent created this comment. */
+/** Output only. The user or Google Support agent who created the comment. */
 @property(nonatomic, strong, nullable) GTLRCloudSupport_Actor *creator;
 
-/** Output only. The resource name for the comment. */
+/** Output only. Identifier. The resource name of the comment. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. DEPRECATED. An automatically generated plain text version of
- *  body with all rich text syntax stripped.
+ *  Output only. DEPRECATED. DO NOT USE. A duplicate of the `body` field. This
+ *  field is only present for legacy reasons.
  */
-@property(nonatomic, copy, nullable) NSString *plainTextBody;
+@property(nonatomic, copy, nullable) NSString *plainTextBody GTLR_DEPRECATED;
 
 @end
 
@@ -1273,55 +1220,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
  *  more results to retrieve.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Metadata about the operation. Used to lookup the current status.
- */
-@interface GTLRCloudSupport_WorkflowOperationMetadata : GTLRObject
-
-/**
- *  The namespace that the job was scheduled in. Must be included in the
- *  workflow metadata so the workflow status can be retrieved.
- *
- *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
- */
-@property(nonatomic, copy, nullable) NSString *namespaceProperty;
-
-/**
- *  The type of action the operation is classified as.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_CreateSupportAccount
- *        Operation pertains to the creation of a new support account. (Value:
- *        "CREATE_SUPPORT_ACCOUNT")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_OperationActionUnspecified
- *        Operation action is not specified. (Value:
- *        "OPERATION_ACTION_UNSPECIFIED")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_PurchaseSupportAccount
- *        Operation pertains to the purchasing of a support plan that may either
- *        create or update a support account. (Value:
- *        "PURCHASE_SUPPORT_ACCOUNT")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_OperationAction_UpdateSupportAccount
- *        Operation pertains to the updating of an existing support account.
- *        (Value: "UPDATE_SUPPORT_ACCOUNT")
- */
-@property(nonatomic, copy, nullable) NSString *operationAction;
-
-/**
- *  Which version of the workflow service this operation came from.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_UnknownOperationType
- *        Unknown version. (Value: "UNKNOWN_OPERATION_TYPE")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV1
- *        Version 1. (Value: "WORKFLOWS_V1")
- *    @arg @c kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationType_WorkflowsV2
- *        Version 2. (Value: "WORKFLOWS_V2")
- */
-@property(nonatomic, copy, nullable) NSString *workflowOperationType;
 
 @end
 

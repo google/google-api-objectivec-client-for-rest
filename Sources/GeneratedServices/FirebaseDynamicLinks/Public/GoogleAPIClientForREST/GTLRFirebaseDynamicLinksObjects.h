@@ -121,6 +121,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventSta
 // GTLRFirebaseDynamicLinks_DynamicLinkWarning.warningCode
 
 /**
+ *  The API is deprecated.
+ *
+ *  Value: "API_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_ApiDeprecated;
+/**
  *  isAd param format is incorrect.
  *
  *  Value: "BAD_AD_PARAM"
@@ -251,7 +257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_
 /** Value: "NOT_URI_SOCIAL_URL" */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriSocialUrl;
 /**
- *  Indicates certain paramater is too long.
+ *  Indicates certain parameter is too long.
  *
  *  Value: "TOO_LONG_PARAM"
  */
@@ -282,7 +288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryIosUrlScheme;
 /**
- *  Indicates certain paramater is not recognized.
+ *  Indicates certain parameter is not recognized.
  *
  *  Value: "UNRECOGNIZED_PARAM"
  */
@@ -396,7 +402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAt
 // GTLRFirebaseDynamicLinks_ManagedShortLink.flaggedAttribute
 
 /**
- *  Indicates that short url has been flagged by AbuseIAm team as spam.
+ *  Indicates that short url has been flagged as spam.
  *
  *  Value: "SPAM"
  */
@@ -794,6 +800,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 /** Dynamic Link event stats. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDynamicLinks_DynamicLinkEventStat *> *linkEventStats;
 
+/** Optional warnings associated this API request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDynamicLinks_DynamicLinkWarning *> *warnings;
+
 @end
 
 
@@ -806,6 +815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *  The warning code.
  *
  *  Likely values:
+ *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_ApiDeprecated
+ *        The API is deprecated. (Value: "API_DEPRECATED")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadAdParam
  *        isAd param format is incorrect. (Value: "BAD_AD_PARAM")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_BadDebugParam
@@ -867,7 +878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_NotUriSocialUrl
  *        Value "NOT_URI_SOCIAL_URL"
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_TooLongParam
- *        Indicates certain paramater is too long. (Value: "TOO_LONG_PARAM")
+ *        Indicates certain parameter is too long. (Value: "TOO_LONG_PARAM")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryAndroidLink
  *        Android link param is not needed, e.g. when param 'al' and 'link' have
  *        the same value.. (Value: "UNNECESSARY_ANDROID_LINK")
@@ -881,7 +892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *        iOS URL scheme is not needed, e.g. when 'ibi' are 'ipbi' are all
  *        missing. (Value: "UNNECESSARY_IOS_URL_SCHEME")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnrecognizedParam
- *        Indicates certain paramater is not recognized. (Value:
+ *        Indicates certain parameter is not recognized. (Value:
  *        "UNRECOGNIZED_PARAM")
  */
 @property(nonatomic, copy, nullable) NSString *warningCode;
@@ -1149,6 +1160,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 /** Scion term value to be propagated by iSDK to Scion at app-reopen. */
 @property(nonatomic, copy, nullable) NSString *utmTerm;
+
+/** Optional warnings associated this API request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDynamicLinks_DynamicLinkWarning *> *warning;
 
 @end
 

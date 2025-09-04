@@ -256,6 +256,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRNetworkSecurity_ListAddressGroupsResponse.
  *
  *  Lists address groups in a given project and location.
@@ -416,6 +422,224 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new FirewallEndpoint in a given project and location.
+ *
+ *  Method: networksecurity.organizations.locations.firewallEndpoints.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Id of the requesting object. If auto-generating Id server-side,
+ *  remove this field and firewall_endpoint_id from the method_signature of
+ *  Create RPC.
+ */
+@property(nonatomic, copy, nullable) NSString *firewallEndpointId;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new FirewallEndpoint in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
+ *    query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Endpoint.
+ *
+ *  Method: networksecurity.organizations.locations.firewallEndpoints.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsDelete : GTLRNetworkSecurityQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single Endpoint.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Endpoint.
+ *
+ *  Method: networksecurity.organizations.locations.firewallEndpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsGet : GTLRNetworkSecurityQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_FirewallEndpoint.
+ *
+ *  Gets details of a single Endpoint.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists FirewallEndpoints in a given project and location.
+ *
+ *  Method: networksecurity.organizations.locations.firewallEndpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsList : GTLRNetworkSecurityQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListEndpointsRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListFirewallEndpointsResponse.
+ *
+ *  Lists FirewallEndpoints in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListEndpointsRequest
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single Endpoint.
+ *
+ *  Method: networksecurity.organizations.locations.firewallEndpoints.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsPatch : GTLRNetworkSecurityQuery
+
+/** Immutable. Identifier. Name of resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Endpoint resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Update a single Endpoint.
+ *
+ *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
+ *    query.
+ *  @param name Immutable. Identifier. Name of resource.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsFirewallEndpointsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -423,7 +647,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: networksecurity.organizations.locations.operations.cancel
@@ -446,7 +670,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRNetworkSecurity_CancelOperationRequest to include
@@ -560,6 +784,410 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new SecurityProfileGroup in a given organization and location.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfileGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The parent resource of the SecurityProfileGroup. Must be in the
+ *  format `projects|organizations/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Short name of the SecurityProfileGroup resource to be created.
+ *  This value should be 1-63 characters long, containing only letters, numbers,
+ *  hyphens, and underscores, and should not start with a number. E.g.
+ *  "security_profile_group1".
+ */
+@property(nonatomic, copy, nullable) NSString *securityProfileGroupId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new SecurityProfileGroup in a given organization and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_SecurityProfileGroup to include in
+ *    the query.
+ *  @param parent Required. The parent resource of the SecurityProfileGroup.
+ *    Must be in the format `projects|organizations/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_SecurityProfileGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single SecurityProfileGroup.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfileGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. If client provided etag is out of date, delete will return
+ *  FAILED_PRECONDITION error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the SecurityProfileGroup to delete. Must be in the
+ *  format `projects|organizations/ *
+ *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single SecurityProfileGroup.
+ *
+ *  @param name Required. A name of the SecurityProfileGroup to delete. Must be
+ *    in the format `projects|organizations/ *
+ *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single SecurityProfileGroup.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfileGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the SecurityProfileGroup to get. Must be in the format
+ *  `projects|organizations/ *
+ *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_SecurityProfileGroup.
+ *
+ *  Gets details of a single SecurityProfileGroup.
+ *
+ *  @param name Required. A name of the SecurityProfileGroup to get. Must be in
+ *    the format `projects|organizations/ *
+ *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SecurityProfileGroups in a given organization and location.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfileGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsList : GTLRNetworkSecurityQuery
+
+/** Maximum number of SecurityProfileGroups to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListSecurityProfileGroupsResponse` Indicates
+ *  that this is a continuation of a prior `ListSecurityProfileGroups` call, and
+ *  that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project or organization and location from which the
+ *  SecurityProfileGroups should be listed, specified in the format
+ *  `projects|organizations/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListSecurityProfileGroupsResponse.
+ *
+ *  Lists SecurityProfileGroups in a given organization and location.
+ *
+ *  @param parent Required. The project or organization and location from which
+ *    the SecurityProfileGroups should be listed, specified in the format
+ *    `projects|organizations/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single SecurityProfileGroup.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfileGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. Name of the SecurityProfileGroup resource. It matches
+ *  pattern `projects|organizations/ *
+ *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  SecurityProfileGroup resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single SecurityProfileGroup.
+ *
+ *  @param object The @c GTLRNetworkSecurity_SecurityProfileGroup to include in
+ *    the query.
+ *  @param name Immutable. Identifier. Name of the SecurityProfileGroup
+ *    resource. It matches pattern `projects|organizations/ *
+ *    /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_SecurityProfileGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new SecurityProfile in a given organization and location.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfiles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The parent resource of the SecurityProfile. Must be in the format
+ *  `projects|organizations/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Short name of the SecurityProfile resource to be created. This
+ *  value should be 1-63 characters long, containing only letters, numbers,
+ *  hyphens, and underscores, and should not start with a number. E.g.
+ *  "security_profile1".
+ */
+@property(nonatomic, copy, nullable) NSString *securityProfileId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new SecurityProfile in a given organization and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_SecurityProfile to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the SecurityProfile. Must be
+ *    in the format `projects|organizations/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_SecurityProfile *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single SecurityProfile.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. If client provided etag is out of date, delete will return
+ *  FAILED_PRECONDITION error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the SecurityProfile to delete. Must be in the format
+ *  `projects|organizations/ *
+ *  /locations/{location}/securityProfiles/{security_profile_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single SecurityProfile.
+ *
+ *  @param name Required. A name of the SecurityProfile to delete. Must be in
+ *    the format `projects|organizations/ *
+ *    /locations/{location}/securityProfiles/{security_profile_id}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single SecurityProfile.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the SecurityProfile to get. Must be in the format
+ *  `projects|organizations/ *
+ *  /locations/{location}/securityProfiles/{security_profile_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_SecurityProfile.
+ *
+ *  Gets details of a single SecurityProfile.
+ *
+ *  @param name Required. A name of the SecurityProfile to get. Must be in the
+ *    format `projects|organizations/ *
+ *    /locations/{location}/securityProfiles/{security_profile_id}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SecurityProfiles in a given organization and location.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesList : GTLRNetworkSecurityQuery
+
+/** Maximum number of SecurityProfiles to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListSecurityProfilesResponse` Indicates that
+ *  this is a continuation of a prior `ListSecurityProfiles` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project or organization and location from which the
+ *  SecurityProfiles should be listed, specified in the format
+ *  `projects|organizations/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListSecurityProfilesResponse.
+ *
+ *  Lists SecurityProfiles in a given organization and location.
+ *
+ *  @param parent Required. The project or organization and location from which
+ *    the SecurityProfiles should be listed, specified in the format
+ *    `projects|organizations/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single SecurityProfile.
+ *
+ *  Method: networksecurity.organizations.locations.securityProfiles.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. Name of the SecurityProfile resource. It matches
+ *  pattern `projects|organizations/ *
+ *  /locations/{location}/securityProfiles/{security_profile}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  SecurityProfile resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single SecurityProfile.
+ *
+ *  @param object The @c GTLRNetworkSecurity_SecurityProfile to include in the
+ *    query.
+ *  @param name Immutable. Identifier. Name of the SecurityProfile resource. It
+ *    matches pattern `projects|organizations/ *
+ *    /locations/{location}/securityProfiles/{security_profile}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_SecurityProfile *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -835,6 +1463,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  listed, specified in the format `projects/ * /locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListAddressGroupsResponse.
@@ -1409,6 +2043,588 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new AuthzPolicy in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesCreate : GTLRNetworkSecurityQuery
+
+/** Required. User-provided ID of the `AuthzPolicy` resource to be created. */
+@property(nonatomic, copy, nullable) NSString *authzPolicyId;
+
+/**
+ *  Required. The parent resource of the `AuthzPolicy` resource. Must be in the
+ *  format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new AuthzPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AuthzPolicy to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the `AuthzPolicy` resource.
+ *    Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AuthzPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AuthzPolicy.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the `AuthzPolicy` resource to delete. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes after the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single AuthzPolicy.
+ *
+ *  @param name Required. The name of the `AuthzPolicy` resource to delete. Must
+ *    be in the format
+ *    `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AuthzPolicy.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the `AuthzPolicy` resource to get. Must be in the format
+ *  `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_AuthzPolicy.
+ *
+ *  Gets details of a single AuthzPolicy.
+ *
+ *  @param name Required. A name of the `AuthzPolicy` resource to get. Must be
+ *    in the format
+ *    `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGetIamPolicy : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists AuthzPolicies in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesList : GTLRNetworkSecurityQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results that the server returns.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `AuthzPolicy` resources
+ *  are listed, specified in the following format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListAuthzPoliciesResponse.
+ *
+ *  Lists AuthzPolicies in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    `AuthzPolicy` resources are listed, specified in the following format:
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single AuthzPolicy.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Identifier. Name of the `AuthzPolicy` resource in the following
+ *  format:
+ *  `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Used to specify the fields to be overwritten in the `AuthzPolicy`
+ *  resource by the update. The fields specified in the `update_mask` are
+ *  relative to the resource, not the full request. A field is overwritten if it
+ *  is in the mask. If the user does not specify a mask, then all fields are
+ *  overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single AuthzPolicy.
+ *
+ *  @param object The @c GTLRNetworkSecurity_AuthzPolicy to include in the
+ *    query.
+ *  @param name Required. Identifier. Name of the `AuthzPolicy` resource in the
+ *    following format:
+ *    `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_AuthzPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesSetIamPolicy : GTLRNetworkSecurityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkSecurity_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networksecurity.projects.locations.authzPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesTestIamPermissions : GTLRNetworkSecurityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c
+ *    GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsAuthzPoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new BackendAuthenticationConfig in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Short name of the BackendAuthenticationConfig resource to be
+ *  created. This value should be 1-63 characters long, containing only letters,
+ *  numbers, hyphens, and underscores, and should not start with a number. E.g.
+ *  "backend-auth-config".
+ */
+@property(nonatomic, copy, nullable) NSString *backendAuthenticationConfigId;
+
+/**
+ *  Required. The parent resource of the BackendAuthenticationConfig. Must be in
+ *  the format `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new BackendAuthenticationConfig in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_BackendAuthenticationConfig to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the
+ *    BackendAuthenticationConfig. Must be in the format `projects/ *
+ *    /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_BackendAuthenticationConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single BackendAuthenticationConfig to BackendAuthenticationConfig.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsDelete : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Etag of the resource. If this is provided, it must match the
+ *  server's etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A name of the BackendAuthenticationConfig to delete. Must be in
+ *  the format `projects/ * /locations/{location}/backendAuthenticationConfigs/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single BackendAuthenticationConfig to BackendAuthenticationConfig.
+ *
+ *  @param name Required. A name of the BackendAuthenticationConfig to delete.
+ *    Must be in the format `projects/ *
+ *    /locations/{location}/backendAuthenticationConfigs/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single BackendAuthenticationConfig to
+ *  BackendAuthenticationConfig.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. A name of the BackendAuthenticationConfig to get. Must be in the
+ *  format `projects/ * /locations/{location}/backendAuthenticationConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_BackendAuthenticationConfig.
+ *
+ *  Gets details of a single BackendAuthenticationConfig to
+ *  BackendAuthenticationConfig.
+ *
+ *  @param name Required. A name of the BackendAuthenticationConfig to get. Must
+ *    be in the format `projects/ *
+ *    /locations/{location}/backendAuthenticationConfigs/ *`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BackendAuthenticationConfigs in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsList : GTLRNetworkSecurityQuery
+
+/** Maximum number of BackendAuthenticationConfigs to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListBackendAuthenticationConfigsResponse`
+ *  Indicates that this is a continuation of a prior
+ *  `ListBackendAuthenticationConfigs` call, and that the system should return
+ *  the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the
+ *  BackendAuthenticationConfigs should be listed, specified in the format
+ *  `projects/ * /locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListBackendAuthenticationConfigsResponse.
+ *
+ *  Lists BackendAuthenticationConfigs in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    BackendAuthenticationConfigs should be listed, specified in the format
+ *    `projects/ * /locations/{location}`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single BackendAuthenticationConfig to
+ *  BackendAuthenticationConfig.
+ *
+ *  Method: networksecurity.projects.locations.backendAuthenticationConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Name of the BackendAuthenticationConfig resource. It matches the
+ *  pattern `projects/ *
+ *  /locations/{location}/backendAuthenticationConfigs/{backend_authentication_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  BackendAuthenticationConfig resource by the update. The fields specified in
+ *  the update_mask are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates the parameters of a single BackendAuthenticationConfig to
+ *  BackendAuthenticationConfig.
+ *
+ *  @param object The @c GTLRNetworkSecurity_BackendAuthenticationConfig to
+ *    include in the query.
+ *  @param name Required. Name of the BackendAuthenticationConfig resource. It
+ *    matches the pattern `projects/ *
+ *    /locations/{location}/backendAuthenticationConfigs/{backend_authentication_config}`
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsBackendAuthenticationConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_BackendAuthenticationConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new ClientTlsPolicy in a given project and location.
  *
  *  Method: networksecurity.projects.locations.clientTlsPolicies.create
@@ -1615,7 +2831,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the ClientTlsPolicy resource. It matches the pattern
- *  `projects/ * /locations/{location}/clientTlsPolicies/{client_tls_policy}`
+ *  `projects/{project}/locations/{location}/clientTlsPolicies/{client_tls_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1638,8 +2854,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRNetworkSecurity_ClientTlsPolicy to include in the
  *    query.
  *  @param name Required. Name of the ClientTlsPolicy resource. It matches the
- *    pattern `projects/ *
- *    /locations/{location}/clientTlsPolicies/{client_tls_policy}`
+ *    pattern
+ *    `projects/{project}/locations/{location}/clientTlsPolicies/{client_tls_policy}`
  *
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsClientTlsPoliciesPatch
  */
@@ -1730,6 +2946,224 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkSecurity_GoogleIamV1TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new FirewallEndpointAssociation in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpointAssociations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Id of the requesting object. If auto-generating Id server-side,
+ *  remove this field and firewall_endpoint_association_id from the
+ *  method_signature of Create RPC.
+ */
+@property(nonatomic, copy, nullable) NSString *firewallEndpointAssociationId;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new FirewallEndpointAssociation in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_FirewallEndpointAssociation to
+ *    include in the query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpointAssociation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single FirewallEndpointAssociation.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpointAssociations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsDelete : GTLRNetworkSecurityQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single FirewallEndpointAssociation.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single FirewallEndpointAssociation.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpointAssociations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsGet : GTLRNetworkSecurityQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_FirewallEndpointAssociation.
+ *
+ *  Gets details of a single FirewallEndpointAssociation.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Associations in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpointAssociations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsList : GTLRNetworkSecurityQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListAssociationsRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListFirewallEndpointAssociationsResponse.
+ *
+ *  Lists Associations in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListAssociationsRequest
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single FirewallEndpointAssociation.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpointAssociations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsPatch : GTLRNetworkSecurityQuery
+
+/** Immutable. Identifier. name of resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Association resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Update a single FirewallEndpointAssociation.
+ *
+ *  @param object The @c GTLRNetworkSecurity_FirewallEndpointAssociation to
+ *    include in the query.
+ *  @param name Immutable. Identifier. name of resource
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpointAssociation *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2158,6 +3592,930 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a deployment group in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeploymentGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The ID to use for the new deployment group, which will become the
+ *  final component of the deployment group's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptDeploymentGroupId;
+
+/**
+ *  Required. The parent resource where this deployment group will be created.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a deployment group in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  @param object The @c GTLRNetworkSecurity_InterceptDeploymentGroup to include
+ *    in the query.
+ *  @param parent Required. The parent resource where this deployment group will
+ *    be created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptDeploymentGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a deployment group. See https://google.aip.dev/135.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeploymentGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsDelete : GTLRNetworkSecurityQuery
+
+/** Required. The deployment group to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a deployment group. See https://google.aip.dev/135.
+ *
+ *  @param name Required. The deployment group to delete.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific deployment group. See https://google.aip.dev/131.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeploymentGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the deployment group to retrieve. Format:
+ *  projects/{project}/locations/{location}/interceptDeploymentGroups/{intercept_deployment_group}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_InterceptDeploymentGroup.
+ *
+ *  Gets a specific deployment group. See https://google.aip.dev/131.
+ *
+ *  @param name Required. The name of the deployment group to retrieve. Format:
+ *    projects/{project}/locations/{location}/interceptDeploymentGroups/{intercept_deployment_group}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists deployment groups in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeploymentGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression. See https://google.aip.dev/160#filtering for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort expression. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListInterceptDeploymentGroups` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListInterceptDeploymentGroups` must match the call that provided the page
+ *  token. See https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of deployment groups.
+ *  Example: `projects/123456789/locations/global`. See
+ *  https://google.aip.dev/132 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListInterceptDeploymentGroupsResponse.
+ *
+ *  Lists deployment groups in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  @param parent Required. The parent, which owns this collection of deployment
+ *    groups. Example: `projects/123456789/locations/global`. See
+ *    https://google.aip.dev/132 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a deployment group. See https://google.aip.dev/134.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeploymentGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment group, for
+ *  example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Fields are specified relative to the
+ *  deployment group (e.g. `description`; *not*
+ *  `intercept_deployment_group.description`). See https://google.aip.dev/161
+ *  for more details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates a deployment group. See https://google.aip.dev/134.
+ *
+ *  @param object The @c GTLRNetworkSecurity_InterceptDeploymentGroup to include
+ *    in the query.
+ *  @param name Immutable. Identifier. The resource name of this deployment
+ *    group, for example:
+ *    `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *    https://google.aip.dev/122 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptDeploymentGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a deployment in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The ID to use for the new deployment, which will become the final
+ *  component of the deployment's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptDeploymentId;
+
+/**
+ *  Required. The parent resource where this deployment will be created. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a deployment in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  @param object The @c GTLRNetworkSecurity_InterceptDeployment to include in
+ *    the query.
+ *  @param parent Required. The parent resource where this deployment will be
+ *    created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptDeployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a deployment. See https://google.aip.dev/135.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsDelete : GTLRNetworkSecurityQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a deployment. See https://google.aip.dev/135.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific deployment. See https://google.aip.dev/131.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the deployment to retrieve. Format:
+ *  projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_InterceptDeployment.
+ *
+ *  Gets a specific deployment. See https://google.aip.dev/131.
+ *
+ *  @param name Required. The name of the deployment to retrieve. Format:
+ *    projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists deployments in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression. See https://google.aip.dev/160#filtering for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort expression. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListInterceptDeployments`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListInterceptDeployments` must match the call
+ *  that provided the page token. See https://google.aip.dev/158 for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of deployments. Example:
+ *  `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListInterceptDeploymentsResponse.
+ *
+ *  Lists deployments in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    deployments. Example: `projects/123456789/locations/us-central1-a`. See
+ *    https://google.aip.dev/132 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a deployment. See https://google.aip.dev/134.
+ *
+ *  Method: networksecurity.projects.locations.interceptDeployments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment, for example:
+ *  `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Fields are specified relative to the
+ *  deployment (e.g. `description`; *not* `intercept_deployment.description`).
+ *  See https://google.aip.dev/161 for more details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates a deployment. See https://google.aip.dev/134.
+ *
+ *  @param object The @c GTLRNetworkSecurity_InterceptDeployment to include in
+ *    the query.
+ *  @param name Immutable. Identifier. The resource name of this deployment, for
+ *    example:
+ *    `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`.
+ *    See https://google.aip.dev/122 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptDeploymentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptDeployment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an association in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroupAssociations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. The ID to use for the new association, which will become the final
+ *  component of the endpoint group's resource name. If not provided, the server
+ *  will generate a unique ID.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptEndpointGroupAssociationId;
+
+/**
+ *  Required. The parent resource where this association will be created.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates an association in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  @param object The @c GTLRNetworkSecurity_InterceptEndpointGroupAssociation
+ *    to include in the query.
+ *  @param parent Required. The parent resource where this association will be
+ *    created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptEndpointGroupAssociation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an association. See https://google.aip.dev/135.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroupAssociations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsDelete : GTLRNetworkSecurityQuery
+
+/** Required. The association to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes an association. See https://google.aip.dev/135.
+ *
+ *  @param name Required. The association to delete.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific association. See https://google.aip.dev/131.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroupAssociations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the association to retrieve. Format:
+ *  projects/{project}/locations/{location}/interceptEndpointGroupAssociations/{intercept_endpoint_group_association}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_InterceptEndpointGroupAssociation.
+ *
+ *  Gets a specific association. See https://google.aip.dev/131.
+ *
+ *  @param name Required. The name of the association to retrieve. Format:
+ *    projects/{project}/locations/{location}/interceptEndpointGroupAssociations/{intercept_endpoint_group_association}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists associations in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroupAssociations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression. See https://google.aip.dev/160#filtering for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort expression. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListInterceptEndpointGroups` call. Provide this to retrieve the subsequent
+ *  page. When paginating, all other parameters provided to
+ *  `ListInterceptEndpointGroups` must match the call that provided the page
+ *  token. See https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of associations. Example:
+ *  `projects/123456789/locations/global`. See https://google.aip.dev/132 for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRNetworkSecurity_ListInterceptEndpointGroupAssociationsResponse.
+ *
+ *  Lists associations in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    associations. Example: `projects/123456789/locations/global`. See
+ *    https://google.aip.dev/132 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an association. See https://google.aip.dev/134.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroupAssociations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group association,
+ *  for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-association`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Fields are specified relative to the
+ *  association (e.g. `description`; *not*
+ *  `intercept_endpoint_group_association.description`). See
+ *  https://google.aip.dev/161 for more details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates an association. See https://google.aip.dev/134.
+ *
+ *  @param object The @c GTLRNetworkSecurity_InterceptEndpointGroupAssociation
+ *    to include in the query.
+ *  @param name Immutable. Identifier. The resource name of this endpoint group
+ *    association, for example:
+ *    `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-association`.
+ *    See https://google.aip.dev/122 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupAssociationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptEndpointGroupAssociation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an endpoint group in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The ID to use for the endpoint group, which will become the final
+ *  component of the endpoint group's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptEndpointGroupId;
+
+/**
+ *  Required. The parent resource where this endpoint group will be created.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates an endpoint group in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  @param object The @c GTLRNetworkSecurity_InterceptEndpointGroup to include
+ *    in the query.
+ *  @param parent Required. The parent resource where this endpoint group will
+ *    be created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptEndpointGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an endpoint group. See https://google.aip.dev/135.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsDelete : GTLRNetworkSecurityQuery
+
+/** Required. The endpoint group to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes an endpoint group. See https://google.aip.dev/135.
+ *
+ *  @param name Required. The endpoint group to delete.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific endpoint group. See https://google.aip.dev/131.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the endpoint group to retrieve. Format:
+ *  projects/{project}/locations/{location}/interceptEndpointGroups/{intercept_endpoint_group}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_InterceptEndpointGroup.
+ *
+ *  Gets a specific endpoint group. See https://google.aip.dev/131.
+ *
+ *  @param name Required. The name of the endpoint group to retrieve. Format:
+ *    projects/{project}/locations/{location}/interceptEndpointGroups/{intercept_endpoint_group}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists endpoint groups in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression. See https://google.aip.dev/160#filtering for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort expression. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListInterceptEndpointGroups` call. Provide this to retrieve the subsequent
+ *  page. When paginating, all other parameters provided to
+ *  `ListInterceptEndpointGroups` must match the call that provided the page
+ *  token. See https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of endpoint groups.
+ *  Example: `projects/123456789/locations/global`. See
+ *  https://google.aip.dev/132 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListInterceptEndpointGroupsResponse.
+ *
+ *  Lists endpoint groups in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  @param parent Required. The parent, which owns this collection of endpoint
+ *    groups. Example: `projects/123456789/locations/global`. See
+ *    https://google.aip.dev/132 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an endpoint group. See https://google.aip.dev/134.
+ *
+ *  Method: networksecurity.projects.locations.interceptEndpointGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group, for
+ *  example:
+ *  `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Fields are specified relative to the
+ *  endpoint group (e.g. `description`; *not*
+ *  `intercept_endpoint_group.description`). See https://google.aip.dev/161 for
+ *  more details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates an endpoint group. See https://google.aip.dev/134.
+ *
+ *  @param object The @c GTLRNetworkSecurity_InterceptEndpointGroup to include
+ *    in the query.
+ *  @param name Immutable. Identifier. The resource name of this endpoint group,
+ *    for example:
+ *    `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+ *    https://google.aip.dev/122 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsInterceptEndpointGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_InterceptEndpointGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: networksecurity.projects.locations.list
@@ -2166,6 +4524,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
  */
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -2207,6 +4571,930 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a deployment group in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeploymentGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The ID to use for the new deployment group, which will become the
+ *  final component of the deployment group's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *mirroringDeploymentGroupId;
+
+/**
+ *  Required. The parent resource where this deployment group will be created.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a deployment group in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  @param object The @c GTLRNetworkSecurity_MirroringDeploymentGroup to include
+ *    in the query.
+ *  @param parent Required. The parent resource where this deployment group will
+ *    be created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringDeploymentGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a deployment group. See https://google.aip.dev/135.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeploymentGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsDelete : GTLRNetworkSecurityQuery
+
+/** Required. The deployment group to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a deployment group. See https://google.aip.dev/135.
+ *
+ *  @param name Required. The deployment group to delete.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific deployment group. See https://google.aip.dev/131.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeploymentGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the deployment group to retrieve. Format:
+ *  projects/{project}/locations/{location}/mirroringDeploymentGroups/{mirroring_deployment_group}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_MirroringDeploymentGroup.
+ *
+ *  Gets a specific deployment group. See https://google.aip.dev/131.
+ *
+ *  @param name Required. The name of the deployment group to retrieve. Format:
+ *    projects/{project}/locations/{location}/mirroringDeploymentGroups/{mirroring_deployment_group}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists deployment groups in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeploymentGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression. See https://google.aip.dev/160#filtering for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort expression. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListMirroringDeploymentGroups` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListMirroringDeploymentGroups` must match the call that provided the page
+ *  token. See https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of deployment groups.
+ *  Example: `projects/123456789/locations/global`. See
+ *  https://google.aip.dev/132 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListMirroringDeploymentGroupsResponse.
+ *
+ *  Lists deployment groups in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  @param parent Required. The parent, which owns this collection of deployment
+ *    groups. Example: `projects/123456789/locations/global`. See
+ *    https://google.aip.dev/132 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a deployment group. See https://google.aip.dev/134.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeploymentGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment group, for
+ *  example:
+ *  `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Fields are specified relative to the
+ *  deployment group (e.g. `description`; *not*
+ *  `mirroring_deployment_group.description`). See https://google.aip.dev/161
+ *  for more details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates a deployment group. See https://google.aip.dev/134.
+ *
+ *  @param object The @c GTLRNetworkSecurity_MirroringDeploymentGroup to include
+ *    in the query.
+ *  @param name Immutable. Identifier. The resource name of this deployment
+ *    group, for example:
+ *    `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+ *    https://google.aip.dev/122 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringDeploymentGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a deployment in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The ID to use for the new deployment, which will become the final
+ *  component of the deployment's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *mirroringDeploymentId;
+
+/**
+ *  Required. The parent resource where this deployment will be created. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a deployment in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  @param object The @c GTLRNetworkSecurity_MirroringDeployment to include in
+ *    the query.
+ *  @param parent Required. The parent resource where this deployment will be
+ *    created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringDeployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a deployment. See https://google.aip.dev/135.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsDelete : GTLRNetworkSecurityQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a deployment. See https://google.aip.dev/135.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific deployment. See https://google.aip.dev/131.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the deployment to retrieve. Format:
+ *  projects/{project}/locations/{location}/mirroringDeployments/{mirroring_deployment}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_MirroringDeployment.
+ *
+ *  Gets a specific deployment. See https://google.aip.dev/131.
+ *
+ *  @param name Required. The name of the deployment to retrieve. Format:
+ *    projects/{project}/locations/{location}/mirroringDeployments/{mirroring_deployment}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists deployments in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression. See https://google.aip.dev/160#filtering for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort expression. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListMirroringDeployments`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMirroringDeployments` must match the call
+ *  that provided the page token. See https://google.aip.dev/158 for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of deployments. Example:
+ *  `projects/123456789/locations/us-central1-a`. See https://google.aip.dev/132
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListMirroringDeploymentsResponse.
+ *
+ *  Lists deployments in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    deployments. Example: `projects/123456789/locations/us-central1-a`. See
+ *    https://google.aip.dev/132 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a deployment. See https://google.aip.dev/134.
+ *
+ *  Method: networksecurity.projects.locations.mirroringDeployments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment, for example:
+ *  `projects/123456789/locations/us-central1-a/mirroringDeployments/my-dep`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Fields are specified relative to the
+ *  deployment (e.g. `description`; *not* `mirroring_deployment.description`).
+ *  See https://google.aip.dev/161 for more details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates a deployment. See https://google.aip.dev/134.
+ *
+ *  @param object The @c GTLRNetworkSecurity_MirroringDeployment to include in
+ *    the query.
+ *  @param name Immutable. Identifier. The resource name of this deployment, for
+ *    example:
+ *    `projects/123456789/locations/us-central1-a/mirroringDeployments/my-dep`.
+ *    See https://google.aip.dev/122 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringDeploymentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringDeployment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an association in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroupAssociations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. The ID to use for the new association, which will become the final
+ *  component of the endpoint group's resource name. If not provided, the server
+ *  will generate a unique ID.
+ */
+@property(nonatomic, copy, nullable) NSString *mirroringEndpointGroupAssociationId;
+
+/**
+ *  Required. The parent resource where this association will be created.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates an association in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  @param object The @c GTLRNetworkSecurity_MirroringEndpointGroupAssociation
+ *    to include in the query.
+ *  @param parent Required. The parent resource where this association will be
+ *    created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringEndpointGroupAssociation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an association. See https://google.aip.dev/135.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroupAssociations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsDelete : GTLRNetworkSecurityQuery
+
+/** Required. The association to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes an association. See https://google.aip.dev/135.
+ *
+ *  @param name Required. The association to delete.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific association. See https://google.aip.dev/131.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroupAssociations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the association to retrieve. Format:
+ *  projects/{project}/locations/{location}/mirroringEndpointGroupAssociations/{mirroring_endpoint_group_association}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_MirroringEndpointGroupAssociation.
+ *
+ *  Gets a specific association. See https://google.aip.dev/131.
+ *
+ *  @param name Required. The name of the association to retrieve. Format:
+ *    projects/{project}/locations/{location}/mirroringEndpointGroupAssociations/{mirroring_endpoint_group_association}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists associations in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroupAssociations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression. See https://google.aip.dev/160#filtering for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort expression. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListMirroringEndpointGroups` call. Provide this to retrieve the subsequent
+ *  page. When paginating, all other parameters provided to
+ *  `ListMirroringEndpointGroups` must match the call that provided the page
+ *  token. See https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of associations. Example:
+ *  `projects/123456789/locations/global`. See https://google.aip.dev/132 for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRNetworkSecurity_ListMirroringEndpointGroupAssociationsResponse.
+ *
+ *  Lists associations in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    associations. Example: `projects/123456789/locations/global`. See
+ *    https://google.aip.dev/132 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an association. See https://google.aip.dev/134.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroupAssociations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group association,
+ *  for example:
+ *  `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-association`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Fields are specified relative to the
+ *  association (e.g. `description`; *not*
+ *  `mirroring_endpoint_group_association.description`). See
+ *  https://google.aip.dev/161 for more details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates an association. See https://google.aip.dev/134.
+ *
+ *  @param object The @c GTLRNetworkSecurity_MirroringEndpointGroupAssociation
+ *    to include in the query.
+ *  @param name Immutable. Identifier. The resource name of this endpoint group
+ *    association, for example:
+ *    `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-association`.
+ *    See https://google.aip.dev/122 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupAssociationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringEndpointGroupAssociation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an endpoint group in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The ID to use for the endpoint group, which will become the final
+ *  component of the endpoint group's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *mirroringEndpointGroupId;
+
+/**
+ *  Required. The parent resource where this endpoint group will be created.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates an endpoint group in a given project and location. See
+ *  https://google.aip.dev/133.
+ *
+ *  @param object The @c GTLRNetworkSecurity_MirroringEndpointGroup to include
+ *    in the query.
+ *  @param parent Required. The parent resource where this endpoint group will
+ *    be created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringEndpointGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an endpoint group. See https://google.aip.dev/135.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsDelete : GTLRNetworkSecurityQuery
+
+/** Required. The endpoint group to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes an endpoint group. See https://google.aip.dev/135.
+ *
+ *  @param name Required. The endpoint group to delete.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific endpoint group. See https://google.aip.dev/131.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsGet : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. The name of the endpoint group to retrieve. Format:
+ *  projects/{project}/locations/{location}/mirroringEndpointGroups/{mirroring_endpoint_group}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_MirroringEndpointGroup.
+ *
+ *  Gets a specific endpoint group. See https://google.aip.dev/131.
+ *
+ *  @param name Required. The name of the endpoint group to retrieve. Format:
+ *    projects/{project}/locations/{location}/mirroringEndpointGroups/{mirroring_endpoint_group}
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists endpoint groups in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. Filter expression. See https://google.aip.dev/160#filtering for
+ *  more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sort expression. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListMirroringEndpointGroups` call. Provide this to retrieve the subsequent
+ *  page. When paginating, all other parameters provided to
+ *  `ListMirroringEndpointGroups` must match the call that provided the page
+ *  token. See https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of endpoint groups.
+ *  Example: `projects/123456789/locations/global`. See
+ *  https://google.aip.dev/132 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListMirroringEndpointGroupsResponse.
+ *
+ *  Lists endpoint groups in a given project and location. See
+ *  https://google.aip.dev/132.
+ *
+ *  @param parent Required. The parent, which owns this collection of endpoint
+ *    groups. Example: `projects/123456789/locations/global`. See
+ *    https://google.aip.dev/132 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an endpoint group. See https://google.aip.dev/134.
+ *
+ *  Method: networksecurity.projects.locations.mirroringEndpointGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsPatch : GTLRNetworkSecurityQuery
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group, for
+ *  example:
+ *  `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a UUID4. This
+ *  request is only idempotent if a `request_id` is provided. See
+ *  https://google.aip.dev/155 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The list of fields to update. Fields are specified relative to the
+ *  endpoint group (e.g. `description`; *not*
+ *  `mirroring_endpoint_group.description`). See https://google.aip.dev/161 for
+ *  more details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Updates an endpoint group. See https://google.aip.dev/134.
+ *
+ *  @param object The @c GTLRNetworkSecurity_MirroringEndpointGroup to include
+ *    in the query.
+ *  @param name Immutable. Identifier. The resource name of this endpoint group,
+ *    for example:
+ *    `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+ *    https://google.aip.dev/122 for more details.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsMirroringEndpointGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_MirroringEndpointGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -2214,7 +5502,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: networksecurity.projects.locations.operations.cancel
@@ -2237,7 +5525,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRNetworkSecurity_CancelOperationRequest to include
@@ -2529,6 +5817,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  be listed, specified in the format `projects/ * /locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Setting this field to `true` will opt the request into returning
+ *  the resources that are reachable, and into including the names of those that
+ *  were unreachable in the [ListServerTlsPoliciesResponse.unreachable] field.
+ *  This can only be `true` when reading across collections e.g. when `parent`
+ *  is set to `"projects/example/locations/-"`.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListServerTlsPoliciesResponse.

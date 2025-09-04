@@ -241,15 +241,15 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontacts_GoogleCloudEssentialco
 @property(nonatomic, strong, nullable) NSArray<NSString *> *notificationCategorySubscriptions;
 
 /**
- *  The last time the validation_state was updated, either manually or
- *  automatically. A contact is considered stale if its validation state was
+ *  Output only. The last time the validation_state was updated, either manually
+ *  or automatically. A contact is considered stale if its validation state was
  *  updated more than 1 year ago.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *validateTime;
 
 /**
- *  The validity of the contact. A contact is considered valid if it is the
- *  correct recipient for notifications for a particular resource.
+ *  Output only. The validity of the contact. A contact is considered valid if
+ *  it is the correct recipient for notifications for a particular resource.
  *
  *  Likely values:
  *    @arg @c kGTLREssentialcontacts_GoogleCloudEssentialcontactsV1Contact_ValidationState_Invalid

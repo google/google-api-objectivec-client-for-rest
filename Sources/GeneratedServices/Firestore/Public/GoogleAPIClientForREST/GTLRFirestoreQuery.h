@@ -36,8 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a backup schedule on a database. At most two backup schedules can be
- *  configured on a database, one daily backup schedule with retention up to 7
- *  days and one weekly backup schedule with retention up to 14 weeks.
+ *  configured on a database, one daily backup schedule and one weekly backup
+ *  schedule.
  *
  *  Method: firestore.projects.databases.backupSchedules.create
  *
@@ -57,8 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule.
  *
  *  Creates a backup schedule on a database. At most two backup schedules can be
- *  configured on a database, one daily backup schedule with retention up to 7
- *  days and one weekly backup schedule with retention up to 14 weeks.
+ *  configured on a database, one daily backup schedule and one weekly backup
+ *  schedule.
  *
  *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule to
  *    include in the query.
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesDelete : GTLRFirestoreQuery
 
 /**
- *  Required. The name of backup schedule. Format
+ *  Required. The name of the backup schedule. Format
  *  `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a backup schedule.
  *
- *  @param name Required. The name of backup schedule. Format
+ *  @param name Required. The name of the backup schedule. Format
  *    `projects/{project}/databases/{database}/backupSchedules/{backup_schedule}`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesBackupSchedulesDelete
@@ -211,6 +211,102 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Bulk deletes a subset of documents from Google Cloud Firestore. Documents
+ *  created or updated after the underlying system starts to process the request
+ *  will not be deleted. The bulk delete occurs in the background and its
+ *  progress can be monitored and managed via the Operation resource that is
+ *  created. For more details on bulk delete behavior, refer to:
+ *  https://cloud.google.com/firestore/docs/manage-data/bulk-delete
+ *
+ *  Method: firestore.projects.databases.bulkDeleteDocuments
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesBulkDeleteDocuments : GTLRFirestoreQuery
+
+/**
+ *  Required. Database to operate. Should be of the form:
+ *  `projects/{project_id}/databases/{database_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
+ *
+ *  Bulk deletes a subset of documents from Google Cloud Firestore. Documents
+ *  created or updated after the underlying system starts to process the request
+ *  will not be deleted. The bulk delete occurs in the background and its
+ *  progress can be monitored and managed via the Operation resource that is
+ *  created. For more details on bulk delete behavior, refer to:
+ *  https://cloud.google.com/firestore/docs/manage-data/bulk-delete
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest to include
+ *    in the query.
+ *  @param name Required. Database to operate. Should be of the form:
+ *    `projects/{project_id}/databases/{database_id}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesBulkDeleteDocuments
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new database by cloning an existing one. The new database must be
+ *  in the same cloud region or multi-region location as the existing database.
+ *  This behaves similar to FirestoreAdmin.CreateDatabase except instead of
+ *  creating a new empty database, a new database is created with the database
+ *  type, index configuration, and documents from an existing database. The
+ *  long-running operation can be used to track the progress of the clone, with
+ *  the Operation's metadata field type being the CloneDatabaseMetadata. The
+ *  response type is the Database if the clone was successful. The new database
+ *  is not readable or writeable until the LRO has completed.
+ *
+ *  Method: firestore.projects.databases.clone
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesClone : GTLRFirestoreQuery
+
+/**
+ *  Required. The project to clone the database in. Format is
+ *  `projects/{project_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
+ *
+ *  Creates a new database by cloning an existing one. The new database must be
+ *  in the same cloud region or multi-region location as the existing database.
+ *  This behaves similar to FirestoreAdmin.CreateDatabase except instead of
+ *  creating a new empty database, a new database is created with the database
+ *  type, index configuration, and documents from an existing database. The
+ *  long-running operation can be used to track the progress of the clone, with
+ *  the Operation's metadata field type being the CloneDatabaseMetadata. The
+ *  response type is the Database if the clone was successful. The new database
+ *  is not readable or writeable until the LRO has completed.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest to include in the
+ *    query.
+ *  @param parent Required. The project to clone the database in. Format is
+ *    `projects/{project_id}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesClone
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the metadata and configuration for a Field.
  *
  *  Method: firestore.projects.databases.collectionGroups.fields.get
@@ -260,7 +356,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The filter to apply to list results. Currently, FirestoreAdmin.ListFields
  *  only supports listing fields that have been explicitly overridden. To issue
  *  this query, call FirestoreAdmin.ListFields with a filter that includes
- *  `indexConfig.usesAncestorConfig:false` .
+ *  `indexConfig.usesAncestorConfig:false` or `ttlConfig:*`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -322,21 +418,19 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsPatch : GTLRFirestoreQuery
 
 /**
- *  Required. A field name of the form
+ *  Required. A field name of the form:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
- *  A field path may be a simple field name, e.g. `address` or a path to fields
- *  within map_value , e.g. `address.city`, or a special field path. The only
- *  valid special field is `*`, which represents any field. Field paths may be
- *  quoted using ` (backtick). The only character that needs to be escaped
+ *  A field path can be a simple field name, e.g. `address` or a path to fields
+ *  within `map_value` , e.g. `address.city`, or a special field path. The only
+ *  valid special field is `*`, which represents any field. Field paths can be
+ *  quoted using `` ` `` (backtick). The only character that must be escaped
  *  within a quoted field path is the backtick character itself, escaped using a
  *  backslash. Special characters in field paths that must be quoted include:
- *  `*`, `.`, ``` (backtick), `[`, `]`, as well as any ascii symbolic
- *  characters. Examples: (Note: Comments here are written in markdown syntax,
- *  so there is an additional layer of backticks to represent a code block)
- *  `\\`address.city\\`` represents a field named `address.city`, not the map
- *  key `city` in the field `address`. `\\`*\\`` represents a field named `*`,
- *  not any field. A special `Field` contains the default indexing settings for
- *  all fields. This field's resource name is:
+ *  `*`, `.`, `` ` `` (backtick), `[`, `]`, as well as any ascii symbolic
+ *  characters. Examples: `` `address.city` `` represents a field named
+ *  `address.city`, not the map key `city` in the field `address`. `` `*` ``
+ *  represents a field named `*`, not any field. A special `Field` contains the
+ *  default indexing settings for all fields. This field's resource name is:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
  *  *` Indexes defined on this `Field` will be applied to all fields which do
  *  not have their own `Field` index configuration.
@@ -367,22 +461,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1Field to include in
  *    the query.
- *  @param name Required. A field name of the form
+ *  @param name Required. A field name of the form:
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
- *    A field path may be a simple field name, e.g. `address` or a path to
- *    fields within map_value , e.g. `address.city`, or a special field path.
+ *    A field path can be a simple field name, e.g. `address` or a path to
+ *    fields within `map_value` , e.g. `address.city`, or a special field path.
  *    The only valid special field is `*`, which represents any field. Field
- *    paths may be quoted using ` (backtick). The only character that needs to
+ *    paths can be quoted using `` ` `` (backtick). The only character that must
  *    be escaped within a quoted field path is the backtick character itself,
  *    escaped using a backslash. Special characters in field paths that must be
- *    quoted include: `*`, `.`, ``` (backtick), `[`, `]`, as well as any ascii
- *    symbolic characters. Examples: (Note: Comments here are written in
- *    markdown syntax, so there is an additional layer of backticks to represent
- *    a code block) `\\`address.city\\`` represents a field named
- *    `address.city`, not the map key `city` in the field `address`. `\\`*\\``
- *    represents a field named `*`, not any field. A special `Field` contains
- *    the default indexing settings for all fields. This field's resource name
- *    is:
+ *    quoted include: `*`, `.`, `` ` `` (backtick), `[`, `]`, as well as any
+ *    ascii symbolic characters. Examples: `` `address.city` `` represents a
+ *    field named `address.city`, not the map key `city` in the field `address`.
+ *    `` `*` `` represents a field named `*`, not any field. A special `Field`
+ *    contains the default indexing settings for all fields. This field's
+ *    resource name is:
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
  *    *` Indexes defined on this `Field` will be applied to all fields which do
  *    not have their own `Field` index configuration.
@@ -557,7 +649,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  component of the database's resource name. This value should be 4-63
  *  characters. Valid characters are /a-z-/ with first character a letter and
  *  the last a letter or a number. Must not be UUID-like
- *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also
  *  valid.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
@@ -1597,6 +1689,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Required. A parent name of the form `projects/{project_id}` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** If true, also returns deleted resources. */
+@property(nonatomic, assign) BOOL showDeleted;
+
 /**
  *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse.
  *
@@ -1618,7 +1713,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: firestore.projects.databases.operations.cancel
@@ -1642,7 +1737,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRFirestore_GoogleLongrunningCancelOperationRequest
@@ -1857,6 +1952,251 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a user creds.
+ *
+ *  Method: firestore.projects.databases.userCreds.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsCreate : GTLRFirestoreQuery
+
+/**
+ *  Required. A parent name of the form
+ *  `projects/{project_id}/databases/{database_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the user creds, which will become the final
+ *  component of the user creds's resource name. This value should be 4-63
+ *  characters. Valid characters are /a-z-/ with first character a letter and
+ *  the last a letter or a number. Must not be UUID-like
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
+ */
+@property(nonatomic, copy, nullable) NSString *userCredsId;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Create a user creds.
+ *
+ *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds to
+ *    include in the query.
+ *  @param parent Required. A parent name of the form
+ *    `projects/{project_id}/databases/{database_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1UserCreds *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a user creds.
+ *
+ *  Method: firestore.projects.databases.userCreds.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsDelete : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_Empty.
+ *
+ *  Deletes a user creds.
+ *
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Disables a user creds. No-op if the user creds are already disabled.
+ *
+ *  Method: firestore.projects.databases.userCreds.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsDisable : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Disables a user creds. No-op if the user creds are already disabled.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest to include in
+ *    the query.
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsDisable
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enables a user creds. No-op if the user creds are already enabled.
+ *
+ *  Method: firestore.projects.databases.userCreds.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsEnable : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Enables a user creds. No-op if the user creds are already enabled.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest to include in
+ *    the query.
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsEnable
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a user creds resource. Note that the returned resource does not contain
+ *  the secret value itself.
+ *
+ *  Method: firestore.projects.databases.userCreds.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsGet : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Gets a user creds resource. Note that the returned resource does not contain
+ *  the secret value itself.
+ *
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List all user creds in the database. Note that the returned resource does
+ *  not contain the secret value itself.
+ *
+ *  Method: firestore.projects.databases.userCreds.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsList : GTLRFirestoreQuery
+
+/**
+ *  Required. A parent database name of the form
+ *  `projects/{project_id}/databases/{database_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ListUserCredsResponse.
+ *
+ *  List all user creds in the database. Note that the returned resource does
+ *  not contain the secret value itself.
+ *
+ *  @param parent Required. A parent database name of the form
+ *    `projects/{project_id}/databases/{database_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Resets the password of a user creds.
+ *
+ *  Method: firestore.projects.databases.userCreds.resetPassword
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesUserCredsResetPassword : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form
+ *  `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1UserCreds.
+ *
+ *  Resets the password of a user creds.
+ *
+ *  @param object The @c
+ *    GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest to include in
+ *    the query.
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}/userCreds/{user_creds_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesUserCredsResetPassword
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a backup.
  *
  *  Method: firestore.projects.locations.backups.delete
@@ -1930,6 +2270,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirestoreQuery_ProjectsLocationsBackupsList : GTLRFirestoreQuery
 
 /**
+ *  An expression that filters the list of returned backups. A filter expression
+ *  consists of a field name, a comparison operator, and a value for filtering.
+ *  The value must be a string, a number, or a boolean. The comparison operator
+ *  must be one of: `<`, `>`, `<=`, `>=`, `!=`, `=`, or `:`. Colon `:` is the
+ *  contains operator. Filter rules are not case sensitive. The following fields
+ *  in the Backup are eligible for filtering: * `database_uid` (supports `=`
+ *  only)
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Required. The location to list backups from. Format is
  *  `projects/{project}/locations/{location}`. Use `{location} = '-'` to list
  *  backups from all locations for the given project. This allows listing
@@ -1990,6 +2341,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsLocationsList : GTLRFirestoreQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

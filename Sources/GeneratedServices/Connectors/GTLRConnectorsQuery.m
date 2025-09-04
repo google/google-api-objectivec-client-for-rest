@@ -15,12 +15,18 @@
 // Constants
 
 // view
-NSString * const kGTLRConnectorsViewActionViewBasic           = @"ACTION_VIEW_BASIC";
-NSString * const kGTLRConnectorsViewActionViewFull            = @"ACTION_VIEW_FULL";
-NSString * const kGTLRConnectorsViewActionViewUnspecified     = @"ACTION_VIEW_UNSPECIFIED";
-NSString * const kGTLRConnectorsViewEntityTypeViewBasic       = @"ENTITY_TYPE_VIEW_BASIC";
-NSString * const kGTLRConnectorsViewEntityTypeViewFull        = @"ENTITY_TYPE_VIEW_FULL";
-NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VIEW_UNSPECIFIED";
+NSString * const kGTLRConnectorsViewActionSchemaViewBasic      = @"ACTION_SCHEMA_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewActionSchemaViewEnriched   = @"ACTION_SCHEMA_VIEW_ENRICHED";
+NSString * const kGTLRConnectorsViewActionSchemaViewUnspecified = @"ACTION_SCHEMA_VIEW_UNSPECIFIED";
+NSString * const kGTLRConnectorsViewActionViewBasic            = @"ACTION_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewActionViewFull             = @"ACTION_VIEW_FULL";
+NSString * const kGTLRConnectorsViewActionViewUnspecified      = @"ACTION_VIEW_UNSPECIFIED";
+NSString * const kGTLRConnectorsViewEntityTypeSchemaViewBasic  = @"ENTITY_TYPE_SCHEMA_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewEntityTypeSchemaViewEnriched = @"ENTITY_TYPE_SCHEMA_VIEW_ENRICHED";
+NSString * const kGTLRConnectorsViewEntityTypeSchemaViewUnspecified = @"ENTITY_TYPE_SCHEMA_VIEW_UNSPECIFIED";
+NSString * const kGTLRConnectorsViewEntityTypeViewBasic        = @"ENTITY_TYPE_VIEW_BASIC";
+NSString * const kGTLRConnectorsViewEntityTypeViewFull         = @"ENTITY_TYPE_VIEW_FULL";
+NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -61,7 +67,7 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -221,11 +227,12 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesList
 
-@dynamic conditions, pageSize, pageToken, parent, sortBy;
+@dynamic conditions, pageSize, pageToken, parent, sortBy, sortOrder;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"sortBy" : [NSString class]
+    @"sortBy" : [NSString class],
+    @"sortOrder" : [NSString class]
   };
   return map;
 }
@@ -301,7 +308,7 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet
 
-@dynamic name;
+@dynamic contextMetadata, name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -413,6 +420,52 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified = @"ENTITY_TYPE_VI
   query.name = name;
   query.expectedObjectClass = [GTLRConnectors_RefreshAccessTokenResponse class];
   query.loggingName = @"connectors.projects.locations.connections.refreshAccessToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsExecute
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRConnectors_ExecuteToolRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:execute";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsExecute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_ExecuteToolResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.tools.execute";
+  return query;
+}
+
+@end
+
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/tools";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRConnectors_ListToolsResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.tools.list";
   return query;
 }
 

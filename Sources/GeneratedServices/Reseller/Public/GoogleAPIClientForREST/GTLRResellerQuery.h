@@ -93,7 +93,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  information for an existing customer that you do not manage. For more
  *  information about the API response for existing customers, see [retrieving a
  *  customer
- *  account](/admin-sdk/reseller/v1/how-tos/manage_customers#get_customer).
+ *  account](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#get_customer).
  *
  *  Method: reseller.customers.get
  *
@@ -120,7 +120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  information for an existing customer that you do not manage. For more
  *  information about the API response for existing customers, see [retrieving a
  *  customer
- *  account](/admin-sdk/reseller/v1/how-tos/manage_customers#get_customer).
+ *  account](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#get_customer).
  *
  *  @param customerId This can be either the customer's primary domain name or
  *    the customer's unique identifier. If the domain name for a customer
@@ -138,20 +138,21 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 /**
  *  Orders a new customer's account. Before ordering a new customer account,
  *  establish whether the customer account already exists using the
- *  [`customers.get`](/admin-sdk/reseller/v1/reference/customers/get) If the
- *  customer account exists as a direct Google account or as a resold customer
- *  account from another reseller, use the `customerAuthToken\\` as described in
- *  [order a resold account for an existing
- *  customer](/admin-sdk/reseller/v1/how-tos/manage_customers#create_existing_customer).
+ *  [`customers.get`](https://developers.google.com/workspace/admin/reseller/v1/reference/customers/get)
+ *  If the customer account exists as a direct Google account or as a resold
+ *  customer account from another reseller, use the `customerAuthToken\\` as
+ *  described in [order a resold account for an existing
+ *  customer](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#create_existing_customer).
  *  For more information about ordering a new customer account, see [order a new
  *  customer
- *  account](/admin-sdk/reseller/v1/how-tos/manage_customers#create_customer).
+ *  account](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#create_customer).
  *  After creating a new customer account, you must provision a user as an
  *  administrator. The customer's administrator is required to sign in to the
  *  Admin console and sign the G Suite via Reseller agreement to activate the
  *  account. Resellers are prohibited from signing the G Suite via Reseller
  *  agreement on the customer's behalf. For more information, see [order a new
- *  customer account](/admin-sdk/reseller/v1/how-tos/manage_customers#tos).
+ *  customer
+ *  account](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#tos).
  *
  *  Method: reseller.customers.insert
  *
@@ -174,20 +175,21 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *
  *  Orders a new customer's account. Before ordering a new customer account,
  *  establish whether the customer account already exists using the
- *  [`customers.get`](/admin-sdk/reseller/v1/reference/customers/get) If the
- *  customer account exists as a direct Google account or as a resold customer
- *  account from another reseller, use the `customerAuthToken\\` as described in
- *  [order a resold account for an existing
- *  customer](/admin-sdk/reseller/v1/how-tos/manage_customers#create_existing_customer).
+ *  [`customers.get`](https://developers.google.com/workspace/admin/reseller/v1/reference/customers/get)
+ *  If the customer account exists as a direct Google account or as a resold
+ *  customer account from another reseller, use the `customerAuthToken\\` as
+ *  described in [order a resold account for an existing
+ *  customer](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#create_existing_customer).
  *  For more information about ordering a new customer account, see [order a new
  *  customer
- *  account](/admin-sdk/reseller/v1/how-tos/manage_customers#create_customer).
+ *  account](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#create_customer).
  *  After creating a new customer account, you must provision a user as an
  *  administrator. The customer's administrator is required to sign in to the
  *  Admin console and sign the G Suite via Reseller agreement to activate the
  *  account. Resellers are prohibited from signing the G Suite via Reseller
  *  agreement on the customer's behalf. For more information, see [order a new
- *  customer account](/admin-sdk/reseller/v1/how-tos/manage_customers#tos).
+ *  customer
+ *  account](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#tos).
  *
  *  @param object The @c GTLRReseller_Customer to include in the query.
  *
@@ -248,7 +250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Updates a customer account's settings. You cannot update `customerType` via
  *  the Reseller API, but a `"team"` customer can verify their domain and become
  *  `customerType = "domain"`. For more information, see [update a customer's
- *  settings](/admin-sdk/reseller/v1/how-tos/manage_customers#update_customer).
+ *  settings](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#update_customer).
  *
  *  Method: reseller.customers.update
  *
@@ -272,7 +274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Updates a customer account's settings. You cannot update `customerType` via
  *  the Reseller API, but a `"team"` customer can verify their domain and become
  *  `customerType = "domain"`. For more information, see [update a customer's
- *  settings](/admin-sdk/reseller/v1/how-tos/manage_customers#update_customer).
+ *  settings](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_customers#update_customer).
  *
  *  @param object The @c GTLRReseller_Customer to include in the query.
  *  @param customerId This can be either the customer's primary domain name or
@@ -422,7 +424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  trial or a flexible plan subscription to an annual commitment plan with
  *  monthly or yearly payments. How a plan is updated differs depending on the
  *  plan and the products. For more information, see the description in [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_plan).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#update_subscription_plan).
  *
  *  Method: reseller.subscriptions.changePlan
  *
@@ -456,7 +458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  trial or a flexible plan subscription to an annual commitment plan with
  *  monthly or yearly payments. How a plan is updated differs depending on the
  *  plan and the products. For more information, see the description in [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_plan).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#update_subscription_plan).
  *
  *  @param object The @c GTLRReseller_ChangePlanRequest to include in the query.
  *  @param customerId This can be either the customer's primary domain name or
@@ -483,7 +485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Updates a user license's renewal settings. This is applicable for accounts
  *  with annual commitment plans only. For more information, see the description
  *  in [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_renewal).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#update_renewal).
  *
  *  Method: reseller.subscriptions.changeRenewalSettings
  *
@@ -516,7 +518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Updates a user license's renewal settings. This is applicable for accounts
  *  with annual commitment plans only. For more information, see the description
  *  in [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_renewal).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#update_renewal).
  *
  *  @param object The @c GTLRReseller_RenewalSettings to include in the query.
  *  @param customerId This can be either the customer's primary domain name or
@@ -543,7 +545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Updates a subscription's user license settings. For more information about
  *  updating an annual commitment plan or a flexible plan subscription’s
  *  licenses, see [Manage
- *  Subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_seat).
+ *  Subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#update_subscription_seat).
  *
  *  Method: reseller.subscriptions.changeSeats
  *
@@ -576,7 +578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Updates a subscription's user license settings. For more information about
  *  updating an annual commitment plan or a flexible plan subscription’s
  *  licenses, see [Manage
- *  Subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_seat).
+ *  Subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#update_subscription_seat).
  *
  *  @param object The @c GTLRReseller_Seats to include in the query.
  *  @param customerId This can be either the customer's primary domain name or
@@ -690,10 +692,10 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 /**
  *  Gets a specific subscription. The `subscriptionId` can be found using the
  *  [Retrieve all reseller
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#get_all_subscriptions)
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#get_all_subscriptions)
  *  method. For more information about retrieving a specific subscription, see
  *  the information descrived in [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#get_subscription).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#get_subscription).
  *
  *  Method: reseller.subscriptions.get
  *
@@ -726,10 +728,10 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *
  *  Gets a specific subscription. The `subscriptionId` can be found using the
  *  [Retrieve all reseller
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#get_all_subscriptions)
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#get_all_subscriptions)
  *  method. For more information about retrieving a specific subscription, see
  *  the information descrived in [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#get_subscription).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#get_subscription).
  *
  *  @param customerId This can be either the customer's primary domain name or
  *    the customer's unique identifier. If the domain name for a customer
@@ -753,17 +755,18 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 /**
  *  Creates or transfer a subscription. Create a subscription for a customer's
  *  account that you ordered using the [Order a new customer
- *  account](/admin-sdk/reseller/v1/reference/customers/insert.html) method. For
- *  more information about creating a subscription for different payment plans,
- *  see [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#create_subscription).\\
+ *  account](https://developers.google.com/workspace/admin/reseller/v1/reference/customers/insert.html)
+ *  method. For more information about creating a subscription for different
+ *  payment plans, see [manage
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#create_subscription).\\
  *  If you did not order the customer's account using the customer insert
  *  method, use the customer's `customerAuthToken` when creating a subscription
  *  for that customer. If transferring a G Suite subscription with an associated
  *  Google Drive or Google Vault subscription, use the [batch
- *  operation](/admin-sdk/reseller/v1/how-tos/batch.html) to transfer all of
- *  these subscriptions. For more information, see how to [transfer
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#transfer_a_subscription).
+ *  operation](https://developers.google.com/workspace/admin/reseller/v1/how-tos/batch.html)
+ *  to transfer all of these subscriptions. For more information, see how to
+ *  [transfer
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#transfer_a_subscription).
  *
  *  Method: reseller.subscriptions.insert
  *
@@ -773,11 +776,8 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @interface GTLRResellerQuery_SubscriptionsInsert : GTLRResellerQuery
 
 /**
- *  The intented insert action. The usage of this field is governed by certain
- *  policies which are being developed & tested currently. Hence, these might
- *  not work as intended. Once this is fully tested & available to consume, we
- *  will share more information about its usage, limitations and policy
- *  documentation.
+ *  The intented insert action. Advised to set this when the customer already
+ *  has a subscription for a different SKU in the same product.
  *
  *  Likely values:
  *    @arg @c kGTLRResellerActionActionUnspecified Auto determines whether to
@@ -809,11 +809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 
 /**
  *  The sku_id of the existing subscription to be upgraded or downgraded. This
- *  is required when action is SWITCH. The usage of this field is governed by
- *  certain policies which are being developed & tested currently. Hence, these
- *  might not work as intended. Once this is fully tested & available to
- *  consume, we will share more information about its usage, limitations and
- *  policy documentation.
+ *  is required when action is SWITCH.
  */
 @property(nonatomic, copy, nullable) NSString *sourceSkuId;
 
@@ -822,17 +818,18 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *
  *  Creates or transfer a subscription. Create a subscription for a customer's
  *  account that you ordered using the [Order a new customer
- *  account](/admin-sdk/reseller/v1/reference/customers/insert.html) method. For
- *  more information about creating a subscription for different payment plans,
- *  see [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#create_subscription).\\
+ *  account](https://developers.google.com/workspace/admin/reseller/v1/reference/customers/insert.html)
+ *  method. For more information about creating a subscription for different
+ *  payment plans, see [manage
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#create_subscription).\\
  *  If you did not order the customer's account using the customer insert
  *  method, use the customer's `customerAuthToken` when creating a subscription
  *  for that customer. If transferring a G Suite subscription with an associated
  *  Google Drive or Google Vault subscription, use the [batch
- *  operation](/admin-sdk/reseller/v1/how-tos/batch.html) to transfer all of
- *  these subscriptions. For more information, see how to [transfer
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#transfer_a_subscription).
+ *  operation](https://developers.google.com/workspace/admin/reseller/v1/how-tos/batch.html)
+ *  to transfer all of these subscriptions. For more information, see how to
+ *  [transfer
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#transfer_a_subscription).
  *
  *  @param object The @c GTLRReseller_Subscription to include in the query.
  *  @param customerId This can be either the customer's primary domain name or
@@ -854,7 +851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  subscriptions, all of a customer's subscriptions, or all of a customer's
  *  transferable subscriptions. Optionally, this method can filter the response
  *  by a `customerNamePrefix`. For more information, see [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions).
  *
  *  Method: reseller.subscriptions.list
  *
@@ -912,7 +909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  subscriptions, all of a customer's subscriptions, or all of a customer's
  *  transferable subscriptions. Optionally, this method can filter the response
  *  by a `customerNamePrefix`. For more information, see [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions).
  *
  *  @return GTLRResellerQuery_SubscriptionsList
  *
@@ -929,7 +926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  subscription. This method is only applicable if a payment plan has already
  *  been set up for the 30-day trial subscription. For more information, see
  *  [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#paid_service).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#paid_service).
  *
  *  Method: reseller.subscriptions.startPaidService
  *
@@ -963,7 +960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  subscription. This method is only applicable if a payment plan has already
  *  been set up for the 30-day trial subscription. For more information, see
  *  [manage
- *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#paid_service).
+ *  subscriptions](https://developers.google.com/workspace/admin/reseller/v1/how-tos/manage_subscriptions#paid_service).
  *
  *  @param customerId This can be either the customer's primary domain name or
  *    the customer's unique identifier. If the domain name for a customer

@@ -29,6 +29,30 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttri
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes_OwnershipPrivilege_OwnershipPrivilegeUnspecified = @"OWNERSHIP_PRIVILEGE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes_OwnershipPrivilege_ProfileOwner = @"PROFILE_OWNER";
 
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.browserManagementState
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_BrowserManaged = @"BROWSER_MANAGED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ManagedByOtherDomain = @"MANAGED_BY_OTHER_DOMAIN";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ProfileManaged = @"PROFILE_MANAGED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unmanaged = @"UNMANAGED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unspecified = @"UNSPECIFIED";
+
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.passwordProtectionWarningTrigger
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordProtectionTriggerUnspecified = @"PASSWORD_PROTECTION_TRIGGER_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordReuse = @"PASSWORD_REUSE";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PhishingReuse = @"PHISHING_REUSE";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_ProtectionOff = @"PROTECTION_OFF";
+
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.safeBrowsingProtectionLevel
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Disabled = @"DISABLED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Enhanced = @"ENHANCED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_SafeBrowsingLevelUnspecified = @"SAFE_BROWSING_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Standard = @"STANDARD";
+
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes.validationState
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_CertificateValidationStateUnspecified = @"CERTIFICATE_VALIDATION_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationFailed = @"VALIDATION_FAILED";
+NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationSuccessful = @"VALIDATION_SUCCESSFUL";
+
 // GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState.complianceState
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState_ComplianceState_ComplianceStateUnspecified = @"COMPLIANCE_STATE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState_ComplianceState_Compliant = @"COMPLIANT";
@@ -114,6 +138,7 @@ NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_RelationTypeUnspe
 
 // GTLRCloudIdentity_InboundSsoAssignment.ssoMode
 NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_DomainWideSamlIfEnabled = @"DOMAIN_WIDE_SAML_IF_ENABLED";
+NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_OidcSso = @"OIDC_SSO";
 NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_SamlSso = @"SAML_SSO";
 NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_SsoModeUnspecified = @"SSO_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_SsoOff = @"SSO_OFF";
@@ -133,6 +158,7 @@ NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_Disabled = @"DISA
 NSString * const kGTLRCloudIdentity_Membership_DeliverySetting_None = @"NONE";
 
 // GTLRCloudIdentity_Membership.type
+NSString * const kGTLRCloudIdentity_Membership_Type_CbcmBrowser = @"CBCM_BROWSER";
 NSString * const kGTLRCloudIdentity_Membership_Type_Group      = @"GROUP";
 NSString * const kGTLRCloudIdentity_Membership_Type_Other      = @"OTHER";
 NSString * const kGTLRCloudIdentity_Membership_Type_ServiceAccount = @"SERVICE_ACCOUNT";
@@ -146,6 +172,11 @@ NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Ev
 NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_ForwardCompliant = @"FORWARD_COMPLIANT";
 NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_NonCompliant = @"NON_COMPLIANT";
 NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudIdentity_Policy.type
+NSString * const kGTLRCloudIdentity_Policy_Type_Admin          = @"ADMIN";
+NSString * const kGTLRCloudIdentity_Policy_Type_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_Policy_Type_System         = @"SYSTEM";
 
 // GTLRCloudIdentity_RestrictionEvaluation.state
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_Compliant = @"COMPLIANT";
@@ -171,6 +202,7 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_AddIdpCredentialOperationMetadata
+@dynamic state;
 @end
 
 
@@ -214,10 +246,21 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_CreateInboundOidcSsoProfileOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_CreateInboundOidcSsoProfileOperationMetadata
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_CreateInboundSamlSsoProfileOperationMetadata
 //
 
 @implementation GTLRCloudIdentity_CreateInboundSamlSsoProfileOperationMetadata
+@dynamic state;
 @end
 
 
@@ -254,6 +297,15 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_DeleteIdpCredentialOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DeleteInboundOidcSsoProfileOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_DeleteInboundOidcSsoProfileOperationMetadata
 @end
 
 
@@ -461,6 +513,32 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes
+@dynamic chromeBrowserInfo, chromeProfileId, lastProfileSyncTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo
+@dynamic browserManagementState, browserVersion, isBuiltInDnsClientEnabled,
+         isBulkDataEntryAnalysisEnabled, isChromeCleanupEnabled,
+         isChromeRemoteDesktopAppBlocked, isFileDownloadAnalysisEnabled,
+         isFileUploadAnalysisEnabled, isRealtimeUrlCheckEnabled,
+         isSecurityEventAnalysisEnabled, isSiteIsolationEnabled,
+         isThirdPartyBlockingEnabled, passwordProtectionWarningTrigger,
+         safeBrowsingProtectionLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceMetadata
 //
 
@@ -514,6 +592,32 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserResponse
 @dynamic deviceUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes
+@dynamic certificateTemplate, fingerprint, issuer, serialNumber, subject,
+         thumbprint, validationState, validityExpirationTime, validityStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate
+@dynamic identifier, majorVersion, minorVersion;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -600,10 +704,11 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 @dynamic androidSpecificAttributes, assetTag, basebandVersion,
          bootloaderVersion, brand, buildNumber, compromisedState, createTime,
          deviceId, deviceType, enabledDeveloperOptions, enabledUsbDebugging,
-         encryptionState, hostname, imei, kernelVersion, lastSyncTime,
-         managementState, manufacturer, meid, model, name, networkOperator,
-         osVersion, otherAccounts, ownerType, releaseVersion, securityPatchTime,
-         serialNumber, wifiMacAddresses;
+         encryptionState, endpointVerificationSpecificAttributes, hostname,
+         imei, kernelVersion, lastSyncTime, managementState, manufacturer, meid,
+         model, name, networkOperator, osVersion, otherAccounts, ownerType,
+         releaseVersion, securityPatchTime, serialNumber, unifiedDeviceId,
+         wifiMacAddresses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -625,6 +730,39 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 @dynamic compromisedState, createTime, firstSyncTime, languageCode,
          lastSyncTime, managementState, name, passwordState, userAgent,
          userEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes
+@dynamic additionalSignals, browserAttributes, certificateAttributes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"browserAttributes" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes class],
+    @"certificateAttributes" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -887,6 +1025,16 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_InboundOidcSsoProfile
+//
+
+@implementation GTLRCloudIdentity_InboundOidcSsoProfile
+@dynamic customer, displayName, idpConfig, name, rpConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_InboundSamlSsoProfile
 //
 
@@ -901,8 +1049,8 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_InboundSsoAssignment
-@dynamic customer, name, rank, samlSsoInfo, signInBehavior, ssoMode,
-         targetGroup, targetOrgUnit;
+@dynamic customer, name, oidcSsoInfo, rank, samlSsoInfo, signInBehavior,
+         ssoMode, targetGroup, targetOrgUnit;
 @end
 
 
@@ -955,6 +1103,28 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 + (NSString *)collectionItemsKey {
   return @"idpCredentials";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListInboundOidcSsoProfilesResponse
+//
+
+@implementation GTLRCloudIdentity_ListInboundOidcSsoProfilesResponse
+@dynamic inboundOidcSsoProfiles, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inboundOidcSsoProfiles" : [GTLRCloudIdentity_InboundOidcSsoProfile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"inboundOidcSsoProfiles";
 }
 
 @end
@@ -1021,6 +1191,28 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 + (NSString *)collectionItemsKey {
   return @"memberships";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ListPoliciesResponse
+//
+
+@implementation GTLRCloudIdentity_ListPoliciesResponse
+@dynamic nextPageToken, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policies" : [GTLRCloudIdentity_Policy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"policies";
 }
 
 @end
@@ -1223,6 +1415,44 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_OidcIdpConfig
+//
+
+@implementation GTLRCloudIdentity_OidcIdpConfig
+@dynamic changePasswordUri, issuerUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_OidcRpConfig
+//
+
+@implementation GTLRCloudIdentity_OidcRpConfig
+@dynamic clientId, clientSecret, redirectUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"redirectUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_OidcSsoInfo
+//
+
+@implementation GTLRCloudIdentity_OidcSsoInfo
+@dynamic inboundOidcSsoProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_Operation
 //
 
@@ -1256,6 +1486,26 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_Policy
+//
+
+@implementation GTLRCloudIdentity_Policy
+@dynamic customer, name, policyQuery, setting, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_PolicyQuery
+//
+
+@implementation GTLRCloudIdentity_PolicyQuery
+@dynamic group, orgUnit, query, sortOrder;
 @end
 
 
@@ -1428,6 +1678,30 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_Setting
+//
+
+@implementation GTLRCloudIdentity_Setting
+@dynamic type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_Setting_Value
+//
+
+@implementation GTLRCloudIdentity_Setting_Value
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_SignInBehavior
 //
 
@@ -1489,10 +1763,21 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_UpdateInboundOidcSsoProfileOperationMetadata
+//
+
+@implementation GTLRCloudIdentity_UpdateInboundOidcSsoProfileOperationMetadata
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_UpdateInboundSamlSsoProfileOperationMetadata
 //
 
 @implementation GTLRCloudIdentity_UpdateInboundSamlSsoProfileOperationMetadata
+@dynamic state;
 @end
 
 

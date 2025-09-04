@@ -48,6 +48,7 @@ NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_LoggableActionUns
 // GTLRStorageTransfer_LoggingConfig.logActionStates
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Failed = @"FAILED";
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_LoggableActionStateUnspecified = @"LOGGABLE_ACTION_STATE_UNSPECIFIED";
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Skipped = @"SKIPPED";
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Succeeded = @"SUCCEEDED";
 
 // GTLRStorageTransfer_MetadataOptions.acl
@@ -188,8 +189,8 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_AwsS3Data
-@dynamic awsAccessKey, bucketName, cloudfrontDomain, credentialsSecret, path,
-         roleArn;
+@dynamic awsAccessKey, bucketName, cloudfrontDomain, credentialsSecret,
+         managedPrivateNetwork, path, roleArn;
 @end
 
 
@@ -199,7 +200,8 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_AzureBlobStorageData
-@dynamic azureCredentials, container, credentialsSecret, path, storageAccount;
+@dynamic azureCredentials, container, credentialsSecret,
+         federatedIdentityConfig, path, storageAccount;
 @end
 
 
@@ -299,6 +301,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_FederatedIdentityConfig
+//
+
+@implementation GTLRStorageTransfer_FederatedIdentityConfig
+@dynamic clientId, tenantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_GcsData
 //
 
@@ -314,6 +326,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 @implementation GTLRStorageTransfer_GoogleServiceAccount
 @dynamic accountEmail, subjectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_HdfsData
+//
+
+@implementation GTLRStorageTransfer_HdfsData
+@dynamic path;
 @end
 
 
@@ -521,6 +543,16 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_ReplicationSpec
+//
+
+@implementation GTLRStorageTransfer_ReplicationSpec
+@dynamic gcsDataSink, gcsDataSource, objectConditions, transferOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_ResumeTransferOperationRequest
 //
 
@@ -628,7 +660,8 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 @implementation GTLRStorageTransfer_TransferJob
 @dynamic creationTime, deletionTime, descriptionProperty, eventStream,
          lastModificationTime, latestOperationName, loggingConfig, name,
-         notificationConfig, projectId, schedule, status, transferSpec;
+         notificationConfig, projectId, replicationSpec, schedule,
+         serviceAccount, status, transferSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -686,9 +719,9 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 @implementation GTLRStorageTransfer_TransferSpec
 @dynamic awsS3CompatibleDataSource, awsS3DataSource, azureBlobStorageDataSource,
          gcsDataSink, gcsDataSource, gcsIntermediateDataLocation,
-         httpDataSource, objectConditions, posixDataSink, posixDataSource,
-         sinkAgentPoolName, sourceAgentPoolName, transferManifest,
-         transferOptions;
+         hdfsDataSource, httpDataSource, objectConditions, posixDataSink,
+         posixDataSource, sinkAgentPoolName, sourceAgentPoolName,
+         transferManifest, transferOptions;
 @end
 
 

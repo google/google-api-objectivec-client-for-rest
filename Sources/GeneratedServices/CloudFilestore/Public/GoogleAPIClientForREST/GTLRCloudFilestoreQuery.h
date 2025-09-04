@@ -452,7 +452,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Mask of fields to update. At least one path must be supplied in this field.
  *  The elements of the repeated paths field may only include these fields: *
- *  "description" * "file_shares" * "labels"
+ *  "description" * "file_shares" * "labels" * "performance_config" *
+ *  "deletion_protection_enabled" * "deletion_protection_reason"
  *
  *  String format is a comma-separated list of fields.
  */
@@ -470,6 +471,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudFilestore_Instance *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Promote the standby instance (replica).
+ *
+ *  Method: file.projects.locations.instances.promoteReplica
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica : GTLRCloudFilestoreQuery
+
+/**
+ *  Required. The resource name of the instance, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Promote the standby instance (replica).
+ *
+ *  @param object The @c GTLRCloudFilestore_PromoteReplicaRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the instance, in the format
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_PromoteReplicaRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -522,9 +556,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRevert : GTLRCloudFilestoreQuery
 
 /**
- *  Required.
- *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`. The
- *  resource name of the instance, in the format
+ *  Required. The resource name of the instance, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -535,9 +568,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_RevertInstanceRequest to include in
  *    the query.
- *  @param name Required.
+ *  @param name Required. The resource name of the instance, in the format
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
- *    The resource name of the instance, in the format
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRevert
  */
@@ -682,6 +714,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCloudFilestore_ListSnapshotsResponse.
  *
  *  Lists all snapshots in a project for either a specified location or for all
@@ -752,17 +790,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsList : GTLRCloudFilestoreQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  If true, the returned list will include locations which are not yet
- *  revealed.
- */
-@property(nonatomic, assign) BOOL includeUnrevealedLocations;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -804,7 +842,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: file.projects.locations.operations.cancel
@@ -827,7 +865,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudFilestore_CancelOperationRequest to include in

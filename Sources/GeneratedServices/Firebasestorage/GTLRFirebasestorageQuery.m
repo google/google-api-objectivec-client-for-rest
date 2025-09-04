@@ -108,3 +108,68 @@
 }
 
 @end
+
+@implementation GTLRFirebasestorageQuery_ProjectsDefaultBucketCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRFirebasestorage_DefaultBucket *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/defaultBucket";
+  GTLRFirebasestorageQuery_ProjectsDefaultBucketCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebasestorage_DefaultBucket class];
+  query.loggingName = @"firebasestorage.projects.defaultBucket.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebasestorageQuery_ProjectsDeleteDefaultBucket
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebasestorageQuery_ProjectsDeleteDefaultBucket *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebasestorage_Empty class];
+  query.loggingName = @"firebasestorage.projects.deleteDefaultBucket";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebasestorageQuery_ProjectsGetDefaultBucket
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebasestorageQuery_ProjectsGetDefaultBucket *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebasestorage_DefaultBucket class];
+  query.loggingName = @"firebasestorage.projects.getDefaultBucket";
+  return query;
+}
+
+@end

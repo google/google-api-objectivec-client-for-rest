@@ -177,7 +177,17 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfiguration
-@dynamic authentication, connectorId, endpoint;
+@dynamic asset, authentication, connectorId, endpoint, network;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationAsset
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationAsset
+@dynamic database, googleCloudResource;
 @end
 
 
@@ -187,7 +197,7 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 //
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfigurationAuthentication
-@dynamic usernamePassword;
+@dynamic serviceAccount, usernamePassword;
 @end
 
 
@@ -198,6 +208,26 @@ NSString * const kGTLRBigQueryConnectionService_ConnectorConfigurationSecret_Sec
 
 @implementation GTLRBigQueryConnectionService_ConnectorConfigurationEndpoint
 @dynamic hostPort;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationNetwork
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationNetwork
+@dynamic privateServiceConnect;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect
+//
+
+@implementation GTLRBigQueryConnectionService_ConnectorConfigurationPrivateServiceConnect
+@dynamic networkAttachment;
 @end
 
 

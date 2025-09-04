@@ -11,12 +11,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRLooker_AuditLogConfig.logType
-NSString * const kGTLRLooker_AuditLogConfig_LogType_AdminRead  = @"ADMIN_READ";
-NSString * const kGTLRLooker_AuditLogConfig_LogType_DataRead   = @"DATA_READ";
-NSString * const kGTLRLooker_AuditLogConfig_LogType_DataWrite  = @"DATA_WRITE";
-NSString * const kGTLRLooker_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
 // GTLRLooker_CustomDomain.state
 NSString * const kGTLRLooker_CustomDomain_State_Available      = @"AVAILABLE";
 NSString * const kGTLRLooker_CustomDomain_State_CustomDomainStateUnspecified = @"CUSTOM_DOMAIN_STATE_UNSPECIFIED";
@@ -36,12 +30,23 @@ NSString * const kGTLRLooker_ExportMetadata_Source_LookerCore  = @"LOOKER_CORE";
 NSString * const kGTLRLooker_ExportMetadata_Source_LookerOriginal = @"LOOKER_ORIGINAL";
 NSString * const kGTLRLooker_ExportMetadata_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 
+// GTLRLooker_Instance.classType
+NSString * const kGTLRLooker_Instance_ClassType_ClassTypeUnspecified = @"CLASS_TYPE_UNSPECIFIED";
+NSString * const kGTLRLooker_Instance_ClassType_P1             = @"P1";
+NSString * const kGTLRLooker_Instance_ClassType_R1             = @"R1";
+
 // GTLRLooker_Instance.platformEdition
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEmbedAnnual = @"LOOKER_CORE_EMBED_ANNUAL";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreEnterpriseAnnual = @"LOOKER_CORE_ENTERPRISE_ANNUAL";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEmbedAnnual = @"LOOKER_CORE_NONPROD_EMBED_ANNUAL";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodEnterpriseAnnual = @"LOOKER_CORE_NONPROD_ENTERPRISE_ANNUAL";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreNonprodStandardAnnual = @"LOOKER_CORE_NONPROD_STANDARD_ANNUAL";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreStandard = @"LOOKER_CORE_STANDARD";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreStandardAnnual = @"LOOKER_CORE_STANDARD_ANNUAL";
 NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrial = @"LOOKER_CORE_TRIAL";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEmbed = @"LOOKER_CORE_TRIAL_EMBED";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialEnterprise = @"LOOKER_CORE_TRIAL_ENTERPRISE";
+NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCoreTrialStandard = @"LOOKER_CORE_TRIAL_STANDARD";
 NSString * const kGTLRLooker_Instance_PlatformEdition_PlatformEditionUnspecified = @"PLATFORM_EDITION_UNSPECIFIED";
 
 // GTLRLooker_Instance.state
@@ -55,6 +60,13 @@ NSString * const kGTLRLooker_Instance_State_StateUnspecified = @"STATE_UNSPECIFI
 NSString * const kGTLRLooker_Instance_State_Suspended        = @"SUSPENDED";
 NSString * const kGTLRLooker_Instance_State_Updating         = @"UPDATING";
 
+// GTLRLooker_InstanceBackup.state
+NSString * const kGTLRLooker_InstanceBackup_State_Active       = @"ACTIVE";
+NSString * const kGTLRLooker_InstanceBackup_State_Creating     = @"CREATING";
+NSString * const kGTLRLooker_InstanceBackup_State_Deleting     = @"DELETING";
+NSString * const kGTLRLooker_InstanceBackup_State_Failed       = @"FAILED";
+NSString * const kGTLRLooker_InstanceBackup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRLooker_MaintenanceWindow.dayOfWeek
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Friday = @"FRIDAY";
@@ -64,6 +76,14 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Sunday = @"SUNDAY";
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Thursday = @"THURSDAY";
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Tuesday = @"TUESDAY";
 NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY";
+
+// GTLRLooker_ServiceAttachment.connectionStatus
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Accepted = @"ACCEPTED";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Closed = @"CLOSED";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Pending = @"PENDING";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Rejected = @"REJECTED";
+NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
@@ -76,60 +96,6 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowedEmailDomains" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_AuditConfig
-//
-
-@implementation GTLRLooker_AuditConfig
-@dynamic auditLogConfigs, service;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRLooker_AuditLogConfig class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_AuditLogConfig
-//
-
-@implementation GTLRLooker_AuditLogConfig
-@dynamic exemptedMembers, logType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_Binding
-//
-
-@implementation GTLRLooker_Binding
-@dynamic condition, members, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"members" : [NSString class]
   };
   return map;
 }
@@ -246,21 +212,6 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLooker_Expr
-//
-
-@implementation GTLRLooker_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRLooker_ImportInstanceRequest
 //
 
@@ -275,12 +226,47 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
 //
 
 @implementation GTLRLooker_Instance
-@dynamic adminSettings, consumerNetwork, createTime, customDomain,
-         denyMaintenancePeriod, egressPublicIp, encryptionConfig,
-         ingressPrivateIp, ingressPublicIp, lastDenyMaintenancePeriod,
-         lookerUri, lookerVersion, maintenanceSchedule, maintenanceWindow, name,
-         oauthConfig, platformEdition, privateIpEnabled, publicIpEnabled,
-         reservedRange, state, updateTime, userMetadata;
+@dynamic adminSettings, classType, consumerNetwork, createTime, customDomain,
+         denyMaintenancePeriod, egressPublicIp, encryptionConfig, fipsEnabled,
+         geminiEnabled, ingressPrivateIp, ingressPublicIp,
+         lastDenyMaintenancePeriod, linkedLspProjectNumber, lookerUri,
+         lookerVersion, maintenanceSchedule, maintenanceWindow, name,
+         oauthConfig, platformEdition, privateIpEnabled, pscConfig, pscEnabled,
+         publicIpEnabled, reservedRange, satisfiesPzi, satisfiesPzs, state,
+         updateTime, userMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_InstanceBackup
+//
+
+@implementation GTLRLooker_InstanceBackup
+@dynamic createTime, encryptionConfig, expireTime, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_ListInstanceBackupsResponse
+//
+
+@implementation GTLRLooker_ListInstanceBackupsResponse
+@dynamic instanceBackups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instanceBackups" : [GTLRLooker_InstanceBackup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"instanceBackups";
+}
+
 @end
 
 
@@ -470,20 +456,16 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLooker_Policy
+//   GTLRLooker_PscConfig
 //
 
-@implementation GTLRLooker_Policy
-@dynamic auditConfigs, bindings, ETag, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
+@implementation GTLRLooker_PscConfig
+@dynamic allowedVpcs, lookerServiceAttachmentUri, serviceAttachments;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRLooker_AuditConfig class],
-    @"bindings" : [GTLRLooker_Binding class]
+    @"allowedVpcs" : [NSString class],
+    @"serviceAttachments" : [GTLRLooker_ServiceAttachment class]
   };
   return map;
 }
@@ -502,11 +484,29 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRLooker_SetIamPolicyRequest
+//   GTLRLooker_RestoreInstanceRequest
 //
 
-@implementation GTLRLooker_SetIamPolicyRequest
-@dynamic policy, updateMask;
+@implementation GTLRLooker_RestoreInstanceRequest
+@dynamic backup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_ServiceAttachment
+//
+
+@implementation GTLRLooker_ServiceAttachment
+@dynamic connectionStatus, localFqdn, localFqdns, targetServiceAttachmentUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"localFqdns" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -537,42 +537,6 @@ NSString * const kGTLRLooker_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_TestIamPermissionsRequest
-//
-
-@implementation GTLRLooker_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLooker_TestIamPermissionsResponse
-//
-
-@implementation GTLRLooker_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
 }
 
 @end

@@ -4,7 +4,7 @@
 // API:
 //   BigQuery Reservation API (bigqueryreservation/v1)
 // Description:
-//   A service to modify your BigQuery flat-rate reservations.
+//   A service to modify your BigQuery reservations.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
@@ -15,6 +15,7 @@
 
 // GTLRBigQueryReservation_Assignment.jobType
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background = @"BACKGROUND";
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_Continuous = @"CONTINUOUS";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified = @"JOB_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_MlExternal = @"ML_EXTERNAL";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_Pipeline = @"PIPELINE";
@@ -24,6 +25,12 @@ NSString * const kGTLRBigQueryReservation_Assignment_JobType_Query = @"QUERY";
 NSString * const kGTLRBigQueryReservation_Assignment_State_Active = @"ACTIVE";
 NSString * const kGTLRBigQueryReservation_Assignment_State_Pending = @"PENDING";
 NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRBigQueryReservation_AuditLogConfig.logType
+NSString * const kGTLRBigQueryReservation_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRBigQueryReservation_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRBigQueryReservation_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRBigQueryReservation_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRBigQueryReservation_CapacityCommitment.edition
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
@@ -61,11 +68,22 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Failed = @"FA
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Pending = @"PENDING";
 NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRBigQueryReservation_FailoverReservationRequest.failoverMode
+NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_FailoverModeUnspecified = @"FAILOVER_MODE_UNSPECIFIED";
+NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Hard = @"HARD";
+NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Soft = @"SOFT";
+
 // GTLRBigQueryReservation_Reservation.edition
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise = @"ENTERPRISE";
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_EnterprisePlus = @"ENTERPRISE_PLUS";
 NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STANDARD";
+
+// GTLRBigQueryReservation_Reservation.scalingMode
+NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_AllSlots = @"ALL_SLOTS";
+NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_AutoscaleOnly = @"AUTOSCALE_ONLY";
+NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_IdleSlotsOnly = @"IDLE_SLOTS_ONLY";
+NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUnspecified = @"SCALING_MODE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -73,7 +91,43 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 //
 
 @implementation GTLRBigQueryReservation_Assignment
-@dynamic assignee, jobType, name, state;
+@dynamic assignee, enableGeminiInBigquery, jobType, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_AuditConfig
+//
+
+@implementation GTLRBigQueryReservation_AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRBigQueryReservation_AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_AuditLogConfig
+//
+
+@implementation GTLRBigQueryReservation_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -84,6 +138,24 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 
 @implementation GTLRBigQueryReservation_Autoscale
 @dynamic currentSlots, maxSlots;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_Binding
+//
+
+@implementation GTLRBigQueryReservation_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -123,6 +195,31 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 //
 
 @implementation GTLRBigQueryReservation_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_Expr
+//
+
+@implementation GTLRBigQueryReservation_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_FailoverReservationRequest
+//
+
+@implementation GTLRBigQueryReservation_FailoverReservationRequest
+@dynamic failoverMode;
 @end
 
 
@@ -172,6 +269,28 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryReservation_ListReservationGroupsResponse
+//
+
+@implementation GTLRBigQueryReservation_ListReservationGroupsResponse
+@dynamic nextPageToken, reservationGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservationGroups" : [GTLRBigQueryReservation_ReservationGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reservationGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryReservation_ListReservationsResponse
 //
 
@@ -198,7 +317,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 //
 
 @implementation GTLRBigQueryReservation_MergeCapacityCommitmentsRequest
-@dynamic capacityCommitmentIds;
+@dynamic capacityCommitmentId, capacityCommitmentIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -222,12 +341,71 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryReservation_Policy
+//
+
+@implementation GTLRBigQueryReservation_Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRBigQueryReservation_AuditConfig class],
+    @"bindings" : [GTLRBigQueryReservation_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_ReplicationStatus
+//
+
+@implementation GTLRBigQueryReservation_ReplicationStatus
+@dynamic error, lastErrorTime, lastReplicationTime, softFailoverStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryReservation_Reservation
 //
 
 @implementation GTLRBigQueryReservation_Reservation
-@dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots,
-         multiRegionAuxiliary, name, slotCapacity, updateTime;
+@dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots, labels,
+         maxSlots, multiRegionAuxiliary, name, originalPrimaryLocation,
+         primaryLocation, replicationStatus, reservationGroup, scalingMode,
+         secondaryLocation, slotCapacity, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_Reservation_Labels
+//
+
+@implementation GTLRBigQueryReservation_Reservation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_ReservationGroup
+//
+
+@implementation GTLRBigQueryReservation_ReservationGroup
+@dynamic name;
 @end
 
 
@@ -272,6 +450,16 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
   return @"assignments";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_SetIamPolicyRequest
+//
+
+@implementation GTLRBigQueryReservation_SetIamPolicyRequest
+@dynamic policy, updateMask;
 @end
 
 
@@ -334,4 +522,40 @@ NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard = @"STAND
 
 @implementation GTLRBigQueryReservation_TableReference
 @dynamic datasetId, projectId, tableId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_TestIamPermissionsRequest
+//
+
+@implementation GTLRBigQueryReservation_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_TestIamPermissionsResponse
+//
+
+@implementation GTLRBigQueryReservation_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
 @end

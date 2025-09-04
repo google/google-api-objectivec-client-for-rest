@@ -26,10 +26,9 @@
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
-    @"civicinfo#divisionSearchResponse" : [GTLRCivicInfo_DivisionSearchResponse class],
-    @"civicinfo#electionsQueryResponse" : [GTLRCivicInfo_ElectionsQueryResponse class],
-    @"civicinfo#representativeInfoResponse" : [GTLRCivicInfo_RepresentativeInfoResponse class],
-    @"civicinfo#voterInfoResponse" : [GTLRCivicInfo_VoterInfoResponse class],
+    @"civicinfo#divisionSearchResponse" : [GTLRCivicInfo_CivicinfoApiprotosV2DivisionSearchResponse class],
+    @"civicinfo#electionsQueryResponse" : [GTLRCivicInfo_CivicinfoApiprotosV2ElectionsQueryResponse class],
+    @"civicinfo#voterInfoResponse" : [GTLRCivicInfo_CivicinfoApiprotosV2VoterInfoResponse class],
   };
 }
 

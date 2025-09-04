@@ -7,7 +7,7 @@
 //   Manages alerts on issues affecting your domain. Note: The current version
 //   of this API (v1beta1) is available to all Google Workspace customers.
 // Documentation:
-//   https://developers.google.com/admin-sdk/alertcenter/
+//   https://developers.google.com/workspace/admin/alertcenter/
 
 #import <GoogleAPIClientForREST/GTLRAlertCenter.h>
 

@@ -82,6 +82,12 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_O
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_OperationType_TransferEntitlements = @"TRANSFER_ENTITLEMENTS";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_OperationType_TransferEntitlementsToGoogle = @"TRANSFER_ENTITLEMENTS_TO_GOOGLE";
 
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent.eventType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Created = @"CREATED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_PartnerDetached = @"PARTNER_DETACHED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Updated = @"UPDATED";
+
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1Period.periodType
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Period_PeriodType_Day = @"DAY";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Period_PeriodType_Month = @"MONTH";
@@ -115,6 +121,11 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkSt
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Revoked = @"REVOKED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Suspended = @"SUSPENDED";
 
+// GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount.customerType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Domain = @"DOMAIN";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Team = @"TEAM";
+
 // GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo.customerType
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_Domain = @"DOMAIN";
@@ -134,6 +145,11 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_Rebil
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_DirectCustomerCost = @"DIRECT_CUSTOMER_COST";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_RebillingBasisUnspecified = @"REBILLING_BASIS_UNSPECIFIED";
 
+// GTLRCloudchannel_GoogleCloudChannelV1Customer.customerAttestationState
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_CustomerAttestationStateUnspecified = @"CUSTOMER_ATTESTATION_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_Exempt = @"EXEMPT";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_NonExemptAndInfoVerified = @"NON_EXEMPT_AND_INFO_VERIFIED";
+
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_AllowedCustomerTypes_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_AllowedCustomerTypes_Domain = @"DOMAIN";
@@ -149,6 +165,14 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_Promo
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_PrimaryDomainChanged = @"PRIMARY_DOMAIN_CHANGED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_PrimaryDomainVerified = @"PRIMARY_DOMAIN_VERIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent.discountType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DealCode = @"DEAL_CODE";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DiscountTypeUnspecified = @"DISCOUNT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_PromotionalDiscount = @"PROMOTIONAL_DISCOUNT";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_RegionalDiscount = @"REGIONAL_DISCOUNT";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_ResellerMargin = @"RESELLER_MARGIN";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_SalesDiscount = @"SALES_DISCOUNT";
 
 // GTLRCloudchannel_GoogleCloudChannelV1EduData.instituteSize
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteSize_InstituteSizeUnspecified = @"INSTITUTE_SIZE_UNSPECIFIED";
@@ -417,8 +441,8 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement
 @dynamic assignedUnits, associationInfo, billingAccount, channelPartnerId,
          commitmentSettings, createTime, maxUnits, name, numUnits, offer,
-         parameters, provisionedService, provisioningState, purchaseOrderId,
-         suspensionReasons, trialSettings, updateTime;
+         parameters, priceReferenceId, provisionedService, provisioningState,
+         purchaseOrderId, suspensionReasons, trialSettings, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -448,6 +472,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata
 @dynamic operationType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent
+@dynamic eventType, opportunity, partner;
 @end
 
 
@@ -560,7 +594,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1SubscriberEvent
-@dynamic channelPartnerEvent, customerEvent, entitlementEvent;
+@dynamic channelPartnerEvent, customerEvent, entitlementEvent, opportunityEvent;
 @end
 
 
@@ -672,7 +706,8 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1ChangeOfferRequest
-@dynamic billingAccount, offer, parameters, purchaseOrderId, requestId;
+@dynamic billingAccount, offer, parameters, priceReferenceId, purchaseOrderId,
+         requestId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -739,7 +774,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest
-@dynamic domain;
+@dynamic domain, primaryAdminEmail;
 @end
 
 
@@ -767,7 +802,8 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount
-@dynamic customerCloudIdentityId, customerName, existing, owned;
+@dynamic channelPartnerCloudIdentityId, customerCloudIdentityId, customerName,
+         customerType, existing, owned;
 @end
 
 
@@ -849,8 +885,9 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Customer
 @dynamic alternateEmail, channelPartnerId, cloudIdentityId, cloudIdentityInfo,
-         correlationId, createTime, domain, languageCode, name, orgDisplayName,
-         orgPostalAddress, primaryContactInfo, updateTime;
+         correlationId, createTime, customerAttestationState, domain,
+         languageCode, name, orgDisplayName, orgPostalAddress,
+         primaryContactInfo, updateTime;
 @end
 
 
@@ -906,6 +943,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent
+//
+
+@implementation GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent
+@dynamic discountAbsolute, discountPercentage, discountType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudchannel_GoogleCloudChannelV1EduData
 //
 
@@ -921,8 +968,9 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Entitlement
 @dynamic associationInfo, billingAccount, commitmentSettings, createTime, name,
-         offer, parameters, provisionedService, provisioningState,
-         purchaseOrderId, suspensionReasons, trialSettings, updateTime;
+         offer, parameters, priceReferenceId, provisionedService,
+         provisioningState, purchaseOrderId, suspensionReasons, trialSettings,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1016,7 +1064,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest
 @dynamic authToken, channelPartnerId, cloudIdentityId, customer, domain,
-         overwriteIfExists;
+         overwriteIfExists, primaryAdminEmail;
 @end
 
 
@@ -1531,7 +1579,16 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Price
-@dynamic basePrice, discount, effectivePrice, externalPriceUri;
+@dynamic basePrice, discount, discountComponents, effectivePrice,
+         externalPriceUri, pricePeriod;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discountComponents" : [GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1617,7 +1674,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1PurchasableOffer
-@dynamic offer;
+@dynamic offer, priceReferenceId;
 @end
 
 
@@ -1655,7 +1712,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest
-@dynamic serviceAccount;
+@dynamic account, integrator, serviceAccount;
 @end
 
 
@@ -1923,7 +1980,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1TransferableOffer
-@dynamic offer;
+@dynamic offer, priceReferenceId;
 @end
 
 
@@ -2022,7 +2079,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest
-@dynamic serviceAccount;
+@dynamic account, integrator, serviceAccount;
 @end
 
 

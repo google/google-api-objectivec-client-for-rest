@@ -19,8 +19,10 @@
 @class GTLRCloudResourceManager_AuditLogConfig;
 @class GTLRCloudResourceManager_Binding;
 @class GTLRCloudResourceManager_EffectiveTag;
+@class GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags;
 @class GTLRCloudResourceManager_Expr;
 @class GTLRCloudResourceManager_Folder;
+@class GTLRCloudResourceManager_Folder_Tags;
 @class GTLRCloudResourceManager_GetPolicyOptions;
 @class GTLRCloudResourceManager_Lien;
 @class GTLRCloudResourceManager_Operation_Metadata;
@@ -29,9 +31,11 @@
 @class GTLRCloudResourceManager_Policy;
 @class GTLRCloudResourceManager_Project;
 @class GTLRCloudResourceManager_Project_Labels;
+@class GTLRCloudResourceManager_Project_Tags;
 @class GTLRCloudResourceManager_Status;
 @class GTLRCloudResourceManager_Status_Details_Item;
 @class GTLRCloudResourceManager_TagBinding;
+@class GTLRCloudResourceManager_TagBindingCollection_Tags;
 @class GTLRCloudResourceManager_TagHold;
 @class GTLRCloudResourceManager_TagKey;
 @class GTLRCloudResourceManager_TagKey_PurposeData;
@@ -456,6 +460,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
+ *  Representation of a Capability.
+ */
+@interface GTLRCloudResourceManager_Capability : GTLRObject
+
+/**
+ *  Immutable. Identifier. The resource name of the capability. Must be in the
+ *  following form: * `folders/{folder_id}/capabilities/{capability_name}` For
+ *  example, `folders/123/capabilities/app-management` Following are the allowed
+ *  {capability_name} values: * `app-management`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The configured value of the capability at the given parent
+ *  resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
  *  Metadata pertaining to the Folder creation process.
  */
 @interface GTLRCloudResourceManager_CreateFolderMetadata : GTLRObject
@@ -620,6 +648,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
+ *  Represents a collection of effective tag bindings for a GCP resource.
+ */
+@interface GTLRCloudResourceManager_EffectiveTagBindingCollection : GTLRObject
+
+/**
+ *  Tag keys/values effectively bound to this resource, specified in namespaced
+ *  format. For example: "123/environment": "production"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags *effectiveTags;
+
+/**
+ *  The full resource name of the resource the TagBindings are bound to. E.g.
+ *  `//cloudresourcemanager.googleapis.com/projects/123`
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  Identifier. The name of the EffectiveTagBindingCollection, following the
+ *  convention:
+ *  `locations/{location}/effectiveTagBindingCollections/{encoded-full-resource-name}`
+ *  where the encoded-full-resource-name is the UTF-8 encoded name of the GCP
+ *  resource the TagBindings are bound to. E.g.
+ *  "locations/global/effectiveTagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Tag keys/values effectively bound to this resource, specified in namespaced
+ *  format. For example: "123/environment": "production"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_EffectiveTagBindingCollection_EffectiveTags : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -684,6 +755,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @interface GTLRCloudResourceManager_Folder : GTLRObject
 
+/**
+ *  Output only. Optional capabilities configured for this folder (via
+ *  UpdateCapability API). Example: `folders/123/capabilities/app-management`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *configuredCapabilities;
+
 /** Output only. Timestamp when the folder was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -708,7 +785,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. The resource name of the folder. Its format is
+ *  Output only. Management Project associated with this folder (if
+ *  app-management capability is enabled). Example: `projects/google-mp-123`
+ *  OUTPUT ONLY.
+ */
+@property(nonatomic, copy, nullable) NSString *managementProject;
+
+/**
+ *  Identifier. The resource name of the folder. Its format is
  *  `folders/{folder_id}`, for example: "folders/1234".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -733,9 +817,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  folder. Each item in the map must be expressed as " : ". For example:
+ *  "123/environment" : "production", "123/costCenter" : "marketing" Note:
+ *  Currently this field is in Preview.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Folder_Tags *tags;
+
 /** Output only. Timestamp when the folder was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  folder. Each item in the map must be expressed as " : ". For example:
+ *  "123/environment" : "production", "123/costCenter" : "marketing" Note:
+ *  Currently this field is in Preview.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_Folder_Tags : GTLRObject
 @end
 
 
@@ -1511,6 +1618,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @interface GTLRCloudResourceManager_Project : GTLRObject
 
+/**
+ *  Output only. If this project is a Management Project, list of capabilities
+ *  configured on the parent folder. Note, presence of any capability implies
+ *  that this is a Management Project. Example:
+ *  `folders/123/capabilities/app-management`. OUTPUT ONLY.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *configuredCapabilities;
+
 /** Output only. Creation time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1582,6 +1697,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  project. Each item in the map must be expressed as " : ". For example:
+ *  "123/environment" : "production", "123/costCenter" : "marketing" Note:
+ *  Currently this field is in Preview.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Project_Tags *tags;
+
 /** Output only. The most recent time this resource was modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -1604,6 +1727,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *        fetch them all at once.
  */
 @interface GTLRCloudResourceManager_Project_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  project. Each item in the map must be expressed as " : ". For example:
+ *  "123/environment" : "production", "123/costCenter" : "marketing" Note:
+ *  Currently this field is in Preview.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_Project_Tags : GTLRObject
 @end
 
 
@@ -1832,6 +1970,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
+ *  Represents a collection of tags directly bound to a GCP resource.
+ */
+@interface GTLRCloudResourceManager_TagBindingCollection : GTLRObject
+
+/**
+ *  Optional. A checksum based on the current bindings which can be passed to
+ *  prevent race conditions. This field is always set in server responses.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The full resource name of the resource the TagBindings are bound to. E.g.
+ *  `//cloudresourcemanager.googleapis.com/projects/123`
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/**
+ *  Identifier. The name of the TagBindingCollection, following the convention:
+ *  `locations/{location}/tagBindingCollections/{encoded-full-resource-name}`
+ *  where the encoded-full-resource-name is the UTF-8 encoded name of the GCP
+ *  resource the TagBindings are bound to.
+ *  "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Tag keys/values directly bound to this resource, specified in namespaced
+ *  format. For example: "123/environment": "production"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_TagBindingCollection_Tags *tags;
+
+@end
+
+
+/**
+ *  Tag keys/values directly bound to this resource, specified in namespaced
+ *  format. For example: "123/environment": "production"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_TagBindingCollection_Tags : GTLRObject
+@end
+
+
+/**
  *  A TagHold represents the use of a TagValue that is not captured by
  *  TagBindings. If a TagValue has any TagHolds, deletion will be blocked. This
  *  resource is intended to be created in the same cloud location as the
@@ -1952,9 +2138,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 /**
  *  Required. Immutable. The user friendly name for a TagKey. The short name
  *  should be unique for TagKeys within the same tag namespace. The short name
- *  must be 1-63 characters, beginning and ending with an alphanumeric character
- *  ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics
- *  between.
+ *  must be 1-256 characters, beginning and ending with an alphanumeric
+ *  character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and
+ *  alphanumerics between.
  */
 @property(nonatomic, copy, nullable) NSString *shortName;
 
@@ -2022,7 +2208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 /**
  *  Required. Immutable. User-assigned short name for TagValue. The short name
  *  should be unique for TagValues within the same parent TagKey. The short name
- *  must be 63 characters or less, beginning and ending with an alphanumeric
+ *  must be 256 characters or less, beginning and ending with an alphanumeric
  *  character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and
  *  alphanumerics between.
  */

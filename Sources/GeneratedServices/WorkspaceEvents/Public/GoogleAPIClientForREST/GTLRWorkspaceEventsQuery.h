@@ -51,6 +51,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_OperationsGet : GTLRWorkspaceEventsQuery
 
@@ -73,7 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Creates a Google Workspace subscription. To learn how to use this method,
  *  see [Create a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/create-subscription).
@@ -81,6 +87,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: workspaceevents.subscriptions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages
@@ -89,6 +97,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsCreate : GTLRWorkspaceEventsQuery
 
@@ -101,7 +116,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Operation.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Creates a Google Workspace subscription. To learn how to use this method,
  *  see [Create a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/create-subscription).
@@ -116,7 +130,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Deletes a Google Workspace subscription. To learn how to use this method,
  *  see [Delete a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/delete-subscription).
@@ -133,6 +146,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsDelete : GTLRWorkspaceEventsQuery
 
@@ -163,7 +183,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Operation.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Deletes a Google Workspace subscription. To learn how to use this method,
  *  see [Delete a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/delete-subscription).
@@ -178,8 +197,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview): Gets
- *  details about a Google Workspace subscription. To learn how to use this
+ *  Gets details about a Google Workspace subscription. To learn how to use this
  *  method, see [Get details about a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/get-subscription).
  *
@@ -195,6 +213,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsGet : GTLRWorkspaceEventsQuery
 
@@ -207,8 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Subscription.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview): Gets
- *  details about a Google Workspace subscription. To learn how to use this
+ *  Gets details about a Google Workspace subscription. To learn how to use this
  *  method, see [Get details about a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/get-subscription).
  *
@@ -222,9 +246,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
- *  Google Workspace subscriptions. To learn how to use this method, see [List
- *  Google Workspace
+ *  Lists Google Workspace subscriptions. To learn how to use this method, see
+ *  [List Google Workspace
  *  subscriptions](https://developers.google.com/workspace/events/guides/list-subscriptions).
  *
  *  Method: workspaceevents.subscriptions.list
@@ -239,6 +262,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsList : GTLRWorkspaceEventsQuery
 
@@ -279,9 +309,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_ListSubscriptionsResponse.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview): Lists
- *  Google Workspace subscriptions. To learn how to use this method, see [List
- *  Google Workspace
+ *  Lists Google Workspace subscriptions. To learn how to use this method, see
+ *  [List Google Workspace
  *  subscriptions](https://developers.google.com/workspace/events/guides/list-subscriptions).
  *
  *  @return GTLRWorkspaceEventsQuery_SubscriptionsList
@@ -295,7 +324,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Updates or renews a Google Workspace subscription. To learn how to use this
  *  method, see [Update or renew a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/update-subscription).
@@ -303,6 +331,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: workspaceevents.subscriptions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages
@@ -311,20 +341,30 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsPatch : GTLRWorkspaceEventsQuery
 
 /**
- *  Optional. Immutable. Identifier. Resource name of the subscription. Format:
+ *  Identifier. Resource name of the subscription. Format:
  *  `subscriptions/{subscription}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Required. The field to update. You can update one of the following
- *  fields in a subscription: * `expire_time`: The timestamp when the
- *  subscription expires. * `ttl`: The time-to-live (TTL) or duration of the
- *  subscription.
+ *  Optional. The field to update. If omitted, updates any fields included in
+ *  the request. You can update one of the following fields in a subscription: *
+ *  `expire_time`: The timestamp when the subscription expires. * `ttl`: The
+ *  time-to-live (TTL) or duration of the subscription. * `event_types`: The
+ *  list of event types to receive about the target resource. When using the `*`
+ *  wildcard (equivalent to `PUT`), omitted fields are set to empty values and
+ *  rejected if they're invalid.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -339,15 +379,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Operation.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Updates or renews a Google Workspace subscription. To learn how to use this
  *  method, see [Update or renew a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/update-subscription).
  *
  *  @param object The @c GTLRWorkspaceEvents_Subscription to include in the
  *    query.
- *  @param name Optional. Immutable. Identifier. Resource name of the
- *    subscription. Format: `subscriptions/{subscription}`
+ *  @param name Identifier. Resource name of the subscription. Format:
+ *    `subscriptions/{subscription}`
  *
  *  @return GTLRWorkspaceEventsQuery_SubscriptionsPatch
  */
@@ -357,16 +396,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Reactivates a suspended Google Workspace subscription. This method resets
  *  your subscription's `State` field to `ACTIVE`. Before you use this method,
- *  you must fix the error that suspended the subscription. To learn how to use
- *  this method, see [Reactivate a Google Workspace
+ *  you must fix the error that suspended the subscription. This method will
+ *  ignore or reject any subscription that isn't currently in a suspended state.
+ *  To learn how to use this method, see [Reactivate a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
  *
  *  Method: workspaceevents.subscriptions.reactivate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages
@@ -375,6 +416,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDrive
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadataReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsDriveReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeWorkspaceEventsMeetingsSpaceReadonly
  */
 @interface GTLRWorkspaceEventsQuery_SubscriptionsReactivate : GTLRWorkspaceEventsQuery
 
@@ -387,11 +435,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWorkspaceEvents_Operation.
  *
- *  [Developer Preview](https://developers.google.com/workspace/preview):
  *  Reactivates a suspended Google Workspace subscription. This method resets
  *  your subscription's `State` field to `ACTIVE`. Before you use this method,
- *  you must fix the error that suspended the subscription. To learn how to use
- *  this method, see [Reactivate a Google Workspace
+ *  you must fix the error that suspended the subscription. This method will
+ *  ignore or reject any subscription that isn't currently in a suspended state.
+ *  To learn how to use this method, see [Reactivate a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
  *
  *  @param object The @c GTLRWorkspaceEvents_ReactivateSubscriptionRequest to

@@ -140,6 +140,12 @@ NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_LaunchStageUn
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRLogging_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRLogging_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRLogging_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -150,15 +156,70 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
-// GTLRLogging_Settings.analyticsMode
-NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsDisabled = @"ANALYTICS_DISABLED";
-NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsEnabled = @"ANALYTICS_ENABLED";
-NSString * const kGTLRLogging_Settings_AnalyticsMode_AnalyticsModeUnspecified = @"ANALYTICS_MODE_UNSPECIFIED";
+// GTLRLogging_SavedQuery.visibility
+NSString * const kGTLRLogging_SavedQuery_Visibility_Private    = @"PRIVATE";
+NSString * const kGTLRLogging_SavedQuery_Visibility_Shared     = @"SHARED";
+NSString * const kGTLRLogging_SavedQuery_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
 
 // GTLRLogging_SuppressionInfo.reason
 NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed = @"NOT_CONSUMED";
 NSString * const kGTLRLogging_SuppressionInfo_Reason_RateLimit = @"RATE_LIMIT";
 NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_AppHub
+//
+
+@implementation GTLRLogging_AppHub
+@dynamic application, service, workload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_AppHubApplication
+//
+
+@implementation GTLRLogging_AppHubApplication
+@dynamic container, identifier, location;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_AppHubService
+//
+
+@implementation GTLRLogging_AppHubService
+@dynamic criticalityType, environmentType, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_AppHubWorkload
+//
+
+@implementation GTLRLogging_AppHubWorkload
+@dynamic criticalityType, environmentType, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -177,6 +238,24 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_BigQueryOptions
 @dynamic usePartitionedTables, usesTimestampColumnPartitioning;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Binding
+//
+
+@implementation GTLRLogging_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -332,6 +411,41 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_Exponential
 @dynamic growthFactor, numFiniteBuckets, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Expr
+//
+
+@implementation GTLRLogging_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_GetIamPolicyRequest
+//
+
+@implementation GTLRLogging_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_GetPolicyOptions
+//
+
+@implementation GTLRLogging_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 
@@ -553,6 +667,28 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 + (NSString *)collectionItemsKey {
   return @"metrics";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_ListLogScopesResponse
+//
+
+@implementation GTLRLogging_ListLogScopesResponse
+@dynamic logScopes, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logScopes" : [GTLRLogging_LogScope class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"logScopes";
 }
 
 @end
@@ -789,10 +925,10 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_LogEntry
-@dynamic errorGroups, httpRequest, insertId, jsonPayload, labels, logName,
-         metadata, operation, protoPayload, receiveTimestamp, resource,
-         severity, sourceLocation, spanId, split, textPayload, timestamp, trace,
-         traceSampled;
+@dynamic apphub, apphubDestination, errorGroups, httpRequest, insertId,
+         jsonPayload, labels, logName, metadata, operation, protoPayload,
+         receiveTimestamp, resource, severity, sourceLocation, spanId, split,
+         textPayload, timestamp, trace, traceSampled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -918,8 +1054,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_LogMetric
 @dynamic bucketName, bucketOptions, createTime, descriptionProperty, disabled,
-         filter, labelExtractors, metricDescriptor, name, updateTime,
-         valueExtractor, version;
+         filter, labelExtractors, metricDescriptor, name, resourceName,
+         updateTime, valueExtractor, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -944,13 +1080,35 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_LogScope
+//
+
+@implementation GTLRLogging_LogScope
+@dynamic createTime, descriptionProperty, name, resourceNames, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_LogSink
 //
 
 @implementation GTLRLogging_LogSink
 @dynamic bigqueryOptions, createTime, descriptionProperty, destination,
-         disabled, exclusions, filter, includeChildren, name,
-         outputVersionFormat, updateTime, writerIdentity;
+         disabled, exclusions, filter, includeChildren, interceptChildren, name,
+         outputVersionFormat, resourceName, updateTime, writerIdentity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1021,7 +1179,16 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1159,6 +1326,28 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_Policy
+//
+
+@implementation GTLRLogging_Policy
+@dynamic bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindings" : [GTLRLogging_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_Query
 //
 
@@ -1216,7 +1405,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_SavedQuery
 @dynamic createTime, descriptionProperty, displayName, loggingQuery, name,
-         opsAnalyticsQuery, updateTime;
+         opsAnalyticsQuery, updateTime, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1227,12 +1416,22 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_SetIamPolicyRequest
+//
+
+@implementation GTLRLogging_SetIamPolicyRequest
+@dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_Settings
 //
 
 @implementation GTLRLogging_Settings
-@dynamic analyticsMode, defaultSinkConfig, disableDefaultSink, kmsKeyName,
-         kmsServiceAccountId, loggingServiceAccountId, name, storageLocation;
+@dynamic defaultSinkConfig, disableDefaultSink, kmsKeyName, kmsServiceAccountId,
+         loggingServiceAccountId, name, storageLocation;
 @end
 
 
@@ -1338,6 +1537,42 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
   NSDictionary<NSString *, Class> *map = @{
     @"entries" : [GTLRLogging_LogEntry class],
     @"suppressionInfo" : [GTLRLogging_SuppressionInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_TestIamPermissionsRequest
+//
+
+@implementation GTLRLogging_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_TestIamPermissionsResponse
+//
+
+@implementation GTLRLogging_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
   };
   return map;
 }

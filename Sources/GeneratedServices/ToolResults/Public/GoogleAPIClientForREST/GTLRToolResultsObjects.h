@@ -305,6 +305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxP;
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxQ;
 /** Value: "GREY_MAX_R" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxR;
+/** Value: "GREY_MAX_S" */
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxS;
 /** Value: "NONE" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_None;
 /** Value: "WHITE" */
@@ -2265,10 +2267,11 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxP Value "GREY_MAX_P"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxQ Value "GREY_MAX_Q"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxR Value "GREY_MAX_R"
+ *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxS Value "GREY_MAX_S"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_None Value "NONE"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_White Value "WHITE"
  */
-@property(nonatomic, copy, nullable) NSString *list;
+@property(nonatomic, copy, nullable) NSString *list GTLR_DEPRECATED;
 
 @end
 

@@ -35,6 +35,7 @@
 @class GTLRSecretManager_Secret;
 @class GTLRSecretManager_Secret_Annotations;
 @class GTLRSecretManager_Secret_Labels;
+@class GTLRSecretManager_Secret_Tags;
 @class GTLRSecretManager_Secret_VersionAliases;
 @class GTLRSecretManager_SecretPayload;
 @class GTLRSecretManager_SecretVersion;
@@ -835,6 +836,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 /** Output only. The time at which the Secret was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Optional. The customer-managed encryption configuration of the regionalized
+ *  secrets. If no configuration is provided, Google-managed default encryption
+ *  is used. Updates to the Secret encryption configuration only apply to
+ *  SecretVersions added afterwards. They do not apply retroactively to existing
+ *  SecretVersions.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryption *customerManagedEncryption;
+
 /** Optional. Etag of the currently stored Secret. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -875,6 +885,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, strong, nullable) GTLRSecretManager_Rotation *rotation;
 
 /**
+ *  Optional. Input only. Immutable. Mapping of Tag keys/values directly bound
+ *  to this resource. For example: "123/environment": "production",
+ *  "123/costCenter": "marketing" Tags are used to organize and group resources.
+ *  Tags can be used to control policy evaluation for the resource.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Secret_Tags *tags;
+
+/**
  *  Optional. A list of up to 10 Pub/Sub topics to which messages are published
  *  when control plane operations are called on the secret or its versions.
  */
@@ -894,6 +912,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  and AccessSecretVersion.
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Secret_VersionAliases *versionAliases;
+
+/**
+ *  Optional. Secret Version TTL after destruction request This is a part of the
+ *  Delayed secret version destroy feature. For secret with TTL>0, version
+ *  destruction doesn't happen immediately on calling destroy instead the
+ *  version goes to a disabled state and destruction happens after the TTL
+ *  expires.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *versionDestroyTtl;
 
 @end
 
@@ -932,6 +959,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *        fetch them all at once.
  */
 @interface GTLRSecretManager_Secret_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Mapping of Tag keys/values directly bound
+ *  to this resource. For example: "123/environment": "production",
+ *  "123/costCenter": "marketing" Tags are used to organize and group resources.
+ *  Tags can be used to control policy evaluation for the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSecretManager_Secret_Tags : GTLRObject
 @end
 
 
@@ -1004,6 +1046,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The customer-managed encryption status of the SecretVersion.
+ *  Only populated if customer-managed encryption is used and Secret is a
+ *  regionalized secret.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryptionStatus *customerManagedEncryption;
+
+/**
  *  Output only. The time this SecretVersion was destroyed. Only present if
  *  state is DESTROYED.
  */
@@ -1021,6 +1070,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /** The replication status of the SecretVersion. */
 @property(nonatomic, strong, nullable) GTLRSecretManager_ReplicationStatus *replicationStatus;
+
+/**
+ *  Optional. Output only. Scheduled destroy time for secret version. This is a
+ *  part of the Delayed secret version destroy feature. For a Secret with a
+ *  valid version destroy TTL, when a secert version is destroyed, version is
+ *  moved to disabled state and it is scheduled for destruction Version is
+ *  destroyed only after the scheduled_destroy_time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledDestroyTime;
 
 /**
  *  Output only. The current state of the SecretVersion.
@@ -1102,8 +1160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @interface GTLRSecretManager_Topic : GTLRObject
 
 /**
- *  Required. The resource name of the Pub/Sub topic that will be published to,
- *  in the following format: `projects/ * /topics/ *`. For publication to
+ *  Identifier. The resource name of the Pub/Sub topic that will be published
+ *  to, in the following format: `projects/ * /topics/ *`. For publication to
  *  succeed, the Secret Manager service agent must have the
  *  `pubsub.topic.publish` permission on the topic. The Pub/Sub Publisher role
  *  (`roles/pubsub.publisher`) includes this permission.
@@ -1115,7 +1173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /**
  *  A replication policy that replicates the Secret payload into the locations
- *  specified in Secret.replication.user_managed.replicas
+ *  specified in Replication.UserManaged.replicas
  */
 @interface GTLRSecretManager_UserManaged : GTLRObject
 

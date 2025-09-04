@@ -23,11 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: Associate you with your personal info on Google
+ *  Authorization scope: See and/or control the devices that you selected
  *
- *  Value "openid"
+ *  Value "https://www.googleapis.com/auth/sdm.service"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopePaymentsResellerSubscriptionOpenid;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePaymentsResellerSubscriptionSdmService;
 
 // ----------------------------------------------------------------------------
 //   GTLRPaymentsResellerSubscriptionService

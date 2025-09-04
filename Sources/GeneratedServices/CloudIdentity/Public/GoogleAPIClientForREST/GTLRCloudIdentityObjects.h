@@ -21,16 +21,23 @@
 @class GTLRCloudIdentity_EntityKey;
 @class GTLRCloudIdentity_ExpiryDetail;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState_KeyValuePairs;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CustomAttributeValue;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals;
 @class GTLRCloudIdentity_Group;
 @class GTLRCloudIdentity_Group_Labels;
 @class GTLRCloudIdentity_GroupRelation;
 @class GTLRCloudIdentity_GroupRelation_Labels;
 @class GTLRCloudIdentity_IdpCredential;
+@class GTLRCloudIdentity_InboundOidcSsoProfile;
 @class GTLRCloudIdentity_InboundSamlSsoProfile;
 @class GTLRCloudIdentity_InboundSsoAssignment;
 @class GTLRCloudIdentity_MemberRelation;
@@ -41,14 +48,21 @@
 @class GTLRCloudIdentity_MembershipRelation_Labels;
 @class GTLRCloudIdentity_MembershipRole;
 @class GTLRCloudIdentity_MembershipRoleRestrictionEvaluation;
+@class GTLRCloudIdentity_OidcIdpConfig;
+@class GTLRCloudIdentity_OidcRpConfig;
+@class GTLRCloudIdentity_OidcSsoInfo;
 @class GTLRCloudIdentity_Operation_Metadata;
 @class GTLRCloudIdentity_Operation_Response;
+@class GTLRCloudIdentity_Policy;
+@class GTLRCloudIdentity_PolicyQuery;
 @class GTLRCloudIdentity_RestrictionEvaluation;
 @class GTLRCloudIdentity_RestrictionEvaluations;
 @class GTLRCloudIdentity_RsaPublicKeyInfo;
 @class GTLRCloudIdentity_SamlIdpConfig;
 @class GTLRCloudIdentity_SamlSpConfig;
 @class GTLRCloudIdentity_SamlSsoInfo;
+@class GTLRCloudIdentity_Setting;
+@class GTLRCloudIdentity_Setting_Value;
 @class GTLRCloudIdentity_SignInBehavior;
 @class GTLRCloudIdentity_Status;
 @class GTLRCloudIdentity_Status_Details_Item;
@@ -137,6 +151,122 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
  *  Value: "PROFILE_OWNER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes_OwnershipPrivilege_ProfileOwner;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.browserManagementState
+
+/**
+ *  Browser is managed by customer.
+ *
+ *  Value: "BROWSER_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_BrowserManaged;
+/**
+ *  Browser/Profile is managed, but by some other customer.
+ *
+ *  Value: "MANAGED_BY_OTHER_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ManagedByOtherDomain;
+/**
+ *  Profile is managed by customer.
+ *
+ *  Value: "PROFILE_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ProfileManaged;
+/**
+ *  Browser/Profile is not managed by any customer.
+ *
+ *  Value: "UNMANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unmanaged;
+/**
+ *  Management state is not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.passwordProtectionWarningTrigger
+
+/**
+ *  Password protection is not specified.
+ *
+ *  Value: "PASSWORD_PROTECTION_TRIGGER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordProtectionTriggerUnspecified;
+/**
+ *  Warning is shown when the user reuses their protected password on a
+ *  non-allowed site.
+ *
+ *  Value: "PASSWORD_REUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordReuse;
+/**
+ *  Warning is shown when the user reuses their protected password on a phishing
+ *  site.
+ *
+ *  Value: "PHISHING_REUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PhishingReuse;
+/**
+ *  Password reuse is never detected.
+ *
+ *  Value: "PROTECTION_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_ProtectionOff;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo.safeBrowsingProtectionLevel
+
+/**
+ *  No protection against dangerous websites, downloads, and extensions.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Disabled;
+/**
+ *  Faster, proactive protection against dangerous websites, downloads, and
+ *  extensions.
+ *
+ *  Value: "ENHANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Enhanced;
+/**
+ *  Browser protection level is not specified.
+ *
+ *  Value: "SAFE_BROWSING_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_SafeBrowsingLevelUnspecified;
+/**
+ *  Standard protection against websites, downloads, and extensions that are
+ *  known to be dangerous.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes.validationState
+
+/**
+ *  Default value.
+ *
+ *  Value: "CERTIFICATE_VALIDATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_CertificateValidationStateUnspecified;
+/**
+ *  Certificate validation failed.
+ *
+ *  Value: "VALIDATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationFailed;
+/**
+ *  Certificate validation was successful.
+ *
+ *  Value: "VALIDATION_SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationSuccessful;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState.complianceState
@@ -549,6 +679,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GroupRelation_RelationType
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_DomainWideSamlIfEnabled;
 /**
+ *  Use an external OIDC Identity Provider for SSO for the targeted users.
+ *
+ *  Value: "OIDC_SSO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_OidcSso;
+/**
  *  Use an external SAML Identity Provider for SSO for the targeted users.
  *
  *  Value: "SAML_SSO"
@@ -640,6 +776,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_DeliverySetting
 // GTLRCloudIdentity_Membership.type
 
 /**
+ *  Represents a CBCM-managed Chrome Browser type.
+ *
+ *  Value: "CBCM_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_CbcmBrowser;
+/**
  *  Represents group type.
  *
  *  Value: "GROUP"
@@ -711,6 +853,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionE
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_Policy.type
+
+/**
+ *  Policy type denoting the admin-configurable policies.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Policy_Type_Admin;
+/**
+ *  Unspecified policy type.
+ *
+ *  Value: "POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Policy_Type_PolicyTypeUnspecified;
+/**
+ *  Policy type denoting the system-configured policies.
+ *
+ *  Value: "SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Policy_Type_System;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIdentity_RestrictionEvaluation.state
@@ -806,6 +970,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  LRO response metadata for InboundSamlSsoProfilesService.AddIdpCredential.
  */
 @interface GTLRCloudIdentity_AddIdpCredentialOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -858,9 +1031,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /**
  *  LRO response metadata for
+ *  InboundOidcSsoProfilesService.CreateInboundOidcSsoProfile.
+ */
+@interface GTLRCloudIdentity_CreateInboundOidcSsoProfileOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  LRO response metadata for
  *  InboundSamlSsoProfilesService.CreateInboundSamlSsoProfile.
  */
 @interface GTLRCloudIdentity_CreateInboundSamlSsoProfileOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -890,6 +1089,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  LRO response metadata for InboundSamlSsoProfilesService.DeleteIdpCredential.
  */
 @interface GTLRCloudIdentity_DeleteIdpCredentialOperationMetadata : GTLRObject
+@end
+
+
+/**
+ *  LRO response metadata for
+ *  InboundOidcSsoProfilesService.DeleteInboundOidcSsoProfile.
+ */
+@interface GTLRCloudIdentity_DeleteInboundOidcSsoProfileOperationMetadata : GTLRObject
 @end
 
 
@@ -1238,6 +1445,190 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Contains information about browser profiles reported by the [Endpoint
+ *  Verification
+ *  extension](https://chromewebstore.google.com/detail/endpoint-verification/callobklhcbilhphinckomhgkigmfocg?pli=1).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes : GTLRObject
+
+/**
+ *  Represents the current state of the [Chrome browser
+ *  attributes](https://cloud.google.com/access-context-manager/docs/browser-attributes)
+ *  sent by the [Endpoint Verification
+ *  extension](https://chromewebstore.google.com/detail/endpoint-verification/callobklhcbilhphinckomhgkigmfocg?pli=1).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo *chromeBrowserInfo;
+
+/**
+ *  Chrome profile ID that is exposed by the Chrome API. It is unique for each
+ *  device.
+ */
+@property(nonatomic, copy, nullable) NSString *chromeProfileId;
+
+/**
+ *  Timestamp in milliseconds since the Unix epoch when the profile/gcm id was
+ *  last synced.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastProfileSyncTime;
+
+@end
+
+
+/**
+ *  Browser-specific fields reported by the [Endpoint Verification
+ *  extension](https://chromewebstore.google.com/detail/endpoint-verification/callobklhcbilhphinckomhgkigmfocg?pli=1).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo : GTLRObject
+
+/**
+ *  Output only. Browser's management state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_BrowserManaged
+ *        Browser is managed by customer. (Value: "BROWSER_MANAGED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ManagedByOtherDomain
+ *        Browser/Profile is managed, but by some other customer. (Value:
+ *        "MANAGED_BY_OTHER_DOMAIN")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_ProfileManaged
+ *        Profile is managed by customer. (Value: "PROFILE_MANAGED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unmanaged
+ *        Browser/Profile is not managed by any customer. (Value: "UNMANAGED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_BrowserManagementState_Unspecified
+ *        Management state is not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *browserManagementState;
+
+/** Version of the request initiating browser. E.g. `91.0.4442.4`. */
+@property(nonatomic, copy, nullable) NSString *browserVersion;
+
+/**
+ *  Current state of [built-in DNS
+ *  client](https://chromeenterprise.google/policies/#BuiltInDnsClientEnabled).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isBuiltInDnsClientEnabled;
+
+/**
+ *  Current state of [bulk data
+ *  analysis](https://chromeenterprise.google/policies/#OnBulkDataEntryEnterpriseConnector).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isBulkDataEntryAnalysisEnabled;
+
+/**
+ *  Current state of [Chrome
+ *  Cleanup](https://chromeenterprise.google/policies/#ChromeCleanupEnabled).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isChromeCleanupEnabled;
+
+/**
+ *  Current state of [Chrome Remote Desktop
+ *  app](https://chromeenterprise.google/policies/#URLBlocklist).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isChromeRemoteDesktopAppBlocked;
+
+/**
+ *  Current state of [file download
+ *  analysis](https://chromeenterprise.google/policies/#OnFileDownloadedEnterpriseConnector).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFileDownloadAnalysisEnabled;
+
+/**
+ *  Current state of [file upload
+ *  analysis](https://chromeenterprise.google/policies/#OnFileAttachedEnterpriseConnector).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isFileUploadAnalysisEnabled;
+
+/**
+ *  Current state of [real-time URL
+ *  check](https://chromeenterprise.google/policies/#EnterpriseRealTimeUrlCheckMode).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRealtimeUrlCheckEnabled;
+
+/**
+ *  Current state of [security event
+ *  analysis](https://chromeenterprise.google/policies/#OnSecurityEventEnterpriseConnector).
+ *  Set to true if provider list from Chrome is non-empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSecurityEventAnalysisEnabled;
+
+/**
+ *  Current state of [site
+ *  isolation](https://chromeenterprise.google/policies/?policy=IsolateOrigins).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSiteIsolationEnabled;
+
+/**
+ *  Current state of [third-party
+ *  blocking](https://chromeenterprise.google/policies/#ThirdPartyBlockingEnabled).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isThirdPartyBlockingEnabled;
+
+/**
+ *  Current state of [password protection
+ *  trigger](https://chromeenterprise.google/policies/#PasswordProtectionWarningTrigger).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordProtectionTriggerUnspecified
+ *        Password protection is not specified. (Value:
+ *        "PASSWORD_PROTECTION_TRIGGER_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PasswordReuse
+ *        Warning is shown when the user reuses their protected password on a
+ *        non-allowed site. (Value: "PASSWORD_REUSE")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_PhishingReuse
+ *        Warning is shown when the user reuses their protected password on a
+ *        phishing site. (Value: "PHISHING_REUSE")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_PasswordProtectionWarningTrigger_ProtectionOff
+ *        Password reuse is never detected. (Value: "PROTECTION_OFF")
+ */
+@property(nonatomic, copy, nullable) NSString *passwordProtectionWarningTrigger;
+
+/**
+ *  Current state of [Safe Browsing protection
+ *  level](https://chromeenterprise.google/policies/#SafeBrowsingProtectionLevel).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Disabled
+ *        No protection against dangerous websites, downloads, and extensions.
+ *        (Value: "DISABLED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Enhanced
+ *        Faster, proactive protection against dangerous websites, downloads,
+ *        and extensions. (Value: "ENHANCED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_SafeBrowsingLevelUnspecified
+ *        Browser protection level is not specified. (Value:
+ *        "SAFE_BROWSING_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserInfo_SafeBrowsingProtectionLevel_Standard
+ *        Standard protection against websites, downloads, and extensions that
+ *        are known to be dangerous. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *safeBrowsingProtectionLevel;
+
+@end
+
+
+/**
  *  Metadata for CancelWipeDevice LRO.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceMetadata : GTLRObject
@@ -1308,6 +1699,82 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /** Resultant DeviceUser object for the action. */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser *deviceUser;
+
+@end
+
+
+/**
+ *  Stores information about a certificate.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes : GTLRObject
+
+/** The X.509 extension for CertificateTemplate. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate *certificateTemplate;
+
+/** The encoded certificate fingerprint. */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/** The name of the issuer of this certificate. */
+@property(nonatomic, copy, nullable) NSString *issuer;
+
+/** Serial number of the certificate, Example: "123456789". */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/** The subject name of this certificate. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/** The certificate thumbprint. */
+@property(nonatomic, copy, nullable) NSString *thumbprint;
+
+/**
+ *  Output only. Validation state of this certificate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_CertificateValidationStateUnspecified
+ *        Default value. (Value: "CERTIFICATE_VALIDATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationFailed
+ *        Certificate validation failed. (Value: "VALIDATION_FAILED")
+ *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes_ValidationState_ValidationSuccessful
+ *        Certificate validation was successful. (Value:
+ *        "VALIDATION_SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *validationState;
+
+/** Certificate not valid at or after this timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *validityExpirationTime;
+
+/** Certificate not valid before this timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *validityStartTime;
+
+@end
+
+
+/**
+ *  CertificateTemplate (v3 Extension in X.509).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateTemplate : GTLRObject
+
+/**
+ *  The template id of the template. Example:
+ *  "1.3.6.1.4.1.311.21.8.15608621.11768144.5720724.16068415.6889630.81.2472537.7784047".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The Major version of the template. Example: 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *majorVersion;
+
+/**
+ *  The minor version of the template. Example: 12.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minorVersion;
 
 @end
 
@@ -1601,6 +2068,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  */
 @property(nonatomic, copy, nullable) NSString *encryptionState;
 
+/**
+ *  Output only. Attributes specific to [Endpoint
+ *  Verification](https://cloud.google.com/endpoint-verification/docs/overview)
+ *  devices.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes *endpointVerificationSpecificAttributes;
+
 /** Host name of the device. */
 @property(nonatomic, copy, nullable) NSString *hostname;
 
@@ -1650,7 +2124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Output only. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
  *  format: `devices/{device}`, where device is the unique id assigned to the
- *  Device.
+ *  Device. Important: Device API scopes require that you use domain-wide
+ *  delegation to access the API. For more information, see [Set up the Devices
+ *  API](https://cloud.google.com/identity/docs/how-to/setup-devices).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1692,6 +2168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /** Serial Number of device. Example: HT82V1A01076. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/** Output only. Unified device id of the device. */
+@property(nonatomic, copy, nullable) NSString *unifiedDeviceId;
 
 /** WiFi MAC addresses of device. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *wifiMacAddresses;
@@ -1783,6 +2262,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /** Email address of the user registered on the device. */
 @property(nonatomic, copy, nullable) NSString *userEmail;
 
+@end
+
+
+/**
+ *  Resource representing the [Endpoint Verification-specific
+ *  attributes](https://cloud.google.com/endpoint-verification/docs/device-information)
+ *  of a device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes : GTLRObject
+
+/**
+ *  [Additional
+ *  signals](https://cloud.google.com/endpoint-verification/docs/device-information)
+ *  reported by Endpoint Verification. It includes the following attributes: *
+ *  Non-configurable attributes: hotfixes, av_installed, av_enabled,
+ *  windows_domain_name, is_os_native_firewall_enabled, and
+ *  is_secure_boot_enabled. * [Configurable
+ *  attributes](https://cloud.google.com/endpoint-verification/docs/collect-config-attributes):
+ *  file, folder, and binary attributes; registry entries; and properties in a
+ *  plist.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals *additionalSignals;
+
+/** Details of browser profiles reported by Endpoint Verification. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BrowserAttributes *> *browserAttributes;
+
+/** Details of certificates. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CertificateAttributes *> *certificateAttributes;
+
+@end
+
+
+/**
+ *  [Additional
+ *  signals](https://cloud.google.com/endpoint-verification/docs/device-information)
+ *  reported by Endpoint Verification. It includes the following attributes: *
+ *  Non-configurable attributes: hotfixes, av_installed, av_enabled,
+ *  windows_domain_name, is_os_native_firewall_enabled, and
+ *  is_secure_boot_enabled. * [Configurable
+ *  attributes](https://cloud.google.com/endpoint-verification/docs/collect-config-attributes):
+ *  file, folder, and binary attributes; registry entries; and properties in a
+ *  plist.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1EndpointVerificationSpecificAttributes_AdditionalSignals : GTLRObject
 @end
 
 
@@ -2041,9 +2569,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_EntityKey *groupKey;
 
 /**
- *  Required. One or more label entries that apply to the Group. Currently
- *  supported labels contain a key with an empty value. Google Groups are the
- *  default type of group and have a label with a key of
+ *  Required. One or more label entries that apply to the Group. Labels contain
+ *  a key with an empty value. Google Groups are the default type of group and
+ *  have a label with a key of
  *  `cloudidentity.googleapis.com/groups.discussion_forum` and an empty value.
  *  Existing Google Groups can have an additional label with a key of
  *  `cloudidentity.googleapis.com/groups.security` and an empty value added to
@@ -2051,7 +2579,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  once added.** Dynamic groups have a label with a key of
  *  `cloudidentity.googleapis.com/groups.dynamic`. Identity-mapped groups for
  *  Cloud Search have a label with a key of `system/groups/external` and an
- *  empty value.
+ *  empty value. Google Groups can be
+ *  [locked](https://support.google.com/a?p=locked-groups). To lock a group, add
+ *  a label with a key of `cloudidentity.googleapis.com/groups.locked` and an
+ *  empty value. Doing so locks the group. To unlock the group, remove this
+ *  label.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_Group_Labels *labels;
 
@@ -2080,9 +2612,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
- *  Required. One or more label entries that apply to the Group. Currently
- *  supported labels contain a key with an empty value. Google Groups are the
- *  default type of group and have a label with a key of
+ *  Required. One or more label entries that apply to the Group. Labels contain
+ *  a key with an empty value. Google Groups are the default type of group and
+ *  have a label with a key of
  *  `cloudidentity.googleapis.com/groups.discussion_forum` and an empty value.
  *  Existing Google Groups can have an additional label with a key of
  *  `cloudidentity.googleapis.com/groups.security` and an empty value added to
@@ -2090,7 +2622,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  once added.** Dynamic groups have a label with a key of
  *  `cloudidentity.googleapis.com/groups.dynamic`. Identity-mapped groups for
  *  Cloud Search have a label with a key of `system/groups/external` and an
- *  empty value.
+ *  empty value. Google Groups can be
+ *  [locked](https://support.google.com/a?p=locked-groups). To lock a group, add
+ *  a label with a key of `cloudidentity.googleapis.com/groups.locked` and an
+ *  empty value. Doing so locks the group. To unlock the group, remove this
+ *  label.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2183,6 +2719,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  An [OIDC](https://openid.net/developers/how-connect-works/) federation
+ *  between a Google enterprise customer and an OIDC identity provider.
+ */
+@interface GTLRCloudIdentity_InboundOidcSsoProfile : GTLRObject
+
+/** Immutable. The customer. For example: `customers/C0123abc`. */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Human-readable name of the OIDC SSO profile. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** OIDC identity provider configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_OidcIdpConfig *idpConfig;
+
+/**
+ *  Output only. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the OIDC SSO
+ *  profile.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  OIDC relying party (RP) configuration for this OIDC SSO profile. These are
+ *  the RP details provided by Google that should be configured on the
+ *  corresponding identity provider.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_OidcRpConfig *rpConfig;
+
+@end
+
+
+/**
  *  A [SAML 2.0](https://www.oasis-open.org/standards#samlv2.0) federation
  *  between a Google enterprise customer and a SAML identity provider.
  */
@@ -2230,6 +2798,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  OpenID Connect SSO details. Must be set if and only if `sso_mode` is set to
+ *  `OIDC_SSO`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_OidcSsoInfo *oidcSsoInfo;
+
+/**
  *  Must be zero (which is the default value so it can be omitted) for
  *  assignments with `target_org_unit` set and must be greater-than-or-equal-to
  *  one for assignments with `target_group` set.
@@ -2262,6 +2836,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *        domain-wide SAML is removed. Google may disallow this mode at that
  *        point and existing assignments with this mode may be automatically
  *        changed to `SSO_OFF`. (Value: "DOMAIN_WIDE_SAML_IF_ENABLED")
+ *    @arg @c kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_OidcSso Use an
+ *        external OIDC Identity Provider for SSO for the targeted users.
+ *        (Value: "OIDC_SSO")
  *    @arg @c kGTLRCloudIdentity_InboundSsoAssignment_SsoMode_SamlSso Use an
  *        external SAML Identity Provider for SSO for the targeted users.
  *        (Value: "SAML_SSO")
@@ -2351,6 +2928,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Response of the InboundOidcSsoProfilesService.ListInboundOidcSsoProfiles
+ *  method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "inboundOidcSsoProfiles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudIdentity_ListInboundOidcSsoProfilesResponse : GTLRCollectionObject
+
+/**
+ *  List of InboundOidcSsoProfiles.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_InboundOidcSsoProfile *> *inboundOidcSsoProfiles;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response of the InboundSamlSsoProfilesService.ListInboundSamlSsoProfiles
  *  method.
  *
@@ -2429,6 +3034,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  are no more results available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for PoliciesService.ListPolicies.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "policies" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_ListPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  The pagination token to retrieve the next page of results. If this field is
+ *  empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The results
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_Policy *> *policies;
 
 @end
 
@@ -2606,6 +3238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Output only. The type of the membership.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_CbcmBrowser Represents a
+ *        CBCM-managed Chrome Browser type. (Value: "CBCM_BROWSER")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_Group Represents group type.
  *        (Value: "GROUP")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_Other Represents other type.
@@ -2635,7 +3269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /**
  *  Each edge contains information about the member that belongs to this group.
  *  Note: Fields returned here will help identify the specific Membership
- *  resource (e.g name, preferred_member_key and role), but may not be a
+ *  resource (e.g `name`, `preferred_member_key` and `role`), but may not be a
  *  comprehensive list of all fields.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_Membership *> *edges;
@@ -2800,6 +3434,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  OIDC IDP (identity provider) configuration.
+ */
+@interface GTLRCloudIdentity_OidcIdpConfig : GTLRObject
+
+/**
+ *  The **Change Password URL** of the identity provider. Users will be sent to
+ *  this URL when changing their passwords at `myaccount.google.com`. This takes
+ *  precedence over the change password URL configured at customer-level. Must
+ *  use `HTTPS`.
+ */
+@property(nonatomic, copy, nullable) NSString *changePasswordUri;
+
+/**
+ *  Required. The Issuer identifier for the IdP. Must be a URL. The discovery
+ *  URL will be derived from this as described in Section 4 of [the OIDC
+ *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html).
+ */
+@property(nonatomic, copy, nullable) NSString *issuerUri;
+
+@end
+
+
+/**
+ *  OIDC RP (relying party) configuration.
+ */
+@interface GTLRCloudIdentity_OidcRpConfig : GTLRObject
+
+/** OAuth2 client ID for OIDC. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Input only. OAuth2 client secret for OIDC. */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/**
+ *  Output only. The URL(s) that this client may use in authentication requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *redirectUris;
+
+@end
+
+
+/**
+ *  Details that are applicable when `sso_mode` is set to `OIDC_SSO`.
+ */
+@interface GTLRCloudIdentity_OidcSsoInfo : GTLRObject
+
+/**
+ *  Required. Name of the `InboundOidcSsoProfile` to use. Must be of the form
+ *  `inboundOidcSsoProfiles/{inbound_oidc_sso_profile}`.
+ */
+@property(nonatomic, copy, nullable) NSString *inboundOidcSsoProfile;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -2876,6 +3566,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudIdentity_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  A Policy resource binds an instance of a single Setting with the scope of a
+ *  PolicyQuery. The Setting instance will be applied to all entities that
+ *  satisfy the query.
+ */
+@interface GTLRCloudIdentity_Policy : GTLRObject
+
+/**
+ *  Immutable. Customer that the Policy belongs to. The value is in the format
+ *  'customers/{customerId}'. The `customerId` must begin with "C" To find your
+ *  customer ID in Admin Console see
+ *  https://support.google.com/a/answer/10070793.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Output only. Identifier. The [resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the Policy.
+ *  Format: policies/{policy}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The PolicyQuery the Setting applies to. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_PolicyQuery *policyQuery;
+
+/** Required. The Setting configured by this Policy. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_Setting *setting;
+
+/**
+ *  Output only. The type of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_Policy_Type_Admin Policy type denoting the
+ *        admin-configurable policies. (Value: "ADMIN")
+ *    @arg @c kGTLRCloudIdentity_Policy_Type_PolicyTypeUnspecified Unspecified
+ *        policy type. (Value: "POLICY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_Policy_Type_System Policy type denoting the
+ *        system-configured policies. (Value: "SYSTEM")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  PolicyQuery
+ */
+@interface GTLRCloudIdentity_PolicyQuery : GTLRObject
+
+/**
+ *  Immutable. The group that the query applies to. This field is only set if
+ *  there is a single value for group that satisfies all clauses of the query.
+ *  If no group applies, this will be the empty string.
+ */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/**
+ *  Required. Immutable. Non-empty default. The OrgUnit the query applies to.
+ *  This field is only set if there is a single value for org_unit that
+ *  satisfies all clauses of the query.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnit;
+
+/**
+ *  Immutable. The CEL query that defines which entities the Policy applies to
+ *  (ex. a User entity). For details about CEL see
+ *  https://opensource.google.com/projects/cel. The OrgUnits the Policy applies
+ *  to are represented by a clause like so: entity.org_units.exists(org_unit,
+ *  org_unit.org_unit_id == orgUnitId('{orgUnitId}')) The Group the Policy
+ *  applies to are represented by a clause like so: entity.groups.exists(group,
+ *  group.group_id == groupId('{groupId}')) The Licenses the Policy applies to
+ *  are represented by a clause like so: entity.licenses.exists(license, license
+ *  in ['/product/{productId}/sku/{skuId}']) The above clauses can be present in
+ *  any combination, and used in conjunction with the &&, || and ! operators.
+ *  The org_unit and group fields below are helper fields that contain the
+ *  corresponding value(s) as the query to make the query easier to use.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Output only. The decimal sort order of this PolicyQuery. The value is
+ *  relative to all other policies with the same setting type for the customer.
+ *  (There are no duplicates within this set).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sortOrder;
+
 @end
 
 
@@ -3137,6 +3918,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Setting
+ */
+@interface GTLRCloudIdentity_Setting : GTLRObject
+
+/** Required. Immutable. The type of the Setting. . */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Required. The value of the Setting. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_Setting_Value *value;
+
+@end
+
+
+/**
+ *  Required. The value of the Setting.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudIdentity_Setting_Value : GTLRObject
+@end
+
+
+/**
  *  Controls sign-in behavior.
  */
 @interface GTLRCloudIdentity_SignInBehavior : GTLRObject
@@ -3228,9 +4035,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /**
  *  LRO response metadata for
+ *  InboundOidcSsoProfilesService.UpdateInboundOidcSsoProfile.
+ */
+@interface GTLRCloudIdentity_UpdateInboundOidcSsoProfileOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  LRO response metadata for
  *  InboundSamlSsoProfilesService.UpdateInboundSamlSsoProfile.
  */
 @interface GTLRCloudIdentity_UpdateInboundSamlSsoProfileOperationMetadata : GTLRObject
+
+/**
+ *  State of this Operation Will be "awaiting-multi-party-approval" when the
+ *  operation is deferred due to the target customer having enabled [Multi-party
+ *  approval for sensitive
+ *  actions](https://support.google.com/a/answer/13790448).
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 

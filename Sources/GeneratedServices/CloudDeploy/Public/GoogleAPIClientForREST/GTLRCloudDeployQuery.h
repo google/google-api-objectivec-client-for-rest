@@ -45,8 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *customTargetTypeId;
 
 /**
- *  Required. The parent collection in which the `CustomTargetType` should be
- *  created. Format should be `projects/{project_id}/locations/{location_name}`.
+ *  Required. The parent collection in which the `CustomTargetType` must be
+ *  created. The format is `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -78,7 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_CustomTargetType to include in the
  *    query.
  *  @param parent Required. The parent collection in which the
- *    `CustomTargetType` should be created. Format should be
+ *    `CustomTargetType` must be created. The format is
  *    `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesCreate
@@ -310,8 +310,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Optional. Name of the `CustomTargetType`. Format is
- *  `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ *  Identifier. Name of the `CustomTargetType`. Format is
+ *  `projects/{project}/locations/{location}/customTargetTypes/{customTargetType}`.
+ *  The `customTargetType` component must match
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -330,8 +332,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  `CustomTargetType` resource by the update. The fields specified in the
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `CustomTargetType` resource. The fields specified in the
  *  update_mask are relative to the resource, not the full request. A field will
  *  be overwritten if it's in the mask. If the user doesn't provide a mask then
  *  all fields are overwritten.
@@ -353,8 +355,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudDeploy_CustomTargetType to include in the
  *    query.
- *  @param name Optional. Name of the `CustomTargetType`. Format is
- *    `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ *  @param name Identifier. Name of the `CustomTargetType`. Format is
+ *    `projects/{project}/locations/{location}/customTargetTypes/{customTargetType}`.
+ *    The `customTargetType` component must match
+ *    `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsCustomTargetTypesPatch
  */
@@ -544,8 +548,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *automationId;
 
 /**
- *  Required. The parent collection in which the `Automation` should be created.
- *  Format should be
+ *  Required. The parent collection in which the `Automation` must be created.
+ *  The format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -576,8 +580,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Automation in a given project and location.
  *
  *  @param object The @c GTLRCloudDeploy_Automation to include in the query.
- *  @param parent Required. The parent collection in which the `Automation`
- *    should be created. Format should be
+ *  @param parent Required. The parent collection in which the `Automation` must
+ *    be created. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsCreate
@@ -612,7 +616,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. The name of the `Automation` to delete. Format should be
+ *  Required. The name of the `Automation` to delete. The format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/automations/{automation_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -642,8 +646,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single Automation resource.
  *
- *  @param name Required. The name of the `Automation` to delete. Format should
- *    be
+ *  @param name Required. The name of the `Automation` to delete. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/automations/{automation_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesAutomationsDelete
@@ -777,8 +780,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  `Automation` resource by the update. The fields specified in the update_mask
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `Automation` resource. The fields specified in the update_mask
  *  are relative to the resource, not the full request. A field will be
  *  overwritten if it's in the mask. If the user doesn't provide a mask then all
  *  fields are overwritten.
@@ -823,8 +826,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *deliveryPipelineId;
 
 /**
- *  Required. The parent collection in which the `DeliveryPipeline` should be
- *  created. Format should be `projects/{project_id}/locations/{location_name}`.
+ *  Required. The parent collection in which the `DeliveryPipeline` must be
+ *  created. The format is `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -856,7 +859,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_DeliveryPipeline to include in the
  *    query.
  *  @param parent Required. The parent collection in which the
- *    `DeliveryPipeline` should be created. Format should be
+ *    `DeliveryPipeline` must be created. The format is
  *    `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesCreate
@@ -897,7 +900,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The name of the `DeliveryPipeline` to delete. Format should be
+ *  Required. The name of the `DeliveryPipeline` to delete. The format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -927,8 +930,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single DeliveryPipeline.
  *
- *  @param name Required. The name of the `DeliveryPipeline` to delete. Format
- *    should be
+ *  @param name Required. The name of the `DeliveryPipeline` to delete. The
+ *    format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesDelete
@@ -1092,8 +1095,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Optional. Name of the `DeliveryPipeline`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/a-z{0,62}`.
+ *  Identifier. Name of the `DeliveryPipeline`. Format is
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`.
+ *  The `deliveryPipeline` component must match
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1112,8 +1117,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  `DeliveryPipeline` resource by the update. The fields specified in the
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `DeliveryPipeline` resource. The fields specified in the
  *  update_mask are relative to the resource, not the full request. A field will
  *  be overwritten if it's in the mask. If the user doesn't provide a mask then
  *  all fields are overwritten.
@@ -1135,8 +1140,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudDeploy_DeliveryPipeline to include in the
  *    query.
- *  @param name Optional. Name of the `DeliveryPipeline`. Format is
- *    `projects/{project}/locations/{location}/deliveryPipelines/a-z{0,62}`.
+ *  @param name Identifier. Name of the `DeliveryPipeline`. Format is
+ *    `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`.
+ *    The `deliveryPipeline` component must match
+ *    `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesPatch
  */
@@ -1189,8 +1196,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesCreate : GTLRCloudDeployQuery
 
 /**
- *  Required. The parent collection in which the `Release` should be created.
- *  Format should be
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
+
+/**
+ *  Required. The parent collection in which the `Release` is created. The
+ *  format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1224,8 +1237,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Release in a given project and location.
  *
  *  @param object The @c GTLRCloudDeploy_Release to include in the query.
- *  @param parent Required. The parent collection in which the `Release` should
- *    be created. Format should be
+ *  @param parent Required. The parent collection in which the `Release` is
+ *    created. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesCreate
@@ -1436,8 +1449,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCreate : GTLRCloudDeployQuery
 
 /**
- *  Required. The parent collection in which the `Rollout` should be created.
- *  Format should be
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
+
+/**
+ *  Required. The parent collection in which the `Rollout` must be created. The
+ *  format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1477,8 +1496,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Rollout in a given project and location.
  *
  *  @param object The @c GTLRCloudDeploy_Rollout to include in the query.
- *  @param parent Required. The parent collection in which the `Rollout` should
- *    be created. Format should be
+ *  @param parent Required. The parent collection in which the `Rollout` must be
+ *    created. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}/releases/{release_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesReleasesRolloutsCreate
@@ -1776,8 +1795,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget : GTLRCloudDeployQuery
 
 /**
- *  Required. The `DeliveryPipeline` for which the rollback `Rollout` should be
- *  created. Format should be
+ *  Required. The `DeliveryPipeline` for which the rollback `Rollout` must be
+ *  created. The format is
  *  `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1790,7 +1809,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudDeploy_RollbackTargetRequest to include in the
  *    query.
  *  @param name Required. The `DeliveryPipeline` for which the rollback
- *    `Rollout` should be created. Format should be
+ *    `Rollout` must be created. The format is
  *    `projects/{project_id}/locations/{location_name}/deliveryPipelines/{pipeline_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsDeliveryPipelinesRollbackTarget
@@ -1885,6 +1904,376 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new DeployPolicy in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesCreate : GTLRCloudDeployQuery
+
+/** Required. ID of the `DeployPolicy`. */
+@property(nonatomic, copy, nullable) NSString *deployPolicyId;
+
+/**
+ *  Required. The parent collection in which the `DeployPolicy` must be created.
+ *  The format is `projects/{project_id}/locations/{location_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that for at least 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server can check if original operation
+ *  with the same request ID was received, and if so, will ignore the second
+ *  request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with an expected result, but no actual change is made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Creates a new DeployPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRCloudDeploy_DeployPolicy to include in the query.
+ *  @param parent Required. The parent collection in which the `DeployPolicy`
+ *    must be created. The format is
+ *    `projects/{project_id}/locations/{location_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_DeployPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single DeployPolicy.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesDelete : GTLRCloudDeployQuery
+
+/**
+ *  Optional. If set to true, then deleting an already deleted or non-existing
+ *  `DeployPolicy` will succeed.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the `DeployPolicy` to delete. The format is
+ *  `projects/{project_id}/locations/{location_name}/deployPolicies/{deploy_policy_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that for at least 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server can check if original operation
+ *  with the same request ID was received, and if so, will ignore the second
+ *  request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set, validate the request and preview the review, but do not
+ *  actually post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Deletes a single DeployPolicy.
+ *
+ *  @param name Required. The name of the `DeployPolicy` to delete. The format
+ *    is
+ *    `projects/{project_id}/locations/{location_name}/deployPolicies/{deploy_policy_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single DeployPolicy.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGet : GTLRCloudDeployQuery
+
+/**
+ *  Required. Name of the `DeployPolicy`. Format must be
+ *  `projects/{project_id}/locations/{location_name}/deployPolicies/{deploy_policy_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_DeployPolicy.
+ *
+ *  Gets details of a single DeployPolicy.
+ *
+ *  @param name Required. Name of the `DeployPolicy`. Format must be
+ *    `projects/{project_id}/locations/{location_name}/deployPolicies/{deploy_policy_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGetIamPolicy : GTLRCloudDeployQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists DeployPolicies in a given project and location.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesList : GTLRCloudDeployQuery
+
+/**
+ *  Filter deploy policies to be returned. See https://google.aip.dev/160 for
+ *  more details. All fields can be used in the filter.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field to sort by. See https://google.aip.dev/132#ordering for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of deploy policies to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 deploy policies will be
+ *  returned. The maximum value is 1000; values above 1000 will be set to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListDeployPolicies` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other provided
+ *  parameters match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of deploy policies. Format
+ *  must be `projects/{project_id}/locations/{location_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_ListDeployPoliciesResponse.
+ *
+ *  Lists DeployPolicies in a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of deploy
+ *    policies. Format must be
+ *    `projects/{project_id}/locations/{location_name}`.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single DeployPolicy.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesPatch : GTLRCloudDeployQuery
+
+/**
+ *  Optional. If set to true, updating a `DeployPolicy` that does not exist will
+ *  result in the creation of a new `DeployPolicy`.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Output only. Name of the `DeployPolicy`. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`. The
+ *  `deployPolicy` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that for at least 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server can check if original operation
+ *  with the same request ID was received, and if so, will ignore the second
+ *  request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `DeployPolicy` resource. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it's in the mask. If the user doesn't provide a mask then
+ *  all fields are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set to true, the request is validated and the user is provided
+ *  with an expected result, but no actual change is made.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Operation.
+ *
+ *  Updates the parameters of a single DeployPolicy.
+ *
+ *  @param object The @c GTLRCloudDeploy_DeployPolicy to include in the query.
+ *  @param name Output only. Name of the `DeployPolicy`. Format is
+ *    `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ *    The `deployPolicy` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_DeployPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: clouddeploy.projects.locations.deployPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDeployCloudPlatform
+ */
+@interface GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesSetIamPolicy : GTLRCloudDeployQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDeploy_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRCloudDeploy_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudDeployQuery_ProjectsLocationsDeployPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDeploy_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: clouddeploy.projects.locations.get
@@ -1947,6 +2336,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsList : GTLRCloudDeployQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -1993,7 +2388,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: clouddeploy.projects.locations.operations.cancel
@@ -2016,7 +2411,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudDeploy_CancelOperationRequest to include in
@@ -2144,8 +2539,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsTargetsCreate : GTLRCloudDeployQuery
 
 /**
- *  Required. The parent collection in which the `Target` should be created.
- *  Format should be `projects/{project_id}/locations/{location_name}`.
+ *  Required. The parent collection in which the `Target` must be created. The
+ *  format is `projects/{project_id}/locations/{location_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2178,9 +2573,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Target in a given project and location.
  *
  *  @param object The @c GTLRCloudDeploy_Target to include in the query.
- *  @param parent Required. The parent collection in which the `Target` should
- *    be created. Format should be
- *    `projects/{project_id}/locations/{location_name}`.
+ *  @param parent Required. The parent collection in which the `Target` must be
+ *    created. The format is `projects/{project_id}/locations/{location_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsCreate
  */
@@ -2213,7 +2607,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. The name of the `Target` to delete. Format should be
+ *  Required. The name of the `Target` to delete. The format is
  *  `projects/{project_id}/locations/{location_name}/targets/{target_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2243,7 +2637,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single Target.
  *
- *  @param name Required. The name of the `Target` to delete. Format should be
+ *  @param name Required. The name of the `Target` to delete. The format is
  *    `projects/{project_id}/locations/{location_name}/targets/{target_name}`.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsDelete
@@ -2409,8 +2803,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Optional. Name of the `Target`. Format is
- *  `projects/{project}/locations/{location}/targets/a-z{0,62}`.
+ *  Identifier. Name of the `Target`. Format is
+ *  `projects/{project}/locations/{location}/targets/{target}`. The `target`
+ *  component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2429,8 +2824,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Field mask is used to specify the fields to be overwritten in the
- *  Target resource by the update. The fields specified in the update_mask are
+ *  Required. Field mask is used to specify the fields to be overwritten by the
+ *  update in the `Target` resource. The fields specified in the update_mask are
  *  relative to the resource, not the full request. A field will be overwritten
  *  if it's in the mask. If the user doesn't provide a mask then all fields are
  *  overwritten.
@@ -2451,8 +2846,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the parameters of a single Target.
  *
  *  @param object The @c GTLRCloudDeploy_Target to include in the query.
- *  @param name Optional. Name of the `Target`. Format is
- *    `projects/{project}/locations/{location}/targets/a-z{0,62}`.
+ *  @param name Identifier. Name of the `Target`. Format is
+ *    `projects/{project}/locations/{location}/targets/{target}`. The `target`
+ *    component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsPatch
  */

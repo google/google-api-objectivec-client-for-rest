@@ -32,6 +32,68 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Search through fact-checked claims using an image as the query.
+ *
+ *  Method: factchecktools.claims.imageSearch
+ */
+@interface GTLRFactCheckToolsQuery_ClaimsImageSearch : GTLRFactCheckToolsQuery
+
+/**
+ *  Required. The URI of the source image. This must be a publicly-accessible
+ *  image HTTP/HTTPS URL. When fetching images from HTTP/HTTPS URLs, Google
+ *  cannot guarantee that the request will be completed. Your request may fail
+ *  if the specified host denies the request (e.g. due to request throttling or
+ *  DOS prevention), or if Google throttles requests to the site for abuse
+ *  prevention. You should not depend on externally-hosted images for production
+ *  applications.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/**
+ *  Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". Can be
+ *  used to restrict results by language, though we do not currently consider
+ *  the region.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional. An integer that specifies the current offset (that is, starting
+ *  result location) in search results. This field is only considered if
+ *  `page_token` is unset. For example, 0 means to return results starting from
+ *  the first matching result, and 10 means to return from the 11th result.
+ */
+@property(nonatomic, assign) NSInteger offset;
+
+/**
+ *  Optional. The pagination size. We will return up to that many results.
+ *  Defaults to 10 if not set.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The pagination token. You may provide the `next_page_token`
+ *  returned from a previous List request, if any, in order to get the next
+ *  page. All other fields must have the same values as in the previous request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1FactCheckedClaimImageSearchResponse.
+ *
+ *  Search through fact-checked claims using an image as the query.
+ *
+ *  @return GTLRFactCheckToolsQuery_ClaimsImageSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Search through fact-checked claims.
  *
  *  Method: factchecktools.claims.search
@@ -103,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
+ *    @c kGTLRAuthScopeFactCheckTools
  */
 @interface GTLRFactCheckToolsQuery_PagesCreate : GTLRFactCheckToolsQuery
 
@@ -129,7 +191,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.delete
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
+ *    @c kGTLRAuthScopeFactCheckTools
  */
 @interface GTLRFactCheckToolsQuery_PagesDelete : GTLRFactCheckToolsQuery
 
@@ -156,7 +218,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
+ *    @c kGTLRAuthScopeFactCheckTools
  */
 @interface GTLRFactCheckToolsQuery_PagesGet : GTLRFactCheckToolsQuery
 
@@ -185,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
+ *    @c kGTLRAuthScopeFactCheckTools
  */
 @interface GTLRFactCheckToolsQuery_PagesList : GTLRFactCheckToolsQuery
 
@@ -251,7 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.pages.update
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
+ *    @c kGTLRAuthScopeFactCheckTools
  */
 @interface GTLRFactCheckToolsQuery_PagesUpdate : GTLRFactCheckToolsQuery
 

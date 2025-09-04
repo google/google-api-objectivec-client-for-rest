@@ -588,6 +588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsBatchTranslateDocument : GTLRTranslateQuery
 
@@ -637,6 +638,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsBatchTranslateText : GTLRTranslateQuery
 
@@ -1067,6 +1069,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesCreate : GTLRTranslateQuery
 
@@ -1290,8 +1293,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesPatch : GTLRTranslateQuery
 
 /**
- *  Required. The resource name of the entry. Format: "projects/ * /locations/ *
- *  /glossaries/ * /glossaryEntries/ *"
+ *  Identifier. The resource name of the entry. Format: `projects/ * /locations/
+ *  * /glossaries/ * /glossaryEntries/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1301,8 +1304,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a glossary entry.
  *
  *  @param object The @c GTLRTranslate_GlossaryEntry to include in the query.
- *  @param name Required. The resource name of the entry. Format: "projects/ *
- *    /locations/ * /glossaries/ * /glossaryEntries/ *"
+ *  @param name Identifier. The resource name of the entry. Format: `projects/ *
+ *    /locations/ * /glossaries/ * /glossaryEntries/ *`
  *
  *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesGlossaryEntriesPatch
  */
@@ -1387,6 +1390,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesPatch : GTLRTranslateQuery
 
@@ -1432,6 +1436,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsList : GTLRTranslateQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -1621,7 +1631,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: translate.projects.locations.operations.cancel
@@ -1645,7 +1655,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRTranslate_CancelOperationRequest to include in the

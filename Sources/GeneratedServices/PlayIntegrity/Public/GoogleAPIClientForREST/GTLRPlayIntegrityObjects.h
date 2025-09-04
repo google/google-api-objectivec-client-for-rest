@@ -21,17 +21,26 @@
 @class GTLRPlayIntegrity_AccountDetails;
 @class GTLRPlayIntegrity_AppAccessRiskVerdict;
 @class GTLRPlayIntegrity_AppIntegrity;
+@class GTLRPlayIntegrity_DeviceAttributes;
 @class GTLRPlayIntegrity_DeviceIntegrity;
+@class GTLRPlayIntegrity_DeviceRecall;
 @class GTLRPlayIntegrity_EnvironmentDetails;
+@class GTLRPlayIntegrity_PcAccountDetails;
+@class GTLRPlayIntegrity_PcDeviceIntegrity;
+@class GTLRPlayIntegrity_PcRequestDetails;
+@class GTLRPlayIntegrity_PcTokenPayloadExternal;
 @class GTLRPlayIntegrity_RecentDeviceActivity;
 @class GTLRPlayIntegrity_RequestDetails;
 @class GTLRPlayIntegrity_TestingDetails;
 @class GTLRPlayIntegrity_TokenPayloadExternal;
+@class GTLRPlayIntegrity_Values;
+@class GTLRPlayIntegrity_WriteDates;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -83,7 +92,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountActivity_ActivityLe
 // GTLRPlayIntegrity_AccountDetails.appLicensingVerdict
 
 /**
- *  The app and certificate match the versions distributed by Play.
+ *  The user has a valid license to use the app.
  *
  *  Value: "LICENSED"
  */
@@ -103,101 +112,82 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensin
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown;
 /**
- *  The certificate or package name does not match Google Play records.
+ *  The user does not have a valid license to use the app.
  *
  *  Value: "UNLICENSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed;
 
 // ----------------------------------------------------------------------------
-// GTLRPlayIntegrity_AppAccessRiskVerdict.otherApps
+// GTLRPlayIntegrity_AppAccessRiskVerdict.appsDetected
 
 /**
- *  Apps under this field are running that could be used to read or capture
- *  inputs and outputs of the requesting app, such as screen recording apps.
+ *  Apps detected is unspecified.
  *
- *  Value: "CAPTURING"
+ *  Value: "APPS_DETECTED_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_AppsDetectedUnspecified;
 /**
- *  Apps under this field are running that could be used to control the device
- *  and inputs and outputs of the requesting app, such as remote controlling
- *  apps.
+ *  One or more apps installed by Google Play or preloaded on the device is
+ *  running that could be used to read or capture the requesting app, such as a
+ *  screen recording app.
  *
- *  Value: "CONTROLLING"
+ *  Value: "KNOWN_CAPTURING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Controlling;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownCapturing;
 /**
- *  One or more apps under this field are installed on the device.
+ *  One or more apps installed by Google Play or preloaded on the device is
+ *  running that could be used to control the device, such as a remote support
+ *  app.
  *
- *  Value: "INSTALLED"
+ *  Value: "KNOWN_CONTROLLING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Installed;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownControlling;
 /**
- *  No apps under this field are installed on the device. This is only valid for
- *  the other apps field.
+ *  One or more apps is installed by Google Play or preloaded on the system
+ *  partition by the device manufacturer.
  *
- *  Value: "NOT_INSTALLED"
+ *  Value: "KNOWN_INSTALLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_NotInstalled;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownInstalled;
 /**
- *  App access risk was not evaluated because a requirement was missed, such as
- *  the device not being trusted enough.
+ *  One or more apps installed by Google Play or preloaded on the device is
+ *  running that could be used to display overlays over the requesting app.
  *
- *  Value: "UNEVALUATED"
+ *  Value: "KNOWN_OVERLAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unevaluated;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_KnownOverlays;
 /**
- *  Risk type is unknown.
+ *  One or more unknown apps, which were not installed by Google Play or
+ *  preloaded on the device, is running that could be used to read or capture
+ *  the requesting app, such as a screen recording app.
  *
- *  Value: "UNKNOWN"
+ *  Value: "UNKNOWN_CAPTURING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unknown;
-
-// ----------------------------------------------------------------------------
-// GTLRPlayIntegrity_AppAccessRiskVerdict.playOrSystemApps
-
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownCapturing;
 /**
- *  Apps under this field are running that could be used to read or capture
- *  inputs and outputs of the requesting app, such as screen recording apps.
+ *  One or more unknown apps, which were not installed by Google Play or
+ *  preloaded on the device, is running that could be used to control the
+ *  device, such as a remote support app.
  *
- *  Value: "CAPTURING"
+ *  Value: "UNKNOWN_CONTROLLING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Capturing;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownControlling;
 /**
- *  Apps under this field are running that could be used to control the device
- *  and inputs and outputs of the requesting app, such as remote controlling
- *  apps.
+ *  One or more unknown apps is installed, that were not installed by Google
+ *  Play or preloaded on the system partition by the device manufacturer.
  *
- *  Value: "CONTROLLING"
+ *  Value: "UNKNOWN_INSTALLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Controlling;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownInstalled;
 /**
- *  One or more apps under this field are installed on the device.
+ *  One or more unknown apps, which were not installed by Google Play or
+ *  preloaded on the device, is running that could be used to display overlays
+ *  over the requesting app.
  *
- *  Value: "INSTALLED"
+ *  Value: "UNKNOWN_OVERLAYS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Installed;
-/**
- *  No apps under this field are installed on the device. This is only valid for
- *  the other apps field.
- *
- *  Value: "NOT_INSTALLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_NotInstalled;
-/**
- *  App access risk was not evaluated because a requirement was missed, such as
- *  the device not being trusted enough.
- *
- *  Value: "UNEVALUATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unevaluated;
-/**
- *  Risk type is unknown.
- *
- *  Value: "UNKNOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unknown;
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_AppAccessRiskVerdict_AppsDetected_UnknownOverlays;
 
 // ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
@@ -267,6 +257,44 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceReco
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_DeviceIntegrity.legacyDeviceRecognitionVerdict
+
+/**
+ *  App is running on a device that passes basic system integrity checks, but
+ *  may not meet Android platform compatibility requirements and may not be
+ *  approved to run Google Play services.
+ *
+ *  Value: "MEETS_BASIC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsBasicIntegrity;
+/**
+ *  App is running on GMS Android device with Google Play services.
+ *
+ *  Value: "MEETS_DEVICE_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsDeviceIntegrity;
+/**
+ *  App is running on GMS Android device with Google Play services and has a
+ *  strong guarantee of system integrity such as a hardware-backed keystore.
+ *
+ *  Value: "MEETS_STRONG_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsStrongIntegrity;
+/**
+ *  App is running on an Android emulator with Google Play services which meets
+ *  core Android compatibility requirements.
+ *
+ *  Value: "MEETS_VIRTUAL_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_MeetsVirtualIntegrity;
+/**
+ *  Play does not have sufficient information to evaluate device integrity
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_DeviceIntegrity_LegacyDeviceRecognitionVerdict_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_EnvironmentDetails.playProtectVerdict
 
 /**
@@ -314,6 +342,51 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayPro
 FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_EnvironmentDetails_PlayProtectVerdict_Unevaluated;
 
 // ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_PcAccountDetails.appLicensingVerdict
+
+/**
+ *  The user has a valid license to use the app.
+ *
+ *  Value: "LICENSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Licensed;
+/**
+ *  Licensing details were not evaluated since a necessary requirement was
+ *  missed.
+ *
+ *  Value: "UNEVALUATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unevaluated;
+/**
+ *  Play does not have sufficient information to evaluate licensing details
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unknown;
+/**
+ *  The user does not have a valid license to use the app.
+ *
+ *  Value: "UNLICENSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unlicensed;
+
+// ----------------------------------------------------------------------------
+// GTLRPlayIntegrity_PcDeviceIntegrity.deviceRecognitionVerdict
+
+/**
+ *  Unspecified device integrity.
+ *
+ *  Value: "DEVICE_RECOGNITION_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_DeviceRecognitionVerdictUnspecified;
+/**
+ *  App is running on Windows Device with Google Desktop Services.
+ *
+ *  Value: "MEETS_PC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_PcDeviceIntegrity_DeviceRecognitionVerdict_MeetsPcIntegrity;
+
+// ----------------------------------------------------------------------------
 // GTLRPlayIntegrity_RecentDeviceActivity.deviceActivityLevel
 
 /**
@@ -357,6 +430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *  (Restricted Access) Contains a signal helping apps differentiating between
  *  likely genuine and likely non-genuine user traffic.
  */
+GTLR_DEPRECATED
 @interface GTLRPlayIntegrity_AccountActivity : GTLRObject
 
 /**
@@ -395,7 +469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *  (Restricted Access) Details about the account activity for the user in the
  *  scope.
  */
-@property(nonatomic, strong, nullable) GTLRPlayIntegrity_AccountActivity *accountActivity;
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_AccountActivity *accountActivity GTLR_DEPRECATED;
 
 /**
  *  Required. Details about the licensing status of the user for the app in the
@@ -403,8 +477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *
  *  Likely values:
  *    @arg @c kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Licensed The
- *        app and certificate match the versions distributed by Play. (Value:
- *        "LICENSED")
+ *        user has a valid license to use the app. (Value: "LICENSED")
  *    @arg @c kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluated
  *        Licensing details were not evaluated since a necessary requirement was
  *        missed. For example DeviceIntegrity did not meet the minimum bar or
@@ -413,8 +486,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *        does not have sufficient information to evaluate licensing details
  *        (Value: "UNKNOWN")
  *    @arg @c kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed
- *        The certificate or package name does not match Google Play records.
- *        (Value: "UNLICENSED")
+ *        The user does not have a valid license to use the app. (Value:
+ *        "UNLICENSED")
  */
 @property(nonatomic, copy, nullable) NSString *appLicensingVerdict;
 
@@ -427,61 +500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  */
 @interface GTLRPlayIntegrity_AppAccessRiskVerdict : GTLRObject
 
-/**
- *  Required. App access risk verdict related to apps that are not installed by
- *  Google Play, and are not preloaded on the system image by the device
- *  manufacturer.
- *
- *  Likely values:
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Capturing Apps
- *        under this field are running that could be used to read or capture
- *        inputs and outputs of the requesting app, such as screen recording
- *        apps. (Value: "CAPTURING")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Controlling Apps
- *        under this field are running that could be used to control the device
- *        and inputs and outputs of the requesting app, such as remote
- *        controlling apps. (Value: "CONTROLLING")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Installed One or
- *        more apps under this field are installed on the device. (Value:
- *        "INSTALLED")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_NotInstalled No
- *        apps under this field are installed on the device. This is only valid
- *        for the other apps field. (Value: "NOT_INSTALLED")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unevaluated App
- *        access risk was not evaluated because a requirement was missed, such
- *        as the device not being trusted enough. (Value: "UNEVALUATED")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_OtherApps_Unknown Risk
- *        type is unknown. (Value: "UNKNOWN")
- */
-@property(nonatomic, copy, nullable) NSString *otherApps;
-
-/**
- *  Required. App access risk verdict related to apps that are not installed by
- *  the Google Play Store, and are not preloaded on the system image by the
- *  device manufacturer.
- *
- *  Likely values:
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Capturing
- *        Apps under this field are running that could be used to read or
- *        capture inputs and outputs of the requesting app, such as screen
- *        recording apps. (Value: "CAPTURING")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Controlling
- *        Apps under this field are running that could be used to control the
- *        device and inputs and outputs of the requesting app, such as remote
- *        controlling apps. (Value: "CONTROLLING")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Installed
- *        One or more apps under this field are installed on the device. (Value:
- *        "INSTALLED")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_NotInstalled
- *        No apps under this field are installed on the device. This is only
- *        valid for the other apps field. (Value: "NOT_INSTALLED")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unevaluated
- *        App access risk was not evaluated because a requirement was missed,
- *        such as the device not being trusted enough. (Value: "UNEVALUATED")
- *    @arg @c kGTLRPlayIntegrity_AppAccessRiskVerdict_PlayOrSystemApps_Unknown
- *        Risk type is unknown. (Value: "UNKNOWN")
- */
-@property(nonatomic, copy, nullable) NSString *playOrSystemApps;
+/** List of detected app types signalled for App Access Risk. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *appsDetected;
 
 @end
 
@@ -557,15 +577,85 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
 
 
 /**
+ *  Request to decode the PC integrity token.
+ */
+@interface GTLRPlayIntegrity_DecodePcIntegrityTokenRequest : GTLRObject
+
+/** Encoded integrity token. */
+@property(nonatomic, copy, nullable) NSString *integrityToken;
+
+@end
+
+
+/**
+ *  Response containing the decoded PC integrity payload.
+ */
+@interface GTLRPlayIntegrity_DecodePcIntegrityTokenResponse : GTLRObject
+
+/** Plain token payload generated from the decoded integrity token. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcTokenPayloadExternal *tokenPayloadExternal;
+
+@end
+
+
+/**
+ *  Contains information about the device for which the integrity token was
+ *  generated, e.g. Android SDK version.
+ */
+@interface GTLRPlayIntegrity_DeviceAttributes : GTLRObject
+
+/**
+ *  Android SDK version of the device, as defined in the public Android
+ *  documentation:
+ *  https://developer.android.com/reference/android/os/Build.VERSION_CODES. It
+ *  won't be set if a necessary requirement was missed. For example
+ *  DeviceIntegrity did not meet the minimum bar.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sdkVersion;
+
+@end
+
+
+/**
  *  Contains the device attestation information.
  */
 @interface GTLRPlayIntegrity_DeviceIntegrity : GTLRObject
 
+/** Attributes of the device where the integrity token was generated. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_DeviceAttributes *deviceAttributes;
+
+/** Details about the device recall bits set by the developer. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_DeviceRecall *deviceRecall;
+
 /** Details about the integrity of the device the app is running on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceRecognitionVerdict;
 
+/**
+ *  Contains legacy details about the integrity of the device the app is running
+ *  on. Only for devices with Android version T or higher and only for apps
+ *  opted in to the new verdicts. Only available during the transition period to
+ *  the new verdicts system and will be removed afterwards.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *legacyDeviceRecognitionVerdict;
+
 /** Details about the device activity of the device the app is running on. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_RecentDeviceActivity *recentDeviceActivity;
+
+@end
+
+
+/**
+ *  Contains the recall bits per device set by the developer.
+ */
+@interface GTLRPlayIntegrity_DeviceRecall : GTLRObject
+
+/** Required. Contains the recall bits values. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_Values *values;
+
+/** Required. Contains the recall bits write dates. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_WriteDates *writeDates;
 
 @end
 
@@ -604,6 +694,82 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  *        (Value: "UNEVALUATED")
  */
 @property(nonatomic, copy, nullable) NSString *playProtectVerdict;
+
+@end
+
+
+/**
+ *  Contains the account information such as the licensing status for the user
+ *  in the scope.
+ */
+@interface GTLRPlayIntegrity_PcAccountDetails : GTLRObject
+
+/**
+ *  Required. Details about the licensing status of the user for the app in the
+ *  scope.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Licensed
+ *        The user has a valid license to use the app. (Value: "LICENSED")
+ *    @arg @c kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unevaluated
+ *        Licensing details were not evaluated since a necessary requirement was
+ *        missed. (Value: "UNEVALUATED")
+ *    @arg @c kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unknown
+ *        Play does not have sufficient information to evaluate licensing
+ *        details (Value: "UNKNOWN")
+ *    @arg @c kGTLRPlayIntegrity_PcAccountDetails_AppLicensingVerdict_Unlicensed
+ *        The user does not have a valid license to use the app. (Value:
+ *        "UNLICENSED")
+ */
+@property(nonatomic, copy, nullable) NSString *appLicensingVerdict;
+
+@end
+
+
+/**
+ *  Contains the device attestation information.
+ */
+@interface GTLRPlayIntegrity_PcDeviceIntegrity : GTLRObject
+
+/** Details about the integrity of the device the app is running on. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deviceRecognitionVerdict;
+
+@end
+
+
+/**
+ *  Contains the integrity request information.
+ */
+@interface GTLRPlayIntegrity_PcRequestDetails : GTLRObject
+
+/** Request hash that was provided in the request. */
+@property(nonatomic, copy, nullable) NSString *requestHash;
+
+/**
+ *  Required. Application package name this attestation was requested for. Note:
+ *  This field makes no guarantees or promises on the caller integrity.
+ */
+@property(nonatomic, copy, nullable) NSString *requestPackageName;
+
+/** Required. Timestamp, of the integrity application request. */
+@property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+@end
+
+
+/**
+ *  Contains PC device attestation details.
+ */
+@interface GTLRPlayIntegrity_PcTokenPayloadExternal : GTLRObject
+
+/** Details about the account information such as the licensing status. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcAccountDetails *accountDetails;
+
+/** Required. Details about the device integrity. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcDeviceIntegrity *deviceIntegrity;
+
+/** Required. Details about the integrity request. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcRequestDetails *requestDetails;
 
 @end
 
@@ -715,6 +881,88 @@ FOUNDATION_EXTERN NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_Devic
  */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_TestingDetails *testingDetails;
 
+@end
+
+
+/**
+ *  Contains the recall bits values.
+ */
+@interface GTLRPlayIntegrity_Values : GTLRObject
+
+/**
+ *  Required. First recall bit value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitFirst;
+
+/**
+ *  Required. Second recall bit value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitSecond;
+
+/**
+ *  Required. Third recall bit value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitThird;
+
+@end
+
+
+/**
+ *  Contains the recall bits write dates.
+ */
+@interface GTLRPlayIntegrity_WriteDates : GTLRObject
+
+/**
+ *  Optional. Write time in YYYYMM format (in UTC, e.g. 202402) for the first
+ *  bit. Note that this value won't be set if the first bit is false.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *yyyymmFirst;
+
+/**
+ *  Optional. Write time in YYYYMM format (in UTC, e.g. 202402) for the second
+ *  bit. Note that this value won't be set if the second bit is false.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *yyyymmSecond;
+
+/**
+ *  Optional. Write time in YYYYMM format (in UTC, e.g. 202402) for the third
+ *  bit. Note that this value won't be set if the third bit is false.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *yyyymmThird;
+
+@end
+
+
+/**
+ *  Request to write device recall bits.
+ */
+@interface GTLRPlayIntegrity_WriteDeviceRecallRequest : GTLRObject
+
+/** Required. Integrity token obtained from calling Play Integrity API. */
+@property(nonatomic, copy, nullable) NSString *integrityToken;
+
+/** Required. The new values for the device recall bits to be written. */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_Values *newValues NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  Response for the Write Device Recall action. Currently empty.
+ */
+@interface GTLRPlayIntegrity_WriteDeviceRecallResponse : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

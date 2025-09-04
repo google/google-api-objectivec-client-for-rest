@@ -26,6 +26,14 @@ NSString * const kGTLRDatastream_BackfillJob_Trigger_Automatic = @"AUTOMATIC";
 NSString * const kGTLRDatastream_BackfillJob_Trigger_Manual    = @"MANUAL";
 NSString * const kGTLRDatastream_BackfillJob_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
 
+// GTLRDatastream_BlmtConfig.fileFormat
+NSString * const kGTLRDatastream_BlmtConfig_FileFormat_FileFormatUnspecified = @"FILE_FORMAT_UNSPECIFIED";
+NSString * const kGTLRDatastream_BlmtConfig_FileFormat_Parquet = @"PARQUET";
+
+// GTLRDatastream_BlmtConfig.tableFormat
+NSString * const kGTLRDatastream_BlmtConfig_TableFormat_Iceberg = @"ICEBERG";
+NSString * const kGTLRDatastream_BlmtConfig_TableFormat_TableFormatUnspecified = @"TABLE_FORMAT_UNSPECIFIED";
+
 // GTLRDatastream_JsonFileFormat.compression
 NSString * const kGTLRDatastream_JsonFileFormat_Compression_Gzip = @"GZIP";
 NSString * const kGTLRDatastream_JsonFileFormat_Compression_JsonCompressionUnspecified = @"JSON_COMPRESSION_UNSPECIFIED";
@@ -69,6 +77,15 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_AppendOnly
+//
+
+@implementation GTLRDatastream_AppendOnly
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_AvroFileFormat
 //
 
@@ -82,7 +99,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_BackfillAllStrategy
-@dynamic mysqlExcludedObjects, oracleExcludedObjects, postgresqlExcludedObjects,
+@dynamic mongodbExcludedObjects, mysqlExcludedObjects, oracleExcludedObjects,
+         postgresqlExcludedObjects, salesforceExcludedObjects,
          sqlServerExcludedObjects;
 @end
 
@@ -116,11 +134,21 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_BasicEncryption
+//
+
+@implementation GTLRDatastream_BasicEncryption
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_BigQueryDestinationConfig
 //
 
 @implementation GTLRDatastream_BigQueryDestinationConfig
-@dynamic dataFreshness, singleTargetDataset, sourceHierarchyDatasets;
+@dynamic appendOnly, blmtConfig, dataFreshness, merge, singleTargetDataset,
+         sourceHierarchyDatasets;
 @end
 
 
@@ -130,6 +158,35 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_BigQueryProfile
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_BinaryLogParser
+//
+
+@implementation GTLRDatastream_BinaryLogParser
+@dynamic logFileDirectories, oracleAsmLogFileAccess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_BinaryLogPosition
+//
+
+@implementation GTLRDatastream_BinaryLogPosition
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_BlmtConfig
+//
+
+@implementation GTLRDatastream_BlmtConfig
+@dynamic bucket, connectionName, fileFormat, rootPath, tableFormat;
 @end
 
 
@@ -160,8 +217,9 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_ConnectionProfile
 @dynamic bigqueryProfile, createTime, displayName, forwardSshConnectivity,
-         gcsProfile, labels, mysqlProfile, name, oracleProfile,
-         postgresqlProfile, privateConnectivity, sqlServerProfile,
+         gcsProfile, labels, mongodbProfile, mysqlProfile, name, oracleProfile,
+         postgresqlProfile, privateConnectivity, salesforceProfile,
+         satisfiesPzi, satisfiesPzs, sqlServerProfile,
          staticServiceIpConnectivity, updateTime;
 @end
 
@@ -208,7 +266,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_DiscoverConnectionProfileRequest
 @dynamic connectionProfile, connectionProfileName, fullHierarchy,
-         hierarchyDepth, mysqlRdbms, oracleRdbms, postgresqlRdbms;
+         hierarchyDepth, mongodbCluster, mysqlRdbms, oracleRdbms,
+         postgresqlRdbms, salesforceOrg, sqlServerRdbms;
 @end
 
 
@@ -218,7 +277,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_DiscoverConnectionProfileResponse
-@dynamic mysqlRdbms, oracleRdbms, postgresqlRdbms;
+@dynamic mongodbCluster, mysqlRdbms, oracleRdbms, postgresqlRdbms,
+         salesforceOrg, sqlServerRdbms;
 @end
 
 
@@ -237,6 +297,25 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_EncryptionAndServerValidation
+//
+
+@implementation GTLRDatastream_EncryptionAndServerValidation
+@dynamic caCertificate, serverCertificateHostname;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_EncryptionNotEnforced
+//
+
+@implementation GTLRDatastream_EncryptionNotEnforced
 @end
 
 
@@ -310,6 +389,25 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_GcsProfile
 @dynamic bucket, rootPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_Gtid
+//
+
+@implementation GTLRDatastream_Gtid
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_HostAddress
+//
+
+@implementation GTLRDatastream_HostAddress
+@dynamic hostname, port;
 @end
 
 
@@ -521,11 +619,154 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_LogFileDirectories
+//
+
+@implementation GTLRDatastream_LogFileDirectories
+@dynamic archivedLogDirectory, onlineLogDirectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_LogMiner
+//
+
+@implementation GTLRDatastream_LogMiner
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_LookupStreamObjectRequest
 //
 
 @implementation GTLRDatastream_LookupStreamObjectRequest
 @dynamic sourceObjectIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_Merge
+//
+
+@implementation GTLRDatastream_Merge
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbCluster
+//
+
+@implementation GTLRDatastream_MongodbCluster
+@dynamic databases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databases" : [GTLRDatastream_MongodbDatabase class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbCollection
+//
+
+@implementation GTLRDatastream_MongodbCollection
+@dynamic collection, fields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRDatastream_MongodbField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbDatabase
+//
+
+@implementation GTLRDatastream_MongodbDatabase
+@dynamic collections, database;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"collections" : [GTLRDatastream_MongodbCollection class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbField
+//
+
+@implementation GTLRDatastream_MongodbField
+@dynamic field;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbObjectIdentifier
+//
+
+@implementation GTLRDatastream_MongodbObjectIdentifier
+@dynamic collection, database;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbProfile
+//
+
+@implementation GTLRDatastream_MongodbProfile
+@dynamic hostAddresses, password, replicaSet, secretManagerStoredPassword,
+         srvConnectionFormat, sslConfig, standardConnectionFormat, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hostAddresses" : [GTLRDatastream_HostAddress class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbSourceConfig
+//
+
+@implementation GTLRDatastream_MongodbSourceConfig
+@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MongodbSslConfig
+//
+
+@implementation GTLRDatastream_MongodbSslConfig
+@dynamic caCertificate, caCertificateSet, clientCertificate,
+         clientCertificateSet, clientKey, clientKeySet,
+         secretManagerStoredClientKey;
 @end
 
 
@@ -569,6 +810,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_MysqlGtidPosition
+//
+
+@implementation GTLRDatastream_MysqlGtidPosition
+@dynamic gtidSet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_MysqlLogPosition
 //
 
@@ -593,7 +844,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MysqlProfile
-@dynamic hostname, password, port, sslConfig, username;
+@dynamic hostname, password, port, secretManagerStoredPassword, sslConfig,
+         username;
 @end
 
 
@@ -621,8 +873,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MysqlSourceConfig
-@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks,
-         maxConcurrentCdcTasks;
+@dynamic binaryLogPosition, excludeObjects, gtid, includeObjects,
+         maxConcurrentBackfillTasks, maxConcurrentCdcTasks;
 @end
 
 
@@ -661,6 +913,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_NextAvailableStartPosition
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_Oauth2ClientCredentials
+//
+
+@implementation GTLRDatastream_Oauth2ClientCredentials
+@dynamic clientId, clientSecret, secretManagerStoredClientSecret;
 @end
 
 
@@ -715,6 +977,40 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_OracleAsmConfig
+//
+
+@implementation GTLRDatastream_OracleAsmConfig
+@dynamic asmService, connectionAttributes, hostname, oracleSslConfig, password,
+         port, secretManagerStoredPassword, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_OracleAsmConfig_ConnectionAttributes
+//
+
+@implementation GTLRDatastream_OracleAsmConfig_ConnectionAttributes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_OracleAsmLogFileAccess
+//
+
+@implementation GTLRDatastream_OracleAsmLogFileAccess
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_OracleColumn
 //
 
@@ -740,8 +1036,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleProfile
-@dynamic connectionAttributes, databaseService, hostname, oracleSslConfig,
-         password, port, username;
+@dynamic connectionAttributes, databaseService, hostname, oracleAsmConfig,
+         oracleSslConfig, password, port, secretManagerStoredPassword, username;
 @end
 
 
@@ -811,8 +1107,9 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleSourceConfig
-@dynamic dropLargeObjects, excludeObjects, includeObjects,
-         maxConcurrentBackfillTasks, maxConcurrentCdcTasks, streamLargeObjects;
+@dynamic binaryLogParser, dropLargeObjects, excludeObjects, includeObjects,
+         logMiner, maxConcurrentBackfillTasks, maxConcurrentCdcTasks,
+         streamLargeObjects;
 @end
 
 
@@ -822,7 +1119,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleSslConfig
-@dynamic caCertificate, caCertificateSet;
+@dynamic caCertificate, caCertificateSet, serverCertificateDistinguishedName;
 @end
 
 
@@ -871,7 +1168,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_PostgresqlProfile
-@dynamic database, hostname, password, port, username;
+@dynamic database, hostname, password, port, secretManagerStoredPassword,
+         sslConfig, username;
 @end
 
 
@@ -924,6 +1222,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_PostgresqlSslConfig
+//
+
+@implementation GTLRDatastream_PostgresqlSslConfig
+@dynamic serverAndClientVerification, serverVerification;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_PostgresqlTable
 //
 
@@ -946,8 +1254,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_PrivateConnection
-@dynamic createTime, displayName, error, labels, name, state, updateTime,
-         vpcPeeringConfig;
+@dynamic createTime, displayName, error, labels, name, pscInterfaceConfig,
+         satisfiesPzi, satisfiesPzs, state, updateTime, vpcPeeringConfig;
 @end
 
 
@@ -972,6 +1280,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_PrivateConnectivity
 @dynamic privateConnection;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PscInterfaceConfig
+//
+
+@implementation GTLRDatastream_PscInterfaceConfig
+@dynamic networkAttachment;
 @end
 
 
@@ -1006,7 +1324,103 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_RunStreamRequest
-@dynamic cdcStrategy;
+@dynamic cdcStrategy, force;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SalesforceField
+//
+
+@implementation GTLRDatastream_SalesforceField
+@dynamic dataType, name, nillable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SalesforceObject
+//
+
+@implementation GTLRDatastream_SalesforceObject
+@dynamic fields, objectName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRDatastream_SalesforceField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SalesforceObjectIdentifier
+//
+
+@implementation GTLRDatastream_SalesforceObjectIdentifier
+@dynamic objectName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SalesforceOrg
+//
+
+@implementation GTLRDatastream_SalesforceOrg
+@dynamic objects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"objects" : [GTLRDatastream_SalesforceObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SalesforceProfile
+//
+
+@implementation GTLRDatastream_SalesforceProfile
+@dynamic domain, oauth2ClientCredentials, userCredentials;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SalesforceSourceConfig
+//
+
+@implementation GTLRDatastream_SalesforceSourceConfig
+@dynamic excludeObjects, includeObjects, pollingInterval;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_ServerAndClientVerification
+//
+
+@implementation GTLRDatastream_ServerAndClientVerification
+@dynamic caCertificate, clientCertificate, clientKey, serverCertificateHostname;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_ServerVerification
+//
+
+@implementation GTLRDatastream_ServerVerification
+@dynamic caCertificate, serverCertificateHostname;
 @end
 
 
@@ -1026,7 +1440,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SourceConfig
-@dynamic mysqlSourceConfig, oracleSourceConfig, postgresqlSourceConfig,
+@dynamic mongodbSourceConfig, mysqlSourceConfig, oracleSourceConfig,
+         postgresqlSourceConfig, salesforceSourceConfig,
          sourceConnectionProfile, sqlServerSourceConfig;
 @end
 
@@ -1037,7 +1452,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SourceHierarchyDatasets
-@dynamic datasetTemplate;
+@dynamic datasetTemplate, projectId;
 @end
 
 
@@ -1047,8 +1462,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SourceObjectIdentifier
-@dynamic mysqlIdentifier, oracleIdentifier, postgresqlIdentifier,
-         sqlServerIdentifier;
+@dynamic mongodbIdentifier, mysqlIdentifier, oracleIdentifier,
+         postgresqlIdentifier, salesforceIdentifier, sqlServerIdentifier;
 @end
 
 
@@ -1058,7 +1473,17 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SpecificStartPosition
-@dynamic mysqlLogPosition, oracleScnPosition;
+@dynamic mysqlGtidPosition, mysqlLogPosition, oracleScnPosition,
+         sqlServerLsnPosition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerChangeTables
+//
+
+@implementation GTLRDatastream_SqlServerChangeTables
 @end
 
 
@@ -1070,6 +1495,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_SqlServerColumn
 @dynamic column, dataType, length, nullable, ordinalPosition, precision,
          primaryKey, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerLsnPosition
+//
+
+@implementation GTLRDatastream_SqlServerLsnPosition
+@dynamic lsn;
 @end
 
 
@@ -1089,7 +1524,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SqlServerProfile
-@dynamic database, hostname, password, port, username;
+@dynamic database, hostname, password, port, secretManagerStoredPassword,
+         sslConfig, username;
 @end
 
 
@@ -1135,8 +1571,18 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SqlServerSourceConfig
-@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks,
-         maxConcurrentCdcTasks;
+@dynamic changeTables, excludeObjects, includeObjects,
+         maxConcurrentBackfillTasks, maxConcurrentCdcTasks, transactionLogs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerSslConfig
+//
+
+@implementation GTLRDatastream_SqlServerSslConfig
+@dynamic basicEncryption, encryptionAndServerValidation, encryptionNotEnforced;
 @end
 
 
@@ -1155,6 +1601,34 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SqlServerTransactionLogs
+//
+
+@implementation GTLRDatastream_SqlServerTransactionLogs
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SrvConnectionFormat
+//
+
+@implementation GTLRDatastream_SrvConnectionFormat
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_StandardConnectionFormat
+//
+
+@implementation GTLRDatastream_StandardConnectionFormat
+@dynamic directConnection;
 @end
 
 
@@ -1245,7 +1719,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_Stream
 @dynamic backfillAll, backfillNone, createTime, customerManagedEncryptionKey,
          destinationConfig, displayName, errors, labels, lastRecoveryTime, name,
-         sourceConfig, state, updateTime;
+         satisfiesPzi, satisfiesPzs, sourceConfig, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1296,6 +1770,17 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_UserCredentials
+//
+
+@implementation GTLRDatastream_UserCredentials
+@dynamic password, secretManagerStoredPassword,
+         secretManagerStoredSecurityToken, securityToken, username;
 @end
 
 

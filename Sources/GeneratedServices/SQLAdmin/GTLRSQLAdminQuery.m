@@ -10,6 +10,18 @@
 
 #import <GoogleAPIClientForREST/GTLRSQLAdminQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// flagScope
+NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeConnectionPool = @"SQL_FLAG_SCOPE_CONNECTION_POOL";
+NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeDatabase    = @"SQL_FLAG_SCOPE_DATABASE";
+NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified = @"SQL_FLAG_SCOPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRSQLAdminQuery
 
 @dynamic fields;
@@ -123,6 +135,117 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_BackupRunsListResponse class];
   query.loggingName = @"sql.backupRuns.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsCreateBackup
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_Backup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRSQLAdminQuery_BackupsCreateBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.Backups.CreateBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsDeleteBackup
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSQLAdminQuery_BackupsDeleteBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.Backups.DeleteBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsGetBackup
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSQLAdminQuery_BackupsGetBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_Backup class];
+  query.loggingName = @"sql.Backups.GetBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsListBackups
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups";
+  GTLRSQLAdminQuery_BackupsListBackups *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSQLAdmin_ListBackupsResponse class];
+  query.loggingName = @"sql.Backups.ListBackups";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_BackupsUpdateBackup
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_Backup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSQLAdminQuery_BackupsUpdateBackup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.Backups.UpdateBackup";
   return query;
 }
 
@@ -354,7 +477,7 @@
 
 @implementation GTLRSQLAdminQuery_FlagsList
 
-@dynamic databaseVersion;
+@dynamic databaseVersion, flagScope;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/flags";
@@ -364,6 +487,37 @@
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRSQLAdmin_FlagsListResponse class];
   query.loggingName = @"sql.flags.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesAcquireSsrsLease
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesAcquireSsrsLeaseRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/acquireSsrsLease";
+  GTLRSQLAdminQuery_InstancesAcquireSsrsLease *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesAcquireSsrsLeaseResponse class];
+  query.loggingName = @"sql.instances.acquireSsrsLease";
   return query;
 }
 
@@ -387,6 +541,29 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.addServerCa";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesAddServerCertificate
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/addServerCertificate";
+  GTLRSQLAdminQuery_InstancesAddServerCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.addServerCertificate";
   return query;
 }
 
@@ -425,7 +602,8 @@
 
 @implementation GTLRSQLAdminQuery_InstancesDelete
 
-@dynamic instance, project;
+@dynamic enableFinalBackup, finalBackupDescription, finalBackupExpiryTime,
+         finalBackupTtlDays, instance, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
@@ -503,6 +681,37 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.demoteMaster";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesExecuteSql
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_ExecuteSqlPayload *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/executeSql";
+  GTLRSQLAdminQuery_InstancesExecuteSql *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesExecuteSqlResponse class];
+  query.loggingName = @"sql.instances.executeSql";
   return query;
 }
 
@@ -693,6 +902,29 @@
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesListServerCertificates
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/listServerCertificates";
+  GTLRSQLAdminQuery_InstancesListServerCertificates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_InstancesListServerCertificatesResponse class];
+  query.loggingName = @"sql.instances.ListServerCertificates";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesPatch
 
 @dynamic instance, project;
@@ -719,6 +951,33 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesPointInTimeRestore
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_PointInTimeRestoreContext *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:pointInTimeRestore";
+  GTLRSQLAdminQuery_InstancesPointInTimeRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.pointInTimeRestore";
   return query;
 }
 
@@ -773,6 +1032,29 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.reencrypt";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesReleaseSsrsLease
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/releaseSsrsLease";
+  GTLRSQLAdminQuery_InstancesReleaseSsrsLease *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesReleaseSsrsLeaseResponse class];
+  query.loggingName = @"sql.instances.releaseSsrsLease";
   return query;
 }
 
@@ -881,6 +1163,37 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.rotateServerCa";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesRotateServerCertificate
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateServerCertificateRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/rotateServerCertificate";
+  GTLRSQLAdminQuery_InstancesRotateServerCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.RotateServerCertificate";
   return query;
 }
 
@@ -1107,7 +1420,7 @@
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesGetLatestRecoveryTime
 
-@dynamic instance, project;
+@dynamic instance, project, sourceInstanceDeletionTime;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {

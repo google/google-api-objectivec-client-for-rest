@@ -933,6 +933,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 /** The device’s IMEI number. Validated on input. */
 @property(nonatomic, copy, nullable) NSString *imei;
 
+/** The device’s second IMEI number. */
+@property(nonatomic, copy, nullable) NSString *imei2;
+
 /**
  *  The device manufacturer’s name. Matches the device's built-in value returned
  *  from `android.os.Build.MANUFACTURER`. Allowed values are listed in [Android
@@ -942,6 +945,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /** The device’s MEID number. */
 @property(nonatomic, copy, nullable) NSString *meid;
+
+/** The device’s second MEID number. */
+@property(nonatomic, copy, nullable) NSString *meid2;
 
 /**
  *  The device model's name. Allowed values are listed in [Android
@@ -1126,7 +1132,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @interface GTLRAndroidProvisioningPartner_FindDevicesByDeviceIdentifierRequest : GTLRObject
 
-/** Required. Required. The device identifier to search for. */
+/**
+ *  Required. Required. The device identifier to search for. If serial number is
+ *  provided then case insensitive serial number matches are allowed.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceIdentifier *deviceIdentifier;
 
 /**

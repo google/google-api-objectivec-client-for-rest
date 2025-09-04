@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Vertex AI Search for Retail API (retail/v2)
+//   Vertex AI Search for commerce API (retail/v2)
 // Description:
-//   Vertex AI Search for Retail API is made up of Retail Search, Browse and
+//   Vertex AI Search for commerce API is made up of Retail Search, Browse and
 //   Recommendations. These discovery AI solutions help you implement
 //   personalized search, browse and recommendations, based on machine learning
 //   models, across your websites and mobile applications.
@@ -421,8 +421,8 @@
 
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsCompleteQuery
 
-@dynamic catalog, dataset, deviceType, entity, languageCodes, maxSuggestions,
-         query, visitorId;
+@dynamic catalog, dataset, deviceType, enableAttributeSuggestions, entity,
+         languageCodes, maxSuggestions, query, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -611,6 +611,52 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGenerativeQuestionBatchUpdate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2BatchUpdateGenerativeQuestionConfigsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/generativeQuestion:batchUpdate";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsGenerativeQuestionBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2BatchUpdateGenerativeQuestionConfigsResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.generativeQuestion.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGenerativeQuestionsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/generativeQuestions";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsGenerativeQuestionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ListGenerativeQuestionConfigsResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.generativeQuestions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetAttributesConfig
 
 @dynamic name;
@@ -649,6 +695,25 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetConversationalSearchCustomizationConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/conversationalSearchCustomizationConfig";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetConversationalSearchCustomizationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.getConversationalSearchCustomizationConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetDefaultBranch
 
 @dynamic catalog;
@@ -663,6 +728,25 @@
   query.catalog = catalog;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2GetDefaultBranchResponse class];
   query.loggingName = @"retail.projects.locations.catalogs.getDefaultBranch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetGenerativeQuestionFeature
+
+@dynamic catalog;
+
++ (instancetype)queryWithCatalog:(NSString *)catalog {
+  NSArray *pathParams = @[ @"catalog" ];
+  NSString *pathURITemplate = @"v2/{+catalog}/generativeQuestionFeature";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsGetGenerativeQuestionFeature *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.catalog = catalog;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionsFeatureConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.getGenerativeQuestionFeature";
   return query;
 }
 
@@ -1298,17 +1382,106 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateConversationalSearchCustomizationConfig
+
+@dynamic catalog, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig *)object
+                        catalog:(NSString *)catalog {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"catalog" ];
+  NSString *pathURITemplate = @"v2/{+catalog}/conversationalSearchCustomizationConfig";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateConversationalSearchCustomizationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.catalog = catalog;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchCustomizationConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.updateConversationalSearchCustomizationConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateGenerativeQuestion
+
+@dynamic catalog, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig *)object
+                        catalog:(NSString *)catalog {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"catalog" ];
+  NSString *pathURITemplate = @"v2/{+catalog}/generativeQuestion";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateGenerativeQuestion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.catalog = catalog;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.updateGenerativeQuestion";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateGenerativeQuestionFeature
+
+@dynamic catalog, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionsFeatureConfig *)object
+                        catalog:(NSString *)catalog {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"catalog" ];
+  NSString *pathURITemplate = @"v2/{+catalog}/generativeQuestionFeature";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsUpdateGenerativeQuestionFeature *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.catalog = catalog;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2GenerativeQuestionsFeatureConfig class];
+  query.loggingName = @"retail.projects.locations.catalogs.updateGenerativeQuestionFeature";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsCollect
 
-@dynamic ets, parent, prebuiltRule, rawJson, uri, userEvent;
+@dynamic parent;
 
-+ (instancetype)queryWithParent:(NSString *)parent {
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2CollectUserEventRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v2/{+parent}/userEvents:collect";
   GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsCollect *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleApiHttpBody class];
   query.loggingName = @"retail.projects.locations.catalogs.userEvents.collect";

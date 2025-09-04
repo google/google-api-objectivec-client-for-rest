@@ -21,6 +21,7 @@ NSString * const kGTLRAndroidManagementViewEnterpriseViewUnspecified = @"ENTERPR
 // wipeDataFlags
 NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData = @"PRESERVE_RESET_PROTECTION_DATA";
 NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified = @"WIPE_DATA_FLAG_UNSPECIFIED";
+NSString * const kGTLRAndroidManagementWipeDataFlagsWipeEsims  = @"WIPE_ESIMS";
 NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE_EXTERNAL_STORAGE";
 
 // ----------------------------------------------------------------------------
@@ -354,6 +355,33 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @end
 
+@implementation GTLRAndroidManagementQuery_EnterprisesGenerateEnterpriseUpgradeUrl
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateEnterpriseUpgradeUrl";
+  GTLRAndroidManagementQuery_EnterprisesGenerateEnterpriseUpgradeUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse class];
+  query.loggingName = @"androidmanagement.enterprises.generateEnterpriseUpgradeUrl";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidManagementQuery_EnterprisesGet
 
 @dynamic name;
@@ -539,6 +567,33 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @end
 
+@implementation GTLRAndroidManagementQuery_EnterprisesPoliciesModifyPolicyApplications
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidManagement_ModifyPolicyApplicationsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:modifyPolicyApplications";
+  GTLRAndroidManagementQuery_EnterprisesPoliciesModifyPolicyApplications *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_ModifyPolicyApplicationsResponse class];
+  query.loggingName = @"androidmanagement.enterprises.policies.modifyPolicyApplications";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
 
 @dynamic name, updateMask;
@@ -561,6 +616,33 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
   query.name = name;
   query.expectedObjectClass = [GTLRAndroidManagement_Policy class];
   query.loggingName = @"androidmanagement.enterprises.policies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesPoliciesRemovePolicyApplications
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAndroidManagement_RemovePolicyApplicationsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:removePolicyApplications";
+  GTLRAndroidManagementQuery_EnterprisesPoliciesRemovePolicyApplications *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_RemovePolicyApplicationsResponse class];
+  query.loggingName = @"androidmanagement.enterprises.policies.removePolicyApplications";
   return query;
 }
 
@@ -725,7 +807,14 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @implementation GTLRAndroidManagementQuery_SignupUrlsCreate
 
-@dynamic callbackUrl, projectId;
+@dynamic adminEmail, allowedDomains, callbackUrl, projectId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedDomains" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/signupUrls";

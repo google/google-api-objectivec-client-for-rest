@@ -17,10 +17,12 @@
 
 @class GTLRCloudFilestore_Backup;
 @class GTLRCloudFilestore_Backup_Labels;
+@class GTLRCloudFilestore_Backup_Tags;
 @class GTLRCloudFilestore_DailyCycle;
 @class GTLRCloudFilestore_Date;
 @class GTLRCloudFilestore_DenyMaintenancePeriod;
 @class GTLRCloudFilestore_FileShareConfig;
+@class GTLRCloudFilestore_FixedIOPS;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules;
@@ -39,6 +41,8 @@
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
 @class GTLRCloudFilestore_Instance;
 @class GTLRCloudFilestore_Instance_Labels;
+@class GTLRCloudFilestore_Instance_Tags;
+@class GTLRCloudFilestore_IOPSPerTB;
 @class GTLRCloudFilestore_Location;
 @class GTLRCloudFilestore_Location_Labels;
 @class GTLRCloudFilestore_Location_Metadata;
@@ -50,9 +54,14 @@
 @class GTLRCloudFilestore_Operation;
 @class GTLRCloudFilestore_Operation_Metadata;
 @class GTLRCloudFilestore_Operation_Response;
+@class GTLRCloudFilestore_PerformanceConfig;
+@class GTLRCloudFilestore_PerformanceLimits;
+@class GTLRCloudFilestore_ReplicaConfig;
+@class GTLRCloudFilestore_Replication;
 @class GTLRCloudFilestore_Schedule;
 @class GTLRCloudFilestore_Snapshot;
 @class GTLRCloudFilestore_Snapshot_Labels;
+@class GTLRCloudFilestore_Snapshot_Tags;
 @class GTLRCloudFilestore_Status;
 @class GTLRCloudFilestore_Status_Details_Item;
 @class GTLRCloudFilestore_TimeOfDay;
@@ -68,6 +77,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_Backup.fileSystemProtocol
+
+/**
+ *  FILE_PROTOCOL_UNSPECIFIED serves a "not set" default value when a
+ *  FileProtocol is a separate field in a message.
+ *
+ *  Value: "FILE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_FileProtocolUnspecified;
+/**
+ *  NFS 3.0.
+ *
+ *  Value: "NFS_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV3;
+/**
+ *  NFS 4.1.
+ *
+ *  Value: "NFS_V4_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV41;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Backup.sourceInstanceTier
@@ -222,6 +254,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasaccelerato
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFilestore_Instance.protocol
+
+/**
+ *  FILE_PROTOCOL_UNSPECIFIED serves a "not set" default value when a
+ *  FileProtocol is a separate field in a message.
+ *
+ *  Value: "FILE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Protocol_FileProtocolUnspecified;
+/**
+ *  NFS 3.0.
+ *
+ *  Value: "NFS_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Protocol_NfsV3;
+/**
+ *  NFS 4.1.
+ *
+ *  Value: "NFS_V4_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Protocol_NfsV41;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Instance.state
 
 /**
@@ -243,6 +298,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Deleting;
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Error;
+/**
+ *  The replica instance is being promoted.
+ *
+ *  Value: "PROMOTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Promoting;
 /**
  *  The instance is available for use.
  *
@@ -482,6 +543,93 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMo
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_SquashModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFilestore_ReplicaConfig.state
+
+/**
+ *  The replica is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Creating;
+/**
+ *  The replica is experiencing an issue and might be unusable. You can get
+ *  further details from the `stateReasons` field of the `ReplicaConfig` object.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Failed;
+/**
+ *  The replica is being promoted.
+ *
+ *  Value: "PROMOTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Promoting;
+/**
+ *  The replica is ready.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Ready;
+/**
+ *  The replica is being removed.
+ *
+ *  Value: "REMOVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Removing;
+/**
+ *  State not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_ReplicaConfig.stateReasons
+
+/**
+ *  The peer instance is unreachable.
+ *
+ *  Value: "PEER_INSTANCE_UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_PeerInstanceUnreachable;
+/**
+ *  The remove replica peer instance operation failed.
+ *
+ *  Value: "REMOVE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_RemoveFailed;
+/**
+ *  Reason not specified.
+ *
+ *  Value: "STATE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_StateReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_Replication.role
+
+/**
+ *  The instance is the `ACTIVE` replication member, functions as the
+ *  replication source instance.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Replication_Role_Active;
+/**
+ *  Role not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Replication_Role_RoleUnspecified;
+/**
+ *  The instance is the `STANDBY` replication member, functions as the
+ *  replication destination instance.
+ *
+ *  Value: "STANDBY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Replication_Role_Standby;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Schedule.day
 
 /**
@@ -641,6 +789,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSNumber *downloadBytes;
 
+/**
+ *  Output only. The file system protocol of the source Filestore instance that
+ *  this backup is created from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_Backup_FileSystemProtocol_FileProtocolUnspecified
+ *        FILE_PROTOCOL_UNSPECIFIED serves a "not set" default value when a
+ *        FileProtocol is a separate field in a message. (Value:
+ *        "FILE_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV3 NFS 3.0.
+ *        (Value: "NFS_V3")
+ *    @arg @c kGTLRCloudFilestore_Backup_FileSystemProtocol_NfsV41 NFS 4.1.
+ *        (Value: "NFS_V4_1")
+ */
+@property(nonatomic, copy, nullable) NSString *fileSystemProtocol;
+
 /** Immutable. KMS key name used for data encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
@@ -745,6 +909,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSNumber *storageBytes;
 
+/**
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Backup_Tags *tags;
+
 @end
 
 
@@ -757,6 +932,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        fetch them all at once.
  */
 @interface GTLRCloudFilestore_Backup_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_Backup_Tags : GTLRObject
 @end
 
 
@@ -899,6 +1092,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
+ *  Fixed IOPS (input/output operations per second) parameters.
+ */
+@interface GTLRCloudFilestore_FixedIOPS : GTLRObject
+
+/**
+ *  Required. Maximum IOPS.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIops;
+
+@end
+
+
+/**
  *  Instance represents the interface for SLM services to actuate the state of
  *  control plane resources. Example Instance in JSON, where
  *  consumer-project-number=123456, producer-project-id=cloud-sql: ```json
@@ -930,6 +1138,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  (go/slm-rollout-maintenance-policies#prerequisites).
  */
 @property(nonatomic, copy, nullable) NSString *consumerDefinedName;
+
+/**
+ *  Optional. The consumer_project_number associated with this Apigee instance.
+ *  This field is added specifically to support Apigee integration with SLM
+ *  Rollout and UMM. It represents the numerical project ID of the GCP project
+ *  that consumes this Apigee instance. It is used for SLM rollout notifications
+ *  and UMM integration, enabling proper mapping to customer projects and log
+ *  delivery for Apigee instances. This field complements consumer_project_id
+ *  and may be used for specific Apigee scenarios where the numerical ID is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerProjectNumber;
 
 /** Output only. Timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -1402,6 +1622,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. Indicates whether this instance supports configuring its
+ *  performance. If true, the user can configure the instance's performance by
+ *  using the 'performance_config' field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customPerformanceSupported;
+
+/**
+ *  Optional. Indicates whether the instance is protected against deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtectionEnabled;
+
+/** Optional. The reason for enabling deletion protection. */
+@property(nonatomic, copy, nullable) NSString *deletionProtectionReason;
+
+/**
  *  The description of the instance (2048 characters or less).
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1438,6 +1677,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
 
+/** Optional. Used to configure performance. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_PerformanceConfig *performanceConfig;
+
+/** Output only. Used for getting performance limits. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_PerformanceLimits *performanceLimits;
+
+/**
+ *  Immutable. The protocol indicates the access protocol for all shares in the
+ *  instance. This field is immutable and it cannot be changed after the
+ *  instance has been created. Default value: `NFS_V3`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_Instance_Protocol_FileProtocolUnspecified
+ *        FILE_PROTOCOL_UNSPECIFIED serves a "not set" default value when a
+ *        FileProtocol is a separate field in a message. (Value:
+ *        "FILE_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Instance_Protocol_NfsV3 NFS 3.0. (Value:
+ *        "NFS_V3")
+ *    @arg @c kGTLRCloudFilestore_Instance_Protocol_NfsV41 NFS 4.1. (Value:
+ *        "NFS_V4_1")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/** Optional. Replication configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Replication *replication;
+
 /**
  *  Output only. Reserved for future use.
  *
@@ -1464,6 +1729,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        experiencing an issue and might be unusable. You can get further
  *        details from the `statusMessage` field of the `Instance` resource.
  *        (Value: "ERROR")
+ *    @arg @c kGTLRCloudFilestore_Instance_State_Promoting The replica instance
+ *        is being promoted. (Value: "PROMOTING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Ready The instance is available
  *        for use. (Value: "READY")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Repairing Work is being done on
@@ -1496,6 +1763,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  state.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
+
+/**
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Instance_Tags *tags;
 
 /**
  *  The service tier of the instance.
@@ -1544,6 +1822,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_Instance_Tags : GTLRObject
+@end
+
+
+/**
+ *  IOPS per TB. Filestore defines TB as 1024^4 bytes (TiB).
+ */
+@interface GTLRCloudFilestore_IOPSPerTB : GTLRObject
+
+/**
+ *  Required. Maximum IOPS per TiB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIopsPerTb;
+
+@end
+
+
+/**
  *  ListBackupsResponse is the result of ListBackupsRequest.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1571,7 +1882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** Locations that could not be reached. */
+/** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1605,7 +1916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** Locations that could not be reached. */
+/** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1683,6 +1994,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_Snapshot *> *snapshots;
 
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -1748,7 +2062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  LINT.IfChange Defines policies to service maintenance events.
+ *  Defines policies to service maintenance events.
  */
 @interface GTLRCloudFilestore_MaintenancePolicy : GTLRObject
 
@@ -2054,8 +2368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2077,6 +2391,178 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Used for setting the performance configuration. If the user doesn't specify
+ *  PerformanceConfig, automatically provision the default performance settings
+ *  as described in https://cloud.google.com/filestore/docs/performance. Larger
+ *  instances will be linearly set to more IOPS. If the instance's capacity is
+ *  increased or decreased, its performance will be automatically adjusted
+ *  upwards or downwards accordingly (respectively).
+ */
+@interface GTLRCloudFilestore_PerformanceConfig : GTLRObject
+
+/**
+ *  Choose a fixed provisioned IOPS value for the instance, which will remain
+ *  constant regardless of instance capacity. Value must be a multiple of 1000.
+ *  If the chosen value is outside the supported range for the instance's
+ *  capacity during instance creation, instance creation will fail with an
+ *  `InvalidArgument` error. Similarly, if an instance capacity update would
+ *  result in a value outside the supported range, the update will fail with an
+ *  `InvalidArgument` error.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_FixedIOPS *fixedIops;
+
+/**
+ *  Provision IOPS dynamically based on the capacity of the instance.
+ *  Provisioned IOPS will be calculated by multiplying the capacity of the
+ *  instance in TiB by the `iops_per_tb` value. For example, for a 2 TiB
+ *  instance with an `iops_per_tb` value of 17000 the provisioned IOPS will be
+ *  34000. If the calculated value is outside the supported range for the
+ *  instance's capacity during instance creation, instance creation will fail
+ *  with an `InvalidArgument` error. Similarly, if an instance capacity update
+ *  would result in a value outside the supported range, the update will fail
+ *  with an `InvalidArgument` error.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_IOPSPerTB *iopsPerTb;
+
+@end
+
+
+/**
+ *  The enforced performance limits, calculated from the instance's performance
+ *  configuration.
+ */
+@interface GTLRCloudFilestore_PerformanceLimits : GTLRObject
+
+/**
+ *  Output only. The max IOPS.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIops;
+
+/**
+ *  Output only. The max read IOPS.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReadIops;
+
+/**
+ *  Output only. The max read throughput in bytes per second.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReadThroughputBps;
+
+/**
+ *  Output only. The max write IOPS.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxWriteIops;
+
+/**
+ *  Output only. The max write throughput in bytes per second.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxWriteThroughputBps;
+
+@end
+
+
+/**
+ *  PromoteReplicaRequest promotes a Filestore standby instance (replica).
+ */
+@interface GTLRCloudFilestore_PromoteReplicaRequest : GTLRObject
+
+/**
+ *  Optional. The resource name of the peer instance to promote, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`. The
+ *  peer instance is required if the operation is called on an active instance.
+ */
+@property(nonatomic, copy, nullable) NSString *peerInstance;
+
+@end
+
+
+/**
+ *  Replica configuration for the instance.
+ */
+@interface GTLRCloudFilestore_ReplicaConfig : GTLRObject
+
+/**
+ *  Output only. The timestamp of the latest replication snapshot taken on the
+ *  active instance and is already replicated safely.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastActiveSyncTime;
+
+/** Optional. The peer instance. */
+@property(nonatomic, copy, nullable) NSString *peerInstance;
+
+/**
+ *  Output only. The replica state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Creating The replica is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Failed The replica is
+ *        experiencing an issue and might be unusable. You can get further
+ *        details from the `stateReasons` field of the `ReplicaConfig` object.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Promoting The replica is
+ *        being promoted. (Value: "PROMOTING")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Ready The replica is
+ *        ready. (Value: "READY")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Removing The replica is
+ *        being removed. (Value: "REMOVING")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_StateUnspecified State not
+ *        set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Additional information about the replication state, if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stateReasons;
+
+/** Output only. The time when the replica state was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *stateUpdateTime;
+
+@end
+
+
+/**
+ *  Replication specifications.
+ */
+@interface GTLRCloudFilestore_Replication : GTLRObject
+
+/**
+ *  Optional. Replication configuration for the replica instance associated with
+ *  this instance. Only a single replica is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_ReplicaConfig *> *replicas;
+
+/**
+ *  Optional. The replication role.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_Replication_Role_Active The instance is the
+ *        `ACTIVE` replication member, functions as the replication source
+ *        instance. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudFilestore_Replication_Role_RoleUnspecified Role not set.
+ *        (Value: "ROLE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Replication_Role_Standby The instance is the
+ *        `STANDBY` replication member, functions as the replication destination
+ *        instance. (Value: "STANDBY")
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -2200,6 +2686,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Snapshot_Tags *tags;
+
 @end
 
 
@@ -2212,6 +2709,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        fetch them all at once.
  */
 @interface GTLRCloudFilestore_Snapshot_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag key-value pairs bound to this resource.
+ *  Each key must be a namespaced name and each value a short name. Example:
+ *  "123456789012/environment" : "production", "123456789013/costCenter" :
+ *  "marketing" See the documentation for more information: - Namespaced name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_key
+ *  - Short name:
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing#retrieving_tag_value
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_Snapshot_Tags : GTLRObject
 @end
 
 
@@ -2268,30 +2783,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @interface GTLRCloudFilestore_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

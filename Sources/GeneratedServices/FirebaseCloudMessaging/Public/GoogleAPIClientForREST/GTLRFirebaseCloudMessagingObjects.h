@@ -5,7 +5,7 @@
 //   Firebase Cloud Messaging API (fcm/v1)
 // Description:
 //   FCM send API that provides a cross-platform messaging solution to reliably
-//   deliver messages at no cost.
+//   deliver messages.
 // Documentation:
 //   https://firebase.google.com/docs/cloud-messaging
 
@@ -188,6 +188,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @interface GTLRFirebaseCloudMessaging_AndroidConfig : GTLRObject
 
 /**
+ *  Optional. If set to true, messages will be allowed to be delivered to the
+ *  app while the device is in bandwidth constrained mode. This should only be
+ *  enabled when the app has been tested to properly handle messages in
+ *  bandwidth constrained mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bandwidthConstrainedOk;
+
+/**
  *  An identifier of a group of messages that can be collapsed, so that only the
  *  last message gets sent when delivery can be resumed. A maximum of 4
  *  different collapse keys is allowed at any given time.
@@ -201,8 +211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_AndroidConfig_Data *data;
 
 /**
- *  If set to true, messages will be allowed to be delivered to the app while
- *  the device is in direct boot mode. See [Support Direct Boot
+ *  Optional. If set to true, messages will be allowed to be delivered to the
+ *  app while the device is in direct boot mode. See [Support Direct Boot
  *  mode](https://developer.android.com/training/articles/direct-boot).
  *
  *  Uses NSNumber of boolValue.
@@ -245,6 +255,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  order to receive the message.
  */
 @property(nonatomic, copy, nullable) NSString *restrictedPackageName;
+
+/**
+ *  Optional. If set to true, messages will be allowed to be delivered to the
+ *  app while the device is connected over a restricted satellite network. This
+ *  should only be enabled for messages that can be handled over a restricted
+ *  satellite network and only for apps that are enabled to work over a
+ *  restricted satellite network. Note that the ability of the app to connect to
+ *  a restricted satellite network is dependent on the carrier's settings and
+ *  the device model.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictedSatelliteOk;
 
 /**
  *  How long (in seconds) the message should be kept in FCM storage if the
@@ -592,6 +615,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Headers *headers;
 
 /**
+ *  Optional. [Apple Live
+ *  Activity](https://developer.apple.com/design/human-interface-guidelines/live-activities)
+ *  token to send updates to. This token can either be a push token or
+ *  [push-to-start](https://developer.apple.com/documentation/activitykit/activity/pushtostarttoken)
+ *  token from Apple. To start, update, or end a live activity remotely using
+ *  FCM, construct an [`aps
+ *  payload`](https://developer.apple.com/documentation/activitykit/starting-and-updating-live-activities-with-activitykit-push-notifications#Construct-the-payload-that-starts-a-Live-Activity)
+ *  and put it in the
+ *  [`apns.payload`](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#ApnsConfig)
+ *  field.
+ */
+@property(nonatomic, copy, nullable) NSString *liveActivityToken;
+
+/**
  *  APNs payload as a JSON object, including both `aps` dictionary and custom
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
@@ -808,9 +845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /**
  *  Input only. Arbitrary key/value payload, which must be UTF-8 encoded. The
  *  key should not be a reserved word ("from", "message_type", or any word
- *  starting with "google" or "gcm"). When sending payloads containing only data
- *  fields to iOS devices, only normal priority (`"apns-priority": "5"`) is
- *  allowed in
+ *  starting with "google." or "gcm.notification."). When sending payloads
+ *  containing only data fields to iOS devices, only normal priority
+ *  (`"apns-priority": "5"`) is allowed in
  *  [`ApnsConfig`](/docs/reference/fcm/rest/v1/projects.messages#apnsconfig).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Message_Data *data;
@@ -850,9 +887,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /**
  *  Input only. Arbitrary key/value payload, which must be UTF-8 encoded. The
  *  key should not be a reserved word ("from", "message_type", or any word
- *  starting with "google" or "gcm"). When sending payloads containing only data
- *  fields to iOS devices, only normal priority (`"apns-priority": "5"`) is
- *  allowed in
+ *  starting with "google." or "gcm.notification."). When sending payloads
+ *  containing only data fields to iOS devices, only normal priority
+ *  (`"apns-priority": "5"`) is allowed in
  *  [`ApnsConfig`](/docs/reference/fcm/rest/v1/projects.messages#apnsconfig).
  *
  *  @note This class is documented as having more properties of NSString. Use @c

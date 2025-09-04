@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services (games/v1)
+//   Google Play Games Services API (games/v1)
 // Description:
-//   The Google Play games service allows developers to enhance games with
+//   The Google Play Games Service allows developers to enhance games with
 //   social leaderboards, achievements, game state, sign-in with Google, and
 //   more.
 // Documentation:
@@ -201,6 +201,90 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Generates a Play Grouping API token for the PGS user identified by the
+ *  attached credential.
+ *
+ *  Method: games.accesstokens.generatePlayGroupingApiToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGames
+ */
+@interface GTLRGamesQuery_AccesstokensGeneratePlayGroupingApiToken : GTLRGamesQuery
+
+/**
+ *  Required. App package name to generate the token for (e.g.
+ *  com.example.mygame).
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. Persona to associate with the token. Persona is a
+ *  developer-provided stable identifier of the user. Must be deterministically
+ *  generated (e.g. as a one-way hash) from the user account ID and user profile
+ *  ID (if the app has the concept), according to the developer's own user
+ *  identity system.
+ */
+@property(nonatomic, copy, nullable) NSString *persona;
+
+/**
+ *  Fetches a @c GTLRGames_GeneratePlayGroupingApiTokenResponse.
+ *
+ *  Generates a Play Grouping API token for the PGS user identified by the
+ *  attached credential.
+ *
+ *  @return GTLRGamesQuery_AccesstokensGeneratePlayGroupingApiToken
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Generates a Play Grouping API token for the PGS user identified by the
+ *  Recall session ID provided in the request.
+ *
+ *  Method: games.accesstokens.generateRecallPlayGroupingApiToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGamesAndroidpublisher
+ */
+@interface GTLRGamesQuery_AccesstokensGenerateRecallPlayGroupingApiToken : GTLRGamesQuery
+
+/**
+ *  Required. App package name to generate the token for (e.g.
+ *  com.example.mygame).
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. Persona to associate with the token. Persona is a
+ *  developer-provided stable identifier of the user. Must be deterministically
+ *  generated (e.g. as a one-way hash) from the user account ID and user profile
+ *  ID (if the app has the concept), according to the developer's own user
+ *  identity system.
+ */
+@property(nonatomic, copy, nullable) NSString *persona;
+
+/**
+ *  Required. Opaque server-generated string that encodes all the necessary
+ *  information to identify the PGS player / Google user and application. See
+ *  https://developer.android.com/games/pgs/recall/recall-setup on how to
+ *  integrate with Recall and get session ID.
+ */
+@property(nonatomic, copy, nullable) NSString *recallSessionId;
+
+/**
+ *  Fetches a @c GTLRGames_GenerateRecallPlayGroupingApiTokenResponse.
+ *
+ *  Generates a Play Grouping API token for the PGS user identified by the
+ *  Recall session ID provided in the request.
+ *
+ *  @return GTLRGamesQuery_AccesstokensGenerateRecallPlayGroupingApiToken
+ */
++ (instancetype)query;
 
 @end
 
@@ -1014,6 +1098,82 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
+ *  Retrieve the Recall tokens from all requested games that is associated with
+ *  the PGS Player encoded in the provided recall session id. The API is only
+ *  available for users that have an active PGS Player profile.
+ *
+ *  Method: games.recall.gamesPlayerTokens
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGamesAndroidpublisher
+ */
+@interface GTLRGamesQuery_RecallGamesPlayerTokens : GTLRGamesQuery
+
+/**
+ *  Required. The application IDs from the Google Play developer console for the
+ *  games to return scoped ids for.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applicationIds;
+
+/**
+ *  Required. Opaque server-generated string that encodes all the necessary
+ *  information to identify the PGS player / Google user and application.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Fetches a @c GTLRGames_RetrieveGamesPlayerTokensResponse.
+ *
+ *  Retrieve the Recall tokens from all requested games that is associated with
+ *  the PGS Player encoded in the provided recall session id. The API is only
+ *  available for users that have an active PGS Player profile.
+ *
+ *  @param sessionId Required. Opaque server-generated string that encodes all
+ *    the necessary information to identify the PGS player / Google user and
+ *    application.
+ *
+ *  @return GTLRGamesQuery_RecallGamesPlayerTokens
+ */
++ (instancetype)queryWithSessionId:(NSString *)sessionId;
+
+@end
+
+/**
+ *  Retrieve the last Recall token from all developer games that is associated
+ *  with the PGS Player encoded in the provided recall session id. The API is
+ *  only available for users that have active PGS Player profile.
+ *
+ *  Method: games.recall.lastTokenFromAllDeveloperGames
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGamesAndroidpublisher
+ */
+@interface GTLRGamesQuery_RecallLastTokenFromAllDeveloperGames : GTLRGamesQuery
+
+/**
+ *  Required. Opaque server-generated string that encodes all the necessary
+ *  information to identify the PGS player / Google user and application.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Fetches a @c GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse.
+ *
+ *  Retrieve the last Recall token from all developer games that is associated
+ *  with the PGS Player encoded in the provided recall session id. The API is
+ *  only available for users that have active PGS Player profile.
+ *
+ *  @param sessionId Required. Opaque server-generated string that encodes all
+ *    the necessary information to identify the PGS player / Google user and
+ *    application.
+ *
+ *  @return GTLRGamesQuery_RecallLastTokenFromAllDeveloperGames
+ */
++ (instancetype)queryWithSessionId:(NSString *)sessionId;
+
+@end
+
+/**
  *  Associate the PGS Player principal encoded in the provided recall session id
  *  with an in-game account
  *
@@ -1064,9 +1224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Retrieve all Recall tokens associated with the PGS Player principal encoded
- *  in the provided recall session id. The API is only available for users that
- *  have active PGS Player profile.
+ *  Retrieve all Recall tokens associated with the PGS Player encoded in the
+ *  provided recall session id. The API is only available for users that have
+ *  active PGS Player profile.
  *
  *  Method: games.recall.retrieveTokens
  *
@@ -1084,9 +1244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  Fetches a @c GTLRGames_RetrievePlayerTokensResponse.
  *
- *  Retrieve all Recall tokens associated with the PGS Player principal encoded
- *  in the provided recall session id. The API is only available for users that
- *  have active PGS Player profile.
+ *  Retrieve all Recall tokens associated with the PGS Player encoded in the
+ *  provided recall session id. The API is only available for users that have
+ *  active PGS Player profile.
  *
  *  @param sessionId Required. Opaque server-generated string that encodes all
  *    the necessary information to identify the PGS player / Google user and

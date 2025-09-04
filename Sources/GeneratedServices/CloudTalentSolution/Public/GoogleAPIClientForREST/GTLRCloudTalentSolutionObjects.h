@@ -41,11 +41,7 @@
 @class GTLRCloudTalentSolution_Location;
 @class GTLRCloudTalentSolution_LocationFilter;
 @class GTLRCloudTalentSolution_MatchingJob;
-@class GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput;
 @class GTLRCloudTalentSolution_Money;
-@class GTLRCloudTalentSolution_NamespacedDebugInput;
-@class GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags;
-@class GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts;
 @class GTLRCloudTalentSolution_Operation_Metadata;
 @class GTLRCloudTalentSolution_Operation_Response;
 @class GTLRCloudTalentSolution_PostalAddress;
@@ -909,7 +905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_PostingRegion_Te
 // GTLRCloudTalentSolution_Job.visibility
 
 /**
- *  The resource is only visible to the GCP account who owns it.
+ *  The resource is only visible to the Google Cloud account who owns it.
  *
  *  Value: "ACCOUNT_ONLY"
  */
@@ -1640,16 +1636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_Telec
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommutePreferenceUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_NamespacedDebugInput.testingMode
-
-/** Value: "TESTING_MODE_ALL_OFF" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOff;
-/** Value: "TESTING_MODE_ALL_ON" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOn;
-/** Value: "TESTING_MODE_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_ProcessingOptions.htmlSanitization
 
 /**
@@ -1797,6 +1783,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Ke
  *  Value: "KEYWORD_MATCH_TITLE_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchTitleOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudTalentSolution_SearchJobsRequest.relevanceThreshold
+
+/**
+ *  High relevance threshold.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_High;
+/**
+ *  Low relevance threshold.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Low;
+/**
+ *  Lowest relevance threshold.
+ *
+ *  Value: "LOWEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Lowest;
+/**
+ *  Medium relevance threshold.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Medium;
+/**
+ *  Default value. In this case, server behavior defaults to Google defined
+ *  threshold.
+ *
+ *  Value: "RELEVANCE_THRESHOLD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_RelevanceThresholdUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_SearchJobsRequest.searchMode
@@ -2933,18 +2954,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  treated as expired immediately on creation. This kind of job can not be
  *  updated. And when creating a job with past timestamp, the
  *  posting_publish_time must be set before posting_expire_time. The purpose of
- *  this feature is to allow other objects, such as Application, to refer a job
- *  that didn't exist in the system prior to becoming expired. If you want to
- *  modify a job that was expired on creation, delete it and create a new one.
- *  If this value isn't provided at the time of job creation or is invalid, the
- *  job posting expires after 30 days from the job's creation time. For example,
- *  if the job was created on 2017/01/01 13:00AM UTC with an unspecified
- *  expiration date, the job expires after 2017/01/31 13:00AM UTC. If this value
- *  isn't provided on job update, it depends on the field masks set by
- *  UpdateJobRequest.update_mask. If the field masks include job_end_time, or
- *  the masks are empty meaning that every field is updated, the job posting
- *  expires after 30 days from the job's last update time. Otherwise the
- *  expiration date isn't updated.
+ *  this feature is to allow other objects, such as ApplicationInfo, to refer a
+ *  job that didn't exist in the system prior to becoming expired. If you want
+ *  to modify a job that was expired on creation, delete it and create a new
+ *  one. If this value isn't provided at the time of job creation or is invalid,
+ *  the job posting expires after 30 days from the job's creation time. For
+ *  example, if the job was created on 2017/01/01 13:00AM UTC with an
+ *  unspecified expiration date, the job expires after 2017/01/31 13:00AM UTC.
+ *  If this value isn't provided on job update, it depends on the field masks
+ *  set by UpdateJobRequest.update_mask. If the field masks include
+ *  job_end_time, or the masks are empty meaning that every field is updated,
+ *  the job posting expires after 30 days from the job's last update time.
+ *  Otherwise the expiration date isn't updated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *postingExpireTime;
 
@@ -3046,7 +3067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_Job_Visibility_AccountOnly The resource
- *        is only visible to the GCP account who owns it. (Value:
+ *        is only visible to the Google Cloud account who owns it. (Value:
  *        "ACCOUNT_ONLY")
  *    @arg @c kGTLRCloudTalentSolution_Job_Visibility_SharedWithGoogle The
  *        resource is visible to the owner and may be visible to other
@@ -3599,13 +3620,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  set or set to TelecommutePreference.TELECOMMUTE_EXCLUDED, the telecommute
  *  status of the jobs is ignored. Jobs that have PostingRegion.TELECOMMUTE and
  *  have additional Job.addresses may still be matched based on other location
- *  filters using address or latlng. This filter can be used by itself to search
- *  exclusively for telecommuting jobs, or it can be combined with another
- *  location filter to search for a combination of job locations, such as
- *  "Mountain View" or "telecommuting" jobs. However, when used in combination
- *  with other location filters, telecommuting jobs can be treated as less
- *  relevant than other jobs in the search response. This field is only used for
- *  job search requests.
+ *  filters using address or lat_lng. This filter can be used by itself to
+ *  search exclusively for telecommuting jobs, or it can be combined with
+ *  another location filter to search for a combination of job locations, such
+ *  as "Mountain View" or "telecommuting" jobs. However, when used in
+ *  combination with other location filters, telecommuting jobs can be treated
+ *  as less relevant than other jobs in the search response. This field is only
+ *  used for job search requests.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteAllowed
@@ -3663,47 +3684,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Message representing input to a Mendel server for debug forcing. See
- *  go/mendel-debug-forcing for more details. Next ID: 2
- */
-@interface GTLRCloudTalentSolution_MendelDebugInput : GTLRObject
-
-/**
- *  When a request spans multiple servers, a MendelDebugInput may travel with
- *  the request and take effect in all the servers. This field is a map of
- *  namespaces to NamespacedMendelDebugInput protos. In a single server, up to
- *  two NamespacedMendelDebugInput protos are applied: 1.
- *  NamespacedMendelDebugInput with the global namespace (key == ""). 2.
- *  NamespacedMendelDebugInput with the server's namespace. When both
- *  NamespacedMendelDebugInput protos are present, they are merged. See
- *  go/mendel-debug-forcing for more details.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput *namespacedDebugInput;
-
-@end
-
-
-/**
- *  When a request spans multiple servers, a MendelDebugInput may travel with
- *  the request and take effect in all the servers. This field is a map of
- *  namespaces to NamespacedMendelDebugInput protos. In a single server, up to
- *  two NamespacedMendelDebugInput protos are applied: 1.
- *  NamespacedMendelDebugInput with the global namespace (key == ""). 2.
- *  NamespacedMendelDebugInput with the server's namespace. When both
- *  NamespacedMendelDebugInput protos are present, they are merged. See
- *  go/mendel-debug-forcing for more details.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCloudTalentSolution_NamespacedDebugInput. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput : GTLRObject
-@end
-
-
-/**
  *  Represents an amount of money with its currency type.
  */
 @interface GTLRCloudTalentSolution_Money : GTLRObject
@@ -3730,175 +3710,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
 
-@end
-
-
-/**
- *  Next ID: 16
- */
-@interface GTLRCloudTalentSolution_NamespacedDebugInput : GTLRObject
-
-/**
- *  Set of experiment names to be absolutely forced. These experiments will be
- *  forced without evaluating the conditions.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *absolutelyForcedExpNames;
-
-/**
- *  Set of experiment ids to be absolutely forced. These ids will be forced
- *  without evaluating the conditions.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *absolutelyForcedExps;
-
-/**
- *  Set of experiment tags to be absolutely forced. The experiments with these
- *  tags will be forced without evaluating the conditions.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *absolutelyForcedExpTags;
-
-/**
- *  Set of experiment names to be conditionally forced. These experiments will
- *  be forced only if their conditions and their parent domain's conditions are
- *  true.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *conditionallyForcedExpNames;
-
-/**
- *  Set of experiment ids to be conditionally forced. These ids will be forced
- *  only if their conditions and their parent domain's conditions are true.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *conditionallyForcedExps;
-
-/**
- *  Set of experiment tags to be conditionally forced. The experiments with
- *  these tags will be forced only if their conditions and their parent domain's
- *  conditions are true.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *conditionallyForcedExpTags;
-
-/**
- *  If true, disable automatic enrollment selection (at all diversion points).
- *  Automatic enrollment selection means experiment selection process based on
- *  the experiment's automatic enrollment condition. This does not disable
- *  selection of forced experiments. Setting this field to false does not change
- *  anything in the experiment selection process.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disableAutomaticEnrollmentSelection;
-
-/**
- *  Set of experiment names to be disabled. If an experiment is disabled, it is
- *  never selected nor forced. If an aggregate experiment is disabled, its
- *  partitions are disabled together. If an experiment with an enrollment is
- *  disabled, the enrollment is disabled together. If a name corresponds to a
- *  domain, the domain itself and all descendant experiments and domains are
- *  disabled together.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *disableExpNames;
-
-/**
- *  Set of experiment ids to be disabled. If an experiment is disabled, it is
- *  never selected nor forced. If an aggregate experiment is disabled, its
- *  partitions are disabled together. If an experiment with an enrollment is
- *  disabled, the enrollment is disabled together. If an ID corresponds to a
- *  domain, the domain itself and all descendant experiments and domains are
- *  disabled together.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *disableExps;
-
-/**
- *  Set of experiment tags to be disabled. All experiments that are tagged with
- *  one or more of these tags are disabled. If an experiment is disabled, it is
- *  never selected nor forced. If an aggregate experiment is disabled, its
- *  partitions are disabled together. If an experiment with an enrollment is
- *  disabled, the enrollment is disabled together.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *disableExpTags;
-
-/**
- *  If true, disable manual enrollment selection (at all diversion points).
- *  Manual enrollment selection means experiment selection process based on the
- *  request's manual enrollment states (a.k.a. opt-in experiments). This does
- *  not disable selection of forced experiments. Setting this field to false
- *  does not change anything in the experiment selection process.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disableManualEnrollmentSelection;
-
-/**
- *  If true, disable organic experiment selection (at all diversion points).
- *  Organic selection means experiment selection process based on traffic
- *  allocation and diversion condition evaluation. This does not disable
- *  selection of forced experiments. This is useful in cases when it is not
- *  known whether experiment selection behavior is responsible for a error or
- *  breakage. Disabling organic selection may help to isolate the cause of a
- *  given problem. Setting this field to false does not change anything in the
- *  experiment selection process.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disableOrganicSelection;
-
-/**
- *  Flags to force in a particular experiment state. Map from flag name to flag
- *  value.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags *forcedFlags;
-
-/**
- *  Rollouts to force in a particular experiment state. Map from rollout name to
- *  rollout value.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts *forcedRollouts;
-
-/**
- *  Sets different testing modes. See the documentation in the TestingMode
- *  message for more information.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOff
- *        Value "TESTING_MODE_ALL_OFF"
- *    @arg @c kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOn
- *        Value "TESTING_MODE_ALL_ON"
- *    @arg @c kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeUnspecified
- *        Value "TESTING_MODE_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *testingMode;
-
-@end
-
-
-/**
- *  Flags to force in a particular experiment state. Map from flag name to flag
- *  value.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags : GTLRObject
-@end
-
-
-/**
- *  Rollouts to force in a particular experiment state. Map from rollout name to
- *  rollout value.
- *
- *  @note This class is documented as having more properties of NSNumber (Uses
- *        NSNumber of boolValue.). Use @c -additionalJSONKeys and @c
- *        -additionalPropertyForName: to get the list of properties and then
- *        fetch them; or @c -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts : GTLRObject
 @end
 
 
@@ -3983,48 +3794,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Represents a postal address, e.g. for postal delivery or payments addresses.
- *  Given a postal address, a postal service can deliver items to a premise,
- *  P.O. Box or similar. It is not intended to model geographical locations
- *  (roads, towns, mountains). In typical usage an address would be created via
- *  user input or from importing existing data, depending on the type of
- *  process. Advice on address input / editing: - Use an
+ *  Represents a postal address (for example, for postal delivery or payments
+ *  addresses). Given a postal address, a postal service can deliver items to a
+ *  premise, P.O. box or similar. It is not intended to model geographical
+ *  locations (roads, towns, mountains). In typical usage, an address would be
+ *  created by user input or from importing existing data, depending on the type
+ *  of process. Advice on address input or editing: - Use an
  *  internationalization-ready address widget such as
- *  https://github.com/google/libaddressinput) - Users should not be presented
+ *  https://github.com/google/libaddressinput. - Users should not be presented
  *  with UI elements for input or editing of fields outside countries where that
- *  field is used. For more guidance on how to use this schema, please see:
- *  https://support.google.com/business/answer/6397478
+ *  field is used. For more guidance on how to use this schema, see:
+ *  https://support.google.com/business/answer/6397478.
  */
 @interface GTLRCloudTalentSolution_PostalAddress : GTLRObject
 
 /**
  *  Unstructured address lines describing the lower levels of an address.
- *  Because values in address_lines do not have type information and may
- *  sometimes contain multiple values in a single field (e.g. "Austin, TX"), it
- *  is important that the line order is clear. The order of address lines should
- *  be "envelope order" for the country/region of the address. In places where
- *  this can vary (e.g. Japan), address_language is used to make it explicit
- *  (e.g. "ja" for large-to-small ordering and "ja-Latn" or "en" for
- *  small-to-large). This way, the most specific line of an address can be
- *  selected based on the language. The minimum permitted structural
- *  representation of an address consists of a region_code with all remaining
- *  information placed in the address_lines. It would be possible to format such
- *  an address very approximately without geocoding, but no semantic reasoning
- *  could be made about any of the address components until it was at least
- *  partially resolved. Creating an address only containing a region_code and
- *  address_lines, and then geocoding is the recommended way to handle
- *  completely unstructured addresses (as opposed to guessing which parts of the
- *  address should be localities or administrative areas).
+ *  Because values in `address_lines` do not have type information and may
+ *  sometimes contain multiple values in a single field (for example, "Austin,
+ *  TX"), it is important that the line order is clear. The order of address
+ *  lines should be "envelope order" for the country or region of the address.
+ *  In places where this can vary (for example, Japan), `address_language` is
+ *  used to make it explicit (for example, "ja" for large-to-small ordering and
+ *  "ja-Latn" or "en" for small-to-large). In this way, the most specific line
+ *  of an address can be selected based on the language. The minimum permitted
+ *  structural representation of an address consists of a `region_code` with all
+ *  remaining information placed in the `address_lines`. It would be possible to
+ *  format such an address very approximately without geocoding, but no semantic
+ *  reasoning could be made about any of the address components until it was at
+ *  least partially resolved. Creating an address only containing a
+ *  `region_code` and `address_lines` and then geocoding is the recommended way
+ *  to handle completely unstructured addresses (as opposed to guessing which
+ *  parts of the address should be localities or administrative areas).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addressLines;
 
 /**
  *  Optional. Highest administrative subdivision which is used for postal
  *  addresses of a country or region. For example, this can be a state, a
- *  province, an oblast, or a prefecture. Specifically, for Spain this is the
- *  province and not the autonomous community (e.g. "Barcelona" and not
- *  "Catalonia"). Many countries don't use an administrative area in postal
- *  addresses. E.g. in Switzerland this should be left unpopulated.
+ *  province, an oblast, or a prefecture. For Spain, this is the province and
+ *  not the autonomous community (for example, "Barcelona" and not "Catalonia").
+ *  Many countries don't use an administrative area in postal addresses. For
+ *  example, in Switzerland, this should be left unpopulated.
  */
 @property(nonatomic, copy, nullable) NSString *administrativeArea;
 
@@ -4041,10 +3852,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Optional. Generally refers to the city/town portion of the address.
+ *  Optional. Generally refers to the city or town portion of the address.
  *  Examples: US city, IT comune, UK post town. In regions of the world where
  *  localities are not well defined or do not fit into this structure well,
- *  leave locality empty and use address_lines.
+ *  leave `locality` empty and use `address_lines`.
  */
 @property(nonatomic, copy, nullable) NSString *locality;
 
@@ -4054,8 +3865,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 /**
  *  Optional. Postal code of the address. Not all countries use or require
  *  postal codes to be present, but where they are used, they may trigger
- *  additional validation with other parts of the address (e.g. state/zip
- *  validation in the U.S.A.).
+ *  additional validation with other parts of the address (for example, state or
+ *  zip code validation in the United States).
  */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
@@ -4087,15 +3898,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 /**
  *  Optional. Additional, country-specific, sorting code. This is not used in
  *  most regions. Where it is used, the value is either a string like "CEDEX",
- *  optionally followed by a number (e.g. "CEDEX 7"), or just a number alone,
- *  representing the "sector code" (Jamaica), "delivery area indicator" (Malawi)
- *  or "post office indicator" (e.g. Côte d'Ivoire).
+ *  optionally followed by a number (for example, "CEDEX 7"), or just a number
+ *  alone, representing the "sector code" (Jamaica), "delivery area indicator"
+ *  (Malawi) or "post office indicator" (Côte d'Ivoire).
  */
 @property(nonatomic, copy, nullable) NSString *sortingCode;
 
 /**
- *  Optional. Sublocality of the address. For example, this can be
- *  neighborhoods, boroughs, districts.
+ *  Optional. Sublocality of the address. For example, this can be a
+ *  neighborhood, borough, or district.
  */
 @property(nonatomic, copy, nullable) NSString *sublocality;
 
@@ -4481,6 +4292,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  Optional. The relevance threshold of the search results. Default to Google
+ *  defined threshold, leveraging a balance of precision and recall to deliver
+ *  both highly accurate results and comprehensive coverage of relevant
+ *  information.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_High
+ *        High relevance threshold. (Value: "HIGH")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Low
+ *        Low relevance threshold. (Value: "LOW")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Lowest
+ *        Lowest relevance threshold. (Value: "LOWEST")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Medium
+ *        Medium relevance threshold. (Value: "MEDIUM")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_RelevanceThresholdUnspecified
+ *        Default value. In this case, server behavior defaults to Google
+ *        defined threshold. (Value: "RELEVANCE_THRESHOLD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *relevanceThreshold;
+
+/**
  *  Required. The meta information collected about the job searcher, used to
  *  improve the search quality of the service. The identifiers (such as
  *  `user_id`) are provided by users, and must be unique and consistent.
@@ -4676,30 +4508,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @interface GTLRCloudTalentSolution_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */

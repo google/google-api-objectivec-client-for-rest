@@ -27,8 +27,9 @@
 //
 
 @implementation GTLRFcmdata_GoogleFirebaseFcmDataV1beta1Data
-@dynamic countMessagesAccepted, deliveryPerformancePercents,
-         messageInsightPercents, messageOutcomePercents;
+@dynamic countMessagesAccepted, countNotificationsAccepted,
+         deliveryPerformancePercents, messageInsightPercents,
+         messageOutcomePercents, proxyNotificationInsightPercents;
 @end
 
 
@@ -81,8 +82,19 @@
 //
 
 @implementation GTLRFcmdata_GoogleFirebaseFcmDataV1beta1MessageOutcomePercents
-@dynamic delivered, droppedAppForceStopped, droppedDeviceInactive,
-         droppedTooManyPendingMessages, pending;
+@dynamic collapsed, delivered, droppedAppForceStopped, droppedDeviceInactive,
+         droppedTooManyPendingMessages, droppedTtlExpired, pending;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFcmdata_GoogleFirebaseFcmDataV1beta1ProxyNotificationInsightPercents
+//
+
+@implementation GTLRFcmdata_GoogleFirebaseFcmDataV1beta1ProxyNotificationInsightPercents
+@dynamic failed, proxied, skippedNotThrottled, skippedOptedOut,
+         skippedUnconfigured, skippedUnsupported;
 @end
 
 

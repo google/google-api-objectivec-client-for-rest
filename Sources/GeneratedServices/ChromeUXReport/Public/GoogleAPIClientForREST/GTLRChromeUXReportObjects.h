@@ -172,9 +172,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  The proportion of users that experienced this bin's value for the given
  *  metric.
  *
- *  Uses NSNumber of doubleValue.
+ *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) NSNumber *density;
+@property(nonatomic, strong, nullable) id density;
 
 /**
  *  End is the end of the data bin. If end is not populated, then the bin has no
@@ -507,6 +507,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  necessary context to load a particular user experience history record.
  */
 @interface GTLRChromeUXReport_QueryHistoryRequest : GTLRObject
+
+/**
+ *  The number of collection periods to return. If not specified, the default is
+ *  25. If present, must be in the range [1, 40].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *collectionPeriodCount;
 
 /**
  *  The form factor is a query dimension that specifies the device class that

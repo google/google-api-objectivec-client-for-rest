@@ -356,12 +356,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A list of query parameters specified as JSON text in the form of:
- *  `{"projectId":"my_project_id", "jobNames":["jobid1","jobid2",...],
- *  "jobStatuses":["status1","status2",...]}` Since `jobNames` and `jobStatuses`
- *  support multiple values, their values must be specified with array notation.
- *  `projectId` is required. `jobNames` and `jobStatuses` are optional. The
- *  valid values for `jobStatuses` are case-insensitive: ENABLED, DISABLED, and
- *  DELETED.
+ *  ``` { "projectId":"my_project_id", "jobNames":["jobid1","jobid2",...],
+ *  "jobStatuses":["status1","status2",...],
+ *  "dataBackend":"QUERY_REPLICATION_CONFIGS",
+ *  "sourceBucket":"source-bucket-name", "sinkBucket":"sink-bucket-name", } ```
+ *  The JSON formatting in the example is for display only; provide the query
+ *  parameters without spaces or line breaks. * `projectId` is required. * Since
+ *  `jobNames` and `jobStatuses` support multiple values, their values must be
+ *  specified with array notation. `jobNames` and `jobStatuses` are optional.
+ *  Valid values are case-insensitive: * ENABLED * DISABLED * DELETED * Specify
+ *  `"dataBackend":"QUERY_REPLICATION_CONFIGS"` to return a list of cross-bucket
+ *  replication jobs. * Limit the results to jobs from a particular bucket with
+ *  `sourceBucket` and/or to a particular bucket with `sinkBucket`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -377,13 +383,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists transfer jobs.
  *
  *  @param filter Required. A list of query parameters specified as JSON text in
- *    the form of: `{"projectId":"my_project_id",
+ *    the form of: ``` { "projectId":"my_project_id",
  *    "jobNames":["jobid1","jobid2",...],
- *    "jobStatuses":["status1","status2",...]}` Since `jobNames` and
- *    `jobStatuses` support multiple values, their values must be specified with
- *    array notation. `projectId` is required. `jobNames` and `jobStatuses` are
- *    optional. The valid values for `jobStatuses` are case-insensitive:
- *    ENABLED, DISABLED, and DELETED.
+ *    "jobStatuses":["status1","status2",...],
+ *    "dataBackend":"QUERY_REPLICATION_CONFIGS",
+ *    "sourceBucket":"source-bucket-name", "sinkBucket":"sink-bucket-name", }
+ *    ``` The JSON formatting in the example is for display only; provide the
+ *    query parameters without spaces or line breaks. * `projectId` is required.
+ *    * Since `jobNames` and `jobStatuses` support multiple values, their values
+ *    must be specified with array notation. `jobNames` and `jobStatuses` are
+ *    optional. Valid values are case-insensitive: * ENABLED * DISABLED *
+ *    DELETED * Specify `"dataBackend":"QUERY_REPLICATION_CONFIGS"` to return a
+ *    list of cross-bucket replication jobs. * Limit the results to jobs from a
+ *    particular bucket with `sourceBucket` and/or to a particular bucket with
+ *    `sinkBucket`.
  *
  *  @return GTLRStorageTransferQuery_TransferJobsList
  *
@@ -568,11 +581,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. A list of query parameters specified as JSON text in the form of:
  *  `{"projectId":"my_project_id", "jobNames":["jobid1","jobid2",...],
- *  "operationNames":["opid1","opid2",...],
+ *  "jobNamePattern": "job_name_pattern",
+ *  "operationNames":["opid1","opid2",...], "operationNamePattern":
+ *  "operation_name_pattern", "minCreationTime": "min_creation_time",
+ *  "maxCreationTime": "max_creation_time",
  *  "transferStatuses":["status1","status2",...]}` Since `jobNames`,
  *  `operationNames`, and `transferStatuses` support multiple values, they must
- *  be specified with array notation. `projectId` is required. `jobNames`,
- *  `operationNames`, and `transferStatuses` are optional. The valid values for
+ *  be specified with array notation. `projectId` is the only argument that is
+ *  required. If specified, `jobNamePattern` and `operationNamePattern` must
+ *  match the full job or operation name respectively. '*' is a wildcard
+ *  matching 0 or more characters. `minCreationTime` and `maxCreationTime`
+ *  should be timestamps encoded as a string in the [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. The valid values for
  *  `transferStatuses` are case-insensitive: IN_PROGRESS, PAUSED, SUCCESS,
  *  FAILED, and ABORTED.
  */
@@ -599,12 +619,18 @@ NS_ASSUME_NONNULL_BEGIN
  *    `transferOperations`.
  *  @param filter Required. A list of query parameters specified as JSON text in
  *    the form of: `{"projectId":"my_project_id",
- *    "jobNames":["jobid1","jobid2",...],
- *    "operationNames":["opid1","opid2",...],
+ *    "jobNames":["jobid1","jobid2",...], "jobNamePattern": "job_name_pattern",
+ *    "operationNames":["opid1","opid2",...], "operationNamePattern":
+ *    "operation_name_pattern", "minCreationTime": "min_creation_time",
+ *    "maxCreationTime": "max_creation_time",
  *    "transferStatuses":["status1","status2",...]}` Since `jobNames`,
  *    `operationNames`, and `transferStatuses` support multiple values, they
- *    must be specified with array notation. `projectId` is required.
- *    `jobNames`, `operationNames`, and `transferStatuses` are optional. The
+ *    must be specified with array notation. `projectId` is the only argument
+ *    that is required. If specified, `jobNamePattern` and
+ *    `operationNamePattern` must match the full job or operation name
+ *    respectively. '*' is a wildcard matching 0 or more characters.
+ *    `minCreationTime` and `maxCreationTime` should be timestamps encoded as a
+ *    string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. The
  *    valid values for `transferStatuses` are case-insensitive: IN_PROGRESS,
  *    PAUSED, SUCCESS, FAILED, and ABORTED.
  *

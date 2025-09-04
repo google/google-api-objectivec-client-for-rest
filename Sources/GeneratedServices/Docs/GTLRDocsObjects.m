@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Docs documents.
 // Documentation:
-//   https://developers.google.com/docs/
+//   https://developers.google.com/workspace/docs/
 
 #import <GoogleAPIClientForREST/GTLRDocsObjects.h>
 
@@ -312,6 +312,21 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_BookmarkLink
+//
+
+@implementation GTLRDocs_BookmarkLink
+@dynamic identifier, tabId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_Bullet
 //
 
@@ -501,7 +516,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_DeleteFooterRequest
-@dynamic footerId;
+@dynamic footerId, tabId;
 @end
 
 
@@ -511,7 +526,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_DeleteHeaderRequest
-@dynamic headerId;
+@dynamic headerId, tabId;
 @end
 
 
@@ -521,7 +536,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_DeleteNamedRangeRequest
-@dynamic name, namedRangeId;
+@dynamic name, namedRangeId, tabsCriteria;
 @end
 
 
@@ -541,7 +556,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_DeletePositionedObjectRequest
-@dynamic objectId;
+@dynamic objectId, tabId;
 @end
 
 
@@ -584,7 +599,15 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @dynamic body, documentId, documentStyle, footers, footnotes, headers,
          inlineObjects, lists, namedRanges, namedStyles, positionedObjects,
          revisionId, suggestedDocumentStyleChanges, suggestedNamedStylesChanges,
-         suggestionsViewMode, title;
+         suggestionsViewMode, tabs, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tabs" : [GTLRDocs_Tab class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -749,6 +772,144 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_DocumentTab
+//
+
+@implementation GTLRDocs_DocumentTab
+@dynamic body, documentStyle, footers, footnotes, headers, inlineObjects, lists,
+         namedRanges, namedStyles, positionedObjects,
+         suggestedDocumentStyleChanges, suggestedNamedStylesChanges;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_Footers
+//
+
+@implementation GTLRDocs_DocumentTab_Footers
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_Footer class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_Footnotes
+//
+
+@implementation GTLRDocs_DocumentTab_Footnotes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_Footnote class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_Headers
+//
+
+@implementation GTLRDocs_DocumentTab_Headers
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_Header class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_InlineObjects
+//
+
+@implementation GTLRDocs_DocumentTab_InlineObjects
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_InlineObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_Lists
+//
+
+@implementation GTLRDocs_DocumentTab_Lists
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_List class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_NamedRanges
+//
+
+@implementation GTLRDocs_DocumentTab_NamedRanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_NamedRanges class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_PositionedObjects
+//
+
+@implementation GTLRDocs_DocumentTab_PositionedObjects
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_PositionedObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_SuggestedDocumentStyleChanges
+//
+
+@implementation GTLRDocs_DocumentTab_SuggestedDocumentStyleChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedDocumentStyle class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DocumentTab_SuggestedNamedStylesChanges
+//
+
+@implementation GTLRDocs_DocumentTab_SuggestedNamedStylesChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedNamedStyles class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_EmbeddedDrawingProperties
 //
 
@@ -823,7 +984,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_EndOfSegmentLocation
-@dynamic segmentId;
+@dynamic segmentId, tabId;
 @end
 
 
@@ -929,6 +1090,21 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
     @"content" : [GTLRDocs_StructuralElement class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_HeadingLink
+//
+
+@implementation GTLRDocs_HeadingLink
+@dynamic identifier, tabId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end
@@ -1174,7 +1350,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Link
-@dynamic bookmarkId, headingId, url;
+@dynamic bookmark, bookmarkId, heading, headingId, tabId, url;
 @end
 
 
@@ -1273,7 +1449,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Location
-@dynamic index, segmentId;
+@dynamic index, segmentId, tabId;
 @end
 
 
@@ -1722,7 +1898,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Range
-@dynamic endIndex, segmentId, startIndex;
+@dynamic endIndex, segmentId, startIndex, tabId;
 @end
 
 
@@ -1732,7 +1908,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_ReplaceAllTextRequest
-@dynamic containsText, replaceText;
+@dynamic containsText, replaceText, tabsCriteria;
 @end
 
 
@@ -1752,7 +1928,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_ReplaceImageRequest
-@dynamic imageObjectId, imageReplaceMethod, uri;
+@dynamic imageObjectId, imageReplaceMethod, tabId, uri;
 @end
 
 
@@ -1762,7 +1938,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_ReplaceNamedRangeContentRequest
-@dynamic namedRangeId, namedRangeName, text;
+@dynamic namedRangeId, namedRangeName, tabsCriteria, text;
 @end
 
 
@@ -1977,7 +2153,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_SubstringMatchCriteria
-@dynamic matchCase, text;
+@dynamic matchCase, searchByRegex, text;
 @end
 
 
@@ -2078,6 +2254,24 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_SuggestedTextStyle
 @dynamic textStyle, textStyleSuggestionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_Tab
+//
+
+@implementation GTLRDocs_Tab
+@dynamic childTabs, documentTab, tabProperties;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childTabs" : [GTLRDocs_Tab class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2298,6 +2492,34 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_TabProperties
+//
+
+@implementation GTLRDocs_TabProperties
+@dynamic index, nestingLevel, parentTabId, tabId, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_TabsCriteria
+//
+
+@implementation GTLRDocs_TabsCriteria
+@dynamic tabIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tabIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_TabStop
 //
 
@@ -2380,7 +2602,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_UpdateDocumentStyleRequest
-@dynamic documentStyle, fields;
+@dynamic documentStyle, fields, tabId;
 @end
 
 

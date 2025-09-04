@@ -26,7 +26,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_ListProductsResponse class];
   query.loggingName = @"paymentsresellersubscription.partners.products.list";
   return query;
 }
@@ -37,7 +37,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_FindEligiblePromotionsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -53,7 +53,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_FindEligiblePromotionsResponse class];
   query.loggingName = @"paymentsresellersubscription.partners.promotions.findEligible";
   return query;
 }
@@ -72,7 +72,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListPromotionsResponse class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_ListPromotionsResponse class];
   query.loggingName = @"paymentsresellersubscription.partners.promotions.list";
   return query;
 }
@@ -83,7 +83,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_CancelSubscriptionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -99,7 +99,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionResponse class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_CancelSubscriptionResponse class];
   query.loggingName = @"paymentsresellersubscription.partners.subscriptions.cancel";
   return query;
 }
@@ -110,7 +110,7 @@
 
 @dynamic parent, subscriptionId;
 
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_Subscription *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -126,7 +126,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_Subscription class];
   query.loggingName = @"paymentsresellersubscription.partners.subscriptions.create";
   return query;
 }
@@ -137,7 +137,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_EntitleSubscriptionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -153,7 +153,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionResponse class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_EntitleSubscriptionResponse class];
   query.loggingName = @"paymentsresellersubscription.partners.subscriptions.entitle";
   return query;
 }
@@ -164,7 +164,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_ExtendSubscriptionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -180,7 +180,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionResponse class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_ExtendSubscriptionResponse class];
   query.loggingName = @"paymentsresellersubscription.partners.subscriptions.extend";
   return query;
 }
@@ -199,7 +199,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_Subscription class];
   query.loggingName = @"paymentsresellersubscription.partners.subscriptions.get";
   return query;
 }
@@ -210,7 +210,7 @@
 
 @dynamic parent, subscriptionId;
 
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_Subscription *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -226,8 +226,62 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_Subscription class];
   query.loggingName = @"paymentsresellersubscription.partners.subscriptions.provision";
+  return query;
+}
+
+@end
+
+@implementation GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsResume
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_ResumeSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:resume";
+  GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsResume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_ResumeSubscriptionResponse class];
+  query.loggingName = @"paymentsresellersubscription.partners.subscriptions.resume";
+  return query;
+}
+
+@end
+
+@implementation GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsSuspend
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_SuspendSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:suspend";
+  GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsSuspend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_SuspendSubscriptionResponse class];
+  query.loggingName = @"paymentsresellersubscription.partners.subscriptions.suspend";
   return query;
 }
 
@@ -237,7 +291,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_UndoCancelSubscriptionRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -253,8 +307,35 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionResponse class];
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_UndoCancelSubscriptionResponse class];
   query.loggingName = @"paymentsresellersubscription.partners.subscriptions.undoCancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRPaymentsResellerSubscriptionQuery_PartnersUserSessionsGenerate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GenerateUserSessionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userSessions:generate";
+  GTLRPaymentsResellerSubscriptionQuery_PartnersUserSessionsGenerate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_GenerateUserSessionResponse class];
+  query.loggingName = @"paymentsresellersubscription.partners.userSessions.generate";
   return query;
 }
 

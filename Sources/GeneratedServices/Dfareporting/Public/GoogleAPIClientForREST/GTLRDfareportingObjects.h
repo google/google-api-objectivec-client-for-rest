@@ -35,9 +35,9 @@
 @class GTLRDfareporting_Campaign;
 @class GTLRDfareporting_CampaignCreativeAssociation;
 @class GTLRDfareporting_CampaignSummary;
+@class GTLRDfareporting_CartData;
+@class GTLRDfareporting_CartDataItem;
 @class GTLRDfareporting_ChangeLog;
-@class GTLRDfareporting_ChannelGrouping;
-@class GTLRDfareporting_ChannelGroupingRule;
 @class GTLRDfareporting_City;
 @class GTLRDfareporting_ClickTag;
 @class GTLRDfareporting_ClickThroughUrl;
@@ -46,6 +46,8 @@
 @class GTLRDfareporting_CompanionSetting;
 @class GTLRDfareporting_ConnectionType;
 @class GTLRDfareporting_ContentCategory;
+@class GTLRDfareporting_ContentSource;
+@class GTLRDfareporting_ContentSourceMetaData;
 @class GTLRDfareporting_Conversion;
 @class GTLRDfareporting_ConversionError;
 @class GTLRDfareporting_ConversionStatus;
@@ -65,8 +67,11 @@
 @class GTLRDfareporting_CreativeOptimizationConfiguration;
 @class GTLRDfareporting_CreativeRotation;
 @class GTLRDfareporting_CrossDimensionReachReportCompatibleFields;
+@class GTLRDfareporting_CrossMediaReachReportCompatibleFields;
 @class GTLRDfareporting_CustomFloodlightVariable;
 @class GTLRDfareporting_CustomRichMediaEvents;
+@class GTLRDfareporting_CustomRule;
+@class GTLRDfareporting_CustomValueField;
 @class GTLRDfareporting_CustomViewabilityMetric;
 @class GTLRDfareporting_CustomViewabilityMetricConfiguration;
 @class GTLRDfareporting_DateRange;
@@ -74,18 +79,27 @@
 @class GTLRDfareporting_DeepLink;
 @class GTLRDfareporting_DefaultClickThroughEventTagProperties;
 @class GTLRDfareporting_DeliverySchedule;
+@class GTLRDfareporting_DependentFieldValue;
 @class GTLRDfareporting_DfpSettings;
 @class GTLRDfareporting_Dimension;
 @class GTLRDfareporting_DimensionFilter;
 @class GTLRDfareporting_DimensionValue;
 @class GTLRDfareporting_DirectorySite;
 @class GTLRDfareporting_DirectorySiteSettings;
-@class GTLRDfareporting_DisjunctiveMatchStatement;
+@class GTLRDfareporting_DynamicFeed;
+@class GTLRDfareporting_DynamicProfileFeedSettings;
+@class GTLRDfareporting_DynamicProfileVersion;
+@class GTLRDfareporting_DynamicRules;
 @class GTLRDfareporting_DynamicTargetingKey;
+@class GTLRDfareporting_Element;
 @class GTLRDfareporting_EncryptionInfo;
-@class GTLRDfareporting_EventFilter;
 @class GTLRDfareporting_EventTag;
 @class GTLRDfareporting_EventTagOverride;
+@class GTLRDfareporting_FeedField;
+@class GTLRDfareporting_FeedIngestionStatus;
+@class GTLRDfareporting_FeedSchedule;
+@class GTLRDfareporting_FieldError;
+@class GTLRDfareporting_FieldFilter;
 @class GTLRDfareporting_File;
 @class GTLRDfareporting_File_Urls;
 @class GTLRDfareporting_Flight;
@@ -98,6 +112,8 @@
 @class GTLRDfareporting_FrequencyCap;
 @class GTLRDfareporting_FsCommand;
 @class GTLRDfareporting_GeoTargeting;
+@class GTLRDfareporting_IngestionErrorRecord;
+@class GTLRDfareporting_IngestionStatus;
 @class GTLRDfareporting_InventoryItem;
 @class GTLRDfareporting_Invoice;
 @class GTLRDfareporting_KeyValueTargetingExpression;
@@ -127,9 +143,6 @@
 @class GTLRDfareporting_OptimizationActivity;
 @class GTLRDfareporting_Order;
 @class GTLRDfareporting_OrderContact;
-@class GTLRDfareporting_PathFilter;
-@class GTLRDfareporting_PathReportCompatibleFields;
-@class GTLRDfareporting_PathReportDimensionValue;
 @class GTLRDfareporting_PathToConversionReportCompatibleFields;
 @class GTLRDfareporting_Placement;
 @class GTLRDfareporting_PlacementAssignment;
@@ -145,26 +158,29 @@
 @class GTLRDfareporting_PricingSchedule;
 @class GTLRDfareporting_PricingSchedulePricingPeriod;
 @class GTLRDfareporting_Project;
+@class GTLRDfareporting_ProximityFilter;
 @class GTLRDfareporting_ReachReportCompatibleFields;
 @class GTLRDfareporting_Recipient;
 @class GTLRDfareporting_Region;
 @class GTLRDfareporting_RemarketingList;
+@class GTLRDfareporting_RemarketingValueAttribute;
 @class GTLRDfareporting_Report;
 @class GTLRDfareporting_Report_Criteria;
 @class GTLRDfareporting_Report_CrossDimensionReachCriteria;
+@class GTLRDfareporting_Report_CrossMediaReachCriteria;
 @class GTLRDfareporting_Report_Delivery;
 @class GTLRDfareporting_Report_FloodlightCriteria;
 @class GTLRDfareporting_Report_FloodlightCriteria_ReportProperties;
-@class GTLRDfareporting_Report_PathAttributionCriteria;
-@class GTLRDfareporting_Report_PathCriteria;
 @class GTLRDfareporting_Report_PathToConversionCriteria;
 @class GTLRDfareporting_Report_PathToConversionCriteria_ReportProperties;
 @class GTLRDfareporting_Report_ReachCriteria;
 @class GTLRDfareporting_Report_Schedule;
 @class GTLRDfareporting_ReportCompatibleFields;
 @class GTLRDfareporting_ReportsConfiguration;
+@class GTLRDfareporting_RequestValue;
 @class GTLRDfareporting_RichMediaExitOverride;
 @class GTLRDfareporting_Rule;
+@class GTLRDfareporting_RuleBlock;
 @class GTLRDfareporting_Site;
 @class GTLRDfareporting_SiteCompanionSetting;
 @class GTLRDfareporting_SiteContact;
@@ -186,6 +202,8 @@
 @class GTLRDfareporting_ThirdPartyAuthenticationToken;
 @class GTLRDfareporting_ThirdPartyTrackingUrl;
 @class GTLRDfareporting_TranscodeSetting;
+@class GTLRDfareporting_TvCampaignSummary;
+@class GTLRDfareporting_TvCampaignTimepoint;
 @class GTLRDfareporting_UniversalAdId;
 @class GTLRDfareporting_UserDefinedVariableConfiguration;
 @class GTLRDfareporting_UserIdentifier;
@@ -193,7 +211,6 @@
 @class GTLRDfareporting_UserRole;
 @class GTLRDfareporting_UserRolePermission;
 @class GTLRDfareporting_UserRolePermissionGroup;
-@class GTLRDfareporting_UvarFilter;
 @class GTLRDfareporting_VideoFormat;
 @class GTLRDfareporting_VideoOffset;
 @class GTLRDfareporting_VideoSettings;
@@ -524,6 +541,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_C
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Ea;
 /** Value: "P2C" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_ContentSource.resourceType
+
+/**
+ *  The resource type is google spreadsheet.
+ *
+ *  Value: "RESOURCE_TYPE_GOOGLE_SPREADSHEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeGoogleSpreadsheet;
+/**
+ *  The resource type is remote file.
+ *
+ *  Value: "RESOURCE_TYPE_REMOTE_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeRemoteFile;
+/**
+ *  The resource type is unspecified.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Conversion.adUserDataConsent
@@ -1488,9 +1527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Warne
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_EnablerUnsupportedMethodDcm;
 /**
- *  Reference to a third-party resource. Problematic because the volume of ad
- *  serving could bring down unprepared web servers due to high load. e.g.
- *  http://www.zibble.net/smiles.gif
+ *  Reference to a third-party resource.
  *
  *  Value: "EXTERNAL_FILE_REFERENCED"
  */
@@ -1520,8 +1557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Warne
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_Html5FeatureUnsupported;
 /**
- *  A relative file was linked to that wasn't included in zip. e.g.
- *  images/missing_file.gif
+ *  A relative file was linked to that wasn't included in zip.
  *
  *  Value: "LINKED_FILE_NOT_FOUND"
  */
@@ -1569,7 +1605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Warne
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_SvgInvalid;
 /**
- *  Invalid zip passed in (could not extract from zip
+ *  Invalid zip passed in
  *
  *  Value: "ZIP_INVALID"
  */
@@ -2053,6 +2089,150 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialT
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_JavascriptInterstitial;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_DynamicFeed.status
+
+/**
+ *  The feedstatus is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicFeed_Status_Active;
+/**
+ *  The feed status is deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicFeed_Status_Deleted;
+/**
+ *  The feed status is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicFeed_Status_Inactive;
+/**
+ *  The status is unknown.
+ *
+ *  Value: "STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicFeed_Status_StatusUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_DynamicProfile.archiveStatus
+
+/**
+ *  The dynamic profile archive status is archived.
+ *
+ *  Value: "ARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicProfile_ArchiveStatus_Archived;
+/**
+ *  The dynamic profile archive status is unknown. This value is unused.
+ *
+ *  Value: "ARCHIVE_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicProfile_ArchiveStatus_ArchiveStatusUnknown;
+/**
+ *  The dynamic profile archive status is unarchived.
+ *
+ *  Value: "UNARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicProfile_ArchiveStatus_Unarchived;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_DynamicProfile.status
+
+/**
+ *  The dynamic profile is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicProfile_Status_Active;
+/**
+ *  The dynamic profile is deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicProfile_Status_Deleted;
+/**
+ *  The dynamic profile is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicProfile_Status_Inactive;
+/**
+ *  The dynamic profile status is unknown. This value is unused.
+ *
+ *  Value: "STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicProfile_Status_StatusUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_DynamicRules.rotationType
+
+/**
+ *  The rotation type is optimized.
+ *
+ *  Value: "OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RotationType_Optimized;
+/**
+ *  The rotation type is random. It is the default value.
+ *
+ *  Value: "RANDOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RotationType_Random;
+/**
+ *  The rotation type is unknown. This value is unused.
+ *
+ *  Value: "ROTATION_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RotationType_RotationTypeUnknown;
+/**
+ *  The rotation type is weighted.
+ *
+ *  Value: "WEIGHTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RotationType_Weighted;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_DynamicRules.ruleType
+
+/**
+ *  The rule type is auto, the feed rows are eligible for selection based on the
+ *  automatic rules.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RuleType_Auto;
+/**
+ *  The rule type is custom, the feed rows are eligible for selection based on
+ *  the custom rules.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RuleType_Custom;
+/**
+ *  The rule type is open, all feed rows are eligible for selection. This is the
+ *  default value.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RuleType_Open;
+/**
+ *  The rule type is proximity targeting, the feed rows are eligible for
+ *  selection based on the proximity targeting rules.
+ *
+ *  Value: "PROXIMITY_TARGETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RuleType_ProximityTargeting;
+/**
+ *  The rule type is unknown. This value is unused.
+ *
+ *  Value: "RULE_SET_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_DynamicRules_RuleType_RuleSetTypeUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_DynamicTargetingKey.objectType
 
 /** Value: "OBJECT_AD" */
@@ -2137,6 +2317,619 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionIma
  *  Value: "IMPRESSION_JAVASCRIPT_EVENT_TAG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_FeedField.type
+
+/**
+ *  The field type is AssetLibrary directory path.
+ *
+ *  Value: "ASSET_LIBRARY_DIRECTORY_HANDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_AssetLibraryDirectoryHandle;
+/**
+ *  The field type is AssetLibrary path.
+ *
+ *  Value: "ASSET_LIBRARY_HANDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_AssetLibraryHandle;
+/**
+ *  The field type is AssetLibrary video file path.
+ *
+ *  Value: "ASSET_LIBRARY_VIDEO_HANDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_AssetLibraryVideoHandle;
+/**
+ *  The field type is boolean.
+ *
+ *  Value: "BOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Bool;
+/**
+ *  The field type is cities.
+ *
+ *  Value: "CITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_City;
+/**
+ *  The field type is CM360 ad ID.
+ *
+ *  Value: "CM360_AD_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Cm360AdId;
+/**
+ *  The field type is CM360 advertiser ID.
+ *
+ *  Value: "CM360_ADVERTISER_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Cm360AdvertiserId;
+/**
+ *  The field type is CM360 campaign ID.
+ *
+ *  Value: "CM360_CAMPAIGN_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Cm360CampaignId;
+/**
+ *  The field type is CM360 creative ID.
+ *
+ *  Value: "CM360_CREATIVE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Cm360CreativeId;
+/**
+ *  The field type is CM dynamic targeting key.
+ *
+ *  Value: "CM360_DYNAMIC_TARGETING_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Cm360DynamicTargetingKey;
+/**
+ *  The field type is custom CM360 ad tag parameter.
+ *
+ *  Value: "CM360_KEYWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Cm360Keyword;
+/**
+ *  The field type is CM360 placement ID.
+ *
+ *  Value: "CM360_PLACEMENT_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Cm360PlacementId;
+/**
+ *  The field type is CM360 site ID.
+ *
+ *  Value: "CM360_SITE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Cm360SiteId;
+/**
+ *  The field type is the ISO 3166-2 alpha-2 codes. It is two-letter country
+ *  codes defined in ISO 3166-1 published by the International Organization for
+ *  Standardization.
+ *
+ *  Value: "COUNTRY_CODE_ISO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_CountryCodeIso;
+/**
+ *  The field type is creative dimension.
+ *
+ *  Value: "CREATIVE_DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_CreativeDimension;
+/**
+ *  The field type is custom value.
+ *
+ *  Value: "CUSTOM_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_CustomValue;
+/**
+ *  The field type is datetime.
+ *
+ *  Value: "DATETIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Datetime;
+/**
+ *  The field type is DV360 line item ID.
+ *
+ *  Value: "DV360_LINE_ITEM_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Dv360LineItemId;
+/**
+ *  The field type is exit url.
+ *
+ *  Value: "EXIT_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_ExitUrl;
+/**
+ *  The field type is decimal.
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Float;
+/**
+ *  The field type is accurate geographic type.
+ *
+ *  Value: "GEO_CANONICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_GeoCanonical;
+/**
+ *  The field type is asset url.
+ *
+ *  Value: "GPA_SERVED_ASSET_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_GpaServedAssetUrl;
+/**
+ *  The field type is image url
+ *
+ *  Value: "GPA_SERVED_IMAGE_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_GpaServedImageUrl;
+/**
+ *  The field type is whole number.
+ *
+ *  Value: "LONG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Long;
+/**
+ *  The field type is metro code.
+ *
+ *  Value: "METRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Metro;
+/**
+ *  The field type is postal code.
+ *
+ *  Value: "POSTAL_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_PostalCode;
+/**
+ *  The field type is region.
+ *
+ *  Value: "REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Region;
+/**
+ *  The field type is remarketing value.
+ *
+ *  Value: "REMARKETING_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_RemarketingValue;
+/**
+ *  The field type is text.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_String;
+/**
+ *  The field type is a list of values.
+ *
+ *  Value: "STRING_LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_StringList;
+/**
+ *  The field type is third party served url.
+ *
+ *  Value: "THIRD_PARTY_SERVED_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_ThirdPartyServedUrl;
+/**
+ *  The type is unspecified. This is an unused value.
+ *
+ *  Value: "TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_TypeUnknown;
+/**
+ *  The field type is CM/DV360 Audience ID.
+ *
+ *  Value: "USERLIST_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_UserlistId;
+/**
+ *  The field type is weight.
+ *
+ *  Value: "WEIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedField_Type_Weight;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_FeedIngestionStatus.state
+
+/**
+ *  The feed processing state is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_Cancelled;
+/**
+ *  The feed processing state is unknown.
+ *
+ *  Value: "FEED_PROCESSING_STATE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_FeedProcessingStateUnknown;
+/**
+ *  The feed processing state is ingested with failure.
+ *
+ *  Value: "INGESTED_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_IngestedFailure;
+/**
+ *  The feed processing state is ingested successfully.
+ *
+ *  Value: "INGESTED_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_IngestedSuccess;
+/**
+ *  The feed processing state is ingesting.
+ *
+ *  Value: "INGESTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_Ingesting;
+/**
+ *  The feed processing state is ingesting queued.
+ *
+ *  Value: "INGESTING_QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_IngestingQueued;
+/**
+ *  The feed processing state is published with failure.
+ *
+ *  Value: "PUBLISHED_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_PublishedFailure;
+/**
+ *  The feed processing state is published successfully.
+ *
+ *  Value: "PUBLISHED_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_PublishedSuccess;
+/**
+ *  The feed processing state is publishing.
+ *
+ *  Value: "PUBLISHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_Publishing;
+/**
+ *  The feed processing state is request to publish.
+ *
+ *  Value: "REQUEST_TO_PUBLISH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FeedIngestionStatus_State_RequestToPublish;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_FieldError.ingestionError
+
+/**
+ *  The ingestion error when a geo target is an airport.
+ *
+ *  Value: "AIRPORT_GEO_TARGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_AirportGeoTarget;
+/**
+ *  The ingestion error when asset retrieval fails for a particular image or
+ *  asset.
+ *
+ *  Value: "ASSET_DOWNLOAD_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_AssetDownloadError;
+/**
+ *  The ingestion error when parsing the boolean value fails.
+ *
+ *  Value: "BOOL_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_BoolParsingError;
+/**
+ *  The ingestion error when the geo target's canonical name does not match the
+ *  query string used to obtain it.
+ *
+ *  Value: "CANONICAL_NAME_QUERY_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_CanonicalNameQueryMismatch;
+/**
+ *  The ingestion error when parsing the country code fails.
+ *
+ *  Value: "COUNTRY_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_CountryParsingError;
+/**
+ *  The ingestion error when parsing the creative dimension value fails.
+ *
+ *  Value: "CREATIVE_DIMENSION_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_CreativeDimensionParsingError;
+/**
+ *  The ingestion error when parsing the datetime value fails.
+ *
+ *  Value: "DATETIME_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_DatetimeParsingError;
+/**
+ *  The ingestion error when parsing the datetime value fails.
+ *
+ *  Value: "DATETIME_WITHOUT_TIMEZONE_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_DatetimeWithoutTimezoneParsingError;
+/**
+ *  The ingestion error when the ID value is duplicate.
+ *
+ *  Value: "DUPLICATE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_DuplicateId;
+/**
+ *  The ingestion error when a targeting key used but not defined for the CM360
+ *  Advertiser.
+ *
+ *  Value: "DYNAMIC_TARGETING_KEY_NOT_DEFINED_FOR_ADVERTISER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_DynamicTargetingKeyNotDefinedForAdvertiser;
+/**
+ *  The ingestion error when a required value is empty
+ *
+ *  Value: "EMPTY_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_EmptyValue;
+/**
+ *  The ingestion error when the end time is before the start time.
+ *
+ *  Value: "ENDTIME_BEFORE_STARTTIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_EndtimeBeforeStarttime;
+/**
+ *  The ingestion error when the end time is passed.
+ *
+ *  Value: "ENDTIME_PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_EndtimePassed;
+/**
+ *  The ingestion error when the end time is in the near future (i.e., <7 days).
+ *
+ *  Value: "ENDTIME_TOO_SOON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_EndtimeTooSoon;
+/**
+ *  The ingestion error when parsing the expanded url fails.
+ *
+ *  Value: "EXPANDED_URL_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_ExpandedUrlParsingError;
+/**
+ *  The ingestion error when parsing the float value fails.
+ *
+ *  Value: "FLOAT_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_FloatParsingError;
+/**
+ *  The ingestion error when a geo location is not found.
+ *
+ *  Value: "GEO_NOT_FOUND_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_GeoNotFoundError;
+/**
+ *  The ingestion error when parsing the geo field fails.
+ *
+ *  Value: "GEO_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_GeoParsingError;
+/**
+ *  The ingestion error when a feed row has multiple geotargets with proximity
+ *  targeting enabled.
+ *
+ *  Value: "GEO_PROXIMITY_TARGETING_MULTIPLE_LOCATION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_GeoProximityTargetingMultipleLocationError;
+/**
+ *  The ingestion error when the ID value exceeds the string length limit.
+ *
+ *  Value: "ID_TOO_LONG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_IdTooLong;
+/**
+ *  The ingestion error when Image field specifies a reference to an asset
+ *  hosted on SCS (s0.2mdn.net/s0qa.2mdn.net).
+ *
+ *  Value: "IMAGE_ASSET_SCS_REFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_ImageAssetScsReference;
+/**
+ *  The ingestion error when the asset library directory handle is invalid.
+ *
+ *  Value: "INVALID_ASSET_LIBRARY_DIRECTORY_HANDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryDirectoryHandle;
+/**
+ *  The ingestion error when the asset library handle is invalid.
+ *
+ *  Value: "INVALID_ASSET_LIBRARY_HANDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryHandle;
+/**
+ *  The ingestion error when the asset library video handle is invalid.
+ *
+ *  Value: "INVALID_ASSET_LIBRARY_VIDEO_HANDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryVideoHandle;
+/**
+ *  The ingestion error when the preference value is not a positive float.
+ *
+ *  Value: "INVALID_PREFERENCE_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_InvalidPreferenceValue;
+/**
+ *  The ingestion error when parsing the long value fails.
+ *
+ *  Value: "LONG_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_LongParsingError;
+/**
+ *  The ingestion error when parsing the metro code value fails.
+ *
+ *  Value: "METRO_CODE_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_MetroCodeParsingError;
+/**
+ *  The ingestion error when the ID value is missing.
+ *
+ *  Value: "MISSING_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_MissingId;
+/**
+ *  The ingestion error when the element value name used for reporting is
+ *  missing.
+ *
+ *  Value: "MISSING_REPORTING_LABEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_MissingReportingLabel;
+/**
+ *  The ingestion error when a STRING_LIST type ID has multiple values.
+ *
+ *  Value: "MULTIVALUE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_MultivalueId;
+/**
+ *  The ingestion error or warning when the default row is not active.
+ *
+ *  Value: "NO_ACTIVE_DEFAULT_ROW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_NoActiveDefaultRow;
+/**
+ *  The ingestion error or warning when the default row is not in the date
+ *  range.
+ *
+ *  Value: "NO_ACTIVE_DEFAULT_ROW_IN_DATE_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_NoActiveDefaultRowInDateRange;
+/**
+ *  The ingestion error or warning when the default row is not set.
+ *
+ *  Value: "NO_DEFAULT_ROW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_NoDefaultRow;
+/**
+ *  The ingestion error or warning when the default row is not in the date
+ *  range.
+ *
+ *  Value: "NO_DEFAULT_ROW_IN_DATE_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_NoDefaultRowInDateRange;
+/**
+ *  The ingestion error when parsing the field fails.
+ *
+ *  Value: "PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_ParsingError;
+/**
+ *  The ingestion error when when the payload of the record is above a
+ *  threshold.
+ *
+ *  Value: "PAYLOAD_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_PayloadLimitExceeded;
+/**
+ *  The ingestion error when parsing the postal code value fails.
+ *
+ *  Value: "POSTAL_CODE_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_PostalCodeParsingError;
+/**
+ *  The ingestion error or warning when the field is not SSL compliant.
+ *
+ *  Value: "SSL_NOT_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_SslNotCompliant;
+/**
+ *  The ingestion error when a text field specifies a reference to an asset.
+ *
+ *  Value: "TEXT_ASSET_REFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_TextAssetReference;
+/**
+ *  The ingestion error is unknown.
+ *
+ *  Value: "UNKNOWN_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_UnknownParsingError;
+/**
+ *  The ingestion error when the userlist ID is not accessible for the CM360
+ *  Advertiser.
+ *
+ *  Value: "USERLIST_ID_NOT_ACCESSIBLE_FOR_ADVERTISER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_UserlistIdNotAccessibleForAdvertiser;
+/**
+ *  The ingestion error when parsing the weight value fails.
+ *
+ *  Value: "WEIGHT_PARSING_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldError_IngestionError_WeightParsingError;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_FieldFilter.matchType
+
+/**
+ *  The left hand side of the expression is equals.
+ *
+ *  Value: "EQUALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_MatchType_Equals;
+/**
+ *  The left hand side of the expression is equals or unrestricted. It is the
+ *  default value.
+ *
+ *  Value: "EQUALS_OR_UNRESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_MatchType_EqualsOrUnrestricted;
+/**
+ *  The left hand side of the expression is unknown. This value is unused.
+ *
+ *  Value: "LHS_MATCH_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_MatchType_LhsMatchTypeUnknown;
+/**
+ *  Left hand side of the expression is not equals. Not equals specifies which
+ *  fields should not be targeted.
+ *
+ *  Value: "NOT_EQUALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_MatchType_NotEquals;
+/**
+ *  The left hand side of the expression is unrestricted. Unrestricted is used
+ *  to target fields with no restrictions. For example, country targeting fields
+ *  hold a list of countries. If the list is empty, we consider the element
+ *  value to have no restrictions.
+ *
+ *  Value: "UNRESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_MatchType_Unrestricted;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_FieldFilter.valueType
+
+/**
+ *  The right hand side of the expression is a boolean.
+ *
+ *  Value: "BOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_ValueType_Bool;
+/**
+ *  The right hand side of the expression is a dependent field value.
+ *
+ *  Value: "DEPENDENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_ValueType_Dependent;
+/**
+ *  The right hand side of the expression is a request value.
+ *
+ *  Value: "REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_ValueType_Request;
+/**
+ *  The right hand side of the expression is unknown. This value is unused.
+ *
+ *  Value: "RHS_VALUE_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_ValueType_RhsValueTypeUnknown;
+/**
+ *  The right hand side of the expression is a string.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FieldFilter_ValueType_String;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_File.format
@@ -2594,6 +3387,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertise
  *  Value: "MEASUREMENT_PARTNER_UNLINKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked;
+/**
+ *  Partner unlink pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINK_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinkPending;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerAdvertiserLink.measurementPartner
@@ -2656,6 +3455,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignL
  *  Value: "MEASUREMENT_PARTNER_UNLINKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked;
+/**
+ *  Partner unlink pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINK_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinkPending;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerCampaignLink.measurementPartner
@@ -2718,6 +3523,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingD
  *  Value: "MEASUREMENT_PARTNER_UNLINKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked;
+/**
+ *  Partner unlink pending.
+ *
+ *  Value: "MEASUREMENT_PARTNER_UNLINK_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinkPending;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MeasurementPartnerWrappingData.measurementPartner
@@ -2818,30 +3629,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_Pl
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact;
 /** Value: "PLANNING_ORDER_CONTACT_SELLER_CONTACT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_PathFilter.pathMatchPosition
-
-/** Value: "ANY" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Any;
-/** Value: "FIRST" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_First;
-/** Value: "LAST" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Last;
-/** Value: "PATH_MATCH_POSITION_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_PathMatchPositionUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_PathReportDimensionValue.matchType
-
-/** Value: "BEGINS_WITH" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_BeginsWith;
-/** Value: "CONTAINS" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Contains;
-/** Value: "EXACT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Exact;
-/** Value: "WILDCARD_EXPRESSION" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_WildcardExpression;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.activeStatus
@@ -3145,6 +3932,68 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceGender_Plan
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderMale;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_ProximityFilter.radiusBucketType
+
+/**
+ *  The radius bucket type is large.
+ *
+ *  Value: "LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_Large;
+/**
+ *  The radius bucket type is medium.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_Medium;
+/**
+ *  The radius bucket type is multi-regional.
+ *
+ *  Value: "MULTI_REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_MultiRegional;
+/**
+ *  The radius bucket type is national.
+ *
+ *  Value: "NATIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_National;
+/**
+ *  The radius bucket type is unknown.
+ *
+ *  Value: "RADIUS_BUCKET_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_RadiusBucketTypeUnknown;
+/**
+ *  The radius bucket type is small.
+ *
+ *  Value: "SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_Small;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_ProximityFilter.radiusUnitType
+
+/**
+ *  The units of the radius value are kilometers.
+ *
+ *  Value: "KILOMETERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusUnitType_Kilometers;
+/**
+ *  The units of the radius value are miles.
+ *
+ *  Value: "MILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusUnitType_Miles;
+/**
+ *  The units of the radius value are unknown. This value is unused.
+ *
+ *  Value: "RADIUS_UNIT_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ProximityFilter_RadiusUnitType_RadiusUnitTypeUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_Recipient.deliveryType
 
 /** Value: "ATTACHMENT" */
@@ -3235,12 +4084,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Format_Excel;
 
 /** Value: "CROSS_DIMENSION_REACH" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach;
+/** Value: "CROSS_MEDIA_REACH" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossMediaReach;
 /** Value: "FLOODLIGHT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Floodlight;
-/** Value: "PATH" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Path;
-/** Value: "PATH_ATTRIBUTION" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_PathAttribution;
 /** Value: "PATH_TO_CONVERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_PathToConversion;
 /** Value: "REACH" */
@@ -3627,6 +4474,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_Third
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoThirdQuartile;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_TvCampaignSummary.type
+
+/**
+ *  Brand.
+ *
+ *  Value: "BRAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Brand;
+/**
+ *  Campaign.
+ *
+ *  Value: "CAMPAIGN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Campaign;
+/**
+ *  Required to exist; do not use.
+ *
+ *  Value: "CAMPAIGN_COMPONENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_CampaignComponentTypeUnspecified;
+/**
+ *  Company.
+ *
+ *  Value: "COMPANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Company;
+/**
+ *  Product.
+ *
+ *  Value: "PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Product;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_TvCampaignTimepoint.dateWindow
+
+/**
+ *  Eight weeks.
+ *
+ *  Value: "WEEKS_EIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksEight;
+/**
+ *  Four weeks.
+ *
+ *  Value: "WEEKS_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksFour;
+/**
+ *  One week.
+ *
+ *  Value: "WEEKS_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksOne;
+/**
+ *  Twelve weeks.
+ *
+ *  Value: "WEEKS_TWELVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksTwelve;
+/**
+ *  Default value, should never be set.
+ *
+ *  Value: "WEEKS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_UniversalAdId.registry
 
 /** Value: "AD_ID_OFFICIAL" */
@@ -3891,16 +4806,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availabi
  *  Value: "USER_PROFILE_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_UvarFilter.match
-
-/** Value: "CONTAINS" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Contains;
-/** Value: "EXACT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Exact;
-/** Value: "UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UvarFilter_Match_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_VideoFormat.fileType
@@ -4337,7 +5242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *comments;
 
 /**
- *  Email of the user profile. The email addresss must be linked to a Google
+ *  Email of the user profile. The email address must be linked to a Google
  *  Account. This field is required on insertion and is read-only after
  *  insertion.
  */
@@ -5957,6 +6862,81 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  *Beta:* This feature is currently in beta. Contains additional information
+ *  about cart data. This field may only be used when calling batchinsert; it is
+ *  not supported by batchupdate. Cart data reporting is only supported in
+ *  SA360. [Learn more](https://support.google.com/sa360/topic/13425788)
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDfareporting_CartData : GTLRCollectionObject
+
+/**
+ *  Data of the items purchased.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CartDataItem *> *items;
+
+/**
+ *  The feed labels associated with the feed where your items are uploaded. For
+ *  more information, please refer to
+ *  https://support.google.com/merchants/answer/12453549. Providing the feed
+ *  label reduces ambiguity in identifying the right offer details.
+ */
+@property(nonatomic, copy, nullable) NSString *merchantFeedLabel;
+
+/**
+ *  The language associated with the feed where your items are uploaded. Use ISO
+ *  639-1 language codes. Providing the feed language reduces ambiguity in
+ *  identifying the right offer details.
+ */
+@property(nonatomic, copy, nullable) NSString *merchantFeedLanguage;
+
+/**
+ *  The Merchant Center ID where the items are uploaded. Providing Merchant
+ *  Center ID reduces ambiguity in identifying the right offer details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+@end
+
+
+/**
+ *  Contains data of the items purchased.
+ */
+@interface GTLRDfareporting_CartDataItem : GTLRObject
+
+/**
+ *  The shopping id of the item. Must be equal to the Merchant Center product
+ *  identifier. This is a required field.
+ */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Number of items sold. This is a required field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  Unit price excluding tax, shipping, and any transaction level discounts.
+ *  Interpreted in CM360 Floodlight config parent advertiser's currency code.
+ *  This is a required field.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unitPrice;
+
+@end
+
+
+/**
  *  Describes a change that a user has made to a resource.
  */
 @interface GTLRDfareporting_ChangeLog : GTLRObject
@@ -6063,47 +7043,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** Pagination token to be used for the next list operation. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Represents a DfaReporting channel grouping.
- */
-@interface GTLRDfareporting_ChannelGrouping : GTLRObject
-
-/** ChannelGrouping fallback name. */
-@property(nonatomic, copy, nullable) NSString *fallbackName;
-
-/**
- *  The kind of resource this is, in this case dfareporting#channelGrouping.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** ChannelGrouping name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The rules contained within this channel grouping. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_ChannelGroupingRule *> *rules;
-
-@end
-
-
-/**
- *  Represents a DfaReporting channel grouping rule.
- */
-@interface GTLRDfareporting_ChannelGroupingRule : GTLRObject
-
-/** The disjunctive match statements contained within this rule. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DisjunctiveMatchStatement *> *disjunctiveMatchStatements;
-
-/**
- *  The kind of resource this is, in this case dfareporting#channelGroupingRule.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Rule name. */
-@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -6323,7 +7262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Represents a response to the queryCompatibleFields method.
+ *  Represents a response to the queryCompatibleFields method. Next ID: 10
  */
 @interface GTLRDfareporting_CompatibleFields : GTLRObject
 
@@ -6335,6 +7274,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Contains items that are compatible to be selected for a report of type
+ *  "CROSS_MEDIA_REACH".
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CrossMediaReachReportCompatibleFields *crossMediaReachReportCompatibleFields;
+
+/**
+ *  Contains items that are compatible to be selected for a report of type
  *  "FLOODLIGHT".
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_FloodlightReportCompatibleFields *floodlightReportCompatibleFields;
@@ -6343,18 +7288,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  The kind of resource this is, in this case dfareporting#compatibleFields.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Contains items that are compatible to be selected for a report of type
- *  "PATH_ATTRIBUTION".
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_PathReportCompatibleFields *pathAttributionReportCompatibleFields;
-
-/**
- *  Contains items that are compatible to be selected for a report of type
- *  "PATH".
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_PathReportCompatibleFields *pathReportCompatibleFields;
 
 /**
  *  Contains items that are compatible to be selected for a report of type
@@ -6491,6 +7424,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains the content source of the dynamic feed.
+ */
+@interface GTLRDfareporting_ContentSource : GTLRObject
+
+/**
+ *  Optional. The name of the content source. It is defaulted to content source
+ *  file name if not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *contentSourceName;
+
+/**
+ *  Output only. The creation timestamp of the content source. This is a
+ *  read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createInfo;
+
+/**
+ *  Output only. The last modified timestamp of the content source. This is a
+ *  read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
+
+/**
+ *  Output only. Metadata of the content source. It contains the number of rows
+ *  and the column names from resource link. This is a read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_ContentSourceMetaData *metaData;
+
+/** Required. The link to the file of the content source. */
+@property(nonatomic, copy, nullable) NSString *resourceLink;
+
+/**
+ *  Required. The resource type of the content source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeGoogleSpreadsheet
+ *        The resource type is google spreadsheet. (Value:
+ *        "RESOURCE_TYPE_GOOGLE_SPREADSHEET")
+ *    @arg @c kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeRemoteFile
+ *        The resource type is remote file. (Value: "RESOURCE_TYPE_REMOTE_FILE")
+ *    @arg @c kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeUnspecified
+ *        The resource type is unspecified. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Contains the meta data of the content source. This is a read-only field.
+ */
+@interface GTLRDfareporting_ContentSourceMetaData : GTLRObject
+
+/** Output only. The charset of the content source. */
+@property(nonatomic, copy, nullable) NSString *charset;
+
+/** Output only. The list of column names in the content source. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fieldNames;
+
+/**
+ *  Output only. The number of rows in the content source.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowNumber;
+
+/** Output only. The separator of the content source. */
+@property(nonatomic, copy, nullable) NSString *separator;
+
+@end
+
+
+/**
  *  A Conversion represents when a user successfully performs a desired action
  *  after seeing an ad.
  */
@@ -6507,6 +7513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, copy, nullable) NSString *adUserDataConsent;
 
+/** The cart data associated with this conversion. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_CartData *cartData;
+
 /**
  *  Whether this particular request may come from a user under the age of 13,
  *  under COPPA compliance.
@@ -6515,10 +7524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *childDirectedTreatment;
 
-/**
- *  Custom floodlight variables. This field may only be used when calling
- *  batchinsert; it is not supported by batchupdate.
- */
+/** Custom floodlight variables. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomFloodlightVariable *> *customVariables;
 
 /**
@@ -6633,6 +7639,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
+ *  Session attributes for the conversion, encoded as based64 bytes. This field
+ *  may only be used when calling batchinsert; it is not supported by
+ *  batchupdate.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sessionAttributesEncoded;
+
+/**
  *  The timestamp of conversion, in Unix epoch micros. This is a required field.
  *
  *  Uses NSNumber of longLongValue.
@@ -6655,7 +7671,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_UserIdentifier *> *userIdentifiers;
 
 /**
- *  The value of the conversion. This is a required field.
+ *  The value of the conversion. Interpreted in CM360 Floodlight config parent
+ *  advertiser's currency code. This is a required field.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8867,8 +9884,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  A custom floodlight variable. This field may only be used when calling
- *  batchinsert; it is not supported by batchupdate.
+ *  Represents fields that are compatible to be selected for a report of type
+ *  "CROSS_MEDIA_REACH".
+ */
+@interface GTLRDfareporting_CrossMediaReachReportCompatibleFields : GTLRObject
+
+/**
+ *  Dimensions which are compatible to be selected in the "dimensionFilters"
+ *  section of the report.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *dimensionFilters;
+
+/**
+ *  Dimensions which are compatible to be selected in the "dimensions" section
+ *  of the report.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *dimensions;
+
+/**
+ *  The kind of resource this is, in this case
+ *  dfareporting#crossMediaReachReportCompatibleFields.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Metrics which are compatible to be selected in the "metricNames" section of
+ *  the report.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Metric *> *metrics;
+
+@end
+
+
+/**
+ *  A custom floodlight variable. Can be used in both batchinsert and
+ *  batchupdate. Adding this in batchupdate will update or append the variable
+ *  to the existing list.
  */
 @interface GTLRDfareporting_CustomFloodlightVariable : GTLRObject
 
@@ -8880,7 +9931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  The type of custom floodlight variable to supply a value for. These map to
- *  the "u[1-20]=" in the tags.
+ *  the "u[1-100]=" in the tags.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CustomFloodlightVariable_Type_U1 Value "U1"
@@ -9011,6 +10062,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  dfareporting#customRichMediaEvents.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Contains custom rule information.
+ */
+@interface GTLRDfareporting_CustomRule : GTLRObject
+
+/** Optional. Name of this custom rule. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Priority of the custom rule.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/** Optional. A list of field filter, the custom rule will apply. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_RuleBlock *> *ruleBlocks;
+
+@end
+
+
+/**
+ *  Contains custom value field information.
+ */
+@interface GTLRDfareporting_CustomValueField : GTLRObject
+
+/**
+ *  Optional. Field ID in the element.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fieldId;
+
+/** Optional. Custom key used to match for auto filtering. */
+@property(nonatomic, copy, nullable) NSString *requestKey;
 
 @end
 
@@ -9313,6 +10403,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains dependent field value information.
+ */
+@interface GTLRDfareporting_DependentFieldValue : GTLRObject
+
+/**
+ *  Optional. The ID of the element that value's field will match against.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementId;
+
+/**
+ *  Optional. The field id of the dependent field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fieldId;
+
+@end
+
+
+/**
  *  Google Ad Manager Settings
  */
 @interface GTLRDfareporting_DfpSettings : GTLRObject
@@ -9539,6 +10651,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /** Name of this directory site. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Default publisher specification ID of video placements under
+ *  this directory site. Possible values are: * `1`, Hulu * `2`, NBC * `3`, CBS
+ *  * `4`, CBS Desktop * `5`, Discovery * `6`, VEVO HD * `7`, VEVO Vertical *
+ *  `8`, Fox * `9`, CW Network * `10`, Disney * `11`, IGN * `12`, NFL.com *
+ *  `13`, Turner Broadcasting * `14`, Tubi on Fox * `15`, Hearst Corporation *
+ *  `16`, Twitch Desktop * `17`, ABC * `18`, Univision * `19`, MLB.com * `20`,
+ *  MLB.com Mobile * `21`, MLB.com OTT * `22`, Polsat * `23`, TVN * `24`,
+ *  Mediaset * `25`, Antena 3 * `26`, Mediamond * `27`, Sky Italia * `28`, Tubi
+ *  on CBS * `29`, Spotify * `30`, Paramount * `31`, Max
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *publisherSpecificationId;
+
 /** Directory site settings. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DirectorySiteSettings *settings;
 
@@ -9611,19 +10738,343 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Represents a Disjunctive Match Statement resource, which is a conjunction
- *  (and) of disjunctive (or) boolean statements.
+ *  Contains dynamic feed information.
  */
-@interface GTLRDfareporting_DisjunctiveMatchStatement : GTLRObject
-
-/** The event filters contained within this disjunctive match statement. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_EventFilter *> *eventFilters;
+@interface GTLRDfareporting_DynamicFeed : GTLRObject
 
 /**
- *  The kind of resource this is, in this case
- *  dfareporting#disjunctiveMatchStatement.
+ *  Required. The content source of the dynamic feed. This is a required field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_ContentSource *contentSource;
+
+/**
+ *  Output only. The creation timestamp of the dynamic feed. This is a read-only
+ *  field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createInfo;
+
+/**
+ *  Output only. Unique ID of this dynamic feed. This is a read-only,
+ *  auto-generated field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicFeedId;
+
+/**
+ *  Optional. Name of this dynamic feed. It is defaulted to content source file
+ *  name if not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *dynamicFeedName;
+
+/**
+ *  Required. The element of the dynamic feed that is to specify the schema of
+ *  the feed. This is a required field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_Element *element;
+
+/**
+ *  Output only. The ingestion status of the dynamic feed. This is a read-only
+ *  field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_FeedIngestionStatus *feedIngestionStatus;
+
+/**
+ *  Optional. The schedule of the dynamic feed. It can be set if the feed is
+ *  published.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_FeedSchedule *feedSchedule;
+
+/**
+ *  Output only. Indicates whether the dynamic feed has a published version.
+ *  This is a read-only field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasPublished;
+
+/**
+ *  Output only. The last modified timestamp of the dynamic feed. This is a
+ *  read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
+
+/**
+ *  Output only. The status of the feed. It is a read-only field that depends on
+ *  the the feed ingestion status. The default value is INACTIVE, and it will be
+ *  updated to ACTIVE once the feed is ingested successfully.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_DynamicFeed_Status_Active The feedstatus is
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRDfareporting_DynamicFeed_Status_Deleted The feed status is
+ *        deleted. (Value: "DELETED")
+ *    @arg @c kGTLRDfareporting_DynamicFeed_Status_Inactive The feed status is
+ *        inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRDfareporting_DynamicFeed_Status_StatusUnknown The status is
+ *        unknown. (Value: "STATUS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Required. Advertiser ID of this dynamic feed. This is a required field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioAdvertiserId;
+
+@end
+
+
+/**
+ *  Dynamic profile ID is required for dynamic feed insert as the current GPA
+ *  API only can create a dynamic feed under profile context,even though the
+ *  dynnamic feed itself don't need the dynamic profile id. See
+ *  go/cm3-dco-display-api-interface
+ */
+@interface GTLRDfareporting_DynamicFeedsInsertRequest : GTLRObject
+
+/** Required. Dynamic feed to insert. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DynamicFeed *dynamicFeed;
+
+/**
+ *  Required. Dynamic profile ID of the inserted dynamic feed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicProfileId;
+
+@end
+
+
+/**
+ *  Contains dynamic profile information.
+ */
+@interface GTLRDfareporting_DynamicProfile : GTLRObject
+
+/** Optional. Active version of the dynamic profile. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DynamicProfileVersion *active;
+
+/**
+ *  Optional. Archive status of this dynamic profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_DynamicProfile_ArchiveStatus_Archived The
+ *        dynamic profile archive status is archived. (Value: "ARCHIVED")
+ *    @arg @c kGTLRDfareporting_DynamicProfile_ArchiveStatus_ArchiveStatusUnknown
+ *        The dynamic profile archive status is unknown. This value is unused.
+ *        (Value: "ARCHIVE_STATUS_UNKNOWN")
+ *    @arg @c kGTLRDfareporting_DynamicProfile_ArchiveStatus_Unarchived The
+ *        dynamic profile archive status is unarchived. (Value: "UNARCHIVED")
+ */
+@property(nonatomic, copy, nullable) NSString *archiveStatus;
+
+/**
+ *  Output only. The creation timestamp of the dynamic profile. This is a
+ *  read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createInfo;
+
+/**
+ *  Optional. Description of this dynamic profile.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Draft version of the dynamic profile. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DynamicProfileVersion *draft;
+
+/**
+ *  Output only. Unique ID of this dynamic profile. This is a read-only,
+ *  auto-generated field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicProfileId;
+
+/**
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string "dfareporting#dynamicProfile".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Output only. The last modified timestamp of the dynamic profile. This is a
+ *  read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
+
+/**
+ *  Required. Identifier. Name of this dynamic profile. This is a required field
+ *  and must be less than 256 characters long.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Status of this dynamic profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_DynamicProfile_Status_Active The dynamic profile
+ *        is active. (Value: "ACTIVE")
+ *    @arg @c kGTLRDfareporting_DynamicProfile_Status_Deleted The dynamic
+ *        profile is deleted. (Value: "DELETED")
+ *    @arg @c kGTLRDfareporting_DynamicProfile_Status_Inactive The dynamic
+ *        profile is inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRDfareporting_DynamicProfile_Status_StatusUnknown The dynamic
+ *        profile status is unknown. This value is unused. (Value:
+ *        "STATUS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Required. Advertiser ID of this dynamic profile. This is a required field on
+ *  insertion.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioAdvertiserId;
+
+@end
+
+
+/**
+ *  Contains dynamic profile specific settings for an associated dynamic feed.
+ */
+@interface GTLRDfareporting_DynamicProfileFeedSettings : GTLRObject
+
+/**
+ *  Optional. Dynamic feed ID associated with dynamic profile version.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicFeedId;
+
+/**
+ *  Optional. Dynamic rules for row selection for the given dynamic feed in the
+ *  given dynamic profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DynamicRules *dynamicRules;
+
+/**
+ *  Optional. The number of this dynamic feed rows needed by the dynamic
+ *  profile, default value is 1. Acceptable values are between 1 to 99,
+ *  inclusive.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
+@end
+
+
+/**
+ *  Contains dynamic profile version information.
+ */
+@interface GTLRDfareporting_DynamicProfileVersion : GTLRObject
+
+/**
+ *  Optional. Associated dynamic feeds and their settings (including dynamic
+ *  rules) for this dynamic profile version.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DynamicProfileFeedSettings *> *dynamicProfileFeedSettings;
+
+/**
+ *  Output only. Version ID of this dynamic profile version. This is a
+ *  read-only, auto-generated field. -1 for draft version, 0+ for published
+ *  versions.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionId;
+
+@end
+
+
+/**
+ *  Contains dynamic rules information.
+ */
+@interface GTLRDfareporting_DynamicRules : GTLRObject
+
+/**
+ *  Optional. List of field IDs in this element that should be auto-targeted.
+ *  Applicable when rule type is AUTO.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *autoTargetedFieldIds;
+
+/**
+ *  Optional. The custom rules of the dynamic feed, only applicable when rule
+ *  type is CUSTOM.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomRule *> *customRules;
+
+/**
+ *  Optional. Mapping between field ID and custom key that are used to match for
+ *  auto filtering.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomValueField *> *customValueFields;
+
+/**
+ *  Optional. The proximity targeting rules of the dynamic feed, only applicable
+ *  when rule type is PROXIMITY_TARGETING.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_ProximityFilter *proximityFilter;
+
+/**
+ *  Optional. The link between an element field ID and a list of user attribute
+ *  IDs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_RemarketingValueAttribute *> *remarketingValueAttributes;
+
+/**
+ *  Optional. The rotation type to select from eligible rows. Rotation type only
+ *  apply when the filtering rule results in more than one eligible rows.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_DynamicRules_RotationType_Optimized The rotation
+ *        type is optimized. (Value: "OPTIMIZED")
+ *    @arg @c kGTLRDfareporting_DynamicRules_RotationType_Random The rotation
+ *        type is random. It is the default value. (Value: "RANDOM")
+ *    @arg @c kGTLRDfareporting_DynamicRules_RotationType_RotationTypeUnknown
+ *        The rotation type is unknown. This value is unused. (Value:
+ *        "ROTATION_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDfareporting_DynamicRules_RotationType_Weighted The rotation
+ *        type is weighted. (Value: "WEIGHTED")
+ */
+@property(nonatomic, copy, nullable) NSString *rotationType;
+
+/**
+ *  Optional. The type of the rule, the default value is OPEN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_DynamicRules_RuleType_Auto The rule type is
+ *        auto, the feed rows are eligible for selection based on the automatic
+ *        rules. (Value: "AUTO")
+ *    @arg @c kGTLRDfareporting_DynamicRules_RuleType_Custom The rule type is
+ *        custom, the feed rows are eligible for selection based on the custom
+ *        rules. (Value: "CUSTOM")
+ *    @arg @c kGTLRDfareporting_DynamicRules_RuleType_Open The rule type is
+ *        open, all feed rows are eligible for selection. This is the default
+ *        value. (Value: "OPEN")
+ *    @arg @c kGTLRDfareporting_DynamicRules_RuleType_ProximityTargeting The
+ *        rule type is proximity targeting, the feed rows are eligible for
+ *        selection based on the proximity targeting rules. (Value:
+ *        "PROXIMITY_TARGETING")
+ *    @arg @c kGTLRDfareporting_DynamicRules_RuleType_RuleSetTypeUnknown The
+ *        rule type is unknown. This value is unused. (Value:
+ *        "RULE_SET_TYPE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *ruleType;
+
+/**
+ *  Optional. The field ID for the feed that will be used for weighted rotation,
+ *  only applicable when rotation type is WEIGHTED.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weightFieldId;
 
 @end
 
@@ -9694,6 +11145,102 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains the element of the dynamic feed.
+ */
+@interface GTLRDfareporting_Element : GTLRObject
+
+/**
+ *  Optional. The field ID to specify the active field in the feed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *activeFieldId;
+
+/**
+ *  Output only. The creation timestamp of the element. This is a read-only
+ *  field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createInfo;
+
+/**
+ *  Optional. The field ID to specify the field that represents the default
+ *  field in the feed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultFieldId;
+
+/**
+ *  Optional. The name of the element. It is defaulted to resource file name if
+ *  not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *elementName;
+
+/**
+ *  Optional. The field ID to specify the field that represents the end
+ *  timestamp. Only applicable if you're planning to use scheduling in your
+ *  dynamic creative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endTimestampFieldId;
+
+/**
+ *  Required. The field ID to specify the field used for uniquely identifying
+ *  the feed row. This is a required field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *externalIdFieldId;
+
+/**
+ *  Required. The list of fields of the element. The field order and name should
+ *  match the meta data in the content source source.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_FeedField *> *feedFields;
+
+/**
+ *  Optional. Whether the start and end timestamp is local timestamp. The
+ *  default value is false which means start and end timestamp is in UTC.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isLocalTimestamp;
+
+/**
+ *  Output only. The last modified timestamp of the element. This is a read-only
+ *  field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
+
+/**
+ *  Optional. The field ID that specify field used for proximity targeting.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proximityTargetingFieldId;
+
+/**
+ *  Required. The field ID to specify the field used for dynamic reporting in
+ *  Campaign Manager 360.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reportingLabelFieldId;
+
+/**
+ *  Optional. The field ID to specify the field that represents the start
+ *  timestamp. Only applicable if you're planning to use scheduling in your
+ *  dynamic creative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimestampFieldId;
+
+@end
+
+
+/**
  *  A description of how user IDs are encrypted.
  */
 @interface GTLRDfareporting_EncryptionInfo : GTLRObject
@@ -9747,23 +11294,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  "dfareporting#encryptionInfo".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  Represents a DfaReporting event filter.
- */
-@interface GTLRDfareporting_EventFilter : GTLRObject
-
-/** The dimension filter contained within this EventFilter. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_PathReportDimensionValue *dimensionFilter;
-
-/** The kind of resource this is, in this case dfareporting#eventFilter. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Filter on a custom variable. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_UvarFilter *uvarFilter;
 
 @end
 
@@ -9973,6 +11503,478 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Each field of the element. This is a required field.
+ */
+@interface GTLRDfareporting_FeedField : GTLRObject
+
+/** Optional. The default value of the field. */
+@property(nonatomic, copy, nullable) NSString *defaultValue;
+
+/**
+ *  Optional. Whether the field is filterable. Could be set as true when the
+ *  field type is any of the following and is not renderable: - STRING - BOOL -
+ *  COUNTRY_CODE_ISO - CM360_SITE_ID - CM360_KEYWORD - CM360_CREATIVE_ID -
+ *  CM360_PLACEMENT_ID - CM360_AD_ID - CM360_ADVERTISER_ID - CM360_CAMPAIGN_ID -
+ *  CITY - REGION - POSTAL_CODE - METRO - CUSTOM_VALUE - REMARKETING_VALUE -
+ *  GEO_CANONICAL - STRING_LIST - CREATIVE_DIMENSION - USERLIST_ID -
+ *  CM360_DYNAMIC_TARGETING_KEY - DV360_LINE_ITEM_ID
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filterable;
+
+/**
+ *  Required. The ID of the field. The ID is based on the column index starting
+ *  from 0, and it should match the column index in the resource link.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** Required. The name of the field. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Whether the field is able to display. Could be set as true when
+ *  the field type is not in any of the following and the field is not
+ *  filterable: - COUNTRY_CODE_ISO - CITY - REGION - POSTAL_CODE - METRO -
+ *  GEO_CANONICAL - USERLIST_ID - CONTEXTUAL_KEYWORD -
+ *  CM360_DYNAMIC_TARGETING_KEY - WEIGHT
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *renderable;
+
+/**
+ *  Optional. Whether the field is required and should not be empty in the feed.
+ *  Could be set as true when the field type is any of the following: -
+ *  GPA_SERVED_IMAGE_URL - GPA_SERVED_ASSET_URL - ASSET_LIBRARY_HANDLE -
+ *  ASSET_LIBRARY_VIDEO_HANDLE - ASSET_LIBRARY_DIRECTORY_HANDLE
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *required;
+
+/**
+ *  Required. The type of the field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_FeedField_Type_AssetLibraryDirectoryHandle The
+ *        field type is AssetLibrary directory path. (Value:
+ *        "ASSET_LIBRARY_DIRECTORY_HANDLE")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_AssetLibraryHandle The field type
+ *        is AssetLibrary path. (Value: "ASSET_LIBRARY_HANDLE")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_AssetLibraryVideoHandle The field
+ *        type is AssetLibrary video file path. (Value:
+ *        "ASSET_LIBRARY_VIDEO_HANDLE")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Bool The field type is boolean.
+ *        (Value: "BOOL")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_City The field type is cities.
+ *        (Value: "CITY")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Cm360AdId The field type is CM360
+ *        ad ID. (Value: "CM360_AD_ID")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Cm360AdvertiserId The field type
+ *        is CM360 advertiser ID. (Value: "CM360_ADVERTISER_ID")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Cm360CampaignId The field type is
+ *        CM360 campaign ID. (Value: "CM360_CAMPAIGN_ID")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Cm360CreativeId The field type is
+ *        CM360 creative ID. (Value: "CM360_CREATIVE_ID")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Cm360DynamicTargetingKey The
+ *        field type is CM dynamic targeting key. (Value:
+ *        "CM360_DYNAMIC_TARGETING_KEY")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Cm360Keyword The field type is
+ *        custom CM360 ad tag parameter. (Value: "CM360_KEYWORD")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Cm360PlacementId The field type
+ *        is CM360 placement ID. (Value: "CM360_PLACEMENT_ID")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Cm360SiteId The field type is
+ *        CM360 site ID. (Value: "CM360_SITE_ID")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_CountryCodeIso The field type is
+ *        the ISO 3166-2 alpha-2 codes. It is two-letter country codes defined
+ *        in ISO 3166-1 published by the International Organization for
+ *        Standardization. (Value: "COUNTRY_CODE_ISO")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_CreativeDimension The field type
+ *        is creative dimension. (Value: "CREATIVE_DIMENSION")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_CustomValue The field type is
+ *        custom value. (Value: "CUSTOM_VALUE")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Datetime The field type is
+ *        datetime. (Value: "DATETIME")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Dv360LineItemId The field type is
+ *        DV360 line item ID. (Value: "DV360_LINE_ITEM_ID")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_ExitUrl The field type is exit
+ *        url. (Value: "EXIT_URL")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Float The field type is decimal.
+ *        (Value: "FLOAT")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_GeoCanonical The field type is
+ *        accurate geographic type. (Value: "GEO_CANONICAL")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_GpaServedAssetUrl The field type
+ *        is asset url. (Value: "GPA_SERVED_ASSET_URL")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_GpaServedImageUrl The field type
+ *        is image url (Value: "GPA_SERVED_IMAGE_URL")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Long The field type is whole
+ *        number. (Value: "LONG")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Metro The field type is metro
+ *        code. (Value: "METRO")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_PostalCode The field type is
+ *        postal code. (Value: "POSTAL_CODE")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Region The field type is region.
+ *        (Value: "REGION")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_RemarketingValue The field type
+ *        is remarketing value. (Value: "REMARKETING_VALUE")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_String The field type is text.
+ *        (Value: "STRING")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_StringList The field type is a
+ *        list of values. (Value: "STRING_LIST")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_ThirdPartyServedUrl The field
+ *        type is third party served url. (Value: "THIRD_PARTY_SERVED_URL")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_TypeUnknown The type is
+ *        unspecified. This is an unused value. (Value: "TYPE_UNKNOWN")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_UserlistId The field type is
+ *        CM/DV360 Audience ID. (Value: "USERLIST_ID")
+ *    @arg @c kGTLRDfareporting_FeedField_Type_Weight The field type is weight.
+ *        (Value: "WEIGHT")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Contains the ingestion status of the dynamic feed. Feed ingestion is an
+ *  asynchronous process. If the feed create request is successful, feed
+ *  ingestion will be processed in the background, including validation, assets
+ *  retrieval, and saving the data from the resource link. The processing time
+ *  is dependent on the data size in the resource link. This read-only status
+ *  field contains the current stage of that processing and its ingestion state.
+ */
+@interface GTLRDfareporting_FeedIngestionStatus : GTLRObject
+
+/** Output only. The ingestion error records of the feed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_IngestionErrorRecord *> *ingestionErrorRecords;
+
+/** Output only. The ingestion status of the feed. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_IngestionStatus *ingestionStatus;
+
+/**
+ *  Output only. The processing state of the feed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_Cancelled The feed
+ *        processing state is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_FeedProcessingStateUnknown
+ *        The feed processing state is unknown. (Value:
+ *        "FEED_PROCESSING_STATE_UNKNOWN")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_IngestedFailure The
+ *        feed processing state is ingested with failure. (Value:
+ *        "INGESTED_FAILURE")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_IngestedSuccess The
+ *        feed processing state is ingested successfully. (Value:
+ *        "INGESTED_SUCCESS")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_Ingesting The feed
+ *        processing state is ingesting. (Value: "INGESTING")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_IngestingQueued The
+ *        feed processing state is ingesting queued. (Value: "INGESTING_QUEUED")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_PublishedFailure The
+ *        feed processing state is published with failure. (Value:
+ *        "PUBLISHED_FAILURE")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_PublishedSuccess The
+ *        feed processing state is published successfully. (Value:
+ *        "PUBLISHED_SUCCESS")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_Publishing The feed
+ *        processing state is publishing. (Value: "PUBLISHING")
+ *    @arg @c kGTLRDfareporting_FeedIngestionStatus_State_RequestToPublish The
+ *        feed processing state is request to publish. (Value:
+ *        "REQUEST_TO_PUBLISH")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Contains the schedule of the dynamic feed.
+ */
+@interface GTLRDfareporting_FeedSchedule : GTLRObject
+
+/**
+ *  Optional. The number of times the feed retransforms within one day. This is
+ *  a required field if the schedule is enabled. Acceptable values are between 1
+ *  to 6, inclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *repeatValue;
+
+/**
+ *  Optional. Whether the schedule is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scheduleEnabled;
+
+/**
+ *  Optional. The hour of the day to start the feed. It is applicable if the
+ *  repeat value is equal to 1. Default value is 0.
+ */
+@property(nonatomic, copy, nullable) NSString *startHour;
+
+/**
+ *  Optional. The minute of the hour to start the feed. It is applicable if the
+ *  repeat value is equal to 1. Default value is 0.
+ */
+@property(nonatomic, copy, nullable) NSString *startMinute;
+
+/**
+ *  Optional. The time zone to schedule the feed. It is applicable if the repeat
+ *  value is equal to 1. Default value is "America/Los_Angeles".
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
+ *  Contains the field error of the dynamic feed.
+ */
+@interface GTLRDfareporting_FieldError : GTLRObject
+
+/**
+ *  Output only. The ID of the field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fieldId;
+
+/** Output only. The name of the field. */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/** Output only. The list of values of the field. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fieldValues;
+
+/**
+ *  Output only. The ingestion error of the field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_AirportGeoTarget The
+ *        ingestion error when a geo target is an airport. (Value:
+ *        "AIRPORT_GEO_TARGET")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_AssetDownloadError The
+ *        ingestion error when asset retrieval fails for a particular image or
+ *        asset. (Value: "ASSET_DOWNLOAD_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_BoolParsingError The
+ *        ingestion error when parsing the boolean value fails. (Value:
+ *        "BOOL_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_CanonicalNameQueryMismatch
+ *        The ingestion error when the geo target's canonical name does not
+ *        match the query string used to obtain it. (Value:
+ *        "CANONICAL_NAME_QUERY_MISMATCH")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_CountryParsingError
+ *        The ingestion error when parsing the country code fails. (Value:
+ *        "COUNTRY_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_CreativeDimensionParsingError
+ *        The ingestion error when parsing the creative dimension value fails.
+ *        (Value: "CREATIVE_DIMENSION_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_DatetimeParsingError
+ *        The ingestion error when parsing the datetime value fails. (Value:
+ *        "DATETIME_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_DatetimeWithoutTimezoneParsingError
+ *        The ingestion error when parsing the datetime value fails. (Value:
+ *        "DATETIME_WITHOUT_TIMEZONE_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_DuplicateId The
+ *        ingestion error when the ID value is duplicate. (Value:
+ *        "DUPLICATE_ID")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_DynamicTargetingKeyNotDefinedForAdvertiser
+ *        The ingestion error when a targeting key used but not defined for the
+ *        CM360 Advertiser. (Value:
+ *        "DYNAMIC_TARGETING_KEY_NOT_DEFINED_FOR_ADVERTISER")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_EmptyValue The
+ *        ingestion error when a required value is empty (Value: "EMPTY_VALUE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_EndtimeBeforeStarttime
+ *        The ingestion error when the end time is before the start time.
+ *        (Value: "ENDTIME_BEFORE_STARTTIME")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_EndtimePassed The
+ *        ingestion error when the end time is passed. (Value: "ENDTIME_PASSED")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_EndtimeTooSoon The
+ *        ingestion error when the end time is in the near future (i.e., <7
+ *        days). (Value: "ENDTIME_TOO_SOON")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_ExpandedUrlParsingError
+ *        The ingestion error when parsing the expanded url fails. (Value:
+ *        "EXPANDED_URL_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_FloatParsingError The
+ *        ingestion error when parsing the float value fails. (Value:
+ *        "FLOAT_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_GeoNotFoundError The
+ *        ingestion error when a geo location is not found. (Value:
+ *        "GEO_NOT_FOUND_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_GeoParsingError The
+ *        ingestion error when parsing the geo field fails. (Value:
+ *        "GEO_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_GeoProximityTargetingMultipleLocationError
+ *        The ingestion error when a feed row has multiple geotargets with
+ *        proximity targeting enabled. (Value:
+ *        "GEO_PROXIMITY_TARGETING_MULTIPLE_LOCATION_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_IdTooLong The
+ *        ingestion error when the ID value exceeds the string length limit.
+ *        (Value: "ID_TOO_LONG")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_ImageAssetScsReference
+ *        The ingestion error when Image field specifies a reference to an asset
+ *        hosted on SCS (s0.2mdn.net/s0qa.2mdn.net). (Value:
+ *        "IMAGE_ASSET_SCS_REFERENCE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryDirectoryHandle
+ *        The ingestion error when the asset library directory handle is
+ *        invalid. (Value: "INVALID_ASSET_LIBRARY_DIRECTORY_HANDLE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryHandle
+ *        The ingestion error when the asset library handle is invalid. (Value:
+ *        "INVALID_ASSET_LIBRARY_HANDLE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryVideoHandle
+ *        The ingestion error when the asset library video handle is invalid.
+ *        (Value: "INVALID_ASSET_LIBRARY_VIDEO_HANDLE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_InvalidPreferenceValue
+ *        The ingestion error when the preference value is not a positive float.
+ *        (Value: "INVALID_PREFERENCE_VALUE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_LongParsingError The
+ *        ingestion error when parsing the long value fails. (Value:
+ *        "LONG_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_MetroCodeParsingError
+ *        The ingestion error when parsing the metro code value fails. (Value:
+ *        "METRO_CODE_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_MissingId The
+ *        ingestion error when the ID value is missing. (Value: "MISSING_ID")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_MissingReportingLabel
+ *        The ingestion error when the element value name used for reporting is
+ *        missing. (Value: "MISSING_REPORTING_LABEL")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_MultivalueId The
+ *        ingestion error when a STRING_LIST type ID has multiple values.
+ *        (Value: "MULTIVALUE_ID")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_NoActiveDefaultRow The
+ *        ingestion error or warning when the default row is not active. (Value:
+ *        "NO_ACTIVE_DEFAULT_ROW")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_NoActiveDefaultRowInDateRange
+ *        The ingestion error or warning when the default row is not in the date
+ *        range. (Value: "NO_ACTIVE_DEFAULT_ROW_IN_DATE_RANGE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_NoDefaultRow The
+ *        ingestion error or warning when the default row is not set. (Value:
+ *        "NO_DEFAULT_ROW")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_NoDefaultRowInDateRange
+ *        The ingestion error or warning when the default row is not in the date
+ *        range. (Value: "NO_DEFAULT_ROW_IN_DATE_RANGE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_ParsingError The
+ *        ingestion error when parsing the field fails. (Value: "PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_PayloadLimitExceeded
+ *        The ingestion error when when the payload of the record is above a
+ *        threshold. (Value: "PAYLOAD_LIMIT_EXCEEDED")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_PostalCodeParsingError
+ *        The ingestion error when parsing the postal code value fails. (Value:
+ *        "POSTAL_CODE_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_SslNotCompliant The
+ *        ingestion error or warning when the field is not SSL compliant.
+ *        (Value: "SSL_NOT_COMPLIANT")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_TextAssetReference The
+ *        ingestion error when a text field specifies a reference to an asset.
+ *        (Value: "TEXT_ASSET_REFERENCE")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_UnknownParsingError
+ *        The ingestion error is unknown. (Value: "UNKNOWN_PARSING_ERROR")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_UserlistIdNotAccessibleForAdvertiser
+ *        The ingestion error when the userlist ID is not accessible for the
+ *        CM360 Advertiser. (Value: "USERLIST_ID_NOT_ACCESSIBLE_FOR_ADVERTISER")
+ *    @arg @c kGTLRDfareporting_FieldError_IngestionError_WeightParsingError The
+ *        ingestion error when parsing the weight value fails. (Value:
+ *        "WEIGHT_PARSING_ERROR")
+ */
+@property(nonatomic, copy, nullable) NSString *ingestionError;
+
+/**
+ *  Output only. Incidcates whether the field has error or warning.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isError;
+
+@end
+
+
+/**
+ *  Contains field filter information.
+ */
+@interface GTLRDfareporting_FieldFilter : GTLRObject
+
+/**
+ *  Optional. The boolean values, only applicable when rhs_value_type is BOOL.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Optional. The dependent values, only applicable when rhs_value_type is
+ *  DEPENDENT.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DependentFieldValue *dependentFieldValue;
+
+/**
+ *  Optional. The field ID on the left hand side of the expression.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fieldId;
+
+/**
+ *  Optional. Left hand side of the expression match type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_FieldFilter_MatchType_Equals The left hand side
+ *        of the expression is equals. (Value: "EQUALS")
+ *    @arg @c kGTLRDfareporting_FieldFilter_MatchType_EqualsOrUnrestricted The
+ *        left hand side of the expression is equals or unrestricted. It is the
+ *        default value. (Value: "EQUALS_OR_UNRESTRICTED")
+ *    @arg @c kGTLRDfareporting_FieldFilter_MatchType_LhsMatchTypeUnknown The
+ *        left hand side of the expression is unknown. This value is unused.
+ *        (Value: "LHS_MATCH_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDfareporting_FieldFilter_MatchType_NotEquals Left hand side
+ *        of the expression is not equals. Not equals specifies which fields
+ *        should not be targeted. (Value: "NOT_EQUALS")
+ *    @arg @c kGTLRDfareporting_FieldFilter_MatchType_Unrestricted The left hand
+ *        side of the expression is unrestricted. Unrestricted is used to target
+ *        fields with no restrictions. For example, country targeting fields
+ *        hold a list of countries. If the list is empty, we consider the
+ *        element value to have no restrictions. (Value: "UNRESTRICTED")
+ */
+@property(nonatomic, copy, nullable) NSString *matchType;
+
+/**
+ *  Optional. The request value, only applicable when rhs_value_type is REQUEST.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_RequestValue *requestValue;
+
+/**
+ *  Optional. The string value, only applicable when rhs_value_type is STRING.
+ */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+/**
+ *  Optional. Right hand side of the expression.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_FieldFilter_ValueType_Bool The right hand side
+ *        of the expression is a boolean. (Value: "BOOL")
+ *    @arg @c kGTLRDfareporting_FieldFilter_ValueType_Dependent The right hand
+ *        side of the expression is a dependent field value. (Value:
+ *        "DEPENDENT")
+ *    @arg @c kGTLRDfareporting_FieldFilter_ValueType_Request The right hand
+ *        side of the expression is a request value. (Value: "REQUEST")
+ *    @arg @c kGTLRDfareporting_FieldFilter_ValueType_RhsValueTypeUnknown The
+ *        right hand side of the expression is unknown. This value is unused.
+ *        (Value: "RHS_VALUE_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDfareporting_FieldFilter_ValueType_String The right hand side
+ *        of the expression is a string. (Value: "STRING")
+ */
+@property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
  *  Represents a File resource. A file contains the metadata for a report run.
  *  It shows the status of the run and holds the URLs to the generated report
  *  data if the run is finished and the status is "REPORT_AVAILABLE".
@@ -10142,15 +12144,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_FloodlightActivitiesGenerateTagResponse : GTLRObject
 
 /**
- *  Generated tag for this Floodlight activity. For global site tags, this is
- *  the event snippet.
+ *  Generated tag for this Floodlight activity. For Google tags, this is the
+ *  event snippet.
  */
 @property(nonatomic, copy, nullable) NSString *floodlightActivityTag;
 
 /**
- *  The global snippet section of a global site tag. The global site tag sets
- *  new cookies on your domain, which will store a unique identifier for a user
- *  or the ad click that brought the user to your site. Learn more.
+ *  The global snippet section of a Google tag. The Google tag sets new cookies
+ *  on your domain, which will store a unique identifier for a user or the ad
+ *  click that brought the user to your site. Learn more.
  */
 @property(nonatomic, copy, nullable) NSString *globalSiteTagGlobalSnippet;
 
@@ -10962,6 +12964,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains the ingestion error record of the dynamic feed. limited to 100
+ *  records.
+ */
+@interface GTLRDfareporting_IngestionErrorRecord : GTLRObject
+
+/** Output only. The list of field errors of the ingestion error record. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_FieldError *> *errors;
+
+/** Output only. The record ID of the ingestion error record. */
+@property(nonatomic, copy, nullable) NSString *recordId;
+
+@end
+
+
+/**
+ *  Contains the ingestion status of the dynamic feed.
+ */
+@interface GTLRDfareporting_IngestionStatus : GTLRObject
+
+/**
+ *  Output only. The number of active rows in the feed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numActiveRows;
+
+/**
+ *  Output only. The number of rows processed in the feed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRowsProcessed;
+
+/**
+ *  Output only. The total number of rows in the feed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRowsTotal;
+
+/**
+ *  Output only. The number of rows with errors in the feed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numRowsWithErrors;
+
+/**
+ *  Output only. The total number of warnings in the feed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numWarningsTotal;
+
+@end
+
+
+/**
  *  Represents a buy from the Planning inventory store.
  */
 @interface GTLRDfareporting_InventoryItem : GTLRObject
@@ -11597,6 +13657,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked
  *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinkPending
+ *        Partner unlink pending. (Value: "MEASUREMENT_PARTNER_UNLINK_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -11647,6 +13709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked
  *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinkPending
+ *        Partner unlink pending. (Value: "MEASUREMENT_PARTNER_UNLINK_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -11700,6 +13764,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING")
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked
  *        Unlinked. (Value: "MEASUREMENT_PARTNER_UNLINKED")
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinkPending
+ *        Partner unlink pending. (Value: "MEASUREMENT_PARTNER_UNLINK_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *linkStatus;
 
@@ -12450,117 +14516,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Represents a DfaReporting path filter.
- */
-@interface GTLRDfareporting_PathFilter : GTLRObject
-
-/** Event filters in path report. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_EventFilter *> *eventFilters;
-
-/** The kind of resource this is, in this case dfareporting#pathFilter. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Determines how the 'value' field is matched when filtering. If not
- *  specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed
- *  as a placeholder for variable length character sequences, and it can be
- *  escaped with a backslash. Note, only paid search dimensions
- *  ('dfa:paidSearch*') allow a matchType other than EXACT.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_PathFilter_PathMatchPosition_Any Value "ANY"
- *    @arg @c kGTLRDfareporting_PathFilter_PathMatchPosition_First Value "FIRST"
- *    @arg @c kGTLRDfareporting_PathFilter_PathMatchPosition_Last Value "LAST"
- *    @arg @c kGTLRDfareporting_PathFilter_PathMatchPosition_PathMatchPositionUnspecified
- *        Value "PATH_MATCH_POSITION_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *pathMatchPosition;
-
-@end
-
-
-/**
- *  Represents fields that are compatible to be selected for a report of type
- *  "PATH".
- */
-@interface GTLRDfareporting_PathReportCompatibleFields : GTLRObject
-
-/**
- *  Dimensions which are compatible to be selected in the "channelGroupings"
- *  section of the report.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *channelGroupings;
-
-/**
- *  Dimensions which are compatible to be selected in the "dimensions" section
- *  of the report.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *dimensions;
-
-/**
- *  The kind of resource this is, in this case
- *  dfareporting#pathReportCompatibleFields.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Metrics which are compatible to be selected in the "metricNames" section of
- *  the report.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Metric *> *metrics;
-
-/**
- *  Dimensions which are compatible to be selected in the "pathFilters" section
- *  of the report.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Dimension *> *pathFilters;
-
-@end
-
-
-/**
- *  Represents a PathReportDimensionValue resource.
- */
-@interface GTLRDfareporting_PathReportDimensionValue : GTLRObject
-
-/** The name of the dimension. */
-@property(nonatomic, copy, nullable) NSString *dimensionName;
-
-/** The possible ID's associated with the value if available. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
-
-/**
- *  The kind of resource this is, in this case
- *  dfareporting#pathReportDimensionValue.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Determines how the 'value' field is matched when filtering. If not
- *  specified, defaults to EXACT. If set to WILDCARD_EXPRESSION, '*' is allowed
- *  as a placeholder for variable length character sequences, and it can be
- *  escaped with a backslash. Note, only paid search dimensions
- *  ('dfa:paidSearch*') allow a matchType other than EXACT.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_PathReportDimensionValue_MatchType_BeginsWith
- *        Value "BEGINS_WITH"
- *    @arg @c kGTLRDfareporting_PathReportDimensionValue_MatchType_Contains
- *        Value "CONTAINS"
- *    @arg @c kGTLRDfareporting_PathReportDimensionValue_MatchType_Exact Value
- *        "EXACT"
- *    @arg @c kGTLRDfareporting_PathReportDimensionValue_MatchType_WildcardExpression
- *        Value "WILDCARD_EXPRESSION"
- */
-@property(nonatomic, copy, nullable) NSString *matchType;
-
-/** The possible values of the dimension. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
-
-@end
-
-
-/**
  *  Represents fields that are compatible to be selected for a report of type
  *  "PATH_TO_CONVERSION".
  */
@@ -12643,6 +14598,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  a placement, only the size ID field is used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *additionalSizes;
+
+/**
+ *  Optional. Ad serving platform ID to identify the ad serving platform used by
+ *  the placement. Measurement partners can use this field to add ad-server
+ *  specific macros. Possible values are: * `1`, Adelphic * `2`, Adform * `3`,
+ *  Adobe * `4`, Amobee * `5`, Basis (Centro) * `6`, Beeswax * `7`, Amazon *
+ *  `8`, DV360 (DBM) * `9`, Innovid * `10`, MediaMath * `11`, Roku OneView DSP *
+ *  `12`, TabMo Hawk * `13`, The Trade Desk * `14`, Xandr Invest DSP * `15`,
+ *  Yahoo DSP * `16`, Zeta Global * `17`, Scaleout * `18`, Bidtellect * `19`,
+ *  Unicorn * `20`, Teads * `21`, Quantcast * `22`, Cognitiv
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adServingPlatformId;
 
 /**
  *  Advertiser ID of this placement. This field can be left blank.
@@ -12846,6 +14815,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  field.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *siteIdDimensionValue;
+
+/**
+ *  Optional. Whether the ads in the placement are served by another platform
+ *  and CM is only used for tracking or they are served by CM. A false value
+ *  indicates the ad is served by CM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteServed;
 
 /**
  *  Size associated with this placement. When inserting or updating a placement,
@@ -13960,6 +15938,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains proximity filter information.
+ */
+@interface GTLRDfareporting_ProximityFilter : GTLRObject
+
+/**
+ *  Optional. Field ID in the element.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fieldId;
+
+/**
+ *  Optional. The radius bucket type of the proximity filter
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusBucketType_Large The
+ *        radius bucket type is large. (Value: "LARGE")
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusBucketType_Medium The
+ *        radius bucket type is medium. (Value: "MEDIUM")
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusBucketType_MultiRegional
+ *        The radius bucket type is multi-regional. (Value: "MULTI_REGIONAL")
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusBucketType_National The
+ *        radius bucket type is national. (Value: "NATIONAL")
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusBucketType_RadiusBucketTypeUnknown
+ *        The radius bucket type is unknown. (Value:
+ *        "RADIUS_BUCKET_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusBucketType_Small The
+ *        radius bucket type is small. (Value: "SMALL")
+ */
+@property(nonatomic, copy, nullable) NSString *radiusBucketType;
+
+/**
+ *  Optional. The units of the radius value
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusUnitType_Kilometers The
+ *        units of the radius value are kilometers. (Value: "KILOMETERS")
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusUnitType_Miles The units
+ *        of the radius value are miles. (Value: "MILES")
+ *    @arg @c kGTLRDfareporting_ProximityFilter_RadiusUnitType_RadiusUnitTypeUnknown
+ *        The units of the radius value are unknown. This value is unused.
+ *        (Value: "RADIUS_UNIT_TYPE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *radiusUnitType;
+
+/**
+ *  Optional. Radius length in units defined by radius_units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *radiusValue;
+
+@end
+
+
+/**
  *  Represents fields that are compatible to be selected for a report of type
  *  "REACH".
  */
@@ -14277,6 +16311,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains remarketing value attribute information.
+ */
+@interface GTLRDfareporting_RemarketingValueAttribute : GTLRObject
+
+/**
+ *  Optional. Field ID in the element.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fieldId;
+
+/**
+ *  Optional. Remarketing user attribute IDs for auto filtering.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *userAttributeIds;
+
+@end
+
+
+/**
  *  Represents a Report resource.
  */
 @interface GTLRDfareporting_Report : GTLRObject
@@ -14293,6 +16349,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** The report criteria for a report of type "CROSS_DIMENSION_REACH". */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_CrossDimensionReachCriteria *crossDimensionReachCriteria;
+
+/** Optional. The report criteria for a report of type "CROSS_MEDIA_REACH". */
+@property(nonatomic, strong, nullable) GTLRDfareporting_Report_CrossMediaReachCriteria *crossMediaReachCriteria;
 
 /** The report's email delivery settings. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_Delivery *delivery;
@@ -14348,12 +16407,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *ownerProfileId;
 
-/** The report criteria for a report of type "PATH_ATTRIBUTION". */
-@property(nonatomic, strong, nullable) GTLRDfareporting_Report_PathAttributionCriteria *pathAttributionCriteria;
-
-/** The report criteria for a report of type "PATH". */
-@property(nonatomic, strong, nullable) GTLRDfareporting_Report_PathCriteria *pathCriteria;
-
 /** The report criteria for a report of type "PATH_TO_CONVERSION". */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_PathToConversionCriteria *pathToConversionCriteria;
 
@@ -14379,10 +16432,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Report_Type_CrossDimensionReach Value
  *        "CROSS_DIMENSION_REACH"
+ *    @arg @c kGTLRDfareporting_Report_Type_CrossMediaReach Value
+ *        "CROSS_MEDIA_REACH"
  *    @arg @c kGTLRDfareporting_Report_Type_Floodlight Value "FLOODLIGHT"
- *    @arg @c kGTLRDfareporting_Report_Type_Path Value "PATH"
- *    @arg @c kGTLRDfareporting_Report_Type_PathAttribution Value
- *        "PATH_ATTRIBUTION"
  *    @arg @c kGTLRDfareporting_Report_Type_PathToConversion Value
  *        "PATH_TO_CONVERSION"
  *    @arg @c kGTLRDfareporting_Report_Type_Reach Value "REACH"
@@ -14469,6 +16521,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Optional. The report criteria for a report of type "CROSS_MEDIA_REACH".
+ */
+@interface GTLRDfareporting_Report_CrossMediaReachCriteria : GTLRObject
+
+/** Required. The date range this report should be run for. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
+
+/**
+ *  Required. The list of filters on which dimensions are filtered. Filters for
+ *  different dimensions are ANDed, filters for the same dimension are grouped
+ *  together and ORed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *dimensionFilters;
+
+/** Required. The list of dimensions the report should include. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortedDimension *> *dimensions;
+
+/** Required. The list of names of metrics the report should include. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
+
+@end
+
+
+/**
  *  The report's email delivery settings.
  */
 @interface GTLRDfareporting_Report_Delivery : GTLRObject
@@ -14533,72 +16609,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** The properties of the report. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_FloodlightCriteria_ReportProperties *reportProperties;
-
-@end
-
-
-/**
- *  The report criteria for a report of type "PATH_ATTRIBUTION".
- */
-@interface GTLRDfareporting_Report_PathAttributionCriteria : GTLRObject
-
-/** The list of 'dfa:activity' values to filter on. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *activityFilters;
-
-/** Channel Grouping. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_ChannelGrouping *customChannelGrouping;
-
-/** The date range this report should be run for. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
-
-/** The list of dimensions the report should include. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortedDimension *> *dimensions;
-
-/**
- *  The floodlight ID for which to show data in this report. All advertisers
- *  associated with that ID will automatically be added. The dimension of the
- *  value needs to be 'dfa:floodlightConfigId'.
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *floodlightConfigId;
-
-/** The list of names of metrics the report should include. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
-
-/** Path Filters. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_PathFilter *> *pathFilters;
-
-@end
-
-
-/**
- *  The report criteria for a report of type "PATH".
- */
-@interface GTLRDfareporting_Report_PathCriteria : GTLRObject
-
-/** The list of 'dfa:activity' values to filter on. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *activityFilters;
-
-/** Channel Grouping. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_ChannelGrouping *customChannelGrouping;
-
-/** The date range this report should be run for. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
-
-/** The list of dimensions the report should include. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortedDimension *> *dimensions;
-
-/**
- *  The floodlight ID for which to show data in this report. All advertisers
- *  associated with that ID will automatically be added. The dimension of the
- *  value needs to be 'dfa:floodlightConfigId'.
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *floodlightConfigId;
-
-/** The list of names of metrics the report should include. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
-
-/** Path Filters. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_PathFilter *> *pathFilters;
 
 @end
 
@@ -14992,6 +17002,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains request value information.
+ */
+@interface GTLRDfareporting_RequestValue : GTLRObject
+
+/**
+ *  Optional. User attribute IDs in the request that should be excluded. Used
+ *  only when the field type is REMARKETING_VALUE or USER_ATTRIBUTE_ID.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *excludeFromUserAttributeIds;
+
+/**
+ *  Optional. Custom key in the request. Used only when the field type is
+ *  CUSTOM_VALUE.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Optional. User attribute IDs in the request. Used only when the field type
+ *  is REMARKETING_VALUE or USER_ATTRIBUTE_ID.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *userAttributeIds;
+
+@end
+
+
+/**
  *  Rich Media Exit Override.
  */
 @interface GTLRDfareporting_RichMediaExitOverride : GTLRObject
@@ -15050,6 +17090,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  Contains a list of field filters that the given custom rule will apply.
+ */
+@interface GTLRDfareporting_RuleBlock : GTLRObject
+
+/** Optional. A list of non-auto field filters */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_FieldFilter *> *fieldFilter;
+
+@end
+
+
+/**
  *  Contains properties of a site.
  */
 @interface GTLRDfareporting_Site : GTLRObject
@@ -15060,6 +17111,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *accountId;
+
+/**
+ *  Optional. Ad serving platform ID to identify the ad serving platform used by
+ *  the site. Measurement partners can use this field to add ad-server specific
+ *  macros. If set, this value acts as the default during placement creation.
+ *  Possible values are: * `1`, Adelphic * `2`, Adform * `3`, Adobe * `4`,
+ *  Amobee * `5`, Basis (Centro) * `6`, Beeswax * `7`, Amazon * `8`, DV360 (DBM)
+ *  * `9`, Innovid * `10`, MediaMath * `11`, Roku OneView DSP * `12`, TabMo Hawk
+ *  * `13`, The Trade Desk * `14`, Xandr Invest DSP * `15`, Yahoo DSP * `16`,
+ *  Zeta Global * `17`, Scaleout * `18`, Bidtellect * `19`, Unicorn * `20`,
+ *  Teads * `21`, Quantcast * `22`, Cognitiv
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adServingPlatformId;
 
 /**
  *  Whether this site is approved.
@@ -15419,7 +17485,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Publisher specification ID used to identify site-associated publisher
  *  requirements and automatically populate transcode settings. If publisher
  *  specification ID is specified, it will take precedence over transcode
- *  settings.
+ *  settings. Possible values are: * `1`, Hulu * `2`, NBC * `3`, CBS * `4`, CBS
+ *  Desktop * `5`, Discovery * `6`, VEVO HD * `7`, VEVO Vertical * `8`, Fox *
+ *  `9`, CW Network * `10`, Disney * `11`, IGN * `12`, NFL.com * `13`, Turner
+ *  Broadcasting * `14`, Tubi on Fox * `15`, Hearst Corporation * `16`, Twitch
+ *  Desktop * `17`, ABC * `18`, Univision * `19`, MLB.com * `20`, MLB.com Mobile
+ *  * `21`, MLB.com OTT * `22`, Polsat * `23`, TVN * `24`, Mediaset * `25`,
+ *  Antena 3 * `26`, Mediamond * `27`, Sky Italia * `28`, Tubi on CBS * `29`,
+ *  Spotify * `30`, Paramount * `31`, Max
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -15739,6 +17812,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeClickTracking;
+
+/**
+ *  Optional. Indicates that the unescapedlpurl macro should be included in the
+ *  tag for the static landing page. New placements will default to the value
+ *  set on their site.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeUnescapedlpurlMacro;
 
 /**
  *  Option specifying how keywords are embedded in ad tags. This setting can be
@@ -16244,6 +18326,161 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  "dfareporting#transcodeSetting".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  TvCampaignDetail contains data from a TV campaign for specific start dates
+ *  and date windows.
+ */
+@interface GTLRDfareporting_TvCampaignDetail : GTLRObject
+
+/**
+ *  ID of this TV campaign.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#tvCampaignSummary".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The timepoints of the TV campaign. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_TvCampaignTimepoint *> *timepoints;
+
+@end
+
+
+/**
+ *  Response message for TvCampaignSummariesService.List.
+ */
+@interface GTLRDfareporting_TvCampaignSummariesListResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#tvCampaignSummariesListResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** List of TV campaign summaries. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_TvCampaignSummary *> *tvCampaignSummaries;
+
+@end
+
+
+/**
+ *  TvCampaignSummary contains aggregate data from a TV campaign.
+ */
+@interface GTLRDfareporting_TvCampaignSummary : GTLRObject
+
+/**
+ *  The end date of the TV campaign, inclusive. A string of the format:
+ *  "yyyy-MM-dd".
+ */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/**
+ *  GRP of this TV campaign.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *grp;
+
+/**
+ *  ID of this TV campaign.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Impressions across the entire TV campaign.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impressions;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "dfareporting#tvCampaignSummary".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Identifier. Name of this TV campaign. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Spend across the entire TV campaign.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spend;
+
+/**
+ *  The start date of the TV campaign, inclusive. A string of the format:
+ *  "yyyy-MM-dd".
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+/**
+ *  "CampaignComponentType" of this TV campaign.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_Brand Brand. (Value:
+ *        "BRAND")
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_Campaign Campaign.
+ *        (Value: "CAMPAIGN")
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_CampaignComponentTypeUnspecified
+ *        Required to exist; do not use. (Value:
+ *        "CAMPAIGN_COMPONENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_Company Company. (Value:
+ *        "COMPANY")
+ *    @arg @c kGTLRDfareporting_TvCampaignSummary_Type_Product Product. (Value:
+ *        "PRODUCT")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A single data point for TvCampaignDetail, which holds information about the
+ *  TV campaign for a specific start date and date window.
+ */
+@interface GTLRDfareporting_TvCampaignTimepoint : GTLRObject
+
+/**
+ *  The date window of the timepoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksEight Eight
+ *        weeks. (Value: "WEEKS_EIGHT")
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksFour Four
+ *        weeks. (Value: "WEEKS_FOUR")
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksOne One
+ *        week. (Value: "WEEKS_ONE")
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksTwelve
+ *        Twelve weeks. (Value: "WEEKS_TWELVE")
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksUnspecified
+ *        Default value, should never be set. (Value: "WEEKS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dateWindow;
+
+/**
+ *  The spend within the time range of the timepoint.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *spend;
+
+/**
+ *  The start date of the timepoint. A string in the format of "yyyy-MM-dd".
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
 
 @end
 
@@ -16823,44 +19060,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Defines the filtering on a single uvar.
- */
-@interface GTLRDfareporting_UvarFilter : GTLRObject
-
-/**
- *  Return rows which don't match this filter.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *complement;
-
-/**
- *  Custom variable index the filter is applied to.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *index;
-
-/** The kind of resource this is, in this case dfareporting#uvarFilter. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Indicates how the filter should be matched to the values.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_UvarFilter_Match_Contains Value "CONTAINS"
- *    @arg @c kGTLRDfareporting_UvarFilter_Match_Exact Value "EXACT"
- *    @arg @c kGTLRDfareporting_UvarFilter_Match_Unspecified Value "UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *match;
-
-/** Values to filter on. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
-
-@end
-
-
-/**
  *  Contains information about supported video formats.
  */
 @interface GTLRDfareporting_VideoFormat : GTLRObject
@@ -16997,7 +19196,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *orientation;
 
 /**
- *  Publisher specification ID of a video placement.
+ *  Publisher specification ID of a video placement. Possible values are: * `1`,
+ *  Hulu * `2`, NBC * `3`, CBS * `4`, CBS Desktop * `5`, Discovery * `6`, VEVO
+ *  HD * `7`, VEVO Vertical * `8`, Fox * `9`, CW Network * `10`, Disney * `11`,
+ *  IGN * `12`, NFL.com * `13`, Turner Broadcasting * `14`, Tubi on Fox * `15`,
+ *  Hearst Corporation * `16`, Twitch Desktop * `17`, ABC * `18`, Univision *
+ *  `19`, MLB.com * `20`, MLB.com Mobile * `21`, MLB.com OTT * `22`, Polsat *
+ *  `23`, TVN * `24`, Mediaset * `25`, Antena 3 * `26`, Mediamond * `27`, Sky
+ *  Italia * `28`, Tubi on CBS * `29`, Spotify * `30`, Paramount * `31`, Max
  *
  *  Uses NSNumber of longLongValue.
  */

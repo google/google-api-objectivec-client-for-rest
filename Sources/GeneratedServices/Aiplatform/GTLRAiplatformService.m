@@ -28,6 +28,7 @@ NSString * const kGTLRAuthScopeAiplatformCloudPlatformReadOnly = @"https://www.g
   if (self) {
     // From discovery.
     self.rootURLString = @"https://aiplatform.googleapis.com/";
+    self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

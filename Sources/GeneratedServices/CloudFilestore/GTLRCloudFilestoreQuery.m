@@ -258,6 +258,33 @@
 
 @end
 
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFilestore_PromoteReplicaRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:promoteReplica";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
+  query.loggingName = @"file.projects.locations.instances.promoteReplica";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRestore
 
 @dynamic name;
@@ -379,7 +406,7 @@
 
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -425,7 +452,14 @@
 
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsList
 
-@dynamic filter, includeUnrevealedLocations, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

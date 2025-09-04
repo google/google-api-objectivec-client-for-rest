@@ -17,6 +17,8 @@
 @class GTLRBigtableAdmin_AppProfile;
 @class GTLRBigtableAdmin_AuditConfig;
 @class GTLRBigtableAdmin_AuditLogConfig;
+@class GTLRBigtableAdmin_AuthorizedView;
+@class GTLRBigtableAdmin_AutomatedBackupPolicy;
 @class GTLRBigtableAdmin_AutoscalingLimits;
 @class GTLRBigtableAdmin_AutoscalingTargets;
 @class GTLRBigtableAdmin_Backup;
@@ -29,22 +31,65 @@
 @class GTLRBigtableAdmin_ClusterState;
 @class GTLRBigtableAdmin_ColumnFamily;
 @class GTLRBigtableAdmin_ColumnFamilyStats;
+@class GTLRBigtableAdmin_CreateAuthorizedViewRequest;
 @class GTLRBigtableAdmin_CreateClusterMetadata_Tables;
 @class GTLRBigtableAdmin_CreateClusterRequest;
 @class GTLRBigtableAdmin_CreateInstanceRequest;
 @class GTLRBigtableAdmin_CreateInstanceRequest_Clusters;
+@class GTLRBigtableAdmin_CreateLogicalViewRequest;
+@class GTLRBigtableAdmin_CreateMaterializedViewRequest;
+@class GTLRBigtableAdmin_DataBoostIsolationReadOnly;
+@class GTLRBigtableAdmin_DataBoostReadLocalWrites;
 @class GTLRBigtableAdmin_EncryptionConfig;
 @class GTLRBigtableAdmin_EncryptionInfo;
 @class GTLRBigtableAdmin_Expr;
 @class GTLRBigtableAdmin_GcRule;
 @class GTLRBigtableAdmin_GetPolicyOptions;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewFamilySubsets;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMin;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncoding;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeProto;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncoding;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingDelimitedBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingOrderedCodeBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingSingleton;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestampEncoding;
 @class GTLRBigtableAdmin_HotTablet;
 @class GTLRBigtableAdmin_Instance;
 @class GTLRBigtableAdmin_Instance_Labels;
+@class GTLRBigtableAdmin_Instance_Tags;
 @class GTLRBigtableAdmin_Intersection;
 @class GTLRBigtableAdmin_Location;
 @class GTLRBigtableAdmin_Location_Labels;
 @class GTLRBigtableAdmin_Location_Metadata;
+@class GTLRBigtableAdmin_LogicalView;
+@class GTLRBigtableAdmin_MaterializedView;
 @class GTLRBigtableAdmin_Modification;
 @class GTLRBigtableAdmin_MultiClusterRoutingUseAny;
 @class GTLRBigtableAdmin_Operation;
@@ -54,7 +99,10 @@
 @class GTLRBigtableAdmin_PartialUpdateClusterRequest;
 @class GTLRBigtableAdmin_PartialUpdateInstanceRequest;
 @class GTLRBigtableAdmin_Policy;
+@class GTLRBigtableAdmin_ProtoSchema;
 @class GTLRBigtableAdmin_RestoreInfo;
+@class GTLRBigtableAdmin_RowAffinity;
+@class GTLRBigtableAdmin_SchemaBundle;
 @class GTLRBigtableAdmin_SingleClusterRouting;
 @class GTLRBigtableAdmin_Split;
 @class GTLRBigtableAdmin_StandardIsolation;
@@ -66,12 +114,18 @@
 @class GTLRBigtableAdmin_Table_ColumnFamilies;
 @class GTLRBigtableAdmin_TableProgress;
 @class GTLRBigtableAdmin_TableStats;
+@class GTLRBigtableAdmin_TieredStorageConfig;
+@class GTLRBigtableAdmin_TieredStorageRule;
+@class GTLRBigtableAdmin_Type;
 @class GTLRBigtableAdmin_Union;
+@class GTLRBigtableAdmin_UpdateAuthorizedViewRequest;
+@class GTLRBigtableAdmin_UpdateLogicalViewRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -123,6 +177,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_Dat
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_Backup.backupType
+
+/**
+ *  Not specified.
+ *
+ *  Value: "BACKUP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_BackupType_BackupTypeUnspecified;
+/**
+ *  A backup type with faster restore to SSD performance. Only supported for
+ *  backups created in SSD instances. A new SSD table restored from a hot backup
+ *  reaches production performance more quickly than a standard backup.
+ *
+ *  Value: "HOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_BackupType_Hot;
+/**
+ *  The default type for Cloud Bigtable managed backups. Supported for backups
+ *  created in both HDD and SSD instances. Requires optimization when restored
+ *  to a table in an SSD instance.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Backup_BackupType_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Backup.state
 
 /**
@@ -166,6 +246,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType
  *  Value: "STORAGE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType_StorageTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_Cluster.nodeScalingFactor
+
+/**
+ *  The cluster is running with a scaling factor of 1.
+ *
+ *  Value: "NODE_SCALING_FACTOR_1X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor1x;
+/**
+ *  The cluster is running with a scaling factor of 2. All node count values
+ *  must be in increments of 2 with this scaling factor enabled, otherwise an
+ *  INVALID_ARGUMENT error will be returned.
+ *
+ *  Value: "NODE_SCALING_FACTOR_2X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor2x;
+/**
+ *  No node scaling specified. Defaults to NODE_SCALING_FACTOR_1X.
+ *
+ *  Value: "NODE_SCALING_FACTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Cluster.state
@@ -254,6 +358,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationSt
  *  Value: "UNPLANNED_MAINTENANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_UnplannedMaintenance;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_DataBoostIsolationReadOnly.computeBillingOwner
+
+/**
+ *  Unspecified value.
+ *
+ *  Value: "COMPUTE_BILLING_OWNER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_DataBoostIsolationReadOnly_ComputeBillingOwner_ComputeBillingOwnerUnspecified;
+/**
+ *  The host Cloud Project containing the targeted Bigtable Instance / Table
+ *  pays for compute.
+ *
+ *  Value: "HOST_PAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_DataBoostIsolationReadOnly_ComputeBillingOwner_HostPays;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_EncryptionInfo.encryptionType
@@ -438,6 +559,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_AppProfile : GTLRObject
 
 /**
+ *  Specifies that this app profile is intended for read-only usage via the Data
+ *  Boost feature.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_DataBoostIsolationReadOnly *dataBoostIsolationReadOnly;
+
+/**
  *  Long form description of the use case for this AppProfile.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -458,8 +585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_MultiClusterRoutingUseAny *multiClusterRoutingUseAny;
 
 /**
- *  The unique name of the app profile. Values are of the form
- *  `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
+ *  The unique name of the app profile, up to 50 characters long. Values are of
+ *  the form `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -560,6 +687,59 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  An Authorized View of a Cloud Bigtable Table.
+ */
+@interface GTLRBigtableAdmin_AuthorizedView : GTLRObject
+
+/**
+ *  Set to true to make the AuthorizedView protected against deletion. The
+ *  parent Table and containing Instance cannot be deleted if an AuthorizedView
+ *  has this bit set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtection;
+
+/**
+ *  The etag for this AuthorizedView. If this is provided on update, it must
+ *  match the server's etag. The server returns ABORTED error on a mismatched
+ *  etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The name of this AuthorizedView. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** An AuthorizedView permitting access to an explicit subset of a Table. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView *subsetView;
+
+@end
+
+
+/**
+ *  Defines an automated backup policy for a table
+ */
+@interface GTLRBigtableAdmin_AutomatedBackupPolicy : GTLRObject
+
+/**
+ *  How frequently automated backups should occur. The only supported value at
+ *  this time is 24 hours. An undefined frequency is treated as 24 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *frequency;
+
+/**
+ *  Required. How long the automated backups should be retained. Values must be
+ *  at least 3 days and at most 90 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *retentionPeriod;
+
+@end
+
+
+/**
  *  Limits for the number of nodes a Cluster can autoscale up/down to.
  */
 @interface GTLRBigtableAdmin_AutoscalingLimits : GTLRObject
@@ -617,6 +797,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @interface GTLRBigtableAdmin_Backup : GTLRObject
 
+/**
+ *  Indicates the backup type of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_Backup_BackupType_BackupTypeUnspecified Not
+ *        specified. (Value: "BACKUP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdmin_Backup_BackupType_Hot A backup type with faster
+ *        restore to SSD performance. Only supported for backups created in SSD
+ *        instances. A new SSD table restored from a hot backup reaches
+ *        production performance more quickly than a standard backup. (Value:
+ *        "HOT")
+ *    @arg @c kGTLRBigtableAdmin_Backup_BackupType_Standard The default type for
+ *        Cloud Bigtable managed backups. Supported for backups created in both
+ *        HDD and SSD instances. Requires optimization when restored to a table
+ *        in an SSD instance. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *backupType;
+
 /** Output only. The encryption information for the backup. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_EncryptionInfo *encryptionInfo;
 
@@ -627,12 +825,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Required. The expiration time of the backup, with microseconds granularity
- *  that must be at least 6 hours and at most 90 days from the time the request
- *  is received. Once the `expire_time` has passed, Cloud Bigtable will delete
- *  the backup and free the resources used by the backup.
+ *  Required. The expiration time of the backup. When creating a backup or
+ *  updating its `expire_time`, the value must be greater than the backup
+ *  creation time by: - At least 6 hours - At most 90 days Once the
+ *  `expire_time` has passed, Cloud Bigtable will delete the backup.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  The time at which the hot backup will be converted to a standard backup.
+ *  Once the `hot_to_standard_time` has passed, Cloud Bigtable will convert the
+ *  hot backup to a standard backup. This value must be greater than the backup
+ *  creation time by: - At least 24 hours This field only applies for hot
+ *  backups. When creating or updating a standard backup, attempting to set this
+ *  field will fail the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *hotToStandardTime;
 
 /**
  *  A globally unique identifier for the backup which cannot be changed. Values
@@ -836,6 +1044,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *consistencyToken;
 
 /**
+ *  Checks that reads using an app profile with `DataBoostIsolationReadOnly` can
+ *  see all writes committed before the token was created, but only if the read
+ *  and write target the same cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_DataBoostReadLocalWrites *dataBoostReadLocalWrites;
+
+/**
  *  Checks that reads using an app profile with `StandardIsolation` can see all
  *  writes committed before the token was created, even if the read and write
  *  target different clusters.
@@ -902,6 +1117,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  `projects/{project}/instances/{instance}/clusters/a-z*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The node scaling factor of this cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor1x
+ *        The cluster is running with a scaling factor of 1. (Value:
+ *        "NODE_SCALING_FACTOR_1X")
+ *    @arg @c kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactor2x
+ *        The cluster is running with a scaling factor of 2. All node count
+ *        values must be in increments of 2 with this scaling factor enabled,
+ *        otherwise an INVALID_ARGUMENT error will be returned. (Value:
+ *        "NODE_SCALING_FACTOR_2X")
+ *    @arg @c kGTLRBigtableAdmin_Cluster_NodeScalingFactor_NodeScalingFactorUnspecified
+ *        No node scaling specified. Defaults to NODE_SCALING_FACTOR_1X. (Value:
+ *        "NODE_SCALING_FACTOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nodeScalingFactor;
 
 /**
  *  The number of nodes in the cluster. If no value is set, Cloud Bigtable
@@ -1032,6 +1265,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_ColumnFamilyStats *stats;
 
+/**
+ *  The type of data stored in each of this family's cell values, including its
+ *  full encoding. If omitted, the family only serves raw untyped bytes. For
+ *  now, only the `Aggregate` type is supported. `Aggregate` can only be set at
+ *  family creation and is immutable afterwards. If `value_type` is `Aggregate`,
+ *  written data must be compatible with: * `value_type.input_type` for
+ *  `AddInput` mutations
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *valueType;
+
 @end
 
 
@@ -1134,6 +1377,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  form: `projects//instances//clusters//backups/`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by CreateAuthorizedView.
+ */
+@interface GTLRBigtableAdmin_CreateAuthorizedViewMetadata : GTLRObject
+
+/** The time at which the operation failed or was completed successfully. */
+@property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
+
+/**
+ *  The request that prompted the initiation of this CreateAuthorizedView
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateAuthorizedViewRequest *originalRequest;
+
+/** The time at which the original request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+@end
+
+
+/**
+ *  The request for CreateAuthorizedView
+ */
+@interface GTLRBigtableAdmin_CreateAuthorizedViewRequest : GTLRObject
+
+/** Required. The AuthorizedView to create. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_AuthorizedView *authorizedView;
+
+/**
+ *  Required. The id of the AuthorizedView to create. This AuthorizedView must
+ *  not already exist. The `authorized_view_id` appended to `parent` forms the
+ *  full AuthorizedView name of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/authorizedView/{authorized_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *authorizedViewId;
+
+/**
+ *  Required. This is the name of the table the AuthorizedView belongs to.
+ *  Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 @end
 
@@ -1299,6 +1588,112 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  The metadata for the Operation returned by CreateLogicalView.
+ */
+@interface GTLRBigtableAdmin_CreateLogicalViewMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The request that prompted the initiation of this CreateLogicalView
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateLogicalViewRequest *originalRequest;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Request message for BigtableInstanceAdmin.CreateLogicalView.
+ */
+@interface GTLRBigtableAdmin_CreateLogicalViewRequest : GTLRObject
+
+/** Required. The logical view to create. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_LogicalView *logicalView;
+
+/**
+ *  Required. The ID to use for the logical view, which will become the final
+ *  component of the logical view's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *logicalViewId;
+
+/**
+ *  Required. The parent instance where this logical view will be created.
+ *  Format: `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by CreateMaterializedView.
+ */
+@interface GTLRBigtableAdmin_CreateMaterializedViewMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The request that prompted the initiation of this CreateMaterializedView
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateMaterializedViewRequest *originalRequest;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Request message for BigtableInstanceAdmin.CreateMaterializedView.
+ */
+@interface GTLRBigtableAdmin_CreateMaterializedViewRequest : GTLRObject
+
+/** Required. The materialized view to create. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_MaterializedView *materializedView;
+
+/**
+ *  Required. The ID to use for the materialized view, which will become the
+ *  final component of the materialized view's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *materializedViewId;
+
+/**
+ *  Required. The parent instance where this materialized view will be created.
+ *  Format: `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by CreateSchemaBundle.
+ */
+@interface GTLRBigtableAdmin_CreateSchemaBundleMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The unique name identifying this schema bundle. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Request message for google.bigtable.admin.v2.BigtableTableAdmin.CreateTable
  */
 @interface GTLRBigtableAdmin_CreateTableRequest : GTLRObject
@@ -1327,6 +1722,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
+@end
+
+
+/**
+ *  Data Boost is a serverless compute capability that lets you run
+ *  high-throughput read jobs and queries on your Bigtable data, without
+ *  impacting the performance of the clusters that handle your application
+ *  traffic. Data Boost supports read-only use cases with single-cluster
+ *  routing.
+ */
+@interface GTLRBigtableAdmin_DataBoostIsolationReadOnly : GTLRObject
+
+/**
+ *  The Compute Billing Owner for this Data Boost App Profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_DataBoostIsolationReadOnly_ComputeBillingOwner_ComputeBillingOwnerUnspecified
+ *        Unspecified value. (Value: "COMPUTE_BILLING_OWNER_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdmin_DataBoostIsolationReadOnly_ComputeBillingOwner_HostPays
+ *        The host Cloud Project containing the targeted Bigtable Instance /
+ *        Table pays for compute. (Value: "HOST_PAYS")
+ */
+@property(nonatomic, copy, nullable) NSString *computeBillingOwner;
+
+@end
+
+
+/**
+ *  Checks that all writes before the consistency token was generated in the
+ *  same cluster are readable by Databoost.
+ */
+@interface GTLRBigtableAdmin_DataBoostReadLocalWrites : GTLRObject
 @end
 
 
@@ -1567,6 +1994,511 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Subsets of a column family that are included in this AuthorizedView.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewFamilySubsets : GTLRObject
+
+/**
+ *  Prefixes for qualifiers to be included in the AuthorizedView. Every
+ *  qualifier starting with one of these prefixes is included in the
+ *  AuthorizedView. To provide access to all qualifiers, include the empty
+ *  string as a prefix ("").
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *qualifierPrefixes;
+
+/**
+ *  Individual exact column qualifiers to be included in the AuthorizedView.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *qualifiers;
+
+@end
+
+
+/**
+ *  Defines a simple AuthorizedView that is a subset of the underlying Table.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView : GTLRObject
+
+/**
+ *  Map from column family name to the columns in this family to be included in
+ *  the AuthorizedView.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets *familySubsets;
+
+/**
+ *  Row prefixes to be included in the AuthorizedView. To provide access to all
+ *  rows, include the empty string as a prefix ("").
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rowPrefixes;
+
+@end
+
+
+/**
+ *  Map from column family name to the columns in this family to be included in
+ *  the AuthorizedView.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewFamilySubsets.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets : GTLRObject
+@end
+
+
+/**
+ *  A value that combines incremental updates into a summarized value. Data is
+ *  never directly written or read using type `Aggregate`. Writes provide either
+ *  the `input_type` or `state_type`, and reads always return the `state_type` .
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate : GTLRObject
+
+/** HyperLogLogPlusPlusUniqueCount aggregator. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount *hllppUniqueCount;
+
+/**
+ *  Type of the inputs that are accumulated by this `Aggregate`. Use `AddInput`
+ *  mutations to accumulate new inputs.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *inputType;
+
+/** Max aggregator. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax *max;
+
+/** Min aggregator. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMin *min;
+
+/**
+ *  Output only. Type that holds the internal accumulator state for the
+ *  `Aggregate`. This is a function of the `input_type` and `aggregator` chosen.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *stateType;
+
+/** Sum aggregator. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum *sum;
+
+@end
+
+
+/**
+ *  Computes an approximate unique count over the input values. When using raw
+ *  data as input, be careful to use a consistent encoding. Otherwise the same
+ *  value encoded differently could count more than once, or two distinct values
+ *  could count as identical. Input: Any, or omit for Raw State: TBD Special
+ *  state conversions: `Int64` (the unique count estimate)
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount : GTLRObject
+@end
+
+
+/**
+ *  Computes the max of the input values. Allowed input: `Int64` State: same as
+ *  input
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax : GTLRObject
+@end
+
+
+/**
+ *  Computes the min of the input values. Allowed input: `Int64` State: same as
+ *  input
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMin : GTLRObject
+@end
+
+
+/**
+ *  Computes the sum of the input values. Allowed input: `Int64` State: same as
+ *  input
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum : GTLRObject
+@end
+
+
+/**
+ *  An ordered list of elements of a given type. Values of type `Array` are
+ *  stored in `Value.array_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray : GTLRObject
+
+/** The type of the elements in the array. This must not be `Array`. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *elementType;
+
+@end
+
+
+/**
+ *  bool Values of type `Bool` are stored in `Value.bool_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool : GTLRObject
+@end
+
+
+/**
+ *  Bytes Values of type `Bytes` are stored in `Value.bytes_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes : GTLRObject
+
+/** The encoding to use when converting to or from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncoding *encoding;
+
+@end
+
+
+/**
+ *  Rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncoding : GTLRObject
+
+/** Use `Raw` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw *raw;
+
+@end
+
+
+/**
+ *  Leaves the value as-is. Sorted mode: all values are supported. Distinct
+ *  mode: all values are supported.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw : GTLRObject
+
+/**
+ *  If set, allows NULL values to be encoded as the empty string "". The actual
+ *  empty string, or any value which only contains the null byte 0x00, has one
+ *  more null byte appended.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *escapeNulls;
+
+@end
+
+
+/**
+ *  Date Values of type `Date` are stored in `Value.date_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate : GTLRObject
+@end
+
+
+/**
+ *  A protobuf enum type. Values of type `Enum` are stored in `Value.int_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum : GTLRObject
+
+/**
+ *  The fully qualified name of the protobuf enum message, including package. In
+ *  the format of "foo.bar.EnumMessage".
+ */
+@property(nonatomic, copy, nullable) NSString *enumName;
+
+/** The ID of the schema bundle that this enum is defined in. */
+@property(nonatomic, copy, nullable) NSString *schemaBundleId;
+
+@end
+
+
+/**
+ *  Float32 Values of type `Float32` are stored in `Value.float_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32 : GTLRObject
+@end
+
+
+/**
+ *  Float64 Values of type `Float64` are stored in `Value.float_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64 : GTLRObject
+@end
+
+
+/**
+ *  Int64 Values of type `Int64` are stored in `Value.int_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64 : GTLRObject
+
+/** The encoding to use when converting to or from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding *encoding;
+
+@end
+
+
+/**
+ *  Rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding : GTLRObject
+
+/** Use `BigEndianBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes *bigEndianBytes;
+
+/** Use `OrderedCodeBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes *orderedCodeBytes;
+
+@end
+
+
+/**
+ *  Encodes the value as an 8-byte big-endian two's complement value. Sorted
+ *  mode: non-negative values are supported. Distinct mode: all values are
+ *  supported. Compatible with: - BigQuery `BINARY` encoding - HBase
+ *  `Bytes.toBytes` - Java `ByteBuffer.putLong()` with `ByteOrder.BIG_ENDIAN`
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes : GTLRObject
+
+/** Deprecated: ignored if set. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes *bytesType GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  Encodes the value in a variable length binary format of up to 10 bytes.
+ *  Values that are closer to zero use fewer bytes. Sorted mode: all values are
+ *  supported. Distinct mode: all values are supported.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingOrderedCodeBytes : GTLRObject
+@end
+
+
+/**
+ *  A mapping of keys to values of a given type. Values of type `Map` are stored
+ *  in a `Value.array_value` where each entry is another `Value.array_value`
+ *  with two elements (the key and the value, in that order). Normally encoded
+ *  Map values won't have repeated keys, however, clients are expected to handle
+ *  the case in which they do. If the same key appears multiple times, the
+ *  _last_ value takes precedence.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap : GTLRObject
+
+/**
+ *  The type of a map key. Only `Bytes`, `String`, and `Int64` are allowed as
+ *  key types.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *keyType;
+
+/** The type of the values in a map. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *valueType;
+
+@end
+
+
+/**
+ *  A protobuf message type. Values of type `Proto` are stored in
+ *  `Value.bytes_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeProto : GTLRObject
+
+/**
+ *  The fully qualified name of the protobuf message, including package. In the
+ *  format of "foo.bar.Message".
+ */
+@property(nonatomic, copy, nullable) NSString *messageName;
+
+/** The ID of the schema bundle that this proto is defined in. */
+@property(nonatomic, copy, nullable) NSString *schemaBundleId;
+
+@end
+
+
+/**
+ *  String Values of type `String` are stored in `Value.string_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString : GTLRObject
+
+/** The encoding to use when converting to or from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding *encoding;
+
+@end
+
+
+/**
+ *  Rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncoding : GTLRObject
+
+/** Use `Utf8Bytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes *utf8Bytes;
+
+/** Deprecated: if set, converts to an empty `utf8_bytes`. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw *utf8Raw GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  UTF-8 encoding. Sorted mode: - All values are supported. - Code point order
+ *  is preserved. Distinct mode: all values are supported. Compatible with: -
+ *  BigQuery `TEXT` encoding - HBase `Bytes.toBytes` - Java
+ *  `String#getBytes(StandardCharsets.UTF_8)`
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Bytes : GTLRObject
+
+/**
+ *  Single-character escape sequence used to support NULL values. If set, allows
+ *  NULL values to be encoded as the empty string "". The actual empty string,
+ *  or any value where every character equals `null_escape_char`, has one more
+ *  `null_escape_char` appended. If `null_escape_char` is set and does not equal
+ *  the ASCII null character 0x00, then the encoding will not support sorted
+ *  mode. .
+ */
+@property(nonatomic, copy, nullable) NSString *nullEscapeChar;
+
+@end
+
+
+/**
+ *  Deprecated: prefer the equivalent `Utf8Bytes`.
+ */
+GTLR_DEPRECATED
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStringEncodingUtf8Raw : GTLRObject
+@end
+
+
+/**
+ *  A structured data value, consisting of fields which map to dynamically typed
+ *  values. Values of type `Struct` are stored in `Value.array_value` where
+ *  entries are in the same order and number as `field_types`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct : GTLRObject
+
+/** The encoding to use when converting to or from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncoding *encoding;
+
+/** The names and types of the fields in this struct. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField *> *fields;
+
+@end
+
+
+/**
+ *  Rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncoding : GTLRObject
+
+/** Use `DelimitedBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingDelimitedBytes *delimitedBytes;
+
+/** User `OrderedCodeBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingOrderedCodeBytes *orderedCodeBytes;
+
+/** Use `Singleton` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingSingleton *singleton;
+
+@end
+
+
+/**
+ *  Fields are encoded independently and concatenated with a configurable
+ *  `delimiter` in between. A struct with no fields defined is encoded as a
+ *  single `delimiter`. Sorted mode: - Fields are encoded in sorted mode. -
+ *  Encoded field values must not contain any bytes <= `delimiter[0]` -
+ *  Element-wise order is preserved: `A < B` if `A[0] < B[0]`, or if `A[0] ==
+ *  B[0] && A[1] < B[1]`, etc. Strict prefixes sort first. Distinct mode: -
+ *  Fields are encoded in distinct mode. - Encoded field values must not contain
+ *  `delimiter[0]`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingDelimitedBytes : GTLRObject
+
+/**
+ *  Byte sequence used to delimit concatenated fields. The delimiter must
+ *  contain at least 1 character and at most 50 characters.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *delimiter;
+
+@end
+
+
+/**
+ *  Fields are encoded independently and concatenated with the fixed byte pair
+ *  {0x00, 0x01} in between. Any null (0x00) byte in an encoded field is
+ *  replaced by the fixed byte pair {0x00, 0xFF}. Fields that encode to the
+ *  empty string "" have special handling: - If *every* field encodes to "", or
+ *  if the STRUCT has no fields defined, then the STRUCT is encoded as the fixed
+ *  byte pair {0x00, 0x00}. - Otherwise, the STRUCT only encodes until the last
+ *  non-empty field, omitting any trailing empty fields. Any empty fields that
+ *  aren't omitted are replaced with the fixed byte pair {0x00, 0x00}. Examples:
+ *  - STRUCT() -> "\\00\\00" - STRUCT("") -> "\\00\\00" - STRUCT("", "") ->
+ *  "\\00\\00" - STRUCT("", "B") -> "\\00\\00" + "\\00\\01" + "B" - STRUCT("A",
+ *  "") -> "A" - STRUCT("", "B", "") -> "\\00\\00" + "\\00\\01" + "B" -
+ *  STRUCT("A", "", "C") -> "A" + "\\00\\01" + "\\00\\00" + "\\00\\01" + "C"
+ *  Since null bytes are always escaped, this encoding can cause size blowup for
+ *  encodings like `Int64.BigEndianBytes` that are likely to produce many such
+ *  bytes. Sorted mode: - Fields are encoded in sorted mode. - All values
+ *  supported by the field encodings are allowed - Element-wise order is
+ *  preserved: `A < B` if `A[0] < B[0]`, or if `A[0] == B[0] && A[1] < B[1]`,
+ *  etc. Strict prefixes sort first. Distinct mode: - Fields are encoded in
+ *  distinct mode. - All values supported by the field encodings are allowed.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingOrderedCodeBytes : GTLRObject
+@end
+
+
+/**
+ *  Uses the encoding of `fields[0].type` as-is. Only valid if `fields.size ==
+ *  1`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructEncodingSingleton : GTLRObject
+@end
+
+
+/**
+ *  A struct field and its type.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStructField : GTLRObject
+
+/**
+ *  The field name (optional). Fields without a `field_name` are considered
+ *  anonymous and cannot be referenced by name.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/** The type of values in this field. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *type;
+
+@end
+
+
+/**
+ *  Timestamp Values of type `Timestamp` are stored in `Value.timestamp_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp : GTLRObject
+
+/** The encoding to use when converting to or from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestampEncoding *encoding;
+
+@end
+
+
+/**
+ *  Rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestampEncoding : GTLRObject
+
+/**
+ *  Encodes the number of microseconds since the Unix epoch using the given
+ *  `Int64` encoding. Values must be microsecond-aligned. Compatible with: -
+ *  Java `Instant.truncatedTo()` with `ChronoUnit.MICROS`
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding *unixMicrosInt64;
+
+@end
+
+
+/**
  *  A tablet is a defined by a start and end key and is explained in
  *  https://cloud.google.com/bigtable/docs/overview#architecture and
  *  https://cloud.google.com/bigtable/docs/performance#optimization. A Hot
@@ -1656,6 +2588,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *
  *  Uses NSNumber of boolValue.
  */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
@@ -1672,6 +2611,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *        instance could not be determined. (Value: "STATE_NOT_KNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing" Tags and Labels (above) are both used to bind metadata to
+ *  resources, with different use-cases. See
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-overview for an
+ *  in-depth overview on the difference between tags and labels.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance_Tags *tags;
 
 /**
  *  The type of the instance. Defaults to `PRODUCTION`.
@@ -1710,6 +2659,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *        fetch them all at once.
  */
 @interface GTLRBigtableAdmin_Instance_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing" Tags and Labels (above) are both used to bind metadata to
+ *  resources, with different use-cases. See
+ *  https://cloud.google.com/resource-manager/docs/tags/tags-overview for an
+ *  in-depth overview on the difference between tags and labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigtableAdmin_Instance_Tags : GTLRObject
 @end
 
 
@@ -1754,6 +2720,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Set if not all app profiles could be returned in a single response. Pass
  *  this value to `page_token` in another request to get the next page of
  *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for
+ *  google.bigtable.admin.v2.BigtableTableAdmin.ListAuthorizedViews
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "authorizedViews" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRBigtableAdmin_ListAuthorizedViewsResponse : GTLRCollectionObject
+
+/**
+ *  The AuthorizedViews present in the requested table.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_AuthorizedView *> *authorizedViews;
+
+/**
+ *  Set if not all tables could be returned in a single response. Pass this
+ *  value to `page_token` in another request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1908,6 +2902,60 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Response message for BigtableInstanceAdmin.ListLogicalViews.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "logicalViews" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigtableAdmin_ListLogicalViewsResponse : GTLRCollectionObject
+
+/**
+ *  The list of requested logical views.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_LogicalView *> *logicalViews;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for BigtableInstanceAdmin.ListMaterializedViews.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "materializedViews" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBigtableAdmin_ListMaterializedViewsResponse : GTLRCollectionObject
+
+/**
+ *  The list of requested materialized views.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_MaterializedView *> *materializedViews;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1927,6 +2975,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Operation *> *operations;
+
+@end
+
+
+/**
+ *  The response for ListSchemaBundles.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "schemaBundles" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigtableAdmin_ListSchemaBundlesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The schema bundles from the specified table.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_SchemaBundle *> *schemaBundles;
 
 @end
 
@@ -2020,6 +3095,68 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  A SQL logical view object that can be referenced in SQL queries.
+ */
+@interface GTLRBigtableAdmin_LogicalView : GTLRObject
+
+/**
+ *  Optional. Set to true to make the LogicalView protected against deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtection;
+
+/**
+ *  Optional. The etag for this logical view. This may be sent on update
+ *  requests to ensure that the client has an up-to-date value before
+ *  proceeding. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The unique name of the logical view. Format:
+ *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The logical view's select query. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
+ *  A materialized view object that can be referenced in SQL queries.
+ */
+@interface GTLRBigtableAdmin_MaterializedView : GTLRObject
+
+/**
+ *  Set to true to make the MaterializedView protected against deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletionProtection;
+
+/**
+ *  Optional. The etag for this materialized view. This may be sent on update
+ *  requests to ensure that the client has an up-to-date value before
+ *  proceeding. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The unique name of the materialized view. Format:
+ *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Immutable. The materialized view's select query. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
  *  A create, update, or delete of a particular column family.
  */
 @interface GTLRBigtableAdmin_Modification : GTLRObject
@@ -2050,6 +3187,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  column family exists with the given ID.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_ColumnFamily *update;
+
+/**
+ *  Optional. A mask specifying which fields (e.g. `gc_rule`) in the `update`
+ *  mod should be updated, ignored for other modification types. If unset or
+ *  empty, we treat it as updating `gc_rule` to be backward compatible.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 
@@ -2092,6 +3238,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  tried in order of distance. If left empty, all clusters are eligible.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clusterIds;
+
+/**
+ *  Row affinity sticky routing based on the row key of the request. Requests
+ *  that span multiple rows are routed non-deterministically.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_RowAffinity *rowAffinity;
 
 @end
 
@@ -2369,6 +3521,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Represents a protobuf schema.
+ */
+@interface GTLRBigtableAdmin_ProtoSchema : GTLRObject
+
+/**
+ *  Required. Contains a protobuf-serialized
+ *  [google.protobuf.FileDescriptorSet](https://github.com/protocolbuffers/protobuf/blob/main/src/google/protobuf/descriptor.proto),
+ *  which could include multiple proto files. To generate it,
+ *  [install](https://grpc.io/docs/protoc-installation/) and run `protoc` with
+ *  `--include_imports` and `--descriptor_set_out`. For example, to generate for
+ *  moon/shot/app.proto, run ``` $protoc --proto_path=/app_path
+ *  --proto_path=/lib_path \\ --include_imports \\
+ *  --descriptor_set_out=descriptors.pb \\ moon/shot/app.proto ``` For more
+ *  details, see protobuffer [self
+ *  description](https://developers.google.com/protocol-buffers/docs/techniques#self-description).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *protoDescriptors;
+
+@end
+
+
+/**
  *  Information about a table restore.
  */
 @interface GTLRBigtableAdmin_RestoreInfo : GTLRObject
@@ -2407,7 +3584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  If exists, the name of the long-running operation that will be used to track
  *  the post-restore optimization process to optimize the performance of the
  *  restored table. The metadata type of the long-running operation is
- *  OptimizeRestoreTableMetadata. The response type is Empty. This long-running
+ *  OptimizeRestoredTableMetadata. The response type is Empty. This long-running
  *  operation may be automatically created by the system if applicable after the
  *  RestoreTable long-running operation completes successfully. This operation
  *  may not be created if the table is already optimized or the restore was not
@@ -2449,6 +3626,46 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  of the form `projects//instances//tables/`.
  */
 @property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
+ *  If enabled, Bigtable will route the request based on the row key of the
+ *  request, rather than randomly. Instead, each row key will be assigned to a
+ *  cluster, and will stick to that cluster. If clusters are added or removed,
+ *  then this may affect which row keys stick to which clusters. To avoid this,
+ *  users can use a cluster group to specify which clusters are to be used. In
+ *  this case, new clusters that are not a part of the cluster group will not be
+ *  routed to, and routing will be unaffected by the new cluster. Moreover,
+ *  clusters specified in the cluster group cannot be deleted unless removed
+ *  from the cluster group.
+ */
+@interface GTLRBigtableAdmin_RowAffinity : GTLRObject
+@end
+
+
+/**
+ *  A named collection of related schemas.
+ */
+@interface GTLRBigtableAdmin_SchemaBundle : GTLRObject
+
+/**
+ *  Optional. The etag for this schema bundle. This may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The unique name identifying this schema bundle. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Schema for Protobufs. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_ProtoSchema *protoSchema;
 
 @end
 
@@ -2541,7 +3758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Checks that all writes before the consistency token was generated is
+ *  Checks that all writes before the consistency token was generated are
  *  replicated in every cluster and readable.
  */
 @interface GTLRBigtableAdmin_StandardReadRemoteWrites : GTLRObject
@@ -2598,6 +3815,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  is served using the resources of its parent cluster.
  */
 @interface GTLRBigtableAdmin_Table : GTLRObject
+
+/**
+ *  If specified, automated backups are enabled for this table. Otherwise,
+ *  automated backups are disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_AutomatedBackupPolicy *automatedBackupPolicy;
 
 /**
  *  If specified, enable the change stream on this table. Otherwise, the change
@@ -2660,12 +3883,59 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_RestoreInfo *restoreInfo;
 
 /**
+ *  The row key schema for this table. The schema is used to decode the raw row
+ *  key bytes into a structured format. The order of field declarations in this
+ *  schema is important, as it reflects how the raw row key bytes are
+ *  structured. Currently, this only affects how the key is read via a GoogleSQL
+ *  query from the ExecuteQuery API. For a SQL query, the _key column is still
+ *  read as raw bytes. But queries can reference the key fields by name, which
+ *  will be decoded from _key using provided type and encoding. Queries that
+ *  reference key fields will fail if they encounter an invalid row key. For
+ *  example, if _key = "some_id#2024-04-30#\\x00\\x13\\x00\\xf3" with the
+ *  following schema: { fields { field_name: "id" type { string { encoding:
+ *  utf8_bytes {} } } } fields { field_name: "date" type { string { encoding:
+ *  utf8_bytes {} } } } fields { field_name: "product_code" type { int64 {
+ *  encoding: big_endian_bytes {} } } } encoding { delimited_bytes { delimiter:
+ *  "#" } } } The decoded key parts would be: id = "some_id", date =
+ *  "2024-04-30", product_code = 1245427 The query "SELECT _key, product_code
+ *  FROM table" will return two columns:
+ *  /------------------------------------------------------\\ | _key |
+ *  product_code | | --------------------------------------|--------------| |
+ *  "some_id#2024-04-30#\\x00\\x13\\x00\\xf3" | 1245427 |
+ *  \\------------------------------------------------------/ The schema has the
+ *  following invariants: (1) The decoded field values are order-preserved. For
+ *  read, the field values will be decoded in sorted mode from the raw bytes.
+ *  (2) Every field in the schema must specify a non-empty name. (3) Every field
+ *  must specify a type with an associated encoding. The type is limited to
+ *  scalar types only: Array, Map, Aggregate, and Struct are not allowed. (4)
+ *  The field names must not collide with existing column family names and
+ *  reserved keywords "_key" and "_timestamp". The following update operations
+ *  are allowed for row_key_schema: - Update from an empty schema to a new
+ *  schema. - Remove the existing schema. This operation requires setting the
+ *  `ignore_warnings` flag to `true`, since it might be a backward incompatible
+ *  change. Without the flag, the update request will fail with an
+ *  INVALID_ARGUMENT error. Any other row key schema update operation (e.g.
+ *  update existing schema columns names or types) is currently unsupported.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct *rowKeySchema;
+
+/**
  *  Output only. Only available with STATS_VIEW, this includes summary
  *  statistics about the entire table contents. For statistics about a specific
  *  column family, see ColumnFamilyStats in the mapped ColumnFamily collection
  *  above.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_TableStats *stats;
+
+/**
+ *  Rules to specify what data is stored in each storage tier. Different tiers
+ *  store data differently, providing different trade-offs between cost and
+ *  performance. Different parts of a table can be stored separately on
+ *  different tiers. If a config is specified, tiered storage is enabled for
+ *  this table. Otherwise, tiered storage is disabled. Only SSD instances can
+ *  configure tiered storage.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_TieredStorageConfig *tieredStorageConfig;
 
 @end
 
@@ -2821,6 +4091,102 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Config for tiered storage. A valid config must have a valid
+ *  TieredStorageRule. Otherwise the whole TieredStorageConfig must be unset. By
+ *  default all data is stored in the SSD tier (only SSD instances can configure
+ *  tiered storage).
+ */
+@interface GTLRBigtableAdmin_TieredStorageConfig : GTLRObject
+
+/**
+ *  Rule to specify what data is stored in the infrequent access(IA) tier. The
+ *  IA tier allows storing more data per node with reduced performance.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_TieredStorageRule *infrequentAccess;
+
+@end
+
+
+/**
+ *  Rule to specify what data is stored in a storage tier.
+ */
+@interface GTLRBigtableAdmin_TieredStorageRule : GTLRObject
+
+/**
+ *  Include cells older than the given age. For the infrequent access tier, this
+ *  value must be at least 30 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *includeIfOlderThan;
+
+@end
+
+
+/**
+ *  `Type` represents the type of data that is written to, read from, or stored
+ *  in Bigtable. It is heavily based on the GoogleSQL standard to help maintain
+ *  familiarity and consistency across products and features. For compatibility
+ *  with Bigtable's existing untyped APIs, each `Type` includes an `Encoding`
+ *  which describes how to convert to or from the underlying data. Each encoding
+ *  can operate in one of two modes: - Sorted: In this mode, Bigtable guarantees
+ *  that `Encode(X) <= Encode(Y)` if and only if `X <= Y`. This is useful
+ *  anywhere sort order is important, for example when encoding keys. -
+ *  Distinct: In this mode, Bigtable guarantees that if `X != Y` then `Encode(X)
+ *  != Encode(Y)`. However, the converse is not guaranteed. For example, both
+ *  "{'foo': '1', 'bar': '2'}" and "{'bar': '2', 'foo': '1'}" are valid
+ *  encodings of the same JSON value. The API clearly documents which mode is
+ *  used wherever an encoding can be configured. Each encoding also documents
+ *  which values are supported in which modes. For example, when encoding INT64
+ *  as a numeric STRING, negative numbers cannot be encoded in sorted mode. This
+ *  is because `INT64(1) > INT64(-1)`, but `STRING("-00001") > STRING("00001")`.
+ */
+@interface GTLRBigtableAdmin_Type : GTLRObject
+
+/** Aggregate */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate *aggregateType;
+
+/** Array */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray *arrayType;
+
+/** Bool */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool *boolType;
+
+/** Bytes */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes *bytesType;
+
+/** Date */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeDate *dateType;
+
+/** Enum */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum *enumType;
+
+/** Float32 */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32 *float32Type;
+
+/** Float64 */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64 *float64Type;
+
+/** Int64 */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64 *int64Type;
+
+/** Map */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeMap *mapType;
+
+/** Proto */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeProto *protoType;
+
+/** String */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeString *stringType;
+
+/** Struct */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeStruct *structType;
+
+/** Timestamp */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeTimestamp *timestampType;
+
+@end
+
+
+/**
  *  Metadata type for the operation returned by
  *  google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable.
  */
@@ -2865,6 +4231,63 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Metadata for the google.longrunning.Operation returned by
+ *  UpdateAuthorizedView.
+ */
+@interface GTLRBigtableAdmin_UpdateAuthorizedViewMetadata : GTLRObject
+
+/** The time at which the operation failed or was completed successfully. */
+@property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
+
+/**
+ *  The request that prompted the initiation of this UpdateAuthorizedView
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_UpdateAuthorizedViewRequest *originalRequest;
+
+/** The time at which the original request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+@end
+
+
+/**
+ *  The request for UpdateAuthorizedView.
+ */
+@interface GTLRBigtableAdmin_UpdateAuthorizedViewRequest : GTLRObject
+
+/**
+ *  Required. The AuthorizedView to update. The `name` in `authorized_view` is
+ *  used to identify the AuthorizedView. AuthorizedView name must in this
+ *  format:
+ *  `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_AuthorizedView *authorizedView;
+
+/**
+ *  Optional. If true, ignore the safety checks when updating the
+ *  AuthorizedView.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreWarnings;
+
+/**
+ *  Optional. The list of fields to update. A mask specifying which fields in
+ *  the AuthorizedView resource should be updated. This mask is relative to the
+ *  AuthorizedView resource, not to the request message. A field will be
+ *  overwritten if it is in the mask. If empty, all fields set in the request
+ *  will be overwritten. A special value `*` means to overwrite all fields
+ *  (including fields not set in the request).
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
  *  The metadata for the Operation returned by UpdateCluster.
  */
 @interface GTLRBigtableAdmin_UpdateClusterMetadata : GTLRObject
@@ -2898,6 +4321,68 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /** The time at which the original request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by UpdateLogicalView.
+ */
+@interface GTLRBigtableAdmin_UpdateLogicalViewMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The request that prompted the initiation of this UpdateLogicalView
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_UpdateLogicalViewRequest *originalRequest;
+
+/** The time at which this operation was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Request message for BigtableInstanceAdmin.UpdateLogicalView.
+ */
+@interface GTLRBigtableAdmin_UpdateLogicalViewRequest : GTLRObject
+
+/**
+ *  Required. The logical view to update. The logical view's `name` field is
+ *  used to identify the view to update. Format:
+ *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_LogicalView *logicalView;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by UpdateSchemaBundle.
+ */
+@interface GTLRBigtableAdmin_UpdateSchemaBundleMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was canceled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The unique name identifying this schema bundle. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

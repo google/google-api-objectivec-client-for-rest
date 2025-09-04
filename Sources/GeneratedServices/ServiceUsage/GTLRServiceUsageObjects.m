@@ -15,6 +15,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRServiceUsage_Analysis.analysisType
+NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeDependency = @"ANALYSIS_TYPE_DEPENDENCY";
+NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceExistence = @"ANALYSIS_TYPE_RESOURCE_EXISTENCE";
+NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceUsage = @"ANALYSIS_TYPE_RESOURCE_USAGE";
+NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeUnspecified = @"ANALYSIS_TYPE_UNSPECIFIED";
+
 // GTLRServiceUsage_Api.syntax
 NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxEditions = @"SYNTAX_EDITIONS";
 NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto2   = @"SYNTAX_PROTO2";
@@ -24,6 +30,12 @@ NSString * const kGTLRServiceUsage_Api_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3";
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress = @"APPEND_PATH_TO_ADDRESS";
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
+
+// GTLRServiceUsage_BatchingSettingsProto.flowControlLimitExceededBehavior
+NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block = @"BLOCK";
+NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore = @"IGNORE";
+NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException = @"THROW_EXCEPTION";
+NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior = @"UNSET_BEHAVIOR";
 
 // GTLRServiceUsage_ClientLibrarySettings.launchStage
 NSString * const kGTLRServiceUsage_ClientLibrarySettings_LaunchStage_Alpha = @"ALPHA";
@@ -96,6 +108,20 @@ NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Disabled
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_Enabled = @"ENABLED";
 NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis.analysisType
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeDependency = @"ANALYSIS_TYPE_DEPENDENCY";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeResourceUsage = @"ANALYSIS_TYPE_RESOURCE_USAGE";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeUnspecified = @"ANALYSIS_TYPE_UNSPECIFIED";
+
+// GTLRServiceUsage_GoogleApiServiceusageV2betaImpact.impactType
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_DependencyMissingDependencies = @"DEPENDENCY_MISSING_DEPENDENCIES";
+NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_ImpactTypeUnspecified = @"IMPACT_TYPE_UNSPECIFIED";
+
+// GTLRServiceUsage_Impact.impactType
+NSString * const kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies = @"DEPENDENCY_MISSING_DEPENDENCIES";
+NSString * const kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified = @"IMPACT_TYPE_UNSPECIFIED";
+NSString * const kGTLRServiceUsage_Impact_ImpactType_ResourceExistenceProject = @"RESOURCE_EXISTENCE_PROJECT";
+
 // GTLRServiceUsage_LabelDescriptor.valueType
 NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Bool = @"BOOL";
 NSString * const kGTLRServiceUsage_LabelDescriptor_ValueType_Int64 = @"INT64";
@@ -140,6 +166,12 @@ NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Ga = @"G
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRServiceUsage_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
 
 // GTLRServiceUsage_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceUsage_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
@@ -219,6 +251,62 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_Analysis
+//
+
+@implementation GTLRServiceUsage_Analysis
+@dynamic analysis, analysisType, displayName, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AnalysisResult
+//
+
+@implementation GTLRServiceUsage_AnalysisResult
+@dynamic blockers, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blockers" : [GTLRServiceUsage_Impact class],
+    @"warnings" : [GTLRServiceUsage_Impact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AnalyzeConsumerPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_AnalyzeConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AnalyzeConsumerPolicyResponse
+//
+
+@implementation GTLRServiceUsage_AnalyzeConsumerPolicyResponse
+@dynamic analysis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysis" : [GTLRServiceUsage_Analysis class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Api
 //
 
@@ -232,6 +320,37 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
     @"options" : [GTLRServiceUsage_Option class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_Aspect
+//
+
+@implementation GTLRServiceUsage_Aspect
+@dynamic kind, spec;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_Aspect_Spec
+//
+
+@implementation GTLRServiceUsage_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -330,9 +449,9 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, overridesByRequestProtocol, pathTranslation,
-         protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, loadBalancingPolicy,
+         minDeadline, operationDeadline, overridesByRequestProtocol,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -443,6 +562,47 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_BatchingConfigProto
+//
+
+@implementation GTLRServiceUsage_BatchingConfigProto
+@dynamic batchDescriptor, thresholds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_BatchingDescriptorProto
+//
+
+@implementation GTLRServiceUsage_BatchingDescriptorProto
+@dynamic batchedField, discriminatorFields, subresponseField;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discriminatorFields" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_BatchingSettingsProto
+//
+
+@implementation GTLRServiceUsage_BatchingSettingsProto
+@dynamic delayThreshold, elementCountLimit, elementCountThreshold,
+         flowControlByteLimit, flowControlElementLimit,
+         flowControlLimitExceededBehavior, requestByteLimit,
+         requestByteThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Billing
 //
 
@@ -504,7 +664,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_CommonLanguageSettings
-@dynamic destinations, referenceDocsUri;
+@dynamic destinations, referenceDocsUri, selectiveGapicGeneration;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -710,8 +870,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
-         serviceRootUrl, summary;
+@dynamic additionalIamInfo, documentationRootUrl, overview, pages, rules,
+         sectionOverrides, serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -905,6 +1065,17 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_ExperimentalFeatures
+//
+
+@implementation GTLRServiceUsage_ExperimentalFeatures
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled,
+         unversionedPackageDisabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Field
 //
 
@@ -963,8 +1134,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_GoogleApiService
-@dynamic apis, authentication, backend, billing, configVersion, context,
-         control, customError, documentation, endpoints, enums, http,
+@dynamic apis, aspects, authentication, backend, billing, configVersion,
+         context, control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
          name, producerProjectId, publishing, quota, sourceInfo,
          systemParameters, systemTypes, title, types, usage;
@@ -976,6 +1147,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"apis" : [GTLRServiceUsage_Api class],
+    @"aspects" : [GTLRServiceUsage_Aspect class],
     @"endpoints" : [GTLRServiceUsage_Endpoint class],
     @"enums" : [GTLRServiceUsage_Enum class],
     @"logs" : [GTLRServiceUsage_LogDescriptor class],
@@ -1101,12 +1273,10 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule
-@dynamic categories, groups, services;
+@dynamic services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"categories" : [NSString class],
-    @"groups" : [NSString class],
     @"services" : [NSString class]
   };
   return map;
@@ -1126,11 +1296,154 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis
+@dynamic analysisResult, analysisType, displayName, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult
+@dynamic blockers, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blockers" : [GTLRServiceUsage_GoogleApiServiceusageV2betaImpact class],
+    @"warnings" : [GTLRServiceUsage_GoogleApiServiceusageV2betaImpact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyResponse
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyResponse
+@dynamic analysis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysis" : [GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy
+@dynamic annotations, createTime, enableRules, ETag, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enableRules" : [GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule
+@dynamic services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaImpact
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaImpact
+@dynamic detail, impactType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_GoSettings
 //
 
 @implementation GTLRServiceUsage_GoSettings
-@dynamic common;
+@dynamic common, renamedServices;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoSettings_RenamedServices
+//
+
+@implementation GTLRServiceUsage_GoSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1172,6 +1485,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_Impact
+//
+
+@implementation GTLRServiceUsage_Impact
+@dynamic detail, impactType, parent;
 @end
 
 
@@ -1461,7 +1784,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_MethodSettings
-@dynamic autoPopulatedFields, longRunning, selector;
+@dynamic autoPopulatedFields, batching, longRunning, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1503,7 +1826,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1724,7 +2056,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_PhpSettings
-@dynamic common;
+@dynamic common, libraryPackage;
 @end
 
 
@@ -1757,7 +2089,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_PythonSettings
-@dynamic common;
+@dynamic common, experimentalFeatures;
 @end
 
 
@@ -1868,6 +2200,24 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 @implementation GTLRServiceUsage_RubySettings
 @dynamic common;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_SelectiveGapicGeneration
+//
+
+@implementation GTLRServiceUsage_SelectiveGapicGeneration
+@dynamic generateOmittedAsInternal, methods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

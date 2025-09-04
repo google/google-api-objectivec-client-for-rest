@@ -45,9 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Expiration time of the entitlement. Entitlements that have expired
- *  over 30 days will be purged. Required. LINT.IfChange(expire_time) The max
- *  expire_time is 398 days from now().
- *  LINT.ThenChange(//depot/google3/java/com/google/subscribewithgoogle/accountlinking/subscriptionlink/service/config/protoconf.pi:max_expiry_age)
+ *  over 30 days will be purged. The max expire_time is 398 days from now().
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
@@ -84,6 +82,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource name is the publisher provided id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The SwG publication id that the reader's subscription linking
+ *  was originating from.
+ */
+@property(nonatomic, copy, nullable) NSString *originatingPublicationId;
+
+/** Output only. The publisher provided id of the reader. */
+@property(nonatomic, copy, nullable) NSString *ppid;
+
+/**
+ *  Output only. The SwG publication id that the reader has linked their
+ *  subscription to.
+ */
+@property(nonatomic, copy, nullable) NSString *publicationId;
 
 @end
 

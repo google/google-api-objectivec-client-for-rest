@@ -35,6 +35,7 @@ NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHop
 NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -65,6 +66,7 @@ NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -95,6 +97,7 @@ NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -170,6 +173,7 @@ NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -200,6 +204,7 @@ NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -230,6 +235,7 @@ NSString * const kGTLRCompute_AddressList_Warning_Code_NextHopNotRunning = @"NEX
 NSString * const kGTLRCompute_AddressList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AddressList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AddressList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AddressList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AddressList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AddressList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AddressList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -238,15 +244,35 @@ NSString * const kGTLRCompute_AddressList_Warning_Code_SingleInstancePropertyTem
 NSString * const kGTLRCompute_AddressList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_AddressList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_AdvancedMachineFeatures.performanceMonitoringUnit
+NSString * const kGTLRCompute_AdvancedMachineFeatures_PerformanceMonitoringUnit_Architectural = @"ARCHITECTURAL";
+NSString * const kGTLRCompute_AdvancedMachineFeatures_PerformanceMonitoringUnit_Enhanced = @"ENHANCED";
+NSString * const kGTLRCompute_AdvancedMachineFeatures_PerformanceMonitoringUnit_PerformanceMonitoringUnitUnspecified = @"PERFORMANCE_MONITORING_UNIT_UNSPECIFIED";
+NSString * const kGTLRCompute_AdvancedMachineFeatures_PerformanceMonitoringUnit_Standard = @"STANDARD";
+
 // GTLRCompute_AllocationAggregateReservation.vmFamily
+NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuDeviceCt3 = @"VM_FAMILY_CLOUD_TPU_DEVICE_CT3";
 NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuLiteDeviceCt5l = @"VM_FAMILY_CLOUD_TPU_LITE_DEVICE_CT5L";
 NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuLitePodSliceCt5lp = @"VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT5LP";
+NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuLitePodSliceCt6e = @"VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT6E";
+NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuPodSliceCt3p = @"VM_FAMILY_CLOUD_TPU_POD_SLICE_CT3P";
 NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuPodSliceCt4p = @"VM_FAMILY_CLOUD_TPU_POD_SLICE_CT4P";
+NSString * const kGTLRCompute_AllocationAggregateReservation_VmFamily_VmFamilyCloudTpuPodSliceCt5p = @"VM_FAMILY_CLOUD_TPU_POD_SLICE_CT5P";
 
 // GTLRCompute_AllocationAggregateReservation.workloadType
 NSString * const kGTLRCompute_AllocationAggregateReservation_WorkloadType_Batch = @"BATCH";
 NSString * const kGTLRCompute_AllocationAggregateReservation_WorkloadType_Serving = @"SERVING";
 NSString * const kGTLRCompute_AllocationAggregateReservation_WorkloadType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_AllocationReservationSharingPolicy.serviceShareType
+NSString * const kGTLRCompute_AllocationReservationSharingPolicy_ServiceShareType_AllowAll = @"ALLOW_ALL";
+NSString * const kGTLRCompute_AllocationReservationSharingPolicy_ServiceShareType_DisallowAll = @"DISALLOW_ALL";
+NSString * const kGTLRCompute_AllocationReservationSharingPolicy_ServiceShareType_ServiceShareTypeUnspecified = @"SERVICE_SHARE_TYPE_UNSPECIFIED";
+
+// GTLRCompute_AllocationResourceStatusHealthInfo.healthStatus
+NSString * const kGTLRCompute_AllocationResourceStatusHealthInfo_HealthStatus_Degraded = @"DEGRADED";
+NSString * const kGTLRCompute_AllocationResourceStatusHealthInfo_HealthStatus_HealthStatusUnspecified = @"HEALTH_STATUS_UNSPECIFIED";
+NSString * const kGTLRCompute_AllocationResourceStatusHealthInfo_HealthStatus_Healthy = @"HEALTHY";
 
 // GTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.interface
 NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Nvme = @"NVME";
@@ -289,13 +315,6 @@ NSString * const kGTLRCompute_AuditLogConfig_LogType_DataRead  = @"DATA_READ";
 NSString * const kGTLRCompute_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCompute_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRCompute_AuthorizationLoggingOptions.permissionType
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_AdminWrite = @"ADMIN_WRITE";
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataRead = @"DATA_READ";
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRCompute_AuthorizationLoggingOptions_PermissionType_PermissionTypeUnspecified = @"PERMISSION_TYPE_UNSPECIFIED";
-
 // GTLRCompute_Autoscaler.status
 NSString * const kGTLRCompute_Autoscaler_Status_Active   = @"ACTIVE";
 NSString * const kGTLRCompute_Autoscaler_Status_Deleting = @"DELETING";
@@ -324,6 +343,7 @@ NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -354,6 +374,7 @@ NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NextHopNotRunning = @"
 NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AutoscalerList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AutoscalerList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AutoscalerList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AutoscalerList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -384,6 +405,7 @@ NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -431,12 +453,21 @@ NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_Utilizati
 
 // GTLRCompute_Backend.balancingMode
 NSString * const kGTLRCompute_Backend_BalancingMode_Connection = @"CONNECTION";
+NSString * const kGTLRCompute_Backend_BalancingMode_CustomMetrics = @"CUSTOM_METRICS";
 NSString * const kGTLRCompute_Backend_BalancingMode_Rate       = @"RATE";
 NSString * const kGTLRCompute_Backend_BalancingMode_Utilization = @"UTILIZATION";
+
+// GTLRCompute_Backend.preference
+NSString * const kGTLRCompute_Backend_Preference_Default       = @"DEFAULT";
+NSString * const kGTLRCompute_Backend_Preference_PreferenceUnspecified = @"PREFERENCE_UNSPECIFIED";
+NSString * const kGTLRCompute_Backend_Preference_Preferred     = @"PREFERRED";
 
 // GTLRCompute_BackendBucket.compressionMode
 NSString * const kGTLRCompute_BackendBucket_CompressionMode_Automatic = @"AUTOMATIC";
 NSString * const kGTLRCompute_BackendBucket_CompressionMode_Disabled = @"DISABLED";
+
+// GTLRCompute_BackendBucket.loadBalancingScheme
+NSString * const kGTLRCompute_BackendBucket_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
 
 // GTLRCompute_BackendBucketCdnPolicy.cacheMode
 NSString * const kGTLRCompute_BackendBucketCdnPolicy_CacheMode_CacheAllStatic = @"CACHE_ALL_STATIC";
@@ -466,6 +497,7 @@ NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NextHopNotRunning =
 NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_BackendBucketList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_BackendBucketList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_BackendBucketList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_BackendBucketList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -477,6 +509,17 @@ NSString * const kGTLRCompute_BackendBucketList_Warning_Code_Unreachable = @"UNR
 // GTLRCompute_BackendService.compressionMode
 NSString * const kGTLRCompute_BackendService_CompressionMode_Automatic = @"AUTOMATIC";
 NSString * const kGTLRCompute_BackendService_CompressionMode_Disabled = @"DISABLED";
+
+// GTLRCompute_BackendService.externalManagedMigrationState
+NSString * const kGTLRCompute_BackendService_ExternalManagedMigrationState_Prepare = @"PREPARE";
+NSString * const kGTLRCompute_BackendService_ExternalManagedMigrationState_TestAllTraffic = @"TEST_ALL_TRAFFIC";
+NSString * const kGTLRCompute_BackendService_ExternalManagedMigrationState_TestByPercentage = @"TEST_BY_PERCENTAGE";
+
+// GTLRCompute_BackendService.ipAddressSelectionPolicy
+NSString * const kGTLRCompute_BackendService_IpAddressSelectionPolicy_IpAddressSelectionPolicyUnspecified = @"IP_ADDRESS_SELECTION_POLICY_UNSPECIFIED";
+NSString * const kGTLRCompute_BackendService_IpAddressSelectionPolicy_Ipv4Only = @"IPV4_ONLY";
+NSString * const kGTLRCompute_BackendService_IpAddressSelectionPolicy_Ipv6Only = @"IPV6_ONLY";
+NSString * const kGTLRCompute_BackendService_IpAddressSelectionPolicy_PreferIpv6 = @"PREFER_IPV6";
 
 // GTLRCompute_BackendService.loadBalancingScheme
 NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_External = @"EXTERNAL";
@@ -494,10 +537,13 @@ NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_OriginalDestinatio
 NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_Random = @"RANDOM";
 NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RingHash = @"RING_HASH";
 NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_RoundRobin = @"ROUND_ROBIN";
+NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_WeightedGcpRendezvous = @"WEIGHTED_GCP_RENDEZVOUS";
 NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_WeightedMaglev = @"WEIGHTED_MAGLEV";
+NSString * const kGTLRCompute_BackendService_LocalityLbPolicy_WeightedRoundRobin = @"WEIGHTED_ROUND_ROBIN";
 
 // GTLRCompute_BackendService.protocol
 NSString * const kGTLRCompute_BackendService_Protocol_Grpc     = @"GRPC";
+NSString * const kGTLRCompute_BackendService_Protocol_H2c      = @"H2C";
 NSString * const kGTLRCompute_BackendService_Protocol_Http     = @"HTTP";
 NSString * const kGTLRCompute_BackendService_Protocol_Http2    = @"HTTP2";
 NSString * const kGTLRCompute_BackendService_Protocol_Https    = @"HTTPS";
@@ -515,6 +561,7 @@ NSString * const kGTLRCompute_BackendService_SessionAffinity_GeneratedCookie = @
 NSString * const kGTLRCompute_BackendService_SessionAffinity_HeaderField = @"HEADER_FIELD";
 NSString * const kGTLRCompute_BackendService_SessionAffinity_HttpCookie = @"HTTP_COOKIE";
 NSString * const kGTLRCompute_BackendService_SessionAffinity_None = @"NONE";
+NSString * const kGTLRCompute_BackendService_SessionAffinity_StrongCookieAffinity = @"STRONG_COOKIE_AFFINITY";
 
 // GTLRCompute_BackendServiceAggregatedList_Warning.code
 NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -538,6 +585,7 @@ NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -562,6 +610,10 @@ NSString * const kGTLRCompute_BackendServiceConnectionTrackingPolicy_TrackingMod
 NSString * const kGTLRCompute_BackendServiceConnectionTrackingPolicy_TrackingMode_PerConnection = @"PER_CONNECTION";
 NSString * const kGTLRCompute_BackendServiceConnectionTrackingPolicy_TrackingMode_PerSession = @"PER_SESSION";
 
+// GTLRCompute_BackendServiceHAPolicy.fastIPMove
+NSString * const kGTLRCompute_BackendServiceHAPolicy_FastIPMove_Disabled = @"DISABLED";
+NSString * const kGTLRCompute_BackendServiceHAPolicy_FastIPMove_GarpRa = @"GARP_RA";
+
 // GTLRCompute_BackendServiceList_Warning.code
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -584,6 +636,7 @@ NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_BackendServiceList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_BackendServiceList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -614,6 +667,7 @@ NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_BackendServiceListUsable_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -630,7 +684,9 @@ NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPol
 NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_Random = @"RANDOM";
 NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RingHash = @"RING_HASH";
 NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_RoundRobin = @"ROUND_ROBIN";
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_WeightedGcpRendezvous = @"WEIGHTED_GCP_RENDEZVOUS";
 NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_WeightedMaglev = @"WEIGHTED_MAGLEV";
+NSString * const kGTLRCompute_BackendServiceLocalityLoadBalancingPolicyConfigPolicy_Name_WeightedRoundRobin = @"WEIGHTED_ROUND_ROBIN";
 
 // GTLRCompute_BackendServiceLogConfig.optionalMode
 NSString * const kGTLRCompute_BackendServiceLogConfig_OptionalMode_Custom = @"CUSTOM";
@@ -659,6 +715,7 @@ NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -710,6 +767,15 @@ NSString * const kGTLRCompute_BfdStatus_LocalState_Init        = @"INIT";
 NSString * const kGTLRCompute_BfdStatus_LocalState_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCompute_BfdStatus_LocalState_Up          = @"UP";
 
+// GTLRCompute_BgpRoute.origin
+NSString * const kGTLRCompute_BgpRoute_Origin_BgpOriginEgp     = @"BGP_ORIGIN_EGP";
+NSString * const kGTLRCompute_BgpRoute_Origin_BgpOriginIgp     = @"BGP_ORIGIN_IGP";
+NSString * const kGTLRCompute_BgpRoute_Origin_BgpOriginIncomplete = @"BGP_ORIGIN_INCOMPLETE";
+
+// GTLRCompute_BgpRouteAsPath.type
+NSString * const kGTLRCompute_BgpRouteAsPath_Type_AsPathTypeSequence = @"AS_PATH_TYPE_SEQUENCE";
+NSString * const kGTLRCompute_BgpRouteAsPath_Type_AsPathTypeSet = @"AS_PATH_TYPE_SET";
+
 // GTLRCompute_BulkInsertOperationStatus.status
 NSString * const kGTLRCompute_BulkInsertOperationStatus_Status_Creating = @"CREATING";
 NSString * const kGTLRCompute_BulkInsertOperationStatus_Status_Done = @"DONE";
@@ -736,19 +802,32 @@ NSString * const kGTLRCompute_Commitment_Status_NotYetActive = @"NOT_YET_ACTIVE"
 // GTLRCompute_Commitment.type
 NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimized = @"ACCELERATOR_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimizedA3 = @"ACCELERATOR_OPTIMIZED_A3";
+NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimizedA3Mega = @"ACCELERATOR_OPTIMIZED_A3_MEGA";
+NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimizedA3Ultra = @"ACCELERATOR_OPTIMIZED_A3_ULTRA";
+NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimizedA4 = @"ACCELERATOR_OPTIMIZED_A4";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimized = @"COMPUTE_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedC2d = @"COMPUTE_OPTIMIZED_C2D";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedC3 = @"COMPUTE_OPTIMIZED_C3";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedC3d = @"COMPUTE_OPTIMIZED_C3D";
 NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedH3 = @"COMPUTE_OPTIMIZED_H3";
+NSString * const kGTLRCompute_Commitment_Type_ComputeOptimizedH4d = @"COMPUTE_OPTIMIZED_H4D";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurpose   = @"GENERAL_PURPOSE";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeC4 = @"GENERAL_PURPOSE_C4";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeC4a = @"GENERAL_PURPOSE_C4A";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeC4d = @"GENERAL_PURPOSE_C4D";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeE2 = @"GENERAL_PURPOSE_E2";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2 = @"GENERAL_PURPOSE_N2";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2d = @"GENERAL_PURPOSE_N2D";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN4 = @"GENERAL_PURPOSE_N4";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeT2d = @"GENERAL_PURPOSE_T2D";
 NSString * const kGTLRCompute_Commitment_Type_GraphicsOptimized = @"GRAPHICS_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized  = @"MEMORY_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM3 = @"MEMORY_OPTIMIZED_M3";
+NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM4 = @"MEMORY_OPTIMIZED_M4";
+NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM46tb = @"MEMORY_OPTIMIZED_M4_6TB";
+NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX416tb = @"MEMORY_OPTIMIZED_X4_16TB";
+NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX424tb = @"MEMORY_OPTIMIZED_X4_24TB";
+NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedX432tb = @"MEMORY_OPTIMIZED_X4_32TB";
 NSString * const kGTLRCompute_Commitment_Type_StorageOptimizedZ3 = @"STORAGE_OPTIMIZED_Z3";
 NSString * const kGTLRCompute_Commitment_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
 
@@ -774,6 +853,7 @@ NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -804,6 +884,7 @@ NSString * const kGTLRCompute_CommitmentList_Warning_Code_NextHopNotRunning = @"
 NSString * const kGTLRCompute_CommitmentList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_CommitmentList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_CommitmentList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_CommitmentList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_CommitmentList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_CommitmentList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_CommitmentList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -834,6 +915,7 @@ NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -842,30 +924,11 @@ NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_SingleInstanceP
 NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
-// GTLRCompute_Condition.iam
-NSString * const kGTLRCompute_Condition_Iam_Approver          = @"APPROVER";
-NSString * const kGTLRCompute_Condition_Iam_Attribution       = @"ATTRIBUTION";
-NSString * const kGTLRCompute_Condition_Iam_Authority         = @"AUTHORITY";
-NSString * const kGTLRCompute_Condition_Iam_CredentialsType   = @"CREDENTIALS_TYPE";
-NSString * const kGTLRCompute_Condition_Iam_CredsAssertion    = @"CREDS_ASSERTION";
-NSString * const kGTLRCompute_Condition_Iam_JustificationType = @"JUSTIFICATION_TYPE";
-NSString * const kGTLRCompute_Condition_Iam_NoAttr            = @"NO_ATTR";
-NSString * const kGTLRCompute_Condition_Iam_SecurityRealm     = @"SECURITY_REALM";
-
-// GTLRCompute_Condition.op
-NSString * const kGTLRCompute_Condition_Op_Discharged = @"DISCHARGED";
-NSString * const kGTLRCompute_Condition_Op_Equals     = @"EQUALS";
-NSString * const kGTLRCompute_Condition_Op_In         = @"IN";
-NSString * const kGTLRCompute_Condition_Op_NoOp       = @"NO_OP";
-NSString * const kGTLRCompute_Condition_Op_NotEquals  = @"NOT_EQUALS";
-NSString * const kGTLRCompute_Condition_Op_NotIn      = @"NOT_IN";
-
-// GTLRCompute_Condition.sys
-NSString * const kGTLRCompute_Condition_Sys_Ip      = @"IP";
-NSString * const kGTLRCompute_Condition_Sys_Name    = @"NAME";
-NSString * const kGTLRCompute_Condition_Sys_NoAttr  = @"NO_ATTR";
-NSString * const kGTLRCompute_Condition_Sys_Region  = @"REGION";
-NSString * const kGTLRCompute_Condition_Sys_Service = @"SERVICE";
+// GTLRCompute_ConfidentialInstanceConfig.confidentialInstanceType
+NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified = @"CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_Sev = @"SEV";
+NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_SevSnp = @"SEV_SNP";
+NSString * const kGTLRCompute_ConfidentialInstanceConfig_ConfidentialInstanceType_Tdx = @"TDX";
 
 // GTLRCompute_DeprecationStatus.state
 NSString * const kGTLRCompute_DeprecationStatus_State_Active   = @"ACTIVE";
@@ -873,17 +936,23 @@ NSString * const kGTLRCompute_DeprecationStatus_State_Deleted  = @"DELETED";
 NSString * const kGTLRCompute_DeprecationStatus_State_Deprecated = @"DEPRECATED";
 NSString * const kGTLRCompute_DeprecationStatus_State_Obsolete = @"OBSOLETE";
 
+// GTLRCompute_Disk.accessMode
+NSString * const kGTLRCompute_Disk_AccessMode_ReadOnlyMany    = @"READ_ONLY_MANY";
+NSString * const kGTLRCompute_Disk_AccessMode_ReadWriteMany   = @"READ_WRITE_MANY";
+NSString * const kGTLRCompute_Disk_AccessMode_ReadWriteSingle = @"READ_WRITE_SINGLE";
+
 // GTLRCompute_Disk.architecture
 NSString * const kGTLRCompute_Disk_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
 NSString * const kGTLRCompute_Disk_Architecture_Arm64          = @"ARM64";
 NSString * const kGTLRCompute_Disk_Architecture_X8664          = @"X86_64";
 
 // GTLRCompute_Disk.status
-NSString * const kGTLRCompute_Disk_Status_Creating  = @"CREATING";
-NSString * const kGTLRCompute_Disk_Status_Deleting  = @"DELETING";
-NSString * const kGTLRCompute_Disk_Status_Failed    = @"FAILED";
-NSString * const kGTLRCompute_Disk_Status_Ready     = @"READY";
-NSString * const kGTLRCompute_Disk_Status_Restoring = @"RESTORING";
+NSString * const kGTLRCompute_Disk_Status_Creating    = @"CREATING";
+NSString * const kGTLRCompute_Disk_Status_Deleting    = @"DELETING";
+NSString * const kGTLRCompute_Disk_Status_Failed      = @"FAILED";
+NSString * const kGTLRCompute_Disk_Status_Ready       = @"READY";
+NSString * const kGTLRCompute_Disk_Status_Restoring   = @"RESTORING";
+NSString * const kGTLRCompute_Disk_Status_Unavailable = @"UNAVAILABLE";
 
 // GTLRCompute_DiskAggregatedList_Warning.code
 NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -907,6 +976,7 @@ NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -946,6 +1016,7 @@ NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopNotRunning = @"NEXT_H
 NSString * const kGTLRCompute_DiskList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_DiskList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_DiskList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_DiskList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_DiskList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_DiskList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_DiskList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -984,6 +1055,7 @@ NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NextHopNotRunning = @
 NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_DisksScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_DisksScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_DisksScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_DisksScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1014,6 +1086,7 @@ NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopNotRunn
 NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1044,6 +1117,7 @@ NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHopNotRunning = @"NE
 NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_DiskTypeList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_DiskTypeList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_DiskTypeList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_DiskTypeList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1074,6 +1148,7 @@ NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1115,6 +1190,7 @@ NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1150,6 +1226,7 @@ NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopNotRunn
 NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1189,6 +1266,7 @@ NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHopNotRunning = @"NE
 NSString * const kGTLRCompute_FirewallList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_FirewallList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_FirewallList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_FirewallList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_FirewallList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_FirewallList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_FirewallList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1200,6 +1278,37 @@ NSString * const kGTLRCompute_FirewallList_Warning_Code_Unreachable = @"UNREACHA
 // GTLRCompute_FirewallLogConfig.metadata
 NSString * const kGTLRCompute_FirewallLogConfig_Metadata_ExcludeAllMetadata = @"EXCLUDE_ALL_METADATA";
 NSString * const kGTLRCompute_FirewallLogConfig_Metadata_IncludeAllMetadata = @"INCLUDE_ALL_METADATA";
+
+// GTLRCompute_FirewallPoliciesScopedList_Warning.code
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_FirewallPoliciesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_FirewallPolicyList_Warning.code
 NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -1223,6 +1332,7 @@ NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1235,9 +1345,28 @@ NSString * const kGTLRCompute_FirewallPolicyList_Warning_Code_Unreachable = @"UN
 NSString * const kGTLRCompute_FirewallPolicyRule_Direction_Egress = @"EGRESS";
 NSString * const kGTLRCompute_FirewallPolicyRule_Direction_Ingress = @"INGRESS";
 
+// GTLRCompute_FirewallPolicyRuleMatcher.destNetworkType
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_DestNetworkType_Internet = @"INTERNET";
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_DestNetworkType_IntraVpc = @"INTRA_VPC";
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_DestNetworkType_NonInternet = @"NON_INTERNET";
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_DestNetworkType_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_DestNetworkType_VpcNetworks = @"VPC_NETWORKS";
+
+// GTLRCompute_FirewallPolicyRuleMatcher.srcNetworkType
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_SrcNetworkType_Internet = @"INTERNET";
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_SrcNetworkType_IntraVpc = @"INTRA_VPC";
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_SrcNetworkType_NonInternet = @"NON_INTERNET";
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_SrcNetworkType_Unspecified = @"UNSPECIFIED";
+NSString * const kGTLRCompute_FirewallPolicyRuleMatcher_SrcNetworkType_VpcNetworks = @"VPC_NETWORKS";
+
 // GTLRCompute_FirewallPolicyRuleSecureTag.state
 NSString * const kGTLRCompute_FirewallPolicyRuleSecureTag_State_Effective = @"EFFECTIVE";
 NSString * const kGTLRCompute_FirewallPolicyRuleSecureTag_State_Ineffective = @"INEFFECTIVE";
+
+// GTLRCompute_ForwardingRule.externalManagedBackendBucketMigrationState
+NSString * const kGTLRCompute_ForwardingRule_ExternalManagedBackendBucketMigrationState_Prepare = @"PREPARE";
+NSString * const kGTLRCompute_ForwardingRule_ExternalManagedBackendBucketMigrationState_TestAllTraffic = @"TEST_ALL_TRAFFIC";
+NSString * const kGTLRCompute_ForwardingRule_ExternalManagedBackendBucketMigrationState_TestByPercentage = @"TEST_BY_PERCENTAGE";
 
 // GTLRCompute_ForwardingRule.IPProtocol
 NSString * const kGTLRCompute_ForwardingRule_IPProtocol_Ah     = @"AH";
@@ -1297,6 +1426,7 @@ NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1327,6 +1457,7 @@ NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1357,6 +1488,7 @@ NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1365,12 +1497,18 @@ NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_SingleInsta
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_GroupMaintenanceInfo.schedulingType
+NSString * const kGTLRCompute_GroupMaintenanceInfo_SchedulingType_Grouped = @"GROUPED";
+NSString * const kGTLRCompute_GroupMaintenanceInfo_SchedulingType_GroupMaintenanceTypeUnspecified = @"GROUP_MAINTENANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCompute_GroupMaintenanceInfo_SchedulingType_Independent = @"INDEPENDENT";
+
 // GTLRCompute_GRPCHealthCheck.portSpecification
 NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseFixedPort = @"USE_FIXED_PORT";
 NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseNamedPort = @"USE_NAMED_PORT";
 NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecification_UseServingPort = @"USE_SERVING_PORT";
 
 // GTLRCompute_GuestOsFeature.type
+NSString * const kGTLRCompute_GuestOsFeature_Type_BareMetalLinuxCompatible = @"BARE_METAL_LINUX_COMPATIBLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified = @"FEATURE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCompute_GuestOsFeature_Type_Gvnic        = @"GVNIC";
 NSString * const kGTLRCompute_GuestOsFeature_Type_Idpf         = @"IDPF";
@@ -1380,6 +1518,8 @@ NSString * const kGTLRCompute_GuestOsFeature_Type_SevCapable   = @"SEV_CAPABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevLiveMigratable = @"SEV_LIVE_MIGRATABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevLiveMigratableV2 = @"SEV_LIVE_MIGRATABLE_V2";
 NSString * const kGTLRCompute_GuestOsFeature_Type_SevSnpCapable = @"SEV_SNP_CAPABLE";
+NSString * const kGTLRCompute_GuestOsFeature_Type_SnpSvsmCapable = @"SNP_SVSM_CAPABLE";
+NSString * const kGTLRCompute_GuestOsFeature_Type_TdxCapable   = @"TDX_CAPABLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_UefiCompatible = @"UEFI_COMPATIBLE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_VirtioScsiMultiqueue = @"VIRTIO_SCSI_MULTIQUEUE";
 NSString * const kGTLRCompute_GuestOsFeature_Type_Windows      = @"WINDOWS";
@@ -1415,6 +1555,7 @@ NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NextHopNotRunning = @
 NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_HealthCheckList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_HealthCheckList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_HealthCheckList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_HealthCheckList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1445,6 +1586,7 @@ NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1479,6 +1621,7 @@ NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_NextHopNotRun
 NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1509,6 +1652,7 @@ NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopNotRunn
 NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1521,6 +1665,10 @@ NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_Unreachable = 
 NSString * const kGTLRCompute_HealthStatus_HealthState_Healthy = @"HEALTHY";
 NSString * const kGTLRCompute_HealthStatus_HealthState_Unhealthy = @"UNHEALTHY";
 
+// GTLRCompute_HealthStatus.ipv6HealthState
+NSString * const kGTLRCompute_HealthStatus_Ipv6HealthState_Healthy = @"HEALTHY";
+NSString * const kGTLRCompute_HealthStatus_Ipv6HealthState_Unhealthy = @"UNHEALTHY";
+
 // GTLRCompute_HealthStatus.weightError
 NSString * const kGTLRCompute_HealthStatus_WeightError_InvalidWeight = @"INVALID_WEIGHT";
 NSString * const kGTLRCompute_HealthStatus_WeightError_MissingWeight = @"MISSING_WEIGHT";
@@ -1532,6 +1680,12 @@ NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Drainin
 NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Healthy = @"HEALTHY";
 NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_HealthState_Unknown = @"UNKNOWN";
+
+// GTLRCompute_HealthStatusForNetworkEndpoint.ipv6HealthState
+NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_Ipv6HealthState_Draining = @"DRAINING";
+NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_Ipv6HealthState_Healthy = @"HEALTHY";
+NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_Ipv6HealthState_Unhealthy = @"UNHEALTHY";
+NSString * const kGTLRCompute_HealthStatusForNetworkEndpoint_Ipv6HealthState_Unknown = @"UNKNOWN";
 
 // GTLRCompute_HTTP2HealthCheck.portSpecification
 NSString * const kGTLRCompute_HTTP2HealthCheck_PortSpecification_UseFixedPort = @"USE_FIXED_PORT";
@@ -1573,6 +1727,7 @@ NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1619,6 +1774,7 @@ NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1666,6 +1822,7 @@ NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopNotRunning = @"NEXT_
 NSString * const kGTLRCompute_ImageList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ImageList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ImageList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ImageList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ImageList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ImageList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ImageList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1718,6 +1875,7 @@ NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopNotRunn
 NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1748,6 +1906,7 @@ NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopNo
 NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1778,6 +1937,7 @@ NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NextHopNotRunning =
 NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1812,6 +1972,7 @@ NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_Ne
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1819,6 +1980,10 @@ NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_Sc
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy.defaultActionOnFailure
+NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_DefaultActionOnFailure_DoNothing = @"DO_NOTHING";
+NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_DefaultActionOnFailure_Repair = @"REPAIR";
 
 // GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy.forceUpdateOnRepair
 NSString * const kGTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy_ForceUpdateOnRepair_No = @"NO";
@@ -1846,6 +2011,7 @@ NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1853,6 +2019,45 @@ NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_SchemaValida
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_InstanceGroupManagerResizeRequest.state
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequest_State_Accepted = @"ACCEPTED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequest_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequest_State_Creating = @"CREATING";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequest_State_Failed = @"FAILED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequest_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequest_State_Succeeded = @"SUCCEEDED";
+
+// GTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning.code
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_InstanceGroupManagersApplyUpdatesRequest.minimalAction
 NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MinimalAction_None = @"NONE";
@@ -1888,6 +2093,7 @@ NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Wa
 NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1918,6 +2124,7 @@ NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextH
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -1925,6 +2132,10 @@ NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Schem
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_InstanceGroupManagerStandbyPolicy.mode
+NSString * const kGTLRCompute_InstanceGroupManagerStandbyPolicy_Mode_Manual = @"MANUAL";
+NSString * const kGTLRCompute_InstanceGroupManagerStandbyPolicy_Mode_ScaleOutPool = @"SCALE_OUT_POOL";
 
 // GTLRCompute_InstanceGroupManagerUpdatePolicy.instanceRedistributionType
 NSString * const kGTLRCompute_InstanceGroupManagerUpdatePolicy_InstanceRedistributionType_None = @"NONE";
@@ -1972,6 +2183,7 @@ NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopNo
 NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2006,6 +2218,7 @@ NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2036,6 +2249,7 @@ NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHopNotRunning = @"NE
 NSString * const kGTLRCompute_InstanceList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2066,6 +2280,7 @@ NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2103,7 +2318,20 @@ NSString * const kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_Inherit
 NSString * const kGTLRCompute_InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Hierarchy = @"HIERARCHY";
 NSString * const kGTLRCompute_InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Network = @"NETWORK";
 NSString * const kGTLRCompute_InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_NetworkRegional = @"NETWORK_REGIONAL";
+NSString * const kGTLRCompute_InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_SystemGlobal = @"SYSTEM_GLOBAL";
+NSString * const kGTLRCompute_InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_SystemRegional = @"SYSTEM_REGIONAL";
 NSString * const kGTLRCompute_InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_InstancesReportHostAsFaultyRequest.disruptionSchedule
+NSString * const kGTLRCompute_InstancesReportHostAsFaultyRequest_DisruptionSchedule_DisruptionScheduleUnspecified = @"DISRUPTION_SCHEDULE_UNSPECIFIED";
+NSString * const kGTLRCompute_InstancesReportHostAsFaultyRequest_DisruptionSchedule_Future = @"FUTURE";
+NSString * const kGTLRCompute_InstancesReportHostAsFaultyRequest_DisruptionSchedule_Immediate = @"IMMEDIATE";
+
+// GTLRCompute_InstancesReportHostAsFaultyRequestFaultReason.behavior
+NSString * const kGTLRCompute_InstancesReportHostAsFaultyRequestFaultReason_Behavior_BehaviorUnspecified = @"BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRCompute_InstancesReportHostAsFaultyRequestFaultReason_Behavior_Performance = @"PERFORMANCE";
+NSString * const kGTLRCompute_InstancesReportHostAsFaultyRequestFaultReason_Behavior_SilentDataCorruption = @"SILENT_DATA_CORRUPTION";
+NSString * const kGTLRCompute_InstancesReportHostAsFaultyRequestFaultReason_Behavior_UnrecoverableGpuError = @"UNRECOVERABLE_GPU_ERROR";
 
 // GTLRCompute_InstancesScopedList_Warning.code
 NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -2127,6 +2355,7 @@ NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2157,6 +2386,7 @@ NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_NextHo
 NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceTemplateAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2187,6 +2417,7 @@ NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2217,6 +2448,7 @@ NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_NextHopNo
 NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InstanceTemplatesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2237,6 +2469,111 @@ NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspended = @"SUSPEN
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Suspending = @"SUSPENDING";
 NSString * const kGTLRCompute_InstanceWithNamedPorts_Status_Terminated = @"TERMINATED";
 
+// GTLRCompute_InstantSnapshot.architecture
+NSString * const kGTLRCompute_InstantSnapshot_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRCompute_InstantSnapshot_Architecture_Arm64 = @"ARM64";
+NSString * const kGTLRCompute_InstantSnapshot_Architecture_X8664 = @"X86_64";
+
+// GTLRCompute_InstantSnapshot.status
+NSString * const kGTLRCompute_InstantSnapshot_Status_Creating  = @"CREATING";
+NSString * const kGTLRCompute_InstantSnapshot_Status_Deleting  = @"DELETING";
+NSString * const kGTLRCompute_InstantSnapshot_Status_Failed    = @"FAILED";
+NSString * const kGTLRCompute_InstantSnapshot_Status_Ready     = @"READY";
+NSString * const kGTLRCompute_InstantSnapshot_Status_Unavailable = @"UNAVAILABLE";
+
+// GTLRCompute_InstantSnapshotAggregatedList_Warning.code
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_InstantSnapshotAggregatedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_InstantSnapshotList_Warning.code
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_InstantSnapshotList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_InstantSnapshotsScopedList_Warning.code
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_InstantSnapshotsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
 // GTLRCompute_Interconnect.availableFeatures
 NSString * const kGTLRCompute_Interconnect_AvailableFeatures_IfMacsec = @"IF_MACSEC";
 
@@ -2248,6 +2585,7 @@ NSString * const kGTLRCompute_Interconnect_InterconnectType_Partner = @"PARTNER"
 // GTLRCompute_Interconnect.linkType
 NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet100gLr = @"LINK_TYPE_ETHERNET_100G_LR";
 NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet10gLr = @"LINK_TYPE_ETHERNET_10G_LR";
+NSString * const kGTLRCompute_Interconnect_LinkType_LinkTypeEthernet400gLr4 = @"LINK_TYPE_ETHERNET_400G_LR4";
 
 // GTLRCompute_Interconnect.operationalStatus
 NSString * const kGTLRCompute_Interconnect_OperationalStatus_OsActive = @"OS_ACTIVE";
@@ -2260,7 +2598,16 @@ NSString * const kGTLRCompute_Interconnect_RequestedFeatures_IfMacsec = @"IF_MAC
 NSString * const kGTLRCompute_Interconnect_State_Active        = @"ACTIVE";
 NSString * const kGTLRCompute_Interconnect_State_Unprovisioned = @"UNPROVISIONED";
 
+// GTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage.trafficClass
+NSString * const kGTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage_TrafficClass_Tc1 = @"TC1";
+NSString * const kGTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage_TrafficClass_Tc2 = @"TC2";
+NSString * const kGTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage_TrafficClass_Tc3 = @"TC3";
+NSString * const kGTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage_TrafficClass_Tc4 = @"TC4";
+NSString * const kGTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage_TrafficClass_Tc5 = @"TC5";
+NSString * const kGTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage_TrafficClass_Tc6 = @"TC6";
+
 // GTLRCompute_InterconnectAttachment.bandwidth
+NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps100g = @"BPS_100G";
 NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps100m = @"BPS_100M";
 NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps10g = @"BPS_10G";
 NSString * const kGTLRCompute_InterconnectAttachment_Bandwidth_Bps1g = @"BPS_1G";
@@ -2327,6 +2674,7 @@ NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_
 NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2339,6 +2687,86 @@ NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_
 NSString * const kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Optional = @"MD5_OPTIONAL";
 NSString * const kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Required = @"MD5_REQUIRED";
 NSString * const kGTLRCompute_InterconnectAttachmentConfigurationConstraints_BgpMd5_Md5Unsupported = @"MD5_UNSUPPORTED";
+
+// GTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLA.effectiveSla
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLA_EffectiveSla_EffectiveSlaUnspecified = @"EFFECTIVE_SLA_UNSPECIFIED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLA_EffectiveSla_NoSla = @"NO_SLA";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLA_EffectiveSla_ProductionCritical = @"PRODUCTION_CRITICAL";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLA_EffectiveSla_ProductionNonCritical = @"PRODUCTION_NON_CRITICAL";
+
+// GTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers.blockerType
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers_BlockerType_BlockerTypeUnspecified = @"BLOCKER_TYPE_UNSPECIFIED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers_BlockerType_IncompatibleMetros = @"INCOMPATIBLE_METROS";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers_BlockerType_IncompatibleRegions = @"INCOMPATIBLE_REGIONS";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers_BlockerType_MissingGlobalRouting = @"MISSING_GLOBAL_ROUTING";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers_BlockerType_NoAttachments = @"NO_ATTACHMENTS";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers_BlockerType_NoAttachmentsInMetroAndZone = @"NO_ATTACHMENTS_IN_METRO_AND_ZONE";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers_BlockerType_Other = @"OTHER";
+
+// GTLRCompute_InterconnectAttachmentGroupIntent.availabilitySla
+NSString * const kGTLRCompute_InterconnectAttachmentGroupIntent_AvailabilitySla_AvailabilitySlaUnspecified = @"AVAILABILITY_SLA_UNSPECIFIED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupIntent_AvailabilitySla_NoSla = @"NO_SLA";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupIntent_AvailabilitySla_ProductionCritical = @"PRODUCTION_CRITICAL";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupIntent_AvailabilitySla_ProductionNonCritical = @"PRODUCTION_NON_CRITICAL";
+
+// GTLRCompute_InterconnectAttachmentGroupsListResponse_Warning.code
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_InterconnectAttachmentGroupsOperationalStatus.groupStatus
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatus_GroupStatus_Degraded = @"DEGRADED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatus_GroupStatus_FullyDown = @"FULLY_DOWN";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatus_GroupStatus_FullyUp = @"FULLY_UP";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatus_GroupStatus_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus.isActive
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_IsActive_Active = @"ACTIVE";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_IsActive_Inactive = @"INACTIVE";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_IsActive_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus.status
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_AttachmentStatusUnknown = @"ATTACHMENT_STATUS_UNKNOWN";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_ConnectionDisabled = @"CONNECTION_DISABLED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_ConnectionDown = @"CONNECTION_DOWN";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_ConnectionUp = @"CONNECTION_UP";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_Defunct = @"DEFUNCT";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_IpsecConfigurationNeededStatus = @"IPSEC_CONFIGURATION_NEEDED_STATUS";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_IpsecReadyToResumeFlowStatus = @"IPSEC_READY_TO_RESUME_FLOW_STATUS";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_Ipv4DownIpv6Up = @"IPV4_DOWN_IPV6_UP";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_Ipv4UpIpv6Down = @"IPV4_UP_IPV6_DOWN";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_PartnerRequestReceived = @"PARTNER_REQUEST_RECEIVED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_PendingCustomer = @"PENDING_CUSTOMER";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_PendingPartner = @"PENDING_PARTNER";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_Provisioned = @"PROVISIONED";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_RouterConfigurationBroken = @"ROUTER_CONFIGURATION_BROKEN";
+NSString * const kGTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus_Status_Unprovisioned = @"UNPROVISIONED";
 
 // GTLRCompute_InterconnectAttachmentList_Warning.code
 NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -2362,6 +2790,7 @@ NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2392,6 +2821,7 @@ NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_Nex
 NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2423,6 +2853,86 @@ NSString * const kGTLRCompute_InterconnectDiagnosticsLinkOpticalPower_State_Ok =
 NSString * const kGTLRCompute_InterconnectDiagnosticsLinkStatus_OperationalStatus_LinkOperationalStatusDown = @"LINK_OPERATIONAL_STATUS_DOWN";
 NSString * const kGTLRCompute_InterconnectDiagnosticsLinkStatus_OperationalStatus_LinkOperationalStatusUp = @"LINK_OPERATIONAL_STATUS_UP";
 
+// GTLRCompute_InterconnectGroupConfiguredTopologyCapability.supportedSla
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapability_SupportedSla_NoSla = @"NO_SLA";
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapability_SupportedSla_ProductionCritical = @"PRODUCTION_CRITICAL";
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapability_SupportedSla_ProductionNonCritical = @"PRODUCTION_NON_CRITICAL";
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapability_SupportedSla_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers.blockerType
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers_BlockerType_IncompatibleMetros = @"INCOMPATIBLE_METROS";
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers_BlockerType_NoInterconnects = @"NO_INTERCONNECTS";
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers_BlockerType_NoInterconnectsInMetroAndZone = @"NO_INTERCONNECTS_IN_METRO_AND_ZONE";
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers_BlockerType_NotAvailable = @"NOT_AVAILABLE";
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers_BlockerType_Other = @"OTHER";
+NSString * const kGTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers_BlockerType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_InterconnectGroupIntent.topologyCapability
+NSString * const kGTLRCompute_InterconnectGroupIntent_TopologyCapability_NoSla = @"NO_SLA";
+NSString * const kGTLRCompute_InterconnectGroupIntent_TopologyCapability_ProductionCritical = @"PRODUCTION_CRITICAL";
+NSString * const kGTLRCompute_InterconnectGroupIntent_TopologyCapability_ProductionNonCritical = @"PRODUCTION_NON_CRITICAL";
+NSString * const kGTLRCompute_InterconnectGroupIntent_TopologyCapability_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_InterconnectGroupsCreateMembers.intentMismatchBehavior
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembers_IntentMismatchBehavior_Create = @"CREATE";
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembers_IntentMismatchBehavior_Reject = @"REJECT";
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembers_IntentMismatchBehavior_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_InterconnectGroupsCreateMembersInterconnectInput.interconnectType
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembersInterconnectInput_InterconnectType_Dedicated = @"DEDICATED";
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembersInterconnectInput_InterconnectType_ItPrivate = @"IT_PRIVATE";
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembersInterconnectInput_InterconnectType_Partner = @"PARTNER";
+
+// GTLRCompute_InterconnectGroupsCreateMembersInterconnectInput.linkType
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembersInterconnectInput_LinkType_LinkTypeEthernet100gLr = @"LINK_TYPE_ETHERNET_100G_LR";
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembersInterconnectInput_LinkType_LinkTypeEthernet10gLr = @"LINK_TYPE_ETHERNET_10G_LR";
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembersInterconnectInput_LinkType_LinkTypeEthernet400gLr4 = @"LINK_TYPE_ETHERNET_400G_LR4";
+
+// GTLRCompute_InterconnectGroupsCreateMembersInterconnectInput.requestedFeatures
+NSString * const kGTLRCompute_InterconnectGroupsCreateMembersInterconnectInput_RequestedFeatures_IfMacsec = @"IF_MACSEC";
+
+// GTLRCompute_InterconnectGroupsListResponse_Warning.code
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_InterconnectGroupsListResponse_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_InterconnectGroupsOperationalStatus.groupStatus
+NSString * const kGTLRCompute_InterconnectGroupsOperationalStatus_GroupStatus_Degraded = @"DEGRADED";
+NSString * const kGTLRCompute_InterconnectGroupsOperationalStatus_GroupStatus_FullyDown = @"FULLY_DOWN";
+NSString * const kGTLRCompute_InterconnectGroupsOperationalStatus_GroupStatus_FullyUp = @"FULLY_UP";
+NSString * const kGTLRCompute_InterconnectGroupsOperationalStatus_GroupStatus_GroupsStatusUnspecified = @"GROUPS_STATUS_UNSPECIFIED";
+
+// GTLRCompute_InterconnectGroupsOperationalStatusInterconnectStatus.isActive
+NSString * const kGTLRCompute_InterconnectGroupsOperationalStatusInterconnectStatus_IsActive_Active = @"ACTIVE";
+NSString * const kGTLRCompute_InterconnectGroupsOperationalStatusInterconnectStatus_IsActive_Inactive = @"INACTIVE";
+NSString * const kGTLRCompute_InterconnectGroupsOperationalStatusInterconnectStatus_IsActive_IsActiveUnspecified = @"IS_ACTIVE_UNSPECIFIED";
+
 // GTLRCompute_InterconnectList_Warning.code
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -2445,6 +2955,7 @@ NSString * const kGTLRCompute_InterconnectList_Warning_Code_NextHopNotRunning = 
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InterconnectList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InterconnectList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2459,6 +2970,7 @@ NSString * const kGTLRCompute_InterconnectLocation_AvailableFeatures_IfMacsec = 
 // GTLRCompute_InterconnectLocation.availableLinkTypes
 NSString * const kGTLRCompute_InterconnectLocation_AvailableLinkTypes_LinkTypeEthernet100gLr = @"LINK_TYPE_ETHERNET_100G_LR";
 NSString * const kGTLRCompute_InterconnectLocation_AvailableLinkTypes_LinkTypeEthernet10gLr = @"LINK_TYPE_ETHERNET_10G_LR";
+NSString * const kGTLRCompute_InterconnectLocation_AvailableLinkTypes_LinkTypeEthernet400gLr4 = @"LINK_TYPE_ETHERNET_400G_LR4";
 
 // GTLRCompute_InterconnectLocation.continent
 NSString * const kGTLRCompute_InterconnectLocation_Continent_Africa = @"AFRICA";
@@ -2498,6 +3010,7 @@ NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2574,6 +3087,7 @@ NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NextHo
 NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_InterconnectRemoteLocationList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2611,6 +3125,7 @@ NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2628,15 +3143,6 @@ NSString * const kGTLRCompute_LocationPolicy_TargetShape_Balanced = @"BALANCED";
 NSString * const kGTLRCompute_LocationPolicyLocation_Preference_Allow = @"ALLOW";
 NSString * const kGTLRCompute_LocationPolicyLocation_Preference_Deny = @"DENY";
 NSString * const kGTLRCompute_LocationPolicyLocation_Preference_PreferenceUnspecified = @"PREFERENCE_UNSPECIFIED";
-
-// GTLRCompute_LogConfigCloudAuditOptions.logName
-NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_AdminActivity = @"ADMIN_ACTIVITY";
-NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_DataAccess = @"DATA_ACCESS";
-NSString * const kGTLRCompute_LogConfigCloudAuditOptions_LogName_UnspecifiedLogName = @"UNSPECIFIED_LOG_NAME";
-
-// GTLRCompute_LogConfigDataAccessOptions.logMode
-NSString * const kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogFailClosed = @"LOG_FAIL_CLOSED";
-NSString * const kGTLRCompute_LogConfigDataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
 
 // GTLRCompute_MachineImage.status
 NSString * const kGTLRCompute_MachineImage_Status_Creating  = @"CREATING";
@@ -2667,6 +3173,7 @@ NSString * const kGTLRCompute_MachineImageList_Warning_Code_NextHopNotRunning = 
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_MachineImageList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2674,6 +3181,11 @@ NSString * const kGTLRCompute_MachineImageList_Warning_Code_SchemaValidationIgno
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_MachineImageList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_MachineType.architecture
+NSString * const kGTLRCompute_MachineType_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRCompute_MachineType_Architecture_Arm64   = @"ARM64";
+NSString * const kGTLRCompute_MachineType_Architecture_X8664   = @"X86_64";
 
 // GTLRCompute_MachineTypeAggregatedList_Warning.code
 NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -2697,6 +3209,7 @@ NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2727,6 +3240,7 @@ NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NextHopNotRunning = @
 NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_MachineTypeList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_MachineTypeList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_MachineTypeList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_MachineTypeList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2757,6 +3271,7 @@ NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopNotRunn
 NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2843,6 +3358,7 @@ NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NextH
 NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkAttachmentAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2881,6 +3397,7 @@ NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkAttachmentList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2911,6 +3428,7 @@ NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkAttachmentsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2941,6 +3459,7 @@ NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_C
 NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServiceAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2971,6 +3490,7 @@ NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code
 NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -2982,6 +3502,7 @@ NSString * const kGTLRCompute_NetworkEdgeSecurityServicesScopedList_Warning_Code
 // GTLRCompute_NetworkEndpointGroup.networkEndpointType
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIp = @"GCE_VM_IP";
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIpPort = @"GCE_VM_IP_PORT";
+NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIpPortmap = @"GCE_VM_IP_PORTMAP";
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetFqdnPort = @"INTERNET_FQDN_PORT";
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetIpPort = @"INTERNET_IP_PORT";
 NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_NonGcpPrivateIpPort = @"NON_GCP_PRIVATE_IP_PORT";
@@ -3010,6 +3531,7 @@ NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_Ne
 NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3040,6 +3562,7 @@ NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3082,6 +3605,7 @@ NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_
 NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3112,6 +3636,7 @@ NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextH
 NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3120,18 +3645,53 @@ NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_Singl
 NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_NetworkFirewallPolicyAggregatedList_Warning.code
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
 // GTLRCompute_NetworkInterface.ipv6AccessType
 NSString * const kGTLRCompute_NetworkInterface_Ipv6AccessType_External = @"EXTERNAL";
 NSString * const kGTLRCompute_NetworkInterface_Ipv6AccessType_Internal = @"INTERNAL";
 
 // GTLRCompute_NetworkInterface.nicType
 NSString * const kGTLRCompute_NetworkInterface_NicType_Gvnic   = @"GVNIC";
+NSString * const kGTLRCompute_NetworkInterface_NicType_Idpf    = @"IDPF";
+NSString * const kGTLRCompute_NetworkInterface_NicType_Irdma   = @"IRDMA";
+NSString * const kGTLRCompute_NetworkInterface_NicType_Mrdma   = @"MRDMA";
 NSString * const kGTLRCompute_NetworkInterface_NicType_UnspecifiedNicType = @"UNSPECIFIED_NIC_TYPE";
 NSString * const kGTLRCompute_NetworkInterface_NicType_VirtioNet = @"VIRTIO_NET";
 
 // GTLRCompute_NetworkInterface.stackType
 NSString * const kGTLRCompute_NetworkInterface_StackType_Ipv4Ipv6 = @"IPV4_IPV6";
 NSString * const kGTLRCompute_NetworkInterface_StackType_Ipv4Only = @"IPV4_ONLY";
+NSString * const kGTLRCompute_NetworkInterface_StackType_Ipv6Only = @"IPV6_ONLY";
 
 // GTLRCompute_NetworkList_Warning.code
 NSString * const kGTLRCompute_NetworkList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -3155,6 +3715,7 @@ NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHopNotRunning = @"NEX
 NSString * const kGTLRCompute_NetworkList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NetworkList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NetworkList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NetworkList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NetworkList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NetworkList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3171,9 +3732,212 @@ NSString * const kGTLRCompute_NetworkPeering_StackType_Ipv4Only = @"IPV4_ONLY";
 NSString * const kGTLRCompute_NetworkPeering_State_Active   = @"ACTIVE";
 NSString * const kGTLRCompute_NetworkPeering_State_Inactive = @"INACTIVE";
 
+// GTLRCompute_NetworkPeering.updateStrategy
+NSString * const kGTLRCompute_NetworkPeering_UpdateStrategy_Consensus = @"CONSENSUS";
+NSString * const kGTLRCompute_NetworkPeering_UpdateStrategy_Independent = @"INDEPENDENT";
+NSString * const kGTLRCompute_NetworkPeering_UpdateStrategy_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_NetworkPeeringConnectionStatus.updateStrategy
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatus_UpdateStrategy_Consensus = @"CONSENSUS";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatus_UpdateStrategy_Independent = @"INDEPENDENT";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatus_UpdateStrategy_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_NetworkPeeringConnectionStatusConsensusState.deleteStatus
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusConsensusState_DeleteStatus_DeleteAcknowledged = @"DELETE_ACKNOWLEDGED";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusConsensusState_DeleteStatus_DeleteStatusUnspecified = @"DELETE_STATUS_UNSPECIFIED";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusConsensusState_DeleteStatus_LocalDeleteRequested = @"LOCAL_DELETE_REQUESTED";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusConsensusState_DeleteStatus_PeerDeleteRequested = @"PEER_DELETE_REQUESTED";
+
+// GTLRCompute_NetworkPeeringConnectionStatusConsensusState.updateStatus
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusConsensusState_UpdateStatus_InSync = @"IN_SYNC";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusConsensusState_UpdateStatus_PendingLocalAcknowledment = @"PENDING_LOCAL_ACKNOWLEDMENT";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusConsensusState_UpdateStatus_PendingPeerAcknowledgement = @"PENDING_PEER_ACKNOWLEDGEMENT";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusConsensusState_UpdateStatus_UpdateStatusUnspecified = @"UPDATE_STATUS_UNSPECIFIED";
+
+// GTLRCompute_NetworkPeeringConnectionStatusTrafficConfiguration.stackType
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusTrafficConfiguration_StackType_Ipv4Ipv6 = @"IPV4_IPV6";
+NSString * const kGTLRCompute_NetworkPeeringConnectionStatusTrafficConfiguration_StackType_Ipv4Only = @"IPV4_ONLY";
+
 // GTLRCompute_NetworkPerformanceConfig.totalEgressBandwidthTier
 NSString * const kGTLRCompute_NetworkPerformanceConfig_TotalEgressBandwidthTier_Default = @"DEFAULT";
 NSString * const kGTLRCompute_NetworkPerformanceConfig_TotalEgressBandwidthTier_Tier1 = @"TIER_1";
+
+// GTLRCompute_NetworkProfileLocation.scope
+NSString * const kGTLRCompute_NetworkProfileLocation_Scope_Region = @"REGION";
+NSString * const kGTLRCompute_NetworkProfileLocation_Scope_Zone = @"ZONE";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.addressPurposes
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_DnsResolver = @"DNS_RESOLVER";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_GceEndpoint = @"GCE_ENDPOINT";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_IpsecInterconnect = @"IPSEC_INTERCONNECT";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_NatAuto = @"NAT_AUTO";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_PrivateServiceConnect = @"PRIVATE_SERVICE_CONNECT";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_Serverless = @"SERVERLESS";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_SharedLoadbalancerVip = @"SHARED_LOADBALANCER_VIP";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AddressPurposes_VpcPeering = @"VPC_PEERING";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowAliasIpRanges
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowAliasIpRanges_AliasIpRangesAllowed = @"ALIAS_IP_RANGES_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowAliasIpRanges_AliasIpRangesBlocked = @"ALIAS_IP_RANGES_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowAutoModeSubnet
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowAutoModeSubnet_AutoModeSubnetAllowed = @"AUTO_MODE_SUBNET_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowAutoModeSubnet_AutoModeSubnetBlocked = @"AUTO_MODE_SUBNET_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowClassDFirewalls
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowClassDFirewalls_ClassDFirewallsAllowed = @"CLASS_D_FIREWALLS_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowClassDFirewalls_ClassDFirewallsBlocked = @"CLASS_D_FIREWALLS_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowCloudNat
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowCloudNat_CloudNatAllowed = @"CLOUD_NAT_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowCloudNat_CloudNatBlocked = @"CLOUD_NAT_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowCloudRouter
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowCloudRouter_CloudRouterAllowed = @"CLOUD_ROUTER_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowCloudRouter_CloudRouterBlocked = @"CLOUD_ROUTER_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowDefaultNicAttachment
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowDefaultNicAttachment_DefaultNicAttachmentAllowed = @"DEFAULT_NIC_ATTACHMENT_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowDefaultNicAttachment_DefaultNicAttachmentBlocked = @"DEFAULT_NIC_ATTACHMENT_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowExternalIpAccess
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowExternalIpAccess_ExternalIpAccessAllowed = @"EXTERNAL_IP_ACCESS_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowExternalIpAccess_ExternalIpAccessBlocked = @"EXTERNAL_IP_ACCESS_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowInterconnect
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowInterconnect_InterconnectAllowed = @"INTERCONNECT_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowInterconnect_InterconnectBlocked = @"INTERCONNECT_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowIpForwarding
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowIpForwarding_IpForwardingAllowed = @"IP_FORWARDING_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowIpForwarding_IpForwardingBlocked = @"IP_FORWARDING_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowLoadBalancing
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowLoadBalancing_LoadBalancingAllowed = @"LOAD_BALANCING_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowLoadBalancing_LoadBalancingBlocked = @"LOAD_BALANCING_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowMultiNicInSameNetwork
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowMultiNicInSameNetwork_MultiNicInSameNetworkAllowed = @"MULTI_NIC_IN_SAME_NETWORK_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowMultiNicInSameNetwork_MultiNicInSameNetworkBlocked = @"MULTI_NIC_IN_SAME_NETWORK_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowNcc
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowNcc_NccAllowed = @"NCC_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowNcc_NccBlocked = @"NCC_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowNetworkMigration
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowNetworkMigration_NetworkMigrationAllowed = @"NETWORK_MIGRATION_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowNetworkMigration_NetworkMigrationBlocked = @"NETWORK_MIGRATION_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowPacketMirroring
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowPacketMirroring_PacketMirroringAllowed = @"PACKET_MIRRORING_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowPacketMirroring_PacketMirroringBlocked = @"PACKET_MIRRORING_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowPrivateGoogleAccess
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowPrivateGoogleAccess_PrivateGoogleAccessAllowed = @"PRIVATE_GOOGLE_ACCESS_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowPrivateGoogleAccess_PrivateGoogleAccessBlocked = @"PRIVATE_GOOGLE_ACCESS_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowPsc
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowPsc_PscAllowed = @"PSC_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowPsc_PscBlocked = @"PSC_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowSameNetworkUnicast
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowSameNetworkUnicast_SameNetworkUnicastAllowed = @"SAME_NETWORK_UNICAST_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowSameNetworkUnicast_SameNetworkUnicastBlocked = @"SAME_NETWORK_UNICAST_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowStaticRoutes
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowStaticRoutes_StaticRoutesAllowed = @"STATIC_ROUTES_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowStaticRoutes_StaticRoutesBlocked = @"STATIC_ROUTES_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowSubInterfaces
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowSubInterfaces_SubinterfacesAllowed = @"SUBINTERFACES_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowSubInterfaces_SubinterfacesBlocked = @"SUBINTERFACES_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowVpcPeering
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowVpcPeering_VpcPeeringAllowed = @"VPC_PEERING_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowVpcPeering_VpcPeeringBlocked = @"VPC_PEERING_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.allowVpn
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowVpn_VpnAllowed = @"VPN_ALLOWED";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_AllowVpn_VpnBlocked = @"VPN_BLOCKED";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.interfaceTypes
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_InterfaceTypes_Gvnic = @"GVNIC";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_InterfaceTypes_Idpf = @"IDPF";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_InterfaceTypes_Irdma = @"IRDMA";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_InterfaceTypes_Mrdma = @"MRDMA";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_InterfaceTypes_UnspecifiedNicType = @"UNSPECIFIED_NIC_TYPE";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_InterfaceTypes_VirtioNet = @"VIRTIO_NET";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.subnetPurposes
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetPurposes_SubnetPurposeCustomHardware = @"SUBNET_PURPOSE_CUSTOM_HARDWARE";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetPurposes_SubnetPurposePrivate = @"SUBNET_PURPOSE_PRIVATE";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.subnetStackTypes
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetStackTypes_SubnetStackTypeIpv4Ipv6 = @"SUBNET_STACK_TYPE_IPV4_IPV6";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetStackTypes_SubnetStackTypeIpv4Only = @"SUBNET_STACK_TYPE_IPV4_ONLY";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetStackTypes_SubnetStackTypeIpv6Only = @"SUBNET_STACK_TYPE_IPV6_ONLY";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.subnetworkPurposes
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkPurposes_GlobalManagedProxy = @"GLOBAL_MANAGED_PROXY";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkPurposes_InternalHttpsLoadBalancer = @"INTERNAL_HTTPS_LOAD_BALANCER";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkPurposes_PeerMigration = @"PEER_MIGRATION";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkPurposes_Private = @"PRIVATE";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkPurposes_PrivateNat = @"PRIVATE_NAT";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkPurposes_PrivateRfc1918 = @"PRIVATE_RFC_1918";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkPurposes_PrivateServiceConnect = @"PRIVATE_SERVICE_CONNECT";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkPurposes_RegionalManagedProxy = @"REGIONAL_MANAGED_PROXY";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.subnetworkStackTypes
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkStackTypes_Ipv4Ipv6 = @"IPV4_IPV6";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkStackTypes_Ipv4Only = @"IPV4_ONLY";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_SubnetworkStackTypes_Ipv6Only = @"IPV6_ONLY";
+
+// GTLRCompute_NetworkProfileNetworkFeatures.unicast
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_Unicast_UnicastSdn = @"UNICAST_SDN";
+NSString * const kGTLRCompute_NetworkProfileNetworkFeatures_Unicast_UnicastUll = @"UNICAST_ULL";
+
+// GTLRCompute_NetworkProfilesListResponse_Warning.code
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_NetworkProfilesListResponse_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_NetworkRoutingConfig.bgpBestPathSelectionMode
+NSString * const kGTLRCompute_NetworkRoutingConfig_BgpBestPathSelectionMode_Legacy = @"LEGACY";
+NSString * const kGTLRCompute_NetworkRoutingConfig_BgpBestPathSelectionMode_Standard = @"STANDARD";
+
+// GTLRCompute_NetworkRoutingConfig.bgpInterRegionCost
+NSString * const kGTLRCompute_NetworkRoutingConfig_BgpInterRegionCost_AddCostToMed = @"ADD_COST_TO_MED";
+NSString * const kGTLRCompute_NetworkRoutingConfig_BgpInterRegionCost_Default = @"DEFAULT";
+
+// GTLRCompute_NetworkRoutingConfig.effectiveBgpInterRegionCost
+NSString * const kGTLRCompute_NetworkRoutingConfig_EffectiveBgpInterRegionCost_AddCostToMed = @"ADD_COST_TO_MED";
+NSString * const kGTLRCompute_NetworkRoutingConfig_EffectiveBgpInterRegionCost_Default = @"DEFAULT";
 
 // GTLRCompute_NetworkRoutingConfig.routingMode
 NSString * const kGTLRCompute_NetworkRoutingConfig_RoutingMode_Global = @"GLOBAL";
@@ -3182,7 +3946,12 @@ NSString * const kGTLRCompute_NetworkRoutingConfig_RoutingMode_Regional = @"REGI
 // GTLRCompute_NetworksGetEffectiveFirewallsResponseEffectiveFirewallPolicy.type
 NSString * const kGTLRCompute_NetworksGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Hierarchy = @"HIERARCHY";
 NSString * const kGTLRCompute_NetworksGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Network = @"NETWORK";
+NSString * const kGTLRCompute_NetworksGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_System = @"SYSTEM";
 NSString * const kGTLRCompute_NetworksGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_NodeGroup.maintenanceInterval
+NSString * const kGTLRCompute_NodeGroup_MaintenanceInterval_AsNeeded = @"AS_NEEDED";
+NSString * const kGTLRCompute_NodeGroup_MaintenanceInterval_Recurrent = @"RECURRENT";
 
 // GTLRCompute_NodeGroup.maintenancePolicy
 NSString * const kGTLRCompute_NodeGroup_MaintenancePolicy_Default = @"DEFAULT";
@@ -3218,6 +3987,7 @@ NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopNotRun
 NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3254,6 +4024,7 @@ NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextHopNotRunning = @"N
 NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeGroupList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeGroupList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeGroupList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeGroupList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3296,6 +4067,7 @@ NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3326,6 +4098,7 @@ NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3367,6 +4140,7 @@ NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3397,6 +4171,7 @@ NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NextHopNotRunning = 
 NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3427,6 +4202,7 @@ NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopNotRun
 NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3457,6 +4233,7 @@ NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopNotRunn
 NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3487,6 +4264,7 @@ NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHopNotRunning = @"NE
 NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeTypeList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeTypeList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeTypeList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeTypeList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3517,6 +4295,7 @@ NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3547,6 +4326,7 @@ NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3582,6 +4362,7 @@ NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NextHopNotRunning = @
 NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_Operation_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_Operation_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_Operation_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_Operation_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3612,6 +4393,7 @@ NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopNotRun
 NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3642,6 +4424,7 @@ NSString * const kGTLRCompute_OperationList_Warning_Code_NextHopNotRunning = @"N
 NSString * const kGTLRCompute_OperationList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_OperationList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_OperationList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_OperationList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_OperationList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_OperationList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_OperationList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3672,6 +4455,7 @@ NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3718,6 +4502,7 @@ NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHop
 NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3753,6 +4538,7 @@ NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3783,6 +4569,7 @@ NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3811,6 +4598,11 @@ NSString * const kGTLRCompute_PreservedStatePreservedDisk_Mode_ReadWrite = @"REA
 NSString * const kGTLRCompute_PreservedStatePreservedNetworkIp_AutoDelete_Never = @"NEVER";
 NSString * const kGTLRCompute_PreservedStatePreservedNetworkIp_AutoDelete_OnPermanentInstanceDeletion = @"ON_PERMANENT_INSTANCE_DELETION";
 
+// GTLRCompute_Project.cloudArmorTier
+NSString * const kGTLRCompute_Project_CloudArmorTier_CaEnterpriseAnnual = @"CA_ENTERPRISE_ANNUAL";
+NSString * const kGTLRCompute_Project_CloudArmorTier_CaEnterprisePaygo = @"CA_ENTERPRISE_PAYGO";
+NSString * const kGTLRCompute_Project_CloudArmorTier_CaStandard = @"CA_STANDARD";
+
 // GTLRCompute_Project.defaultNetworkTier
 NSString * const kGTLRCompute_Project_DefaultNetworkTier_FixedStandard = @"FIXED_STANDARD";
 NSString * const kGTLRCompute_Project_DefaultNetworkTier_Premium = @"PREMIUM";
@@ -3826,6 +4618,11 @@ NSString * const kGTLRCompute_Project_VmDnsSetting_ZonalOnly   = @"ZONAL_ONLY";
 // GTLRCompute_Project.xpnProjectStatus
 NSString * const kGTLRCompute_Project_XpnProjectStatus_Host    = @"HOST";
 NSString * const kGTLRCompute_Project_XpnProjectStatus_UnspecifiedXpnProjectStatus = @"UNSPECIFIED_XPN_PROJECT_STATUS";
+
+// GTLRCompute_ProjectsSetCloudArmorTierRequest.cloudArmorTier
+NSString * const kGTLRCompute_ProjectsSetCloudArmorTierRequest_CloudArmorTier_CaEnterpriseAnnual = @"CA_ENTERPRISE_ANNUAL";
+NSString * const kGTLRCompute_ProjectsSetCloudArmorTierRequest_CloudArmorTier_CaEnterprisePaygo = @"CA_ENTERPRISE_PAYGO";
+NSString * const kGTLRCompute_ProjectsSetCloudArmorTierRequest_CloudArmorTier_CaStandard = @"CA_STANDARD";
 
 // GTLRCompute_ProjectsSetDefaultNetworkTierRequest.networkTier
 NSString * const kGTLRCompute_ProjectsSetDefaultNetworkTierRequest_NetworkTier_FixedStandard = @"FIXED_STANDARD";
@@ -3875,6 +4672,7 @@ NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3886,6 +4684,11 @@ NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_Unreachabl
 // GTLRCompute_PublicDelegatedPrefix.byoipApiVersion
 NSString * const kGTLRCompute_PublicDelegatedPrefix_ByoipApiVersion_V1 = @"V1";
 NSString * const kGTLRCompute_PublicDelegatedPrefix_ByoipApiVersion_V2 = @"V2";
+
+// GTLRCompute_PublicDelegatedPrefix.mode
+NSString * const kGTLRCompute_PublicDelegatedPrefix_Mode_Delegation = @"DELEGATION";
+NSString * const kGTLRCompute_PublicDelegatedPrefix_Mode_ExternalIpv6ForwardingRuleCreation = @"EXTERNAL_IPV6_FORWARDING_RULE_CREATION";
+NSString * const kGTLRCompute_PublicDelegatedPrefix_Mode_ExternalIpv6SubnetworkCreation = @"EXTERNAL_IPV6_SUBNETWORK_CREATION";
 
 // GTLRCompute_PublicDelegatedPrefix.status
 NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_Announced = @"ANNOUNCED";
@@ -3917,6 +4720,7 @@ NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_N
 NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3947,6 +4751,7 @@ NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_Nex
 NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_PublicDelegatedPrefixesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3977,6 +4782,7 @@ NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -3984,6 +4790,11 @@ NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_SchemaValid
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_PublicDelegatedPrefixList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix.mode
+NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Mode_Delegation = @"DELEGATION";
+NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Mode_ExternalIpv6ForwardingRuleCreation = @"EXTERNAL_IPV6_FORWARDING_RULE_CREATION";
+NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Mode_ExternalIpv6SubnetworkCreation = @"EXTERNAL_IPV6_SUBNETWORK_CREATION";
 
 // GTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix.status
 NSString * const kGTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix_Status_Active = @"ACTIVE";
@@ -4041,6 +4852,9 @@ NSString * const kGTLRCompute_Quota_Metric_GlobalInternalAddresses = @"GLOBAL_IN
 NSString * const kGTLRCompute_Quota_Metric_GlobalInternalManagedBackendServices = @"GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES";
 NSString * const kGTLRCompute_Quota_Metric_GlobalInternalTrafficDirectorBackendServices = @"GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES";
 NSString * const kGTLRCompute_Quota_Metric_GpusAllRegions      = @"GPUS_ALL_REGIONS";
+NSString * const kGTLRCompute_Quota_Metric_HdbTotalGb          = @"HDB_TOTAL_GB";
+NSString * const kGTLRCompute_Quota_Metric_HdbTotalIops        = @"HDB_TOTAL_IOPS";
+NSString * const kGTLRCompute_Quota_Metric_HdbTotalThroughput  = @"HDB_TOTAL_THROUGHPUT";
 NSString * const kGTLRCompute_Quota_Metric_HealthChecks        = @"HEALTH_CHECKS";
 NSString * const kGTLRCompute_Quota_Metric_Images              = @"IMAGES";
 NSString * const kGTLRCompute_Quota_Metric_InPlaceSnapshots    = @"IN_PLACE_SNAPSHOTS";
@@ -4114,6 +4928,7 @@ NSString * const kGTLRCompute_Quota_Metric_RegionalExternalNetworkLbBackendServi
 NSString * const kGTLRCompute_Quota_Metric_RegionalInstanceGroupManagers = @"REGIONAL_INSTANCE_GROUP_MANAGERS";
 NSString * const kGTLRCompute_Quota_Metric_RegionalInternalLbBackendServices = @"REGIONAL_INTERNAL_LB_BACKEND_SERVICES";
 NSString * const kGTLRCompute_Quota_Metric_RegionalInternalManagedBackendServices = @"REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES";
+NSString * const kGTLRCompute_Quota_Metric_RegionalInternalTrafficDirectorBackendServices = @"REGIONAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES";
 NSString * const kGTLRCompute_Quota_Metric_Reservations        = @"RESERVATIONS";
 NSString * const kGTLRCompute_Quota_Metric_ResourcePolicies    = @"RESOURCE_POLICIES";
 NSString * const kGTLRCompute_Quota_Metric_Routers             = @"ROUTERS";
@@ -4128,6 +4943,7 @@ NSString * const kGTLRCompute_Quota_Metric_ServiceAttachments  = @"SERVICE_ATTAC
 NSString * const kGTLRCompute_Quota_Metric_Snapshots           = @"SNAPSHOTS";
 NSString * const kGTLRCompute_Quota_Metric_SsdTotalGb          = @"SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_SslCertificates     = @"SSL_CERTIFICATES";
+NSString * const kGTLRCompute_Quota_Metric_SslPolicies         = @"SSL_POLICIES";
 NSString * const kGTLRCompute_Quota_Metric_StaticAddresses     = @"STATIC_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses = @"STATIC_BYOIP_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_StaticExternalIpv6AddressRanges = @"STATIC_EXTERNAL_IPV6_ADDRESS_RANGES";
@@ -4145,6 +4961,7 @@ NSString * const kGTLRCompute_Quota_Metric_TpuLiteDeviceV5     = @"TPU_LITE_DEVI
 NSString * const kGTLRCompute_Quota_Metric_TpuLitePodsliceV5   = @"TPU_LITE_PODSLICE_V5";
 NSString * const kGTLRCompute_Quota_Metric_TpuPodsliceV4       = @"TPU_PODSLICE_V4";
 NSString * const kGTLRCompute_Quota_Metric_UrlMaps             = @"URL_MAPS";
+NSString * const kGTLRCompute_Quota_Metric_VariableIpv6PublicDelegatedPrefixes = @"VARIABLE_IPV6_PUBLIC_DELEGATED_PREFIXES";
 NSString * const kGTLRCompute_Quota_Metric_VpnGateways         = @"VPN_GATEWAYS";
 NSString * const kGTLRCompute_Quota_Metric_VpnTunnels          = @"VPN_TUNNELS";
 NSString * const kGTLRCompute_Quota_Metric_XpnServiceProjects  = @"XPN_SERVICE_PROJECTS";
@@ -4156,6 +4973,37 @@ NSString * const kGTLRCompute_QuotaExceededInfo_RolloutStatus_RolloutStatusUnspe
 // GTLRCompute_Region.status
 NSString * const kGTLRCompute_Region_Status_Down = @"DOWN";
 NSString * const kGTLRCompute_Region_Status_Up   = @"UP";
+
+// GTLRCompute_Region_QuotaStatusWarning.code
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_Region_QuotaStatusWarning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_RegionAutoscalerList_Warning.code
 NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -4179,6 +5027,7 @@ NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4209,6 +5058,7 @@ NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4239,6 +5089,7 @@ NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopNotRun
 NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4269,6 +5120,7 @@ NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHo
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4311,6 +5163,7 @@ NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp
 NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4341,6 +5194,7 @@ NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_Nex
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4375,6 +5229,7 @@ NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopNotRunning = @"NEXT
 NSString * const kGTLRCompute_RegionList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RegionList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RegionList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RegionList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RegionList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RegionList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RegionList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4387,7 +5242,18 @@ NSString * const kGTLRCompute_RegionList_Warning_Code_Unreachable = @"UNREACHABL
 NSString * const kGTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Hierarchy = @"HIERARCHY";
 NSString * const kGTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Network = @"NETWORK";
 NSString * const kGTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_NetworkRegional = @"NETWORK_REGIONAL";
+NSString * const kGTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_SystemGlobal = @"SYSTEM_GLOBAL";
+NSString * const kGTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_SystemRegional = @"SYSTEM_REGIONAL";
 NSString * const kGTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy_Type_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_Reservation.deploymentType
+NSString * const kGTLRCompute_Reservation_DeploymentType_Dense = @"DENSE";
+NSString * const kGTLRCompute_Reservation_DeploymentType_DeploymentTypeUnspecified = @"DEPLOYMENT_TYPE_UNSPECIFIED";
+
+// GTLRCompute_Reservation.schedulingType
+NSString * const kGTLRCompute_Reservation_SchedulingType_Grouped = @"GROUPED";
+NSString * const kGTLRCompute_Reservation_SchedulingType_GroupMaintenanceTypeUnspecified = @"GROUP_MAINTENANCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCompute_Reservation_SchedulingType_Independent = @"INDEPENDENT";
 
 // GTLRCompute_Reservation.status
 NSString * const kGTLRCompute_Reservation_Status_Creating = @"CREATING";
@@ -4395,6 +5261,11 @@ NSString * const kGTLRCompute_Reservation_Status_Deleting = @"DELETING";
 NSString * const kGTLRCompute_Reservation_Status_Invalid  = @"INVALID";
 NSString * const kGTLRCompute_Reservation_Status_Ready    = @"READY";
 NSString * const kGTLRCompute_Reservation_Status_Updating = @"UPDATING";
+
+// GTLRCompute_ReservationAdvancedDeploymentControl.reservationOperationalMode
+NSString * const kGTLRCompute_ReservationAdvancedDeploymentControl_ReservationOperationalMode_AllCapacity = @"ALL_CAPACITY";
+NSString * const kGTLRCompute_ReservationAdvancedDeploymentControl_ReservationOperationalMode_HighlyAvailableCapacity = @"HIGHLY_AVAILABLE_CAPACITY";
+NSString * const kGTLRCompute_ReservationAdvancedDeploymentControl_ReservationOperationalMode_ReservationOperationalModeUnspecified = @"RESERVATION_OPERATIONAL_MODE_UNSPECIFIED";
 
 // GTLRCompute_ReservationAffinity.consumeReservationType
 NSString * const kGTLRCompute_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
@@ -4424,6 +5295,7 @@ NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4431,6 +5303,48 @@ NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_SchemaValid
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_ReservationBlock.status
+NSString * const kGTLRCompute_ReservationBlock_Status_Creating = @"CREATING";
+NSString * const kGTLRCompute_ReservationBlock_Status_Deleting = @"DELETING";
+NSString * const kGTLRCompute_ReservationBlock_Status_Invalid  = @"INVALID";
+NSString * const kGTLRCompute_ReservationBlock_Status_Ready    = @"READY";
+
+// GTLRCompute_ReservationBlockHealthInfo.healthStatus
+NSString * const kGTLRCompute_ReservationBlockHealthInfo_HealthStatus_Degraded = @"DEGRADED";
+NSString * const kGTLRCompute_ReservationBlockHealthInfo_HealthStatus_HealthStatusUnspecified = @"HEALTH_STATUS_UNSPECIFIED";
+NSString * const kGTLRCompute_ReservationBlockHealthInfo_HealthStatus_Healthy = @"HEALTHY";
+
+// GTLRCompute_ReservationBlocksListResponse_Warning.code
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_ReservationBlocksListResponse_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_ReservationList_Warning.code
 NSString * const kGTLRCompute_ReservationList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -4454,6 +5368,7 @@ NSString * const kGTLRCompute_ReservationList_Warning_Code_NextHopNotRunning = @
 NSString * const kGTLRCompute_ReservationList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ReservationList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ReservationList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ReservationList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ReservationList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ReservationList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ReservationList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4461,6 +5376,18 @@ NSString * const kGTLRCompute_ReservationList_Warning_Code_SchemaValidationIgnor
 NSString * const kGTLRCompute_ReservationList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_ReservationList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_ReservationList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_ReservationsBlocksPerformMaintenanceRequest.maintenanceScope
+NSString * const kGTLRCompute_ReservationsBlocksPerformMaintenanceRequest_MaintenanceScope_All = @"ALL";
+NSString * const kGTLRCompute_ReservationsBlocksPerformMaintenanceRequest_MaintenanceScope_MaintenanceScopeUnspecified = @"MAINTENANCE_SCOPE_UNSPECIFIED";
+NSString * const kGTLRCompute_ReservationsBlocksPerformMaintenanceRequest_MaintenanceScope_RunningVms = @"RUNNING_VMS";
+NSString * const kGTLRCompute_ReservationsBlocksPerformMaintenanceRequest_MaintenanceScope_UnusedCapacity = @"UNUSED_CAPACITY";
+
+// GTLRCompute_ReservationsPerformMaintenanceRequest.maintenanceScope
+NSString * const kGTLRCompute_ReservationsPerformMaintenanceRequest_MaintenanceScope_All = @"ALL";
+NSString * const kGTLRCompute_ReservationsPerformMaintenanceRequest_MaintenanceScope_MaintenanceScopeUnspecified = @"MAINTENANCE_SCOPE_UNSPECIFIED";
+NSString * const kGTLRCompute_ReservationsPerformMaintenanceRequest_MaintenanceScope_RunningVms = @"RUNNING_VMS";
+NSString * const kGTLRCompute_ReservationsPerformMaintenanceRequest_MaintenanceScope_UnusedCapacity = @"UNUSED_CAPACITY";
 
 // GTLRCompute_ReservationsScopedList_Warning.code
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -4484,6 +5411,7 @@ NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopNotRunn
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4491,6 +5419,48 @@ NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_SchemaValidati
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_ReservationSubBlock.status
+NSString * const kGTLRCompute_ReservationSubBlock_Status_Creating = @"CREATING";
+NSString * const kGTLRCompute_ReservationSubBlock_Status_Deleting = @"DELETING";
+NSString * const kGTLRCompute_ReservationSubBlock_Status_Invalid = @"INVALID";
+NSString * const kGTLRCompute_ReservationSubBlock_Status_Ready = @"READY";
+
+// GTLRCompute_ReservationSubBlockHealthInfo.healthStatus
+NSString * const kGTLRCompute_ReservationSubBlockHealthInfo_HealthStatus_Degraded = @"DEGRADED";
+NSString * const kGTLRCompute_ReservationSubBlockHealthInfo_HealthStatus_HealthStatusUnspecified = @"HEALTH_STATUS_UNSPECIFIED";
+NSString * const kGTLRCompute_ReservationSubBlockHealthInfo_HealthStatus_Healthy = @"HEALTHY";
+
+// GTLRCompute_ReservationSubBlocksListResponse_Warning.code
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_ReservationSubBlocksListResponse_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_ResourceCommitment.type
 NSString * const kGTLRCompute_ResourceCommitment_Type_Accelerator = @"ACCELERATOR";
@@ -4521,6 +5491,7 @@ NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4558,6 +5529,7 @@ NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4592,6 +5564,7 @@ NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4614,6 +5587,20 @@ NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Sunday = @"
 NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Thursday = @"THURSDAY";
 NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Tuesday = @"TUESDAY";
 NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Wednesday = @"WEDNESDAY";
+
+// GTLRCompute_ResourcePolicyWorkloadPolicy.maxTopologyDistance
+NSString * const kGTLRCompute_ResourcePolicyWorkloadPolicy_MaxTopologyDistance_Block = @"BLOCK";
+NSString * const kGTLRCompute_ResourcePolicyWorkloadPolicy_MaxTopologyDistance_Cluster = @"CLUSTER";
+NSString * const kGTLRCompute_ResourcePolicyWorkloadPolicy_MaxTopologyDistance_Subblock = @"SUBBLOCK";
+
+// GTLRCompute_ResourcePolicyWorkloadPolicy.type
+NSString * const kGTLRCompute_ResourcePolicyWorkloadPolicy_Type_HighAvailability = @"HIGH_AVAILABILITY";
+NSString * const kGTLRCompute_ResourcePolicyWorkloadPolicy_Type_HighThroughput = @"HIGH_THROUGHPUT";
+
+// GTLRCompute_Route.nextHopOrigin
+NSString * const kGTLRCompute_Route_NextHopOrigin_Egp        = @"EGP";
+NSString * const kGTLRCompute_Route_NextHopOrigin_Igp        = @"IGP";
+NSString * const kGTLRCompute_Route_NextHopOrigin_Incomplete = @"INCOMPLETE";
 
 // GTLRCompute_Route.routeStatus
 NSString * const kGTLRCompute_Route_RouteStatus_Active   = @"ACTIVE";
@@ -4649,6 +5636,7 @@ NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHopNotRunning = @"NEX
 NSString * const kGTLRCompute_Route_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_Route_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_Route_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_Route_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_Route_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_Route_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_Route_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4685,6 +5673,7 @@ NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopNotRunning = @"NEXT_
 NSString * const kGTLRCompute_RouteList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RouteList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RouteList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RouteList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RouteList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RouteList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RouteList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4692,6 +5681,10 @@ NSString * const kGTLRCompute_RouteList_Warning_Code_SchemaValidationIgnored = @
 NSString * const kGTLRCompute_RouteList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_RouteList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_RouteList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_RoutePolicy.type
+NSString * const kGTLRCompute_RoutePolicy_Type_RoutePolicyTypeExport = @"ROUTE_POLICY_TYPE_EXPORT";
+NSString * const kGTLRCompute_RoutePolicy_Type_RoutePolicyTypeImport = @"ROUTE_POLICY_TYPE_IMPORT";
 
 // GTLRCompute_RouterAggregatedList_Warning.code
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -4715,6 +5708,7 @@ NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4750,6 +5744,10 @@ NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Active 
 NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Disabled = @"DISABLED";
 NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Passive = @"PASSIVE";
 
+// GTLRCompute_RouterInterface.ipVersion
+NSString * const kGTLRCompute_RouterInterface_IpVersion_Ipv4 = @"IPV4";
+NSString * const kGTLRCompute_RouterInterface_IpVersion_Ipv6 = @"IPV6";
+
 // GTLRCompute_RouterInterface.managementType
 NSString * const kGTLRCompute_RouterInterface_ManagementType_ManagedByAttachment = @"MANAGED_BY_ATTACHMENT";
 NSString * const kGTLRCompute_RouterInterface_ManagementType_ManagedByUser = @"MANAGED_BY_USER";
@@ -4776,6 +5774,7 @@ NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopNotRunning = @"NEXT
 NSString * const kGTLRCompute_RouterList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RouterList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RouterList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RouterList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RouterList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RouterList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RouterList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4804,6 +5803,10 @@ NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetw
 NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_AllSubnetworksAllPrimaryIpRanges = @"ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES";
 NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat_ListOfSubnetworks = @"LIST_OF_SUBNETWORKS";
 
+// GTLRCompute_RouterNat.sourceSubnetworkIpRangesToNat64
+NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat64_AllIpv6Subnetworks = @"ALL_IPV6_SUBNETWORKS";
+NSString * const kGTLRCompute_RouterNat_SourceSubnetworkIpRangesToNat64_ListOfIpv6Subnetworks = @"LIST_OF_IPV6_SUBNETWORKS";
+
 // GTLRCompute_RouterNat.type
 NSString * const kGTLRCompute_RouterNat_Type_Private = @"PRIVATE";
 NSString * const kGTLRCompute_RouterNat_Type_Public  = @"PUBLIC";
@@ -4817,6 +5820,68 @@ NSString * const kGTLRCompute_RouterNatLogConfig_Filter_TranslationsOnly = @"TRA
 NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_AllIpRanges = @"ALL_IP_RANGES";
 NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_ListOfSecondaryIpRanges = @"LIST_OF_SECONDARY_IP_RANGES";
 NSString * const kGTLRCompute_RouterNatSubnetworkToNat_SourceIpRangesToNat_PrimaryIpRange = @"PRIMARY_IP_RANGE";
+
+// GTLRCompute_RoutersListBgpRoutes_Warning.code
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_RoutersListBgpRoutes_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_RoutersListRoutePolicies_Warning.code
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_RoutersListRoutePolicies_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_RoutersScopedList_Warning.code
 NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -4840,6 +5905,7 @@ NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NextHopNotRunning =
 NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4854,16 +5920,10 @@ NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Unknown = @"UNKNO
 NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_Status_Up = @"UP";
 
 // GTLRCompute_RouterStatusBgpPeerStatus.statusReason
+NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_StatusReason_Ipv4PeerOnIpv6OnlyConnection = @"IPV4_PEER_ON_IPV6_ONLY_CONNECTION";
+NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_StatusReason_Ipv6PeerOnIpv4OnlyConnection = @"IPV6_PEER_ON_IPV4_ONLY_CONNECTION";
 NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_StatusReason_Md5AuthInternalProblem = @"MD5_AUTH_INTERNAL_PROBLEM";
 NSString * const kGTLRCompute_RouterStatusBgpPeerStatus_StatusReason_StatusReasonUnspecified = @"STATUS_REASON_UNSPECIFIED";
-
-// GTLRCompute_Rule.action
-NSString * const kGTLRCompute_Rule_Action_Allow        = @"ALLOW";
-NSString * const kGTLRCompute_Rule_Action_AllowWithLog = @"ALLOW_WITH_LOG";
-NSString * const kGTLRCompute_Rule_Action_Deny         = @"DENY";
-NSString * const kGTLRCompute_Rule_Action_DenyWithLog  = @"DENY_WITH_LOG";
-NSString * const kGTLRCompute_Rule_Action_Log          = @"LOG";
-NSString * const kGTLRCompute_Rule_Action_NoAction     = @"NO_ACTION";
 
 // GTLRCompute_SavedAttachedDisk.interface
 NSString * const kGTLRCompute_SavedAttachedDisk_Interface_Nvme = @"NVME";
@@ -4906,6 +5966,7 @@ NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Migrate = @"MIGRATE";
 NSString * const kGTLRCompute_Scheduling_OnHostMaintenance_Terminate = @"TERMINATE";
 
 // GTLRCompute_Scheduling.provisioningModel
+NSString * const kGTLRCompute_Scheduling_ProvisioningModel_ReservationBound = @"RESERVATION_BOUND";
 NSString * const kGTLRCompute_Scheduling_ProvisioningModel_Spot = @"SPOT";
 NSString * const kGTLRCompute_Scheduling_ProvisioningModel_Standard = @"STANDARD";
 
@@ -4936,6 +5997,7 @@ NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_NextHo
 NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SecurityPoliciesAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4966,6 +6028,7 @@ NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SecurityPoliciesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -4983,6 +6046,11 @@ NSString * const kGTLRCompute_SecurityPolicy_Type_CloudArmorNetwork = @"CLOUD_AR
 NSString * const kGTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfig_RuleVisibility_Premium = @"PREMIUM";
 NSString * const kGTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfig_RuleVisibility_Standard = @"STANDARD";
 
+// GTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig.type
+NSString * const kGTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig_Type_HttpHeaderHost = @"HTTP_HEADER_HOST";
+NSString * const kGTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig_Type_HttpPath = @"HTTP_PATH";
+NSString * const kGTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig_Type_UnspecifiedType = @"UNSPECIFIED_TYPE";
+
 // GTLRCompute_SecurityPolicyAdvancedOptionsConfig.jsonParsing
 NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_JsonParsing_Disabled = @"DISABLED";
 NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_JsonParsing_Standard = @"STANDARD";
@@ -4994,6 +6062,7 @@ NSString * const kGTLRCompute_SecurityPolicyAdvancedOptionsConfig_LogLevel_Verbo
 
 // GTLRCompute_SecurityPolicyDdosProtectionConfig.ddosProtection
 NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosProtection_Advanced = @"ADVANCED";
+NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosProtection_AdvancedPreview = @"ADVANCED_PREVIEW";
 NSString * const kGTLRCompute_SecurityPolicyDdosProtectionConfig_DdosProtection_Standard = @"STANDARD";
 
 // GTLRCompute_SecurityPolicyList_Warning.code
@@ -5018,6 +6087,7 @@ NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5045,6 +6115,7 @@ NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Ip
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_RegionCode = @"REGION_CODE";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_Sni = @"SNI";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_TlsJa3Fingerprint = @"TLS_JA3_FINGERPRINT";
+NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_TlsJa4Fingerprint = @"TLS_JA4_FINGERPRINT";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_UserIp = @"USER_IP";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptions_EnforceOnKey_XffIp = @"XFF_IP";
 
@@ -5057,6 +6128,7 @@ NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConf
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_RegionCode = @"REGION_CODE";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_Sni = @"SNI";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_TlsJa3Fingerprint = @"TLS_JA3_FINGERPRINT";
+NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_TlsJa4Fingerprint = @"TLS_JA4_FINGERPRINT";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_UserIp = @"USER_IP";
 NSString * const kGTLRCompute_SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig_EnforceOnKeyType_XffIp = @"XFF_IP";
 
@@ -5102,6 +6174,7 @@ NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_NextH
 NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ServiceAttachmentAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5140,6 +6213,7 @@ NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ServiceAttachmentList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5170,6 +6244,7 @@ NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ServiceAttachmentsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5234,6 +6309,7 @@ NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHopNotRunning = @"NE
 NSString * const kGTLRCompute_SnapshotList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SnapshotList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SnapshotList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SnapshotList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SnapshotList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SnapshotList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SnapshotList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5280,6 +6356,7 @@ NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5310,6 +6387,7 @@ NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SslCertificateList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SslCertificateList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5357,6 +6435,7 @@ NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5396,6 +6475,7 @@ NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SslPoliciesAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5426,6 +6506,7 @@ NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NextHopNotRunning = @
 NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5456,6 +6537,7 @@ NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SslPoliciesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5497,6 +6579,7 @@ NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopNotRunning = @
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5513,9 +6596,254 @@ NSString * const kGTLRCompute_StatefulPolicyPreservedStateDiskDevice_AutoDelete_
 NSString * const kGTLRCompute_StatefulPolicyPreservedStateNetworkIp_AutoDelete_Never = @"NEVER";
 NSString * const kGTLRCompute_StatefulPolicyPreservedStateNetworkIp_AutoDelete_OnPermanentInstanceDeletion = @"ON_PERMANENT_INSTANCE_DELETION";
 
+// GTLRCompute_StoragePool.capacityProvisioningType
+NSString * const kGTLRCompute_StoragePool_CapacityProvisioningType_Advanced = @"ADVANCED";
+NSString * const kGTLRCompute_StoragePool_CapacityProvisioningType_Standard = @"STANDARD";
+NSString * const kGTLRCompute_StoragePool_CapacityProvisioningType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_StoragePool.performanceProvisioningType
+NSString * const kGTLRCompute_StoragePool_PerformanceProvisioningType_Advanced = @"ADVANCED";
+NSString * const kGTLRCompute_StoragePool_PerformanceProvisioningType_Standard = @"STANDARD";
+NSString * const kGTLRCompute_StoragePool_PerformanceProvisioningType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_StoragePool.state
+NSString * const kGTLRCompute_StoragePool_State_Creating = @"CREATING";
+NSString * const kGTLRCompute_StoragePool_State_Deleting = @"DELETING";
+NSString * const kGTLRCompute_StoragePool_State_Failed   = @"FAILED";
+NSString * const kGTLRCompute_StoragePool_State_Ready    = @"READY";
+
+// GTLRCompute_StoragePoolAggregatedList_Warning.code
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_StoragePoolAggregatedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_StoragePoolDisk.status
+NSString * const kGTLRCompute_StoragePoolDisk_Status_Creating  = @"CREATING";
+NSString * const kGTLRCompute_StoragePoolDisk_Status_Deleting  = @"DELETING";
+NSString * const kGTLRCompute_StoragePoolDisk_Status_Failed    = @"FAILED";
+NSString * const kGTLRCompute_StoragePoolDisk_Status_Ready     = @"READY";
+NSString * const kGTLRCompute_StoragePoolDisk_Status_Restoring = @"RESTORING";
+NSString * const kGTLRCompute_StoragePoolDisk_Status_Unavailable = @"UNAVAILABLE";
+
+// GTLRCompute_StoragePoolList_Warning.code
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_StoragePoolList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_StoragePoolListDisks_Warning.code
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_StoragePoolListDisks_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_StoragePoolsScopedList_Warning.code
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_StoragePoolsScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_StoragePoolTypeAggregatedList_Warning.code
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_StoragePoolTypeAggregatedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_StoragePoolTypeList_Warning.code
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_StoragePoolTypeList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_StoragePoolTypesScopedList_Warning.code
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_StoragePoolTypesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
 // GTLRCompute_Subnetwork.ipv6AccessType
 NSString * const kGTLRCompute_Subnetwork_Ipv6AccessType_External = @"EXTERNAL";
 NSString * const kGTLRCompute_Subnetwork_Ipv6AccessType_Internal = @"INTERNAL";
+
+// GTLRCompute_Subnetwork.ipv6GceEndpoint
+NSString * const kGTLRCompute_Subnetwork_Ipv6GceEndpoint_VmAndFr = @"VM_AND_FR";
+NSString * const kGTLRCompute_Subnetwork_Ipv6GceEndpoint_VmOnly = @"VM_ONLY";
 
 // GTLRCompute_Subnetwork.privateIpv6GoogleAccess
 NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_DisableGoogleAccess = @"DISABLE_GOOGLE_ACCESS";
@@ -5525,6 +6853,7 @@ NSString * const kGTLRCompute_Subnetwork_PrivateIpv6GoogleAccess_EnableOutboundV
 // GTLRCompute_Subnetwork.purpose
 NSString * const kGTLRCompute_Subnetwork_Purpose_GlobalManagedProxy = @"GLOBAL_MANAGED_PROXY";
 NSString * const kGTLRCompute_Subnetwork_Purpose_InternalHttpsLoadBalancer = @"INTERNAL_HTTPS_LOAD_BALANCER";
+NSString * const kGTLRCompute_Subnetwork_Purpose_PeerMigration = @"PEER_MIGRATION";
 NSString * const kGTLRCompute_Subnetwork_Purpose_Private       = @"PRIVATE";
 NSString * const kGTLRCompute_Subnetwork_Purpose_PrivateNat    = @"PRIVATE_NAT";
 NSString * const kGTLRCompute_Subnetwork_Purpose_PrivateRfc1918 = @"PRIVATE_RFC_1918";
@@ -5538,6 +6867,7 @@ NSString * const kGTLRCompute_Subnetwork_Role_Backup = @"BACKUP";
 // GTLRCompute_Subnetwork.stackType
 NSString * const kGTLRCompute_Subnetwork_StackType_Ipv4Ipv6 = @"IPV4_IPV6";
 NSString * const kGTLRCompute_Subnetwork_StackType_Ipv4Only = @"IPV4_ONLY";
+NSString * const kGTLRCompute_Subnetwork_StackType_Ipv6Only = @"IPV6_ONLY";
 
 // GTLRCompute_Subnetwork.state
 NSString * const kGTLRCompute_Subnetwork_State_Draining = @"DRAINING";
@@ -5565,6 +6895,7 @@ NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5595,6 +6926,7 @@ NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NextHopNotRunning = @"
 NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SubnetworkList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SubnetworkList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SubnetworkList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SubnetworkList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5638,6 +6970,7 @@ NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5645,6 +6978,37 @@ NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SchemaValidatio
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_SubnetworksScopedWarning_Warning.code
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_InvalidHealthCheckForDynamicWieghtedLb = @"INVALID_HEALTH_CHECK_FOR_DYNAMIC_WIEGHTED_LB";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_ListOverheadQuotaExceed = @"LIST_OVERHEAD_QUOTA_EXCEED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_NextHopInstanceHasNoIpv6Interface = @"NEXT_HOP_INSTANCE_HAS_NO_IPV6_INTERFACE";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRCompute_SubnetworksScopedWarning_Warning_Code_Unreachable = @"UNREACHABLE";
 
 // GTLRCompute_Subsetting.policy
 NSString * const kGTLRCompute_Subsetting_Policy_ConsistentHashSubsetting = @"CONSISTENT_HASH_SUBSETTING";
@@ -5672,6 +7036,7 @@ NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5702,6 +7067,7 @@ NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopNo
 NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5732,6 +7098,7 @@ NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopNotRunning
 NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5762,6 +7129,7 @@ NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5779,6 +7147,12 @@ NSString * const kGTLRCompute_TargetHttpsProxiesSetQuicOverrideRequest_QuicOverr
 NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_Disable = @"DISABLE";
 NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_Enable = @"ENABLE";
 NSString * const kGTLRCompute_TargetHttpsProxy_QuicOverride_None = @"NONE";
+
+// GTLRCompute_TargetHttpsProxy.tlsEarlyData
+NSString * const kGTLRCompute_TargetHttpsProxy_TlsEarlyData_Disabled = @"DISABLED";
+NSString * const kGTLRCompute_TargetHttpsProxy_TlsEarlyData_Permissive = @"PERMISSIVE";
+NSString * const kGTLRCompute_TargetHttpsProxy_TlsEarlyData_Strict = @"STRICT";
+NSString * const kGTLRCompute_TargetHttpsProxy_TlsEarlyData_Unrestricted = @"UNRESTRICTED";
 
 // GTLRCompute_TargetHttpsProxyAggregatedList_Warning.code
 NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -5802,6 +7176,7 @@ NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHo
 NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5832,6 +7207,7 @@ NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5865,6 +7241,7 @@ NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5895,6 +7272,7 @@ NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5925,6 +7303,7 @@ NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5942,6 +7321,7 @@ NSString * const kGTLRCompute_TargetPool_SessionAffinity_GeneratedCookie = @"GEN
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_HeaderField = @"HEADER_FIELD";
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_HttpCookie = @"HTTP_COOKIE";
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_None  = @"NONE";
+NSString * const kGTLRCompute_TargetPool_SessionAffinity_StrongCookieAffinity = @"STRONG_COOKIE_AFFINITY";
 
 // GTLRCompute_TargetPoolAggregatedList_Warning.code
 NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -5965,6 +7345,7 @@ NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -5995,6 +7376,7 @@ NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NextHopNotRunning = @"
 NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetPoolList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetPoolList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetPoolList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetPoolList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6025,6 +7407,7 @@ NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6063,6 +7446,7 @@ NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6093,6 +7477,7 @@ NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NextHopNot
 NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetTcpProxiesScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6131,6 +7516,7 @@ NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NextHopN
 NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetTcpProxyAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6161,6 +7547,7 @@ NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopNotRunning 
 NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6197,6 +7584,7 @@ NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHo
 NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6227,6 +7615,7 @@ NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6257,6 +7646,7 @@ NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopNo
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6274,12 +7664,29 @@ NSString * const kGTLRCompute_TCPHealthCheck_PortSpecification_UseServingPort = 
 NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_None  = @"NONE";
 NSString * const kGTLRCompute_TCPHealthCheck_ProxyHeader_ProxyV1 = @"PROXY_V1";
 
+// GTLRCompute_UpcomingMaintenance.maintenanceReasons
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureDisk = @"FAILURE_DISK";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureGpu = @"FAILURE_GPU";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureGpuTemperature = @"FAILURE_GPU_TEMPERATURE";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureGpuXid = @"FAILURE_GPU_XID";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureInfra = @"FAILURE_INFRA";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureInterface = @"FAILURE_INTERFACE";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureMemory = @"FAILURE_MEMORY";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureNetwork = @"FAILURE_NETWORK";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureNvlink = @"FAILURE_NVLINK";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_FailureRedundantHardwareFault = @"FAILURE_REDUNDANT_HARDWARE_FAULT";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_InfrastructureRelocation = @"INFRASTRUCTURE_RELOCATION";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_MaintenanceReasonUnknown = @"MAINTENANCE_REASON_UNKNOWN";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_PlannedNetworkUpdate = @"PLANNED_NETWORK_UPDATE";
+NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceReasons_PlannedUpdate = @"PLANNED_UPDATE";
+
 // GTLRCompute_UpcomingMaintenance.maintenanceStatus
 NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Ongoing = @"ONGOING";
 NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Pending = @"PENDING";
 NSString * const kGTLRCompute_UpcomingMaintenance_MaintenanceStatus_Unknown = @"UNKNOWN";
 
 // GTLRCompute_UpcomingMaintenance.type
+NSString * const kGTLRCompute_UpcomingMaintenance_Type_Multiple = @"MULTIPLE";
 NSString * const kGTLRCompute_UpcomingMaintenance_Type_Scheduled = @"SCHEDULED";
 NSString * const kGTLRCompute_UpcomingMaintenance_Type_UnknownType = @"UNKNOWN_TYPE";
 NSString * const kGTLRCompute_UpcomingMaintenance_Type_Unscheduled = @"UNSCHEDULED";
@@ -6306,6 +7713,7 @@ NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopNotRunning = @"NEXT
 NSString * const kGTLRCompute_UrlMapList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_UrlMapList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_UrlMapList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_UrlMapList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_UrlMapList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_UrlMapList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_UrlMapList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6336,6 +7744,7 @@ NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6366,6 +7775,7 @@ NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopNotRunning =
 NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6386,6 +7796,7 @@ NSString * const kGTLRCompute_UsableSubnetwork_Ipv6AccessType_Internal = @"INTER
 // GTLRCompute_UsableSubnetwork.purpose
 NSString * const kGTLRCompute_UsableSubnetwork_Purpose_GlobalManagedProxy = @"GLOBAL_MANAGED_PROXY";
 NSString * const kGTLRCompute_UsableSubnetwork_Purpose_InternalHttpsLoadBalancer = @"INTERNAL_HTTPS_LOAD_BALANCER";
+NSString * const kGTLRCompute_UsableSubnetwork_Purpose_PeerMigration = @"PEER_MIGRATION";
 NSString * const kGTLRCompute_UsableSubnetwork_Purpose_Private = @"PRIVATE";
 NSString * const kGTLRCompute_UsableSubnetwork_Purpose_PrivateNat = @"PRIVATE_NAT";
 NSString * const kGTLRCompute_UsableSubnetwork_Purpose_PrivateRfc1918 = @"PRIVATE_RFC_1918";
@@ -6399,6 +7810,7 @@ NSString * const kGTLRCompute_UsableSubnetwork_Role_Backup = @"BACKUP";
 // GTLRCompute_UsableSubnetwork.stackType
 NSString * const kGTLRCompute_UsableSubnetwork_StackType_Ipv4Ipv6 = @"IPV4_IPV6";
 NSString * const kGTLRCompute_UsableSubnetwork_StackType_Ipv4Only = @"IPV4_ONLY";
+NSString * const kGTLRCompute_UsableSubnetwork_StackType_Ipv6Only = @"IPV6_ONLY";
 
 // GTLRCompute_UsableSubnetworksAggregatedList_Warning.code
 NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -6422,6 +7834,7 @@ NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextH
 NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6452,6 +7865,7 @@ NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopNotR
 NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6460,9 +7874,14 @@ NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_SingleInsta
 NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_Unreachable = @"UNREACHABLE";
 
+// GTLRCompute_VpnGateway.gatewayIpVersion
+NSString * const kGTLRCompute_VpnGateway_GatewayIpVersion_Ipv4 = @"IPV4";
+NSString * const kGTLRCompute_VpnGateway_GatewayIpVersion_Ipv6 = @"IPV6";
+
 // GTLRCompute_VpnGateway.stackType
 NSString * const kGTLRCompute_VpnGateway_StackType_Ipv4Ipv6 = @"IPV4_IPV6";
 NSString * const kGTLRCompute_VpnGateway_StackType_Ipv4Only = @"IPV4_ONLY";
+NSString * const kGTLRCompute_VpnGateway_StackType_Ipv6Only = @"IPV6_ONLY";
 
 // GTLRCompute_VpnGatewayAggregatedList_Warning.code
 NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -6486,6 +7905,7 @@ NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopNotRu
 NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6516,6 +7936,7 @@ NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NextHopNotRunning = @"
 NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6546,6 +7967,7 @@ NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopNotRunni
 NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6598,6 +8020,7 @@ NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopNotRun
 NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6628,6 +8051,7 @@ NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextHopNotRunning = @"N
 NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6658,6 +8082,7 @@ NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopNotRunnin
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6688,6 +8113,7 @@ NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHopNotRunning = @"NEX
 NSString * const kGTLRCompute_XpnHostList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_XpnHostList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_XpnHostList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_XpnHostList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_XpnHostList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_XpnHostList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_XpnHostList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -6726,6 +8152,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopNotRunning = @"NEXT_H
 NSString * const kGTLRCompute_ZoneList_Warning_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
 NSString * const kGTLRCompute_ZoneList_Warning_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
 NSString * const kGTLRCompute_ZoneList_Warning_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRCompute_ZoneList_Warning_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRCompute_ZoneList_Warning_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
 NSString * const kGTLRCompute_ZoneList_Warning_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRCompute_ZoneList_Warning_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
@@ -7147,8 +8574,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_AdvancedMachineFeatures
-@dynamic enableNestedVirtualization, enableUefiNetworking, threadsPerCore,
-         visibleCoreCount;
+@dynamic enableNestedVirtualization, enableUefiNetworking,
+         performanceMonitoringUnit, threadsPerCore, turboMode, visibleCoreCount;
 @end
 
 
@@ -7203,11 +8630,32 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_AllocationReservationSharingPolicy
+//
+
+@implementation GTLRCompute_AllocationReservationSharingPolicy
+@dynamic serviceShareType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_AllocationResourceStatus
 //
 
 @implementation GTLRCompute_AllocationResourceStatus
-@dynamic specificSkuAllocation;
+@dynamic healthInfo, reservationBlockCount, reservationMaintenance,
+         specificSkuAllocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AllocationResourceStatusHealthInfo
+//
+
+@implementation GTLRCompute_AllocationResourceStatusHealthInfo
+@dynamic degradedBlockCount, healthStatus, healthyBlockCount;
 @end
 
 
@@ -7217,7 +8665,21 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_AllocationResourceStatusSpecificSKUAllocation
-@dynamic sourceInstanceTemplateId;
+@dynamic sourceInstanceTemplateId, utilizations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_AllocationResourceStatusSpecificSKUAllocation_Utilizations
+//
+
+@implementation GTLRCompute_AllocationResourceStatusSpecificSKUAllocation_Utilizations
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
 @end
 
 
@@ -7294,7 +8756,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          enableConfidentialCompute, labels, licenses, onUpdateAction,
          provisionedIops, provisionedThroughput, replicaZones,
          resourceManagerTags, resourcePolicies, sourceImage,
-         sourceImageEncryptionKey, sourceSnapshot, sourceSnapshotEncryptionKey;
+         sourceImageEncryptionKey, sourceSnapshot, sourceSnapshotEncryptionKey,
+         storagePool;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -7346,12 +8809,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCompute_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
+    @"auditLogConfigs" : [GTLRCompute_AuditLogConfig class]
   };
   return map;
 }
@@ -7365,7 +8827,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_AuditLogConfig
-@dynamic exemptedMembers, ignoreChildExemptions, logType;
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -7374,16 +8836,6 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCompute_AuthorizationLoggingOptions
-//
-
-@implementation GTLRCompute_AuthorizationLoggingOptions
-@dynamic permissionType;
 @end
 
 
@@ -7708,12 +9160,20 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Backend
-@dynamic balancingMode, capacityScaler, descriptionProperty, failover, group,
-         maxConnections, maxConnectionsPerEndpoint, maxConnectionsPerInstance,
-         maxRate, maxRatePerEndpoint, maxRatePerInstance, maxUtilization;
+@dynamic balancingMode, capacityScaler, customMetrics, descriptionProperty,
+         failover, group, maxConnections, maxConnectionsPerEndpoint,
+         maxConnectionsPerInstance, maxRate, maxRatePerEndpoint,
+         maxRatePerInstance, maxUtilization, preference;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customMetrics" : [GTLRCompute_BackendCustomMetric class]
+  };
+  return map;
 }
 
 @end
@@ -7727,7 +9187,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_BackendBucket
 @dynamic bucketName, cdnPolicy, compressionMode, creationTimestamp,
          customResponseHeaders, descriptionProperty, edgeSecurityPolicy,
-         enableCdn, identifier, kind, name, selfLink;
+         enableCdn, identifier, kind, loadBalancingScheme, name, params,
+         selfLink, usedBy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -7739,7 +9200,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"customResponseHeaders" : [NSString class]
+    @"customResponseHeaders" : [NSString class],
+    @"usedBy" : [GTLRCompute_BackendBucketUsedBy class]
   };
   return map;
 }
@@ -7861,20 +9323,67 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_BackendBucketParams
+//
+
+@implementation GTLRCompute_BackendBucketParams
+@dynamic resourceManagerTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendBucketParams_ResourceManagerTags
+//
+
+@implementation GTLRCompute_BackendBucketParams_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendBucketUsedBy
+//
+
+@implementation GTLRCompute_BackendBucketUsedBy
+@dynamic reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendCustomMetric
+//
+
+@implementation GTLRCompute_BackendCustomMetric
+@dynamic dryRun, maxUtilization, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_BackendService
 //
 
 @implementation GTLRCompute_BackendService
 @dynamic affinityCookieTtlSec, backends, cdnPolicy, circuitBreakers,
          compressionMode, connectionDraining, connectionTrackingPolicy,
-         consistentHash, creationTimestamp, customRequestHeaders,
+         consistentHash, creationTimestamp, customMetrics, customRequestHeaders,
          customResponseHeaders, descriptionProperty, edgeSecurityPolicy,
-         enableCDN, failoverPolicy, fingerprint, healthChecks, iap, identifier,
+         enableCDN, externalManagedMigrationState,
+         externalManagedMigrationTestingPercentage, failoverPolicy, fingerprint,
+         haPolicy, healthChecks, iap, identifier, ipAddressSelectionPolicy,
          kind, loadBalancingScheme, localityLbPolicies, localityLbPolicy,
          logConfig, maxStreamDuration, metadatas, name, network,
-         outlierDetection, port, portName, protocol, region, securityPolicy,
-         securitySettings, selfLink, serviceBindings, sessionAffinity,
-         subsetting, timeoutSec, usedBy;
+         outlierDetection, params, port, portName, protocol, region,
+         securityPolicy, securitySettings, selfLink, serviceBindings,
+         serviceLbPolicy, sessionAffinity, strongSessionAffinityCookie,
+         subsetting, timeoutSec, tlsSettings, usedBy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -7887,6 +9396,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"backends" : [GTLRCompute_Backend class],
+    @"customMetrics" : [GTLRCompute_BackendServiceCustomMetric class],
     @"customRequestHeaders" : [NSString class],
     @"customResponseHeaders" : [NSString class],
     @"healthChecks" : [NSString class],
@@ -8035,6 +9545,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_BackendServiceCustomMetric
+//
+
+@implementation GTLRCompute_BackendServiceCustomMetric
+@dynamic dryRun, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_BackendServiceFailoverPolicy
 //
 
@@ -8073,6 +9593,46 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceHAPolicy
+//
+
+@implementation GTLRCompute_BackendServiceHAPolicy
+@dynamic fastIPMove, leader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceHAPolicyLeader
+//
+
+@implementation GTLRCompute_BackendServiceHAPolicyLeader
+@dynamic backendGroup, networkEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceHAPolicyLeaderNetworkEndpoint
+//
+
+@implementation GTLRCompute_BackendServiceHAPolicyLeaderNetworkEndpoint
+@dynamic instance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceHttpCookie
+//
+
+@implementation GTLRCompute_BackendServiceHttpCookie
+@dynamic name, path, ttl;
 @end
 
 
@@ -8236,6 +9796,30 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_BackendServiceParams
+//
+
+@implementation GTLRCompute_BackendServiceParams
+@dynamic resourceManagerTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceParams_ResourceManagerTags
+//
+
+@implementation GTLRCompute_BackendServiceParams_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_BackendServiceReference
 //
 
@@ -8287,6 +9871,34 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_BackendServicesScopedList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceTlsSettings
+//
+
+@implementation GTLRCompute_BackendServiceTlsSettings
+@dynamic authenticationConfig, sni, subjectAltNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subjectAltNames" : [GTLRCompute_BackendServiceTlsSettingsSubjectAltName class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BackendServiceTlsSettingsSubjectAltName
+//
+
+@implementation GTLRCompute_BackendServiceTlsSettingsSubjectAltName
+@dynamic dnsName, uniformResourceIdentifier;
 @end
 
 
@@ -8346,11 +9958,58 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_BgpRoute
+//
+
+@implementation GTLRCompute_BgpRoute
+@dynamic asPaths, communities, destination, med, origin;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"asPaths" : [GTLRCompute_BgpRouteAsPath class],
+    @"communities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BgpRouteAsPath
+//
+
+@implementation GTLRCompute_BgpRouteAsPath
+@dynamic asns, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"asns" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BgpRouteNetworkLayerReachabilityInformation
+//
+
+@implementation GTLRCompute_BgpRouteNetworkLayerReachabilityInformation
+@dynamic pathId, prefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_Binding
 //
 
 @implementation GTLRCompute_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8420,11 +10079,61 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_BulkSetLabelsRequest
+//
+
+@implementation GTLRCompute_BulkSetLabelsRequest
+@dynamic labelFingerprint, labels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BulkSetLabelsRequest_Labels
+//
+
+@implementation GTLRCompute_BulkSetLabelsRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_BulkZoneSetLabelsRequest
+//
+
+@implementation GTLRCompute_BulkZoneSetLabelsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRCompute_BulkSetLabelsRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_CacheInvalidationRule
 //
 
 @implementation GTLRCompute_CacheInvalidationRule
-@dynamic host, path;
+@dynamic cacheTags, host, path;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cacheTags" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -8467,11 +10176,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Commitment
-@dynamic autoRenew, category, creationTimestamp, descriptionProperty,
-         endTimestamp, existingReservations, identifier, kind, licenseResource,
-         mergeSourceCommitments, name, plan, region, reservations, resources,
-         selfLink, splitSourceCommitment, startTimestamp, status, statusMessage,
-         type;
+@dynamic autoRenew, category, creationTimestamp, customEndTimestamp,
+         descriptionProperty, endTimestamp, existingReservations, identifier,
+         kind, licenseResource, mergeSourceCommitments, name, plan, region,
+         reservations, resources, resourceStatus, selfLink,
+         splitSourceCommitment, startTimestamp, status, statusMessage, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -8611,6 +10320,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_CommitmentResourceStatus
+//
+
+@implementation GTLRCompute_CommitmentResourceStatus
+@dynamic customTermEligibilityEndTimestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_CommitmentsScopedList
 //
 
@@ -8657,29 +10376,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_Condition
-//
-
-@implementation GTLRCompute_Condition
-@dynamic iam, op, svc, sys, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCompute_ConfidentialInstanceConfig
 //
 
 @implementation GTLRCompute_ConfidentialInstanceConfig
-@dynamic enableConfidentialCompute;
+@dynamic confidentialInstanceType, enableConfidentialCompute;
 @end
 
 
@@ -8758,6 +10459,42 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_CustomErrorResponsePolicy
+//
+
+@implementation GTLRCompute_CustomErrorResponsePolicy
+@dynamic errorResponseRules, errorService;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorResponseRules" : [GTLRCompute_CustomErrorResponsePolicyCustomErrorResponseRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CustomErrorResponsePolicyCustomErrorResponseRule
+//
+
+@implementation GTLRCompute_CustomErrorResponsePolicyCustomErrorResponseRule
+@dynamic matchResponseCodes, overrideResponseCode, path;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matchResponseCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_DeprecationStatus
 //
 
@@ -8772,18 +10509,19 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Disk
-@dynamic architecture, asyncPrimaryDisk, asyncSecondaryDisks, creationTimestamp,
-         descriptionProperty, diskEncryptionKey, enableConfidentialCompute,
-         guestOsFeatures, identifier, kind, labelFingerprint, labels,
-         lastAttachTimestamp, lastDetachTimestamp, licenseCodes, licenses,
-         locationHint, name, options, params, physicalBlockSizeBytes,
-         provisionedIops, provisionedThroughput, region, replicaZones,
-         resourcePolicies, resourceStatus, satisfiesPzi, satisfiesPzs, selfLink,
-         sizeGb, sourceConsistencyGroupPolicy, sourceConsistencyGroupPolicyId,
-         sourceDisk, sourceDiskId, sourceImage, sourceImageEncryptionKey,
-         sourceImageId, sourceSnapshot, sourceSnapshotEncryptionKey,
-         sourceSnapshotId, sourceStorageObject, status, type, users,
-         zoneProperty;
+@dynamic accessMode, architecture, asyncPrimaryDisk, asyncSecondaryDisks,
+         creationTimestamp, descriptionProperty, diskEncryptionKey,
+         enableConfidentialCompute, guestOsFeatures, identifier, kind,
+         labelFingerprint, labels, lastAttachTimestamp, lastDetachTimestamp,
+         licenseCodes, licenses, locationHint, name, options, params,
+         physicalBlockSizeBytes, provisionedIops, provisionedThroughput, region,
+         replicaZones, resourcePolicies, resourceStatus, satisfiesPzi,
+         satisfiesPzs, selfLink, sizeGb, sourceConsistencyGroupPolicy,
+         sourceConsistencyGroupPolicyId, sourceDisk, sourceDiskId, sourceImage,
+         sourceImageEncryptionKey, sourceImageId, sourceInstantSnapshot,
+         sourceInstantSnapshotId, sourceSnapshot, sourceSnapshotEncryptionKey,
+         sourceSnapshotId, sourceStorageObject, status, storagePool, type,
+         users, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -9543,7 +11281,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ExternalVpnGatewayInterface
-@dynamic identifier, ipAddress;
+@dynamic identifier, ipAddress, ipv6Address;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -9624,8 +11362,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_Firewall
 @dynamic allowed, creationTimestamp, denied, descriptionProperty,
          destinationRanges, direction, disabled, identifier, kind, logConfig,
-         name, network, priority, selfLink, sourceRanges, sourceServiceAccounts,
-         sourceTags, targetServiceAccounts, targetTags;
+         name, network, params, priority, selfLink, sourceRanges,
+         sourceServiceAccounts, sourceTags, targetServiceAccounts, targetTags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -9750,6 +11488,30 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_FirewallParams
+//
+
+@implementation GTLRCompute_FirewallParams
+@dynamic resourceManagerTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FirewallParams_ResourceManagerTags
+//
+
+@implementation GTLRCompute_FirewallParams_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_FirewallPoliciesListAssociationsResponse
 //
 
@@ -9768,13 +11530,59 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_FirewallPoliciesScopedList
+//
+
+@implementation GTLRCompute_FirewallPoliciesScopedList
+@dynamic firewallPolicies, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"firewallPolicies" : [GTLRCompute_FirewallPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FirewallPoliciesScopedList_Warning
+//
+
+@implementation GTLRCompute_FirewallPoliciesScopedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_FirewallPoliciesScopedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FirewallPoliciesScopedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_FirewallPoliciesScopedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_FirewallPolicy
 //
 
 @implementation GTLRCompute_FirewallPolicy
 @dynamic associations, creationTimestamp, descriptionProperty, displayName,
-         fingerprint, identifier, kind, name, parent, region, rules,
-         ruleTupleCount, selfLink, selfLinkWithId, shortName;
+         fingerprint, identifier, kind, name, packetMirroringRules, parent,
+         region, rules, ruleTupleCount, selfLink, selfLinkWithId, shortName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -9787,6 +11595,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"associations" : [GTLRCompute_FirewallPolicyAssociation class],
+    @"packetMirroringRules" : [GTLRCompute_FirewallPolicyRule class],
     @"rules" : [GTLRCompute_FirewallPolicyRule class]
   };
   return map;
@@ -9887,9 +11696,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_FirewallPolicyRuleMatcher
-@dynamic destAddressGroups, destFqdns, destIpRanges, destRegionCodes,
-         destThreatIntelligences, layer4Configs, srcAddressGroups, srcFqdns,
-         srcIpRanges, srcRegionCodes, srcSecureTags, srcThreatIntelligences;
+@dynamic destAddressGroups, destFqdns, destIpRanges, destNetworkType,
+         destRegionCodes, destThreatIntelligences, layer4Configs,
+         srcAddressGroups, srcFqdns, srcIpRanges, srcNetworks, srcNetworkType,
+         srcRegionCodes, srcSecureTags, srcThreatIntelligences;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -9902,6 +11712,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"srcAddressGroups" : [NSString class],
     @"srcFqdns" : [NSString class],
     @"srcIpRanges" : [NSString class],
+    @"srcNetworks" : [NSString class],
     @"srcRegionCodes" : [NSString class],
     @"srcSecureTags" : [GTLRCompute_FirewallPolicyRuleSecureTag class],
     @"srcThreatIntelligences" : [NSString class]
@@ -9958,12 +11769,15 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_ForwardingRule
 @dynamic allowGlobalAccess, allowPscGlobalAccess, allPorts, backendService,
          baseForwardingRule, creationTimestamp, descriptionProperty,
-         fingerprint, identifier, IPAddress, IPProtocol, ipVersion,
+         externalManagedBackendBucketMigrationState,
+         externalManagedBackendBucketMigrationTestingPercentage, fingerprint,
+         identifier, IPAddress, ipCollection, IPProtocol, ipVersion,
          isMirroringCollector, kind, labelFingerprint, labels,
          loadBalancingScheme, metadataFilters, name, network, networkTier,
          noAutomateDnsZone, portRange, ports, pscConnectionId,
-         pscConnectionStatus, region, selfLink, serviceDirectoryRegistrations,
-         serviceLabel, serviceName, sourceIpRanges, subnetwork, target;
+         pscConnectionStatus, region, selfLink, selfLinkWithId,
+         serviceDirectoryRegistrations, serviceLabel, serviceName,
+         sourceIpRanges, subnetwork, target;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -10307,6 +12121,19 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_GroupMaintenanceInfo
+//
+
+@implementation GTLRCompute_GroupMaintenanceInfo
+@dynamic instanceMaintenanceOngoingCount, instanceMaintenancePendingCount,
+         maintenanceOngoingCount, maintenancePendingCount, schedulingType,
+         subblockInfraMaintenanceOngoingCount,
+         subblockInfraMaintenancePendingCount, upcomingGroupMaintenance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_GRPCHealthCheck
 //
 
@@ -10377,12 +12204,20 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic checkIntervalSec, creationTimestamp, descriptionProperty,
          grpcHealthCheck, healthyThreshold, http2HealthCheck, httpHealthCheck,
          httpsHealthCheck, identifier, kind, logConfig, name, region, selfLink,
-         sslHealthCheck, tcpHealthCheck, timeoutSec, type, unhealthyThreshold;
+         sourceRegions, sslHealthCheck, tcpHealthCheck, timeoutSec, type,
+         unhealthyThreshold;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sourceRegions" : [NSString class]
   };
   return map;
 }
@@ -10668,7 +12503,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_HealthStatus
 @dynamic annotations, forwardingRule, forwardingRuleIp, healthState, instance,
-         ipAddress, port, weight, weightError;
+         ipAddress, ipv6Address, ipv6HealthState, port, weight, weightError;
 @end
 
 
@@ -10693,7 +12528,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_HealthStatusForNetworkEndpoint
 @dynamic backendService, forwardingRule, healthCheck, healthCheckService,
-         healthState;
+         healthState, ipv6HealthState;
 @end
 
 
@@ -10983,8 +12818,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_HttpRouteRule
-@dynamic descriptionProperty, headerAction, matchRules, priority, routeAction,
-         service, urlRedirect;
+@dynamic customErrorResponsePolicy, descriptionProperty, headerAction,
+         matchRules, priority, routeAction, service, urlRedirect;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -11538,11 +13373,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_InstanceGroupManager
 @dynamic allInstancesConfig, autoHealingPolicies, baseInstanceName,
          creationTimestamp, currentActions, descriptionProperty,
-         distributionPolicy, fingerprint, identifier, instanceGroup,
-         instanceLifecyclePolicy, instanceTemplate, kind,
-         listManagedInstancesResults, name, namedPorts, region, selfLink,
-         statefulPolicy, status, targetPools, targetSize, updatePolicy,
-         versions, zoneProperty;
+         distributionPolicy, fingerprint, identifier, instanceFlexibilityPolicy,
+         instanceGroup, instanceLifecyclePolicy, instanceTemplate, kind,
+         listManagedInstancesResults, name, namedPorts, region,
+         resourcePolicies, satisfiesPzi, satisfiesPzs, selfLink, standbyPolicy,
+         statefulPolicy, status, targetPools, targetSize, targetStoppedSize,
+         targetSuspendedSize, updatePolicy, versions, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -11665,11 +13501,53 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicy
+//
+
+@implementation GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicy
+@dynamic instanceSelections;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicy_InstanceSelections
+//
+
+@implementation GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicy_InstanceSelections
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicyInstanceSelection class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicyInstanceSelection
+//
+
+@implementation GTLRCompute_InstanceGroupManagerInstanceFlexibilityPolicyInstanceSelection
+@dynamic machineTypes, rank;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"machineTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy
 //
 
 @implementation GTLRCompute_InstanceGroupManagerInstanceLifecyclePolicy
-@dynamic forceUpdateOnRepair;
+@dynamic defaultActionOnFailure, forceUpdateOnRepair;
 @end
 
 
@@ -11720,6 +13598,200 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InstanceGroupManagerList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequest
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequest
+@dynamic creationTimestamp, descriptionProperty, identifier, kind, name,
+         requestedRunDuration, resizeBy, selfLink, selfLinkWithId, state,
+         status, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestsListResponse
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestsListResponse
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_InstanceGroupManagerResizeRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Data_Item
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestsListResponse_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestStatus
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestStatus
+@dynamic error, lastAttempt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestStatus_Error
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestStatus_Error
+@dynamic errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRCompute_InstanceGroupManagerResizeRequestStatus_Error_Errors_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestStatus_Error_Errors_Item
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestStatus_Error_Errors_Item
+@dynamic code, errorDetails, location, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorDetails" : [GTLRCompute_InstanceGroupManagerResizeRequestStatus_Error_Errors_Item_ErrorDetails_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestStatus_Error_Errors_Item_ErrorDetails_Item
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestStatus_Error_Errors_Item_ErrorDetails_Item
+@dynamic errorInfo, help, localizedMessage, quotaInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt
+@dynamic error;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt_Error
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt_Error
+@dynamic errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt_Error_Errors_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt_Error_Errors_Item
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt_Error_Errors_Item
+@dynamic code, errorDetails, location, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorDetails" : [GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt_Error_Errors_Item_ErrorDetails_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt_Error_Errors_Item_ErrorDetails_Item
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResizeRequestStatusLastAttempt_Error_Errors_Item_ErrorDetails_Item
+@dynamic errorInfo, help, localizedMessage, quotaInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerResourcePolicies
+//
+
+@implementation GTLRCompute_InstanceGroupManagerResourcePolicies
+@dynamic workloadPolicy;
 @end
 
 
@@ -11937,6 +14009,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InstanceGroupManagersResumeInstancesRequest
+//
+
+@implementation GTLRCompute_InstanceGroupManagersResumeInstancesRequest
+@dynamic instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_InstanceGroupManagersScopedList
 //
 
@@ -12006,6 +14096,70 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagersStartInstancesRequest
+//
+
+@implementation GTLRCompute_InstanceGroupManagersStartInstancesRequest
+@dynamic instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagersStopInstancesRequest
+//
+
+@implementation GTLRCompute_InstanceGroupManagersStopInstancesRequest
+@dynamic forceStop, instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagersSuspendInstancesRequest
+//
+
+@implementation GTLRCompute_InstanceGroupManagersSuspendInstancesRequest
+@dynamic forceSuspend, instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceGroupManagerStandbyPolicy
+//
+
+@implementation GTLRCompute_InstanceGroupManagerStandbyPolicy
+@dynamic initialDelaySec, mode;
 @end
 
 
@@ -12573,6 +14727,45 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InstanceSettings
+//
+
+@implementation GTLRCompute_InstanceSettings
+@dynamic fingerprint, kind, metadata, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceSettingsMetadata
+//
+
+@implementation GTLRCompute_InstanceSettingsMetadata
+@dynamic items, kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceSettingsMetadata_Items
+//
+
+@implementation GTLRCompute_InstanceSettingsMetadata_Items
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_InstancesGetEffectiveFirewallsResponse
 //
 
@@ -12596,10 +14789,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy
-@dynamic displayName, name, rules, shortName, type;
+@dynamic displayName, name, packetMirroringRules, priority, rules, shortName,
+         type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"packetMirroringRules" : [GTLRCompute_FirewallPolicyRule class],
     @"rules" : [GTLRCompute_FirewallPolicyRule class]
   };
   return map;
@@ -12621,6 +14816,39 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"resourcePolicies" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstancesReportHostAsFaultyRequest
+//
+
+@implementation GTLRCompute_InstancesReportHostAsFaultyRequest
+@dynamic disruptionSchedule, faultReasons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"faultReasons" : [GTLRCompute_InstancesReportHostAsFaultyRequestFaultReason class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstancesReportHostAsFaultyRequestFaultReason
+//
+
+@implementation GTLRCompute_InstancesReportHostAsFaultyRequestFaultReason
+@dynamic behavior, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -12991,6 +15219,214 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InstantSnapshot
+//
+
+@implementation GTLRCompute_InstantSnapshot
+@dynamic architecture, creationTimestamp, descriptionProperty, diskSizeGb,
+         identifier, kind, labelFingerprint, labels, name, region,
+         resourceStatus, satisfiesPzi, satisfiesPzs, selfLink, selfLinkWithId,
+         sourceDisk, sourceDiskId, status, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshot_Labels
+//
+
+@implementation GTLRCompute_InstantSnapshot_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotAggregatedList
+//
+
+@implementation GTLRCompute_InstantSnapshotAggregatedList
+@dynamic identifier, items, kind, nextPageToken, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotAggregatedList_Items
+//
+
+@implementation GTLRCompute_InstantSnapshotAggregatedList_Items
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_InstantSnapshotsScopedList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotAggregatedList_Warning
+//
+
+@implementation GTLRCompute_InstantSnapshotAggregatedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_InstantSnapshotAggregatedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotAggregatedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_InstantSnapshotAggregatedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotList
+//
+
+@implementation GTLRCompute_InstantSnapshotList
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_InstantSnapshot class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotList_Warning
+//
+
+@implementation GTLRCompute_InstantSnapshotList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_InstantSnapshotList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_InstantSnapshotList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotResourceStatus
+//
+
+@implementation GTLRCompute_InstantSnapshotResourceStatus
+@dynamic storageSizeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotsScopedList
+//
+
+@implementation GTLRCompute_InstantSnapshotsScopedList
+@dynamic instantSnapshots, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instantSnapshots" : [GTLRCompute_InstantSnapshot class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotsScopedList_Warning
+//
+
+@implementation GTLRCompute_InstantSnapshotsScopedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_InstantSnapshotsScopedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstantSnapshotsScopedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_InstantSnapshotsScopedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_Int64RangeMatch
 //
 
@@ -13005,13 +15441,14 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Interconnect
-@dynamic adminEnabled, availableFeatures, circuitInfos, creationTimestamp,
-         customerName, descriptionProperty, expectedOutages, googleIpAddress,
+@dynamic aaiEnabled, adminEnabled, applicationAwareInterconnect,
+         availableFeatures, circuitInfos, creationTimestamp, customerName,
+         descriptionProperty, expectedOutages, googleIpAddress,
          googleReferenceId, identifier, interconnectAttachments,
-         interconnectType, kind, labelFingerprint, labels, linkType, location,
-         macsec, macsecEnabled, name, nocContactEmail, operationalStatus,
-         peerIpAddress, provisionedLinkCount, remoteLocation, requestedFeatures,
-         requestedLinkCount, satisfiesPzs, selfLink, state;
+         interconnectGroups, interconnectType, kind, labelFingerprint, labels,
+         linkType, location, macsec, macsecEnabled, name, nocContactEmail,
+         operationalStatus, peerIpAddress, provisionedLinkCount, remoteLocation,
+         requestedFeatures, requestedLinkCount, satisfiesPzs, selfLink, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -13027,6 +15464,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"circuitInfos" : [GTLRCompute_InterconnectCircuitInfo class],
     @"expectedOutages" : [GTLRCompute_InterconnectOutageNotification class],
     @"interconnectAttachments" : [NSString class],
+    @"interconnectGroups" : [NSString class],
     @"requestedFeatures" : [NSString class]
   };
   return map;
@@ -13051,12 +15489,68 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_InterconnectApplicationAwareInterconnect
+//
+
+@implementation GTLRCompute_InterconnectApplicationAwareInterconnect
+@dynamic bandwidthPercentagePolicy, profileDescription, shapeAveragePercentages,
+         strictPriorityPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"shapeAveragePercentages" : [GTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage
+//
+
+@implementation GTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage
+@dynamic percentage, trafficClass;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentagePolicy
+//
+
+@implementation GTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentagePolicy
+@dynamic bandwidthPercentages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bandwidthPercentages" : [GTLRCompute_InterconnectApplicationAwareInterconnectBandwidthPercentage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectApplicationAwareInterconnectStrictPriorityPolicy
+//
+
+@implementation GTLRCompute_InterconnectApplicationAwareInterconnectStrictPriorityPolicy
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_InterconnectAttachment
 //
 
 @implementation GTLRCompute_InterconnectAttachment
-@dynamic adminEnabled, bandwidth, candidateIpv6Subnets, candidateSubnets,
-         cloudRouterIpAddress, cloudRouterIpv6Address,
+@dynamic adminEnabled, attachmentGroup, bandwidth, candidateIpv6Subnets,
+         candidateSubnets, cloudRouterIpAddress, cloudRouterIpv6Address,
          cloudRouterIpv6InterfaceId, configurationConstraints,
          creationTimestamp, customerRouterIpAddress, customerRouterIpv6Address,
          customerRouterIpv6InterfaceId, dataplaneVersion, descriptionProperty,
@@ -13190,6 +15684,305 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InterconnectAttachmentConfigurationConstraintsBgpPeerASNRange
 @dynamic max, min;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroup
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroup
+@dynamic attachments, configured, creationTimestamp, descriptionProperty, ETag,
+         identifier, intent, interconnectGroup, kind, logicalStructure, name,
+         selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroup_Attachments
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroup_Attachments
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_InterconnectAttachmentGroupAttachment class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupAttachment
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupAttachment
+@dynamic attachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupConfigured
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupConfigured
+@dynamic availabilitySla;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLA
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLA
+@dynamic effectiveSla, intendedSlaBlockers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"intendedSlaBlockers" : [GTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers
+@dynamic attachments, blockerType, documentationLink, explanation, metros,
+         regions, zones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachments" : [NSString class],
+    @"metros" : [NSString class],
+    @"regions" : [NSString class],
+    @"zones" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupIntent
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupIntent
+@dynamic availabilitySla;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupLogicalStructure
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupLogicalStructure
+@dynamic regions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regions" : [GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegion
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegion
+@dynamic metros, region;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metros" : [GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetro class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetro
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetro
+@dynamic facilities, metro;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facilities" : [GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetroFacility class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetroFacility
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetroFacility
+@dynamic facility, zones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zones" : [GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetroFacilityZone class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetroFacilityZone
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupLogicalStructureRegionMetroFacilityZone
+@dynamic attachments, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachments" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupsGetOperationalStatusResponse
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupsGetOperationalStatusResponse
+@dynamic ETag, result;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupsListResponse
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupsListResponse
+@dynamic ETag, identifier, items, kind, nextPageToken, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_InterconnectAttachmentGroup class],
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupsListResponse_Warning
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupsListResponse_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Data_Item
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupsListResponse_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupsOperationalStatus
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupsOperationalStatus
+@dynamic attachmentStatuses, configured, groupStatus, intent, operational;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachmentStatuses" : [GTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus
+//
+
+@implementation GTLRCompute_InterconnectAttachmentGroupsOperationalStatusAttachmentStatus
+@dynamic adminEnabled, attachment, isActive, status;
 @end
 
 
@@ -13395,6 +16188,338 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InterconnectDiagnosticsMacsecStatus
 @dynamic ckn, operational;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroup
+//
+
+@implementation GTLRCompute_InterconnectGroup
+@dynamic configured, creationTimestamp, descriptionProperty, ETag, identifier,
+         intent, interconnects, kind, name, physicalStructure, selfLink;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroup_Interconnects
+//
+
+@implementation GTLRCompute_InterconnectGroup_Interconnects
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_InterconnectGroupInterconnect class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupConfigured
+//
+
+@implementation GTLRCompute_InterconnectGroupConfigured
+@dynamic topologyCapability;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupConfiguredTopologyCapability
+//
+
+@implementation GTLRCompute_InterconnectGroupConfiguredTopologyCapability
+@dynamic intendedCapabilityBlockers, supportedSla;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"intendedCapabilityBlockers" : [GTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers
+//
+
+@implementation GTLRCompute_InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers
+@dynamic blockerType, documentationLink, explanation, facilities, interconnects,
+         metros, zones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facilities" : [NSString class],
+    @"interconnects" : [NSString class],
+    @"metros" : [NSString class],
+    @"zones" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupIntent
+//
+
+@implementation GTLRCompute_InterconnectGroupIntent
+@dynamic topologyCapability;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupInterconnect
+//
+
+@implementation GTLRCompute_InterconnectGroupInterconnect
+@dynamic interconnect;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupPhysicalStructure
+//
+
+@implementation GTLRCompute_InterconnectGroupPhysicalStructure
+@dynamic metros;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metros" : [GTLRCompute_InterconnectGroupPhysicalStructureMetros class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupPhysicalStructureMetros
+//
+
+@implementation GTLRCompute_InterconnectGroupPhysicalStructureMetros
+@dynamic facilities, metro;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facilities" : [GTLRCompute_InterconnectGroupPhysicalStructureMetrosFacilities class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupPhysicalStructureMetrosFacilities
+//
+
+@implementation GTLRCompute_InterconnectGroupPhysicalStructureMetrosFacilities
+@dynamic facility, zones;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"zones" : [GTLRCompute_InterconnectGroupPhysicalStructureMetrosFacilitiesZones class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupPhysicalStructureMetrosFacilitiesZones
+//
+
+@implementation GTLRCompute_InterconnectGroupPhysicalStructureMetrosFacilitiesZones
+@dynamic interconnects, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"interconnects" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsCreateMembers
+//
+
+@implementation GTLRCompute_InterconnectGroupsCreateMembers
+@dynamic intentMismatchBehavior, interconnects, templateInterconnect;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"interconnects" : [GTLRCompute_InterconnectGroupsCreateMembersInterconnectInput class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsCreateMembersInterconnectInput
+//
+
+@implementation GTLRCompute_InterconnectGroupsCreateMembersInterconnectInput
+@dynamic adminEnabled, customerName, descriptionProperty, facility,
+         interconnectType, linkType, name, nocContactEmail, remoteLocation,
+         requestedFeatures, requestedLinkCount;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestedFeatures" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsCreateMembersRequest
+//
+
+@implementation GTLRCompute_InterconnectGroupsCreateMembersRequest
+@dynamic request;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsGetOperationalStatusResponse
+//
+
+@implementation GTLRCompute_InterconnectGroupsGetOperationalStatusResponse
+@dynamic ETag, result;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsListResponse
+//
+
+@implementation GTLRCompute_InterconnectGroupsListResponse
+@dynamic ETag, identifier, items, kind, nextPageToken, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_InterconnectGroup class],
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsListResponse_Warning
+//
+
+@implementation GTLRCompute_InterconnectGroupsListResponse_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_InterconnectGroupsListResponse_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsListResponse_Warning_Data_Item
+//
+
+@implementation GTLRCompute_InterconnectGroupsListResponse_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsOperationalStatus
+//
+
+@implementation GTLRCompute_InterconnectGroupsOperationalStatus
+@dynamic configured, groupStatus, intent, interconnectStatuses, operational;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"interconnectStatuses" : [GTLRCompute_InterconnectGroupsOperationalStatusInterconnectStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InterconnectGroupsOperationalStatusInterconnectStatus
+//
+
+@implementation GTLRCompute_InterconnectGroupsOperationalStatusInterconnectStatus
+@dynamic adminEnabled, diagnostics, interconnect, isActive;
 @end
 
 
@@ -13759,13 +16884,26 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_License
-@dynamic chargesUseFee, creationTimestamp, descriptionProperty, identifier,
-         kind, licenseCode, name, resourceRequirements, selfLink, transferable;
+@dynamic allowedReplacementLicenses, appendableToDisk, chargesUseFee,
+         creationTimestamp, descriptionProperty, identifier,
+         incompatibleLicenses, kind, licenseCode, minimumRetention,
+         multiTenantOnly, name, osLicense, removableFromDisk,
+         requiredCoattachedLicenses, resourceRequirements, selfLink,
+         selfLinkWithId, soleTenantOnly, transferable, updateTimestamp;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
     @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedReplacementLicenses" : [NSString class],
+    @"incompatibleLicenses" : [NSString class],
+    @"requiredCoattachedLicenses" : [NSString class]
   };
   return map;
 }
@@ -13951,73 +17089,15 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_LogConfig
-//
-
-@implementation GTLRCompute_LogConfig
-@dynamic cloudAudit, counter, dataAccess;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCompute_LogConfigCloudAuditOptions
-//
-
-@implementation GTLRCompute_LogConfigCloudAuditOptions
-@dynamic authorizationLoggingOptions, logName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCompute_LogConfigCounterOptions
-//
-
-@implementation GTLRCompute_LogConfigCounterOptions
-@dynamic customFields, field, metric;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customFields" : [GTLRCompute_LogConfigCounterOptionsCustomField class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCompute_LogConfigCounterOptionsCustomField
-//
-
-@implementation GTLRCompute_LogConfigCounterOptionsCustomField
-@dynamic name, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCompute_LogConfigDataAccessOptions
-//
-
-@implementation GTLRCompute_LogConfigDataAccessOptions
-@dynamic logMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCompute_MachineImage
 //
 
 @implementation GTLRCompute_MachineImage
 @dynamic creationTimestamp, descriptionProperty, guestFlush, identifier,
-         instanceProperties, kind, machineImageEncryptionKey, name,
-         satisfiesPzi, satisfiesPzs, savedDisks, selfLink,
-         sourceDiskEncryptionKeys, sourceInstance, sourceInstanceProperties,
-         status, storageLocations, totalStorageBytes;
+         instanceProperties, kind, labelFingerprint, labels,
+         machineImageEncryptionKey, name, satisfiesPzi, satisfiesPzs,
+         savedDisks, selfLink, sourceDiskEncryptionKeys, sourceInstance,
+         sourceInstanceProperties, status, storageLocations, totalStorageBytes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -14034,6 +17114,20 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"storageLocations" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_MachineImage_Labels
+//
+
+@implementation GTLRCompute_MachineImage_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -14095,10 +17189,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_MachineType
-@dynamic accelerators, creationTimestamp, deprecated, descriptionProperty,
-         guestCpus, identifier, imageSpaceGb, isSharedCpu, kind,
-         maximumPersistentDisks, maximumPersistentDisksSizeGb, memoryMb, name,
-         scratchDisks, selfLink, zoneProperty;
+@dynamic accelerators, architecture, creationTimestamp, deprecated,
+         descriptionProperty, guestCpus, identifier, imageSpaceGb, isSharedCpu,
+         kind, maximumPersistentDisks, maximumPersistentDisksSizeGb, memoryMb,
+         name, selfLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -14111,8 +17205,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"accelerators" : [GTLRCompute_MachineType_Accelerators_Item class],
-    @"scratchDisks" : [GTLRCompute_MachineType_ScratchDisks_Item class]
+    @"accelerators" : [GTLRCompute_MachineType_Accelerators_Item class]
   };
   return map;
 }
@@ -14127,16 +17220,6 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_MachineType_Accelerators_Item
 @dynamic guestAcceleratorCount, guestAcceleratorType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCompute_MachineType_ScratchDisks_Item
-//
-
-@implementation GTLRCompute_MachineType_ScratchDisks_Item
-@dynamic diskGb;
 @end
 
 
@@ -14309,7 +17392,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_ManagedInstance
 @dynamic currentAction, identifier, instance, instanceHealth, instanceStatus,
          lastAttempt, name, preservedStateFromConfig, preservedStateFromPolicy,
-         version;
+         propertiesFromFlexibilityPolicy, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -14388,6 +17471,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_ManagedInstanceLastAttempt_Errors_Errors_Item_ErrorDetails_Item
 @dynamic errorInfo, help, localizedMessage, quotaInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ManagedInstancePropertiesFromFlexibilityPolicy
+//
+
+@implementation GTLRCompute_ManagedInstancePropertiesFromFlexibilityPolicy
+@dynamic machineType;
 @end
 
 
@@ -14522,8 +17615,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic autoCreateSubnetworks, creationTimestamp, descriptionProperty,
          enableUlaInternalIpv6, firewallPolicy, gatewayIPv4, identifier,
          internalIpv6Range, IPv4Range, kind, mtu, name,
-         networkFirewallPolicyEnforcementOrder, peerings, routingConfig,
-         selfLink, selfLinkWithId, subnetworks;
+         networkFirewallPolicyEnforcementOrder, networkProfile, params,
+         peerings, routingConfig, selfLink, selfLinkWithId, subnetworks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -14889,7 +17982,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkEndpoint
-@dynamic annotations, fqdn, instance, ipAddress, port;
+@dynamic annotations, clientDestinationPort, fqdn, instance, ipAddress,
+         ipv6Address, port;
 @end
 
 
@@ -15095,7 +18189,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworkEndpointGroupPscData
-@dynamic consumerPscAddress, pscConnectionId, pscConnectionStatus;
+@dynamic consumerPscAddress, producerPort, pscConnectionId, pscConnectionStatus;
 @end
 
 
@@ -15261,6 +18355,71 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_NetworkFirewallPolicyAggregatedList
+//
+
+@implementation GTLRCompute_NetworkFirewallPolicyAggregatedList
+@dynamic identifier, items, kind, nextPageToken, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkFirewallPolicyAggregatedList_Items
+//
+
+@implementation GTLRCompute_NetworkFirewallPolicyAggregatedList_Items
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_FirewallPoliciesScopedList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkFirewallPolicyAggregatedList_Warning
+//
+
+@implementation GTLRCompute_NetworkFirewallPolicyAggregatedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_NetworkFirewallPolicyAggregatedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_NetworkInterface
 //
 
@@ -15334,14 +18493,70 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_NetworkParams
+//
+
+@implementation GTLRCompute_NetworkParams
+@dynamic resourceManagerTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkParams_ResourceManagerTags
+//
+
+@implementation GTLRCompute_NetworkParams_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_NetworkPeering
 //
 
 @implementation GTLRCompute_NetworkPeering
-@dynamic autoCreateRoutes, exchangeSubnetRoutes, exportCustomRoutes,
-         exportSubnetRoutesWithPublicIp, importCustomRoutes,
+@dynamic autoCreateRoutes, connectionStatus, exchangeSubnetRoutes,
+         exportCustomRoutes, exportSubnetRoutesWithPublicIp, importCustomRoutes,
          importSubnetRoutesWithPublicIp, name, network, peerMtu, stackType,
-         state, stateDetails;
+         state, stateDetails, updateStrategy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkPeeringConnectionStatus
+//
+
+@implementation GTLRCompute_NetworkPeeringConnectionStatus
+@dynamic consensusState, trafficConfiguration, updateStrategy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkPeeringConnectionStatusConsensusState
+//
+
+@implementation GTLRCompute_NetworkPeeringConnectionStatusConsensusState
+@dynamic deleteStatus, updateStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkPeeringConnectionStatusTrafficConfiguration
+//
+
+@implementation GTLRCompute_NetworkPeeringConnectionStatusTrafficConfiguration
+@dynamic exportCustomRoutesToPeer, exportSubnetRoutesWithPublicIpToPeer,
+         importCustomRoutesFromPeer, importSubnetRoutesWithPublicIpFromPeer,
+         stackType;
 @end
 
 
@@ -15357,11 +18572,129 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_NetworkProfile
+//
+
+@implementation GTLRCompute_NetworkProfile
+@dynamic creationTimestamp, descriptionProperty, features, identifier, kind,
+         location, name, selfLink, selfLinkWithId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkProfileLocation
+//
+
+@implementation GTLRCompute_NetworkProfileLocation
+@dynamic name, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkProfileNetworkFeatures
+//
+
+@implementation GTLRCompute_NetworkProfileNetworkFeatures
+@dynamic addressPurposes, allowAliasIpRanges, allowAutoModeSubnet,
+         allowClassDFirewalls, allowCloudNat, allowCloudRouter,
+         allowDefaultNicAttachment, allowExternalIpAccess, allowInterconnect,
+         allowIpForwarding, allowLoadBalancing, allowMultiNicInSameNetwork,
+         allowNcc, allowNetworkMigration, allowPacketMirroring,
+         allowPrivateGoogleAccess, allowPsc, allowSameNetworkUnicast,
+         allowStaticRoutes, allowSubInterfaces, allowVpcPeering, allowVpn,
+         interfaceTypes, subnetPurposes, subnetStackTypes, subnetworkPurposes,
+         subnetworkStackTypes, unicast;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressPurposes" : [NSString class],
+    @"interfaceTypes" : [NSString class],
+    @"subnetPurposes" : [NSString class],
+    @"subnetStackTypes" : [NSString class],
+    @"subnetworkPurposes" : [NSString class],
+    @"subnetworkStackTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkProfilesListResponse
+//
+
+@implementation GTLRCompute_NetworkProfilesListResponse
+@dynamic ETag, identifier, items, kind, nextPageToken, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_NetworkProfile class],
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkProfilesListResponse_Warning
+//
+
+@implementation GTLRCompute_NetworkProfilesListResponse_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_NetworkProfilesListResponse_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworkProfilesListResponse_Warning_Data_Item
+//
+
+@implementation GTLRCompute_NetworkProfilesListResponse_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_NetworkRoutingConfig
 //
 
 @implementation GTLRCompute_NetworkRoutingConfig
-@dynamic routingMode;
+@dynamic bgpAlwaysCompareMed, bgpBestPathSelectionMode, bgpInterRegionCost,
+         effectiveBgpAlwaysCompareMed, effectiveBgpInterRegionCost, routingMode;
 @end
 
 
@@ -15400,10 +18733,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworksGetEffectiveFirewallsResponseEffectiveFirewallPolicy
-@dynamic displayName, name, rules, shortName, type;
+@dynamic displayName, name, packetMirroringRules, priority, rules, shortName,
+         type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"packetMirroringRules" : [GTLRCompute_FirewallPolicyRule class],
     @"rules" : [GTLRCompute_FirewallPolicyRule class]
   };
   return map;
@@ -15418,6 +18753,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_NetworksRemovePeeringRequest
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NetworksRequestRemovePeeringRequest
+//
+
+@implementation GTLRCompute_NetworksRequestRemovePeeringRequest
 @dynamic name;
 @end
 
@@ -15439,9 +18784,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_NodeGroup
 @dynamic autoscalingPolicy, creationTimestamp, descriptionProperty, fingerprint,
-         identifier, kind, locationHint, maintenancePolicy, maintenanceWindow,
-         name, nodeTemplate, selfLink, shareSettings, size, status,
-         zoneProperty;
+         identifier, kind, locationHint, maintenanceInterval, maintenancePolicy,
+         maintenanceWindow, name, nodeTemplate, selfLink, shareSettings, size,
+         status, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -15598,7 +18943,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_NodeGroupNode
 @dynamic accelerators, consumedResources, cpuOvercommitType, disks,
          instanceConsumptionData, instances, name, nodeType, satisfiesPzs,
-         serverBinding, serverId, status, totalResources;
+         serverBinding, serverId, status, totalResources, upcomingMaintenance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -15688,6 +19033,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_NodeGroupsListNodes_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_NodeGroupsPerformMaintenanceRequest
+//
+
+@implementation GTLRCompute_NodeGroupsPerformMaintenanceRequest
+@dynamic nodes, startTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nodes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -15987,8 +19350,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_NodeType
 @dynamic cpuPlatform, creationTimestamp, deprecated, descriptionProperty,
-         guestCpus, identifier, kind, localSsdGb, memoryMb, name, selfLink,
-         zoneProperty;
+         guestCpus, identifier, kind, localSsdGb, maxVms, memoryMb, name,
+         selfLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -16801,8 +20164,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_PathMatcher
-@dynamic defaultRouteAction, defaultService, defaultUrlRedirect,
-         descriptionProperty, headerAction, name, pathRules, routeRules;
+@dynamic defaultCustomErrorResponsePolicy, defaultRouteAction, defaultService,
+         defaultUrlRedirect, descriptionProperty, headerAction, name, pathRules,
+         routeRules;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -16825,7 +20189,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_PathRule
-@dynamic paths, routeAction, service, urlRedirect;
+@dynamic customErrorResponsePolicy, paths, routeAction, service, urlRedirect;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -16853,7 +20217,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Policy
-@dynamic auditConfigs, bindings, ETag, rules, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -16862,8 +20226,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"auditConfigs" : [GTLRCompute_AuditConfig class],
-    @"bindings" : [GTLRCompute_Binding class],
-    @"rules" : [GTLRCompute_Rule class]
+    @"bindings" : [GTLRCompute_Binding class]
   };
   return map;
 }
@@ -16991,10 +20354,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Project
-@dynamic commonInstanceMetadata, creationTimestamp, defaultNetworkTier,
-         defaultServiceAccount, descriptionProperty, enabledFeatures,
-         identifier, kind, name, quotas, selfLink, usageExportLocation,
-         vmDnsSetting, xpnProjectStatus;
+@dynamic cloudArmorTier, commonInstanceMetadata, creationTimestamp,
+         defaultNetworkTier, defaultServiceAccount, descriptionProperty,
+         enabledFeatures, identifier, kind, name, quotas, selfLink,
+         usageExportLocation, vmDnsSetting, xpnProjectStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -17064,6 +20427,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_ProjectsListXpnHostsRequest
 @dynamic organization;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ProjectsSetCloudArmorTierRequest
+//
+
+@implementation GTLRCompute_ProjectsSetCloudArmorTierRequest
+@dynamic cloudArmorTier;
 @end
 
 
@@ -17171,8 +20544,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_PublicDelegatedPrefix
-@dynamic byoipApiVersion, creationTimestamp, descriptionProperty, fingerprint,
-         identifier, ipCidrRange, isLiveMigration, kind, name, parentPrefix,
+@dynamic allocatablePrefixLength, byoipApiVersion, creationTimestamp,
+         descriptionProperty, fingerprint, identifier, ipCidrRange,
+         isLiveMigration, kind, mode, name, parentPrefix,
          publicDelegatedSubPrefixs, region, selfLink, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -17360,8 +20734,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix
-@dynamic delegateeProject, descriptionProperty, ipCidrRange, isAddress, name,
-         region, status;
+@dynamic allocatablePrefixLength, delegateeProject, descriptionProperty,
+         ipCidrRange, isAddress, mode, name, region, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -17421,7 +20795,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_Region
 @dynamic creationTimestamp, deprecated, descriptionProperty, identifier, kind,
-         name, quotas, selfLink, status, supportsPzs, zones;
+         name, quotas, quotaStatusWarning, selfLink, status, supportsPzs, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -17439,6 +20813,34 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_Region_QuotaStatusWarning
+//
+
+@implementation GTLRCompute_Region_QuotaStatusWarning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_Region_QuotaStatusWarning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_Region_QuotaStatusWarning_Data_Item
+//
+
+@implementation GTLRCompute_Region_QuotaStatusWarning_Data_Item
+@dynamic key, value;
 @end
 
 
@@ -17927,6 +21329,24 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_RegionInstanceGroupManagersResumeInstancesRequest
+//
+
+@implementation GTLRCompute_RegionInstanceGroupManagersResumeInstancesRequest
+@dynamic instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest
 //
 
@@ -17950,6 +21370,60 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RegionInstanceGroupManagersSetTemplateRequest
 @dynamic instanceTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RegionInstanceGroupManagersStartInstancesRequest
+//
+
+@implementation GTLRCompute_RegionInstanceGroupManagersStartInstancesRequest
+@dynamic instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RegionInstanceGroupManagersStopInstancesRequest
+//
+
+@implementation GTLRCompute_RegionInstanceGroupManagersStopInstancesRequest
+@dynamic forceStop, instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RegionInstanceGroupManagersSuspendInstancesRequest
+//
+
+@implementation GTLRCompute_RegionInstanceGroupManagersSuspendInstancesRequest
+@dynamic forceSuspend, instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -18160,10 +21634,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy
-@dynamic displayName, name, rules, type;
+@dynamic displayName, name, packetMirroringRules, priority, rules, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"packetMirroringRules" : [GTLRCompute_FirewallPolicyRule class],
     @"rules" : [GTLRCompute_FirewallPolicyRule class]
   };
   return map;
@@ -18262,9 +21737,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Reservation
-@dynamic aggregateReservation, commitment, creationTimestamp,
-         descriptionProperty, identifier, kind, name, resourcePolicies,
-         resourceStatus, satisfiesPzs, selfLink, shareSettings,
+@dynamic advancedDeploymentControl, aggregateReservation, commitment,
+         creationTimestamp, deleteAfterDuration, deleteAtTime, deploymentType,
+         descriptionProperty, enableEmergentMaintenance, identifier, kind,
+         linkedCommitments, name, reservationSharingPolicy, resourcePolicies,
+         resourceStatus, satisfiesPzs, schedulingType, selfLink, shareSettings,
          specificReservation, specificReservationRequired, status, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -18272,6 +21749,13 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"descriptionProperty" : @"description",
     @"identifier" : @"id",
     @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"linkedCommitments" : [NSString class]
   };
   return map;
 }
@@ -18290,6 +21774,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationAdvancedDeploymentControl
+//
+
+@implementation GTLRCompute_ReservationAdvancedDeploymentControl
+@dynamic reservationOperationalMode;
 @end
 
 
@@ -18378,6 +21872,136 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_ReservationBlock
+//
+
+@implementation GTLRCompute_ReservationBlock
+@dynamic count, creationTimestamp, healthInfo, identifier, inUseCount, kind,
+         name, physicalTopology, reservationMaintenance,
+         reservationSubBlockCount, reservationSubBlockInUseCount, selfLink,
+         selfLinkWithId, status, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationBlockHealthInfo
+//
+
+@implementation GTLRCompute_ReservationBlockHealthInfo
+@dynamic degradedSubBlockCount, healthStatus, healthySubBlockCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationBlockPhysicalTopology
+//
+
+@implementation GTLRCompute_ReservationBlockPhysicalTopology
+@dynamic block, cluster, instances;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRCompute_ReservationBlockPhysicalTopologyInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationBlockPhysicalTopologyInstance
+//
+
+@implementation GTLRCompute_ReservationBlockPhysicalTopologyInstance
+@dynamic instanceId, physicalHostTopology, projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationBlockPhysicalTopologyInstancePhysicalHostTopology
+//
+
+@implementation GTLRCompute_ReservationBlockPhysicalTopologyInstancePhysicalHostTopology
+@dynamic host, subBlock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationBlocksGetResponse
+//
+
+@implementation GTLRCompute_ReservationBlocksGetResponse
+@dynamic resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationBlocksListResponse
+//
+
+@implementation GTLRCompute_ReservationBlocksListResponse
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_ReservationBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationBlocksListResponse_Warning
+//
+
+@implementation GTLRCompute_ReservationBlocksListResponse_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_ReservationBlocksListResponse_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationBlocksListResponse_Warning_Data_Item
+//
+
+@implementation GTLRCompute_ReservationBlocksListResponse_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_ReservationList
 //
 
@@ -18423,6 +22047,26 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_ReservationList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationsBlocksPerformMaintenanceRequest
+//
+
+@implementation GTLRCompute_ReservationsBlocksPerformMaintenanceRequest
+@dynamic maintenanceScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationsPerformMaintenanceRequest
+//
+
+@implementation GTLRCompute_ReservationsPerformMaintenanceRequest
+@dynamic maintenanceScope;
 @end
 
 
@@ -18478,6 +22122,108 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ReservationsScopedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationSubBlock
+//
+
+@implementation GTLRCompute_ReservationSubBlock
+@dynamic count, creationTimestamp, healthInfo, identifier, inUseCount, kind,
+         name, physicalTopology, reservationSubBlockMaintenance, selfLink,
+         selfLinkWithId, status, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationSubBlockHealthInfo
+//
+
+@implementation GTLRCompute_ReservationSubBlockHealthInfo
+@dynamic degradedHostCount, degradedInfraCount, healthStatus, healthyHostCount,
+         healthyInfraCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationSubBlockPhysicalTopology
+//
+
+@implementation GTLRCompute_ReservationSubBlockPhysicalTopology
+@dynamic block, cluster, subBlock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationSubBlocksGetResponse
+//
+
+@implementation GTLRCompute_ReservationSubBlocksGetResponse
+@dynamic resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationSubBlocksListResponse
+//
+
+@implementation GTLRCompute_ReservationSubBlocksListResponse
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_ReservationSubBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationSubBlocksListResponse_Warning
+//
+
+@implementation GTLRCompute_ReservationSubBlocksListResponse_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_ReservationSubBlocksListResponse_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ReservationSubBlocksListResponse_Warning_Data_Item
+//
+
+@implementation GTLRCompute_ReservationSubBlocksListResponse_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -18556,7 +22302,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_ResourcePolicy
 @dynamic creationTimestamp, descriptionProperty, diskConsistencyGroupPolicy,
          groupPlacementPolicy, identifier, instanceSchedulePolicy, kind, name,
-         region, resourceStatus, selfLink, snapshotSchedulePolicy, status;
+         region, resourceStatus, selfLink, snapshotSchedulePolicy, status,
+         workloadPolicy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -18663,7 +22410,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ResourcePolicyGroupPlacementPolicy
-@dynamic availabilityDomainCount, collocation, vmCount;
+@dynamic availabilityDomainCount, collocation, gpuTopology, vmCount;
 @end
 
 
@@ -18863,11 +22610,55 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_ResourcePolicyWorkloadPolicy
+//
+
+@implementation GTLRCompute_ResourcePolicyWorkloadPolicy
+@dynamic acceleratorTopology, maxTopologyDistance, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_ResourceStatus
 //
 
 @implementation GTLRCompute_ResourceStatus
-@dynamic physicalHost, upcomingMaintenance;
+@dynamic effectiveInstanceMetadata, physicalHost, physicalHostTopology,
+         scheduling, upcomingMaintenance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ResourceStatusEffectiveInstanceMetadata
+//
+
+@implementation GTLRCompute_ResourceStatusEffectiveInstanceMetadata
+@dynamic blockProjectSshKeysMetadataValue, enableGuestAttributesMetadataValue,
+         enableOsconfigMetadataValue, enableOsInventoryMetadataValue,
+         enableOsloginMetadataValue, serialPortEnableMetadataValue,
+         serialPortLoggingEnableMetadataValue, vmDnsSettingMetadataValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ResourceStatusPhysicalHostTopology
+//
+
+@implementation GTLRCompute_ResourceStatusPhysicalHostTopology
+@dynamic block, cluster, host, subblock;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ResourceStatusScheduling
+//
+
+@implementation GTLRCompute_ResourceStatusScheduling
+@dynamic availabilityDomain;
 @end
 
 
@@ -18879,9 +22670,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_Route
 @dynamic asPaths, creationTimestamp, descriptionProperty, destRange, identifier,
          kind, name, network, nextHopGateway, nextHopHub, nextHopIlb,
-         nextHopInstance, nextHopIp, nextHopNetwork, nextHopPeering,
-         nextHopVpnTunnel, priority, routeStatus, routeType, selfLink, tags,
-         warnings;
+         nextHopInstance, nextHopInterRegionCost, nextHopIp, nextHopMed,
+         nextHopNetwork, nextHopOrigin, nextHopPeering, nextHopVpnTunnel,
+         params, priority, routeStatus, routeType, selfLink, tags, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -18996,6 +22787,70 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RouteList_Warning_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouteParams
+//
+
+@implementation GTLRCompute_RouteParams
+@dynamic resourceManagerTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouteParams_ResourceManagerTags
+//
+
+@implementation GTLRCompute_RouteParams_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutePolicy
+//
+
+@implementation GTLRCompute_RoutePolicy
+@dynamic descriptionProperty, fingerprint, name, terms, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"terms" : [GTLRCompute_RoutePolicyPolicyTerm class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutePolicyPolicyTerm
+//
+
+@implementation GTLRCompute_RoutePolicyPolicyTerm
+@dynamic actions, match, priority;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRCompute_Expr class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -19117,7 +22972,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RouterBgp
 @dynamic advertisedGroups, advertisedIpRanges, advertiseMode, asn,
-         keepaliveInterval;
+         identifierRange, keepaliveInterval;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -19138,15 +22993,19 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_RouterBgpPeer
 @dynamic advertisedGroups, advertisedIpRanges, advertisedRoutePriority,
          advertiseMode, bfd, customLearnedIpRanges, customLearnedRoutePriority,
-         enable, enableIpv6, interfaceName, ipAddress, ipv6NexthopAddress,
+         enable, enableIpv4, enableIpv6, exportPolicies, importPolicies,
+         interfaceName, ipAddress, ipv4NexthopAddress, ipv6NexthopAddress,
          managementType, md5AuthenticationKeyName, name, peerAsn, peerIpAddress,
-         peerIpv6NexthopAddress, routerApplianceInstance;
+         peerIpv4NexthopAddress, peerIpv6NexthopAddress,
+         routerApplianceInstance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"advertisedGroups" : [NSString class],
     @"advertisedIpRanges" : [GTLRCompute_RouterAdvertisedIpRange class],
-    @"customLearnedIpRanges" : [GTLRCompute_RouterBgpPeerCustomLearnedIpRange class]
+    @"customLearnedIpRanges" : [GTLRCompute_RouterBgpPeerCustomLearnedIpRange class],
+    @"exportPolicies" : [NSString class],
+    @"importPolicies" : [NSString class]
   };
   return map;
 }
@@ -19181,8 +23040,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RouterInterface
-@dynamic ipRange, linkedInterconnectAttachment, linkedVpnTunnel, managementType,
-         name, privateIpAddress, redundantInterface, subnetwork;
+@dynamic ipRange, ipVersion, linkedInterconnectAttachment, linkedVpnTunnel,
+         managementType, name, privateIpAddress, redundantInterface, subnetwork;
 @end
 
 
@@ -19254,8 +23113,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_RouterNat
 @dynamic autoNetworkTier, drainNatIps, enableDynamicPortAllocation,
          enableEndpointIndependentMapping, endpointTypes, icmpIdleTimeoutSec,
-         logConfig, maxPortsPerVm, minPortsPerVm, name, natIpAllocateOption,
-         natIps, rules, sourceSubnetworkIpRangesToNat, subnetworks,
+         logConfig, maxPortsPerVm, minPortsPerVm, name, nat64Subnetworks,
+         natIpAllocateOption, natIps, rules, sourceSubnetworkIpRangesToNat,
+         sourceSubnetworkIpRangesToNat64, subnetworks,
          tcpEstablishedIdleTimeoutSec, tcpTimeWaitTimeoutSec,
          tcpTransitoryIdleTimeoutSec, type, udpIdleTimeoutSec;
 
@@ -19263,6 +23123,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   NSDictionary<NSString *, Class> *map = @{
     @"drainNatIps" : [NSString class],
     @"endpointTypes" : [NSString class],
+    @"nat64Subnetworks" : [GTLRCompute_RouterNatSubnetworkToNat64 class],
     @"natIps" : [NSString class],
     @"rules" : [GTLRCompute_RouterNatRule class],
     @"subnetworks" : [GTLRCompute_RouterNatSubnetworkToNat class]
@@ -19336,6 +23197,146 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RouterNatSubnetworkToNat64
+//
+
+@implementation GTLRCompute_RouterNatSubnetworkToNat64
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersGetRoutePolicyResponse
+//
+
+@implementation GTLRCompute_RoutersGetRoutePolicyResponse
+@dynamic resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersListBgpRoutes
+//
+
+@implementation GTLRCompute_RoutersListBgpRoutes
+@dynamic ETag, identifier, kind, nextPageToken, result, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRCompute_BgpRoute class],
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"result";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersListBgpRoutes_Warning
+//
+
+@implementation GTLRCompute_RoutersListBgpRoutes_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_RoutersListBgpRoutes_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersListBgpRoutes_Warning_Data_Item
+//
+
+@implementation GTLRCompute_RoutersListBgpRoutes_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersListRoutePolicies
+//
+
+@implementation GTLRCompute_RoutersListRoutePolicies
+@dynamic ETag, identifier, kind, nextPageToken, result, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"result" : [GTLRCompute_RoutePolicy class],
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"result";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersListRoutePolicies_Warning
+//
+
+@implementation GTLRCompute_RoutersListRoutePolicies_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_RoutersListRoutePolicies_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_RoutersListRoutePolicies_Warning_Data_Item
+//
+
+@implementation GTLRCompute_RoutersListRoutePolicies_Warning_Data_Item
+@dynamic key, value;
 @end
 
 
@@ -19422,10 +23423,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RouterStatusBgpPeerStatus
-@dynamic advertisedRoutes, bfdStatus, enableIpv6, ipAddress, ipv6NexthopAddress,
-         linkedVpnTunnel, md5AuthEnabled, name, numLearnedRoutes, peerIpAddress,
-         peerIpv6NexthopAddress, routerApplianceInstance, state, status,
-         statusReason, uptime, uptimeSeconds;
+@dynamic advertisedRoutes, bfdStatus, enableIpv4, enableIpv6, ipAddress,
+         ipv4NexthopAddress, ipv6NexthopAddress, linkedVpnTunnel,
+         md5AuthEnabled, name, numLearnedRoutes, peerIpAddress,
+         peerIpv4NexthopAddress, peerIpv6NexthopAddress,
+         routerApplianceInstance, state, status, statusReason, uptime,
+         uptimeSeconds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -19495,33 +23498,6 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCompute_Rule
-//
-
-@implementation GTLRCompute_Rule
-@dynamic action, conditions, descriptionProperty, ins, logConfigs, notIns,
-         permissions;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCompute_Condition class],
-    @"ins" : [NSString class],
-    @"logConfigs" : [GTLRCompute_LogConfig class],
-    @"notIns" : [NSString class],
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCompute_SavedAttachedDisk
 //
 
@@ -19567,9 +23543,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Scheduling
-@dynamic automaticRestart, instanceTerminationAction, localSsdRecoveryTimeout,
-         locationHint, minNodeCpus, nodeAffinities, onHostMaintenance,
-         preemptible, provisioningModel;
+@dynamic automaticRestart, availabilityDomain, hostErrorTimeoutSeconds,
+         instanceTerminationAction, localSsdRecoveryTimeout, locationHint,
+         maxRunDuration, minNodeCpus, nodeAffinities, onHostMaintenance,
+         onInstanceStopAction, preemptible, provisioningModel, terminationTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -19600,6 +23577,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SchedulingOnInstanceStopAction
+//
+
+@implementation GTLRCompute_SchedulingOnInstanceStopAction
+@dynamic discardLocalSsd;
 @end
 
 
@@ -19827,7 +23814,27 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfig
 @dynamic autoDeployConfidenceThreshold, autoDeployExpirationSec,
-         autoDeployImpactedBaselineThreshold, autoDeployLoadThreshold, name;
+         autoDeployImpactedBaselineThreshold, autoDeployLoadThreshold,
+         detectionAbsoluteQps, detectionLoadThreshold,
+         detectionRelativeToBaselineQps, name, trafficGranularityConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trafficGranularityConfigs" : [GTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig
+//
+
+@implementation GTLRCompute_SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig
+@dynamic enableEachUniqueValue, type, value;
 @end
 
 
@@ -20269,8 +24276,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_ServiceAttachment
 @dynamic connectedEndpoints, connectionPreference, consumerAcceptLists,
          consumerRejectLists, creationTimestamp, descriptionProperty,
-         domainNames, enableProxyProtocol, fingerprint, identifier, kind, name,
-         natSubnets, producerForwardingRule, pscServiceAttachmentId,
+         domainNames, enableProxyProtocol, fingerprint, identifier, kind,
+         metadata, name, natSubnets, producerForwardingRule,
+         propagatedConnectionLimit, pscServiceAttachmentId,
          reconcileConnections, region, selfLink, targetService;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -20290,6 +24298,20 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
     @"natSubnets" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_ServiceAttachment_Metadata
+//
+
+@implementation GTLRCompute_ServiceAttachment_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -20366,7 +24388,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_ServiceAttachmentConnectedEndpoint
-@dynamic consumerNetwork, endpoint, pscConnectionId, status;
+@dynamic consumerNetwork, endpoint, propagatedConnectionCount, pscConnectionId,
+         status;
 @end
 
 
@@ -20602,11 +24625,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_Snapshot
 @dynamic architecture, autoCreated, chainName, creationSizeBytes,
          creationTimestamp, descriptionProperty, diskSizeGb, downloadBytes,
-         enableConfidentialCompute, guestOsFeatures, identifier, kind,
-         labelFingerprint, labels, licenseCodes, licenses, locationHint, name,
-         satisfiesPzi, satisfiesPzs, selfLink, snapshotEncryptionKey,
+         enableConfidentialCompute, guestFlush, guestOsFeatures, identifier,
+         kind, labelFingerprint, labels, licenseCodes, licenses, locationHint,
+         name, satisfiesPzi, satisfiesPzs, selfLink, snapshotEncryptionKey,
          snapshotType, sourceDisk, sourceDiskEncryptionKey,
-         sourceDiskForRecoveryCheckpoint, sourceDiskId,
+         sourceDiskForRecoveryCheckpoint, sourceDiskId, sourceInstantSnapshot,
+         sourceInstantSnapshotEncryptionKey, sourceInstantSnapshotId,
          sourceSnapshotSchedulePolicy, sourceSnapshotSchedulePolicyId, status,
          storageBytes, storageBytesStatus, storageLocations;
 
@@ -21417,16 +25441,501 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_StoragePool
+//
+
+@implementation GTLRCompute_StoragePool
+@dynamic capacityProvisioningType, creationTimestamp, descriptionProperty,
+         identifier, kind, labelFingerprint, labels, name,
+         performanceProvisioningType, poolProvisionedCapacityGb,
+         poolProvisionedIops, poolProvisionedThroughput, resourceStatus,
+         selfLink, selfLinkWithId, state, status, storagePoolType, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePool_Labels
+//
+
+@implementation GTLRCompute_StoragePool_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolAggregatedList
+//
+
+@implementation GTLRCompute_StoragePoolAggregatedList
+@dynamic ETag, identifier, items, kind, nextPageToken, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolAggregatedList_Items
+//
+
+@implementation GTLRCompute_StoragePoolAggregatedList_Items
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_StoragePoolsScopedList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolAggregatedList_Warning
+//
+
+@implementation GTLRCompute_StoragePoolAggregatedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_StoragePoolAggregatedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolAggregatedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_StoragePoolAggregatedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolDisk
+//
+
+@implementation GTLRCompute_StoragePoolDisk
+@dynamic attachedInstances, creationTimestamp, disk, name, provisionedIops,
+         provisionedThroughput, resourcePolicies, sizeGb, status, type,
+         usedBytes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachedInstances" : [NSString class],
+    @"resourcePolicies" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolList
+//
+
+@implementation GTLRCompute_StoragePoolList
+@dynamic ETag, identifier, items, kind, nextPageToken, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_StoragePool class],
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolList_Warning
+//
+
+@implementation GTLRCompute_StoragePoolList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_StoragePoolList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_StoragePoolList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolListDisks
+//
+
+@implementation GTLRCompute_StoragePoolListDisks
+@dynamic ETag, identifier, items, kind, nextPageToken, selfLink, unreachables,
+         warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_StoragePoolDisk class],
+    @"unreachables" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolListDisks_Warning
+//
+
+@implementation GTLRCompute_StoragePoolListDisks_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_StoragePoolListDisks_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolListDisks_Warning_Data_Item
+//
+
+@implementation GTLRCompute_StoragePoolListDisks_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolResourceStatus
+//
+
+@implementation GTLRCompute_StoragePoolResourceStatus
+@dynamic diskCount, lastResizeTimestamp, maxTotalProvisionedDiskCapacityGb,
+         poolUsedCapacityBytes, poolUsedIops, poolUsedThroughput,
+         poolUserWrittenBytes, totalProvisionedDiskCapacityGb,
+         totalProvisionedDiskIops, totalProvisionedDiskThroughput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolsScopedList
+//
+
+@implementation GTLRCompute_StoragePoolsScopedList
+@dynamic storagePools, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"storagePools" : [GTLRCompute_StoragePool class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolsScopedList_Warning
+//
+
+@implementation GTLRCompute_StoragePoolsScopedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_StoragePoolsScopedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolsScopedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_StoragePoolsScopedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolType
+//
+
+@implementation GTLRCompute_StoragePoolType
+@dynamic creationTimestamp, deprecated, descriptionProperty, identifier, kind,
+         maxPoolProvisionedCapacityGb, maxPoolProvisionedIops,
+         maxPoolProvisionedThroughput, minPoolProvisionedCapacityGb,
+         minPoolProvisionedIops, minPoolProvisionedThroughput, minSizeGb, name,
+         selfLink, selfLinkWithId, supportedDiskTypes, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedDiskTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypeAggregatedList
+//
+
+@implementation GTLRCompute_StoragePoolTypeAggregatedList
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypeAggregatedList_Items
+//
+
+@implementation GTLRCompute_StoragePoolTypeAggregatedList_Items
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_StoragePoolTypesScopedList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypeAggregatedList_Warning
+//
+
+@implementation GTLRCompute_StoragePoolTypeAggregatedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_StoragePoolTypeAggregatedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypeAggregatedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_StoragePoolTypeAggregatedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypeList
+//
+
+@implementation GTLRCompute_StoragePoolTypeList
+@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCompute_StoragePoolType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypeList_Warning
+//
+
+@implementation GTLRCompute_StoragePoolTypeList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_StoragePoolTypeList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypeList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_StoragePoolTypeList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypesScopedList
+//
+
+@implementation GTLRCompute_StoragePoolTypesScopedList
+@dynamic storagePoolTypes, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"storagePoolTypes" : [GTLRCompute_StoragePoolType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypesScopedList_Warning
+//
+
+@implementation GTLRCompute_StoragePoolTypesScopedList_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_StoragePoolTypesScopedList_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_StoragePoolTypesScopedList_Warning_Data_Item
+//
+
+@implementation GTLRCompute_StoragePoolTypesScopedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_Subnetwork
 //
 
 @implementation GTLRCompute_Subnetwork
 @dynamic creationTimestamp, descriptionProperty, enableFlowLogs,
          externalIpv6Prefix, fingerprint, gatewayAddress, identifier,
-         internalIpv6Prefix, ipCidrRange, ipv6AccessType, ipv6CidrRange, kind,
-         logConfig, name, network, privateIpGoogleAccess,
-         privateIpv6GoogleAccess, purpose, region, reservedInternalRange, role,
-         secondaryIpRanges, selfLink, stackType, state;
+         internalIpv6Prefix, ipCidrRange, ipCollection, ipv6AccessType,
+         ipv6CidrRange, ipv6GceEndpoint, kind, logConfig, name, network, params,
+         privateIpGoogleAccess, privateIpv6GoogleAccess, purpose, region,
+         reservedInternalRange, role, secondaryIpRanges, selfLink, stackType,
+         state, systemReservedExternalIpv6Ranges,
+         systemReservedInternalIpv6Ranges;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -21438,7 +25947,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"secondaryIpRanges" : [GTLRCompute_SubnetworkSecondaryRange class]
+    @"secondaryIpRanges" : [GTLRCompute_SubnetworkSecondaryRange class],
+    @"systemReservedExternalIpv6Ranges" : [NSString class],
+    @"systemReservedInternalIpv6Ranges" : [NSString class]
   };
   return map;
 }
@@ -21582,6 +26093,30 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_SubnetworkParams
+//
+
+@implementation GTLRCompute_SubnetworkParams
+@dynamic resourceManagerTags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SubnetworkParams_ResourceManagerTags
+//
+
+@implementation GTLRCompute_SubnetworkParams_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_SubnetworkSecondaryRange
 //
 
@@ -21642,6 +26177,44 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_SubnetworksScopedList_Warning_Data_Item
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SubnetworksScopedWarning
+//
+
+@implementation GTLRCompute_SubnetworksScopedWarning
+@dynamic scopeName, warning;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SubnetworksScopedWarning_Warning
+//
+
+@implementation GTLRCompute_SubnetworksScopedWarning_Warning
+@dynamic code, data, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"data" : [GTLRCompute_SubnetworksScopedWarning_Warning_Data_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_SubnetworksScopedWarning_Warning_Data_Item
+//
+
+@implementation GTLRCompute_SubnetworksScopedWarning_Warning_Data_Item
 @dynamic key, value;
 @end
 
@@ -22000,7 +26573,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic authorizationPolicy, certificateMap, creationTimestamp,
          descriptionProperty, fingerprint, httpKeepAliveTimeoutSec, identifier,
          kind, name, proxyBind, quicOverride, region, selfLink, serverTlsPolicy,
-         sslCertificates, sslPolicy, urlMap;
+         sslCertificates, sslPolicy, tlsEarlyData, urlMap;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -23219,8 +27792,17 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_UpcomingMaintenance
-@dynamic canReschedule, latestWindowStartTime, maintenanceStatus, type,
-         windowEndTime, windowStartTime;
+@dynamic canReschedule, latestWindowStartTime, maintenanceOnShutdown,
+         maintenanceReasons, maintenanceStatus, type, windowEndTime,
+         windowStartTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"maintenanceReasons" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -23230,10 +27812,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_UrlMap
-@dynamic creationTimestamp, defaultRouteAction, defaultService,
-         defaultUrlRedirect, descriptionProperty, fingerprint, headerAction,
-         hostRules, identifier, kind, name, pathMatchers, region, selfLink,
-         tests;
+@dynamic creationTimestamp, defaultCustomErrorResponsePolicy,
+         defaultRouteAction, defaultService, defaultUrlRedirect,
+         descriptionProperty, fingerprint, headerAction, hostRules, identifier,
+         kind, name, pathMatchers, region, selfLink, tests;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -23541,7 +28123,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_UsableSubnetworksAggregatedList
-@dynamic identifier, items, kind, nextPageToken, selfLink, warning;
+@dynamic identifier, items, kind, nextPageToken, scopedWarnings, selfLink,
+         unreachables, warning;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -23549,7 +28132,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCompute_UsableSubnetwork class]
+    @"items" : [GTLRCompute_UsableSubnetwork class],
+    @"scopedWarnings" : [GTLRCompute_SubnetworksScopedWarning class],
+    @"unreachables" : [NSString class]
   };
   return map;
 }
@@ -23724,9 +28309,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_VpnGateway
-@dynamic creationTimestamp, descriptionProperty, identifier, kind,
-         labelFingerprint, labels, name, network, region, selfLink, stackType,
-         vpnInterfaces;
+@dynamic creationTimestamp, descriptionProperty, gatewayIpVersion, identifier,
+         kind, labelFingerprint, labels, name, network, region, selfLink,
+         stackType, vpnInterfaces;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -23993,7 +28578,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_VpnGatewayVpnGatewayInterface
-@dynamic identifier, interconnectAttachment, ipAddress;
+@dynamic identifier, interconnectAttachment, ipAddress, ipv6Address;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

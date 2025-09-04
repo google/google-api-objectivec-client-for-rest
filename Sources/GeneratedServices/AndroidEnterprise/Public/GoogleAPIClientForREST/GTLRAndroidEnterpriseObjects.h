@@ -35,8 +35,10 @@
 @class GTLRAndroidEnterprise_Device;
 @class GTLRAndroidEnterprise_DeviceReport;
 @class GTLRAndroidEnterprise_DeviceReportUpdateEvent;
+@class GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions;
 @class GTLRAndroidEnterprise_Enterprise;
 @class GTLRAndroidEnterprise_EnterpriseAuthenticationAppLinkConfig;
+@class GTLRAndroidEnterprise_EnterpriseUpgradeEvent;
 @class GTLRAndroidEnterprise_Entitlement;
 @class GTLRAndroidEnterprise_GoogleAuthenticationSettings;
 @class GTLRAndroidEnterprise_GroupLicense;
@@ -75,6 +77,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -325,6 +328,112 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_DeviceState_AccountSta
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_EnrollmentToken.enrollmentTokenType
+
+/**
+ *  The value is unused.
+ *
+ *  Value: "enrollmentTokenTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_EnrollmentTokenTypeUnspecified;
+/**
+ *  The enrollment token is for a user device.
+ *
+ *  Value: "userDevice"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserDevice;
+/**
+ *  The enrollment token is for a userless device.
+ *
+ *  Value: "userlessDevice"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserlessDevice;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions.authenticationRequirement
+
+/**
+ *  The value is unused.
+ *
+ *  Value: "authenticationRequirementUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_AuthenticationRequirementUnspecified;
+/**
+ *  Google authentication is optional for the user. This means the user can
+ *  choose to skip Google authentication during enrollment.
+ *
+ *  Value: "optional"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_Optional;
+/**
+ *  Google authentication is required for the user. This means the user must
+ *  authenticate with a Google account to proceed.
+ *
+ *  Value: "required"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_Required;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Enterprise.enterpriseType
+
+/**
+ *  This value is not used.
+ *
+ *  Value: "enterpriseTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_EnterpriseTypeUnspecified;
+/**
+ *  The enterprise belongs to a managed Google domain.
+ *
+ *  Value: "managedGoogleDomain"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGoogleDomain;
+/**
+ *  The enterprise is a managed Google Play Accounts enterprise.
+ *
+ *  Value: "managedGooglePlayAccountsEnterprise"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_Enterprise.managedGoogleDomainType
+
+/**
+ *  The managed Google domain type is not specified.
+ *
+ *  Value: "managedGoogleDomainTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified;
+/**
+ *  The managed Google domain is domain-verified.
+ *
+ *  Value: "typeDomain"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeDomain;
+/**
+ *  The managed Google domain is an email-verified team.
+ *
+ *  Value: "typeTeam"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeTeam;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_EnterpriseUpgradeEvent.upgradeState
+
+/**
+ *  The upgrade has succeeded.
+ *
+ *  Value: "upgradeStateSucceeded"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded;
+/**
+ *  Unspecified. This value is not used.
+ *
+ *  Value: "upgradeStateUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_Entitlement.reason
 
 /** Value: "free" */
@@ -469,6 +578,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_Notificat
  *  Value: "deviceReportUpdate"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate;
+/**
+ *  Notification about an enterprise upgrade.
+ *
+ *  Value: "enterpriseUpgrade"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_EnterpriseUpgrade;
 /**
  *  Notification about an app installation failure.
  *
@@ -748,8 +863,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_Stat
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateDefault;
 /**
  *  The app is updated as soon as possible. No constraints are applied. The
- *  device is notified immediately about a new app update after it is published
- *  by the developer.
+ *  device is notified as soon as possible about a new app update after it is
+ *  published by the developer.
  *
  *  Value: "autoUpdateHighPriority"
  */
@@ -1488,17 +1603,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
- *  Response message for create enrollment token.
- */
-@interface GTLRAndroidEnterprise_CreateEnrollmentTokenResponse : GTLRObject
-
-/** Enrollment token. */
-@property(nonatomic, copy, nullable) NSString *enrollmentToken;
-
-@end
-
-
-/**
  *  A Devices resource represents a mobile device managed by the EMM and
  *  belonging to a specific enterprise user.
  */
@@ -1654,6 +1758,84 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
+ *  A token used to enroll a device.
+ */
+@interface GTLRAndroidEnterprise_EnrollmentToken : GTLRObject
+
+/**
+ *  [Optional] The length of time the enrollment token is valid, ranging from 1
+ *  minute to
+ *  [`Durations.MAX_VALUE`](https://developers.google.com/protocol-buffers/docs/reference/java/com/google/protobuf/util/Durations.html#MAX_VALUE),
+ *  approximately 10,000 years. If not specified, the default duration is 1
+ *  hour.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  [Required] The type of the enrollment token.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_EnrollmentTokenTypeUnspecified
+ *        The value is unused. (Value: "enrollmentTokenTypeUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserDevice
+ *        The enrollment token is for a user device. (Value: "userDevice")
+ *    @arg @c kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserlessDevice
+ *        The enrollment token is for a userless device. (Value:
+ *        "userlessDevice")
+ */
+@property(nonatomic, copy, nullable) NSString *enrollmentTokenType;
+
+/**
+ *  [Optional] Provides options related to Google authentication during the
+ *  enrollment.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions *googleAuthenticationOptions;
+
+/**
+ *  The token value that's passed to the device and authorizes the device to
+ *  enroll. This is a read-only field generated by the server.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  Options for Google authentication during the enrollment.
+ */
+@interface GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions : GTLRObject
+
+/**
+ *  [Optional] Specifies whether user should authenticate with Google during
+ *  enrollment. This setting, if specified,`GoogleAuthenticationSettings`
+ *  specified for the enterprise resource is ignored for devices enrolled with
+ *  this token.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_AuthenticationRequirementUnspecified
+ *        The value is unused. (Value: "authenticationRequirementUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_Optional
+ *        Google authentication is optional for the user. This means the user
+ *        can choose to skip Google authentication during enrollment. (Value:
+ *        "optional")
+ *    @arg @c kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_Required
+ *        Google authentication is required for the user. This means the user
+ *        must authenticate with a Google account to proceed. (Value:
+ *        "required")
+ */
+@property(nonatomic, copy, nullable) NSString *authenticationRequirement;
+
+/**
+ *  [Optional] Specifies the managed Google account that the user must use
+ *  during enrollment.`AuthenticationRequirement` must be set to`REQUIRED` if
+ *  this field is set.
+ */
+@property(nonatomic, copy, nullable) NSString *requiredAccountEmail;
+
+@end
+
+
+/**
  *  An Enterprises resource represents the binding between an EMM and a specific
  *  organization. That binding can be instantiated in one of two different ways
  *  using this API as follows: - For Google managed domain customers, the
@@ -1675,6 +1857,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidEnterprise_Administrator *> *administrator;
 
+/**
+ *  The type of the enterprise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_EnterpriseType_EnterpriseTypeUnspecified
+ *        This value is not used. (Value: "enterpriseTypeUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGoogleDomain
+ *        The enterprise belongs to a managed Google domain. (Value:
+ *        "managedGoogleDomain")
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise
+ *        The enterprise is a managed Google Play Accounts enterprise. (Value:
+ *        "managedGooglePlayAccountsEnterprise")
+ */
+@property(nonatomic, copy, nullable) NSString *enterpriseType;
+
 /** Output only. Settings for Google-provided user authentication. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_GoogleAuthenticationSettings *googleAuthenticationSettings;
 
@@ -1684,6 +1881,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The type of managed Google domain
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified
+ *        The managed Google domain type is not specified. (Value:
+ *        "managedGoogleDomainTypeUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeDomain
+ *        The managed Google domain is domain-verified. (Value: "typeDomain")
+ *    @arg @c kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeTeam
+ *        The managed Google domain is an email-verified team. (Value:
+ *        "typeTeam")
+ */
+@property(nonatomic, copy, nullable) NSString *managedGoogleDomainType;
 
 /** The name of the enterprise, for example, "Example, Inc". */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1747,25 +1959,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
- *  The presence of an Entitlements resource indicates that a user has the right
- *  to use a particular app. Entitlements are user specific, not device
- *  specific. This allows a user with an entitlement to an app to install the
- *  app on all their devices. It's also possible for a user to hold an
- *  entitlement to an app without installing the app on any device. The API can
- *  be used to create an entitlement. As an option, you can also use the API to
- *  trigger the installation of an app on all a user's managed devices at the
- *  same time the entitlement is created. If the app is free, creating the
- *  entitlement also creates a group license for that app. For paid apps,
- *  creating the entitlement consumes one license, and that license remains
- *  consumed until the entitlement is removed. If the enterprise hasn't
- *  purchased enough licenses, then no entitlement is created and the
- *  installation fails. An entitlement is also not created for an app if the app
- *  requires permissions that the enterprise hasn't accepted. If an entitlement
- *  is deleted, the app may be uninstalled from a user's device. As a best
- *  practice, uninstall the app by calling Installs.delete() before deleting the
- *  entitlement. Entitlements for apps that a user pays for on an unmanaged
- *  profile have "userPurchase" as the entitlement reason. These entitlements
- *  cannot be removed via the API.
+ *  An event generated when an enterprise is upgraded.
+ */
+@interface GTLRAndroidEnterprise_EnterpriseUpgradeEvent : GTLRObject
+
+/**
+ *  The upgrade state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded
+ *        The upgrade has succeeded. (Value: "upgradeStateSucceeded")
+ *    @arg @c kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified
+ *        Unspecified. This value is not used. (Value:
+ *        "upgradeStateUnspecified")
+ */
+@property(nonatomic, copy, nullable) NSString *upgradeState;
+
+@end
+
+
+/**
+ *  *Deprecated:* New integrations cannot use this method and can refer to our
+ *  new recommendations.
  */
 @interface GTLRAndroidEnterprise_Entitlement : GTLRObject
 
@@ -1808,6 +2023,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
+ *  Response message for generating a URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain.
+ */
+@interface GTLRAndroidEnterprise_GenerateEnterpriseUpgradeUrlResponse : GTLRObject
+
+/**
+ *  A URL for an enterprise admin to upgrade their enterprise. The page can't be
+ *  rendered in an iframe.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
  *  Contains settings for Google-provided user authentication.
  */
 @interface GTLRAndroidEnterprise_GoogleAuthenticationSettings : GTLRObject
@@ -1844,19 +2074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
- *  Group license objects allow you to keep track of licenses (called
- *  entitlements) for both free and paid apps. For a free app, a group license
- *  is created when an enterprise admin first approves the product in Google
- *  Play or when the first entitlement for the product is created for a user via
- *  the API. For a paid app, a group license object is only created when an
- *  enterprise admin purchases the product in Google Play for the first time.
- *  Use the API to query group licenses. A Grouplicenses resource includes the
- *  total number of licenses purchased (paid apps only) and the total number of
- *  licenses currently in use. In other words, the total number of Entitlements
- *  that exist for the product. Only one group license object is created per
- *  product and group license objects are never deleted. If a product is
- *  unapproved, its group license remains. This allows enterprise admins to keep
- *  track of any remaining entitlements for the product.
+ *  *Deprecated:* New integrations cannot use this method and can refer to our
+ *  new recommendations
  */
 @interface GTLRAndroidEnterprise_GroupLicense : GTLRObject
 
@@ -2153,9 +2372,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
- *  A managed configuration resource contains the set of managed properties
- *  defined by the app developer in the app's managed configurations schema, as
- *  well as any configuration variables defined for the user.
+ *  *Deprecated:* New integrations cannot use this method and can refer to our
+ *  new recommendations
  */
 @interface GTLRAndroidEnterprise_ManagedConfiguration : GTLRObject
 
@@ -2384,6 +2602,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
 
+/** Notifications about enterprise upgrade. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_EnterpriseUpgradeEvent *enterpriseUpgradeEvent;
+
 /** Notifications about an app installation failure. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_InstallFailureEvent *installFailureEvent;
 
@@ -2405,6 +2626,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate
  *        Notification about an updated device report. (Value:
  *        "deviceReportUpdate")
+ *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_EnterpriseUpgrade
+ *        Notification about an enterprise upgrade. (Value: "enterpriseUpgrade")
  *    @arg @c kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure
  *        Notification about an app installation failure. (Value:
  *        "installFailure")
@@ -2533,9 +2756,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  Recommended alternative: autoUpdateMode which is set per app, provides
  *  greater flexibility around update frequency. When autoUpdateMode is set to
  *  AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, autoUpdatePolicy has no
- *  effect. "choiceToTheUser" allows the device's user to configure the app
- *  update policy. "always" enables auto updates. "never" disables auto updates.
- *  "wifiOnly" enables auto updates only when the device is connected to wifi.
+ *  effect. - choiceToTheUser allows the device's user to configure the app
+ *  update policy. - always enables auto updates. - never disables auto updates.
+ *  - wifiOnly enables auto updates only when the device is connected to wifi.
+ *  *Important:* Changes to app update policies don't affect updates that are in
+ *  progress. Any policy changes will apply to subsequent app updates.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always Apps are
@@ -2572,6 +2797,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *  be updated.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_MaintenanceWindow *maintenanceWindow;
+
+/**
+ *  An identifier for the policy that will be passed with the app install
+ *  feedback sent from the Play Store.
+ */
+@property(nonatomic, copy, nullable) NSString *policyId;
 
 /**
  *  The availability granted to the device for the specified products. "all"
@@ -2894,8 +3125,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *        constraints above are met. (Value: "autoUpdateDefault")
  *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateHighPriority
  *        The app is updated as soon as possible. No constraints are applied.
- *        The device is notified immediately about a new app update after it is
- *        published by the developer. (Value: "autoUpdateHighPriority")
+ *        The device is notified as soon as possible about a new app update
+ *        after it is published by the developer. (Value:
+ *        "autoUpdateHighPriority")
  *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
  *        Unspecified. Defaults to AUTO_UPDATE_DEFAULT. (Value:
  *        "autoUpdateModeUnspecified")
@@ -3125,7 +3357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 
 /**
- *  Credentials that can be used to authenticate as a service account.
+ *  *Deprecated:* New integrations cannot use this method and can refer to our
+ *  new recommendations
  */
 @interface GTLRAndroidEnterprise_ServiceAccountKey : GTLRObject
 
@@ -3171,6 +3404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 /**
  *  GTLRAndroidEnterprise_ServiceAccountKeysListResponse
  */
+GTLR_DEPRECATED
 @interface GTLRAndroidEnterprise_ServiceAccountKeysListResponse : GTLRObject
 
 /** The service account credentials. */

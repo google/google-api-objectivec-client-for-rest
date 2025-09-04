@@ -286,7 +286,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdvisorynotifications_GoogleCloudAdvisor
 
 /**
  *  Identifier. The resource name of the settings to retrieve. Format:
- *  organizations/{organization}/locations/{location}/settings.
+ *  organizations/{organization}/locations/{location}/settings or
+ *  projects/{projects}/locations/{location}/settings.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

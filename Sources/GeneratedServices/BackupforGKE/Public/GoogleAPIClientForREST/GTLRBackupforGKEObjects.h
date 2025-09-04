@@ -19,21 +19,32 @@
 @class GTLRBackupforGKE_AuditLogConfig;
 @class GTLRBackupforGKE_Backup;
 @class GTLRBackupforGKE_Backup_Labels;
+@class GTLRBackupforGKE_BackupChannel;
+@class GTLRBackupforGKE_BackupChannel_Labels;
 @class GTLRBackupforGKE_BackupConfig;
+@class GTLRBackupforGKE_BackupConfigDetails;
 @class GTLRBackupforGKE_BackupPlan;
 @class GTLRBackupforGKE_BackupPlan_Labels;
+@class GTLRBackupforGKE_BackupPlanBinding;
+@class GTLRBackupforGKE_BackupPlanDetails;
 @class GTLRBackupforGKE_Binding;
 @class GTLRBackupforGKE_ClusterMetadata;
 @class GTLRBackupforGKE_ClusterMetadata_BackupCrdVersions;
 @class GTLRBackupforGKE_ClusterResourceRestoreScope;
+@class GTLRBackupforGKE_Date;
+@class GTLRBackupforGKE_DayOfWeekList;
 @class GTLRBackupforGKE_EncryptionKey;
+@class GTLRBackupforGKE_ExclusionWindow;
 @class GTLRBackupforGKE_Expr;
+@class GTLRBackupforGKE_Filter;
 @class GTLRBackupforGKE_GoogleLongrunningOperation;
 @class GTLRBackupforGKE_GoogleLongrunningOperation_Metadata;
 @class GTLRBackupforGKE_GoogleLongrunningOperation_Response;
 @class GTLRBackupforGKE_GoogleRpcStatus;
 @class GTLRBackupforGKE_GoogleRpcStatus_Details_Item;
 @class GTLRBackupforGKE_GroupKind;
+@class GTLRBackupforGKE_GroupKindDependency;
+@class GTLRBackupforGKE_Label;
 @class GTLRBackupforGKE_Location;
 @class GTLRBackupforGKE_Location_Labels;
 @class GTLRBackupforGKE_Location_Metadata;
@@ -42,17 +53,30 @@
 @class GTLRBackupforGKE_Namespaces;
 @class GTLRBackupforGKE_Policy;
 @class GTLRBackupforGKE_ResourceFilter;
+@class GTLRBackupforGKE_ResourceLabels;
+@class GTLRBackupforGKE_ResourceSelector;
+@class GTLRBackupforGKE_ResourceSelector_Labels;
 @class GTLRBackupforGKE_Restore;
 @class GTLRBackupforGKE_Restore_Labels;
+@class GTLRBackupforGKE_RestoreChannel;
+@class GTLRBackupforGKE_RestoreChannel_Labels;
 @class GTLRBackupforGKE_RestoreConfig;
+@class GTLRBackupforGKE_RestoreOrder;
 @class GTLRBackupforGKE_RestorePlan;
 @class GTLRBackupforGKE_RestorePlan_Labels;
+@class GTLRBackupforGKE_RestorePlanBinding;
 @class GTLRBackupforGKE_RetentionPolicy;
+@class GTLRBackupforGKE_RetentionPolicyDetails;
+@class GTLRBackupforGKE_RpoConfig;
 @class GTLRBackupforGKE_Schedule;
 @class GTLRBackupforGKE_SubstitutionRule;
+@class GTLRBackupforGKE_TimeOfDay;
 @class GTLRBackupforGKE_TransformationRule;
 @class GTLRBackupforGKE_TransformationRuleAction;
+@class GTLRBackupforGKE_TroubleshootingInfo;
 @class GTLRBackupforGKE_VolumeBackup;
+@class GTLRBackupforGKE_VolumeDataRestorePolicyBinding;
+@class GTLRBackupforGKE_VolumeDataRestorePolicyOverride;
 @class GTLRBackupforGKE_VolumeRestore;
 
 // Generated comments include content from the discovery document; avoid them
@@ -182,6 +206,104 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_Ready;
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlan_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBackupforGKE_BackupPlanDetails.state
+
+/**
+ *  Waiting for cluster state to be RUNNING.
+ *
+ *  Value: "CLUSTER_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_ClusterPending;
+/**
+ *  The BackupPlan has been deactivated.
+ *
+ *  Value: "DEACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Deactivated;
+/**
+ *  The BackupPlan is in the process of being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Deleting;
+/**
+ *  BackupPlan creation has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Failed;
+/**
+ *  The BackupPlan is in the process of being created.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Provisioning;
+/**
+ *  The BackupPlan has successfully been created and is ready for Backups.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_Ready;
+/**
+ *  Default first value for Enums.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_BackupPlanDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupforGKE_DayOfWeekList.daysOfWeek
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_DayOfWeekList_DaysOfWeek_Wednesday;
+
+// ----------------------------------------------------------------------------
 // GTLRBackupforGKE_Restore.state
 
 /**
@@ -223,6 +345,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Restore_State_StateUnspecif
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Restore_State_Succeeded;
+/**
+ *  The Kubernetes resources created by this Restore are being validated.
+ *
+ *  Value: "VALIDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_Restore_State_Validating;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupforGKE_RestoreConfig.clusterResourceConflictPolicy
@@ -274,6 +402,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedRes
  *  Value: "FAIL_ON_CONFLICT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_FailOnConflict;
+/**
+ *  This mode merges the backup and the target cluster and replaces the
+ *  conflicting resources with the ones in the backup. If a single resource to
+ *  restore exists in the cluster before restoration, the resource will be
+ *  replaced with the one from the backup. To replace an existing resource, the
+ *  first attempt is to update the resource to match the one from the backup; if
+ *  the update fails, the second attempt is to delete the resource and restore
+ *  it from the backup. Note that this mode could cause data loss as it replaces
+ *  the existing resources in the target cluster, and the original PV can be
+ *  retained or deleted depending on its reclaim policy.
+ *
+ *  Value: "MERGE_REPLACE_ON_CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeReplaceOnConflict;
+/**
+ *  This mode merges the backup and the target cluster and skips the conflicting
+ *  resources except volume data. If a PVC to restore already exists, this mode
+ *  will restore/reconnect the volume without overwriting the PVC. It is similar
+ *  to MERGE_SKIP_ON_CONFLICT except that it will apply the volume data policy
+ *  for the conflicting PVCs: - RESTORE_VOLUME_DATA_FROM_BACKUP: restore data
+ *  only and respect the reclaim policy of the original PV; -
+ *  REUSE_VOLUME_HANDLE_FROM_BACKUP: reconnect and respect the reclaim policy of
+ *  the original PV; - NO_VOLUME_DATA_RESTORATION: new provision and respect the
+ *  reclaim policy of the original PV. Note that this mode could cause data loss
+ *  as the original PV can be retained or deleted depending on its reclaim
+ *  policy.
+ *
+ *  Value: "MERGE_REPLACE_VOLUME_ON_CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeReplaceVolumeOnConflict;
+/**
+ *  This mode merges the backup and the target cluster and skips the conflicting
+ *  resources. If a single resource to restore exists in the cluster before
+ *  restoration, the resource will be skipped, otherwise it will be restored.
+ *
+ *  Value: "MERGE_SKIP_ON_CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeSkipOnConflict;
 /**
  *  Unspecified (invalid).
  *
@@ -425,6 +591,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeBackup_Format_VolumeB
 // GTLRBackupforGKE_VolumeBackup.state
 
 /**
+ *  The underlying artifacts of a volume backup (eg: persistent disk snapshots)
+ *  are deleted.
+ *
+ *  Value: "CLEANED_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeBackup_State_CleanedUp;
+/**
  *  A volume for the backup was identified and backup process is about to start.
  *
  *  Value: "CREATING"
@@ -471,6 +644,90 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeBackup_State_Succeede
  *  Value: "UPLOADING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeBackup_State_Uploading;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupforGKE_VolumeDataRestorePolicyBinding.policy
+
+/**
+ *  For each PVC to be restored, create PVC without any particular action to
+ *  restore data. In this case, the normal Kubernetes provisioning logic would
+ *  kick in, and this would likely result in either dynamically provisioning
+ *  blank PVs or binding to statically provisioned PVs.
+ *
+ *  Value: "NO_VOLUME_DATA_RESTORATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_NoVolumeDataRestoration;
+/**
+ *  For each PVC to be restored, create a new underlying volume and PV from the
+ *  corresponding VolumeBackup contained within the Backup.
+ *
+ *  Value: "RESTORE_VOLUME_DATA_FROM_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_RestoreVolumeDataFromBackup;
+/**
+ *  For each PVC to be restored, attempt to reuse the original PV contained in
+ *  the Backup (with its original underlying volume). This option is likely only
+ *  usable when restoring a workload to its original cluster.
+ *
+ *  Value: "REUSE_VOLUME_HANDLE_FROM_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_ReuseVolumeHandleFromBackup;
+/**
+ *  Unspecified (illegal).
+ *
+ *  Value: "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_VolumeDataRestorePolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupforGKE_VolumeDataRestorePolicyBinding.volumeType
+
+/**
+ *  Compute Engine Persistent Disk volume
+ *
+ *  Value: "GCE_PERSISTENT_DISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_VolumeType_GcePersistentDisk;
+/**
+ *  Default
+ *
+ *  Value: "VOLUME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_VolumeType_VolumeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupforGKE_VolumeDataRestorePolicyOverride.policy
+
+/**
+ *  For each PVC to be restored, create PVC without any particular action to
+ *  restore data. In this case, the normal Kubernetes provisioning logic would
+ *  kick in, and this would likely result in either dynamically provisioning
+ *  blank PVs or binding to statically provisioned PVs.
+ *
+ *  Value: "NO_VOLUME_DATA_RESTORATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_NoVolumeDataRestoration;
+/**
+ *  For each PVC to be restored, create a new underlying volume and PV from the
+ *  corresponding VolumeBackup contained within the Backup.
+ *
+ *  Value: "RESTORE_VOLUME_DATA_FROM_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_RestoreVolumeDataFromBackup;
+/**
+ *  For each PVC to be restored, attempt to reuse the original PV contained in
+ *  the Backup (with its original underlying volume). This option is likely only
+ *  usable when restoring a workload to its original cluster.
+ *
+ *  Value: "REUSE_VOLUME_HANDLE_FROM_BACKUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_ReuseVolumeHandleFromBackup;
+/**
+ *  Unspecified (illegal).
+ *
+ *  Value: "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_VolumeDataRestorePolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupforGKE_VolumeRestore.state
@@ -599,7 +856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Represents a request to perform a single point-in-time capture of some
  *  portion of the state of a GKE cluster, the record of the backup operation
  *  itself, and an anchor for the underlying artifacts that comprise the Backup
- *  (the config backup and VolumeBackups). Next id: 29
+ *  (the config backup and VolumeBackups).
  */
 @interface GTLRBackupforGKE_Backup : GTLRObject
 
@@ -709,6 +966,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. If false, Backup will fail when Backup for GKE detects
+ *  Kubernetes configuration that is non-standard or requires additional setup
+ *  to restore. Inherited from the parent BackupPlan's permissive_mode value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *permissiveMode;
+
+/**
  *  Output only. The total number of Kubernetes Pods contained in the Backup.
  *
  *  Uses NSNumber of intValue.
@@ -741,10 +1007,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRDateTime *retainExpireTime;
 
 /**
+ *  Output only. [Output Only] Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. [Output Only] Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. If set, the list of ProtectedApplications whose resources were
  *  included in the Backup.
  */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_NamespacedNames *selectedApplications;
+
+/**
+ *  Output only. If set, the list of labels whose constituent namespaces were
+ *  included in the Backup.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_ResourceLabels *selectedNamespaceLabels;
 
 /**
  *  Output only. If set, the list of namespaces that were included in the
@@ -785,9 +1071,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. Human-readable description of why the backup is in the current
- *  `state`.
+ *  `state`. This field is only meant for human readability and should not be
+ *  used programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
+
+/**
+ *  Output only. Information about the troubleshooting steps which will provide
+ *  debugging information to the end users.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_TroubleshootingInfo *troubleshootingInfo;
 
 /**
  *  Output only. Server generated global unique identifier of
@@ -817,6 +1110,86 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        fetch them all at once.
  */
 @interface GTLRBackupforGKE_Backup_Labels : GTLRObject
+@end
+
+
+/**
+ *  A BackupChannel imposes constraints on where clusters can be backed up. The
+ *  BackupChannel should be in the same project and region as the cluster being
+ *  backed up. The backup can be created only in destination_project.
+ */
+@interface GTLRBackupforGKE_BackupChannel : GTLRObject
+
+/**
+ *  Output only. The timestamp when this BackupChannel resource was created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User specified descriptive string for this BackupChannel.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The project where Backups are allowed to be stored. The
+ *  format is `projects/{projectId}` or `projects/{projectNumber}`.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProject;
+
+/**
+ *  Output only. The project_id where Backups are allowed to be stored. Example
+ *  Project ID: "my-project-id". This will be an OUTPUT_ONLY field to return the
+ *  project_id of the destination project.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProjectId;
+
+/**
+ *  Output only. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of a BackupChannel from overwriting each
+ *  other. It is strongly suggested that systems make use of the 'etag' in the
+ *  read-modify-write cycle to perform BackupChannel updates in order to avoid
+ *  race conditions: An `etag` is returned in the response to
+ *  `GetBackupChannel`, and systems are expected to put that etag in the request
+ *  to `UpdateBackupChannel` or `DeleteBackupChannel` to ensure that their
+ *  change will be applied to the same version of the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. A set of custom labels supplied by user. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupChannel_Labels *labels;
+
+/**
+ *  Identifier. The fully qualified name of the BackupChannel. `projects/ *
+ *  /locations/ * /backupChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Server generated global unique identifier of
+ *  [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. The timestamp when this BackupChannel resource was last
+ *  updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. A set of custom labels supplied by user.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupforGKE_BackupChannel_Labels : GTLRObject
 @end
 
 
@@ -858,12 +1231,78 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) NSNumber *includeVolumeData;
 
 /**
+ *  Optional. If false, Backups will fail when Backup for GKE detects Kubernetes
+ *  configuration that is non-standard or requires additional setup to restore.
+ *  Default: False
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *permissiveMode;
+
+/**
  *  If set, include just the resources referenced by the listed
  *  ProtectedApplications.
  */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_NamespacedNames *selectedApplications;
 
+/**
+ *  If set, the list of labels whose constituent namespaces were included in the
+ *  Backup.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_ResourceLabels *selectedNamespaceLabels;
+
 /** If set, include just the resources in the listed namespaces. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_Namespaces *selectedNamespaces;
+
+@end
+
+
+/**
+ *  BackupConfigDetails defines the configuration of Backups created via this
+ *  BackupPlan.
+ */
+@interface GTLRBackupforGKE_BackupConfigDetails : GTLRObject
+
+/**
+ *  Output only. If True, include all namespaced resources
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allNamespaces;
+
+/**
+ *  Output only. This defines a customer managed encryption key that will be
+ *  used to encrypt the "config" portion (the Kubernetes resources) of Backups
+ *  created via this plan. Default (empty): Config backup artifacts will not be
+ *  encrypted.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_EncryptionKey *encryptionKey;
+
+/**
+ *  Output only. This flag specifies whether Kubernetes Secret resources should
+ *  be included when they fall into the scope of Backups. Default: False
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeSecrets;
+
+/**
+ *  Output only. This flag specifies whether volume data should be backed up
+ *  when PVCs are included in the scope of a Backup. Default: False
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeVolumeData;
+
+/**
+ *  Output only. If set, include just the resources referenced by the listed
+ *  ProtectedApplications.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_NamespacedNames *selectedApplications;
+
+/**
+ *  Output only. If set, include just the resources in the listed namespaces.
+ */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_Namespaces *selectedNamespaces;
 
 @end
@@ -873,6 +1312,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Defines the configuration and scheduling for a "line" of Backups.
  */
 @interface GTLRBackupforGKE_BackupPlan : GTLRObject
+
+/**
+ *  Output only. The fully qualified name of the BackupChannel to be used to
+ *  create a backup. This field is set only if the cluster being backed up is in
+ *  a different project. `projects/ * /locations/ * /backupChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *backupChannel;
 
 /**
  *  Optional. Defines the configuration of Backups created via this BackupPlan.
@@ -929,6 +1375,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupPlan_Labels *labels;
 
 /**
+ *  Output only. Completion time of the last successful Backup. This is sourced
+ *  from a successful Backup's complete_time field. This field is added to
+ *  maintain consistency with BackupPlanBinding to display last successful
+ *  backup time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupTime;
+
+/**
  *  Output only. The full name of the BackupPlan resource. Format: `projects/ *
  *  /locations/ * /backupPlans/ *`
  */
@@ -947,6 +1401,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  plan.
  */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_RetentionPolicy *retentionPolicy;
+
+/**
+ *  Output only. A number that represents the current risk level of this
+ *  BackupPlan from RPO perspective with 1 being no risk and 5 being highest
+ *  risk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rpoRiskLevel;
+
+/**
+ *  Output only. Human-readable description of why the BackupPlan is in the
+ *  current rpo_risk_level and action items if any.
+ */
+@property(nonatomic, copy, nullable) NSString *rpoRiskReason;
 
 /**
  *  Output only. State of the BackupPlan. This State field reflects the various
@@ -973,7 +1442,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. Human-readable description of why BackupPlan is in the current
- *  `state`
+ *  `state`. This field is only meant for human readability and should not be
+ *  used programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
 
@@ -1000,6 +1470,141 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        fetch them all at once.
  */
 @interface GTLRBackupforGKE_BackupPlan_Labels : GTLRObject
+@end
+
+
+/**
+ *  A BackupPlanBinding binds a BackupPlan with a BackupChannel. This resource
+ *  is created automatically when a BackupPlan is created using a BackupChannel.
+ *  This also serves as a holder for cross-project fields that need to be
+ *  displayed in the current project.
+ */
+@interface GTLRBackupforGKE_BackupPlanBinding : GTLRObject
+
+/**
+ *  Output only. Immutable. The fully qualified name of the BackupPlan bound
+ *  with the parent BackupChannel. `projects/ * /locations/ *
+ *  /backupPlans/{backup_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlan;
+
+/** Output only. Contains details about the backup plan/backup. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupPlanDetails *backupPlanDetails;
+
+/**
+ *  Output only. Immutable. The fully qualified name of the cluster that is
+ *  being backed up Valid formats: - `projects/ * /locations/ * /clusters/ *` -
+ *  `projects/ * /zones/ * /clusters/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+/** Output only. The timestamp when this binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of a BackupPlanBinding from overwriting
+ *  each other. It is strongly suggested that systems make use of the 'etag' in
+ *  the read-modify-write cycle to perform BackupPlanBinding updates in order to
+ *  avoid race conditions: An `etag` is returned in the response to
+ *  `GetBackupPlanBinding`, and systems are expected to put that etag in the
+ *  request to `UpdateBackupPlanBinding` or `DeleteBackupPlanBinding` to ensure
+ *  that their change will be applied to the same version of the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The fully qualified name of the BackupPlanBinding. `projects/ *
+ *  /locations/ * /backupChannels/ * /backupPlanBindings/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Server generated global unique identifier of
+ *  [UUID4](https://en.wikipedia.org/wiki/Universally_unique_identifier)
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The timestamp when this binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Contains metadata about the backup plan/backup.
+ */
+@interface GTLRBackupforGKE_BackupPlanDetails : GTLRObject
+
+/**
+ *  Output only. Contains details about the BackupConfig of Backups created via
+ *  this BackupPlan.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_BackupConfigDetails *backupConfigDetails;
+
+/**
+ *  Output only. The fully qualified name of the last successful Backup created
+ *  under this BackupPlan. `projects/ * /locations/ * /backupPlans/ * /backups/
+ *  *`
+ */
+@property(nonatomic, copy, nullable) NSString *lastSuccessfulBackup;
+
+/**
+ *  Output only. Completion time of the last successful Backup. This is sourced
+ *  from a successful Backup's complete_time field.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupTime;
+
+/**
+ *  Output only. Start time of next scheduled backup under this BackupPlan by
+ *  either cron_schedule or rpo config. This is sourced from BackupPlan.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextScheduledBackupTime;
+
+/**
+ *  Output only. The number of Kubernetes Pods backed up in the last successful
+ *  Backup created via this BackupPlan.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protectedPodCount;
+
+/**
+ *  Output only. Contains details about the RetentionPolicy of Backups created
+ *  via this BackupPlan.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_RetentionPolicyDetails *retentionPolicyDetails;
+
+/**
+ *  Output only. A number that represents the current risk level of this
+ *  BackupPlan from RPO perspective with 1 being no risk and 5 being highest
+ *  risk.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rpoRiskLevel;
+
+/**
+ *  Output only. State of the BackupPlan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_ClusterPending Waiting
+ *        for cluster state to be RUNNING. (Value: "CLUSTER_PENDING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Deactivated The
+ *        BackupPlan has been deactivated. (Value: "DEACTIVATED")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Deleting The BackupPlan
+ *        is in the process of being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Failed BackupPlan
+ *        creation has failed. (Value: "FAILED")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Provisioning The
+ *        BackupPlan is in the process of being created. (Value: "PROVISIONING")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_Ready The BackupPlan has
+ *        successfully been created and is ready for Backups. (Value: "READY")
+ *    @arg @c kGTLRBackupforGKE_BackupPlanDetails_State_StateUnspecified Default
+ *        first value for Enums. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -1134,13 +1739,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Defines the scope of cluster-scoped resources to restore. Some group kinds
  *  are not reasonable choices for a restore, and will cause an error if
  *  selected here. Any scope selection that would restore "all valid" resources
- *  automatically excludes these group kinds. - gkebackup.gke.io/BackupJob -
- *  gkebackup.gke.io/RestoreJob - metrics.k8s.io/NodeMetrics -
- *  migration.k8s.io/StorageState - migration.k8s.io/StorageVersionMigration -
- *  Node - snapshot.storage.k8s.io/VolumeSnapshotContent -
- *  storage.k8s.io/CSINode Some group kinds are driven by restore configuration
- *  elsewhere, and will cause an error if selected here. - Namespace -
- *  PersistentVolume
+ *  automatically excludes these group kinds. - Node - ComponentStatus -
+ *  gkebackup.gke.io/BackupJob - gkebackup.gke.io/RestoreJob -
+ *  metrics.k8s.io/NodeMetrics - migration.k8s.io/StorageState -
+ *  migration.k8s.io/StorageVersionMigration -
+ *  snapshot.storage.k8s.io/VolumeSnapshotContent - storage.k8s.io/CSINode -
+ *  storage.k8s.io/VolumeAttachment Some group kinds are driven by restore
+ *  configuration elsewhere, and will cause an error if selected here. -
+ *  Namespace - PersistentVolume
  */
 @interface GTLRBackupforGKE_ClusterResourceRestoreScope : GTLRObject
 
@@ -1180,6 +1786,57 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRBackupforGKE_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  Holds repeated DaysOfWeek values as a container.
+ */
+@interface GTLRBackupforGKE_DayOfWeekList : GTLRObject
+
+/** Optional. A list of days of week. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *daysOfWeek;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1200,6 +1857,49 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  * /keyRings/ * /cryptoKeys/ *`
  */
 @property(nonatomic, copy, nullable) NSString *gcpKmsEncryptionKey;
+
+@end
+
+
+/**
+ *  Defines a time window during which no backup should happen. All time and
+ *  date are in UTC.
+ */
+@interface GTLRBackupforGKE_ExclusionWindow : GTLRObject
+
+/**
+ *  The exclusion window occurs every day if set to "True". Specifying this
+ *  field to "False" is an error.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *daily;
+
+/** The exclusion window occurs on these days of each week in UTC. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_DayOfWeekList *daysOfWeek;
+
+/**
+ *  Required. Specifies duration of the window. Duration must be >= 5 minutes
+ *  and < (target RPO - 20 minutes). Additional restrictions based on the
+ *  recurrence type to allow some time for backup to happen: -
+ *  single_occurrence_date: no restriction, but UI may warn about this when
+ *  duration >= target RPO - daily window: duration < 24 hours - weekly window:
+ *  - days of week includes all seven days of a week: duration < 24 hours - all
+ *  other weekly window: duration < 168 hours (i.e., 24 * 7 hours)
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  No recurrence. The exclusion window occurs only once and on this date in
+ *  UTC.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_Date *singleOccurrenceDate;
+
+/**
+ *  Required. Specifies the start time of the window using time of the day in
+ *  UTC.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_TimeOfDay *startTime;
 
 @end
 
@@ -1249,6 +1949,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Defines the filter for `Restore`. This filter can be used to further refine
+ *  the resource selection of the `Restore` beyond the coarse-grained scope
+ *  defined in the `RestorePlan`. `exclusion_filters` take precedence over
+ *  `inclusion_filters`. If a resource matches both `inclusion_filters` and
+ *  `exclusion_filters`, it will not be restored.
+ */
+@interface GTLRBackupforGKE_Filter : GTLRObject
+
+/**
+ *  Optional. Excludes resources from restoration. If specified, a resource will
+ *  not be restored if it matches any `ResourceSelector` of the
+ *  `exclusion_filters`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_ResourceSelector *> *exclusionFilters;
+
+/**
+ *  Optional. Selects resources for restoration. If specified, only resources
+ *  which match `inclusion_filters` will be selected for restoration. A resource
+ *  will be selected if it matches any `ResourceSelector` of the
+ *  `inclusion_filters`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_ResourceSelector *> *inclusionFilters;
+
+@end
+
+
+/**
+ *  Response message for GetBackupIndexDownloadUrl.
+ */
+@interface GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse : GTLRObject
+
+/** Required. The signed URL for downloading the backup index. */
+@property(nonatomic, copy, nullable) NSString *signedUrl;
 
 @end
 
@@ -1419,7 +2157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  Optional. API group string of a Kubernetes resource, e.g.
  *  "apiextensions.k8s.io", "storage.k8s.io", etc. Note: use empty string for
- *  core API group
+ *  core API group.
  */
 @property(nonatomic, copy, nullable) NSString *resourceGroup;
 
@@ -1429,6 +2167,102 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  "StorageClass", etc.
  */
 @property(nonatomic, copy, nullable) NSString *resourceKind;
+
+@end
+
+
+/**
+ *  Defines a dependency between two group kinds.
+ */
+@interface GTLRBackupforGKE_GroupKindDependency : GTLRObject
+
+/**
+ *  Required. The requiring group kind requires that the other group kind be
+ *  restored first.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_GroupKind *requiring;
+
+/**
+ *  Required. The satisfying group kind must be restored first in order to
+ *  satisfy the dependency.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_GroupKind *satisfying;
+
+@end
+
+
+/**
+ *  A single Kubernetes label-value pair.
+ */
+@interface GTLRBackupforGKE_Label : GTLRObject
+
+/** Optional. The key/name of the label. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Optional. The value of the label. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Response message for ListBackupChannels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backupChannels" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRBackupforGKE_ListBackupChannelsResponse : GTLRCollectionObject
+
+/**
+ *  The list of BackupChannels matching the given criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_BackupChannel *> *backupChannels;
+
+/**
+ *  A token which may be sent as page_token in a subsequent `ListBackupChannels`
+ *  call to retrieve the next page of results. If this field is omitted or
+ *  empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListBackupPlanBindings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backupPlanBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupforGKE_ListBackupPlanBindingsResponse : GTLRCollectionObject
+
+/**
+ *  The list of BackupPlanBindings matching the given criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_BackupPlanBinding *> *backupPlanBindings;
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListBackupPlanBindingss` call to retrieve the next page of results. If this
+ *  field is omitted or empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1489,6 +2323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -1512,6 +2349,68 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /** The standard List next-page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListRestoreChannels.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "restoreChannels" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRBackupforGKE_ListRestoreChannelsResponse : GTLRCollectionObject
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListRestoreChannels` call to retrieve the next page of results. If this
+ *  field is omitted or empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RestoreChannels matching the given criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_RestoreChannel *> *restoreChannels;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListRestorePlanBindings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "restorePlanBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupforGKE_ListRestorePlanBindingsResponse : GTLRCollectionObject
+
+/**
+ *  A token which may be sent as page_token in a subsequent
+ *  `ListRestorePlanBindings` call to retrieve the next page of results. If this
+ *  field is omitted or empty, then there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RestorePlanBindings matching the given criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_RestorePlanBinding *> *restorePlanBindings;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1725,11 +2624,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  A list of Kubernetes Namespaces
+ *  A list of Kubernetes Namespaces.
  */
 @interface GTLRBackupforGKE_Namespaces : GTLRObject
 
-/** Optional. A list of Kubernetes Namespaces */
+/** Optional. A list of Kubernetes Namespaces. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaces;
 
 @end
@@ -1752,8 +2651,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1901,8 +2800,80 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  A list of Kubernetes labels.
+ */
+@interface GTLRBackupforGKE_ResourceLabels : GTLRObject
+
+/** Optional. A list of Kubernetes label-value pairs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_Label *> *resourceLabels;
+
+@end
+
+
+/**
+ *  Defines a selector to identify a single or a group of resources. Conditions
+ *  in the selector are optional, but at least one field should be set to a
+ *  non-empty value. If a condition is not specified, no restrictions will be
+ *  applied on that dimension. If more than one condition is specified, a
+ *  resource will be selected if and only if all conditions are met.
+ */
+@interface GTLRBackupforGKE_ResourceSelector : GTLRObject
+
+/**
+ *  Optional. Selects resources using their Kubernetes GroupKinds. If specified,
+ *  only resources of provided GroupKind will be selected.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_GroupKind *groupKind;
+
+/**
+ *  Optional. Selects resources using Kubernetes
+ *  [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+ *  If specified, a resource will be selected if and only if the resource has
+ *  all of the provided labels and all the label values match.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_ResourceSelector_Labels *labels;
+
+/**
+ *  Optional. Selects resources using their resource names. If specified, only
+ *  resources with the provided name will be selected.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Selects resources using their namespaces. This only applies to
+ *  namespace scoped resources and cannot be used for selecting cluster scoped
+ *  resources. If specified, only resources in the provided namespace will be
+ *  selected. If not specified, the filter will apply to both cluster scoped and
+ *  namespace scoped resources (e.g. name or label). The
+ *  [Namespace](https://pkg.go.dev/k8s.io/api/core/v1#Namespace) resource itself
+ *  will be restored if and only if any resources within the namespace are
+ *  restored.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+@end
+
+
+/**
+ *  Optional. Selects resources using Kubernetes
+ *  [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+ *  If specified, a resource will be selected if and only if the resource has
+ *  all of the provided labels and all the label values match.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupforGKE_ResourceSelector_Labels : GTLRObject
+@end
+
+
+/**
  *  Represents both a request to Restore some portion of a Backup into a target
- *  GKE cluster and a record of the restore operation itself. Next id: 20
+ *  GKE cluster and a record of the restore operation itself.
  */
 @interface GTLRBackupforGKE_Restore : GTLRObject
 
@@ -1928,7 +2899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  User specified descriptive string for this Restore.
+ *  Optional. User specified descriptive string for this Restore.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1945,6 +2916,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  version of the resource.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Immutable. Filters resources for `Restore`. If not specified, the
+ *  scope of the restore will remain the same as defined in the `RestorePlan`.
+ *  If this is specified and no resources are matched by the `inclusion_filters`
+ *  or everything is excluded by the `exclusion_filters`, nothing will be
+ *  restored. This filter can only be specified if the value of
+ *  namespaced_resource_restore_mode is set to `MERGE_SKIP_ON_CONFLICT`,
+ *  `MERGE_REPLACE_VOLUME_ON_CONFLICT` or `MERGE_REPLACE_ON_CONFLICT`.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_Filter *filter;
 
 /** A set of custom labels supplied by user. */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_Restore_Labels *labels;
@@ -2003,14 +2985,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *    @arg @c kGTLRBackupforGKE_Restore_State_Succeeded The restore operation
  *        has completed successfully. Restored workloads may not yet be
  *        operational. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBackupforGKE_Restore_State_Validating The Kubernetes
+ *        resources created by this Restore are being validated. (Value:
+ *        "VALIDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Output only. Human-readable description of why the Restore is in its current
- *  state.
+ *  state. This field is only meant for human readability and should not be used
+ *  programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
+
+/**
+ *  Output only. Information about the troubleshooting steps which will provide
+ *  debugging information to the end users.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_TroubleshootingInfo *troubleshootingInfo;
 
 /**
  *  Output only. Server generated global unique identifier of
@@ -2020,6 +3012,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /** Output only. The timestamp when this Restore resource was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. Immutable. Overrides the volume data restore policies selected in
+ *  the Restore Config for override-scoped resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_VolumeDataRestorePolicyOverride *> *volumeDataRestorePolicyOverrides;
 
 /**
  *  Output only. Number of volumes restored during the restore execution.
@@ -2044,7 +3042,82 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Configuration of a restore. Next id: 14
+ *  A RestoreChannel imposes constraints on where backups can be restored. The
+ *  RestoreChannel should be in the same project and region as the backups. The
+ *  backups can only be restored in the `destination_project`.
+ */
+@interface GTLRBackupforGKE_RestoreChannel : GTLRObject
+
+/** Output only. The timestamp when this RestoreChannel was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User specified descriptive string for this RestoreChannel.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The project into which the backups will be restored.
+ *  The format is `projects/{projectId}` or `projects/{projectNumber}`.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProject;
+
+/**
+ *  Output only. The project_id where backups will be restored. Example Project
+ *  ID: "my-project-id". This will be an OUTPUT_ONLY field to return the
+ *  project_id of the destination project.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProjectId;
+
+/**
+ *  Output only. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of a RestoreChannel from overwriting each
+ *  other. It is strongly suggested that systems make use of the 'etag' in the
+ *  read-modify-write cycle to perform RestoreChannel updates in order to avoid
+ *  race conditions: An `etag` is returned in the response to
+ *  `GetRestoreChannel`, and systems are expected to put that etag in the
+ *  request to `UpdateRestoreChannel` or `DeleteRestoreChannel` to ensure that
+ *  their change will be applied to the same version of the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. A set of custom labels supplied by user. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_RestoreChannel_Labels *labels;
+
+/**
+ *  Identifier. The fully qualified name of the RestoreChannel. `projects/ *
+ *  /locations/ * /restoreChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Server generated global unique identifier of
+ *  [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) format.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The timestamp when this RestoreChannel was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. A set of custom labels supplied by user.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupforGKE_RestoreChannel_Labels : GTLRObject
+@end
+
+
+/**
+ *  Configuration of a restore.
  */
 @interface GTLRBackupforGKE_RestoreConfig : GTLRObject
 
@@ -2114,6 +3187,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        conflict occurs during the restore process itself (e.g., because an
  *        out of band process creates conflicting resources), a conflict will be
  *        reported. (Value: "FAIL_ON_CONFLICT")
+ *    @arg @c kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeReplaceOnConflict
+ *        This mode merges the backup and the target cluster and replaces the
+ *        conflicting resources with the ones in the backup. If a single
+ *        resource to restore exists in the cluster before restoration, the
+ *        resource will be replaced with the one from the backup. To replace an
+ *        existing resource, the first attempt is to update the resource to
+ *        match the one from the backup; if the update fails, the second attempt
+ *        is to delete the resource and restore it from the backup. Note that
+ *        this mode could cause data loss as it replaces the existing resources
+ *        in the target cluster, and the original PV can be retained or deleted
+ *        depending on its reclaim policy. (Value: "MERGE_REPLACE_ON_CONFLICT")
+ *    @arg @c kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeReplaceVolumeOnConflict
+ *        This mode merges the backup and the target cluster and skips the
+ *        conflicting resources except volume data. If a PVC to restore already
+ *        exists, this mode will restore/reconnect the volume without
+ *        overwriting the PVC. It is similar to MERGE_SKIP_ON_CONFLICT except
+ *        that it will apply the volume data policy for the conflicting PVCs: -
+ *        RESTORE_VOLUME_DATA_FROM_BACKUP: restore data only and respect the
+ *        reclaim policy of the original PV; - REUSE_VOLUME_HANDLE_FROM_BACKUP:
+ *        reconnect and respect the reclaim policy of the original PV; -
+ *        NO_VOLUME_DATA_RESTORATION: new provision and respect the reclaim
+ *        policy of the original PV. Note that this mode could cause data loss
+ *        as the original PV can be retained or deleted depending on its reclaim
+ *        policy. (Value: "MERGE_REPLACE_VOLUME_ON_CONFLICT")
+ *    @arg @c kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_MergeSkipOnConflict
+ *        This mode merges the backup and the target cluster and skips the
+ *        conflicting resources. If a single resource to restore exists in the
+ *        cluster before restoration, the resource will be skipped, otherwise it
+ *        will be restored. (Value: "MERGE_SKIP_ON_CONFLICT")
  *    @arg @c kGTLRBackupforGKE_RestoreConfig_NamespacedResourceRestoreMode_NamespacedResourceRestoreModeUnspecified
  *        Unspecified (invalid). (Value:
  *        "NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED")
@@ -2127,6 +3229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *noNamespaces;
+
+/** Optional. RestoreOrder contains custom ordering to use on a Restore. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_RestoreOrder *restoreOrder;
 
 /**
  *  A list of selected ProtectedApplications to restore. The listed
@@ -2186,12 +3291,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  */
 @property(nonatomic, copy, nullable) NSString *volumeDataRestorePolicy;
 
+/**
+ *  Optional. A table that binds volumes by their scope to a restore policy.
+ *  Bindings must have a unique scope. Any volumes not scoped in the bindings
+ *  are subject to the policy defined in volume_data_restore_policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_VolumeDataRestorePolicyBinding *> *volumeDataRestorePolicyBindings;
+
+@end
+
+
+/**
+ *  Allows customers to specify dependencies between resources that Backup for
+ *  GKE can use to compute a resasonable restore order.
+ */
+@interface GTLRBackupforGKE_RestoreOrder : GTLRObject
+
+/**
+ *  Optional. Contains a list of group kind dependency pairs provided by the
+ *  customer, that is used by Backup for GKE to generate a group kind restore
+ *  order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_GroupKindDependency *> *groupKindDependencies;
+
 @end
 
 
 /**
  *  The configuration of a potential series of Restore operations to be
- *  performed against Backups belong to a particular BackupPlan. Next id: 13
+ *  performed against Backups belong to a particular BackupPlan.
  */
 @interface GTLRBackupforGKE_RestorePlan : GTLRObject
 
@@ -2241,6 +3369,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. The fully qualified name of the RestoreChannel to be used to
+ *  create a RestorePlan. This field is set only if the `backup_plan` is in a
+ *  different project than the RestorePlan. Format: `projects/ * /locations/ *
+ *  /restoreChannels/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *restoreChannel;
+
 /** Required. Configuration of Restores created via this RestorePlan. */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_RestoreConfig *restoreConfig;
 
@@ -2264,7 +3400,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. Human-readable description of why RestorePlan is in the current
- *  `state`
+ *  `state`. This field is only meant for human readability and should not be
+ *  used programmatically as this field is not guaranteed to be consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateReason;
 
@@ -2291,6 +3428,61 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        fetch them all at once.
  */
 @interface GTLRBackupforGKE_RestorePlan_Labels : GTLRObject
+@end
+
+
+/**
+ *  A RestorePlanBinding binds a RestorePlan with a RestoreChannel. This
+ *  resource is created automatically when a RestorePlan is created using a
+ *  RestoreChannel. This also serves as a holder for cross-project fields that
+ *  need to be displayed in the current project.
+ */
+@interface GTLRBackupforGKE_RestorePlanBinding : GTLRObject
+
+/**
+ *  Output only. The fully qualified name of the BackupPlan bound to the
+ *  specified RestorePlan. `projects/ * /locations/ *
+ *  /backukpPlans/{backup_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlan;
+
+/** Output only. The timestamp when this binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. `etag` is used for optimistic concurrency control as a way to
+ *  help prevent simultaneous updates of a RestorePlanBinding from overwriting
+ *  each other. It is strongly suggested that systems make use of the 'etag' in
+ *  the read-modify-write cycle to perform RestorePlanBinding updates in order
+ *  to avoid race conditions: An `etag` is returned in the response to
+ *  `GetRestorePlanBinding`, and systems are expected to put that etag in the
+ *  request to `UpdateRestorePlanBinding` or `DeleteRestorePlanBinding` to
+ *  ensure that their change will be applied to the same version of the
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The fully qualified name of the RestorePlanBinding. `projects/ *
+ *  /locations/ * /restoreChannels/ * /restorePlanBindings/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The fully qualified name of the RestorePlan bound to this
+ *  RestoreChannel. `projects/ * /locations/ * /restorePlans/{restore_plan}`
+ */
+@property(nonatomic, copy, nullable) NSString *restorePlan;
+
+/**
+ *  Output only. Server generated global unique identifier of
+ *  [UUID4](https://en.wikipedia.org/wiki/Universally_unique_identifier)
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The timestamp when this binding was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -2342,6 +3534,69 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  RetentionPolicyDetails defines a Backup retention policy for a BackupPlan.
+ */
+@interface GTLRBackupforGKE_RetentionPolicyDetails : GTLRObject
+
+/**
+ *  Optional. Minimum age for Backups created via this BackupPlan (in days).
+ *  This field MUST be an integer value between 0-90 (inclusive). A Backup
+ *  created under this BackupPlan will NOT be deletable until it reaches
+ *  Backup's (create_time + backup_delete_lock_days). Updating this field of a
+ *  BackupPlan does NOT affect existing Backups under it. Backups created AFTER
+ *  a successful update will inherit the new value. Default: 0 (no delete
+ *  blocking)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupDeleteLockDays;
+
+/**
+ *  Optional. The default maximum age of a Backup created via this BackupPlan.
+ *  This field MUST be an integer value >= 0 and <= 365. If specified, a Backup
+ *  created under this BackupPlan will be automatically deleted after its age
+ *  reaches (create_time + backup_retain_days). If not specified, Backups
+ *  created under this BackupPlan will NOT be subject to automatic deletion.
+ *  Default: 0 (no automatic deletion)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupRetainDays;
+
+@end
+
+
+/**
+ *  Defines RPO scheduling configuration for automatically creating Backups via
+ *  this BackupPlan.
+ */
+@interface GTLRBackupforGKE_RpoConfig : GTLRObject
+
+/**
+ *  Optional. User specified time windows during which backup can NOT happen for
+ *  this BackupPlan - backups should start and finish outside of any given
+ *  exclusion window. Note: backup jobs will be scheduled to start and finish
+ *  outside the duration of the window as much as possible, but running jobs
+ *  will not get canceled when it runs into the window. All the time and date
+ *  values in exclusion_windows entry in the API are in UTC. We only allow <=1
+ *  recurrence (daily or weekly) exclusion window for a BackupPlan while no
+ *  restriction on number of single occurrence windows.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_ExclusionWindow *> *exclusionWindows;
+
+/**
+ *  Required. Defines the target RPO for the BackupPlan in minutes, which means
+ *  the target maximum data loss in time that is acceptable for this BackupPlan.
+ *  This must be at least 60, i.e., 1 hour, and at most 86400, i.e., 60 days.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetRpoMinutes;
+
+@end
+
+
+/**
  *  Defines scheduling parameters for automatically creating Backups via this
  *  BackupPlan.
  */
@@ -2358,12 +3613,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *cronSchedule;
 
 /**
+ *  Output only. Start time of next scheduled backup under this BackupPlan by
+ *  either cron_schedule or rpo config.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextScheduledBackupTime;
+
+/**
  *  Optional. This flag denotes whether automatic Backup creation is paused for
  *  this BackupPlan. Default: False
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *paused;
+
+/**
+ *  Optional. Defines the RPO schedule configuration for this BackupPlan. This
+ *  is mutually exclusive with the cron_schedule field since at most one
+ *  schedule can be defined for a BackupPLan. If this is defined, then
+ *  backup_retain_days must also be defined. Default (empty): no automatic
+ *  backup creation will occur.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_RpoConfig *rpoConfig;
 
 @end
 
@@ -2480,6 +3750,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRBackupforGKE_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
  *  A transformation rule to be applied against Kubernetes resources as they are
  *  selected for restoration from a Backup. A rule contains both filtering logic
  *  (which resources are subject to transform) and transformation logic.
@@ -2573,9 +3887,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  Stores information about troubleshooting doc for debugging a particular
+ *  state of an operation (eg - backup/restore). This will be used by the end
+ *  user to debug their operation failure scenario easily.
+ */
+@interface GTLRBackupforGKE_TroubleshootingInfo : GTLRObject
+
+/**
+ *  Output only. Unique code for each backup/restore operation failure message
+ *  which helps user identify the failure.
+ */
+@property(nonatomic, copy, nullable) NSString *stateReasonCode;
+
+/**
+ *  Output only. URL for the troubleshooting doc which will help the user fix
+ *  the failing backup/restore operation.
+ */
+@property(nonatomic, copy, nullable) NSString *stateReasonUri;
+
+@end
+
+
+/**
  *  Represents the backup of a specific persistent volume as a component of a
  *  Backup - both the record of the operation and a pointer to the underlying
- *  storage-specific artifacts. Next id: 14
+ *  storage-specific artifacts.
  */
 @interface GTLRBackupforGKE_VolumeBackup : GTLRObject
 
@@ -2625,6 +3961,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. [Output Only] Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. [Output Only] Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Output only. A reference to the source Kubernetes PVC from which this
  *  VolumeBackup was created.
  */
@@ -2634,6 +3984,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  Output only. The current state of this VolumeBackup.
  *
  *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_VolumeBackup_State_CleanedUp The underlying
+ *        artifacts of a volume backup (eg: persistent disk snapshots) are
+ *        deleted. (Value: "CLEANED_UP")
  *    @arg @c kGTLRBackupforGKE_VolumeBackup_State_Creating A volume for the
  *        backup was identified and backup process is about to start. (Value:
  *        "CREATING")
@@ -2660,7 +4013,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Output only. A human readable message explaining why the VolumeBackup is in
- *  its current state.
+ *  its current state. This field is only meant for human consumption and should
+ *  not be used programmatically as this field is not guaranteed to be
+ *  consistent.
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
 
@@ -2696,8 +4051,90 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
- *  Represents the operation of restoring a volume from a VolumeBackup. Next id:
- *  13
+ *  Binds resources in the scope to the given VolumeDataRestorePolicy.
+ */
+@interface GTLRBackupforGKE_VolumeDataRestorePolicyBinding : GTLRObject
+
+/**
+ *  Required. The VolumeDataRestorePolicy to apply when restoring volumes in
+ *  scope.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_NoVolumeDataRestoration
+ *        For each PVC to be restored, create PVC without any particular action
+ *        to restore data. In this case, the normal Kubernetes provisioning
+ *        logic would kick in, and this would likely result in either
+ *        dynamically provisioning blank PVs or binding to statically
+ *        provisioned PVs. (Value: "NO_VOLUME_DATA_RESTORATION")
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_RestoreVolumeDataFromBackup
+ *        For each PVC to be restored, create a new underlying volume and PV
+ *        from the corresponding VolumeBackup contained within the Backup.
+ *        (Value: "RESTORE_VOLUME_DATA_FROM_BACKUP")
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_ReuseVolumeHandleFromBackup
+ *        For each PVC to be restored, attempt to reuse the original PV
+ *        contained in the Backup (with its original underlying volume). This
+ *        option is likely only usable when restoring a workload to its original
+ *        cluster. (Value: "REUSE_VOLUME_HANDLE_FROM_BACKUP")
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_Policy_VolumeDataRestorePolicyUnspecified
+ *        Unspecified (illegal). (Value:
+ *        "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  The volume type, as determined by the PVC's bound PV, to apply the policy
+ *  to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_VolumeType_GcePersistentDisk
+ *        Compute Engine Persistent Disk volume (Value: "GCE_PERSISTENT_DISK")
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyBinding_VolumeType_VolumeTypeUnspecified
+ *        Default (Value: "VOLUME_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *volumeType;
+
+@end
+
+
+/**
+ *  Defines an override to apply a VolumeDataRestorePolicy for scoped resources.
+ */
+@interface GTLRBackupforGKE_VolumeDataRestorePolicyOverride : GTLRObject
+
+/**
+ *  Required. The VolumeDataRestorePolicy to apply when restoring volumes in
+ *  scope.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_NoVolumeDataRestoration
+ *        For each PVC to be restored, create PVC without any particular action
+ *        to restore data. In this case, the normal Kubernetes provisioning
+ *        logic would kick in, and this would likely result in either
+ *        dynamically provisioning blank PVs or binding to statically
+ *        provisioned PVs. (Value: "NO_VOLUME_DATA_RESTORATION")
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_RestoreVolumeDataFromBackup
+ *        For each PVC to be restored, create a new underlying volume and PV
+ *        from the corresponding VolumeBackup contained within the Backup.
+ *        (Value: "RESTORE_VOLUME_DATA_FROM_BACKUP")
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_ReuseVolumeHandleFromBackup
+ *        For each PVC to be restored, attempt to reuse the original PV
+ *        contained in the Backup (with its original underlying volume). This
+ *        option is likely only usable when restoring a workload to its original
+ *        cluster. (Value: "REUSE_VOLUME_HANDLE_FROM_BACKUP")
+ *    @arg @c kGTLRBackupforGKE_VolumeDataRestorePolicyOverride_Policy_VolumeDataRestorePolicyUnspecified
+ *        Unspecified (illegal). (Value:
+ *        "VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/** A list of PVCs to apply the policy override to. */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_NamespacedNames *selectedPvcs;
+
+@end
+
+
+/**
+ *  Represents the operation of restoring a volume from a VolumeBackup.
  */
 @interface GTLRBackupforGKE_VolumeRestore : GTLRObject
 

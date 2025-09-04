@@ -16,6 +16,44 @@
 
 @end
 
+@implementation GTLRPolicyAnalyzerQuery_FoldersLocationsActivityTypesActivitiesQuery
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/activities:query";
+  GTLRPolicyAnalyzerQuery_FoldersLocationsActivityTypesActivitiesQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPolicyAnalyzer_GoogleCloudPolicyanalyzerV1QueryActivityResponse class];
+  query.loggingName = @"policyanalyzer.folders.locations.activityTypes.activities.query";
+  return query;
+}
+
+@end
+
+@implementation GTLRPolicyAnalyzerQuery_OrganizationsLocationsActivityTypesActivitiesQuery
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/activities:query";
+  GTLRPolicyAnalyzerQuery_OrganizationsLocationsActivityTypesActivitiesQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPolicyAnalyzer_GoogleCloudPolicyanalyzerV1QueryActivityResponse class];
+  query.loggingName = @"policyanalyzer.organizations.locations.activityTypes.activities.query";
+  return query;
+}
+
+@end
+
 @implementation GTLRPolicyAnalyzerQuery_ProjectsLocationsActivityTypesActivitiesQuery
 
 @dynamic filter, pageSize, pageToken, parent;

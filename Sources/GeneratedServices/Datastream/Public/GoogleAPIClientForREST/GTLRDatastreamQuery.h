@@ -261,7 +261,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Optional. Update the connection profile without validating it. */
 @property(nonatomic, assign) BOOL force;
 
-/** Output only. The resource's name. */
+/** Output only. Identifier. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -303,7 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDatastream_ConnectionProfile to include in the
  *    query.
- *  @param name Output only. The resource's name.
+ *  @param name Output only. Identifier. The resource's name.
  *
  *  @return GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesPatch
  */
@@ -390,6 +390,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDatastreamQuery_ProjectsLocationsList : GTLRDatastreamQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -436,7 +442,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: datastream.projects.locations.operations.cancel
@@ -459,7 +465,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRDatastream_CancelOperationRequest to include in the
@@ -609,6 +615,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. When supplied with PSC Interface config, will get/create the
+ *  tenant project required for the customer to allow list and won't actually
+ *  create the private connection.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRDatastream_Operation.
@@ -1279,7 +1292,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Optional. Update the stream without validating it. */
 @property(nonatomic, assign) BOOL force;
 
-/** Output only. The stream's name. */
+/** Output only. Identifier. The stream's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1320,7 +1333,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Use this method to update the configuration of a stream.
  *
  *  @param object The @c GTLRDatastream_Stream to include in the query.
- *  @param name Output only. The stream's name.
+ *  @param name Output only. Identifier. The stream's name.
  *
  *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsPatch
  */
@@ -1331,7 +1344,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Use this method to start, resume or recover a stream with a non default CDC
- *  strategy. NOTE: This feature is currently experimental.
+ *  strategy.
  *
  *  Method: datastream.projects.locations.streams.run
  *
@@ -1350,7 +1363,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDatastream_Operation.
  *
  *  Use this method to start, resume or recover a stream with a non default CDC
- *  strategy. NOTE: This feature is currently experimental.
+ *  strategy.
  *
  *  @param object The @c GTLRDatastream_RunStreamRequest to include in the
  *    query.

@@ -45,7 +45,7 @@
 
 @implementation GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -129,7 +129,7 @@
 
 @implementation GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesPatch
 
-@dynamic name, updateMask;
+@dynamic allowMissing, name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_DataPolicy *)object
                            name:(NSString *)name {

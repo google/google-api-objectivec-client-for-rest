@@ -420,6 +420,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Evaluates a Kubernetes object versus a GKE platform policy. Returns
+ *  `NOT_FOUND` if the policy doesn't exist, `INVALID_ARGUMENT` if the policy or
+ *  request is malformed and `PERMISSION_DENIED` if the client does not have
+ *  sufficient permissions.
+ *
+ *  Method: binaryauthorization.projects.platforms.gke.policies.evaluate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsGkePoliciesEvaluate : GTLRBinaryAuthorizationQuery
+
+/**
+ *  Required. The name of the platform policy to evaluate in the format
+ *  `projects/ * /platforms/ * /policies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_EvaluateGkePolicyResponse.
+ *
+ *  Evaluates a Kubernetes object versus a GKE platform policy. Returns
+ *  `NOT_FOUND` if the policy doesn't exist, `INVALID_ARGUMENT` if the policy or
+ *  request is malformed and `PERMISSION_DENIED` if the client does not have
+ *  sufficient permissions.
+ *
+ *  @param object The @c GTLRBinaryAuthorization_EvaluateGkePolicyRequest to
+ *    include in the query.
+ *  @param name Required. The name of the platform policy to evaluate in the
+ *    format `projects/ * /platforms/ * /policies/ *`.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_ProjectsPlatformsGkePoliciesEvaluate
+ */
++ (instancetype)queryWithObject:(GTLRBinaryAuthorization_EvaluateGkePolicyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a platform policy, and returns a copy of it. Returns `NOT_FOUND` if
  *  the project or platform doesn't exist, `INVALID_ARGUMENT` if the request is
  *  malformed, `ALREADY_EXISTS` if the policy already exists, and
@@ -468,6 +507,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsPlatformsPoliciesDelete : GTLRBinaryAuthorizationQuery
+
+/**
+ *  Optional. Used to prevent deleting the policy when another request has
+ *  updated it since it was retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Required. The name of the platform policy to delete, in the format

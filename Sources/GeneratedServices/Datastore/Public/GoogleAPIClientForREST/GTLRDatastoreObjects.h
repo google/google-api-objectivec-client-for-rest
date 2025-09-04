@@ -27,8 +27,12 @@
 @class GTLRDatastore_Entity;
 @class GTLRDatastore_Entity_Properties;
 @class GTLRDatastore_EntityResult;
+@class GTLRDatastore_ExecutionStats;
+@class GTLRDatastore_ExecutionStats_DebugStats;
+@class GTLRDatastore_ExplainMetrics;
 @class GTLRDatastore_ExplainOptions;
 @class GTLRDatastore_Filter;
+@class GTLRDatastore_FindNearest;
 @class GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata;
 @class GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_Labels;
 @class GTLRDatastore_GoogleDatastoreAdminV1beta1EntityFilter;
@@ -56,10 +60,14 @@
 @class GTLRDatastore_MutationResult;
 @class GTLRDatastore_PartitionId;
 @class GTLRDatastore_PathElement;
+@class GTLRDatastore_PlanSummary;
+@class GTLRDatastore_PlanSummary_IndexesUsed_Item;
 @class GTLRDatastore_Projection;
 @class GTLRDatastore_PropertyFilter;
+@class GTLRDatastore_PropertyMask;
 @class GTLRDatastore_PropertyOrder;
 @class GTLRDatastore_PropertyReference;
+@class GTLRDatastore_PropertyTransform;
 @class GTLRDatastore_Query;
 @class GTLRDatastore_QueryResultBatch;
 @class GTLRDatastore_ReadOnly;
@@ -160,6 +168,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_OperatorUns
  *  Value: "OR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_CompositeFilter_Op_Or;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_FindNearest.distanceMeasure
+
+/**
+ *  COSINE distance compares vectors based on the angle between them, which
+ *  allows you to measure similarity that isn't based on the vectors magnitude.
+ *  We recommend using DOT_PRODUCT with unit normalized vectors instead of
+ *  COSINE distance, which is mathematically equivalent with better performance.
+ *  See [Cosine Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to
+ *  learn more about COSINE similarity and COSINE distance. The resulting COSINE
+ *  distance decreases the more similar two vectors are.
+ *
+ *  Value: "COSINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_FindNearest_DistanceMeasure_Cosine;
+/**
+ *  Should not be set.
+ *
+ *  Value: "DISTANCE_MEASURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified;
+/**
+ *  Similar to cosine but is affected by the magnitude of the vectors. See [Dot
+ *  Product](https://en.wikipedia.org/wiki/Dot_product) to learn more. The
+ *  resulting distance increases the more similar two vectors are.
+ *
+ *  Value: "DOT_PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_FindNearest_DistanceMeasure_DotProduct;
+/**
+ *  Measures the EUCLIDEAN distance between the vectors. See
+ *  [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn more.
+ *  The resulting distance decreases the more similar two vectors are.
+ *
+ *  Value: "EUCLIDEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_FindNearest_DistanceMeasure_Euclidean;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata.operationType
@@ -632,6 +678,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Redirect
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Pessimistic;
 
 // ----------------------------------------------------------------------------
+// GTLRDatastore_Mutation.conflictResolutionStrategy
+
+/**
+ *  The whole commit request fails.
+ *
+ *  Value: "FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_Mutation_ConflictResolutionStrategy_Fail;
+/**
+ *  The server entity is kept.
+ *
+ *  Value: "SERVER_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_Mutation_ConflictResolutionStrategy_ServerValue;
+/**
+ *  Unspecified. Defaults to `SERVER_VALUE`.
+ *
+ *  Value: "STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_Mutation_ConflictResolutionStrategy_StrategyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDatastore_PropertyFilter.op
 
 /**
@@ -729,6 +797,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_Descen
  *  Value: "DIRECTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyOrder_Direction_DirectionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_PropertyTransform.setToServerValue
+
+/**
+ *  The time at which the server processed the request, with millisecond
+ *  precision. If used on multiple properties (same or different entities) in a
+ *  transaction, all the properties will get the same server timestamp.
+ *
+ *  Value: "REQUEST_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyTransform_SetToServerValue_RequestTime;
+/**
+ *  Unspecified. This value must not be used.
+ *
+ *  Value: "SERVER_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyTransform_SetToServerValue_ServerValueUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_QueryResultBatch.entityResultType
@@ -1265,6 +1351,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
+ *  Execution statistics for the query.
+ */
+@interface GTLRDatastore_ExecutionStats : GTLRObject
+
+/**
+ *  Debugging statistics from the execution of the query. Note that the
+ *  debugging stats are subject to change as Firestore evolves. It could
+ *  include: { "indexes_entries_scanned": "1000", "documents_scanned": "20",
+ *  "billing_details" : { "documents_billable": "20", "index_entries_billable":
+ *  "1000", "min_query_cost": "0" } }
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_ExecutionStats_DebugStats *debugStats;
+
+/** Total time to execute the query in the backend. */
+@property(nonatomic, strong, nullable) GTLRDuration *executionDuration;
+
+/**
+ *  Total billable read operations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOperations;
+
+/**
+ *  Total number of results returned, including documents, projections,
+ *  aggregation results, keys.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultsReturned;
+
+@end
+
+
+/**
+ *  Debugging statistics from the execution of the query. Note that the
+ *  debugging stats are subject to change as Firestore evolves. It could
+ *  include: { "indexes_entries_scanned": "1000", "documents_scanned": "20",
+ *  "billing_details" : { "documents_billable": "20", "index_entries_billable":
+ *  "1000", "min_query_cost": "0" } }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDatastore_ExecutionStats_DebugStats : GTLRObject
+@end
+
+
+/**
+ *  Explain metrics for the query.
+ */
+@interface GTLRDatastore_ExplainMetrics : GTLRObject
+
+/**
+ *  Aggregated stats from the execution of the query. Only present when
+ *  ExplainOptions.analyze is set to true.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_ExecutionStats *executionStats;
+
+/** Planning phase information for the query. */
+@property(nonatomic, strong, nullable) GTLRDatastore_PlanSummary *planSummary;
+
+@end
+
+
+/**
  *  Explain options for the query.
  */
 @interface GTLRDatastore_ExplainOptions : GTLRObject
@@ -1292,6 +1446,83 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /** A filter on a property. */
 @property(nonatomic, strong, nullable) GTLRDatastore_PropertyFilter *propertyFilter;
+
+@end
+
+
+/**
+ *  Nearest Neighbors search config. The ordering provided by FindNearest
+ *  supersedes the order_by stage. If multiple documents have the same vector
+ *  distance, the returned document order is not guaranteed to be stable between
+ *  queries.
+ */
+@interface GTLRDatastore_FindNearest : GTLRObject
+
+/**
+ *  Required. The Distance Measure to use, required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_FindNearest_DistanceMeasure_Cosine COSINE distance
+ *        compares vectors based on the angle between them, which allows you to
+ *        measure similarity that isn't based on the vectors magnitude. We
+ *        recommend using DOT_PRODUCT with unit normalized vectors instead of
+ *        COSINE distance, which is mathematically equivalent with better
+ *        performance. See [Cosine
+ *        Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to learn
+ *        more about COSINE similarity and COSINE distance. The resulting COSINE
+ *        distance decreases the more similar two vectors are. (Value: "COSINE")
+ *    @arg @c kGTLRDatastore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified
+ *        Should not be set. (Value: "DISTANCE_MEASURE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_FindNearest_DistanceMeasure_DotProduct Similar to
+ *        cosine but is affected by the magnitude of the vectors. See [Dot
+ *        Product](https://en.wikipedia.org/wiki/Dot_product) to learn more. The
+ *        resulting distance increases the more similar two vectors are. (Value:
+ *        "DOT_PRODUCT")
+ *    @arg @c kGTLRDatastore_FindNearest_DistanceMeasure_Euclidean Measures the
+ *        EUCLIDEAN distance between the vectors. See
+ *        [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn
+ *        more. The resulting distance decreases the more similar two vectors
+ *        are. (Value: "EUCLIDEAN")
+ */
+@property(nonatomic, copy, nullable) NSString *distanceMeasure;
+
+/**
+ *  Optional. Optional name of the field to output the result of the vector
+ *  distance calculation. Must conform to entity property limitations.
+ */
+@property(nonatomic, copy, nullable) NSString *distanceResultProperty;
+
+/**
+ *  Optional. Option to specify a threshold for which no less similar documents
+ *  will be returned. The behavior of the specified `distance_measure` will
+ *  affect the meaning of the distance threshold. Since DOT_PRODUCT distances
+ *  increase when the vectors are more similar, the comparison is inverted. *
+ *  For EUCLIDEAN, COSINE: WHERE distance <= distance_threshold * For
+ *  DOT_PRODUCT: WHERE distance >= distance_threshold
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distanceThreshold;
+
+/**
+ *  Required. The number of nearest neighbors to return. Must be a positive
+ *  integer of no more than 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/**
+ *  Required. The query vector that we are searching on. Must be a vector of no
+ *  more than 2048 dimensions.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_Value *queryVector;
+
+/**
+ *  Required. An indexed vector property to search upon. Only documents which
+ *  contain vectors whose dimensionality match the query_vector can be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyReference *vectorProperty;
 
 @end
 
@@ -2076,7 +2307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails : GTLRObject
 
 /**
- *  Ths concurrency mode for this database.
+ *  The concurrency mode for this database.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified
@@ -2354,6 +2585,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /** Required. Keys of entities to look up. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
+/**
+ *  The properties to return. Defaults to returning all properties. If this
+ *  field is set and an entity has a property not referenced in the mask, it
+ *  will be absent from LookupResponse.found.entity.properties. The entity's key
+ *  is always returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyMask *propertyMask;
+
 /** The options for this lookup request. */
 @property(nonatomic, strong, nullable) GTLRDatastore_ReadOptions *readOptions;
 
@@ -2416,6 +2655,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *baseVersion;
 
 /**
+ *  The strategy to use when a conflict is detected. Defaults to `SERVER_VALUE`.
+ *  If this is set, then `conflict_detection_strategy` must also be set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_Mutation_ConflictResolutionStrategy_Fail The whole
+ *        commit request fails. (Value: "FAIL")
+ *    @arg @c kGTLRDatastore_Mutation_ConflictResolutionStrategy_ServerValue The
+ *        server entity is kept. (Value: "SERVER_VALUE")
+ *    @arg @c kGTLRDatastore_Mutation_ConflictResolutionStrategy_StrategyUnspecified
+ *        Unspecified. Defaults to `SERVER_VALUE`. (Value:
+ *        "STRATEGY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *conflictResolutionStrategy;
+
+/**
  *  The key of the entity to delete. The entity may or may not already exist.
  *  Must have a complete key path and must not be reserved/read-only.
  *
@@ -2428,6 +2682,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  final path element may be incomplete.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity *insert;
+
+/**
+ *  The properties to write in this mutation. None of the properties in the mask
+ *  may have a reserved name, except for `__key__`. This field is ignored for
+ *  `delete`. If the entity already exists, only properties referenced in the
+ *  mask are updated, others are left untouched. Properties referenced in the
+ *  mask but not in the entity are deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyMask *propertyMask;
+
+/**
+ *  Optional. The transforms to perform on the entity. This field can be set
+ *  only when the operation is `insert`, `update`, or `upsert`. If present, the
+ *  transforms are be applied to the entity regardless of the property mask, in
+ *  order, after the operation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_PropertyTransform *> *propertyTransforms;
 
 /**
  *  The entity to update. The entity must already exist. Must have a complete
@@ -2473,6 +2744,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The automatically allocated key. Set only when the mutation allocated a key.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Key *key;
+
+/**
+ *  The results of applying each PropertyTransform, in the same order of the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Value *> *transformResults;
 
 /**
  *  The update time of the entity on the server after processing the mutation.
@@ -2560,6 +2837,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
+ *  Planning phase information for the query.
+ */
+@interface GTLRDatastore_PlanSummary : GTLRObject
+
+/**
+ *  The indexes selected for the query. For example: [ {"query_scope":
+ *  "Collection", "properties": "(foo ASC, __name__ ASC)"}, {"query_scope":
+ *  "Collection", "properties": "(bar ASC, __name__ ASC)"} ]
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastore_PlanSummary_IndexesUsed_Item *> *indexesUsed;
+
+@end
+
+
+/**
+ *  GTLRDatastore_PlanSummary_IndexesUsed_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDatastore_PlanSummary_IndexesUsed_Item : GTLRObject
+@end
+
+
+/**
  *  A representation of a property in a projection.
  */
 @interface GTLRDatastore_Projection : GTLRObject
@@ -2627,6 +2931,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
+ *  The set of arbitrarily nested property paths used to restrict an operation
+ *  to only a subset of properties in an entity.
+ */
+@interface GTLRDatastore_PropertyMask : GTLRObject
+
+/**
+ *  The paths to the properties covered by this mask. A path is a list of
+ *  property names separated by dots (`.`), for example `foo.bar` means the
+ *  property `bar` inside the entity property `foo` inside the entity associated
+ *  with this path. If a property name contains a dot `.` or a backslash `\\`,
+ *  then that name must be escaped. A path must not be empty, and may not
+ *  reference a value inside an array value.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+@end
+
+
+/**
  *  The desired order for a specific property.
  */
 @interface GTLRDatastore_PropertyOrder : GTLRObject
@@ -2667,7 +2990,104 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  A query for entities.
+ *  A transformation of an entity property.
+ */
+@interface GTLRDatastore_PropertyTransform : GTLRObject
+
+/**
+ *  Appends the given elements in order if they are not already present in the
+ *  current property value. If the property is not an array, or if the property
+ *  does not yet exist, it is first set to the empty array. Equivalent numbers
+ *  of different types (e.g. 3L and 3.0) are considered equal when checking if a
+ *  value is missing. NaN is equal to NaN, and the null value is equal to the
+ *  null value. If the input contains multiple equivalent values, only the first
+ *  will be considered. The corresponding transform result will be the null
+ *  value.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_ArrayValue *appendMissingElements;
+
+/**
+ *  Adds the given value to the property's current value. This must be an
+ *  integer or a double value. If the property is not an integer or double, or
+ *  if the property does not yet exist, the transformation will set the property
+ *  to the given value. If either of the given value or the current property
+ *  value are doubles, both values will be interpreted as doubles. Double
+ *  arithmetic and representation of double values follows IEEE 754 semantics.
+ *  If there is positive/negative integer overflow, the property is resolved to
+ *  the largest magnitude positive/negative integer.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_Value *increment;
+
+/**
+ *  Sets the property to the maximum of its current value and the given value.
+ *  This must be an integer or a double value. If the property is not an integer
+ *  or double, or if the property does not yet exist, the transformation will
+ *  set the property to the given value. If a maximum operation is applied where
+ *  the property and the input value are of mixed types (that is - one is an
+ *  integer and one is a double) the property takes on the type of the larger
+ *  operand. If the operands are equivalent (e.g. 3 and 3.0), the property does
+ *  not change. 0, 0.0, and -0.0 are all zero. The maximum of a zero stored
+ *  value and zero input value is always the stored value. The maximum of any
+ *  numeric value x and NaN is NaN.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_Value *maximum;
+
+/**
+ *  Sets the property to the minimum of its current value and the given value.
+ *  This must be an integer or a double value. If the property is not an integer
+ *  or double, or if the property does not yet exist, the transformation will
+ *  set the property to the input value. If a minimum operation is applied where
+ *  the property and the input value are of mixed types (that is - one is an
+ *  integer and one is a double) the property takes on the type of the smaller
+ *  operand. If the operands are equivalent (e.g. 3 and 3.0), the property does
+ *  not change. 0, 0.0, and -0.0 are all zero. The minimum of a zero stored
+ *  value and zero input value is always the stored value. The minimum of any
+ *  numeric value x and NaN is NaN.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_Value *minimum;
+
+/**
+ *  Optional. The name of the property. Property paths (a list of property names
+ *  separated by dots (`.`)) may be used to refer to properties inside entity
+ *  values. For example `foo.bar` means the property `bar` inside the entity
+ *  property `foo`. If a property name contains a dot `.` or a backlslash `\\`,
+ *  then that name must be escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Removes all of the given elements from the array in the property. If the
+ *  property is not an array, or if the property does not yet exist, it is set
+ *  to the empty array. Equivalent numbers of different types (e.g. 3L and 3.0)
+ *  are considered equal when deciding whether an element should be removed. NaN
+ *  is equal to NaN, and the null value is equal to the null value. This will
+ *  remove all equivalent values if there are duplicates. The corresponding
+ *  transform result will be the null value.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_ArrayValue *removeAllFromArray;
+
+/**
+ *  Sets the property to the given server value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_PropertyTransform_SetToServerValue_RequestTime The
+ *        time at which the server processed the request, with millisecond
+ *        precision. If used on multiple properties (same or different entities)
+ *        in a transaction, all the properties will get the same server
+ *        timestamp. (Value: "REQUEST_TIME")
+ *    @arg @c kGTLRDatastore_PropertyTransform_SetToServerValue_ServerValueUnspecified
+ *        Unspecified. This value must not be used. (Value:
+ *        "SERVER_VALUE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *setToServerValue;
+
+@end
+
+
+/**
+ *  A query for entities. The query stages are executed in the following order:
+ *  1. kind 2. filter 3. projection 4. order + start_cursor + end_cursor 5.
+ *  offset 6. limit 7. find_nearest
  */
 @interface GTLRDatastore_Query : GTLRObject
 
@@ -2692,6 +3112,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /** The filter to apply. */
 @property(nonatomic, strong, nullable) GTLRDatastore_Filter *filter;
+
+/**
+ *  Optional. A potential Nearest Neighbors Search. Applies after all other
+ *  filters and ordering. Finds the closest vector embeddings to the given query
+ *  vector.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_FindNearest *findNearest;
 
 /**
  *  The kinds to query (if empty, returns entities of all kinds). Currently at
@@ -3013,6 +3440,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /** A batch of aggregation results. Always present. */
 @property(nonatomic, strong, nullable) GTLRDatastore_AggregationResultBatch *batch;
 
+/**
+ *  Query explain metrics. This is only present when the
+ *  RunAggregationQueryRequest.explain_options is provided, and it is sent only
+ *  once with the last response in the stream.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_ExplainMetrics *explainMetrics;
+
 /** The parsed form of the `GqlQuery` from the request, if it was set. */
 @property(nonatomic, strong, nullable) GTLRDatastore_AggregationQuery *query;
 
@@ -3056,6 +3490,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_PartitionId *partitionId;
 
+/**
+ *  The properties to return. This field must not be set for a projection query.
+ *  See LookupRequest.property_mask.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_PropertyMask *propertyMask;
+
 /** The query to run. */
 @property(nonatomic, strong, nullable) GTLRDatastore_Query *query;
 
@@ -3070,8 +3510,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_RunQueryResponse : GTLRObject
 
-/** A batch of query results (always present). */
+/**
+ *  A batch of query results. This is always present unless running a query
+ *  under explain-only mode: RunQueryRequest.explain_options was provided and
+ *  ExplainOptions.analyze was set to false.
+ */
 @property(nonatomic, strong, nullable) GTLRDatastore_QueryResultBatch *batch;
+
+/**
+ *  Query explain metrics. This is only present when the
+ *  RunQueryRequest.explain_options is provided, and it is sent only once with
+ *  the last response in the stream.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastore_ExplainMetrics *explainMetrics;
 
 /** The parsed form of the `GqlQuery` from the request, if it was set. */
 @property(nonatomic, strong, nullable) GTLRDatastore_Query *query;

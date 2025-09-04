@@ -17,6 +17,7 @@
 @class GTLRCloudDeploy_AdvanceRolloutOperation;
 @class GTLRCloudDeploy_AdvanceRolloutRule;
 @class GTLRCloudDeploy_AnthosCluster;
+@class GTLRCloudDeploy_AssociatedEntities;
 @class GTLRCloudDeploy_AuditConfig;
 @class GTLRCloudDeploy_AuditLogConfig;
 @class GTLRCloudDeploy_Automation;
@@ -52,6 +53,8 @@
 @class GTLRCloudDeploy_DeliveryPipeline;
 @class GTLRCloudDeploy_DeliveryPipeline_Annotations;
 @class GTLRCloudDeploy_DeliveryPipeline_Labels;
+@class GTLRCloudDeploy_DeliveryPipelineAttribute;
+@class GTLRCloudDeploy_DeliveryPipelineAttribute_Labels;
 @class GTLRCloudDeploy_DeployArtifact;
 @class GTLRCloudDeploy_DeployJob;
 @class GTLRCloudDeploy_DeployJobRun;
@@ -60,6 +63,10 @@
 @class GTLRCloudDeploy_DeployParameters;
 @class GTLRCloudDeploy_DeployParameters_MatchTargetLabels;
 @class GTLRCloudDeploy_DeployParameters_Values;
+@class GTLRCloudDeploy_DeployPolicy;
+@class GTLRCloudDeploy_DeployPolicy_Annotations;
+@class GTLRCloudDeploy_DeployPolicy_Labels;
+@class GTLRCloudDeploy_DeployPolicyResourceSelector;
 @class GTLRCloudDeploy_ExecutionConfig;
 @class GTLRCloudDeploy_Expr;
 @class GTLRCloudDeploy_GatewayServiceMesh;
@@ -72,6 +79,7 @@
 @class GTLRCloudDeploy_Location_Metadata;
 @class GTLRCloudDeploy_Metadata;
 @class GTLRCloudDeploy_MultiTarget;
+@class GTLRCloudDeploy_OneTimeWindow;
 @class GTLRCloudDeploy_Operation;
 @class GTLRCloudDeploy_Operation_Metadata;
 @class GTLRCloudDeploy_Operation_Response;
@@ -81,6 +89,9 @@
 @class GTLRCloudDeploy_PipelineCondition;
 @class GTLRCloudDeploy_PipelineReadyCondition;
 @class GTLRCloudDeploy_Policy;
+@class GTLRCloudDeploy_PolicyRule;
+@class GTLRCloudDeploy_PolicyViolation;
+@class GTLRCloudDeploy_PolicyViolationDetails;
 @class GTLRCloudDeploy_Postdeploy;
 @class GTLRCloudDeploy_PostdeployJob;
 @class GTLRCloudDeploy_PostdeployJobRun;
@@ -99,8 +110,8 @@
 @class GTLRCloudDeploy_ReleaseCondition;
 @class GTLRCloudDeploy_ReleaseReadyCondition;
 @class GTLRCloudDeploy_RenderMetadata;
-@class GTLRCloudDeploy_RepairMode;
 @class GTLRCloudDeploy_RepairPhase;
+@class GTLRCloudDeploy_RepairPhaseConfig;
 @class GTLRCloudDeploy_RepairRolloutOperation;
 @class GTLRCloudDeploy_RepairRolloutRule;
 @class GTLRCloudDeploy_Retry;
@@ -112,9 +123,12 @@
 @class GTLRCloudDeploy_Rollout;
 @class GTLRCloudDeploy_Rollout_Annotations;
 @class GTLRCloudDeploy_Rollout_Labels;
+@class GTLRCloudDeploy_RolloutRestriction;
+@class GTLRCloudDeploy_RouteDestinations;
 @class GTLRCloudDeploy_RuntimeConfig;
 @class GTLRCloudDeploy_SerialPipeline;
 @class GTLRCloudDeploy_ServiceNetworking;
+@class GTLRCloudDeploy_SkaffoldGCBRepoSource;
 @class GTLRCloudDeploy_SkaffoldGCSSource;
 @class GTLRCloudDeploy_SkaffoldGitSource;
 @class GTLRCloudDeploy_SkaffoldModules;
@@ -127,6 +141,7 @@
 @class GTLRCloudDeploy_Strategy;
 @class GTLRCloudDeploy_Target;
 @class GTLRCloudDeploy_Target_Annotations;
+@class GTLRCloudDeploy_Target_AssociatedEntities;
 @class GTLRCloudDeploy_Target_DeployParameters;
 @class GTLRCloudDeploy_Target_Labels;
 @class GTLRCloudDeploy_TargetArtifact;
@@ -134,10 +149,17 @@
 @class GTLRCloudDeploy_TargetAttribute;
 @class GTLRCloudDeploy_TargetAttribute_Labels;
 @class GTLRCloudDeploy_TargetRender;
+@class GTLRCloudDeploy_Targets;
 @class GTLRCloudDeploy_TargetsPresentCondition;
 @class GTLRCloudDeploy_TargetsTypeCondition;
+@class GTLRCloudDeploy_TimedPromoteReleaseCondition;
+@class GTLRCloudDeploy_TimedPromoteReleaseOperation;
+@class GTLRCloudDeploy_TimedPromoteReleaseRule;
+@class GTLRCloudDeploy_TimeOfDay;
+@class GTLRCloudDeploy_TimeWindows;
 @class GTLRCloudDeploy_VerifyJob;
 @class GTLRCloudDeploy_VerifyJobRun;
+@class GTLRCloudDeploy_WeeklyWindow;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -180,6 +202,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTy
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_AutomationEvent.type
 
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeDeployPolicyEvaluation;
 /**
  *  A process aborted.
  *
@@ -233,6 +261,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeUns
 // GTLRCloudDeploy_AutomationRun.state
 
 /**
+ *  The `AutomationRun` was aborted.
+ *
+ *  Value: "ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRun_State_Aborted;
+/**
  *  The `AutomationRun` was cancelled.
  *
  *  Value: "CANCELLED"
@@ -272,6 +306,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRun_State_Succeede
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_AutomationRunEvent.type
 
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeDeployPolicyEvaluation;
 /**
  *  A process aborted.
  *
@@ -322,8 +362,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_Type
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDeploy_CustomTargetTypeNotificationEvent.type
+
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeDeployPolicyEvaluation;
+/**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeProcessAborted;
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Deprecated: This field is never used. Use release_render log type instead.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
+/**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceDeleted;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRolloutUpdate;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
 
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeDeployPolicyEvaluation;
 /**
  *  A process aborted.
  *
@@ -392,7 +496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_Cl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The deploy job run did not complete within the alloted time.
+ *  The deploy job run did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -422,6 +526,133 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_Fa
  *  Value: "MISSING_RESOURCES_FOR_CANARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_MissingResourcesForCanary;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_DeployPolicyEvaluationEvent.invoker
+
+/**
+ *  Automated action by Cloud Deploy.
+ *
+ *  Value: "DEPLOY_AUTOMATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_DeployAutomation;
+/**
+ *  Unspecified.
+ *
+ *  Value: "INVOKER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_InvokerUnspecified;
+/**
+ *  The action is user-driven. For example, creating a rollout manually via a
+ *  gcloud create command.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_User;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_DeployPolicyEvaluationEvent.overrides
+
+/**
+ *  The policy was overridden.
+ *
+ *  Value: "POLICY_OVERRIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Overrides_PolicyOverridden;
+/**
+ *  The policy was suspended.
+ *
+ *  Value: "POLICY_SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Overrides_PolicySuspended;
+/**
+ *  This should never happen.
+ *
+ *  Value: "POLICY_VERDICT_OVERRIDE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Overrides_PolicyVerdictOverrideUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_DeployPolicyEvaluationEvent.verdict
+
+/**
+ *  Allowed by policy. This enum value is not currently used but may be used in
+ *  the future. Currently logs are only generated when a request is denied by
+ *  policy.
+ *
+ *  Value: "ALLOWED_BY_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_AllowedByPolicy;
+/**
+ *  Denied by policy.
+ *
+ *  Value: "DENIED_BY_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_DeniedByPolicy;
+/**
+ *  This should never happen.
+ *
+ *  Value: "POLICY_VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_PolicyVerdictUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_DeployPolicyNotificationEvent.type
+
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeDeployPolicyEvaluation;
+/**
+ *  A process aborted.
+ *
+ *  Value: "TYPE_PROCESS_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeProcessAborted;
+/**
+ *  A Pub/Sub notification failed to be sent.
+ *
+ *  Value: "TYPE_PUBSUB_NOTIFICATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypePubsubNotificationFailure;
+/**
+ *  Deprecated: This field is never used. Use release_render log type instead.
+ *
+ *  Value: "TYPE_RENDER_STATUES_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRenderStatuesChange GTLR_DEPRECATED;
+/**
+ *  Resource deleted.
+ *
+ *  Value: "TYPE_RESOURCE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceDeleted;
+/**
+ *  Resource state changed.
+ *
+ *  Value: "TYPE_RESOURCE_STATE_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceStateChange;
+/**
+ *  Restriction check failed.
+ *
+ *  Value: "TYPE_RESTRICTION_VIOLATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRestrictionViolated;
+/**
+ *  Rollout updated.
+ *
+ *  Value: "TYPE_ROLLOUT_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRolloutUpdate;
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_ExecutionConfig.usages
@@ -565,6 +796,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRun_State_Terminating;
 // GTLRCloudDeploy_JobRunNotificationEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -678,7 +915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCaus
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PostdeployJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The postdeploy job run did not complete within the alloted time.
+ *  The postdeploy job run did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -716,7 +953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_PredeployJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The predeploy job run did not complete within the alloted time.
+ *  The predeploy job run did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -766,6 +1003,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Release_RenderState_Succeede
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_ReleaseNotificationEvent.type
 
+/**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeDeployPolicyEvaluation;
 /**
  *  A process aborted.
  *
@@ -847,6 +1090,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRe
 // GTLRCloudDeploy_ReleaseRenderEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -921,6 +1170,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Retry_BackoffMode_BackoffMod
 // GTLRCloudDeploy_RetryAttempt.state
 
 /**
+ *  The `repair` action was aborted.
+ *
+ *  Value: "REPAIR_STATE_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateAborted;
+/**
  *  The `repair` action was cancelled.
  *
  *  Value: "REPAIR_STATE_CANCELLED"
@@ -944,12 +1199,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairSta
  *  Value: "REPAIR_STATE_PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStatePending;
-/**
- *  The `repair` action was skipped.
- *
- *  Value: "REPAIR_STATE_SKIPPED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateSkipped;
 /**
  *  The `repair` action has succeeded.
  *
@@ -989,6 +1238,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RetryPhase_BackoffMode_Backo
 // GTLRCloudDeploy_RollbackAttempt.state
 
 /**
+ *  The `repair` action was aborted.
+ *
+ *  Value: "REPAIR_STATE_ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateAborted;
+/**
  *  The `repair` action was cancelled.
  *
  *  Value: "REPAIR_STATE_CANCELLED"
@@ -1012,12 +1267,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RollbackAttempt_State_Repair
  *  Value: "REPAIR_STATE_PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStatePending;
-/**
- *  The `repair` action was skipped.
- *
- *  Value: "REPAIR_STATE_SKIPPED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateSkipped;
 /**
  *  The `repair` action has succeeded.
  *
@@ -1084,7 +1333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailable;
 /**
- *  Deployment did not complete within the alloted time.
+ *  Deployment did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -1201,6 +1450,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded;
 // GTLRCloudDeploy_RolloutNotificationEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -1248,6 +1503,87 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Typ
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_RolloutRestriction.actions
+
+/**
+ *  Advance the rollout to the next phase.
+ *
+ *  Value: "ADVANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Advance;
+/**
+ *  Approve the rollout.
+ *
+ *  Value: "APPROVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Approve;
+/**
+ *  Cancel the rollout.
+ *
+ *  Value: "CANCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Cancel;
+/**
+ *  Create a rollout.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Create;
+/**
+ *  Ignore a job result on the rollout.
+ *
+ *  Value: "IGNORE_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_IgnoreJob;
+/**
+ *  Retry a job for a rollout.
+ *
+ *  Value: "RETRY_JOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_RetryJob;
+/**
+ *  Rollback a rollout.
+ *
+ *  Value: "ROLLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Rollback;
+/**
+ *  Unspecified.
+ *
+ *  Value: "ROLLOUT_ACTIONS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_RolloutActionsUnspecified;
+/**
+ *  Terminate a jobrun.
+ *
+ *  Value: "TERMINATE_JOBRUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_TerminateJobrun;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_RolloutRestriction.invokers
+
+/**
+ *  Automated action by Cloud Deploy.
+ *
+ *  Value: "DEPLOY_AUTOMATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Invokers_DeployAutomation;
+/**
+ *  Unspecified.
+ *
+ *  Value: "INVOKER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Invokers_InvokerUnspecified;
+/**
+ *  The action is user-driven. For example, creating a rollout manually via a
+ *  gcloud create command.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutRestriction_Invokers_User;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_RolloutUpdateEvent.rolloutUpdateType
@@ -1341,6 +1677,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUp
 // GTLRCloudDeploy_RolloutUpdateEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -1421,6 +1763,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_S
 // GTLRCloudDeploy_TargetNotificationEvent.type
 
 /**
+ *  Deploy Policy evaluation.
+ *
+ *  Value: "TYPE_DEPLOY_POLICY_EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeDeployPolicyEvaluation;
+/**
  *  A process aborted.
  *
  *  Value: "TYPE_PROCESS_ABORTED"
@@ -1488,8 +1836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_Cl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable;
 /**
- *  The render operation did not complete successfully because the custom action
- *  required for predeploy or postdeploy was not found in the Skaffold
+ *  The render operation did not complete successfully because the custom
+ *  action(s) required for Rollout jobs were not found in the Skaffold
  *  configuration. See failure_message for additional details.
  *
  *  Value: "CUSTOM_ACTION_NOT_FOUND"
@@ -1575,7 +1923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Cl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable;
 /**
- *  The verify job run did not complete within the alloted time.
+ *  The verify job run did not complete within the allotted time.
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
@@ -1598,6 +1946,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Fa
  *  Value: "VERIFICATION_CONFIG_NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNotFound;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_WeeklyWindow.daysOfWeek
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday;
 
 /**
  *  The request object used by `AbandonRelease`.
@@ -1628,7 +2028,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Output only. Name of the `ChildRollout`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *rollout;
 
@@ -1665,6 +2065,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_AdvanceRolloutRequest : GTLRObject
 
+/**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
+
 /** Required. The phase ID to advance the `Rollout` to. */
 @property(nonatomic, copy, nullable) NSString *phaseId;
 
@@ -1689,7 +2095,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Required. ID of the rule. This id must be unique in the `Automation`
- *  resource to which this rule belongs. The format is `a-z{0,62}`.
+ *  resource to which this rule belongs. The format is
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1716,8 +2123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_AnthosCluster : GTLRObject
 
 /**
- *  Membership of the GKE Hub-registered cluster to which to apply the Skaffold
- *  configuration. Format is
+ *  Optional. Membership of the GKE Hub-registered cluster to which to apply the
+ *  Skaffold configuration. Format is
  *  `projects/{project}/locations/{location}/memberships/{membership_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *membership;
@@ -1737,6 +2144,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) NSNumber *approved;
 
+/**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
+
 @end
 
 
@@ -1744,6 +2157,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  The response object from `ApproveRollout`.
  */
 @interface GTLRCloudDeploy_ApproveRolloutResponse : GTLRObject
+@end
+
+
+/**
+ *  Information about entities associated with a `Target`.
+ */
+@interface GTLRCloudDeploy_AssociatedEntities : GTLRObject
+
+/**
+ *  Optional. Information specifying Anthos clusters as associated entities.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_AnthosCluster *> *anthosClusters;
+
+/** Optional. Information specifying GKE clusters as associated entities. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_GkeCluster *> *gkeClusters;
+
 @end
 
 
@@ -1970,6 +2399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypeProcessAborted A process
  *        aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_AutomationEvent_Type_TypePubsubNotificationFailure
@@ -2000,7 +2431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_AutomationResourceSelector : GTLRObject
 
-/** Contains attributes about a target. */
+/** Optional. Contains attributes about a target. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_TargetAttribute *> *targets;
 
 @end
@@ -2013,19 +2444,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_AutomationRolloutMetadata : GTLRObject
 
 /**
- *  Output only. The IDs of the AutomationRuns initiated by an advance rollout
+ *  Output only. The names of the AutomationRuns initiated by an advance rollout
  *  rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *advanceAutomationRuns;
 
 /**
- *  Output only. The ID of the AutomationRun initiated by a promote release
+ *  Output only. The name of the AutomationRun initiated by a promote release
  *  rule.
  */
 @property(nonatomic, copy, nullable) NSString *promoteAutomationRun;
 
 /**
- *  Output only. The IDs of the AutomationRuns initiated by a repair rollout
+ *  Output only. The names of the AutomationRuns initiated by a repair rollout
  *  rule.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *repairAutomationRuns;
@@ -2056,6 +2487,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_RepairRolloutRule *repairRolloutRule;
 
+/**
+ *  Optional. The `TimedPromoteReleaseRule` will automatically promote a release
+ *  from the current target(s) to the specified target(s) on a configured
+ *  schedule.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TimedPromoteReleaseRule *timedPromoteReleaseRule;
+
 @end
 
 
@@ -2067,6 +2505,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Optional. Details around targets enumerated in the rule. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_TargetsPresentCondition *targetsPresentCondition;
+
+/**
+ *  Optional. TimedPromoteReleaseCondition contains rule conditions specific to
+ *  a an Automation with a timed promote release rule defined.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TimedPromoteReleaseCondition *timedPromoteReleaseCondition;
 
 @end
 
@@ -2112,6 +2556,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Contains information about what policies prevented the
+ *  `AutomationRun` from proceeding.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_PolicyViolation *policyViolation;
+
 /** Output only. Promotes a release to a specified 'Target'. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_PromoteReleaseOperation *promoteReleaseOperation;
 
@@ -2133,6 +2583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Output only. Current state of the `AutomationRun`.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_AutomationRun_State_Aborted The `AutomationRun`
+ *        was aborted. (Value: "ABORTED")
  *    @arg @c kGTLRCloudDeploy_AutomationRun_State_Cancelled The `AutomationRun`
  *        was cancelled. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudDeploy_AutomationRun_State_Failed The `AutomationRun`
@@ -2155,11 +2607,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *stateDescription;
 
 /**
- *  Output only. The ID of the target that represents the promotion stage that
- *  initiates the `AutomationRun`. The value of this field is the last segment
- *  of a target name.
+ *  Output only. The ID of the source target that initiates the `AutomationRun`.
+ *  The value of this field is the last segment of a target name.
  */
 @property(nonatomic, copy, nullable) NSString *targetId;
+
+/**
+ *  Output only. Promotes a release to a specified 'Target' as defined in a
+ *  Timed Promote Release rule.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TimedPromoteReleaseOperation *timedPromoteReleaseOperation;
 
 /** Output only. Time at which the automationRun was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -2204,6 +2661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_AutomationRunEvent_Type_TypePubsubNotificationFailure
@@ -2319,12 +2778,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_BuildArtifact : GTLRObject
 
-/** Image name in Skaffold configuration. */
+/** Optional. Image name in Skaffold configuration. */
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
- *  Image tag to use. This will generally be the full path to an image, such as
- *  "gcr.io/my-project/busybox:1.2.3" or
+ *  Optional. Image tag to use. This will generally be the full path to an
+ *  image, such as "gcr.io/my-project/busybox:1.2.3" or
  *  "gcr.io/my-project/busybox\@sha256:abc123".
  */
 @property(nonatomic, copy, nullable) NSString *tag;
@@ -2337,12 +2796,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_Canary : GTLRObject
 
-/** Configures the progressive based deployment for a Target. */
+/** Optional. Configures the progressive based deployment for a Target. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CanaryDeployment *canaryDeployment;
 
 /**
- *  Configures the progressive based deployment for a Target, but allows
- *  customizing at the phase level where a phase represents each of the
+ *  Optional. Configures the progressive based deployment for a Target, but
+ *  allows customizing at the phase level where a phase represents each of the
  *  percentage deployments.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomCanaryDeployment *customCanaryDeployment;
@@ -2365,7 +2824,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /**
  *  Required. The percentage based deployments that will occur as a part of a
  *  `Rollout`. List is expected in ascending order and each integer n is 0 <= n
- *  < 100.
+ *  < 100. If the GatewayServiceMesh is configured for Kubernetes, then the
+ *  range for n is 0 <= n <= 100.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2384,7 +2844,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
 
 /**
- *  Whether to run verify tests after each percentage deployment.
+ *  Optional. Whether to run verify tests after each percentage deployment via
+ *  `skaffold verify`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2418,6 +2879,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  The request object used by `CancelRollout`.
  */
 @interface GTLRCloudDeploy_CancelRolloutRequest : GTLRObject
+
+/**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
+
 @end
 
 
@@ -2448,9 +2916,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_CloudRunConfig : GTLRObject
 
 /**
- *  Whether Cloud Deploy should update the traffic stanza in a Cloud Run Service
- *  on the user's behalf to facilitate traffic splitting. This is required to be
- *  true for CanaryDeployments, but optional for CustomCanaryDeployments.
+ *  Optional. Whether Cloud Deploy should update the traffic stanza in a Cloud
+ *  Run Service on the user's behalf to facilitate traffic splitting. This is
+ *  required to be true for CanaryDeployments, but optional for
+ *  CustomCanaryDeployments.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2572,7 +3041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Output only. Name of the `ChildRollout`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *rollout;
 
@@ -2693,8 +3162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Configures render and deploy for the `CustomTargetType` using Skaffold
- *  custom actions.
+ *  Optional. Configures render and deploy for the `CustomTargetType` using
+ *  Skaffold custom actions.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetSkaffoldActions *customActions;
 
@@ -2729,8 +3198,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetType_Labels *labels;
 
 /**
- *  Optional. Name of the `CustomTargetType`. Format is
- *  `projects/{project}/locations/{location}/customTargetTypes/a-z{0,62}`.
+ *  Identifier. Name of the `CustomTargetType`. Format is
+ *  `projects/{project}/locations/{location}/customTargetTypes/{customTargetType}`.
+ *  The `customTargetType` component must match
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2775,6 +3246,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        fetch them all at once.
  */
 @interface GTLRCloudDeploy_CustomTargetType_Labels : GTLRObject
+@end
+
+
+/**
+ *  Payload proto for "clouddeploy.googleapis.com/customtargettype_notification"
+ *  Platform Log event that describes the failure to send a custom target type
+ *  status change Pub/Sub notification.
+ */
+@interface GTLRCloudDeploy_CustomTargetTypeNotificationEvent : GTLRObject
+
+/** The name of the `CustomTargetType`. */
+@property(nonatomic, copy, nullable) NSString *customTargetType;
+
+/** Unique identifier of the `CustomTargetType`. */
+@property(nonatomic, copy, nullable) NSString *customTargetTypeUid;
+
+/** Debug message for when a notification fails to send. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeProcessAborted
+ *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRenderStatuesChange
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
+ *    @arg @c kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeUnspecified
+ *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -2848,8 +3365,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_DeliveryPipeline : GTLRObject
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline_Annotations *annotations;
 
@@ -2860,7 +3377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Description of the `DeliveryPipeline`. Max length is 255 characters.
+ *  Optional. Description of the `DeliveryPipeline`. Max length is 255
+ *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2885,19 +3403,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipeline_Labels *labels;
 
 /**
- *  Optional. Name of the `DeliveryPipeline`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/a-z{0,62}`.
+ *  Identifier. Name of the `DeliveryPipeline`. Format is
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}`.
+ *  The `deliveryPipeline` component must match
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  SerialPipeline defines a sequential set of stages for a `DeliveryPipeline`.
+ *  Optional. SerialPipeline defines a sequential set of stages for a
+ *  `DeliveryPipeline`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SerialPipeline *serialPipeline;
 
 /**
- *  When suspended, no new releases or rollouts can be created, but in-progress
- *  ones will complete.
+ *  Optional. When suspended, no new releases or rollouts can be created, but
+ *  in-progress ones will complete.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2913,8 +3434,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2944,6 +3465,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Contains criteria for selecting DeliveryPipelines.
+ */
+@interface GTLRCloudDeploy_DeliveryPipelineAttribute : GTLRObject
+
+/**
+ *  Optional. ID of the `DeliveryPipeline`. The value of this field could be one
+ *  of the following: * The last segment of a pipeline name * "*", all delivery
+ *  pipelines in a location
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** DeliveryPipeline labels. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipelineAttribute_Labels *labels;
+
+@end
+
+
+/**
+ *  DeliveryPipeline labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_DeliveryPipelineAttribute_Labels : GTLRObject
+@end
+
+
+/**
  *  Payload proto for "clouddeploy.googleapis.com/deliverypipeline_notification"
  *  Platform Log event that describes the failure to send delivery pipeline
  *  status change Pub/Sub notification.
@@ -2963,6 +3516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeProcessAborted
  *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure
@@ -3044,7 +3599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_DeadlineExceeded The
- *        deploy job run did not complete within the alloted time. (Value:
+ *        deploy job run did not complete within the allotted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_DeployJobRun_FailureCause_DeployFeatureNotSupported
  *        The deploy operation had a feature configured that is not supported.
@@ -3161,6 +3716,286 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  A `DeployPolicy` resource in the Cloud Deploy API. A `DeployPolicy` inhibits
+ *  manual or automation-driven actions within a Delivery Pipeline or Target.
+ */
+@interface GTLRCloudDeploy_DeployPolicy : GTLRObject
+
+/**
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. Annotations must meet the following
+ *  constraints: * Annotations are key/value pairs. * Valid annotation keys have
+ *  two segments: an optional prefix and name, separated by a slash (`/`). * The
+ *  name segment is required and must be 63 characters or less, beginning and
+ *  ending with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`),
+ *  underscores (`_`), dots (`.`), and alphanumerics between. * The prefix is
+ *  optional. If specified, the prefix must be a DNS subdomain: a series of DNS
+ *  labels separated by dots(`.`), not longer than 253 characters in total,
+ *  followed by a slash (`/`). See
+ *  https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/#syntax-and-character-set
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeployPolicy_Annotations *annotations;
+
+/** Output only. Time at which the deploy policy was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the `DeployPolicy`. Max length is 255 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The weak etag of the `DeployPolicy` resource. This checksum is computed by
+ *  the server based on the value of other fields, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Labels are attributes that can be set and used by both the user and by Cloud
+ *  Deploy. Labels must meet the following constraints: * Keys and values can
+ *  contain only lowercase letters, numeric characters, underscores, and dashes.
+ *  * All characters must use UTF-8 encoding, and international characters are
+ *  allowed. * Keys must start with a lowercase letter or international
+ *  character. * Each resource is limited to a maximum of 64 labels. Both keys
+ *  and values are additionally constrained to be <= 128 bytes.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeployPolicy_Labels *labels;
+
+/**
+ *  Output only. Name of the `DeployPolicy`. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`. The
+ *  `deployPolicy` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Rules to apply. At least one rule must be present. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_PolicyRule *> *rules;
+
+/**
+ *  Required. Selected resources to which the policy will be applied. At least
+ *  one selector is required. If one selector matches the resource the policy
+ *  applies. For example, if there are two selectors and the action being
+ *  attempted matches one of them, the policy will apply to that action.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_DeployPolicyResourceSelector *> *selectors;
+
+/**
+ *  Optional. When suspended, the policy will not prevent actions from
+ *  occurring, even if the action violates the policy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suspended;
+
+/** Output only. Unique identifier of the `DeployPolicy`. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Most recent time at which the deploy policy was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. Annotations must meet the following
+ *  constraints: * Annotations are key/value pairs. * Valid annotation keys have
+ *  two segments: an optional prefix and name, separated by a slash (`/`). * The
+ *  name segment is required and must be 63 characters or less, beginning and
+ *  ending with an alphanumeric character (`[a-z0-9A-Z]`) with dashes (`-`),
+ *  underscores (`_`), dots (`.`), and alphanumerics between. * The prefix is
+ *  optional. If specified, the prefix must be a DNS subdomain: a series of DNS
+ *  labels separated by dots(`.`), not longer than 253 characters in total,
+ *  followed by a slash (`/`). See
+ *  https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/#syntax-and-character-set
+ *  for more details.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_DeployPolicy_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Labels are attributes that can be set and used by both the user and by Cloud
+ *  Deploy. Labels must meet the following constraints: * Keys and values can
+ *  contain only lowercase letters, numeric characters, underscores, and dashes.
+ *  * All characters must use UTF-8 encoding, and international characters are
+ *  allowed. * Keys must start with a lowercase letter or international
+ *  character. * Each resource is limited to a maximum of 64 labels. Both keys
+ *  and values are additionally constrained to be <= 128 bytes.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_DeployPolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  Payload proto for "clouddeploy.googleapis.com/deploypolicy_evaluation"
+ *  Platform Log event that describes the deploy policy evaluation event.
+ */
+@interface GTLRCloudDeploy_DeployPolicyEvaluationEvent : GTLRObject
+
+/**
+ *  Whether the request is allowed. Allowed is set as true if: (1) the request
+ *  complies with the policy; or (2) the request doesn't comply with the policy
+ *  but the policy was overridden; or (3) the request doesn't comply with the
+ *  policy but the policy was suspended
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowed;
+
+/** The name of the `Delivery Pipeline`. */
+@property(nonatomic, copy, nullable) NSString *deliveryPipeline;
+
+/** The name of the `DeployPolicy`. */
+@property(nonatomic, copy, nullable) NSString *deployPolicy;
+
+/** Unique identifier of the `DeployPolicy`. */
+@property(nonatomic, copy, nullable) NSString *deployPolicyUid;
+
+/**
+ *  What invoked the action (e.g. a user or automation).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_DeployAutomation
+ *        Automated action by Cloud Deploy. (Value: "DEPLOY_AUTOMATION")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_InvokerUnspecified
+ *        Unspecified. (Value: "INVOKER_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_User The
+ *        action is user-driven. For example, creating a rollout manually via a
+ *        gcloud create command. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *invoker;
+
+/** Debug message for when a deploy policy event occurs. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Things that could have overridden the policy verdict. Overrides together
+ *  with verdict decide whether the request is allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrides;
+
+/** Unique identifier of the `Delivery Pipeline`. */
+@property(nonatomic, copy, nullable) NSString *pipelineUid;
+
+/** Rule id. */
+@property(nonatomic, copy, nullable) NSString *rule;
+
+/** Rule type (e.g. Restrict Rollouts). */
+@property(nonatomic, copy, nullable) NSString *ruleType;
+
+/**
+ *  The name of the `Target`. This is an optional field, as a `Target` may not
+ *  always be applicable to a policy.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/**
+ *  Unique identifier of the `Target`. This is an optional field, as a `Target`
+ *  may not always be applicable to a policy.
+ */
+@property(nonatomic, copy, nullable) NSString *targetUid;
+
+/**
+ *  The policy verdict of the request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_AllowedByPolicy
+ *        Allowed by policy. This enum value is not currently used but may be
+ *        used in the future. Currently logs are only generated when a request
+ *        is denied by policy. (Value: "ALLOWED_BY_POLICY")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_DeniedByPolicy
+ *        Denied by policy. (Value: "DENIED_BY_POLICY")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_PolicyVerdictUnspecified
+ *        This should never happen. (Value: "POLICY_VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+@end
+
+
+/**
+ *  Payload proto for "clouddeploy.googleapis.com/deploypolicy_notification".
+ *  Platform Log event that describes the failure to send a pub/sub notification
+ *  when there is a DeployPolicy status change.
+ */
+@interface GTLRCloudDeploy_DeployPolicyNotificationEvent : GTLRObject
+
+/** The name of the `DeployPolicy`. */
+@property(nonatomic, copy, nullable) NSString *deployPolicy;
+
+/** Unique identifier of the deploy policy. */
+@property(nonatomic, copy, nullable) NSString *deployPolicyUid;
+
+/**
+ *  Debug message for when a deploy policy fails to send a pub/sub notification.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Type of this notification, e.g. for a Pub/Sub failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeProcessAborted
+ *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypePubsubNotificationFailure
+ *        A Pub/Sub notification failed to be sent. (Value:
+ *        "TYPE_PUBSUB_NOTIFICATION_FAILURE")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRenderStatuesChange
+ *        Deprecated: This field is never used. Use release_render log type
+ *        instead. (Value: "TYPE_RENDER_STATUES_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceDeleted
+ *        Resource deleted. (Value: "TYPE_RESOURCE_DELETED")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceStateChange
+ *        Resource state changed. (Value: "TYPE_RESOURCE_STATE_CHANGE")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRestrictionViolated
+ *        Restriction check failed. (Value: "TYPE_RESTRICTION_VIOLATED")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRolloutUpdate
+ *        Rollout updated. (Value: "TYPE_ROLLOUT_UPDATE")
+ *    @arg @c kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeUnspecified
+ *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Contains information on the resources to select for a deploy policy.
+ *  Attributes provided must all match the resource in order for policy
+ *  restrictions to apply. For example, if delivery pipelines attributes given
+ *  are an id "prod" and labels "foo: bar", a delivery pipeline resource must
+ *  match both that id and have that label in order to be subject to the policy.
+ */
+@interface GTLRCloudDeploy_DeployPolicyResourceSelector : GTLRObject
+
+/** Optional. Contains attributes about a delivery pipeline. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_DeliveryPipelineAttribute *deliveryPipeline;
+
+/** Optional. Contains attributes about a target. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TargetAttribute *target;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -3205,6 +4040,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Required. Usages when this configuration should be applied. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usages;
+
+/**
+ *  Optional. If true, additional logging will be enabled when running builds in
+ *  this execution environment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verbose;
 
 /**
  *  Optional. The resource name of the `WorkerPool`, with the format
@@ -3280,6 +4123,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *httpRoute;
 
 /**
+ *  Optional. The label to use when selecting Pods for the Deployment and
+ *  Service resources. This label must already be present in both resources.
+ */
+@property(nonatomic, copy, nullable) NSString *podSelectorLabel;
+
+/**
+ *  Optional. Route destinations allow configuring the Gateway API HTTPRoute to
+ *  be deployed to additional clusters. This option is available for
+ *  multi-cluster service mesh set ups that require the route to exist in the
+ *  clusters that call the service. If unspecified, the HTTPRoute will only be
+ *  deployed to the Target cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_RouteDestinations *routeDestinations;
+
+/**
  *  Optional. The time to wait for route updates to propagate. The maximum
  *  configurable time is 3 hours, in seconds format. If unspecified, there is no
  *  wait time.
@@ -3305,10 +4163,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_GkeCluster : GTLRObject
 
 /**
- *  Information specifying a GKE Cluster. Format is
+ *  Optional. Information specifying a GKE Cluster. Format is
  *  `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
+
+/**
+ *  Optional. If set, the cluster will be accessed using the DNS endpoint. Note
+ *  that both `dns_endpoint` and `internal_ip` cannot be set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dnsEndpoint;
 
 /**
  *  Optional. If true, `cluster` is accessed using the private IP address of the
@@ -3317,10 +4183,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  clusters with private control-plane endpoints and the public IP address
  *  otherwise. Only specify this option when `cluster` is a [private GKE
  *  cluster](https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept).
+ *  Note that `internal_ip` and `dns_endpoint` cannot both be set to true.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *internalIp;
+
+/**
+ *  Optional. If set, used to configure a
+ *  [proxy](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#proxy)
+ *  to the Kubernetes server.
+ */
+@property(nonatomic, copy, nullable) NSString *proxyUrl;
 
 @end
 
@@ -3332,6 +4206,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Required. The job ID for the Job to ignore. */
 @property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
 
 /** Required. The phase ID the Job to ignore belongs to. */
 @property(nonatomic, copy, nullable) NSString *phaseId;
@@ -3448,7 +4328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  Optional. Name of the `JobRun`. Format is
+ *  Output only. Name of the `JobRun`. Format is
  *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{releases}/rollouts/{rollouts}/jobRuns/{uuid}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3532,6 +4412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure
@@ -3561,10 +4443,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_KubernetesConfig : GTLRObject
 
-/** Kubernetes Gateway API service mesh configuration. */
+/** Optional. Kubernetes Gateway API service mesh configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_GatewayServiceMesh *gatewayServiceMesh;
 
-/** Kubernetes Service networking configuration. */
+/** Optional. Kubernetes Service networking configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_ServiceNetworking *serviceNetworking;
 
 @end
@@ -3691,6 +4573,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  The response object from `ListDeployPolicies`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deployPolicies" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudDeploy_ListDeployPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  The `DeployPolicy` objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_DeployPolicy *> *deployPolicies;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  ListJobRunsResponse is the response object returned by `ListJobRuns`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3799,7 +4711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  ListRolloutsResponse is the response object reutrned by `ListRollouts`.
+ *  ListRolloutsResponse is the response object returned by `ListRollouts`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "rollouts" property. If returned as the result of a query, it
@@ -3956,6 +4868,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  One-time window within which actions are restricted. For example, blocking
+ *  actions over New Year's Eve from December 31st at 5pm to January 1st at 9am.
+ */
+@interface GTLRCloudDeploy_OneTimeWindow : GTLRObject
+
+/** Required. End date. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Date *endDate;
+
+/**
+ *  Required. End time (exclusive). You may use 24:00 for the end of the day.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TimeOfDay *endTime;
+
+/** Required. Start date. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Date *startDate;
+
+/**
+ *  Required. Start time (inclusive). Use 00:00 for the beginning of the day.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TimeOfDay *startTime;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -4052,8 +4989,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4180,14 +5117,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
 
 /**
- *  Skaffold profiles to use when rendering the manifest for this phase. These
- *  are in addition to the profiles list specified in the `DeliveryPipeline`
- *  stage.
+ *  Optional. Skaffold profiles to use when rendering the manifest for this
+ *  phase. These are in addition to the profiles list specified in the
+ *  `DeliveryPipeline` stage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profiles;
 
 /**
- *  Whether to run verify tests after the deployment.
+ *  Optional. Whether to run verify tests after the deployment via `skaffold
+ *  verify`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4330,6 +5268,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Deploy Policy rule.
+ */
+@interface GTLRCloudDeploy_PolicyRule : GTLRObject
+
+/** Optional. Rollout restrictions. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_RolloutRestriction *rolloutRestriction;
+
+@end
+
+
+/**
+ *  Returned from an action if one or more policies were violated, and therefore
+ *  the action was prevented. Contains information about what policies were
+ *  violated and why.
+ */
+@interface GTLRCloudDeploy_PolicyViolation : GTLRObject
+
+/** Policy violation details. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_PolicyViolationDetails *> *policyViolationDetails;
+
+@end
+
+
+/**
+ *  Policy violation details.
+ */
+@interface GTLRCloudDeploy_PolicyViolationDetails : GTLRObject
+
+/**
+ *  User readable message about why the request violated a policy. This is not
+ *  intended for machine parsing.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/**
+ *  Name of the policy that was violated. Policy resource will be in the format
+ *  of `projects/{project}/locations/{location}/policies/{policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/** Id of the rule that triggered the policy violation. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+@end
+
+
+/**
  *  Postdeploy contains the postdeploy job configuration information.
  */
 @interface GTLRCloudDeploy_Postdeploy : GTLRObject
@@ -4381,7 +5366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_DeadlineExceeded
- *        The postdeploy job run did not complete within the alloted time.
+ *        The postdeploy job run did not complete within the allotted time.
  *        (Value: "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_PostdeployJobRun_FailureCause_ExecutionFailed The
  *        postdeploy operation did not complete successfully; check Cloud Build
@@ -4453,7 +5438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_DeadlineExceeded The
- *        predeploy job run did not complete within the alloted time. (Value:
+ *        predeploy job run did not complete within the allotted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_PredeployJobRun_FailureCause_ExecutionFailed The
  *        predeploy operation did not complete successfully; check Cloud Build
@@ -4531,8 +5516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  `PromoteRelease` rule will automatically promote a release from the current
- *  target to a specified target.
+ *  The `PromoteRelease` rule will automatically promote a release from the
+ *  current target to a specified target.
  */
 @interface GTLRCloudDeploy_PromoteReleaseRule : GTLRObject
 
@@ -4549,15 +5534,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Optional. The ID of the stage in the pipeline to which this `Release` is
  *  deploying. If unspecified, default it to the next stage in the promotion
  *  flow. The value of this field could be one of the following: * The last
- *  segment of a target name. It only needs the ID to determine if the target is
- *  one of the stages in the promotion sequence defined in the pipeline. *
- *  "\@next", the next target in the promotion sequence.
+ *  segment of a target name * "\@next", the next target in the promotion
+ *  sequence
  */
 @property(nonatomic, copy, nullable) NSString *destinationTargetId;
 
 /**
  *  Required. ID of the rule. This id must be unique in the `Automation`
- *  resource to which this rule belongs. The format is `a-z{0,62}`.
+ *  resource to which this rule belongs. The format is
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4586,13 +5571,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) NSNumber *abandoned;
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
- *  details such as format and size limitations.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_Annotations *annotations;
 
-/** List of artifacts to pass through to Skaffold command. */
+/** Optional. List of artifacts to pass through to Skaffold command. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_BuildArtifact *> *buildArtifacts;
 
 /** Output only. Information around the state of the Release. */
@@ -4616,7 +5601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_DeployParameters *deployParameters;
 
 /**
- *  Description of the `Release`. Max length is 255 characters.
+ *  Optional. Description of the `Release`. Max length is 255 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -4641,8 +5626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Release_Labels *labels;
 
 /**
- *  Optional. Name of the `Release`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/a-z{0,62}`.
+ *  Identifier. Name of the `Release`. Format is
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}`.
+ *  The `release` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4668,17 +5654,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, copy, nullable) NSString *renderState;
 
-/** Filepath of the Skaffold config inside of the config URI. */
+/** Optional. Filepath of the Skaffold config inside of the config URI. */
 @property(nonatomic, copy, nullable) NSString *skaffoldConfigPath;
 
-/** Cloud Storage URI of tar.gz archive containing Skaffold configuration. */
+/**
+ *  Optional. Cloud Storage URI of tar.gz archive containing Skaffold
+ *  configuration.
+ */
 @property(nonatomic, copy, nullable) NSString *skaffoldConfigUri;
 
 /**
- *  The Skaffold version to use when operating on this release, such as
- *  "1.20.0". Not all versions are valid; Cloud Deploy supports a specific set
- *  of versions. If unset, the most recent supported Skaffold version will be
- *  used.
+ *  Optional. The Skaffold version to use when operating on this release, such
+ *  as "1.20.0". Not all versions are valid; Cloud Deploy supports a specific
+ *  set of versions. If unset, the most recent supported Skaffold version will
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *skaffoldVersion;
 
@@ -4704,9 +5693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
- *  details such as format and size limitations.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4814,6 +5803,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeProcessAborted
  *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure
@@ -4902,6 +5893,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a release render state change event.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypePubsubNotificationFailure
@@ -4941,22 +5934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  Configuration of the repair action.
- */
-@interface GTLRCloudDeploy_RepairMode : GTLRObject
-
-/** Optional. Retries a failed job. */
-@property(nonatomic, strong, nullable) GTLRCloudDeploy_Retry *retry;
-
-/** Optional. Rolls back a `Rollout`. */
-@property(nonatomic, strong, nullable) GTLRCloudDeploy_Rollback *rollback;
-
-@end
-
-
-/**
  *  RepairPhase tracks the repair attempts that have been made for each
- *  `RepairMode` specified in the `Automation` resource.
+ *  `RepairPhaseConfig` specified in the `Automation` resource.
  */
 @interface GTLRCloudDeploy_RepairPhase : GTLRObject
 
@@ -4965,6 +5944,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Output only. Rollback attempt for rollback repair mode . */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_RollbackAttempt *rollback;
+
+@end
+
+
+/**
+ *  Configuration of the repair phase.
+ */
+@interface GTLRCloudDeploy_RepairPhaseConfig : GTLRObject
+
+/** Optional. Retries a failed job. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Retry *retry;
+
+/** Optional. Rolls back a `Rollout`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Rollback *rollback;
 
 @end
 
@@ -4979,7 +5972,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *
  *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *currentRepairModeIndex;
+@property(nonatomic, strong, nullable) NSNumber *currentRepairPhaseIndex;
 
 /** Output only. The job ID for the Job to repair. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -5014,7 +6007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Required. ID of the rule. This id must be unique in the `Automation`
- *  resource to which this rule belongs. The format is `a-z{0,62}`.
+ *  resource to which this rule belongs. The format is
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5032,11 +6026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) NSArray<NSString *> *jobs;
 
 /**
- *  Required. Defines the types of automatic repair actions for failed jobs.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_RepairMode *> *repairModes;
-
-/**
  *  Optional. Phases within which jobs are subject to automatic repair actions
  *  on failure. Proceeds only after phase name matched any one in the list, or
  *  for all phases if unspecified. This value must consist of lower-case
@@ -5044,7 +6033,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  a number, and have a max length of 63 characters. In other words, it must
  *  match the following regex: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *sourcePhases;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *phases;
+
+/** Required. Defines the types of automatic repair phases for failed jobs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_RepairPhaseConfig *> *repairPhases;
 
 @end
 
@@ -5102,6 +6094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Output only. Valid state of this retry action.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateAborted The
+ *        `repair` action was aborted. (Value: "REPAIR_STATE_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateCancelled The
  *        `repair` action was cancelled. (Value: "REPAIR_STATE_CANCELLED")
  *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateFailed The `repair`
@@ -5110,8 +6104,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        `repair` action is in progress. (Value: "REPAIR_STATE_IN_PROGRESS")
  *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStatePending The
  *        `repair` action is pending. (Value: "REPAIR_STATE_PENDING")
- *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateSkipped The
- *        `repair` action was skipped. (Value: "REPAIR_STATE_SKIPPED")
  *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateSucceeded The
  *        `repair` action has succeeded. (Value: "REPAIR_STATE_SUCCEEDED")
  *    @arg @c kGTLRCloudDeploy_RetryAttempt_State_RepairStateUnspecified The
@@ -5135,6 +6127,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Required. The job ID for the Job to retry. */
 @property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
 
 /** Required. The phase ID the Job to retry belongs to. */
 @property(nonatomic, copy, nullable) NSString *phaseId;
@@ -5173,14 +6171,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, copy, nullable) NSString *backoffMode;
 
-/** Output only. The job ID for the Job to retry. */
-@property(nonatomic, copy, nullable) NSString *jobId GTLR_DEPRECATED;
-
-/**
- *  Output only. The phase ID of the phase that includes the job being retried.
- */
-@property(nonatomic, copy, nullable) NSString *phaseId GTLR_DEPRECATED;
-
 /**
  *  Output only. The number of attempts that have been made.
  *
@@ -5202,6 +6192,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, copy, nullable) NSString *destinationPhase;
 
+/**
+ *  Optional. If pending rollout exists on the target, the rollback operation
+ *  will be aborted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableRollbackIfRolloutPending;
+
 @end
 
 
@@ -5214,6 +6212,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Output only. The phase to which the rollout will be rolled back to. */
 @property(nonatomic, copy, nullable) NSString *destinationPhase;
 
+/**
+ *  Output only. If active rollout exists on the target, abort this rollback.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableRollbackIfRolloutPending;
+
 /** Output only. ID of the rollback `Rollout` to create. */
 @property(nonatomic, copy, nullable) NSString *rolloutId;
 
@@ -5221,6 +6226,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Output only. Valid state of this rollback action.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateAborted The
+ *        `repair` action was aborted. (Value: "REPAIR_STATE_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateCancelled The
  *        `repair` action was cancelled. (Value: "REPAIR_STATE_CANCELLED")
  *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateFailed The
@@ -5229,8 +6236,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        `repair` action is in progress. (Value: "REPAIR_STATE_IN_PROGRESS")
  *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStatePending The
  *        `repair` action is pending. (Value: "REPAIR_STATE_PENDING")
- *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateSkipped The
- *        `repair` action was skipped. (Value: "REPAIR_STATE_SKIPPED")
  *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateSucceeded The
  *        `repair` action has succeeded. (Value: "REPAIR_STATE_SUCCEEDED")
  *    @arg @c kGTLRCloudDeploy_RollbackAttempt_State_RepairStateUnspecified The
@@ -5265,6 +6270,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  The request object for `RollbackTarget`.
  */
 @interface GTLRCloudDeploy_RollbackTargetRequest : GTLRObject
+
+/**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deploy_policy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
 
 /**
  *  Optional. ID of the `Release` to roll back to. If this isn't specified, the
@@ -5316,10 +6327,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @interface GTLRCloudDeploy_Rollout : GTLRObject
 
+/** Output only. The AutomationRun actively repairing the rollout. */
+@property(nonatomic, copy, nullable) NSString *activeRepairAutomationRun;
+
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
- *  details such as format and size limitations.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Rollout_Annotations *annotations;
 
@@ -5346,7 +6360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Output only. Name of the `ControllerRollout`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/a-z{0,62}`.
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
  */
 @property(nonatomic, copy, nullable) NSString *controllerRollout;
 
@@ -5371,7 +6385,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded
- *        Deployment did not complete within the alloted time. (Value:
+ *        Deployment did not complete within the allotted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed The
  *        deploy operation did not complete successfully; check Cloud Build
@@ -5403,7 +6417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRDateTime *deployStartTime;
 
 /**
- *  Description of the `Rollout` for user purposes. Max length is 255
+ *  Optional. Description of the `Rollout` for user purposes. Max length is 255
  *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -5440,8 +6454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Metadata *metadata;
 
 /**
- *  Optional. Name of the `Rollout`. Format is
- *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/a-z{0,62}`.
+ *  Identifier. Name of the `Rollout`. Format is
+ *  `projects/{project}/locations/{location}/deliveryPipelines/{deliveryPipeline}/releases/{release}/rollouts/{rollout}`.
+ *  The `rollout` component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5498,9 +6513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  User annotations. These attributes can only be set and used by the user, and
- *  not by Cloud Deploy. See https://google.aip.dev/128#annotations for more
- *  details such as format and size limitations.
+ *  Optional. User annotations. These attributes can only be set and used by the
+ *  user, and not by Cloud Deploy. See https://google.aip.dev/128#annotations
+ *  for more details such as format and size limitations.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5565,6 +6580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeProcessAborted
  *        A process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure
@@ -5585,6 +6602,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        Type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Rollout restrictions.
+ */
+@interface GTLRCloudDeploy_RolloutRestriction : GTLRObject
+
+/**
+ *  Optional. Rollout actions to be restricted as part of the policy. If left
+ *  empty, all actions will be restricted.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+/**
+ *  Required. Restriction rule ID. Required and must be unique within a
+ *  DeployPolicy. The format is `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. What invoked the action. If left empty, all invoker types will be
+ *  restricted.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *invokers;
+
+/** Required. Time window within which actions are restricted. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TimeWindows *timeWindows;
 
 @end
 
@@ -5662,6 +6710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a rollout update event.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypePubsubNotificationFailure
@@ -5687,15 +6737,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Information about route destinations for the Gateway API service mesh.
+ */
+@interface GTLRCloudDeploy_RouteDestinations : GTLRObject
+
+/**
+ *  Required. The clusters where the Gateway API HTTPRoute resource will be
+ *  deployed to. Valid entries include the associated entities IDs configured in
+ *  the Target resource and "\@self" to include the Target cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinationIds;
+
+/**
+ *  Optional. Whether to propagate the Kubernetes Service to the route
+ *  destination clusters. The Service will always be deployed to the Target
+ *  cluster even if the HTTPRoute is not. This option may be used to facilitate
+ *  successful DNS lookup in the route destination clusters. Can only be set to
+ *  true if destinations are specified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *propagateService;
+
+@end
+
+
+/**
  *  RuntimeConfig contains the runtime specific configurations for a deployment
  *  strategy.
  */
 @interface GTLRCloudDeploy_RuntimeConfig : GTLRObject
 
-/** Cloud Run runtime configuration. */
+/** Optional. Cloud Run runtime configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CloudRunConfig *cloudRun;
 
-/** Kubernetes runtime configuration. */
+/** Optional. Kubernetes runtime configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_KubernetesConfig *kubernetes;
 
 @end
@@ -5707,8 +6783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_SerialPipeline : GTLRObject
 
 /**
- *  Each stage specifies configuration for a `Target`. The ordering of this list
- *  defines the promotion flow.
+ *  Optional. Each stage specifies configuration for a `Target`. The ordering of
+ *  this list defines the promotion flow.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Stage *> *stages;
 
@@ -5735,6 +6811,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disablePodOverprovisioning;
+
+/**
+ *  Optional. The label to use when selecting Pods for the Deployment resource.
+ *  This label must already be present in the Deployment.
+ */
+@property(nonatomic, copy, nullable) NSString *podSelectorLabel;
 
 /** Required. Name of the Kubernetes Service. */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -5767,6 +6849,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  Cloud Build V2 Repository containing Skaffold Configs.
+ */
+@interface GTLRCloudDeploy_SkaffoldGCBRepoSource : GTLRObject
+
+/**
+ *  Optional. Relative path from the repository root to the Skaffold Config
+ *  file.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Optional. Branch or tag to use when cloning the repository. */
+@property(nonatomic, copy, nullable) NSString *ref;
+
+/**
+ *  Required. Name of the Cloud Build V2 Repository. Format is
+ *  projects/{project}/locations/{location}/connections/{connection}/repositories/{repository}.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
  *  Cloud Storage bucket containing Skaffold Config modules.
  */
 @interface GTLRCloudDeploy_SkaffoldGCSSource : GTLRObject
@@ -5792,7 +6897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Optional. Relative path from the repository root to the Skaffold file. */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/** Optional. Git ref the package should be cloned from. */
+/** Optional. Git branch or tag to use when cloning the repository. */
 @property(nonatomic, copy, nullable) NSString *ref;
 
 /** Required. Git repository the package should be cloned from. */
@@ -5809,10 +6914,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 /** Optional. The Skaffold Config modules to use from the specified source. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *configs;
 
-/** Remote git repository containing the Skaffold Config modules. */
+/** Optional. Remote git repository containing the Skaffold Config modules. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGitSource *git;
 
-/** Cloud Storage bucket containing the Skaffold Config modules. */
+/**
+ *  Optional. Cloud Build V2 repository containing the Skaffold Config modules.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGCBRepoSource *googleCloudBuildRepo;
+
+/** Optional. Cloud Storage bucket containing the Skaffold Config modules. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_SkaffoldGCSSource *googleCloudStorage;
 
 @end
@@ -5894,8 +7004,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_DeployParameters *> *deployParameters;
 
 /**
- *  Skaffold profiles to use when rendering the manifest for this stage's
- *  `Target`.
+ *  Optional. Skaffold profiles to use when rendering the manifest for this
+ *  stage's `Target`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profiles;
 
@@ -5903,9 +7013,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Strategy *strategy;
 
 /**
- *  The target_id to which this stage points. This field refers exclusively to
- *  the last segment of a target name. For example, this field would just be
- *  `my-target` (rather than
+ *  Optional. The target_id to which this stage points. This field refers
+ *  exclusively to the last segment of a target name. For example, this field
+ *  would just be `my-target` (rather than
  *  `projects/project/locations/location/targets/my-target`). The location of
  *  the `Target` is inferred to be the same as the location of the
  *  `DeliveryPipeline` that contains this `Stage`.
@@ -5922,18 +7032,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /**
  *  Optional. Configuration for the postdeploy job. If this is not configured,
- *  postdeploy job will not be present.
+ *  the postdeploy job will not be present.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Postdeploy *postdeploy;
 
 /**
  *  Optional. Configuration for the predeploy job. If this is not configured,
- *  predeploy job will not be present.
+ *  the predeploy job will not be present.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Predeploy *predeploy;
 
 /**
- *  Whether to verify a deployment.
+ *  Optional. Whether to verify a deployment via `skaffold verify`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5993,14 +7103,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @interface GTLRCloudDeploy_Strategy : GTLRObject
 
 /**
- *  Canary deployment strategy provides progressive percentage based deployments
- *  to a Target.
+ *  Optional. Canary deployment strategy provides progressive percentage based
+ *  deployments to a Target.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Canary *canary;
 
 /**
- *  Standard deployment strategy executes a single deploy and allows verifying
- *  the deployment.
+ *  Optional. Standard deployment strategy executes a single deploy and allows
+ *  verifying the deployment.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Standard *standard;
 
@@ -6022,6 +7132,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 /** Optional. Information specifying an Anthos Cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_AnthosCluster *anthosCluster;
+
+/**
+ *  Optional. Map of entity IDs to their associated entities. Associated
+ *  entities allows specifying places other than the deployment target for
+ *  specific features. For example, the Gateway API canary can be configured to
+ *  deploy the HTTPRoute to a different cluster(s) than the deployment cluster
+ *  using associated entities. An entity ID must consist of lower-case letters,
+ *  numbers, and hyphens, start with a letter and end with a letter or a number,
+ *  and have a max length of 63 characters. In other words, it must match the
+ *  following regex: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Target_AssociatedEntities *associatedEntities;
 
 /** Output only. Time at which the `Target` was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -6047,8 +7169,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Configurations for all execution that relates to this `Target`. Each
- *  `ExecutionEnvironmentUsage` value may only be used in a single
+ *  Optional. Configurations for all execution that relates to this `Target`.
+ *  Each `ExecutionEnvironmentUsage` value may only be used in a single
  *  configuration; using the same value multiple times is an error. When one or
  *  more configurations are specified, they must include the `RENDER` and
  *  `DEPLOY` `ExecutionEnvironmentUsage` values. When no configurations are
@@ -6075,8 +7197,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_MultiTarget *multiTarget;
 
 /**
- *  Optional. Name of the `Target`. Format is
- *  `projects/{project}/locations/{location}/targets/a-z{0,62}`.
+ *  Identifier. Name of the `Target`. Format is
+ *  `projects/{project}/locations/{location}/targets/{target}`. The `target`
+ *  component must match `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6113,6 +7236,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        fetch them all at once.
  */
 @interface GTLRCloudDeploy_Target_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. Map of entity IDs to their associated entities. Associated
+ *  entities allows specifying places other than the deployment target for
+ *  specific features. For example, the Gateway API canary can be configured to
+ *  deploy the HTTPRoute to a different cluster(s) than the deployment cluster
+ *  using associated entities. An entity ID must consist of lower-case letters,
+ *  numbers, and hyphens, start with a letter and end with a letter or a number,
+ *  and have a max length of 63 characters. In other words, it must match the
+ *  following regex: `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDeploy_AssociatedEntities. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDeploy_Target_AssociatedEntities : GTLRObject
 @end
 
 
@@ -6159,7 +7301,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  */
 @property(nonatomic, copy, nullable) NSString *artifactUri;
 
-/** Output only. File path of the rendered manifest relative to the URI. */
+/**
+ *  Output only. File path of the rendered manifest relative to the URI for the
+ *  stable phase.
+ */
 @property(nonatomic, copy, nullable) NSString *manifestPath;
 
 /**
@@ -6168,8 +7313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_TargetArtifact_PhaseArtifacts *phaseArtifacts;
 
 /**
- *  Output only. File path of the resolved Skaffold configuration relative to
- *  the URI.
+ *  Output only. File path of the resolved Skaffold configuration for the stable
+ *  phase, relative to the URI.
  */
 @property(nonatomic, copy, nullable) NSString *skaffoldConfigPath;
 
@@ -6189,14 +7334,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
- *  Contains criteria for selecting Targets.
+ *  Contains criteria for selecting Targets. This could be used to select
+ *  targets for a Deploy Policy or for an Automation.
  */
 @interface GTLRCloudDeploy_TargetAttribute : GTLRObject
 
 /**
- *  ID of the `Target`. The value of this field could be one of the following: *
- *  The last segment of a target name. It only needs the ID to determine which
- *  target is being referred to * "*", all targets in a location.
+ *  Optional. ID of the `Target`. The value of this field could be one of the
+ *  following: * The last segment of a target name * "*", all targets in a
+ *  location
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -6237,6 +7383,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Type of this notification, e.g. for a Pub/Sub failure.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeDeployPolicyEvaluation
+ *        Deploy Policy evaluation. (Value: "TYPE_DEPLOY_POLICY_EVALUATION")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeProcessAborted A
  *        process aborted. (Value: "TYPE_PROCESS_ABORTED")
  *    @arg @c kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure
@@ -6282,9 +7430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CustomActionNotFound
  *        The render operation did not complete successfully because the custom
- *        action required for predeploy or postdeploy was not found in the
- *        Skaffold configuration. See failure_message for additional details.
- *        (Value: "CUSTOM_ACTION_NOT_FOUND")
+ *        action(s) required for Rollout jobs were not found in the Skaffold
+ *        configuration. See failure_message for additional details. (Value:
+ *        "CUSTOM_ACTION_NOT_FOUND")
  *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_DeploymentStrategyNotSupported
  *        Release failed during rendering because the release configuration is
  *        not supported with the specified deployment strategy. (Value:
@@ -6340,6 +7488,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
 
 
 /**
+ *  The targets involved in a single timed promotion.
+ */
+@interface GTLRCloudDeploy_Targets : GTLRObject
+
+/** Optional. The destination target ID. */
+@property(nonatomic, copy, nullable) NSString *destinationTargetId;
+
+/** Optional. The source target ID. */
+@property(nonatomic, copy, nullable) NSString *sourceTargetId;
+
+@end
+
+
+/**
  *  `TargetsPresentCondition` contains information on any Targets referenced in
  *  the Delivery Pipeline that do not actually exist.
  */
@@ -6389,6 +7551,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  The request object used by `TerminateJobRun`.
  */
 @interface GTLRCloudDeploy_TerminateJobRunRequest : GTLRObject
+
+/**
+ *  Optional. Deploy policies to override. Format is
+ *  `projects/{project}/locations/{location}/deployPolicies/{deployPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *overrideDeployPolicy;
+
 @end
 
 
@@ -6423,6 +7592,164 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  `TimedPromoteReleaseCondition` contains conditions specific to an Automation
+ *  with a Timed Promote Release rule defined.
+ */
+@interface GTLRCloudDeploy_TimedPromoteReleaseCondition : GTLRObject
+
+/** Output only. When the next scheduled promotion(s) will occur. */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextPromotionTime;
+
+/**
+ *  Output only. A list of targets involved in the upcoming timed promotion(s).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Targets *> *targetsList;
+
+@end
+
+
+/**
+ *  Contains the information of an automated timed promote-release operation.
+ */
+@interface GTLRCloudDeploy_TimedPromoteReleaseOperation : GTLRObject
+
+/**
+ *  Output only. The starting phase of the rollout created by this operation.
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+/**
+ *  Output only. The name of the release to be promoted.
+ *
+ *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
+ */
+@property(nonatomic, copy, nullable) NSString *releaseProperty;
+
+/**
+ *  Output only. The ID of the target that represents the promotion stage to
+ *  which the release will be promoted. The value of this field is the last
+ *  segment of a target name.
+ */
+@property(nonatomic, copy, nullable) NSString *targetId;
+
+@end
+
+
+/**
+ *  The `TimedPromoteReleaseRule` will automatically promote a release from the
+ *  current target(s) to the specified target(s) on a configured schedule.
+ */
+@interface GTLRCloudDeploy_TimedPromoteReleaseRule : GTLRObject
+
+/** Output only. Information around the state of the Automation rule. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_AutomationRuleCondition *condition;
+
+/**
+ *  Optional. The starting phase of the rollout created by this rule. Default to
+ *  the first phase.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationPhase;
+
+/**
+ *  Optional. The ID of the stage in the pipeline to which this `Release` is
+ *  deploying. If unspecified, default it to the next stage in the promotion
+ *  flow. The value of this field could be one of the following: * The last
+ *  segment of a target name * "\@next", the next target in the promotion
+ *  sequence
+ */
+@property(nonatomic, copy, nullable) NSString *destinationTargetId;
+
+/**
+ *  Required. ID of the rule. This ID must be unique in the `Automation`
+ *  resource to which this rule belongs. The format is
+ *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Required. Schedule in crontab format. e.g. "0 9 * * 1" for every Monday at
+ *  9am.
+ */
+@property(nonatomic, copy, nullable) NSString *schedule;
+
+/**
+ *  Required. The time zone in IANA format [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones) (e.g. America/New_York).
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRCloudDeploy_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
+ *  Time windows within which actions are restricted. See the
+ *  [documentation](https://cloud.google.com/deploy/docs/deploy-policy#dates_times)
+ *  for more information on how to configure dates/times.
+ */
+@interface GTLRCloudDeploy_TimeWindows : GTLRObject
+
+/** Optional. One-time windows within which actions are restricted. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_OneTimeWindow *> *oneTimeWindows;
+
+/**
+ *  Required. The time zone in IANA format [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones) (e.g. America/New_York).
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/** Optional. Recurring weekly windows within which actions are restricted. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_WeeklyWindow *> *weeklyWindows;
 
 @end
 
@@ -6473,7 +7800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
  *        (Value: "CLOUD_BUILD_UNAVAILABLE")
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_DeadlineExceeded The
- *        verify job run did not complete within the alloted time. (Value:
+ *        verify job run did not complete within the allotted time. (Value:
  *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudDeploy_VerifyJobRun_FailureCause_ExecutionFailed The
  *        verify operation did not complete successfully; check Cloud Build
@@ -6491,6 +7818,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_Ve
  *  Output only. Additional information about the verify failure, if available.
  */
 @property(nonatomic, copy, nullable) NSString *failureMessage;
+
+@end
+
+
+/**
+ *  Weekly windows. For example, blocking actions every Saturday and Sunday.
+ *  Another example would be blocking actions every weekday from 5pm to
+ *  midnight.
+ */
+@interface GTLRCloudDeploy_WeeklyWindow : GTLRObject
+
+/**
+ *  Optional. Days of week. If left empty, all days of the week will be
+ *  included.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *daysOfWeek;
+
+/**
+ *  Optional. End time (exclusive). Use 24:00 to indicate midnight. If you
+ *  specify end_time you must also specify start_time. If left empty, this will
+ *  block for the entire day for the days specified in days_of_week.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TimeOfDay *endTime;
+
+/**
+ *  Optional. Start time (inclusive). Use 00:00 for the beginning of the day. If
+ *  you specify start_time you must also specify end_time. If left empty, this
+ *  will block for the entire day for the days specified in days_of_week.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_TimeOfDay *startTime;
 
 @end
 

@@ -31,20 +31,25 @@
 @class GTLRDataFusion_Instance;
 @class GTLRDataFusion_Instance_Labels;
 @class GTLRDataFusion_Instance_Options;
+@class GTLRDataFusion_Instance_Tags;
 @class GTLRDataFusion_Location;
 @class GTLRDataFusion_Location_Labels;
 @class GTLRDataFusion_Location_Metadata;
+@class GTLRDataFusion_LoggingConfig;
+@class GTLRDataFusion_MaintenanceEvent;
+@class GTLRDataFusion_MaintenancePolicy;
+@class GTLRDataFusion_MaintenanceWindow;
 @class GTLRDataFusion_NetworkConfig;
 @class GTLRDataFusion_Operation;
 @class GTLRDataFusion_Operation_Metadata;
 @class GTLRDataFusion_Operation_Response;
 @class GTLRDataFusion_OperationMetadata_AdditionalStatus;
-@class GTLRDataFusion_PersistentDiskData;
 @class GTLRDataFusion_Policy;
 @class GTLRDataFusion_PrivateServiceConnectConfig;
-@class GTLRDataFusion_ServiceData;
+@class GTLRDataFusion_RecurringTimeWindow;
 @class GTLRDataFusion_Status;
 @class GTLRDataFusion_Status_Details_Item;
+@class GTLRDataFusion_TimeWindow;
 @class GTLRDataFusion_Version;
 
 // Generated comments include content from the discovery document; avoid them
@@ -74,21 +79,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_CcaiInsights;
 /**
- *  Change Data Capture accelerator for CDF.
+ *  Change Data Capture accelerator for Cloud Data Fusion.
  *
  *  Value: "CDC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc;
 /**
- *  Cloud search accelerator for CDF. This accelerator is to enable Cloud search
- *  specific CDF plugins developed by Cloudsearch team.
+ *  Reserved for internal use.
  *
  *  Value: "CLOUDSEARCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch;
 /**
- *  Cloud Healthcare accelerator for CDF. This accelerator is to enable Cloud
- *  Healthcare specific CDF plugins developed by Healthcare team.
+ *  Reserved for internal use.
  *
  *  Value: "HEALTHCARE"
  */
@@ -275,6 +278,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Enterprise;
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataFusion_MaintenanceEvent.state
+
+/**
+ *  The maintenance has been completed.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_MaintenanceEvent_State_Completed;
+/**
+ *  The maintenance is scheduled but has not started.
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_MaintenanceEvent_State_Scheduled;
+/**
+ *  The maintenance has been started.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_MaintenanceEvent_State_Started;
+/**
+ *  The state of the maintenance event is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_MaintenanceEvent_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataFusion_NetworkConfig.connectionType
 
 /**
@@ -303,6 +334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_
 // GTLRDataFusion_Version.type
 
 /**
+ *  Version is no longer supported.
+ *
+ *  Value: "TYPE_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeDeprecated;
+/**
  *  Version is available for public use
  *
  *  Value: "TYPE_GENERAL_AVAILABILITY"
@@ -327,7 +364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @interface GTLRDataFusion_Accelerator : GTLRObject
 
 /**
- *  The type of an accelator for a CDF instance.
+ *  Optional. The type of an accelator for a Cloud Data Fusion instance.
  *
  *  Likely values:
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified
@@ -337,20 +374,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        export pipelines custom built to streamline CCAI Insights processing.
  *        (Value: "CCAI_INSIGHTS")
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cdc Change Data
- *        Capture accelerator for CDF. (Value: "CDC")
- *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch Cloud
- *        search accelerator for CDF. This accelerator is to enable Cloud search
- *        specific CDF plugins developed by Cloudsearch team. (Value:
- *        "CLOUDSEARCH")
- *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare Cloud
- *        Healthcare accelerator for CDF. This accelerator is to enable Cloud
- *        Healthcare specific CDF plugins developed by Healthcare team. (Value:
- *        "HEALTHCARE")
+ *        Capture accelerator for Cloud Data Fusion. (Value: "CDC")
+ *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cloudsearch Reserved
+ *        for internal use. (Value: "CLOUDSEARCH")
+ *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare Reserved
+ *        for internal use. (Value: "HEALTHCARE")
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
- *  The state of the accelerator.
+ *  Output only. The state of the accelerator.
  *
  *  Likely values:
  *    @arg @c kGTLRDataFusion_Accelerator_State_Disabled Indicates that the
@@ -509,7 +542,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /**
  *  Role that is assigned to the list of `members`, or principals. For example,
- *  `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -530,50 +567,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @interface GTLRDataFusion_CryptoKeyConfig : GTLRObject
 
 /**
- *  The name of the key which is used to encrypt/decrypt customer data. For key
- *  in Cloud KMS, the key should be in the format of `projects/ * /locations/ *
- *  /keyRings/ * /cryptoKeys/ *`.
+ *  Optional. The name of the key which is used to encrypt/decrypt customer
+ *  data. For key in Cloud KMS, the key should be in the format of `projects/ *
+ *  /locations/ * /keyRings/ * /cryptoKeys/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *keyReference;
-
-@end
-
-
-/**
- *  Next tag: 7
- */
-@interface GTLRDataFusion_DataResidencyAugmentedView : GTLRObject
-
-/**
- *  Cloud resource to Google owned production object mapping in the form of
- *  GURIs. The GURIs should be available in DG KB storage/cns tables. This is
- *  the preferred way of providing cloud resource mappings. For further details
- *  please read go/cloud-resource-monitoring_sig
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *crGopoGuris;
-
-/**
- *  Cloud resource to Google owned production object mapping in the form of
- *  prefixes. These should be available in DG KB storage/cns tables. The entity
- *  type, which is the part of the string before the first colon in the GURI,
- *  must be completely specified in prefix. For details about GURI please read
- *  go/guri. For further details about the field please read
- *  go/cloud-resource-monitoring_sig.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *crGopoPrefixes;
-
-/**
- *  Service-specific data. Only required for pre-determined services. Generally
- *  used to bind a Cloud Resource to some a TI container that uniquely specifies
- *  a customer. See milestone 2 of DRZ KR8 SIG for more information.
- */
-@property(nonatomic, strong, nullable) GTLRDataFusion_ServiceData *serviceData;
-
-/**
- *  The list of project_id's of the tenant projects in the 'google.com' org
- *  which serve the Cloud Resource. See go/drz-mst-sig for more details.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tpIds;
 
 @end
 
@@ -595,7 +593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Required. The resource name of the dns peering zone. Format:
+ *  Identifier. The resource name of the dns peering zone. Format:
  *  projects/{project}/locations/{location}/instances/{instance}/dnsPeerings/{dns_peering}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -710,8 +708,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The crypto key configuration. This field is used by the Customer-Managed
- *  Encryption Keys (CMEK) feature.
+ *  Optional. The crypto key configuration. This field is used by the
+ *  Customer-Managed Encryption Keys (CMEK) feature.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_CryptoKeyConfig *cryptoKeyConfig;
 
@@ -723,14 +721,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) NSNumber *dataplexDataLineageIntegrationEnabled;
 
 /**
- *  User-managed service account to set on Dataproc when Cloud Data Fusion
- *  creates Dataproc to run data processing pipelines. This allows users to have
- *  fine-grained access control on Dataproc's accesses to cloud resources.
+ *  Optional. User-managed service account to set on Dataproc when Cloud Data
+ *  Fusion creates Dataproc to run data processing pipelines. This allows users
+ *  to have fine-grained access control on Dataproc's accesses to cloud
+ *  resources.
  */
 @property(nonatomic, copy, nullable) NSString *dataprocServiceAccount;
 
 /**
- *  A description of this instance.
+ *  Optional. A description of this instance.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -742,38 +741,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *disabledReason;
 
-/** Display name for an instance. */
+/** Optional. Display name for an instance. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Option to enable granular role-based access control.
+ *  Optional. Option to enable granular role-based access control.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableRbac;
 
 /**
- *  Option to enable Stackdriver Logging.
+ *  Optional. Option to enable Dataproc Stackdriver Logging.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableStackdriverLogging;
 
 /**
- *  Option to enable Stackdriver Monitoring.
+ *  Optional. Option to enable Stackdriver Monitoring.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableStackdriverMonitoring;
 
 /**
- *  Option to enable granular zone separation.
+ *  Output only. Option to enable granular zone separation.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableZoneSeparation;
 
-/** Option to enable and pass metadata for event publishing. */
+/** Optional. Option to enable and pass metadata for event publishing. */
 @property(nonatomic, strong, nullable) GTLRDataFusion_EventPublishConfig *eventPublishConfig;
 
 /**
@@ -790,37 +789,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Labels *labels;
 
 /**
+ *  Optional. The logging configuration for this instance. This field is
+ *  supported only in CDF versions 6.11.0 and above.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_LoggingConfig *loggingConfig;
+
+/** Output only. The maintenance events for this instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_MaintenanceEvent *> *maintenanceEvents;
+
+/** Optional. Configure the maintenance policy for this instance. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_MaintenancePolicy *maintenancePolicy;
+
+/**
  *  Output only. The name of this instance is in the form of
  *  projects/{project}/locations/{location}/instances/{instance}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Network configuration options. These are required when a private Data Fusion
- *  instance is to be created.
+ *  Optional. Network configuration options. These are required when a private
+ *  Data Fusion instance is to be created.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_NetworkConfig *networkConfig;
 
 /**
- *  Map of additional options used to configure the behavior of Data Fusion
- *  instance.
+ *  Optional. Map of additional options used to configure the behavior of Data
+ *  Fusion instance.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Options *options;
 
-/** Output only. P4 service account for the customer project. */
+/** Output only. Service agent for the customer project. */
 @property(nonatomic, copy, nullable) NSString *p4ServiceAccount;
 
 /** Optional. Current patch revision of the Data Fusion. */
 @property(nonatomic, copy, nullable) NSString *patchRevision;
 
 /**
- *  Specifies whether the Data Fusion instance should be private. If set to
- *  true, all Data Fusion nodes will have private IP addresses and will not be
- *  able to access the public internet.
+ *  Optional. Specifies whether the Data Fusion instance should be private. If
+ *  set to true, all Data Fusion nodes will have private IP addresses and will
+ *  not be able to access the public internet.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *privateInstance;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  Output only. Reserved for future use.
@@ -874,6 +892,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Tags *tags;
+
 /** Output only. The name of the tenant project. */
 @property(nonatomic, copy, nullable) NSString *tenantProjectId;
 
@@ -903,7 +928,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 /** Output only. The time the instance was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Current version of the Data Fusion. Only specifiable in Update. */
+/**
+ *  Optional. Current version of the Data Fusion. Only specifiable in Update.
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 /**
@@ -913,8 +940,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *workforceIdentityServiceEndpoint;
 
 /**
- *  Name of the zone in which the Data Fusion instance will be created. Only
- *  DEVELOPER instances use this field.
+ *  Optional. Name of the zone in which the Data Fusion instance will be
+ *  created. Only DEVELOPER instances use this field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -938,8 +965,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
- *  Map of additional options used to configure the behavior of Data Fusion
- *  instance.
+ *  Optional. Map of additional options used to configure the behavior of Data
+ *  Fusion instance.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -951,28 +978,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
- *  Response message for the list available versions request.
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
  *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "availableVersions" property. If returned as the result of a
- *        query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
  */
-@interface GTLRDataFusion_ListAvailableVersionsResponse : GTLRCollectionObject
+@interface GTLRDataFusion_Instance_Tags : GTLRObject
+@end
+
 
 /**
- *  Represents a list of versions that are supported.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
+ *  Response message for the list available versions request.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Version *> *availableVersions;
+@interface GTLRDataFusion_ListAvailableVersionsResponse : GTLRObject
+
+/**
+ *  Represents a list of versions that are supported. Deprecated: Use versions
+ *  field instead.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Version *> *availableVersions GTLR_DEPRECATED;
 
 /**
  *  Token to retrieve the next page of results or empty if there are no more
  *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Represents a list of all versions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Version *> *versions;
 
 @end
 
@@ -1144,6 +1181,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Logging configuration for a Data Fusion instance.
+ */
+@interface GTLRDataFusion_LoggingConfig : GTLRObject
+
+/**
+ *  Optional. Option to determine whether instance logs should be written to
+ *  Cloud Logging. By default, instance logs are written to Cloud Logging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *instanceCloudLoggingDisabled;
+
+@end
+
+
+/**
+ *  Represents a maintenance event.
+ */
+@interface GTLRDataFusion_MaintenanceEvent : GTLRObject
+
+/**
+ *  Output only. The end time of the maintenance event provided in [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. Example:
+ *  "2024-01-02T12:04:06-06:00" This field will be empty if the maintenance
+ *  event is not yet complete.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The start time of the maintenance event provided in [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. Example:
+ *  "2024-01-01T12:04:06-04:00"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The state of the maintenance event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_MaintenanceEvent_State_Completed The maintenance
+ *        has been completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRDataFusion_MaintenanceEvent_State_Scheduled The maintenance
+ *        is scheduled but has not started. (Value: "SCHEDULED")
+ *    @arg @c kGTLRDataFusion_MaintenanceEvent_State_Started The maintenance has
+ *        been started. (Value: "STARTED")
+ *    @arg @c kGTLRDataFusion_MaintenanceEvent_State_StateUnspecified The state
+ *        of the maintenance event is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Maintenance policy of the instance.
+ */
+@interface GTLRDataFusion_MaintenancePolicy : GTLRObject
+
+/** Optional. The maintenance exclusion window of the instance. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_TimeWindow *maintenanceExclusionWindow;
+
+/** Optional. The maintenance window of the instance. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_MaintenanceWindow *maintenanceWindow;
+
+@end
+
+
+/**
+ *  Maintenance window of the instance.
+ */
+@interface GTLRDataFusion_MaintenanceWindow : GTLRObject
+
+/** Required. The recurring time window of the maintenance window. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_RecurringTimeWindow *recurringTimeWindow;
+
+@end
+
+
+/**
  *  Network configuration for a Data Fusion instance. These configurations are
  *  used for peering with the customer network. Configurations are optional when
  *  a public Data Fusion instance is to be created. However, providing these
@@ -1183,11 +1299,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /**
  *  Optional. Name of the network in the customer project with which the Tenant
- *  Project will be peered for executing pipelines. This is required only when
- *  using connection type VPC peering. In case of shared VPC where the network
- *  resides in another host project the network should specified in the form of
- *  projects/{host-project-id}/global/networks/{network}. This is only required
- *  for connectivity type VPC_PEERING.
+ *  Project will be peered for executing pipelines. In case of shared VPC where
+ *  the network resides in another host project the network should specified in
+ *  the form of projects/{host-project-id}/global/networks/{network}. This is
+ *  only required for connectivity type VPC_PEERING.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -1303,8 +1418,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /**
  *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have Operation.error value
- *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
+ *  Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1333,40 +1449,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        fetch them all at once.
  */
 @interface GTLRDataFusion_OperationMetadata_AdditionalStatus : GTLRObject
-@end
-
-
-/**
- *  Persistent Disk service-specific Data. Contains information that may not be
- *  appropriate for the generic DRZ Augmented View. This currently includes LSV
- *  Colossus Roots and GCS Buckets.
- */
-@interface GTLRDataFusion_PersistentDiskData : GTLRObject
-
-/**
- *  Path to Colossus root for an LSV. NOTE: Unlike `cr_ti_guris` and
- *  `cr_ti_prefixes`, the field `cfs_roots` below does not need to be a GUri or
- *  GUri prefix. It can simply be any valid CFS or CFS2 Path. The DRZ KR8 SIG
- *  has more details overall, but generally the `cfs_roots` provided here should
- *  be scoped to an individual Persistent Disk. An example for a PD Disk with a
- *  disk ID 3277719120423414466, follows: * `cr_ti_guris` could be
- *  ‘/cfs2/pj/pd-cloud-prod’ as this is a valid GUri present in the DG KB and
- *  contains enough information to perform location monitoring and scope
- *  ownership of the Production Object. * `cfs_roots` would be:
- *  ‘/cfs2/pj/pd-cloud-staging/lsv000001234\@/
- *  lsv/projects~773365403387~zones~2700~disks~3277719120423414466
- *  ~bank-blue-careful-3526-lsv00054DB1B7254BA3/’ as this allows us to enumerate
- *  the files on CFS2 that belong to an individual Disk.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *cfsRoots;
-
-/**
- *  The GCS Buckets that back this snapshot or image. This is required as
- *  `cr_ti_prefixes` and `cr_ti_guris` only accept TI resources. This should be
- *  the globally unique bucket name.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *gcsBucketNames;
-
 @end
 
 
@@ -1498,25 +1580,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
- *  Request message for restarting a Data Fusion instance.
+ *  Represents an arbitrary window of time that recurs.
  */
-@interface GTLRDataFusion_RestartInstanceRequest : GTLRObject
+@interface GTLRDataFusion_RecurringTimeWindow : GTLRObject
+
+/**
+ *  Required. An RRULE with format
+ *  [RFC-5545](https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this
+ *  window reccurs. They go on for the span of time between the start and end
+ *  time. The only supported FREQ value is "WEEKLY". To have something repeat
+ *  every weekday, use: "FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR". This specifies how
+ *  frequently the window starts. To have a 9 am - 5 pm UTC-4 window every
+ *  weekday, use something like: ``` start time = 2019-01-01T09:00:00-0400 end
+ *  time = 2019-01-01T17:00:00-0400 recurrence =
+ *  FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR ```
+ */
+@property(nonatomic, copy, nullable) NSString *recurrence;
+
+/**
+ *  Required. The window representing the start and end time of recurrences.
+ *  This field ignores the date components of the provided timestamps. Only the
+ *  time of day and duration between start and end time are relevant.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_TimeWindow *window;
+
 @end
 
 
 /**
- *  This message defines service-specific data that certain service teams must
- *  provide as part of the Data Residency Augmented View for a resource. Next
- *  ID: 2
+ *  Request message for restarting a Data Fusion instance.
  */
-@interface GTLRDataFusion_ServiceData : GTLRObject
-
-/**
- *  Auxiliary data for the persistent disk pipeline provided to provide the LSV
- *  Colossus Roots and GCS Buckets.
- */
-@property(nonatomic, strong, nullable) GTLRDataFusion_PersistentDiskData *pd;
-
+@interface GTLRDataFusion_RestartInstanceRequest : GTLRObject
 @end
 
 
@@ -1618,6 +1712,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 
 /**
+ *  Represents an arbitrary window of time.
+ */
+@interface GTLRDataFusion_TimeWindow : GTLRObject
+
+/**
+ *  Required. The end time of the time window provided in [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. The end time should take
+ *  place after the start time. Example: "2024-01-02T12:04:06-06:00"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Required. The start time of the time window provided in [RFC
+ *  3339](https://www.ietf.org/rfc/rfc3339.txt) format. Example:
+ *  "2024-01-01T12:04:06-04:00"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  The Data Fusion version. This proto message stores information about certain
  *  Data Fusion version, which is used for Data Fusion version upgrade.
  */
@@ -1637,6 +1753,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  Type represents the release availability of the version
  *
  *  Likely values:
+ *    @arg @c kGTLRDataFusion_Version_Type_TypeDeprecated Version is no longer
+ *        supported. (Value: "TYPE_DEPRECATED")
  *    @arg @c kGTLRDataFusion_Version_Type_TypeGeneralAvailability Version is
  *        available for public use (Value: "TYPE_GENERAL_AVAILABILITY")
  *    @arg @c kGTLRDataFusion_Version_Type_TypePreview Version is under

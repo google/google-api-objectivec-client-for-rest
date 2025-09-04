@@ -18,6 +18,7 @@ NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_DataWrite = @"DATA_WRIT
 NSString * const kGTLRCloudDeploy_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_AutomationEvent.type
+NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -28,6 +29,7 @@ NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeRolloutUpdate = @"TYP
 NSString * const kGTLRCloudDeploy_AutomationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_AutomationRun.state
+NSString * const kGTLRCloudDeploy_AutomationRun_State_Aborted  = @"ABORTED";
 NSString * const kGTLRCloudDeploy_AutomationRun_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudDeploy_AutomationRun_State_Failed   = @"FAILED";
 NSString * const kGTLRCloudDeploy_AutomationRun_State_InProgress = @"IN_PROGRESS";
@@ -36,6 +38,7 @@ NSString * const kGTLRCloudDeploy_AutomationRun_State_StateUnspecified = @"STATE
 NSString * const kGTLRCloudDeploy_AutomationRun_State_Succeeded = @"SUCCEEDED";
 
 // GTLRCloudDeploy_AutomationRunEvent.type
+NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -45,7 +48,19 @@ NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRestrictionViolate
 NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRolloutUpdate = @"TYPE_ROLLOUT_UPDATE";
 NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudDeploy_CustomTargetTypeNotificationEvent.type
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceDeleted = @"TYPE_RESOURCE_DELETED";
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeResourceStateChange = @"TYPE_RESOURCE_STATE_CHANGE";
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRestrictionViolated = @"TYPE_RESTRICTION_VIOLATED";
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeRolloutUpdate = @"TYPE_ROLLOUT_UPDATE";
+NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRCloudDeploy_DeliveryPipelineNotificationEvent.type
+NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_DeliveryPipelineNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -63,6 +78,32 @@ NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_DeployFeatureNotSupp
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_DeployJobRun_FailureCause_MissingResourcesForCanary = @"MISSING_RESOURCES_FOR_CANARY";
+
+// GTLRCloudDeploy_DeployPolicyEvaluationEvent.invoker
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_DeployAutomation = @"DEPLOY_AUTOMATION";
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_InvokerUnspecified = @"INVOKER_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Invoker_User = @"USER";
+
+// GTLRCloudDeploy_DeployPolicyEvaluationEvent.overrides
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Overrides_PolicyOverridden = @"POLICY_OVERRIDDEN";
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Overrides_PolicySuspended = @"POLICY_SUSPENDED";
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Overrides_PolicyVerdictOverrideUnspecified = @"POLICY_VERDICT_OVERRIDE_UNSPECIFIED";
+
+// GTLRCloudDeploy_DeployPolicyEvaluationEvent.verdict
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_AllowedByPolicy = @"ALLOWED_BY_POLICY";
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_DeniedByPolicy = @"DENIED_BY_POLICY";
+NSString * const kGTLRCloudDeploy_DeployPolicyEvaluationEvent_Verdict_PolicyVerdictUnspecified = @"POLICY_VERDICT_UNSPECIFIED";
+
+// GTLRCloudDeploy_DeployPolicyNotificationEvent.type
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceDeleted = @"TYPE_RESOURCE_DELETED";
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeResourceStateChange = @"TYPE_RESOURCE_STATE_CHANGE";
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRestrictionViolated = @"TYPE_RESTRICTION_VIOLATED";
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRolloutUpdate = @"TYPE_ROLLOUT_UPDATE";
+NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_ExecutionConfig.usages
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Deploy = @"DEPLOY";
@@ -92,6 +133,7 @@ NSString * const kGTLRCloudDeploy_JobRun_State_Terminated      = @"TERMINATED";
 NSString * const kGTLRCloudDeploy_JobRun_State_Terminating     = @"TERMINATING";
 
 // GTLRCloudDeploy_JobRunNotificationEvent.type
+NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_JobRunNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -131,6 +173,7 @@ NSString * const kGTLRCloudDeploy_Release_RenderState_RenderStateUnspecified = @
 NSString * const kGTLRCloudDeploy_Release_RenderState_Succeeded = @"SUCCEEDED";
 
 // GTLRCloudDeploy_ReleaseNotificationEvent.type
+NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_ReleaseNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -147,6 +190,7 @@ NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRenderState_RenderSt
 NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_ReleaseRenderState_Succeeded = @"SUCCEEDED";
 
 // GTLRCloudDeploy_ReleaseRenderEvent.type
+NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_ReleaseRenderEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -162,11 +206,11 @@ NSString * const kGTLRCloudDeploy_Retry_BackoffMode_BackoffModeLinear = @"BACKOF
 NSString * const kGTLRCloudDeploy_Retry_BackoffMode_BackoffModeUnspecified = @"BACKOFF_MODE_UNSPECIFIED";
 
 // GTLRCloudDeploy_RetryAttempt.state
+NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateAborted = @"REPAIR_STATE_ABORTED";
 NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateCancelled = @"REPAIR_STATE_CANCELLED";
 NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateFailed = @"REPAIR_STATE_FAILED";
 NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateInProgress = @"REPAIR_STATE_IN_PROGRESS";
 NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStatePending = @"REPAIR_STATE_PENDING";
-NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateSkipped = @"REPAIR_STATE_SKIPPED";
 NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateSucceeded = @"REPAIR_STATE_SUCCEEDED";
 NSString * const kGTLRCloudDeploy_RetryAttempt_State_RepairStateUnspecified = @"REPAIR_STATE_UNSPECIFIED";
 
@@ -176,11 +220,11 @@ NSString * const kGTLRCloudDeploy_RetryPhase_BackoffMode_BackoffModeLinear = @"B
 NSString * const kGTLRCloudDeploy_RetryPhase_BackoffMode_BackoffModeUnspecified = @"BACKOFF_MODE_UNSPECIFIED";
 
 // GTLRCloudDeploy_RollbackAttempt.state
+NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateAborted = @"REPAIR_STATE_ABORTED";
 NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateCancelled = @"REPAIR_STATE_CANCELLED";
 NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateFailed = @"REPAIR_STATE_FAILED";
 NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateInProgress = @"REPAIR_STATE_IN_PROGRESS";
 NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStatePending = @"REPAIR_STATE_PENDING";
-NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateSkipped = @"REPAIR_STATE_SKIPPED";
 NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateSucceeded = @"REPAIR_STATE_SUCCEEDED";
 NSString * const kGTLRCloudDeploy_RollbackAttempt_State_RepairStateUnspecified = @"REPAIR_STATE_UNSPECIFIED";
 
@@ -216,6 +260,7 @@ NSString * const kGTLRCloudDeploy_Rollout_State_StateUnspecified = @"STATE_UNSPE
 NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded      = @"SUCCEEDED";
 
 // GTLRCloudDeploy_RolloutNotificationEvent.type
+NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -224,6 +269,22 @@ NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeResourceStat
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRestrictionViolated = @"TYPE_RESTRICTION_VIOLATED";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeRolloutUpdate = @"TYPE_ROLLOUT_UPDATE";
 NSString * const kGTLRCloudDeploy_RolloutNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRCloudDeploy_RolloutRestriction.actions
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Advance = @"ADVANCE";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Approve = @"APPROVE";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Cancel = @"CANCEL";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Create = @"CREATE";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_IgnoreJob = @"IGNORE_JOB";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_RetryJob = @"RETRY_JOB";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_Rollback = @"ROLLBACK";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_RolloutActionsUnspecified = @"ROLLOUT_ACTIONS_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Actions_TerminateJobrun = @"TERMINATE_JOBRUN";
+
+// GTLRCloudDeploy_RolloutRestriction.invokers
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Invokers_DeployAutomation = @"DEPLOY_AUTOMATION";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Invokers_InvokerUnspecified = @"INVOKER_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_RolloutRestriction_Invokers_User = @"USER";
 
 // GTLRCloudDeploy_RolloutUpdateEvent.rolloutUpdateType
 NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUpdateType_Advanced = @"ADVANCED";
@@ -242,6 +303,7 @@ NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUpdateType_RolloutUp
 NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUpdateType_Succeeded = @"SUCCEEDED";
 
 // GTLRCloudDeploy_RolloutUpdateEvent.type
+NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -258,6 +320,7 @@ NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportStat
 NSString * const kGTLRCloudDeploy_SkaffoldSupportedCondition_SkaffoldSupportState_SkaffoldSupportStateUnsupported = @"SKAFFOLD_SUPPORT_STATE_UNSUPPORTED";
 
 // GTLRCloudDeploy_TargetNotificationEvent.type
+NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypePubsubNotificationFailure = @"TYPE_PUBSUB_NOTIFICATION_FAILURE";
 NSString * const kGTLRCloudDeploy_TargetNotificationEvent_Type_TypeRenderStatuesChange = @"TYPE_RENDER_STATUES_CHANGE";
@@ -290,6 +353,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_DeadlineExceeded = @
 NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
 NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNotFound = @"VERIFICATION_CONFIG_NOT_FOUND";
+
+// GTLRCloudDeploy_WeeklyWindow.daysOfWeek
+NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Friday = @"FRIDAY";
+NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Monday = @"MONDAY";
+NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Saturday = @"SATURDAY";
+NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Sunday = @"SUNDAY";
+NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Thursday = @"THURSDAY";
+NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Tuesday = @"TUESDAY";
+NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDAY";
 
 // ----------------------------------------------------------------------------
 //
@@ -344,7 +417,15 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_AdvanceRolloutRequest
-@dynamic phaseId;
+@dynamic overrideDeployPolicy, phaseId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -395,7 +476,15 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_ApproveRolloutRequest
-@dynamic approved;
+@dynamic approved, overrideDeployPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -405,6 +494,25 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_ApproveRolloutResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_AssociatedEntities
+//
+
+@implementation GTLRCloudDeploy_AssociatedEntities
+@dynamic anthosClusters, gkeClusters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"anthosClusters" : [GTLRCloudDeploy_AnthosCluster class],
+    @"gkeClusters" : [GTLRCloudDeploy_GkeCluster class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -552,7 +660,8 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_AutomationRule
-@dynamic advanceRolloutRule, promoteReleaseRule, repairRolloutRule;
+@dynamic advanceRolloutRule, promoteReleaseRule, repairRolloutRule,
+         timedPromoteReleaseRule;
 @end
 
 
@@ -562,7 +671,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_AutomationRuleCondition
-@dynamic targetsPresentCondition;
+@dynamic targetsPresentCondition, timedPromoteReleaseCondition;
 @end
 
 
@@ -573,9 +682,10 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 @implementation GTLRCloudDeploy_AutomationRun
 @dynamic advanceRolloutOperation, automationId, automationSnapshot, createTime,
-         ETag, expireTime, name, promoteReleaseOperation,
+         ETag, expireTime, name, policyViolation, promoteReleaseOperation,
          repairRolloutOperation, ruleId, serviceAccount, state,
-         stateDescription, targetId, updateTime, waitUntilTime;
+         stateDescription, targetId, timedPromoteReleaseOperation, updateTime,
+         waitUntilTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -684,6 +794,15 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_CancelRolloutRequest
+@dynamic overrideDeployPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -941,6 +1060,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_CustomTargetTypeNotificationEvent
+//
+
+@implementation GTLRCloudDeploy_CustomTargetTypeNotificationEvent
+@dynamic customTargetType, customTargetTypeUid, message, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Date
 //
 
@@ -999,6 +1128,35 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_DeliveryPipeline_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeliveryPipelineAttribute
+//
+
+@implementation GTLRCloudDeploy_DeliveryPipelineAttribute
+@dynamic identifier, labels;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeliveryPipelineAttribute_Labels
+//
+
+@implementation GTLRCloudDeploy_DeliveryPipelineAttribute_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1114,6 +1272,102 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_DeployPolicy
+//
+
+@implementation GTLRCloudDeploy_DeployPolicy
+@dynamic annotations, createTime, descriptionProperty, ETag, labels, name,
+         rules, selectors, suspended, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRCloudDeploy_PolicyRule class],
+    @"selectors" : [GTLRCloudDeploy_DeployPolicyResourceSelector class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployPolicy_Annotations
+//
+
+@implementation GTLRCloudDeploy_DeployPolicy_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployPolicy_Labels
+//
+
+@implementation GTLRCloudDeploy_DeployPolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployPolicyEvaluationEvent
+//
+
+@implementation GTLRCloudDeploy_DeployPolicyEvaluationEvent
+@dynamic allowed, deliveryPipeline, deployPolicy, deployPolicyUid, invoker,
+         message, overrides, pipelineUid, rule, ruleType, target, targetUid,
+         verdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrides" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployPolicyNotificationEvent
+//
+
+@implementation GTLRCloudDeploy_DeployPolicyNotificationEvent
+@dynamic deployPolicy, deployPolicyUid, message, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_DeployPolicyResourceSelector
+//
+
+@implementation GTLRCloudDeploy_DeployPolicyResourceSelector
+@dynamic deliveryPipeline, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Empty
 //
 
@@ -1128,7 +1382,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 @implementation GTLRCloudDeploy_ExecutionConfig
 @dynamic artifactStorage, defaultPool, executionTimeout, privatePool,
-         serviceAccount, usages, workerPool;
+         serviceAccount, usages, verbose, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1161,8 +1415,8 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_GatewayServiceMesh
-@dynamic deployment, httpRoute, routeUpdateWaitTime, service,
-         stableCutbackDuration;
+@dynamic deployment, httpRoute, podSelectorLabel, routeDestinations,
+         routeUpdateWaitTime, service, stableCutbackDuration;
 @end
 
 
@@ -1172,7 +1426,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_GkeCluster
-@dynamic cluster, internalIp;
+@dynamic cluster, dnsEndpoint, internalIp, proxyUrl;
 @end
 
 
@@ -1182,7 +1436,15 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_IgnoreJobRequest
-@dynamic jobId, phaseId;
+@dynamic jobId, overrideDeployPolicy, phaseId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1341,6 +1603,29 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 + (NSString *)collectionItemsKey {
   return @"deliveryPipelines";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_ListDeployPoliciesResponse
+//
+
+@implementation GTLRCloudDeploy_ListDeployPoliciesResponse
+@dynamic deployPolicies, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deployPolicies" : [GTLRCloudDeploy_DeployPolicy class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deployPolicies";
 }
 
 @end
@@ -1550,6 +1835,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_OneTimeWindow
+//
+
+@implementation GTLRCloudDeploy_OneTimeWindow
+@dynamic endDate, endTime, startDate, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_Operation
 //
 
@@ -1680,6 +1975,44 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_PolicyRule
+//
+
+@implementation GTLRCloudDeploy_PolicyRule
+@dynamic rolloutRestriction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_PolicyViolation
+//
+
+@implementation GTLRCloudDeploy_PolicyViolation
+@dynamic policyViolationDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyViolationDetails" : [GTLRCloudDeploy_PolicyViolationDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_PolicyViolationDetails
+//
+
+@implementation GTLRCloudDeploy_PolicyViolationDetails
+@dynamic failureMessage, policy, ruleId;
 @end
 
 
@@ -1974,16 +2307,6 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudDeploy_RepairMode
-//
-
-@implementation GTLRCloudDeploy_RepairMode
-@dynamic retry, rollback;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudDeploy_RepairPhase
 //
 
@@ -1994,11 +2317,21 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_RepairPhaseConfig
+//
+
+@implementation GTLRCloudDeploy_RepairPhaseConfig
+@dynamic retry, rollback;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_RepairRolloutOperation
 //
 
 @implementation GTLRCloudDeploy_RepairRolloutOperation
-@dynamic currentRepairModeIndex, jobId, phaseId, repairPhases, rollout;
+@dynamic currentRepairPhaseIndex, jobId, phaseId, repairPhases, rollout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2016,7 +2349,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RepairRolloutRule
-@dynamic condition, identifier, jobs, repairModes, sourcePhases;
+@dynamic condition, identifier, jobs, phases, repairPhases;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2025,8 +2358,8 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"jobs" : [NSString class],
-    @"repairModes" : [GTLRCloudDeploy_RepairMode class],
-    @"sourcePhases" : [NSString class]
+    @"phases" : [NSString class],
+    @"repairPhases" : [GTLRCloudDeploy_RepairPhaseConfig class]
   };
   return map;
 }
@@ -2060,7 +2393,15 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RetryJobRequest
-@dynamic jobId, phaseId;
+@dynamic jobId, overrideDeployPolicy, phaseId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2079,7 +2420,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RetryPhase
-@dynamic attempts, backoffMode, jobId, phaseId, totalAttempts;
+@dynamic attempts, backoffMode, totalAttempts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2097,7 +2438,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Rollback
-@dynamic destinationPhase;
+@dynamic destinationPhase, disableRollbackIfRolloutPending;
 @end
 
 
@@ -2107,7 +2448,8 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RollbackAttempt
-@dynamic destinationPhase, rolloutId, state, stateDesc;
+@dynamic destinationPhase, disableRollbackIfRolloutPending, rolloutId, state,
+         stateDesc;
 @end
 
 
@@ -2127,8 +2469,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_RollbackTargetRequest
-@dynamic releaseId, rollbackConfig, rolloutId, rolloutToRollBack, targetId,
-         validateOnly;
+@dynamic overrideDeployPolicy, releaseId, rollbackConfig, rolloutId,
+         rolloutToRollBack, targetId, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2148,11 +2498,11 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Rollout
-@dynamic annotations, approvalState, approveTime, controllerRollout, createTime,
-         deployEndTime, deployFailureCause, deployingBuild, deployStartTime,
-         descriptionProperty, enqueueTime, ETag, failureReason, labels,
-         metadata, name, phases, rollbackOfRollout, rolledBackByRollouts, state,
-         targetId, uid;
+@dynamic activeRepairAutomationRun, annotations, approvalState, approveTime,
+         controllerRollout, createTime, deployEndTime, deployFailureCause,
+         deployingBuild, deployStartTime, descriptionProperty, enqueueTime,
+         ETag, failureReason, labels, metadata, name, phases, rollbackOfRollout,
+         rolledBackByRollouts, state, targetId, uid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2219,6 +2569,29 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_RolloutRestriction
+//
+
+@implementation GTLRCloudDeploy_RolloutRestriction
+@dynamic actions, identifier, invokers, timeWindows;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [NSString class],
+    @"invokers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_RolloutUpdateEvent
 //
 
@@ -2228,6 +2601,24 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"releaseProperty" : @"release" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_RouteDestinations
+//
+
+@implementation GTLRCloudDeploy_RouteDestinations
+@dynamic destinationIds, propagateService;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinationIds" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -2267,7 +2658,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_ServiceNetworking
-@dynamic deployment, disablePodOverprovisioning, service;
+@dynamic deployment, disablePodOverprovisioning, podSelectorLabel, service;
 @end
 
 
@@ -2278,6 +2669,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 @implementation GTLRCloudDeploy_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_SkaffoldGCBRepoSource
+//
+
+@implementation GTLRCloudDeploy_SkaffoldGCBRepoSource
+@dynamic path, ref, repository;
 @end
 
 
@@ -2307,7 +2708,7 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_SkaffoldModules
-@dynamic configs, git, googleCloudStorage;
+@dynamic configs, git, googleCloudBuildRepo, googleCloudStorage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2417,9 +2818,10 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_Target
-@dynamic annotations, anthosCluster, createTime, customTarget, deployParameters,
-         descriptionProperty, ETag, executionConfigs, gke, labels, multiTarget,
-         name, requireApproval, run, targetId, uid, updateTime;
+@dynamic annotations, anthosCluster, associatedEntities, createTime,
+         customTarget, deployParameters, descriptionProperty, ETag,
+         executionConfigs, gke, labels, multiTarget, name, requireApproval, run,
+         targetId, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2448,6 +2850,20 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_Target_AssociatedEntities
+//
+
+@implementation GTLRCloudDeploy_Target_AssociatedEntities
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudDeploy_AssociatedEntities class];
 }
 
 @end
@@ -2556,6 +2972,16 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_Targets
+//
+
+@implementation GTLRCloudDeploy_Targets
+@dynamic destinationTargetId, sourceTargetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_TargetsPresentCondition
 //
 
@@ -2588,6 +3014,15 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 //
 
 @implementation GTLRCloudDeploy_TerminateJobRunRequest
+@dynamic overrideDeployPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrideDeployPolicy" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2638,6 +3073,84 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_TimedPromoteReleaseCondition
+//
+
+@implementation GTLRCloudDeploy_TimedPromoteReleaseCondition
+@dynamic nextPromotionTime, targetsList;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetsList" : [GTLRCloudDeploy_Targets class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_TimedPromoteReleaseOperation
+//
+
+@implementation GTLRCloudDeploy_TimedPromoteReleaseOperation
+@dynamic phase, releaseProperty, targetId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"releaseProperty" : @"release" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_TimedPromoteReleaseRule
+//
+
+@implementation GTLRCloudDeploy_TimedPromoteReleaseRule
+@dynamic condition, destinationPhase, destinationTargetId, identifier, schedule,
+         timeZone;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_TimeOfDay
+//
+
+@implementation GTLRCloudDeploy_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_TimeWindows
+//
+
+@implementation GTLRCloudDeploy_TimeWindows
+@dynamic oneTimeWindows, timeZone, weeklyWindows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeWindows" : [GTLRCloudDeploy_OneTimeWindow class],
+    @"weeklyWindows" : [GTLRCloudDeploy_WeeklyWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_VerifyJob
 //
 
@@ -2652,4 +3165,22 @@ NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_VerificationConfigNo
 
 @implementation GTLRCloudDeploy_VerifyJobRun
 @dynamic artifactUri, build, eventLogPath, failureCause, failureMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_WeeklyWindow
+//
+
+@implementation GTLRCloudDeploy_WeeklyWindow
+@dynamic daysOfWeek, endTime, startTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"daysOfWeek" : [NSString class]
+  };
+  return map;
+}
+
 @end

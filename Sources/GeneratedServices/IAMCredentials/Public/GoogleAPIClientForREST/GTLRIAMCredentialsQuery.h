@@ -4,8 +4,9 @@
 // API:
 //   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
-//   Creates short-lived credentials for impersonating IAM service accounts. To
-//   enable this API, you must enable the IAM API (iam.googleapis.com).
+//   Creates short-lived credentials for impersonating IAM service accounts.
+//   Disabling this API also disables the IAM API (iam.googleapis.com). However,
+//   enabling this API doesn't enable the IAM API.
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
@@ -31,6 +32,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Returns the trust boundary info for a given workforce pool.
+ *
+ *  Method: iamcredentials.locations.workforcePools.getAllowedLocations
+ */
+@interface GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations : GTLRIAMCredentialsQuery
+
+/** Required. Resource name of workforce pool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIAMCredentials_WorkforcePoolAllowedLocations.
+ *
+ *  Returns the trust boundary info for a given workforce pool.
+ *
+ *  @param name Required. Resource name of workforce pool.
+ *
+ *  @return GTLRIAMCredentialsQuery_LocationsWorkforcePoolsGetAllowedLocations
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the trust boundary info for a given workload identity pool.
+ *
+ *  Method: iamcredentials.projects.locations.workloadIdentityPools.getAllowedLocations
+ */
+@interface GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations : GTLRIAMCredentialsQuery
+
+/** Required. Resource name of workload identity pool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations.
+ *
+ *  Returns the trust boundary info for a given workload identity pool.
+ *
+ *  @param name Required. Resource name of workload identity pool.
+ *
+ *  @return GTLRIAMCredentialsQuery_ProjectsLocationsWorkloadIdentityPoolsGetAllowedLocations
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -105,6 +152,29 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRIAMCredentials_GenerateIdTokenRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the trust boundary info for a given service account.
+ *
+ *  Method: iamcredentials.projects.serviceAccounts.getAllowedLocations
+ */
+@interface GTLRIAMCredentialsQuery_ProjectsServiceAccountsGetAllowedLocations : GTLRIAMCredentialsQuery
+
+/** Required. Resource name of service account. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIAMCredentials_ServiceAccountAllowedLocations.
+ *
+ *  Returns the trust boundary info for a given service account.
+ *
+ *  @param name Required. Resource name of service account.
+ *
+ *  @return GTLRIAMCredentialsQuery_ProjectsServiceAccountsGetAllowedLocations
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -6,7 +6,7 @@
 // Description:
 //   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/
+//   https://developers.google.com/workspace/drive/
 
 #import <GoogleAPIClientForREST/GTLRDriveQuery.h>
 
@@ -37,6 +37,78 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRDrive_About class];
   query.loggingName = @"drive.about.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_AccessproposalsGet
+
+@dynamic fileId, proposalId;
+
++ (instancetype)queryWithFileId:(NSString *)fileId
+                     proposalId:(NSString *)proposalId {
+  NSArray *pathParams = @[
+    @"fileId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/accessproposals/{proposalId}";
+  GTLRDriveQuery_AccessproposalsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.fileId = fileId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRDrive_AccessProposal class];
+  query.loggingName = @"drive.accessproposals.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_AccessproposalsList
+
+@dynamic fileId, pageSize, pageToken;
+
++ (instancetype)queryWithFileId:(NSString *)fileId {
+  NSArray *pathParams = @[ @"fileId" ];
+  NSString *pathURITemplate = @"files/{fileId}/accessproposals";
+  GTLRDriveQuery_AccessproposalsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.fileId = fileId;
+  query.expectedObjectClass = [GTLRDrive_ListAccessProposalsResponse class];
+  query.loggingName = @"drive.accessproposals.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_AccessproposalsResolve
+
+@dynamic fileId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRDrive_ResolveAccessProposalRequest *)object
+                         fileId:(NSString *)fileId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"fileId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/accessproposals/{proposalId}:resolve";
+  GTLRDriveQuery_AccessproposalsResolve *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.proposalId = proposalId;
+  query.loggingName = @"drive.accessproposals.resolve";
   return query;
 }
 
@@ -508,6 +580,25 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
+@implementation GTLRDriveQuery_FilesDownload
+
+@dynamic fileId, mimeType, revisionId;
+
++ (instancetype)queryWithFileId:(NSString *)fileId {
+  NSArray *pathParams = @[ @"fileId" ];
+  NSString *pathURITemplate = @"files/{fileId}/download";
+  GTLRDriveQuery_FilesDownload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.fileId = fileId;
+  query.expectedObjectClass = [GTLRDrive_Operation class];
+  query.loggingName = @"drive.files.download";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveQuery_FilesEmptyTrash
 
 @dynamic driveId, enforceSingleParent;
@@ -727,11 +818,30 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
+@implementation GTLRDriveQuery_OperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"operations/{name}";
+  GTLRDriveQuery_OperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDrive_Operation class];
+  query.loggingName = @"drive.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveQuery_PermissionsCreate
 
-@dynamic emailMessage, enforceSingleParent, fileId, moveToNewOwnersRoot,
-         sendNotificationEmail, supportsAllDrives, supportsTeamDrives,
-         transferOwnership, useDomainAdminAccess;
+@dynamic emailMessage, enforceExpansiveAccess, enforceSingleParent, fileId,
+         moveToNewOwnersRoot, sendNotificationEmail, supportsAllDrives,
+         supportsTeamDrives, transferOwnership, useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId {
@@ -758,8 +868,8 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsDelete
 
-@dynamic fileId, permissionId, supportsAllDrives, supportsTeamDrives,
-         useDomainAdminAccess;
+@dynamic enforceExpansiveAccess, fileId, permissionId, supportsAllDrives,
+         supportsTeamDrives, useDomainAdminAccess;
 
 + (instancetype)queryWithFileId:(NSString *)fileId
                    permissionId:(NSString *)permissionId {
@@ -825,8 +935,9 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_PermissionsUpdate
 
-@dynamic fileId, permissionId, removeExpiration, supportsAllDrives,
-         supportsTeamDrives, transferOwnership, useDomainAdminAccess;
+@dynamic enforceExpansiveAccess, fileId, permissionId, removeExpiration,
+         supportsAllDrives, supportsTeamDrives, transferOwnership,
+         useDomainAdminAccess;
 
 + (instancetype)queryWithObject:(GTLRDrive_Permission *)object
                          fileId:(NSString *)fileId

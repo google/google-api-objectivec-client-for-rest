@@ -72,6 +72,198 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Accepts an App Attest assertion and an artifact previously obtained from
+ *  ExchangeAppAttestAttestation and verifies those with Apple. If valid,
+ *  returns an AppCheckToken.
+ *
+ *  Method: firebaseappcheck.oauthClients.exchangeAppAttestAssertion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_OauthClientsExchangeAppAttestAssertion : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the iOS app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken.
+ *
+ *  Accepts an App Attest assertion and an artifact previously obtained from
+ *  ExchangeAppAttestAttestation and verifies those with Apple. If valid,
+ *  returns an AppCheckToken.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAssertionRequest
+ *    to include in the query.
+ *  @param app Required. The relative resource name of the iOS app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
+ *
+ *  @return GTLRFirebaseappcheckQuery_OauthClientsExchangeAppAttestAssertion
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAssertionRequest *)object
+                            app:(NSString *)app;
+
+@end
+
+/**
+ *  Accepts an App Attest CBOR attestation and verifies it with Apple using your
+ *  preconfigured team and bundle IDs. If valid, returns an attestation artifact
+ *  that can later be exchanged for an AppCheckToken using
+ *  ExchangeAppAttestAssertion. For convenience and performance, this method's
+ *  response object will also contain an AppCheckToken (if the verification is
+ *  successful).
+ *
+ *  Method: firebaseappcheck.oauthClients.exchangeAppAttestAttestation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_OauthClientsExchangeAppAttestAttestation : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the iOS app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationResponse.
+ *
+ *  Accepts an App Attest CBOR attestation and verifies it with Apple using your
+ *  preconfigured team and bundle IDs. If valid, returns an attestation artifact
+ *  that can later be exchanged for an AppCheckToken using
+ *  ExchangeAppAttestAssertion. For convenience and performance, this method's
+ *  response object will also contain an AppCheckToken (if the verification is
+ *  successful).
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationRequest
+ *    to include in the query.
+ *  @param app Required. The relative resource name of the iOS app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
+ *
+ *  @return GTLRFirebaseappcheckQuery_OauthClientsExchangeAppAttestAttestation
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeAppAttestAttestationRequest *)object
+                            app:(NSString *)app;
+
+@end
+
+/**
+ *  Validates a debug token secret that you have previously created using
+ *  CreateDebugToken. If valid, returns an AppCheckToken. Note that a
+ *  restrictive quota is enforced on this method to prevent accidental exposure
+ *  of the app to abuse.
+ *
+ *  Method: firebaseappcheck.oauthClients.exchangeDebugToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_OauthClientsExchangeDebugToken : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1AppCheckToken.
+ *
+ *  Validates a debug token secret that you have previously created using
+ *  CreateDebugToken. If valid, returns an AppCheckToken. Note that a
+ *  restrictive quota is enforced on this method to prevent accidental exposure
+ *  of the app to abuse.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDebugTokenRequest to
+ *    include in the query.
+ *  @param app Required. The relative resource name of the app, in the format:
+ *    ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
+ *
+ *  @return GTLRFirebaseappcheckQuery_OauthClientsExchangeDebugToken
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ExchangeDebugTokenRequest *)object
+                            app:(NSString *)app;
+
+@end
+
+/**
+ *  Generates a challenge that protects the integrity of an immediately
+ *  following call to ExchangeAppAttestAttestation or
+ *  ExchangeAppAttestAssertion. A challenge should not be reused for multiple
+ *  calls.
+ *
+ *  Method: firebaseappcheck.oauthClients.generateAppAttestChallenge
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_OauthClientsGenerateAppAttestChallenge : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the iOS app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeResponse.
+ *
+ *  Generates a challenge that protects the integrity of an immediately
+ *  following call to ExchangeAppAttestAttestation or
+ *  ExchangeAppAttestAssertion. A challenge should not be reused for multiple
+ *  calls.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeRequest
+ *    to include in the query.
+ *  @param app Required. The relative resource name of the iOS app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
+ *
+ *  @return GTLRFirebaseappcheckQuery_OauthClientsGenerateAppAttestChallenge
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1GenerateAppAttestChallengeRequest *)object
+                            app:(NSString *)app;
+
+@end
+
+/**
  *  Atomically gets the AppAttestConfigs for the specified list of apps.
  *
  *  Method: firebaseappcheck.projects.apps.appAttestConfig.batchGet
@@ -169,7 +361,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A comma-separated list of names of fields in the AppAttestConfig
- *  Gets to update. Example: `token_ttl`.
+ *  to update. Example: `token_ttl`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -518,7 +710,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A comma-separated list of names of fields in the DeviceCheckConfig
- *  Gets to update. Example: `key_id,private_key`.
+ *  to update. Example: `key_id,private_key`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1159,7 +1351,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A comma-separated list of names of fields in the
- *  PlayIntegrityConfig Gets to update. Example: `token_ttl`.
+ *  PlayIntegrityConfig to update. Example: `token_ttl`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1403,7 +1595,7 @@ GTLR_DEPRECATED
 /**
  *  Updates the RecaptchaV3Config for the specified app. While this
  *  configuration is incomplete or invalid, the app will be unable to exchange
- *  reCAPTCHA tokens for App Check tokens. For security reasons, the
+ *  reCAPTCHA V3 tokens for App Check tokens. For security reasons, the
  *  `site_secret` field is never populated in the response.
  *
  *  Method: firebaseappcheck.projects.apps.recaptchaV3Config.patch
@@ -1434,7 +1626,7 @@ GTLR_DEPRECATED
  *
  *  Updates the RecaptchaV3Config for the specified app. While this
  *  configuration is incomplete or invalid, the app will be unable to exchange
- *  reCAPTCHA tokens for App Check tokens. For security reasons, the
+ *  reCAPTCHA V3 tokens for App Check tokens. For security reasons, the
  *  `site_secret` field is never populated in the response.
  *
  *  @param object The @c
@@ -1552,7 +1744,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. A comma-separated list of names of fields in the SafetyNetConfig
- *  Gets to update. Example: `token_ttl`.
+ *  to update. Example: `token_ttl`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1636,7 +1828,8 @@ GTLR_DEPRECATED
  *  the `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
+ *  `oauth2.googleapis.com` (Google Identity for iOS)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1651,7 +1844,8 @@ GTLR_DEPRECATED
  *    Currently, the following service IDs are supported: *
  *    `firebasestorage.googleapis.com` (Cloud Storage for Firebase) *
  *    `firebasedatabase.googleapis.com` (Firebase Realtime Database) *
- *    `firestore.googleapis.com` (Cloud Firestore)
+ *    `firestore.googleapis.com` (Cloud Firestore) * `oauth2.googleapis.com`
+ *    (Google Identity for iOS)
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsServicesGet
  */
@@ -1734,7 +1928,8 @@ GTLR_DEPRECATED
  *  that the `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
+ *  `oauth2.googleapis.com` (Google Identity for iOS)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1759,11 +1954,309 @@ GTLR_DEPRECATED
  *    `service_id` element must be a supported service ID. Currently, the
  *    following service IDs are supported: * `firebasestorage.googleapis.com`
  *    (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *    Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
+ *    Realtime Database) * `firestore.googleapis.com` (Cloud Firestore) *
+ *    `oauth2.googleapis.com` (Google Identity for iOS)
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsServicesPatch
  */
 + (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Atomically updates the specified ResourcePolicy configurations.
+ *
+ *  Method: firebaseappcheck.projects.services.resourcePolicies.batchUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesBatchUpdate : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The parent service name, in the format ```
+ *  projects/{project_number}/services/{service_id} ``` The parent collection in
+ *  the `name` field of any resource being updated must match this field, or the
+ *  entire batch fails.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesResponse.
+ *
+ *  Atomically updates the specified ResourcePolicy configurations.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesRequest
+ *    to include in the query.
+ *  @param parent Required. The parent service name, in the format ```
+ *    projects/{project_number}/services/{service_id} ``` The parent collection
+ *    in the `name` field of any resource being updated must match this field,
+ *    or the entire batch fails.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesBatchUpdate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1BatchUpdateResourcePoliciesRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates the specified ResourcePolicy configuration.
+ *
+ *  Method: firebaseappcheck.projects.services.resourcePolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesCreate : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the parent Service in which the
+ *  specified ResourcePolicy will be created, in the format: ```
+ *  projects/{project_number}/services/{service_id} ``` Note that the
+ *  `service_id` element must be a supported service ID. Currently, the
+ *  following service IDs are supported: * `oauth2.googleapis.com` (Google
+ *  Identity for iOS)
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy.
+ *
+ *  Creates the specified ResourcePolicy configuration.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy to include in
+ *    the query.
+ *  @param parent Required. The relative resource name of the parent Service in
+ *    which the specified ResourcePolicy will be created, in the format: ```
+ *    projects/{project_number}/services/{service_id} ``` Note that the
+ *    `service_id` element must be a supported service ID. Currently, the
+ *    following service IDs are supported: * `oauth2.googleapis.com` (Google
+ *    Identity for iOS)
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified ResourcePolicy configuration.
+ *
+ *  Method: firebaseappcheck.projects.services.resourcePolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesDelete : GTLRFirebaseappcheckQuery
+
+/**
+ *  The checksum to be validated against the current ResourcePolicy, to ensure
+ *  the client has an up-to-date value before proceeding. This checksum is
+ *  computed by the server based on the values of fields in the ResourcePolicy
+ *  object, and can be obtained from the ResourcePolicy object received from the
+ *  last CreateResourcePolicy, GetResourcePolicy, ListResourcePolicies,
+ *  UpdateResourcePolicy, or BatchUpdateResourcePolicies call. This etag is
+ *  strongly validated as defined by RFC 7232.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The relative resource name of the ResourcePolicy to delete, in the
+ *  format: ```
+ *  projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
+ *  ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified ResourcePolicy configuration.
+ *
+ *  @param name Required. The relative resource name of the ResourcePolicy to
+ *    delete, in the format: ```
+ *    projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
+ *    ```
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the requested ResourcePolicy configuration.
+ *
+ *  Method: firebaseappcheck.projects.services.resourcePolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesGet : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the ResourcePolicy to retrieve, in
+ *  the format: ```
+ *  projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
+ *  ``` Note that the `service_id` element must be a supported service ID.
+ *  Currently, the following service IDs are supported: *
+ *  `oauth2.googleapis.com` (Google Identity for iOS)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy.
+ *
+ *  Gets the requested ResourcePolicy configuration.
+ *
+ *  @param name Required. The relative resource name of the ResourcePolicy to
+ *    retrieve, in the format: ```
+ *    projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
+ *    ``` Note that the `service_id` element must be a supported service ID.
+ *    Currently, the following service IDs are supported: *
+ *    `oauth2.googleapis.com` (Google Identity for iOS)
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ResourcePolicy configurations for the specified project and
+ *  service.
+ *
+ *  Method: firebaseappcheck.projects.services.resourcePolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesList : GTLRFirebaseappcheckQuery
+
+/**
+ *  Optional. Filters the results by the specified rule. For the exact syntax of
+ *  this field, please consult the [AIP-160](https://google.aip.dev/160)
+ *  standard. Currently, since the only fields in the ResourcePolicy resource
+ *  are the scalar fields `enforcement_mode` and `target_resource`, this method
+ *  does not support the traversal operator (`.`) or the has operator (`:`).
+ *  Here are some examples of valid filters: * `enforcement_mode = ENFORCED` *
+ *  `target_resource = "//oauth2.googleapis.com/projects/12345/oauthClients/"` *
+ *  `enforcement_mode = ENFORCED AND target_resource =
+ *  "//oauth2.googleapis.com/projects/12345/oauthClients/"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of ResourcePolicy objects to return in the response. The
+ *  server may return fewer than this at its own discretion. If no value is
+ *  specified (or too large a value is specified), the server will impose its
+ *  own limit.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token returned from a previous call to ListResourcePolicies indicating where
+ *  in the set of ResourcePolicy objects to resume listing. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to ListResourcePolicies must match the call that provided the page token; if
+ *  they do not match, the result is undefined.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The relative resource name of the parent Service for which to list
+ *  each associated ResourcePolicy, in the format: ```
+ *  projects/{project_number}/services/{service_id} ``` Note that the
+ *  `service_id` element must be a supported service ID. Currently, the
+ *  following service IDs are supported: * `oauth2.googleapis.com` (Google
+ *  Identity for iOS)
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ListResourcePoliciesResponse.
+ *
+ *  Lists all ResourcePolicy configurations for the specified project and
+ *  service.
+ *
+ *  @param parent Required. The relative resource name of the parent Service for
+ *    which to list each associated ResourcePolicy, in the format: ```
+ *    projects/{project_number}/services/{service_id} ``` Note that the
+ *    `service_id` element must be a supported service ID. Currently, the
+ *    following service IDs are supported: * `oauth2.googleapis.com` (Google
+ *    Identity for iOS)
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified ResourcePolicy configuration.
+ *
+ *  Method: firebaseappcheck.projects.services.resourcePolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesPatch : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. Identifier. The relative name of the resource policy object, in
+ *  the format: ```
+ *  projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
+ *  ``` Note that the `service_id` element must be a supported service ID.
+ *  Currently, the following service IDs are supported: *
+ *  `oauth2.googleapis.com` (Google Identity for iOS) `resource_policy_id` is a
+ *  system-generated UID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A comma-separated list of names of fields in the ResourcePolicy to
+ *  update. Example: `enforcement_mode`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy.
+ *
+ *  Updates the specified ResourcePolicy configuration.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy to include in
+ *    the query.
+ *  @param name Required. Identifier. The relative name of the resource policy
+ *    object, in the format: ```
+ *    projects/{project_number}/services/{service_id}/resourcePolicies/{resource_policy_id}
+ *    ``` Note that the `service_id` element must be a supported service ID.
+ *    Currently, the following service IDs are supported: *
+ *    `oauth2.googleapis.com` (Google Identity for iOS) `resource_policy_id` is
+ *    a system-generated UID.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsServicesResourcePoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy *)object
                            name:(NSString *)name;
 
 @end

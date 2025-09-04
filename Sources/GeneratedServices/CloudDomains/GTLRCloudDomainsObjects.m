@@ -37,6 +37,11 @@ NSString * const kGTLRCloudDomains_Domain_ResourceState_ResourceStateUnspecified
 NSString * const kGTLRCloudDomains_Domain_ResourceState_Suspended = @"SUSPENDED";
 NSString * const kGTLRCloudDomains_Domain_ResourceState_Unsupported = @"UNSUPPORTED";
 
+// GTLRCloudDomains_DomainForwarding.redirectType
+NSString * const kGTLRCloudDomains_DomainForwarding_RedirectType_Permanent = @"PERMANENT";
+NSString * const kGTLRCloudDomains_DomainForwarding_RedirectType_RedirectTypeUnspecified = @"REDIRECT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_DomainForwarding_RedirectType_Temporary = @"TEMPORARY";
+
 // GTLRCloudDomains_DsRecord.algorithm
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_AlgorithmUnspecified = @"ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Dh       = @"DH";
@@ -68,6 +73,22 @@ NSString * const kGTLRCloudDomains_DsRecord_DigestType_Sha384  = @"SHA384";
 NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_DsRecordsPublished = @"DS_RECORDS_PUBLISHED";
 NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_DsRecordsUnpublished = @"DS_RECORDS_UNPUBLISHED";
 NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_DsStateUnspecified = @"DS_STATE_UNSPECIFIED";
+
+// GTLRCloudDomains_LoadBalancerTarget.ipProtocol
+NSString * const kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Tcp = @"TCP";
+NSString * const kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Udp = @"UDP";
+NSString * const kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Undefined = @"UNDEFINED";
+
+// GTLRCloudDomains_LoadBalancerTarget.loadBalancerType
+NSString * const kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_GlobalL7ilb = @"GLOBAL_L7ILB";
+NSString * const kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_None = @"NONE";
+NSString * const kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_RegionalL4ilb = @"REGIONAL_L4ILB";
+NSString * const kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_RegionalL7ilb = @"REGIONAL_L7ILB";
+
+// GTLRCloudDomains_ManagementSettings.effectiveTransferLockState
+NSString * const kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_Locked = @"LOCKED";
+NSString * const kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_TransferLockStateUnspecified = @"TRANSFER_LOCK_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_Unlocked = @"UNLOCKED";
 
 // GTLRCloudDomains_ManagementSettings.preferredRenewalMethod
 NSString * const kGTLRCloudDomains_ManagementSettings_PreferredRenewalMethod_AutomaticRenewal = @"AUTOMATIC_RENEWAL";
@@ -111,8 +132,14 @@ NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_PrivateCo
 NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_PublicContactData = @"PUBLIC_CONTACT_DATA";
 NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_RedactedContactData = @"REDACTED_CONTACT_DATA";
 
+// GTLRCloudDomains_Registration.domainProperties
+NSString * const kGTLRCloudDomains_Registration_DomainProperties_DomainPropertyUnspecified = @"DOMAIN_PROPERTY_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_Registration_DomainProperties_RequirePushTransfer = @"REQUIRE_PUSH_TRANSFER";
+NSString * const kGTLRCloudDomains_Registration_DomainProperties_TransferLockUnsupportedByRegistry = @"TRANSFER_LOCK_UNSUPPORTED_BY_REGISTRY";
+
 // GTLRCloudDomains_Registration.issues
 NSString * const kGTLRCloudDomains_Registration_Issues_ContactSupport = @"CONTACT_SUPPORT";
+NSString * const kGTLRCloudDomains_Registration_Issues_DnsNotActivated = @"DNS_NOT_ACTIVATED";
 NSString * const kGTLRCloudDomains_Registration_Issues_IssueUnspecified = @"ISSUE_UNSPECIFIED";
 NSString * const kGTLRCloudDomains_Registration_Issues_ProblemWithBilling = @"PROBLEM_WITH_BILLING";
 NSString * const kGTLRCloudDomains_Registration_Issues_UnverifiedEmail = @"UNVERIFIED_EMAIL";
@@ -320,7 +347,8 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_DnsSettings
-@dynamic customDns, glueRecords, googleDomainsDns;
+@dynamic customDns, glueRecords, googleDomainsDns,
+         googleDomainsRedirectsDataAvailable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -344,11 +372,32 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDomains_DomainForwarding
+//
+
+@implementation GTLRCloudDomains_DomainForwarding
+@dynamic pathForwarding, pemCertificate, redirectType, sslEnabled, subdomain,
+         targetUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDomains_DsRecord
 //
 
 @implementation GTLRCloudDomains_DsRecord
 @dynamic algorithm, digest, digestType, keyTag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_EmailForwarding
+//
+
+@implementation GTLRCloudDomains_EmailForwarding
+@dynamic alias, targetEmailAddress;
 @end
 
 
@@ -371,6 +420,43 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_GeoPolicy
+//
+
+@implementation GTLRCloudDomains_GeoPolicy
+@dynamic enableFencing, item;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"item" : [GTLRCloudDomains_GeoPolicyItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_GeoPolicyItem
+//
+
+@implementation GTLRCloudDomains_GeoPolicyItem
+@dynamic healthCheckedTargets, location, rrdata, signatureRrdata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rrdata" : [NSString class],
+    @"signatureRrdata" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -416,6 +502,25 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDomains_HealthCheckTargets
+//
+
+@implementation GTLRCloudDomains_HealthCheckTargets
+@dynamic externalEndpoints, internalLoadBalancer;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalEndpoints" : [NSString class],
+    @"internalLoadBalancer" : [GTLRCloudDomains_LoadBalancerTarget class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDomains_ImportDomainRequest
 //
 
@@ -435,6 +540,16 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_InitiatePushTransferRequest
+//
+
+@implementation GTLRCloudDomains_InitiatePushTransferRequest
+@dynamic tag;
 @end
 
 
@@ -506,6 +621,17 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDomains_LoadBalancerTarget
+//
+
+@implementation GTLRCloudDomains_LoadBalancerTarget
+@dynamic ipAddress, ipProtocol, loadBalancerType, networkUrl, port, project,
+         region;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDomains_Location
 //
 
@@ -548,7 +674,8 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_ManagementSettings
-@dynamic preferredRenewalMethod, renewalMethod, transferLockState;
+@dynamic effectiveTransferLockState, preferredRenewalMethod, renewalMethod,
+         transferLockState;
 @end
 
 
@@ -655,6 +782,16 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDomains_PrimaryBackupPolicy
+//
+
+@implementation GTLRCloudDomains_PrimaryBackupPolicy
+@dynamic backupGeoTargets, primaryTargets, trickleTraffic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDomains_RegisterDomainRequest
 //
 
@@ -697,12 +834,14 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_Registration
-@dynamic contactSettings, createTime, dnsSettings, domainName, expireTime,
-         issues, labels, managementSettings, name, pendingContactSettings,
-         registerFailureReason, state, supportedPrivacy, transferFailureReason;
+@dynamic contactSettings, createTime, dnsSettings, domainName, domainProperties,
+         expireTime, issues, labels, managementSettings, name,
+         pendingContactSettings, registerFailureReason, state, supportedPrivacy,
+         transferFailureReason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"domainProperties" : [NSString class],
     @"issues" : [NSString class],
     @"supportedPrivacy" : [NSString class]
   };
@@ -728,10 +867,80 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDomains_RenewDomainRequest
+//
+
+@implementation GTLRCloudDomains_RenewDomainRequest
+@dynamic validateOnly, yearlyPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDomains_ResetAuthorizationCodeRequest
 //
 
 @implementation GTLRCloudDomains_ResetAuthorizationCodeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_ResourceRecordSet
+//
+
+@implementation GTLRCloudDomains_ResourceRecordSet
+@dynamic name, routingPolicy, rrdata, signatureRrdata, ttl, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rrdata" : [NSString class],
+    @"signatureRrdata" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_RetrieveGoogleDomainsDnsRecordsResponse
+//
+
+@implementation GTLRCloudDomains_RetrieveGoogleDomainsDnsRecordsResponse
+@dynamic nextPageToken, rrset;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rrset" : [GTLRCloudDomains_ResourceRecordSet class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"rrset";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_RetrieveGoogleDomainsForwardingConfigResponse
+//
+
+@implementation GTLRCloudDomains_RetrieveGoogleDomainsForwardingConfigResponse
+@dynamic domainForwardings, emailForwardings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domainForwardings" : [GTLRCloudDomains_DomainForwarding class],
+    @"emailForwardings" : [GTLRCloudDomains_EmailForwarding class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -774,6 +983,16 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 
 @implementation GTLRCloudDomains_RetrieveTransferParametersResponse
 @dynamic transferParameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_RRSetRoutingPolicy
+//
+
+@implementation GTLRCloudDomains_RRSetRoutingPolicy
+@dynamic geo, geoPolicy, healthCheck, primaryBackup, wrr, wrrPolicy;
 @end
 
 
@@ -905,6 +1124,43 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
   NSDictionary<NSString *, Class> *map = @{
     @"nameServers" : [NSString class],
     @"supportedPrivacy" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_WrrPolicy
+//
+
+@implementation GTLRCloudDomains_WrrPolicy
+@dynamic item;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"item" : [GTLRCloudDomains_WrrPolicyItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_WrrPolicyItem
+//
+
+@implementation GTLRCloudDomains_WrrPolicyItem
+@dynamic healthCheckedTargets, rrdata, signatureRrdata, weight;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rrdata" : [NSString class],
+    @"signatureRrdata" : [NSString class]
   };
   return map;
 }

@@ -19,7 +19,6 @@
 @class GTLRCloudBuild_Binding;
 @class GTLRCloudBuild_BitbucketCloudConfig;
 @class GTLRCloudBuild_BitbucketDataCenterConfig;
-@class GTLRCloudBuild_Capabilities;
 @class GTLRCloudBuild_ChildStatusReference;
 @class GTLRCloudBuild_Connection;
 @class GTLRCloudBuild_Connection_Annotations;
@@ -46,9 +45,12 @@
 @class GTLRCloudBuild_Param;
 @class GTLRCloudBuild_ParamSpec;
 @class GTLRCloudBuild_ParamValue;
+@class GTLRCloudBuild_ParamValue_ObjectVal;
 @class GTLRCloudBuild_PipelineRef;
+@class GTLRCloudBuild_PipelineResult;
 @class GTLRCloudBuild_PipelineRun_Annotations;
 @class GTLRCloudBuild_PipelineRun_GcbParams;
+@class GTLRCloudBuild_PipelineRunResult;
 @class GTLRCloudBuild_PipelineSpec;
 @class GTLRCloudBuild_PipelineTask;
 @class GTLRCloudBuild_PipelineWorkspaceDeclaration;
@@ -58,6 +60,8 @@
 @class GTLRCloudBuild_Provenance;
 @class GTLRCloudBuild_Repository;
 @class GTLRCloudBuild_Repository_Annotations;
+@class GTLRCloudBuild_ResultValue;
+@class GTLRCloudBuild_ResultValue_ObjectVal;
 @class GTLRCloudBuild_SecretVolumeSource;
 @class GTLRCloudBuild_Security;
 @class GTLRCloudBuild_SecurityContext;
@@ -66,6 +70,7 @@
 @class GTLRCloudBuild_Status;
 @class GTLRCloudBuild_Status_Details_Item;
 @class GTLRCloudBuild_Step;
+@class GTLRCloudBuild_StepRef;
 @class GTLRCloudBuild_StepTemplate;
 @class GTLRCloudBuild_TaskRef;
 @class GTLRCloudBuild_TaskResult;
@@ -73,7 +78,6 @@
 @class GTLRCloudBuild_TaskSpec;
 @class GTLRCloudBuild_TimeoutFields;
 @class GTLRCloudBuild_UserCredential;
-@class GTLRCloudBuild_VolumeClaim;
 @class GTLRCloudBuild_VolumeMount;
 @class GTLRCloudBuild_VolumeSource;
 @class GTLRCloudBuild_WhenExpression;
@@ -219,11 +223,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_InstallationState_Stage_Stage
 // GTLRCloudBuild_ParamSpec.type
 
 /**
- *  Arrary type.
+ *  Array type.
  *
  *  Value: "ARRAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamSpec_Type_Array;
+/**
+ *  Object type.
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamSpec_Type_Object;
 /**
  *  Default
  *
@@ -247,6 +257,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamSpec_Type_TypeUnspecifie
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamValue_Type_Array;
 /**
+ *  Object type
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamValue_Type_Object;
+/**
  *  Default
  *
  *  Value: "STRING"
@@ -269,6 +285,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ParamValue_Type_TypeUnspecifi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Bundles;
 /**
+ *  Default resolver.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Default;
+/**
+ *  Developer Connect resolver.
+ *
+ *  Value: "DEVELOPER_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_DeveloperConnect;
+/**
  *  GCB repo resolver.
  *
  *  Value: "GCB_REPO"
@@ -286,6 +314,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_Git;
  *  Value: "RESOLVER_NAME_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineRef_Resolver_ResolverNameUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_PipelineResult.type
+
+/**
+ *  Array type
+ *
+ *  Value: "ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_Array;
+/**
+ *  Object type
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_Object;
+/**
+ *  Default
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_String;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PipelineResult_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_PipelineRun.pipelineRunStatus
@@ -396,6 +452,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Storage_PreferArti
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Provenance_Storage_StorageUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_ResultValue.type
+
+/**
+ *  Array type
+ *
+ *  Value: "ARRAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ResultValue_Type_Array;
+/**
+ *  Object type
+ *
+ *  Value: "OBJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ResultValue_Type_Object;
+/**
+ *  Default
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ResultValue_Type_String;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_ResultValue_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_Security.privilegeMode
 
 /**
@@ -418,6 +502,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Privil
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_Step.onError
+
+/**
+ *  Continue indicates continue executing the rest of the steps/tasks
+ *  irrespective of the exit code
+ *
+ *  Value: "CONTINUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Step_OnError_Continue;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "ON_ERROR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Step_OnError_OnErrorTypeUnspecified;
+/**
+ *  StopAndFail indicates exit if the step/task exits with non-zero exit code
+ *
+ *  Value: "STOP_AND_FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Step_OnError_StopAndFail;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_StepRef.resolver
+
+/**
+ *  Bundles resolver. https://tekton.dev/docs/pipelines/bundle-resolver/
+ *
+ *  Value: "BUNDLES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_Bundles;
+/**
+ *  Default resolver.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_Default;
+/**
+ *  Developer Connect resolver.
+ *
+ *  Value: "DEVELOPER_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_DeveloperConnect;
+/**
+ *  GCB repo resolver.
+ *
+ *  Value: "GCB_REPO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_GcbRepo;
+/**
+ *  Simple Git resolver. https://tekton.dev/docs/pipelines/git-resolver/
+ *
+ *  Value: "GIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_Git;
+/**
+ *  Default enum type; should not be used.
+ *
+ *  Value: "RESOLVER_NAME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_StepRef_Resolver_ResolverNameUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_TaskRef.resolver
 
 /**
@@ -426,6 +573,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Security_PrivilegeMode_Unpriv
  *  Value: "BUNDLES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_TaskRef_Resolver_Bundles;
+/**
+ *  Default resolver.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_TaskRef_Resolver_Default;
+/**
+ *  Developer Connect resolver.
+ *
+ *  Value: "DEVELOPER_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_TaskRef_Resolver_DeveloperConnect;
 /**
  *  GCB repo resolver.
  *
@@ -774,20 +933,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
- *  Capabilities adds and removes POSIX capabilities from running containers.
- */
-@interface GTLRCloudBuild_Capabilities : GTLRObject
-
-/** Optional. Added capabilities +optional */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *add;
-
-/** Optional. Removed capabilities +optional */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *drop;
-
-@end
-
-
-/**
  *  ChildStatusReference is used to point to the statuses of individual TaskRuns
  *  and Runs within this PipelineRun.
  */
@@ -825,7 +970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @interface GTLRCloudBuild_Connection : GTLRObject
 
-/** Allows clients to store small amounts of arbitrary data. */
+/** Optional. Allows clients to store small amounts of arbitrary data. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Connection_Annotations *annotations;
 
 /** Configuration for connections to Bitbucket Cloud. */
@@ -840,9 +985,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  If disabled is set to true, functionality is disabled for this connection.
- *  Repository based API methods and webhooks processing for repositories in
- *  this connection will be disabled.
+ *  Optional. If disabled is set to true, functionality is disabled for this
+ *  connection. Repository based API methods and webhooks processing for
+ *  repositories in this connection will be disabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -893,7 +1038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
- *  Allows clients to store small amounts of arbitrary data.
+ *  Optional. Allows clients to store small amounts of arbitrary data.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1139,16 +1284,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @interface GTLRCloudBuild_GitHubConfig : GTLRObject
 
 /**
- *  GitHub App installation id.
+ *  Optional. GitHub App installation id.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *appInstallationId;
 
 /**
- *  OAuth credential of the account that authorized the Cloud Build GitHub App.
- *  It is recommended to use a robot account instead of a human user account.
- *  The OAuth token must be tied to the Cloud Build GitHub App.
+ *  Optional. OAuth credential of the account that authorized the Cloud Build
+ *  GitHub App. It is recommended to use a robot account instead of a human user
+ *  account. The OAuth token must be tied to the Cloud Build GitHub App.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_OAuthCredential *authorizerCredential;
 
@@ -1214,28 +1359,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *apiKey;
 
 /**
- *  Id of the GitHub App created from the manifest.
+ *  Optional. Id of the GitHub App created from the manifest.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *appId;
 
 /**
- *  ID of the installation of the GitHub App.
+ *  Optional. ID of the installation of the GitHub App.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *appInstallationId;
 
-/** The URL-friendly name of the GitHub App. */
+/** Optional. The URL-friendly name of the GitHub App. */
 @property(nonatomic, copy, nullable) NSString *appSlug;
 
 /** Required. The URI of the GitHub Enterprise host this connection is for. */
 @property(nonatomic, copy, nullable) NSString *hostUri;
 
 /**
- *  SecretManager resource containing the private key of the GitHub App,
- *  formatted as `projects/ * /secrets/ * /versions/ *`.
+ *  Optional. SecretManager resource containing the private key of the GitHub
+ *  App, formatted as `projects/ * /secrets/ * /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *privateKeySecretVersion;
 
@@ -1243,20 +1388,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *serverVersion;
 
 /**
- *  Configuration for using Service Directory to privately connect to a GitHub
- *  Enterprise server. This should only be set if the GitHub Enterprise server
- *  is hosted on-premises and not reachable by public internet. If this field is
- *  left empty, calls to the GitHub Enterprise server will be made over the
- *  public internet.
+ *  Optional. Configuration for using Service Directory to privately connect to
+ *  a GitHub Enterprise server. This should only be set if the GitHub Enterprise
+ *  server is hosted on-premises and not reachable by public internet. If this
+ *  field is left empty, calls to the GitHub Enterprise server will be made over
+ *  the public internet.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig *serviceDirectoryConfig;
 
-/** SSL certificate to use for requests to GitHub Enterprise. */
+/** Optional. SSL certificate to use for requests to GitHub Enterprise. */
 @property(nonatomic, copy, nullable) NSString *sslCa;
 
 /**
- *  SecretManager resource containing the webhook secret of the GitHub App,
- *  formatted as `projects/ * /secrets/ * /versions/ *`.
+ *  Optional. SecretManager resource containing the webhook secret of the GitHub
+ *  App, formatted as `projects/ * /secrets/ * /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
 
@@ -1273,8 +1418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, strong, nullable) GTLRCloudBuild_UserCredential *authorizerCredential;
 
 /**
- *  The URI of the GitLab Enterprise host this connection is for. If not
- *  specified, the default value is https://gitlab.com.
+ *  Optional. The URI of the GitLab Enterprise host this connection is for. If
+ *  not specified, the default value is https://gitlab.com.
  */
 @property(nonatomic, copy, nullable) NSString *hostUri;
 
@@ -1291,15 +1436,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *serverVersion;
 
 /**
- *  Configuration for using Service Directory to privately connect to a GitLab
- *  Enterprise server. This should only be set if the GitLab Enterprise server
- *  is hosted on-premises and not reachable by public internet. If this field is
- *  left empty, calls to the GitLab Enterprise server will be made over the
- *  public internet.
+ *  Optional. Configuration for using Service Directory to privately connect to
+ *  a GitLab Enterprise server. This should only be set if the GitLab Enterprise
+ *  server is hosted on-premises and not reachable by public internet. If this
+ *  field is left empty, calls to the GitLab Enterprise server will be made over
+ *  the public internet.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV2ServiceDirectoryConfig *serviceDirectoryConfig;
 
-/** SSL certificate to use for requests to GitLab Enterprise. */
+/** Optional. SSL certificate to use for requests to GitLab Enterprise. */
 @property(nonatomic, copy, nullable) NSString *sslCa;
 
 /**
@@ -1483,6 +1628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -1530,6 +1678,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Repository *> *repositories;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1602,8 +1753,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @interface GTLRCloudBuild_OAuthCredential : GTLRObject
 
 /**
- *  A SecretManager resource containing the OAuth token that authorizes the
- *  Cloud Build connection. Format: `projects/ * /secrets/ * /versions/ *`.
+ *  Optional. A SecretManager resource containing the OAuth token that
+ *  authorizes the Cloud Build connection. Format: `projects/ * /secrets/ *
+ *  /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *oauthTokenSecretVersion;
 
@@ -1704,8 +1856,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1774,7 +1926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Type of ParamSpec
  *
  *  Likely values:
- *    @arg @c kGTLRCloudBuild_ParamSpec_Type_Array Arrary type. (Value: "ARRAY")
+ *    @arg @c kGTLRCloudBuild_ParamSpec_Type_Array Array type. (Value: "ARRAY")
+ *    @arg @c kGTLRCloudBuild_ParamSpec_Type_Object Object type. (Value:
+ *        "OBJECT")
  *    @arg @c kGTLRCloudBuild_ParamSpec_Type_String Default (Value: "STRING")
  *    @arg @c kGTLRCloudBuild_ParamSpec_Type_TypeUnspecified Default enum type;
  *        should not be used. (Value: "TYPE_UNSPECIFIED")
@@ -1792,6 +1946,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Value of the parameter if type is array. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *arrayVal;
 
+/** Optional. Value of the parameter if type is object. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ParamValue_ObjectVal *objectVal;
+
 /** Value of the parameter if type is string. */
 @property(nonatomic, copy, nullable) NSString *stringVal;
 
@@ -1800,6 +1957,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_ParamValue_Type_Array Array type (Value: "ARRAY")
+ *    @arg @c kGTLRCloudBuild_ParamValue_Type_Object Object type (Value:
+ *        "OBJECT")
  *    @arg @c kGTLRCloudBuild_ParamValue_Type_String Default (Value: "STRING")
  *    @arg @c kGTLRCloudBuild_ParamValue_Type_TypeUnspecified Default enum type;
  *        should not be used. (Value: "TYPE_UNSPECIFIED")
@@ -1810,12 +1969,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  Optional. Value of the parameter if type is object.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_ParamValue_ObjectVal : GTLRObject
+@end
+
+
+/**
  *  PipelineRef can be used to refer to a specific instance of a Pipeline.
  */
 @interface GTLRCloudBuild_PipelineRef : GTLRObject
 
-/** Name of the Pipeline. */
-@property(nonatomic, copy, nullable) NSString *name GTLR_DEPRECATED;
+/** Optional. Name of the Pipeline. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Params contains the parameters used to identify the referenced Tekton
@@ -1831,6 +2002,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_Bundles Bundles resolver.
  *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_Default Default resolver.
+ *        (Value: "DEFAULT")
+ *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_DeveloperConnect Developer
+ *        Connect resolver. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_GcbRepo GCB repo resolver.
  *        (Value: "GCB_REPO")
  *    @arg @c kGTLRCloudBuild_PipelineRef_Resolver_Git Simple Git resolver.
@@ -1840,6 +2015,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *        "RESOLVER_NAME_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resolver;
+
+@end
+
+
+/**
+ *  A value produced by a Pipeline.
+ */
+@interface GTLRCloudBuild_PipelineResult : GTLRObject
+
+/**
+ *  Output only. Description of the result.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Name of the result. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The type of data that the result holds.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_PipelineResult_Type_Array Array type (Value:
+ *        "ARRAY")
+ *    @arg @c kGTLRCloudBuild_PipelineResult_Type_Object Object type (Value:
+ *        "OBJECT")
+ *    @arg @c kGTLRCloudBuild_PipelineResult_Type_String Default (Value:
+ *        "STRING")
+ *    @arg @c kGTLRCloudBuild_PipelineResult_Type_TypeUnspecified Default enum
+ *        type; should not be used. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Value of the result. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ResultValue *value;
 
 @end
 
@@ -1912,6 +2123,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** PipelineSpec defines the desired state of Pipeline. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *pipelineSpec;
 
+/**
+ *  Output only. Inline pipelineSpec yaml string, used by workflow run requests.
+ */
+@property(nonatomic, copy, nullable) NSString *pipelineSpecYaml;
+
 /** Optional. Provenance configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Provenance *provenance;
 
@@ -1924,11 +2140,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Output only. The exact PipelineSpec used to instantiate the run. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PipelineSpec *resolvedPipelineSpec;
 
+/**
+ *  Optional. Output only. List of results written out by the pipeline's
+ *  containers
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PipelineRunResult *> *results;
+
 /** Optional. Security configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Security *security;
 
-/** Service account used in the Pipeline. */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
+/**
+ *  Service account used in the Pipeline. Deprecated; please use
+ *  security.service_account instead.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount GTLR_DEPRECATED;
 
 /**
  *  Output only. List of tasks that were skipped due to when expressions
@@ -1995,6 +2220,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
+ *  PipelineRunResult used to describe the results of a pipeline
+ */
+@interface GTLRCloudBuild_PipelineRunResult : GTLRObject
+
+/** Output only. Name of the TaskRun */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Value of the result. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ResultValue *value;
+
+@end
+
+
+/**
  *  PipelineSpec defines the desired state of Pipeline.
  */
 @interface GTLRCloudBuild_PipelineSpec : GTLRObject
@@ -2014,6 +2253,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** List of parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_ParamSpec *> *params;
+
+/**
+ *  Optional. Output only. List of results written out by the pipeline's
+ *  containers
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PipelineResult *> *results;
 
 /** List of Tasks that execute when this Pipeline is run. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_PipelineTask *> *tasks;
@@ -2293,7 +2538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @interface GTLRCloudBuild_Repository : GTLRObject
 
-/** Allows clients to store small amounts of arbitrary data. */
+/** Optional. Allows clients to store small amounts of arbitrary data. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Repository_Annotations *annotations;
 
 /**
@@ -2329,7 +2574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
- *  Allows clients to store small amounts of arbitrary data.
+ *  Optional. Allows clients to store small amounts of arbitrary data.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2337,6 +2582,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *        fetch them all at once.
  */
 @interface GTLRCloudBuild_Repository_Annotations : GTLRObject
+@end
+
+
+/**
+ *  ResultValue holds different types of data for a single result.
+ */
+@interface GTLRCloudBuild_ResultValue : GTLRObject
+
+/** Value of the result if type is array. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *arrayVal;
+
+/** Value of the result if type is object. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ResultValue_ObjectVal *objectVal;
+
+/** Value of the result if type is string. */
+@property(nonatomic, copy, nullable) NSString *stringVal;
+
+/**
+ *  Output only. The type of data that the result holds.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_ResultValue_Type_Array Array type (Value: "ARRAY")
+ *    @arg @c kGTLRCloudBuild_ResultValue_Type_Object Object type (Value:
+ *        "OBJECT")
+ *    @arg @c kGTLRCloudBuild_ResultValue_Type_String Default (Value: "STRING")
+ *    @arg @c kGTLRCloudBuild_ResultValue_Type_TypeUnspecified Default enum
+ *        type; should not be used. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Value of the result if type is object.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_ResultValue_ObjectVal : GTLRObject
 @end
 
 
@@ -2387,7 +2674,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 @property(nonatomic, copy, nullable) NSString *secretName;
 
 /**
- *  Output only. Resource name of the SecretVersion. In format: projects/ *
+ *  Optional. Resource name of the SecretVersion. In format: projects/ *
  *  /secrets/ * /versions/ *
  */
 @property(nonatomic, copy, nullable) NSString *secretVersion;
@@ -2411,7 +2698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *    @arg @c kGTLRCloudBuild_Security_PrivilegeMode_Unprivileged Unprivileged
  *        mode. (Value: "UNPRIVILEGED")
  */
-@property(nonatomic, copy, nullable) NSString *privilegeMode;
+@property(nonatomic, copy, nullable) NSString *privilegeMode GTLR_DEPRECATED;
 
 /** IAM service account whose credentials will be used at runtime. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
@@ -2435,9 +2722,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowPrivilegeEscalation;
-
-/** Optional. Adds and removes POSIX capabilities from running containers. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_Capabilities *capabilities;
 
 /**
  *  Run container in privileged mode.
@@ -2638,6 +2922,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 /** Name of the container specified as a DNS_LABEL. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. OnError defines the exiting behavior on error can be set to [
+ *  continue | stopAndFail ]
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_Step_OnError_Continue Continue indicates continue
+ *        executing the rest of the steps/tasks irrespective of the exit code
+ *        (Value: "CONTINUE")
+ *    @arg @c kGTLRCloudBuild_Step_OnError_OnErrorTypeUnspecified Default enum
+ *        type; should not be used. (Value: "ON_ERROR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_Step_OnError_StopAndFail StopAndFail indicates
+ *        exit if the step/task exits with non-zero exit code (Value:
+ *        "STOP_AND_FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *onError;
+
+/** Optional. Optional parameters passed to the StepAction. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Param *> *params;
+
+/** Optional. Optional reference to a remote StepAction. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_StepRef *ref;
+
 /** The contents of an executable file to execute. */
 @property(nonatomic, copy, nullable) NSString *script;
 
@@ -2658,6 +2964,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 /** Container's working directory. */
 @property(nonatomic, copy, nullable) NSString *workingDir;
+
+@end
+
+
+/**
+ *  A reference to a remote Step, i.e. a StepAction.
+ */
+@interface GTLRCloudBuild_StepRef : GTLRObject
+
+/** Optional. Name of the step. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Parameters used to control the resolution. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Param *> *params;
+
+/**
+ *  Optional. Type of the resolver.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_Bundles Bundles resolver.
+ *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_Default Default resolver. (Value:
+ *        "DEFAULT")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_DeveloperConnect Developer
+ *        Connect resolver. (Value: "DEVELOPER_CONNECT")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_GcbRepo GCB repo resolver.
+ *        (Value: "GCB_REPO")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_Git Simple Git resolver.
+ *        https://tekton.dev/docs/pipelines/git-resolver/ (Value: "GIT")
+ *    @arg @c kGTLRCloudBuild_StepRef_Resolver_ResolverNameUnspecified Default
+ *        enum type; should not be used. (Value: "RESOLVER_NAME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resolver;
 
 @end
 
@@ -2686,8 +3025,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  */
 @interface GTLRCloudBuild_TaskRef : GTLRObject
 
-/** Name of the task. */
-@property(nonatomic, copy, nullable) NSString *name GTLR_DEPRECATED;
+/** Optional. Name of the task. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Params contains the parameters used to identify the referenced Tekton
@@ -2703,6 +3042,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_Bundles Bundles resolver.
  *        https://tekton.dev/docs/pipelines/bundle-resolver/ (Value: "BUNDLES")
+ *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_Default Default resolver. (Value:
+ *        "DEFAULT")
+ *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_DeveloperConnect Developer
+ *        Connect resolver. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_GcbRepo GCB repo resolver.
  *        (Value: "GCB_REPO")
  *    @arg @c kGTLRCloudBuild_TaskRef_Resolver_Git Simple Git resolver.
@@ -2748,6 +3091,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *        should not be used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Optional. Optionally used to initialize a Task's result with a Step's
+ *  result.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_ParamValue *value;
 
 @end
 
@@ -2879,17 +3228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
 
 
 /**
- *  VolumeClaim is a user's request for a volume.
- */
-@interface GTLRCloudBuild_VolumeClaim : GTLRObject
-
-/** Volume size, e.g. 1gb. */
-@property(nonatomic, copy, nullable) NSString *storage;
-
-@end
-
-
-/**
  *  Pod volumes to mount into the container's filesystem.
  */
 @interface GTLRCloudBuild_VolumeMount : GTLRObject
@@ -3008,9 +3346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WhenExpression_ExpressionOper
  *  directory). +optional
  */
 @property(nonatomic, copy, nullable) NSString *subPath;
-
-/** Volume claim that will be created in the same namespace. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_VolumeClaim *volumeClaim;
 
 @end
 

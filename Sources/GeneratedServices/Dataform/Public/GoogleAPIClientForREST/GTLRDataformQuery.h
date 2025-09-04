@@ -35,144 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: dataform.projects.locations.collections.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataformCloudPlatform
- */
-@interface GTLRDataformQuery_ProjectsLocationsCollectionsGetIamPolicy : GTLRDataformQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataform_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRDataformQuery_ProjectsLocationsCollectionsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: dataform.projects.locations.collections.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataformCloudPlatform
- */
-@interface GTLRDataformQuery_ProjectsLocationsCollectionsSetIamPolicy : GTLRDataformQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataform_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRDataform_SetIamPolicyRequest to include in the
- *    query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRDataformQuery_ProjectsLocationsCollectionsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRDataform_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: dataform.projects.locations.collections.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataformCloudPlatform
- */
-@interface GTLRDataformQuery_ProjectsLocationsCollectionsTestIamPermissions : GTLRDataformQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRDataform_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRDataform_TestIamPermissionsRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRDataformQuery_ProjectsLocationsCollectionsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRDataform_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
  *  Gets information about a location.
  *
  *  Method: dataform.projects.locations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsGet : GTLRDataformQuery
@@ -194,14 +62,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get default config for a given project and location.
+ *
+ *  Method: dataform.projects.locations.getConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsGetConfig : GTLRDataformQuery
+
+/** Required. The config name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Config.
+ *
+ *  Get default config for a given project and location.
+ *
+ *  @param name Required. The config name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsGetConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: dataform.projects.locations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsList : GTLRDataformQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -249,6 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.commit
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCommit : GTLRDataformQuery
@@ -257,7 +160,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_CommitRepositoryChangesResponse.
  *
  *  Applies a Git commit to a Repository. The Repository must not have a value
  *  for `git_remote_settings.url`.
@@ -279,6 +182,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.compilationResults.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsCreate : GTLRDataformQuery
@@ -312,6 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.compilationResults.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsGet : GTLRDataformQuery
@@ -338,12 +243,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.compilationResults.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsList : GTLRDataformQuery
 
 /** Optional. Filter for the returned list. */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. This field only supports ordering by `name` and `create_time`. If
+ *  unspecified, the server will choose the ordering. If specified, the default
+ *  order is ascending for the `name` field.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. Maximum number of compilation results to return. The server may
@@ -355,8 +268,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `ListCompilationResults` call.
  *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `ListCompilationResults` must match the call that
- *  provided the page token.
+ *  parameters provided to `ListCompilationResults`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -390,6 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.compilationResults.query
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsQuery : GTLRDataformQuery
@@ -414,8 +328,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Page token received from a previous
  *  `QueryCompilationResultActions` call. Provide this to retrieve the
  *  subsequent page. When paginating, all other parameters provided to
- *  `QueryCompilationResultActions` must match the call that provided the page
- *  token.
+ *  `QueryCompilationResultActions`, with the exception of `page_size`, must
+ *  match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -442,6 +356,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.computeAccessTokenStatus
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesComputeAccessTokenStatus : GTLRDataformQuery
@@ -468,6 +383,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCreate : GTLRDataformQuery
@@ -506,14 +422,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesDelete : GTLRDataformQuery
 
 /**
- *  If set to true, any child resources of this repository will also be deleted.
- *  (Otherwise, the request will only succeed if the repository has no child
- *  resources.)
+ *  Optional. If set to true, child resources of this repository (compilation
+ *  results and workflow invocations) will also be deleted. Otherwise, the
+ *  request will only succeed if the repository has no child resources.
+ *  **Note:** *This flag doesn't support deletion of workspaces, release configs
+ *  or workflow configs. If any of such resources exists in the repository, the
+ *  request will fail.*.
  */
 @property(nonatomic, assign) BOOL force;
 
@@ -540,6 +460,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.fetchHistory
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesFetchHistory : GTLRDataformQuery
@@ -557,8 +478,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `FetchRepositoryHistory` call.
  *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `FetchRepositoryHistory` must match the call that
- *  provided the page token.
+ *  parameters provided to `FetchRepositoryHistory`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -586,6 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.fetchRemoteBranches
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesFetchRemoteBranches : GTLRDataformQuery
@@ -612,6 +534,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesGet : GTLRDataformQuery
@@ -639,6 +562,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesGetIamPolicy : GTLRDataformQuery
@@ -682,11 +606,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Repositories in a given project and location.
+ *  Lists Repositories in a given project and location. **Note:** *This method
+ *  can return repositories not shown in the [Dataform
+ *  UI](https://console.cloud.google.com/bigquery/dataform)*.
  *
  *  Method: dataform.projects.locations.repositories.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesList : GTLRDataformQuery
@@ -711,8 +638,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `ListRepositories` call.
  *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `ListRepositories` must match the call that provided
- *  the page token.
+ *  parameters provided to `ListRepositories`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -725,7 +652,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_ListRepositoriesResponse.
  *
- *  Lists Repositories in a given project and location.
+ *  Lists Repositories in a given project and location. **Note:** *This method
+ *  can return repositories not shown in the [Dataform
+ *  UI](https://console.cloud.google.com/bigquery/dataform)*.
  *
  *  @param parent Required. The location in which to list repositories. Must be
  *    in the format `projects/ * /locations/ *`.
@@ -741,16 +670,20 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a single Repository.
+ *  Updates a single Repository. **Note:** *This method does not fully implement
+ *  [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is treated
+ *  as a bad request, and when the `field_mask` is omitted, the request is
+ *  treated as a full update on all modifiable fields.*
  *
  *  Method: dataform.projects.locations.repositories.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesPatch : GTLRDataformQuery
 
-/** Output only. The repository's name. */
+/** Identifier. The repository's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -764,10 +697,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_Repository.
  *
- *  Updates a single Repository.
+ *  Updates a single Repository. **Note:** *This method does not fully implement
+ *  [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is treated
+ *  as a bad request, and when the `field_mask` is omitted, the request is
+ *  treated as a full update on all modifiable fields.*
  *
  *  @param object The @c GTLRDataform_Repository to include in the query.
- *  @param name Output only. The repository's name.
+ *  @param name Identifier. The repository's name.
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesPatch
  */
@@ -783,6 +719,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.queryDirectoryContents
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesQueryDirectoryContents : GTLRDataformQuery
@@ -807,8 +744,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Page token received from a previous
  *  `QueryRepositoryDirectoryContents` call. Provide this to retrieve the
  *  subsequent page. When paginating, all other parameters provided to
- *  `QueryRepositoryDirectoryContents` must match the call that provided the
- *  page token.
+ *  `QueryRepositoryDirectoryContents`, with the exception of `page_size`, must
+ *  match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -843,6 +780,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.readFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReadFile : GTLRDataformQuery
@@ -881,6 +819,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.releaseConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsCreate : GTLRDataformQuery
@@ -920,6 +859,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.releaseConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsDelete : GTLRDataformQuery
@@ -946,6 +886,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.releaseConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsGet : GTLRDataformQuery
@@ -972,6 +913,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.releaseConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsList : GTLRDataformQuery
@@ -986,8 +928,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `ListReleaseConfigs` call.
  *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `ListReleaseConfigs` must match the call that
- *  provided the page token.
+ *  parameters provided to `ListReleaseConfigs`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1016,16 +958,20 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a single ReleaseConfig.
+ *  Updates a single ReleaseConfig. **Note:** *This method does not fully
+ *  implement [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is
+ *  treated as a bad request, and when the `field_mask` is omitted, the request
+ *  is treated as a full update on all modifiable fields.*
  *
  *  Method: dataform.projects.locations.repositories.releaseConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsPatch : GTLRDataformQuery
 
-/** Output only. The release config's name. */
+/** Identifier. The release config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1039,10 +985,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_ReleaseConfig.
  *
- *  Updates a single ReleaseConfig.
+ *  Updates a single ReleaseConfig. **Note:** *This method does not fully
+ *  implement [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is
+ *  treated as a bad request, and when the `field_mask` is omitted, the request
+ *  is treated as a full update on all modifiable fields.*
  *
  *  @param object The @c GTLRDataform_ReleaseConfig to include in the query.
- *  @param name Output only. The release config's name.
+ *  @param name Identifier. The release config's name.
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsPatch
  */
@@ -1059,6 +1008,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesSetIamPolicy : GTLRDataformQuery
@@ -1101,6 +1051,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesTestIamPermissions : GTLRDataformQuery
@@ -1141,6 +1092,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowConfigs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsCreate : GTLRDataformQuery
@@ -1180,6 +1132,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowConfigs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsDelete : GTLRDataformQuery
@@ -1206,6 +1159,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowConfigs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsGet : GTLRDataformQuery
@@ -1232,6 +1186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowConfigs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsList : GTLRDataformQuery
@@ -1246,8 +1201,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `ListWorkflowConfigs` call.
  *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `ListWorkflowConfigs` must match the call that
- *  provided the page token.
+ *  parameters provided to `ListWorkflowConfigs`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1276,16 +1231,20 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a single WorkflowConfig.
+ *  Updates a single WorkflowConfig. **Note:** *This method does not fully
+ *  implement [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is
+ *  treated as a bad request, and when the `field_mask` is omitted, the request
+ *  is treated as a full update on all modifiable fields.*
  *
  *  Method: dataform.projects.locations.repositories.workflowConfigs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsPatch : GTLRDataformQuery
 
-/** Output only. The workflow config's name. */
+/** Identifier. The workflow config's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1299,10 +1258,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataform_WorkflowConfig.
  *
- *  Updates a single WorkflowConfig.
+ *  Updates a single WorkflowConfig. **Note:** *This method does not fully
+ *  implement [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is
+ *  treated as a bad request, and when the `field_mask` is omitted, the request
+ *  is treated as a full update on all modifiable fields.*
  *
  *  @param object The @c GTLRDataform_WorkflowConfig to include in the query.
- *  @param name Output only. The workflow config's name.
+ *  @param name Identifier. The workflow config's name.
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowConfigsPatch
  */
@@ -1317,6 +1279,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsCancel : GTLRDataformQuery
@@ -1325,7 +1288,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_CancelWorkflowInvocationResponse.
  *
  *  Requests cancellation of a running WorkflowInvocation.
  *
@@ -1346,6 +1309,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsCreate : GTLRDataformQuery
@@ -1380,6 +1344,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsDelete : GTLRDataformQuery
@@ -1406,6 +1371,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsGet : GTLRDataformQuery
@@ -1432,6 +1398,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsList : GTLRDataformQuery
@@ -1456,8 +1423,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `ListWorkflowInvocations`
  *  call. Provide this to retrieve the subsequent page. When paginating, all
- *  other parameters provided to `ListWorkflowInvocations` must match the call
- *  that provided the page token.
+ *  other parameters provided to `ListWorkflowInvocations`, with the exception
+ *  of `page_size`, must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1491,6 +1458,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workflowInvocations.query
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkflowInvocationsQuery : GTLRDataformQuery
@@ -1509,8 +1477,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Optional. Page token received from a previous
  *  `QueryWorkflowInvocationActions` call. Provide this to retrieve the
  *  subsequent page. When paginating, all other parameters provided to
- *  `QueryWorkflowInvocationActions` must match the call that provided the page
- *  token.
+ *  `QueryWorkflowInvocationActions`, with the exception of `page_size`, must
+ *  match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1537,6 +1505,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.commit
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesCommit : GTLRDataformQuery
@@ -1545,7 +1514,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_CommitWorkspaceChangesResponse.
  *
  *  Applies a Git commit for uncommitted files in a Workspace.
  *
@@ -1566,6 +1535,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesCreate : GTLRDataformQuery
@@ -1604,6 +1574,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesDelete : GTLRDataformQuery
@@ -1630,6 +1601,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.fetchFileDiff
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesFetchFileDiff : GTLRDataformQuery
@@ -1662,6 +1634,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.fetchFileGitStatuses
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesFetchFileGitStatuses : GTLRDataformQuery
@@ -1688,6 +1661,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.fetchGitAheadBehind
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesFetchGitAheadBehind : GTLRDataformQuery
@@ -1721,6 +1695,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesGet : GTLRDataformQuery
@@ -1748,6 +1723,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesGetIamPolicy : GTLRDataformQuery
@@ -1796,6 +1772,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.installNpmPackages
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesInstallNpmPackages : GTLRDataformQuery
@@ -1825,6 +1802,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesList : GTLRDataformQuery
@@ -1849,8 +1827,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `ListWorkspaces` call. Provide
  *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListWorkspaces` must match the call that provided the page
- *  token.
+ *  provided to `ListWorkspaces`, with the exception of `page_size`, must match
+ *  the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1884,6 +1862,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.makeDirectory
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesMakeDirectory : GTLRDataformQuery
@@ -1914,6 +1893,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.moveDirectory
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesMoveDirectory : GTLRDataformQuery
@@ -1944,6 +1924,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.moveFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesMoveFile : GTLRDataformQuery
@@ -1972,6 +1953,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.pull
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesPull : GTLRDataformQuery
@@ -1980,7 +1962,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_PullGitCommitsResponse.
  *
  *  Pulls Git commits from the Repository's remote into a Workspace.
  *
@@ -2001,6 +1983,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.push
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesPush : GTLRDataformQuery
@@ -2009,7 +1992,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_PushGitCommitsResponse.
  *
  *  Pushes Git commits from a Workspace to the Repository's remote.
  *
@@ -2030,6 +2013,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.queryDirectoryContents
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesQueryDirectoryContents : GTLRDataformQuery
@@ -2044,8 +2028,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `QueryDirectoryContents` call.
  *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `QueryDirectoryContents` must match the call that
- *  provided the page token.
+ *  parameters provided to `QueryDirectoryContents`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2081,6 +2065,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.readFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesReadFile : GTLRDataformQuery
@@ -2119,6 +2104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.removeDirectory
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesRemoveDirectory : GTLRDataformQuery
@@ -2127,7 +2113,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *workspace;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_RemoveDirectoryResponse.
  *
  *  Deletes a directory (inside a Workspace) and all of its contents.
  *
@@ -2148,6 +2134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.removeFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesRemoveFile : GTLRDataformQuery
@@ -2156,7 +2143,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *workspace;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_RemoveFileResponse.
  *
  *  Deletes a file (inside a Workspace).
  *
@@ -2176,6 +2163,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.reset
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesReset : GTLRDataformQuery
@@ -2184,7 +2172,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataform_Empty.
+ *  Fetches a @c GTLRDataform_ResetWorkspaceChangesResponse.
  *
  *  Performs a Git reset for uncommitted files in a Workspace.
  *
@@ -2205,6 +2193,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.searchFiles
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSearchFiles : GTLRDataformQuery
@@ -2226,8 +2215,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Page token received from a previous `SearchFilesRequest` call.
  *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `SearchFilesRequest` must match the call that
- *  provided the page token.
+ *  parameters provided to `SearchFilesRequest`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2259,6 +2248,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesSetIamPolicy : GTLRDataformQuery
@@ -2301,6 +2291,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesTestIamPermissions : GTLRDataformQuery
@@ -2341,6 +2332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: dataform.projects.locations.repositories.workspaces.writeFile
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
  *    @c kGTLRAuthScopeDataformCloudPlatform
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesWriteFile : GTLRDataformQuery
@@ -2360,6 +2352,50 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataform_WriteFileRequest *)object
                       workspace:(NSString *)workspace;
+
+@end
+
+/**
+ *  Update default config for a given project and location. **Note:** *This
+ *  method does not fully implement [AIP/134](https://google.aip.dev/134). The
+ *  wildcard entry (\\*) is treated as a bad request, and when the `field_mask`
+ *  is omitted, the request is treated as a full update on all modifiable
+ *  fields.*
+ *
+ *  Method: dataform.projects.locations.updateConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsUpdateConfig : GTLRDataformQuery
+
+/** Identifier. The config name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specifies the fields to be updated in the config.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataform_Config.
+ *
+ *  Update default config for a given project and location. **Note:** *This
+ *  method does not fully implement [AIP/134](https://google.aip.dev/134). The
+ *  wildcard entry (\\*) is treated as a bad request, and when the `field_mask`
+ *  is omitted, the request is treated as a full update on all modifiable
+ *  fields.*
+ *
+ *  @param object The @c GTLRDataform_Config to include in the query.
+ *  @param name Identifier. The config name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsUpdateConfig
+ */
++ (instancetype)queryWithObject:(GTLRDataform_Config *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -6,7 +6,7 @@
 // Description:
 //   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/
+//   https://developers.google.com/workspace/drive/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -20,6 +20,8 @@
 @class GTLRDrive_About_MaxImportSizes;
 @class GTLRDrive_About_StorageQuota;
 @class GTLRDrive_About_TeamDriveThemes_Item;
+@class GTLRDrive_AccessProposal;
+@class GTLRDrive_AccessProposalRoleAndView;
 @class GTLRDrive_App;
 @class GTLRDrive_AppIcons;
 @class GTLRDrive_Change;
@@ -27,6 +29,8 @@
 @class GTLRDrive_Comment;
 @class GTLRDrive_Comment_QuotedFileContent;
 @class GTLRDrive_ContentRestriction;
+@class GTLRDrive_DownloadRestriction;
+@class GTLRDrive_DownloadRestrictionsMetadata;
 @class GTLRDrive_Drive;
 @class GTLRDrive_Drive_BackgroundImageFile;
 @class GTLRDrive_Drive_Capabilities;
@@ -49,12 +53,16 @@
 @class GTLRDrive_LabelField;
 @class GTLRDrive_LabelFieldModification;
 @class GTLRDrive_LabelModification;
+@class GTLRDrive_Operation_Metadata;
+@class GTLRDrive_Operation_Response;
 @class GTLRDrive_Permission;
 @class GTLRDrive_Permission_PermissionDetails_Item;
 @class GTLRDrive_Permission_TeamDrivePermissionDetails_Item;
 @class GTLRDrive_Reply;
 @class GTLRDrive_Revision;
 @class GTLRDrive_Revision_ExportLinks;
+@class GTLRDrive_Status;
+@class GTLRDrive_Status_Details_Item;
 @class GTLRDrive_TeamDrive;
 @class GTLRDrive_TeamDrive_BackgroundImageFile;
 @class GTLRDrive_TeamDrive_Capabilities;
@@ -67,6 +75,32 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDrive_ResolveAccessProposalRequest.action
+
+/**
+ *  The user accepts the proposal. Note: If this action is used, the `role`
+ *  field must have at least one value.
+ *
+ *  Value: "ACCEPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Accept;
+/**
+ *  Unspecified action
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified;
+/**
+ *  The user denies the proposal
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny;
 
 /**
  *  Information about the user, the user's Drive, and system capabilities.
@@ -127,7 +161,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *maxUploadSize;
 
 /**
- *  The user's storage quota limits and usage. All fields are measured in bytes.
+ *  The user's storage quota limits and usage. For users that are part of an
+ *  organization with pooled storage, information about the limit and usage
+ *  across all services is for the organization, rather than the individual
+ *  user. All fields are measured in bytes.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_About_StorageQuota *storageQuota;
 
@@ -198,20 +235,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The user's storage quota limits and usage. All fields are measured in bytes.
+ *  The user's storage quota limits and usage. For users that are part of an
+ *  organization with pooled storage, information about the limit and usage
+ *  across all services is for the organization, rather than the individual
+ *  user. All fields are measured in bytes.
  */
 @interface GTLRDrive_About_StorageQuota : GTLRObject
 
 /**
  *  The usage limit, if applicable. This will not be present if the user has
- *  unlimited storage.
+ *  unlimited storage. For users that are part of an organization with pooled
+ *  storage, this is the limit for the organization, rather than the individual
+ *  user.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
 /**
- *  The total usage across all services.
+ *  The total usage across all services. For users that are part of an
+ *  organization with pooled storage, this is the usage across all services for
+ *  the organization, rather than the individual user.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -251,6 +295,56 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  The Access Proposal resource for outstanding access proposals on a file
+ */
+@interface GTLRDrive_AccessProposal : GTLRObject
+
+/** The creation time */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The file id that the proposal for access is on */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/** The id of the access proposal */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/** The email address of the user that will receive permissions if accepted */
+@property(nonatomic, copy, nullable) NSString *recipientEmailAddress;
+
+/** The email address of the requesting user */
+@property(nonatomic, copy, nullable) NSString *requesterEmailAddress;
+
+/** The message that the requester added to the proposal */
+@property(nonatomic, copy, nullable) NSString *requestMessage;
+
+/** A wrapper for the role and view of an access proposal. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_AccessProposalRoleAndView *> *rolesAndViews;
+
+@end
+
+
+/**
+ *  A wrapper for the role and view of an access proposal.
+ */
+@interface GTLRDrive_AccessProposalRoleAndView : GTLRObject
+
+/**
+ *  The role that was proposed by the requester New values may be added in the
+ *  future, but the following are currently possible: * `writer` * `commenter` *
+ *  `reader`
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
+/**
+ *  Indicates the view for this access proposal. Only populated for proposals
+ *  that belong to a view. `published` is the only supported value.
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 @end
 
@@ -633,7 +727,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A region of the document represented as a JSON string. For details on
  *  defining anchor properties, refer to [Manage comments and
- *  replies](https://developers.google.com/drive/api/v3/manage-comments).
+ *  replies](https://developers.google.com/workspace/drive/api/v3/manage-comments).
  */
 @property(nonatomic, copy, nullable) NSString *anchor;
 
@@ -821,6 +915,50 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A restriction for copy and download of the file.
+ */
+@interface GTLRDrive_DownloadRestriction : GTLRObject
+
+/**
+ *  Whether download and copy is restricted for readers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictedForReaders;
+
+/**
+ *  Whether download and copy is restricted for writers. If true, download is
+ *  also restricted for readers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restrictedForWriters;
+
+@end
+
+
+/**
+ *  Download restrictions applied to the file.
+ */
+@interface GTLRDrive_DownloadRestrictionsMetadata : GTLRObject
+
+/**
+ *  Output only. The effective download restriction applied to this file. This
+ *  considers all restriction settings and DLP rules.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *effectiveDownloadRestrictionWithContext;
+
+/**
+ *  The download restriction of the file applied directly by the owner or
+ *  organizer. This does not take into account shared drive settings or DLP
+ *  rules.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *itemDownloadRestriction;
+
+@end
+
+
+/**
  *  Representation of a shared drive. Some resource methods (such as
  *  `drives.update`) require a `driveId`. Use the `drives.list` method to
  *  retrieve the ID for a shared drive.
@@ -981,6 +1119,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeDomainUsersOnlyRestriction;
+
+/**
+ *  Output only. Whether the current user can change organizer-applied download
+ *  restrictions of this shared drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeDownloadRestriction;
 
 /**
  *  Output only. Whether the current user can change the background of this
@@ -1156,6 +1302,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *domainUsersOnly;
 
+/** Download restrictions applied by shared drive managers. */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *downloadRestriction;
+
 /**
  *  Whether access to items inside this shared drive is restricted to its
  *  members.
@@ -1267,6 +1416,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Download restrictions applied on the file. */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestrictionsMetadata *downloadRestrictions;
+
 /**
  *  Output only. ID of the shared drive the file resides in. Only populated for
  *  items in shared drives.
@@ -1346,6 +1498,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_File_ImageMediaMetadata *imageMediaMetadata;
 
 /**
+ *  Whether this file has inherited permissions disabled. Inherited permissions
+ *  are enabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inheritedPermissionsDisabled;
+
+/**
  *  Output only. Whether the file was created or opened by the requesting app.
  *
  *  Uses NSNumber of boolValue.
@@ -1361,7 +1521,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Output only. An overview of the labels on the file. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_LabelInfo *labelInfo;
 
-/** Output only. The last user to modify the file. */
+/**
+ *  Output only. The last user to modify the file. This field is only populated
+ *  when the last modification was performed by a signed-in user.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**
@@ -1430,10 +1593,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_User *> *owners;
 
 /**
- *  The IDs of the parent folders which contain the file. If not specified as
- *  part of a create request, the file is placed directly in the user's My Drive
- *  folder. If not specified as part of a copy request, the file inherits any
- *  discoverable parents of the source file. Update requests must use the
+ *  The ID of the parent folder containing the file. A file can only have one
+ *  parent folder; specifying multiple parents isn't supported. If not specified
+ *  as part of a create request, the file is placed directly in the user's My
+ *  Drive folder. If not specified as part of a copy request, the file inherits
+ *  any discoverable parent of the source file. Update requests must use the
  *  `addParents` and `removeParents` parameters to modify the parents list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *parents;
@@ -1502,7 +1666,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Shortcut file details. Only populated for shortcut files, which have the
- *  mimeType field set to `application/vnd.google-apps.shortcut`.
+ *  mimeType field set to `application/vnd.google-apps.shortcut`. Can only be
+ *  set on `files.create` requests.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ShortcutDetails *shortcutDetails;
 
@@ -1532,9 +1697,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. A short-lived link to the file's thumbnail, if available.
- *  Typically lasts on the order of hours. Only populated when the requesting
- *  app can access the file's content. If the file isn't shared publicly, the
- *  URL returned in `Files.thumbnailLink` must be fetched using a credentialed
+ *  Typically lasts on the order of hours. Not intended for direct usage on web
+ *  applications due to [Cross-Origin Resource Sharing
+ *  (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) policies,
+ *  consider using a proxy server. Only populated when the requesting app can
+ *  access the file's content. If the file isn't shared publicly, the URL
+ *  returned in `Files.thumbnailLink` must be fetched using a credentialed
  *  request.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailLink;
@@ -1688,6 +1856,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canChangeCopyRequiresWriterPermission;
 
 /**
+ *  Output only. Whether the current user can change the owner or
+ *  organizer-applied download restrictions of the file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeItemDownloadRestriction;
+
+/**
  *  Output only. Whether the current user can change the securityUpdateEnabled
  *  field on link share metadata.
  *
@@ -1735,6 +1911,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canDeleteChildren;
 
 /**
+ *  Whether a user can disable inherited permissions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canDisableInheritedPermissions;
+
+/**
  *  Output only. Whether the current user can download this file.
  *
  *  Uses NSNumber of boolValue.
@@ -1749,6 +1932,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canEdit;
+
+/**
+ *  Whether a user can re-enable inherited permissions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canEnableInheritedPermissions;
 
 /**
  *  Output only. Whether the current user can list the children of this folder.
@@ -2178,11 +2368,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Shortcut file details. Only populated for shortcut files, which have the
- *  mimeType field set to `application/vnd.google-apps.shortcut`.
+ *  mimeType field set to `application/vnd.google-apps.shortcut`. Can only be
+ *  set on `files.create` requests.
  */
 @interface GTLRDrive_File_ShortcutDetails : GTLRObject
 
-/** The ID of the file that this shortcut points to. */
+/**
+ *  The ID of the file that this shortcut points to. Can only be set on
+ *  `files.create` requests.
+ */
 @property(nonatomic, copy, nullable) NSString *targetId;
 
 /**
@@ -2539,6 +2733,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The response to an Access Proposal list request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "accessProposals" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDrive_ListAccessProposalsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Access Proposals. This field is only populated in v3 and v3beta.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_AccessProposal *> *accessProposals;
+
+/**
+ *  The continuation token for the next page of results. This will be absent if
+ *  the end of the results list has been reached. If the token is rejected for
+ *  any reason, it should be discarded, and pagination should be restarted from
+ *  the first page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  A request to modify the set of labels on a file. This request may contain
  *  many modifications that will either all succeed or all fail atomically.
  */
@@ -2569,10 +2792,94 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRDrive_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRDrive_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDrive_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDrive_Operation_Response : GTLRObject
+@end
+
+
+/**
  *  A permission for a file. A permission grants a user, group, domain, or the
- *  world access to a file or a folder hierarchy. Some resource methods (such as
- *  `permissions.update`) require a `permissionId`. Use the `permissions.list`
- *  method to retrieve the ID for a file, folder, or shared drive.
+ *  world access to a file or a folder hierarchy. By default, permissions
+ *  requests only return a subset of fields. Permission kind, ID, type, and role
+ *  are always returned. To retrieve specific fields, see
+ *  https://developers.google.com/workspace/drive/api/guides/fields-parameter.
+ *  Some resource methods (such as `permissions.update`) require a
+ *  `permissionId`. Use the `permissions.list` method to retrieve the ID for a
+ *  file, folder, or shared drive.
  */
 @interface GTLRDrive_Permission : GTLRObject
 
@@ -2626,6 +2933,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  When true, only organizers, owners, and users with permissions added
+ *  directly on the item can access it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inheritedPermissionsDisabled;
+
+/**
  *  Output only. Identifies what kind of resource this is. Value: the fixed
  *  string `"drive#permission"`.
  */
@@ -2641,9 +2956,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *pendingOwner;
 
 /**
- *  Output only. Details of whether the permissions on this shared drive item
- *  are inherited or directly on this item. This is an output-only field which
- *  is present only for shared drive items.
+ *  Output only. Details of whether the permissions on this item are inherited
+ *  or directly on this item.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_PermissionDetails_Item *> *permissionDetails;
 
@@ -2671,7 +2985,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates the view for this permission. Only populated for permissions that
- *  belong to a view. 'published' is the only supported value.
+ *  belong to a view. published and metadata are the only supported values. -
+ *  published: The permission's role is published_reader. - metadata: The item
+ *  is only visible to the metadata view because the item has limited access and
+ *  the scope has at least read access to the parent. Note: The metadata view is
+ *  currently only supported on folders.
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -2693,7 +3011,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The ID of the item from which this permission is inherited.
- *  This is an output-only field.
+ *  This is only populated for items in shared drives.
  */
 @property(nonatomic, copy, nullable) NSString *inheritedFrom;
 
@@ -2705,8 +3023,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The primary role for this user. While new values may be added
- *  in the future, the following are currently possible: * `organizer` *
- *  `fileOrganizer` * `writer` * `commenter` * `reader`
+ *  in the future, the following are currently possible: * `owner` * `organizer`
+ *  * `fileOrganizer` * `writer` * `commenter` * `reader`
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2875,6 +3193,49 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Request message for resolving an AccessProposal on a file.
+ */
+@interface GTLRDrive_ResolveAccessProposalRequest : GTLRObject
+
+/**
+ *  Required. The action to take on the AccessProposal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_Accept The user
+ *        accepts the proposal. Note: If this action is used, the `role` field
+ *        must have at least one value. (Value: "ACCEPT")
+ *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified
+ *        Unspecified action (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_Deny The user
+ *        denies the proposal (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Optional. The roles the approver has allowed, if any. Note: This field is
+ *  required for the `ACCEPT` action.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *role;
+
+/**
+ *  Optional. Whether to send an email to the requester when the AccessProposal
+ *  is denied or accepted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sendNotification;
+
+/**
+ *  Optional. Indicates the view for this access proposal. This should only be
+ *  set when the proposal belongs to a view. `published` is the only supported
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+@end
+
+
+/**
  *  The metadata for a revision to a file. Some resource methods (such as
  *  `revisions.update`) require a `revisionId`. Use the `revisions.list` method
  *  to retrieve the ID for a revision.
@@ -2910,7 +3271,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Output only. The last user to modify this revision. */
+/**
+ *  Output only. The last user to modify this revision. This field is only
+ *  populated when the last modification was performed by a signed-in user.
+ */
 @property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**
@@ -2949,7 +3313,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. A link to the published revision. This is only populated for
- *  Google Sites files.
+ *  Docs Editors files.
  */
 @property(nonatomic, copy, nullable) NSString *publishedLink;
 
@@ -3039,6 +3403,51 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *startPageToken;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRDrive_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRDrive_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDrive_Status_Details_Item : GTLRObject
 @end
 
 
@@ -3189,6 +3598,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeDomainUsersOnlyRestriction;
+
+/**
+ *  Whether the current user can change organizer-applied download restrictions
+ *  of this shared drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeDownloadRestriction;
 
 /**
  *  Whether the current user can change the
@@ -3361,6 +3778,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *domainUsersOnly;
 
+/** Download restrictions applied by shared drive managers. */
+@property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *downloadRestriction;
+
 /**
  *  If true, only users with the organizer role can share folders. If false,
  *  users with either the organizer role or the file organizer role can share
@@ -3436,7 +3856,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. Identifies what kind of resource this is. Value: the fixed
- *  string `"drive#user"`.
+ *  string `drive#user`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

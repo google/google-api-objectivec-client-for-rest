@@ -47,7 +47,7 @@
 //
 
 @implementation GTLRTranslate_AdaptiveMtTranslateRequest
-@dynamic content, dataset;
+@dynamic content, dataset, glossaryConfig, referenceSentenceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -65,10 +65,11 @@
 //
 
 @implementation GTLRTranslate_AdaptiveMtTranslateResponse
-@dynamic languageCode, translations;
+@dynamic glossaryTranslations, languageCode, translations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"glossaryTranslations" : [GTLRTranslate_AdaptiveMtTranslation class],
     @"translations" : [GTLRTranslate_AdaptiveMtTranslation class]
   };
   return map;
@@ -497,6 +498,16 @@
 @implementation GTLRTranslate_Glossary
 @dynamic displayName, endTime, entryCount, inputConfig, languageCodesSet,
          languagePair, name, submitTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_GlossaryConfig
+//
+
+@implementation GTLRTranslate_GlossaryConfig
+@dynamic contextualTranslationEnabled, glossary, ignoreCase;
 @end
 
 
@@ -961,6 +972,52 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_ReferenceSentenceConfig
+//
+
+@implementation GTLRTranslate_ReferenceSentenceConfig
+@dynamic referenceSentencePairLists, sourceLanguageCode, targetLanguageCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referenceSentencePairLists" : [GTLRTranslate_ReferenceSentencePairList class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ReferenceSentencePair
+//
+
+@implementation GTLRTranslate_ReferenceSentencePair
+@dynamic sourceSentence, targetSentence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_ReferenceSentencePairList
+//
+
+@implementation GTLRTranslate_ReferenceSentencePairList
+@dynamic referenceSentencePairs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referenceSentencePairs" : [GTLRTranslate_ReferenceSentencePair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_Romanization
 //
 
@@ -1071,7 +1128,7 @@
 //
 
 @implementation GTLRTranslate_TextGlossaryConfig
-@dynamic glossary, ignoreCase;
+@dynamic contextualTranslationEnabled, glossary, ignoreCase;
 @end
 
 

@@ -35,6 +35,80 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  List the auction packages. Buyers can use the URL path
+ *  "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the
+ *  current buyer and its clients. Bidders can use the URL path
+ *  "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the
+ *  bidder, its media planners, its buyers, and all their clients.
+ *
+ *  Method: authorizedbuyersmarketplace.bidders.auctionPackages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAuthorizedBuyersMarketplaceAuthorizedBuyersMarketplace
+ */
+@interface GTLRAuthorizedBuyersMarketplaceQuery_BiddersAuctionPackagesList : GTLRAuthorizedBuyersMarketplaceQuery
+
+/**
+ *  Optional. Optional query string using the [Cloud API list filtering
+ *  syntax](/authorized-buyers/apis/guides/list-filters). Only supported when
+ *  parent is bidder. Supported columns for filtering are: * displayName *
+ *  createTime * updateTime * eligibleSeatIds
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. An optional query string to sort auction packages using the [Cloud
+ *  API sorting
+ *  syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order).
+ *  If no sort order is specified, results will be returned in an arbitrary
+ *  order. Only supported when parent is bidder. Supported columns for sorting
+ *  are: * displayName * createTime * updateTime
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. The server may return fewer results than requested. Max
+ *  allowed page size is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token as returned. ListAuctionPackagesResponse.nextPageToken */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the parent buyer that can access the auction package.
+ *  Format: `buyers/{accountId}`. When used with a bidder account, the auction
+ *  packages that the bidder, its media planners, its buyers and clients are
+ *  subscribed to will be listed, in the format `bidders/{accountId}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAuthorizedBuyersMarketplace_ListAuctionPackagesResponse.
+ *
+ *  List the auction packages. Buyers can use the URL path
+ *  "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the
+ *  current buyer and its clients. Bidders can use the URL path
+ *  "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the
+ *  bidder, its media planners, its buyers, and all their clients.
+ *
+ *  @param parent Required. Name of the parent buyer that can access the auction
+ *    package. Format: `buyers/{accountId}`. When used with a bidder account,
+ *    the auction packages that the bidder, its media planners, its buyers and
+ *    clients are subscribed to will be listed, in the format
+ *    `bidders/{accountId}`.
+ *
+ *  @return GTLRAuthorizedBuyersMarketplaceQuery_BiddersAuctionPackagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists finalized deals. Use the URL path
  *  "/v1/buyers/{accountId}/finalizedDeals" to list finalized deals for the
  *  current buyer and its clients. Bidders can use the URL path
@@ -53,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  syntax](https://developers.google.com/authorized-buyers/apis/guides/list-filters)
  *  Supported columns for filtering are: * deal.displayName * deal.dealType *
  *  deal.createTime * deal.updateTime * deal.flightStartTime *
- *  deal.flightEndTime * dealServingStatus
+ *  deal.flightEndTime * deal.eligibleSeatIds * dealServingStatus
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -67,7 +141,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  deal.flightEndTime * rtbMetrics.bidRequests7Days * rtbMetrics.bids7Days *
  *  rtbMetrics.adImpressions7Days * rtbMetrics.bidRate7Days *
  *  rtbMetrics.filteredBidRate7Days * rtbMetrics.mustBidRateCurrentMonth
- *  Example: 'deal.displayName, deal.updateTime desc'
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -142,7 +215,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List the auction packages subscribed by a buyer and its clients.
+ *  List the auction packages. Buyers can use the URL path
+ *  "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the
+ *  current buyer and its clients. Bidders can use the URL path
+ *  "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the
+ *  bidder, its media planners, its buyers, and all their clients.
  *
  *  Method: authorizedbuyersmarketplace.buyers.auctionPackages.list
  *
@@ -150,6 +227,24 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAuthorizedBuyersMarketplaceAuthorizedBuyersMarketplace
  */
 @interface GTLRAuthorizedBuyersMarketplaceQuery_BuyersAuctionPackagesList : GTLRAuthorizedBuyersMarketplaceQuery
+
+/**
+ *  Optional. Optional query string using the [Cloud API list filtering
+ *  syntax](/authorized-buyers/apis/guides/list-filters). Only supported when
+ *  parent is bidder. Supported columns for filtering are: * displayName *
+ *  createTime * updateTime * eligibleSeatIds
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. An optional query string to sort auction packages using the [Cloud
+ *  API sorting
+ *  syntax](https://cloud.google.com/apis/design/design_patterns#sorting_order).
+ *  If no sort order is specified, results will be returned in an arbitrary
+ *  order. Only supported when parent is bidder. Supported columns for sorting
+ *  are: * displayName * createTime * updateTime
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Requested page size. The server may return fewer results than requested. Max
@@ -162,17 +257,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the parent buyer that can access the auction package.
- *  Format: `buyers/{accountId}`
+ *  Format: `buyers/{accountId}`. When used with a bidder account, the auction
+ *  packages that the bidder, its media planners, its buyers and clients are
+ *  subscribed to will be listed, in the format `bidders/{accountId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAuthorizedBuyersMarketplace_ListAuctionPackagesResponse.
  *
- *  List the auction packages subscribed by a buyer and its clients.
+ *  List the auction packages. Buyers can use the URL path
+ *  "/v1/buyers/{accountId}/auctionPackages" to list auction packages for the
+ *  current buyer and its clients. Bidders can use the URL path
+ *  "/v1/bidders/{accountId}/auctionPackages" to list auction packages for the
+ *  bidder, its media planners, its buyers, and all their clients.
  *
  *  @param parent Required. Name of the parent buyer that can access the auction
- *    package. Format: `buyers/{accountId}`
+ *    package. Format: `buyers/{accountId}`. When used with a bidder account,
+ *    the auction packages that the bidder, its media planners, its buyers and
+ *    clients are subscribed to will be listed, in the format
+ *    `bidders/{accountId}`.
  *
  *  @return GTLRAuthorizedBuyersMarketplaceQuery_BuyersAuctionPackagesList
  *
@@ -882,7 +986,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  syntax](https://developers.google.com/authorized-buyers/apis/guides/list-filters)
  *  Supported columns for filtering are: * deal.displayName * deal.dealType *
  *  deal.createTime * deal.updateTime * deal.flightStartTime *
- *  deal.flightEndTime * dealServingStatus
+ *  deal.flightEndTime * deal.eligibleSeatIds * dealServingStatus
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -896,7 +1000,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  deal.flightEndTime * rtbMetrics.bidRequests7Days * rtbMetrics.bids7Days *
  *  rtbMetrics.adImpressions7Days * rtbMetrics.bidRate7Days *
  *  rtbMetrics.filteredBidRate7Days * rtbMetrics.mustBidRateCurrentMonth
- *  Example: 'deal.displayName, deal.updateTime desc'
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -944,7 +1047,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Pauses serving of the given finalized deal. This call only pauses the
  *  serving status, and does not affect other fields of the finalized deal.
  *  Calling this method for an already paused deal has no effect. This method
- *  only applies to programmatic guaranteed deals.
+ *  only applies to programmatic guaranteed deals and preferred deals.
  *
  *  Method: authorizedbuyersmarketplace.buyers.finalizedDeals.pause
  *
@@ -962,7 +1065,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Pauses serving of the given finalized deal. This call only pauses the
  *  serving status, and does not affect other fields of the finalized deal.
  *  Calling this method for an already paused deal has no effect. This method
- *  only applies to programmatic guaranteed deals.
+ *  only applies to programmatic guaranteed deals and preferred deals.
  *
  *  @param object The @c
  *    GTLRAuthorizedBuyersMarketplace_PauseFinalizedDealRequest to include in
@@ -981,7 +1084,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  running deal has no effect. If a deal is initially paused by the seller,
  *  calling this method will not resume serving of the deal until the seller
  *  also resumes the deal. This method only applies to programmatic guaranteed
- *  deals.
+ *  deals and preferred deals.
  *
  *  Method: authorizedbuyersmarketplace.buyers.finalizedDeals.resume
  *
@@ -1000,7 +1103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  running deal has no effect. If a deal is initially paused by the seller,
  *  calling this method will not resume serving of the deal until the seller
  *  also resumes the deal. This method only applies to programmatic guaranteed
- *  deals.
+ *  deals and preferred deals.
  *
  *  @param object The @c
  *    GTLRAuthorizedBuyersMarketplace_ResumeFinalizedDealRequest to include in
@@ -1106,7 +1209,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a note for this proposal and sends to the seller.
+ *  Creates a note for this proposal and sends to the seller. This method is not
+ *  supported for proposals with DealType set to 'PRIVATE_AUCTION'.
  *
  *  Method: authorizedbuyersmarketplace.buyers.proposals.addNote
  *
@@ -1123,7 +1227,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAuthorizedBuyersMarketplace_Proposal.
  *
- *  Creates a note for this proposal and sends to the seller.
+ *  Creates a note for this proposal and sends to the seller. This method is not
+ *  supported for proposals with DealType set to 'PRIVATE_AUCTION'.
  *
  *  @param object The @c GTLRAuthorizedBuyersMarketplace_AddNoteRequest to
  *    include in the query.
@@ -1454,8 +1559,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  specified in the UpdateProposalRequest.update_mask will be updated; Fields
  *  noted as 'Immutable' or 'Output only' yet specified in the
  *  UpdateProposalRequest.update_mask will be ignored and left unchanged.
- *  Updating a private auction proposal is not allowed and will result in an
- *  error.
+ *  Updating a private auction proposal is only allowed for buyer private data,
+ *  all other fields are immutable.
  *
  *  Method: authorizedbuyersmarketplace.buyers.proposals.patch
  *
@@ -1494,8 +1599,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  specified in the UpdateProposalRequest.update_mask will be updated; Fields
  *  noted as 'Immutable' or 'Output only' yet specified in the
  *  UpdateProposalRequest.update_mask will be ignored and left unchanged.
- *  Updating a private auction proposal is not allowed and will result in an
- *  error.
+ *  Updating a private auction proposal is only allowed for buyer private data,
+ *  all other fields are immutable.
  *
  *  @param object The @c GTLRAuthorizedBuyersMarketplace_Proposal to include in
  *    the query.

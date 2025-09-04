@@ -35,28 +35,43 @@
 @class GTLRFirestore_DocumentRemove;
 @class GTLRFirestore_DocumentsTarget;
 @class GTLRFirestore_DocumentTransform;
+@class GTLRFirestore_ExecutionStats;
+@class GTLRFirestore_ExecutionStats_DebugStats;
 @class GTLRFirestore_ExistenceFilter;
+@class GTLRFirestore_ExplainMetrics;
 @class GTLRFirestore_ExplainOptions;
 @class GTLRFirestore_FieldFilter;
 @class GTLRFirestore_FieldReference;
 @class GTLRFirestore_FieldTransform;
 @class GTLRFirestore_Filter;
+@class GTLRFirestore_FindNearest;
 @class GTLRFirestore_GoogleFirestoreAdminV1Backup;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
+@class GTLRFirestore_GoogleFirestoreAdminV1BackupSource;
+@class GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags;
 @class GTLRFirestore_GoogleFirestoreAdminV1CmekConfig;
+@class GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence;
 @class GTLRFirestore_GoogleFirestoreAdminV1Database;
-@class GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot;
+@class GTLRFirestore_GoogleFirestoreAdminV1Database_Tags;
+@class GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
 @class GTLRFirestore_GoogleFirestoreAdminV1FlatIndex;
+@class GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1Index;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexField;
+@class GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot;
 @class GTLRFirestore_GoogleFirestoreAdminV1Progress;
+@class GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity;
+@class GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags;
+@class GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions;
+@class GTLRFirestore_GoogleFirestoreAdminV1SourceInfo;
 @class GTLRFirestore_GoogleFirestoreAdminV1Stats;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta;
+@class GTLRFirestore_GoogleFirestoreAdminV1UserCreds;
 @class GTLRFirestore_GoogleFirestoreAdminV1VectorConfig;
 @class GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence;
 @class GTLRFirestore_GoogleLongrunningOperation;
@@ -70,6 +85,8 @@
 @class GTLRFirestore_MapValue;
 @class GTLRFirestore_MapValue_Fields;
 @class GTLRFirestore_Order;
+@class GTLRFirestore_PlanSummary;
+@class GTLRFirestore_PlanSummary_IndexesUsed_Item;
 @class GTLRFirestore_Precondition;
 @class GTLRFirestore_Projection;
 @class GTLRFirestore_QueryTarget;
@@ -224,6 +241,44 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValu
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_FindNearest.distanceMeasure
+
+/**
+ *  COSINE distance compares vectors based on the angle between them, which
+ *  allows you to measure similarity that isn't based on the vectors magnitude.
+ *  We recommend using DOT_PRODUCT with unit normalized vectors instead of
+ *  COSINE distance, which is mathematically equivalent with better performance.
+ *  See [Cosine Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to
+ *  learn more about COSINE similarity and COSINE distance. The resulting COSINE
+ *  distance decreases the more similar two vectors are.
+ *
+ *  Value: "COSINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Cosine;
+/**
+ *  Should not be set.
+ *
+ *  Value: "DISTANCE_MEASURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified;
+/**
+ *  Similar to cosine but is affected by the magnitude of the vectors. See [Dot
+ *  Product](https://en.wikipedia.org/wiki/Dot_product) to learn more. The
+ *  resulting distance increases the more similar two vectors are.
+ *
+ *  Value: "DOT_PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DotProduct;
+/**
+ *  Measures the EUCLIDEAN distance between the vectors. See
+ *  [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn more.
+ *  The resulting distance decreases the more similar two vectors are.
+ *
+ *  Value: "EUCLIDEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Euclidean;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Backup.state
 
 /**
@@ -251,6 +306,114 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_S
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata.operationState
+
+/**
+ *  Request has finished being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelled;
+/**
+ *  Request is in the process of being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation on the operation.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelling;
+/**
+ *  Request has finished being processed, but encountered an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Failed;
+/**
+ *  Request has been processed and is in its finalization stage.
+ *
+ *  Value: "FINALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Finalizing;
+/**
+ *  Request is being prepared for processing.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Initializing;
+/**
+ *  Unspecified.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_OperationStateUnspecified;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Processing;
+/**
+ *  Request has completed successfully.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Successful;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata.operationState
+
+/**
+ *  Request has finished being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelled;
+/**
+ *  Request is in the process of being cancelled after user called
+ *  google.longrunning.Operations.CancelOperation on the operation.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelling;
+/**
+ *  Request has finished being processed, but encountered an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Failed;
+/**
+ *  Request has been processed and is in its finalization stage.
+ *
+ *  Value: "FINALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Finalizing;
+/**
+ *  Request is being prepared for processing.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Initializing;
+/**
+ *  Unspecified.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_OperationStateUnspecified;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Processing;
+/**
+ *  Request has completed successfully.
+ *
+ *  Value: "SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Successful;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
@@ -310,6 +473,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.databaseEdition
+
+/**
+ *  Not used.
+ *
+ *  Value: "DATABASE_EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_DatabaseEditionUnspecified;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Enterprise;
+/**
+ *  Standard edition. This is the default setting if not specified.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.deleteProtectionState
 
 /**
@@ -361,7 +546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 // GTLRFirestore_GoogleFirestoreAdminV1Database.type
 
 /**
- *  The default value. This value is used if the database type is omitted.
+ *  Not used.
  *
  *  Value: "DATABASE_TYPE_UNSPECIFIED"
  */
@@ -557,6 +742,46 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Ap
  *  Value: "DATASTORE_MODE_API"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi;
+/**
+ *  The index can only be used by the MONGODB_COMPATIBLE_API.
+ *
+ *  Value: "MONGODB_COMPATIBLE_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_MongodbCompatibleApi;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Index.density
+
+/**
+ *  An index entry will be added regardless of whether the document contains any
+ *  of the fields specified in the index. Non-existent fields are treated as
+ *  having a NULL value when generating index entries.
+ *
+ *  Value: "DENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_Dense;
+/**
+ *  Unspecified. It will use database default setting. This value is input only.
+ *
+ *  Value: "DENSITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_DensityUnspecified;
+/**
+ *  In order for an index entry to be added, the document must contain all
+ *  fields specified in the index. This is the only allowed value for indexes
+ *  having ApiScope `ANY_API` and `DATASTORE_MODE_API`.
+ *
+ *  Value: "SPARSE_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAll;
+/**
+ *  In order for an index entry to be added, the document must contain at least
+ *  one of the fields specified in the index. Non-existent fields are treated as
+ *  having a NULL value when generating index entries.
+ *
+ *  Value: "SPARSE_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAny;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Index.queryScope
@@ -564,14 +789,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Ap
 /**
  *  Indexes with a collection query scope specified allow queries against a
  *  collection that is the child of a specific document, specified at query
- *  time, and that has the collection id specified by the index.
+ *  time, and that has the collection ID specified by the index.
  *
  *  Value: "COLLECTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection;
 /**
  *  Indexes with a collection group query scope specified allow queries against
- *  all collections that has the collection id specified by the index.
+ *  all collections that has the collection ID specified by the index.
  *
  *  Value: "COLLECTION_GROUP"
  */
@@ -849,6 +1074,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfi
  *  Value: "REMOVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1UserCreds.state
+
+/**
+ *  The user creds are disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Disabled;
+/**
+ *  The user creds are enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Enabled;
+/**
+ *  The default value. Should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence.day
@@ -1668,6 +1915,57 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Execution statistics for the query.
+ */
+@interface GTLRFirestore_ExecutionStats : GTLRObject
+
+/**
+ *  Debugging statistics from the execution of the query. Note that the
+ *  debugging stats are subject to change as Firestore evolves. It could
+ *  include: { "indexes_entries_scanned": "1000", "documents_scanned": "20",
+ *  "billing_details" : { "documents_billable": "20", "index_entries_billable":
+ *  "1000", "min_query_cost": "0" } }
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExecutionStats_DebugStats *debugStats;
+
+/** Total time to execute the query in the backend. */
+@property(nonatomic, strong, nullable) GTLRDuration *executionDuration;
+
+/**
+ *  Total billable read operations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOperations;
+
+/**
+ *  Total number of results returned, including documents, projections,
+ *  aggregation results, keys.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resultsReturned;
+
+@end
+
+
+/**
+ *  Debugging statistics from the execution of the query. Note that the
+ *  debugging stats are subject to change as Firestore evolves. It could
+ *  include: { "indexes_entries_scanned": "1000", "documents_scanned": "20",
+ *  "billing_details" : { "documents_billable": "20", "index_entries_billable":
+ *  "1000", "min_query_cost": "0" } }
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_ExecutionStats_DebugStats : GTLRObject
+@end
+
+
+/**
  *  A digest of all the documents that match a given target.
  */
 @interface GTLRFirestore_ExistenceFilter : GTLRObject
@@ -1703,6 +2001,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  out which documents in the client's cache are out of sync.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_BloomFilter *unchangedNames;
+
+@end
+
+
+/**
+ *  Explain metrics for the query.
+ */
+@interface GTLRFirestore_ExplainMetrics : GTLRObject
+
+/**
+ *  Aggregated stats from the execution of the query. Only present when
+ *  ExplainOptions.analyze is set to true.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExecutionStats *executionStats;
+
+/** Planning phase information for the query. */
+@property(nonatomic, strong, nullable) GTLRFirestore_PlanSummary *planSummary;
 
 @end
 
@@ -1908,6 +2223,83 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Nearest Neighbors search config. The ordering provided by FindNearest
+ *  supersedes the order_by stage. If multiple documents have the same vector
+ *  distance, the returned document order is not guaranteed to be stable between
+ *  queries.
+ */
+@interface GTLRFirestore_FindNearest : GTLRObject
+
+/**
+ *  Required. The distance measure to use, required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_Cosine COSINE distance
+ *        compares vectors based on the angle between them, which allows you to
+ *        measure similarity that isn't based on the vectors magnitude. We
+ *        recommend using DOT_PRODUCT with unit normalized vectors instead of
+ *        COSINE distance, which is mathematically equivalent with better
+ *        performance. See [Cosine
+ *        Similarity](https://en.wikipedia.org/wiki/Cosine_similarity) to learn
+ *        more about COSINE similarity and COSINE distance. The resulting COSINE
+ *        distance decreases the more similar two vectors are. (Value: "COSINE")
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified
+ *        Should not be set. (Value: "DISTANCE_MEASURE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_DotProduct Similar to
+ *        cosine but is affected by the magnitude of the vectors. See [Dot
+ *        Product](https://en.wikipedia.org/wiki/Dot_product) to learn more. The
+ *        resulting distance increases the more similar two vectors are. (Value:
+ *        "DOT_PRODUCT")
+ *    @arg @c kGTLRFirestore_FindNearest_DistanceMeasure_Euclidean Measures the
+ *        EUCLIDEAN distance between the vectors. See
+ *        [Euclidean](https://en.wikipedia.org/wiki/Euclidean_distance) to learn
+ *        more. The resulting distance decreases the more similar two vectors
+ *        are. (Value: "EUCLIDEAN")
+ */
+@property(nonatomic, copy, nullable) NSString *distanceMeasure;
+
+/**
+ *  Optional. Optional name of the field to output the result of the vector
+ *  distance calculation. Must conform to document field name limitations.
+ */
+@property(nonatomic, copy, nullable) NSString *distanceResultField;
+
+/**
+ *  Optional. Option to specify a threshold for which no less similar documents
+ *  will be returned. The behavior of the specified `distance_measure` will
+ *  affect the meaning of the distance threshold. Since DOT_PRODUCT distances
+ *  increase when the vectors are more similar, the comparison is inverted. *
+ *  For EUCLIDEAN, COSINE: `WHERE distance <= distance_threshold` * For
+ *  DOT_PRODUCT: `WHERE distance >= distance_threshold`
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distanceThreshold;
+
+/**
+ *  Required. The number of nearest neighbors to return. Must be a positive
+ *  integer of no more than 1000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/**
+ *  Required. The query vector that we are searching on. Must be a vector of no
+ *  more than 2048 dimensions.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_Value *queryVector;
+
+/**
+ *  Required. An indexed vector field to search upon. Only documents which
+ *  contain vectors whose dimensionality match the query_vector can be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_FieldReference *vectorField;
+
+@end
+
+
+/**
  *  A Backup of a Cloud Firestore Database. The backup contains all documents
  *  and index configurations for the given database at a specific point in time.
  */
@@ -1980,7 +2372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** For a schedule that runs daily at a specified time. */
+/** For a schedule that runs daily. */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence *dailyRecurrence;
 
 /**
@@ -1992,7 +2384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  At what relative time in the future, compared to its creation time, the
- *  backup should be deleted, e.g. keep backups for 7 days.
+ *  backup should be deleted, e.g. keep backups for 7 days. The maximum
+ *  supported retention period is 14 weeks.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *retention;
 
@@ -2003,9 +2396,222 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** For a schedule that runs weekly on a specific day and time. */
+/** For a schedule that runs weekly on a specific day. */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence *weeklyRecurrence;
 
+@end
+
+
+/**
+ *  Information about a backup that was used to restore a database.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1BackupSource : GTLRObject
+
+/**
+ *  The resource name of the backup that was used to restore this database.
+ *  Format: `projects/{project}/locations/{location}/backups/{backup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+@end
+
+
+/**
+ *  Metadata for google.longrunning.Operation results from
+ *  FirestoreAdmin.BulkDeleteDocuments.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata : GTLRObject
+
+/** The IDs of the collection groups that are being deleted. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
+
+/**
+ *  The time this operation completed. Will be unset if operation still in
+ *  progress.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Which namespace IDs are being deleted. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
+
+/**
+ *  The state of the operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelled
+ *        Request has finished being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation. (Value: "CANCELLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelling
+ *        Request is in the process of being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation on the operation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Failed
+ *        Request has finished being processed, but encountered an error.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Finalizing
+ *        Request has been processed and is in its finalization stage. (Value:
+ *        "FINALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Initializing
+ *        Request is being prepared for processing. (Value: "INITIALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_OperationStateUnspecified
+ *        Unspecified. (Value: "OPERATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Successful
+ *        Request has completed successfully. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *operationState;
+
+/** The progress, in bytes, of this operation. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Progress *progressBytes;
+
+/** The progress, in documents, of this operation. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Progress *progressDocuments;
+
+/**
+ *  The timestamp that corresponds to the version of the database that is being
+ *  read to get the list of documents to delete. This time can also be used as
+ *  the timestamp of PITR in case of disaster recovery (subject to PITR window
+ *  limit).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
+
+/** The time this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The request for FirestoreAdmin.BulkDeleteDocuments. When both collection_ids
+ *  and namespace_ids are set, only documents satisfying both conditions will be
+ *  deleted. Requests with namespace_ids and collection_ids both empty will be
+ *  rejected. Please use FirestoreAdmin.DeleteDatabase instead.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest : GTLRObject
+
+/**
+ *  Optional. IDs of the collection groups to delete. Unspecified means all
+ *  collection groups. Each collection group in this list must be unique.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
+
+/**
+ *  Optional. Namespaces to delete. An empty list means all namespaces. This is
+ *  the recommended usage for databases that don't use namespaces. An empty
+ *  string element represents the default namespace. This should be used if the
+ *  database has data in non-default namespaces, but doesn't want to delete from
+ *  them. Each namespace in this list must be unique.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
+
+@end
+
+
+/**
+ *  Metadata for the long-running operation from the CloneDatabase request.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata : GTLRObject
+
+/** The name of the database being cloned to. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** The time the clone finished, unset for ongoing clones. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The operation state of the clone.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelled
+ *        Request has finished being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation. (Value: "CANCELLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelling
+ *        Request is in the process of being cancelled after user called
+ *        google.longrunning.Operations.CancelOperation on the operation.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Failed
+ *        Request has finished being processed, but encountered an error.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Finalizing
+ *        Request has been processed and is in its finalization stage. (Value:
+ *        "FINALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Initializing
+ *        Request is being prepared for processing. (Value: "INITIALIZING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_OperationStateUnspecified
+ *        Unspecified. (Value: "OPERATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Processing
+ *        Request is actively being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Successful
+ *        Request has completed successfully. (Value: "SUCCESSFUL")
+ */
+@property(nonatomic, copy, nullable) NSString *operationState;
+
+/** The snapshot from which this database was cloned. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot *pitrSnapshot;
+
+/**
+ *  How far along the clone is as an estimated percentage of remaining time.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Progress *progressPercentage;
+
+/** The time the clone was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The request message for FirestoreAdmin.CloneDatabase.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest : GTLRObject
+
+/**
+ *  Required. The ID to use for the database, which will become the final
+ *  component of the database's resource name. This database ID must not be
+ *  associated with an existing database. This value should be 4-63 characters.
+ *  Valid characters are /a-z-/ with first character a letter and the last a
+ *  letter or a number. Must not be UUID-like
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also
+ *  valid.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
+/**
+ *  Optional. Encryption configuration for the cloned database. If this field is
+ *  not specified, the cloned database will use the same encryption
+ *  configuration as the source database, namely use_source_encryption.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig *encryptionConfig;
+
+/**
+ *  Required. Specification of the PITR data to clone from. The source database
+ *  must exist. The cloned database will be created in the same location as the
+ *  source database.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot *pitrSnapshot;
+
+/**
+ *  Optional. Immutable. Tags to be bound to the cloned database. The tags
+ *  should be provided in the format of `tagKeys/{tag_key_id} ->
+ *  tagValues/{tag_value_id}`.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags *tags;
+
+@end
+
+
+/**
+ *  Optional. Immutable. Tags to be bound to the cloned database. The tags
+ *  should be provided in the format of `tagKeys/{tag_key_id} ->
+ *  tagValues/{tag_value_id}`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags : GTLRObject
 @end
 
 
@@ -2046,8 +2652,26 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Represent a recurring schedule that runs at a specific time every day. The
- *  time zone is UTC.
+ *  The configuration options for using CMEK (Customer Managed Encryption Key)
+ *  encryption.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions : GTLRObject
+
+/**
+ *  Required. Only keys in the same location as the database are allowed to be
+ *  used for encryption. For Firestore's nam5 multi-region, this corresponds to
+ *  Cloud KMS multi-region us. For Firestore's eur3 multi-region, this
+ *  corresponds to Cloud KMS multi-region europe. See
+ *  https://cloud.google.com/kms/docs/locations. The expected format is
+ *  `projects/{project_id}/locations/{kms_location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Represents a recurring schedule that runs every day. The time zone is UTC.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence : GTLRObject
 @end
@@ -2107,6 +2731,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Immutable. The edition of the database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_DatabaseEditionUnspecified
+ *        Not used. (Value: "DATABASE_EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Enterprise
+ *        Enterprise edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Standard
+ *        Standard edition. This is the default setting if not specified.
+ *        (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseEdition;
+
+/**
  *  State of delete protection for the database.
  *
  *  Likely values:
@@ -2119,6 +2757,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        "DELETE_PROTECTION_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *deleteProtectionState;
+
+/**
+ *  Output only. The timestamp at which this database was deleted. Only set if
+ *  the database has been deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
  *  Output only. The earliest timestamp at which older versions of the data can
@@ -2139,8 +2783,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Output only. Background: Free tier is the ability of a Firestore database to
+ *  use a small amount of resources every day without being charged. Once usage
+ *  exceeds the free tier limit further usage is charged. Whether this database
+ *  can make use of the free tier. Only one database per project can be eligible
+ *  for the free tier. The first (or next) database that is created in a project
+ *  without a free tier database will be marked as eligible for the free tier.
+ *  Databases that are created while there is a free tier database will not be
+ *  eligible for the free tier.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeTier;
+
+/**
  *  Output only. The key_prefix for this database. This key_prefix is used, in
- *  combination with the project id ("~") to construct the application id that
+ *  combination with the project ID ("~") to construct the application ID that
  *  is returned from the Cloud Datastore APIs in Google App Engine first
  *  generation runtimes. This value may be empty in which case the appid to use
  *  for URL-encoded keys is the project_id (eg: foo instead of v~foo).
@@ -2179,14 +2837,29 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *pointInTimeRecoveryEnablement;
 
 /**
+ *  Output only. The database resource's prior database ID. This field is only
+ *  populated for deleted databases.
+ */
+@property(nonatomic, copy, nullable) NSString *previousId;
+
+/** Output only. Information about the provenance of this database. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SourceInfo *sourceInfo;
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1Database_Tags *tags;
+
+/**
  *  The type of the database. See
  *  https://cloud.google.com/datastore/docs/firestore-or-datastore for
  *  information about how to choose.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatabaseTypeUnspecified
- *        The default value. This value is used if the database type is omitted.
- *        (Value: "DATABASE_TYPE_UNSPECIFIED")
+ *        Not used. (Value: "DATABASE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatastoreMode
  *        Firestore in Datastore Mode. (Value: "DATASTORE_MODE")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_FirestoreNative
@@ -2217,21 +2890,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A consistent snapshot of a database at a specific point in time.
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
  */
-@interface GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot : GTLRObject
-
-/**
- *  Required. A name of the form `projects/{project_id}/databases/{database_id}`
- */
-@property(nonatomic, copy, nullable) NSString *database;
-
-/**
- *  Required. The timestamp at which the database snapshot is taken. The
- *  requested timestamp must be a whole minute within the PITR window.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
-
+@interface GTLRFirestore_GoogleFirestoreAdminV1Database_Tags : GTLRObject
 @end
 
 
@@ -2243,12 +2911,44 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The request for FirestoreAdmin.DisableUserCreds.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest : GTLRObject
+@end
+
+
+/**
+ *  The request for FirestoreAdmin.EnableUserCreds.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest : GTLRObject
+@end
+
+
+/**
+ *  Encryption configuration for a new database being created from another
+ *  source. The source could be a Backup .
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig : GTLRObject
+
+/** Use Customer Managed Encryption Keys (CMEK) for encryption. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions *customerManagedEncryption;
+
+/** Use Google default encryption. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions *googleDefaultEncryption;
+
+/** The database will use the same encryption configuration as the source. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions *useSourceEncryption;
+
+@end
+
+
+/**
  *  Metadata for google.longrunning.Operation results from
  *  FirestoreAdmin.ExportDocuments.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata : GTLRObject
 
-/** Which collection ids are being exported. */
+/** Which collection IDs are being exported. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
@@ -2257,7 +2957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Which namespace ids are being exported. */
+/** Which namespace IDs are being exported. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
 /**
@@ -2315,7 +3015,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest : GTLRObject
 
-/** Which collection ids to export. Unspecified means all collections. */
+/**
+ *  Which collection IDs to export. Unspecified means all collections. Each
+ *  collection ID in this list must be unique.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
@@ -2370,7 +3073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  Represents a single field in the database. Fields are grouped by their
  *  "Collection Group", which represent all collections in the database with the
- *  same id.
+ *  same ID.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Field : GTLRObject
 
@@ -2383,21 +3086,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1IndexConfig *indexConfig;
 
 /**
- *  Required. A field name of the form
+ *  Required. A field name of the form:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
- *  A field path may be a simple field name, e.g. `address` or a path to fields
- *  within map_value , e.g. `address.city`, or a special field path. The only
- *  valid special field is `*`, which represents any field. Field paths may be
- *  quoted using ` (backtick). The only character that needs to be escaped
+ *  A field path can be a simple field name, e.g. `address` or a path to fields
+ *  within `map_value` , e.g. `address.city`, or a special field path. The only
+ *  valid special field is `*`, which represents any field. Field paths can be
+ *  quoted using `` ` `` (backtick). The only character that must be escaped
  *  within a quoted field path is the backtick character itself, escaped using a
  *  backslash. Special characters in field paths that must be quoted include:
- *  `*`, `.`, ``` (backtick), `[`, `]`, as well as any ascii symbolic
- *  characters. Examples: (Note: Comments here are written in markdown syntax,
- *  so there is an additional layer of backticks to represent a code block)
- *  `\\`address.city\\`` represents a field named `address.city`, not the map
- *  key `city` in the field `address`. `\\`*\\`` represents a field named `*`,
- *  not any field. A special `Field` contains the default indexing settings for
- *  all fields. This field's resource name is:
+ *  `*`, `.`, `` ` `` (backtick), `[`, `]`, as well as any ascii symbolic
+ *  characters. Examples: `` `address.city` `` represents a field named
+ *  `address.city`, not the map key `city` in the field `address`. `` `*` ``
+ *  represents a field named `*`, not any field. A special `Field` contains the
+ *  default indexing settings for all fields. This field's resource name is:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
  *  *` Indexes defined on this `Field` will be applied to all fields which do
  *  not have their own `Field` index configuration.
@@ -2488,12 +3189,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The configuration options for using Google default encryption.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions : GTLRObject
+@end
+
+
+/**
  *  Metadata for google.longrunning.Operation results from
  *  FirestoreAdmin.ImportDocuments.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata : GTLRObject
 
-/** Which collection ids are being imported. */
+/** Which collection IDs are being imported. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
@@ -2505,7 +3213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /** The location of the documents being imported. */
 @property(nonatomic, copy, nullable) NSString *inputUriPrefix;
 
-/** Which namespace ids are being imported. */
+/** Which namespace IDs are being imported. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
 /**
@@ -2554,8 +3262,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest : GTLRObject
 
 /**
- *  Which collection ids to import. Unspecified means all collections included
- *  in the import.
+ *  Which collection IDs to import. Unspecified means all collections included
+ *  in the import. Each collection ID in this list must be unique.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
@@ -2594,8 +3302,35 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi
  *        The index can only be used by the Firestore in Datastore Mode query
  *        API. (Value: "DATASTORE_MODE_API")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_MongodbCompatibleApi
+ *        The index can only be used by the MONGODB_COMPATIBLE_API. (Value:
+ *        "MONGODB_COMPATIBLE_API")
  */
 @property(nonatomic, copy, nullable) NSString *apiScope;
+
+/**
+ *  Immutable. The density configuration of the index.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_Dense An index
+ *        entry will be added regardless of whether the document contains any of
+ *        the fields specified in the index. Non-existent fields are treated as
+ *        having a NULL value when generating index entries. (Value: "DENSE")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_DensityUnspecified
+ *        Unspecified. It will use database default setting. This value is input
+ *        only. (Value: "DENSITY_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAll In
+ *        order for an index entry to be added, the document must contain all
+ *        fields specified in the index. This is the only allowed value for
+ *        indexes having ApiScope `ANY_API` and `DATASTORE_MODE_API`. (Value:
+ *        "SPARSE_ALL")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAny In
+ *        order for an index entry to be added, the document must contain at
+ *        least one of the fields specified in the index. Non-existent fields
+ *        are treated as having a NULL value when generating index entries.
+ *        (Value: "SPARSE_ANY")
+ */
+@property(nonatomic, copy, nullable) NSString *density;
 
 /**
  *  The fields supported by this index. For composite indexes, this requires a
@@ -2610,6 +3345,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1IndexField *> *fields;
 
 /**
+ *  Optional. Whether the index is multikey. By default, the index is not
+ *  multikey. For non-multikey indexes, none of the paths in the index
+ *  definition reach or traverse an array, except via an explicit array index.
+ *  For multikey indexes, at most one of the paths in the index definition reach
+ *  or traverse an array, except via an explicit array index. Violations will
+ *  result in errors. Note this field only applies to index with
+ *  MONGODB_COMPATIBLE_API ApiScope.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multikey;
+
+/**
  *  Output only. A server defined name for this index. The form of this name for
  *  composite indexes will be:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{composite_index_id}`
@@ -2620,20 +3368,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  Indexes with a collection query scope specified allow queries against a
  *  collection that is the child of a specific document, specified at query
- *  time, and that has the same collection id. Indexes with a collection group
+ *  time, and that has the same collection ID. Indexes with a collection group
  *  query scope specified allow queries against all collections descended from a
  *  specific document, specified at query time, and that have the same
- *  collection id as this index.
+ *  collection ID as this index.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection
  *        Indexes with a collection query scope specified allow queries against
  *        a collection that is the child of a specific document, specified at
- *        query time, and that has the collection id specified by the index.
+ *        query time, and that has the collection ID specified by the index.
  *        (Value: "COLLECTION")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionGroup
  *        Indexes with a collection group query scope specified allow queries
- *        against all collections that has the collection id specified by the
+ *        against all collections that has the collection ID specified by the
  *        index. (Value: "COLLECTION_GROUP")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionRecursive
  *        Include all the collections's ancestor in the index. Only available
@@ -2643,6 +3391,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        "QUERY_SCOPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *queryScope;
+
+/**
+ *  Optional. The number of shards for the index.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shardCount;
 
 /**
  *  Output only. The serving state of the index.
@@ -2668,6 +3423,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. Whether it is an unique index. Unique index ensures all values for
+ *  the indexed field(s) are unique across documents.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unique;
 
 @end
 
@@ -2775,7 +3538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *order;
 
 /**
- *  Indicates that this field supports nearest neighbors and distance operations
+ *  Indicates that this field supports nearest neighbor and distance operations
  *  on vector.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1VectorConfig *vectorConfig;
@@ -2857,10 +3620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1ListBackupsResponse : GTLRObject
 
-/**
- *  List of all backups for the project. Ordered by `location ASC, create_time
- *  DESC, name ASC`.
- */
+/** List of all backups for the project. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1Backup *> *backups;
 
 /**
@@ -2953,9 +3713,49 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The response for FirestoreAdmin.ListUserCreds.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ListUserCredsResponse : GTLRObject
+
+/** The user creds for the database. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1UserCreds *> *userCreds;
+
+@end
+
+
+/**
  *  The metadata message for google.cloud.location.Location.metadata.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1LocationMetadata : GTLRObject
+@end
+
+
+/**
+ *  A consistent snapshot of a database at a specific point in time. A PITR
+ *  (Point-in-time recovery) snapshot with previous versions of a database's
+ *  data is available for every minute up to the associated database's data
+ *  retention period. If the PITR feature is enabled, the retention period is 7
+ *  days; otherwise, it is one hour.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot : GTLRObject
+
+/**
+ *  Required. The name of the database that this was a snapshot of. Format:
+ *  `projects/{project}/databases/{database}`.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Output only. Public UUID of the database the snapshot was associated with.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *databaseUid;
+
+/** Required. Snapshot time of the database. */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
+
 @end
 
 
@@ -2978,6 +3778,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedWork;
+
+@end
+
+
+/**
+ *  The request for FirestoreAdmin.ResetUserPassword.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest : GTLRObject
+@end
+
+
+/**
+ *  Describes a Resource Identity principal.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity : GTLRObject
+
+/**
+ *  Output only. Principal identifier string. See:
+ *  https://cloud.google.com/iam/docs/principal-identifiers
+ */
+@property(nonatomic, copy, nullable) NSString *principal;
 
 @end
 
@@ -3041,28 +3862,80 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest : GTLRObject
 
 /**
- *  Backup to restore from. Must be from the same project as the parent. Format
- *  is: `projects/{project_id}/locations/{location}/backups/{backup}`
+ *  Required. Backup to restore from. Must be from the same project as the
+ *  parent. The restored database will be created in the same location as the
+ *  source backup. Format is:
+ *  `projects/{project_id}/locations/{location}/backups/{backup}`
  */
 @property(nonatomic, copy, nullable) NSString *backup;
 
 /**
  *  Required. The ID to use for the database, which will become the final
- *  component of the database's resource name. This database id must not be
+ *  component of the database's resource name. This database ID must not be
  *  associated with an existing database. This value should be 4-63 characters.
  *  Valid characters are /a-z-/ with first character a letter and the last a
  *  letter or a number. Must not be UUID-like
- *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database id is also
+ *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also
  *  valid.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
 /**
- *  Database snapshot to restore from. The source database must exist and have
- *  enabled PITR. The restored database will be created in the same location as
- *  the source database.
+ *  Optional. Encryption configuration for the restored database. If this field
+ *  is not specified, the restored database will use the same encryption
+ *  configuration as the backup, namely use_source_encryption.
  */
-@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot *databaseSnapshot;
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig *encryptionConfig;
+
+/**
+ *  Optional. Immutable. Tags to be bound to the restored database. The tags
+ *  should be provided in the format of `tagKeys/{tag_key_id} ->
+ *  tagValues/{tag_value_id}`.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags *tags;
+
+@end
+
+
+/**
+ *  Optional. Immutable. Tags to be bound to the restored database. The tags
+ *  should be provided in the format of `tagKeys/{tag_key_id} ->
+ *  tagValues/{tag_value_id}`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags : GTLRObject
+@end
+
+
+/**
+ *  The configuration options for using the same encryption method as the
+ *  source.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions : GTLRObject
+@end
+
+
+/**
+ *  Information about the provenance of this database.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1SourceInfo : GTLRObject
+
+/**
+ *  If set, this database was restored from the specified backup (or a snapshot
+ *  thereof).
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1BackupSource *backup;
+
+/**
+ *  The associated long-running operation. This field may not be set after the
+ *  operation has completed. Format:
+ *  `projects/{project}/databases/{database}/operations/{operation}`.
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
 
 @end
 
@@ -3158,6 +4031,49 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Metadata related to the update database operation.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata : GTLRObject
+@end
+
+
+/**
+ *  A Cloud Firestore User Creds.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1UserCreds : GTLRObject
+
+/** Output only. The time the user creds were created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The resource name of the UserCreds. Format:
+ *  `projects/{project}/databases/{database}/userCreds/{user_creds}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Resource Identity descriptor. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity *resourceIdentity;
+
+/**
+ *  Output only. The plaintext server-generated password for the user creds.
+ *  Only populated in responses for CreateUserCreds and ResetUserPassword.
+ */
+@property(nonatomic, copy, nullable) NSString *securePassword;
+
+/**
+ *  Output only. Whether the user creds are enabled or disabled. Defaults to
+ *  ENABLED on creation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Disabled The
+ *        user creds are disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Enabled The
+ *        user creds are enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_StateUnspecified
+ *        The default value. Should not be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time the user creds were last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -3716,6 +4632,33 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  Planning phase information for the query.
+ */
+@interface GTLRFirestore_PlanSummary : GTLRObject
+
+/**
+ *  The indexes selected for the query. For example: [ {"query_scope":
+ *  "Collection", "properties": "(foo ASC, __name__ ASC)"}, {"query_scope":
+ *  "Collection", "properties": "(bar ASC, __name__ ASC)"} ]
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_PlanSummary_IndexesUsed_Item *> *indexesUsed;
+
+@end
+
+
+/**
+ *  GTLRFirestore_PlanSummary_IndexesUsed_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_PlanSummary_IndexesUsed_Item : GTLRObject
+@end
+
+
+/**
  *  A precondition on a document, used for conditional operations.
  */
 @interface GTLRFirestore_Precondition : GTLRObject
@@ -3866,6 +4809,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_RunAggregationQueryResponse : GTLRObject
 
 /**
+ *  Query explain metrics. This is only present when the
+ *  RunAggregationQueryRequest.explain_options is provided, and it is sent only
+ *  once with the last response in the stream.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExplainMetrics *explainMetrics;
+
+/**
  *  The time at which the aggregate result was computed. This is always
  *  monotonically increasing; in this case, the previous AggregationResult in
  *  the result stream are guaranteed not to have changed between their
@@ -3948,6 +4898,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *done;
+
+/**
+ *  Query explain metrics. This is only present when the
+ *  RunQueryRequest.explain_options is provided, and it is sent only once with
+ *  the last response in the stream.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExplainMetrics *explainMetrics;
 
 /**
  *  The time at which the document was read. This may be monotonically
@@ -4045,6 +5002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  A Firestore query. The query stages are executed in the following order: 1.
  *  from 2. where 3. select 4. order_by + start_at + end_at 5. offset 6. limit
+ *  7. find_nearest
  */
 @interface GTLRFirestore_StructuredQuery : GTLRObject
 
@@ -4055,6 +5013,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  than the number of fields specified in the `ORDER BY` clause.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_Cursor *endAt;
+
+/**
+ *  Optional. A potential nearest neighbors search. Applies after all other
+ *  filters and ordering. Finds the closest vector embeddings to the given query
+ *  vector.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_FindNearest *findNearest;
 
 /** The collections to query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_CollectionSelector *> *from;
@@ -4203,7 +5168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  to the server after a target with `target_id=0` is added, the server will
  *  immediately send a response with a `TargetChange::Remove` event. Note that
  *  if the client sends multiple `AddTarget` requests without an ID, the order
- *  of IDs returned in `TargetChage.target_ids` are undefined. Therefore,
+ *  of IDs returned in `TargetChange.target_ids` are undefined. Therefore,
  *  clients should provide a target ID instead of relying on the server to
  *  assign one. If `target_id` is non-zero, there must not be an existing active
  *  target on this stream with the same ID.
@@ -4332,7 +5297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  An array value. Cannot directly contain another array value, though can
- *  contain an map which contains another array.
+ *  contain a map which contains another array.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *arrayValue;
 

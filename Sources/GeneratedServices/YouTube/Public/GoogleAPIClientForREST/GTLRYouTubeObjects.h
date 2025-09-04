@@ -58,6 +58,7 @@
 @class GTLRYouTube_ChannelTopicDetails;
 @class GTLRYouTube_ChannelToStoreLinkDetails;
 @class GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails;
+@class GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails;
 @class GTLRYouTube_Comment;
 @class GTLRYouTube_CommentSnippet;
 @class GTLRYouTube_CommentSnippetAuthorChannelId;
@@ -169,6 +170,7 @@
 @class GTLRYouTube_VideoLiveStreamingDetails;
 @class GTLRYouTube_VideoLocalization;
 @class GTLRYouTube_VideoMonetizationDetails;
+@class GTLRYouTube_VideoPaidProductPlacementDetails;
 @class GTLRYouTube_VideoPlayer;
 @class GTLRYouTube_VideoProcessingDetails;
 @class GTLRYouTube_VideoProcessingDetailsProcessingProgress;
@@ -429,6 +431,34 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBilling
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusPending;
 /** Value: "billingStatusUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails.status
+
+/**
+ *  Merchant affiliate program is active.
+ *
+ *  Value: "merchantAffiliateProgramStatusActive"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusActive;
+/**
+ *  Merchant is eligible for the merchant affiliate program.
+ *
+ *  Value: "merchantAffiliateProgramStatusEligible"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusEligible;
+/**
+ *  Merchant affiliate program is paused.
+ *
+ *  Value: "merchantAffiliateProgramStatusPaused"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusPaused;
+/**
+ *  Unspecified status.
+ *
+ *  Value: "merchantAffiliateProgramStatusUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_CommentSnippet.moderationStatus
@@ -1408,6 +1438,18 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExtremeViolence;
 /**
+ *  Fantasia Violência (Fantasy Violence)
+ *
+ *  Value: "djctqFantasyViolence"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqFantasyViolence;
+/**
+ *  Temer (Fear)
+ *
+ *  Value: "djctqFear"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqFear;
+/**
  *  Drogas Ilícitas (Illegal drugs)
  *
  *  Value: "djctqIllegalDrugs"
@@ -1432,6 +1474,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqLegalDrugs;
 /**
+ *  Procedimentos médicos (Medical Procedures)
+ *
+ *  Value: "djctqMedicalProcedures"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqMedicalProcedures;
+/**
  *  Nudez (Nudity)
  *
  *  Value: "djctqNudity"
@@ -1439,6 +1487,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqNudity;
 /** Value: "djctqRatingReasonUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqRatingReasonUnspecified;
+/**
+ *  Tópicos sensíveis (Sensitive Topics)
+ *
+ *  Value: "djctqSensitiveTopics"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSensitiveTopics;
 /**
  *  Sexo (Sex)
  *
@@ -3968,6 +4022,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted;
 
 // ----------------------------------------------------------------------------
+// GTLRYouTube_PlaylistStatus.podcastStatus
+
+/** Value: "disabled" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PodcastStatus_Disabled;
+/** Value: "enabled" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_PlaylistStatus_PodcastStatus_Enabled;
+
+// ----------------------------------------------------------------------------
 // GTLRYouTube_PlaylistStatus.privacyStatus
 
 /** Value: "private" */
@@ -5976,7 +6038,7 @@ GTLR_DEPRECATED
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *moderateComments;
+@property(nonatomic, strong, nullable) NSNumber *moderateComments GTLR_DEPRECATED;
 
 /** A prominent color that can be rendered on this channel page. */
 @property(nonatomic, copy, nullable) NSString *profileColor GTLR_DEPRECATED;
@@ -6109,6 +6171,14 @@ GTLR_DEPRECATED
 @interface GTLRYouTube_ChannelStatus : GTLRObject
 
 /**
+ *  Whether the channel is considered ypp monetization enabled. See go/yppornot
+ *  for more details.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isChannelMonetizationEnabled;
+
+/**
  *  If true, then the user is linked to either a YouTube username or G+ account.
  *  Otherwise, the user doesn't have a public YouTube identity.
  *
@@ -6185,6 +6255,9 @@ GTLR_DEPRECATED
 /** Information specific to billing (read-only). */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails *billingDetails;
 
+/** Information specific to merchant affiliate program (read-only). */
+@property(nonatomic, strong, nullable) GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails *merchantAffiliateProgramDetails;
+
 /**
  *  Google Merchant Center id of the store.
  *
@@ -6220,6 +6293,33 @@ GTLR_DEPRECATED
  *        Value "billingStatusUnspecified"
  */
 @property(nonatomic, copy, nullable) NSString *billingStatus;
+
+@end
+
+
+/**
+ *  Information specific to merchant affiliate program.
+ */
+@interface GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails : GTLRObject
+
+/**
+ *  The current merchant affiliate program status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusActive
+ *        Merchant affiliate program is active. (Value:
+ *        "merchantAffiliateProgramStatusActive")
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusEligible
+ *        Merchant is eligible for the merchant affiliate program. (Value:
+ *        "merchantAffiliateProgramStatusEligible")
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusPaused
+ *        Merchant affiliate program is paused. (Value:
+ *        "merchantAffiliateProgramStatusPaused")
+ *    @arg @c kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusUnspecified
+ *        Unspecified status. (Value:
+ *        "merchantAffiliateProgramStatusUnspecified")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -6323,8 +6423,8 @@ GTLR_DEPRECATED
 
 /**
  *  The id of the corresponding YouTube channel. In case of a channel comment
- *  this is the channel the comment refers to. In case of a video comment it's
- *  the video's channel.
+ *  this is the channel the comment refers to. In case of a video or post
+ *  comment it's the video/post's channel.
  */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
@@ -6351,8 +6451,11 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *moderationStatus;
 
-/** The unique id of the parent comment, only set for replies. */
+/** The unique id of the top-level comment, only set for replies. */
 @property(nonatomic, copy, nullable) NSString *parentId;
+
+/** The ID of the post the comment refers to, if any. */
+@property(nonatomic, copy, nullable) NSString *postId;
 
 /** The date and time when the comment was originally published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
@@ -6396,10 +6499,11 @@ GTLR_DEPRECATED
 
 
 /**
- *  The id of the author's YouTube channel, if any.
+ *  Contains the id of the author's YouTube channel, if any.
  */
 @interface GTLRYouTube_CommentSnippetAuthorChannelId : GTLRObject
 
+/** The id of the author's YouTube channel. */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -6520,8 +6624,8 @@ GTLR_DEPRECATED
 
 /**
  *  The YouTube channel the comments in the thread refer to or the channel with
- *  the video the comments refer to. If video_id isn't set the comments refer to
- *  the channel itself.
+ *  the video the comments refer to. If neither video_id nor post_id is set the
+ *  comments refer to the channel itself.
  */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
@@ -6533,6 +6637,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *isPublic;
 
+/** The ID of the post the comments refer to, if any. */
+@property(nonatomic, copy, nullable) NSString *postId;
+
 /** The top level comment of this thread. */
 @property(nonatomic, strong, nullable) GTLRYouTube_Comment *topLevelComment;
 
@@ -6543,10 +6650,7 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *totalReplyCount;
 
-/**
- *  The ID of the video the comments refer to, if any. No video_id implies a
- *  channel discussion comment.
- */
+/** The ID of the video the comments refer to, if any. */
 @property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
@@ -8065,7 +8169,7 @@ GTLR_DEPRECATED
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *repeatIntervalSecs;
+@property(nonatomic, strong, nullable) NSNumber *repeatIntervalSecs GTLR_DEPRECATED;
 
 /**
  *  The strategy to use when scheduling cuepoints.
@@ -8081,7 +8185,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRYouTube_CuepointSchedule_ScheduleStrategy_ScheduleStrategyUnspecified
  *        Value "scheduleStrategyUnspecified"
  */
-@property(nonatomic, copy, nullable) NSString *scheduleStrategy;
+@property(nonatomic, copy, nullable) NSString *scheduleStrategy GTLR_DEPRECATED;
 
 @end
 
@@ -8424,7 +8528,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  LINT.IfChange Describes an invideo branding.
+ *  Describes an invideo branding.
  */
 @interface GTLRYouTube_InvideoBranding : GTLRObject
 
@@ -8445,7 +8549,7 @@ GTLR_DEPRECATED
  *  The spatial position within the video where the branding watermark will be
  *  displayed.
  */
-@property(nonatomic, strong, nullable) GTLRYouTube_InvideoPosition *position;
+@property(nonatomic, strong, nullable) GTLRYouTube_InvideoPosition *position GTLR_DEPRECATED;
 
 /**
  *  The channel to which this branding links. If not present it defaults to the
@@ -8780,7 +8884,7 @@ GTLR_DEPRECATED
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *startWithSlate;
+@property(nonatomic, strong, nullable) NSNumber *startWithSlate GTLR_DEPRECATED;
 
 /**
  *  The 3D stereo layout of this broadcast. This defaults to mono.
@@ -9328,6 +9432,9 @@ GTLR_DEPRECATED
  *        enabled).
  */
 @interface GTLRYouTube_LiveChatMessageListResponse : GTLRCollectionObject
+
+/** Set when there is an active poll. */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessage *activePollItem;
 
 /** Etag of this resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -10770,7 +10877,7 @@ GTLR_DEPRECATED
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "youtube#playlistItemListResponse". Etag of this resource.
+ *  "youtube#playlistItemListResponse".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -11027,6 +11134,16 @@ GTLR_DEPRECATED
  *  GTLRYouTube_PlaylistStatus
  */
 @interface GTLRYouTube_PlaylistStatus : GTLRObject
+
+/**
+ *  The playlist's podcast status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_PlaylistStatus_PodcastStatus_Disabled Value
+ *        "disabled"
+ *    @arg @c kGTLRYouTube_PlaylistStatus_PodcastStatus_Enabled Value "enabled"
+ */
+@property(nonatomic, copy, nullable) NSString *podcastStatus;
 
 /**
  *  The playlist's privacy status.
@@ -11389,9 +11506,6 @@ GTLR_DEPRECATED
 /** The ID that YouTube uses to uniquely identify the subscriber's channel. */
 @property(nonatomic, copy, nullable) NSString *channelId;
 
-/** Channel title for the channel that the subscription belongs to. */
-@property(nonatomic, copy, nullable) NSString *channelTitle;
-
 /**
  *  The subscription's details.
  *
@@ -11605,6 +11719,9 @@ GTLR_DEPRECATED
  *  GTLRYouTube_TestItem
  */
 @interface GTLRYouTube_TestItem : GTLRObject
+
+/** Etag for the resource. See https://en.wikipedia.org/wiki/HTTP_ETag. */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  featuredPart
@@ -11902,6 +12019,8 @@ GTLR_DEPRECATED
  *  monetization status of the video.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoMonetizationDetails *monetizationDetails;
+
+@property(nonatomic, strong, nullable) GTLRYouTube_VideoPaidProductPlacementDetails *paidProductPlacementDetails;
 
 /**
  *  The player object contains information that you would use to play the video
@@ -12691,7 +12810,7 @@ GTLR_DEPRECATED
 
 /**
  *  The time that the broadcast is scheduled to end. If the value is empty or
- *  the property is not present, then the broadcast is scheduled to contiue
+ *  the property is not present, then the broadcast is scheduled to continue
  *  indefinitely.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
@@ -12729,6 +12848,24 @@ GTLR_DEPRECATED
  *  The value of access indicates whether the video can be monetized or not.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_AccessPolicy *access;
+
+@end
+
+
+/**
+ *  Details about paid content, such as paid product placement, sponsorships or
+ *  endorsement, contained in a YouTube video and a method to inform viewers of
+ *  paid promotion. This data can only be retrieved by the video owner.
+ */
+@interface GTLRYouTube_VideoPaidProductPlacementDetails : GTLRObject
+
+/**
+ *  This boolean represents whether the video contains Paid Product Placement,
+ *  Studio equivalent: https://screenshot.googleplex.com/4Me79DE6AfT2ktp.png
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasPaidProductPlacement;
 
 @end
 
@@ -13063,9 +13200,16 @@ GTLR_DEPRECATED
 
 /**
  *  Basic details about a video category, such as its localized title. Next Id:
- *  18
+ *  19
  */
 @interface GTLRYouTube_VideoStatus : GTLRObject
+
+/**
+ *  Indicates if the video contains altered or synthetic media.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containsSyntheticMedia;
 
 /**
  *  This value indicates if the video can be embedded on another website.
@@ -13241,7 +13385,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  A single tag suggestion with it's relevance information.
+ *  A single tag suggestion with its relevance information.
  */
 @interface GTLRYouTube_VideoSuggestionsTagSuggestion : GTLRObject
 
@@ -13286,6 +13430,32 @@ GTLR_DEPRECATED
  *  href="http://wiki.freebase.com/wiki/Topic_API">Freebase Topic API.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *topicIds;
+
+@end
+
+
+/**
+ *  Specifies who is allowed to train on the video.
+ */
+@interface GTLRYouTube_VideoTrainability : GTLRObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#videoTrainability".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Specifies who is allowed to train on the video. Valid values are: - a single
+ *  string "all" - a single string "none" - a list of allowed parties
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permitted;
+
+/** The ID of the video. */
+@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 

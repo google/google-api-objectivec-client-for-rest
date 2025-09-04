@@ -4,7 +4,7 @@
 // API:
 //   Batch API (batch/v1)
 // Description:
-//   An API to manage the running of batch resources on Google Cloud Platform.
+//   An API to manage the running of Batch resources on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/batch/
 
@@ -30,6 +30,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudBatch_Location class];
   query.loggingName = @"batch.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBatchQuery_ProjectsLocationsJobsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudBatch_CancelJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudBatchQuery_ProjectsLocationsJobsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBatch_Operation class];
+  query.loggingName = @"batch.projects.locations.jobs.cancel";
   return query;
 }
 
@@ -159,7 +186,14 @@
 
 @implementation GTLRCloudBatchQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

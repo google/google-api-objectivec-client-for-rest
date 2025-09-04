@@ -24,20 +24,18 @@ jobs:
   # time, so this covers the Core spec and tests.
   pod-lib-lint-core:
     name: CocoaPods lib lint Core
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
         pod_configuration: ["Debug", "Release"]
         extra_flags: ["", "--use-static-frameworks"]
     steps:
-    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
-    - name: Xcode version
-      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
-    - uses: actions/checkout@v4
-    # The "macos-14" image has CocoaPods 1.14.x, and 1.15 is needed for visionOS
-    - name: Update CocoaPods
-      run: gem install cocoapods
+    - uses: actions/checkout@v5
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: "iOS, macOS, tvOS, and visionOS"
       run:  |
         pod lib lint --verbose ${{ matrix.extra_flags }} \
@@ -61,16 +59,17 @@ jobs:
   # resources without any real gain.
   pod-lib-lint-subspecs:
     name: CocoaPods lib lint SubSpecs
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       fail-fast: false
       matrix:
         pod_configuration: ["Debug", "Release"]
     steps:
-    # The "macos-14" image defaults to 15.0.1, select the newer Xcode.
-    - name: Xcode version
-      run: sudo xcode-select -switch /Applications/Xcode_15.2.app
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 'latest-stable'
     - name: "macOS"
       run:  |
         pod lib lint --verbose \

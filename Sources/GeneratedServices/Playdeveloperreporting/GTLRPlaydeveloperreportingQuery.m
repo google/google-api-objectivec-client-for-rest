@@ -218,7 +218,7 @@
          intervalStartTimeNanos, intervalStartTimeSeconds,
          intervalStartTimeTimeZoneId, intervalStartTimeTimeZoneVersion,
          intervalStartTimeUtcOffset, intervalStartTimeYear, orderBy, pageSize,
-         pageToken, parent;
+         pageToken, parent, sampleErrorReportLimit;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -356,6 +356,52 @@
   query.name = name;
   query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetResponse class];
   query.loggingName = @"playdeveloperreporting.vitals.excessivewakeuprate.query";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsLmkrateGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRPlaydeveloperreportingQuery_VitalsLmkrateGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1LmkRateMetricSet class];
+  query.loggingName = @"playdeveloperreporting.vitals.lmkrate.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPlaydeveloperreportingQuery_VitalsLmkrateQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:query";
+  GTLRPlaydeveloperreportingQuery_VitalsLmkrateQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryLmkRateMetricSetResponse class];
+  query.loggingName = @"playdeveloperreporting.vitals.lmkrate.query";
   return query;
 }
 

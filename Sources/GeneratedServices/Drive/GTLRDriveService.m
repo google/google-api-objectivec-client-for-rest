@@ -6,7 +6,7 @@
 // Description:
 //   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/
+//   https://developers.google.com/workspace/drive/
 
 #import <GoogleAPIClientForREST/GTLRDrive.h>
 
@@ -17,6 +17,7 @@ NSString * const kGTLRAuthScopeDrive                 = @"https://www.googleapis.
 NSString * const kGTLRAuthScopeDriveAppdata          = @"https://www.googleapis.com/auth/drive.appdata";
 NSString * const kGTLRAuthScopeDriveAppsReadonly     = @"https://www.googleapis.com/auth/drive.apps.readonly";
 NSString * const kGTLRAuthScopeDriveFile             = @"https://www.googleapis.com/auth/drive.file";
+NSString * const kGTLRAuthScopeDriveMeetReadonly     = @"https://www.googleapis.com/auth/drive.meet.readonly";
 NSString * const kGTLRAuthScopeDriveMetadata         = @"https://www.googleapis.com/auth/drive.metadata";
 NSString * const kGTLRAuthScopeDriveMetadataReadonly = @"https://www.googleapis.com/auth/drive.metadata.readonly";
 NSString * const kGTLRAuthScopeDrivePhotosReadonly   = @"https://www.googleapis.com/auth/drive.photos.readonly";

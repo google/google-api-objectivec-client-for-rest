@@ -7,7 +7,7 @@
 //   Allows developers to run automated tests for their mobile applications on
 //   Google infrastructure.
 // Documentation:
-//   https://developers.google.com/cloud-test-lab/
+//   https://firebase.google.com/docs/test-lab/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -480,6 +480,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *        devices in the test environment. (Value: "DEVICE_IP_BLOCKS")
  */
 @property(nonatomic, copy, nullable) NSString *environmentType;
+
+/**
+ *  Optional. Whether to include viewable only models in the response. This is
+ *  only applicable for Android models.
+ */
+@property(nonatomic, assign) BOOL includeViewableModels;
 
 /**
  *  For authorization, the cloud project requesting the TestEnvironmentCatalog.

@@ -19,6 +19,8 @@
 @class GTLRCloudAsset_AnalyzerOrgPolicy;
 @class GTLRCloudAsset_AnalyzerOrgPolicyConstraint;
 @class GTLRCloudAsset_Asset;
+@class GTLRCloudAsset_AssetEnrichment;
+@class GTLRCloudAsset_AssetException;
 @class GTLRCloudAsset_AttachedResource;
 @class GTLRCloudAsset_AuditConfig;
 @class GTLRCloudAsset_AuditLogConfig;
@@ -120,6 +122,7 @@
 @class GTLRCloudAsset_RelationshipAttributes;
 @class GTLRCloudAsset_Resource;
 @class GTLRCloudAsset_Resource_Data;
+@class GTLRCloudAsset_ResourceOwners;
 @class GTLRCloudAsset_ResourceSearchResult;
 @class GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes;
 @class GTLRCloudAsset_ResourceSearchResult_Labels;
@@ -155,6 +158,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_AssetException.exceptionType
+
+/**
+ *  exception_type is not applicable for the current asset.
+ *
+ *  Value: "EXCEPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AssetException_ExceptionType_ExceptionTypeUnspecified;
+/**
+ *  The asset content is truncated.
+ *
+ *  Value: "TRUNCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AssetException_ExceptionType_Truncation;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_AuditLogConfig.logType
@@ -317,7 +336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_Resource;
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_PartitionKeyUnspecified;
 /**
  *  The time when the request is received. If specified as partition key, the
- *  result table(s) is partitoned by the RequestTime column, an additional
+ *  result table(s) is partitioned by the RequestTime column, an additional
  *  timestamp column representing when the request was received.
  *
  *  Value: "REQUEST_TIME"
@@ -386,11 +405,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConst
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_Delete;
 /**
+ *  Constraint applied when enforcing forced tagging.
+ *
+ *  Value: "GOVERN_TAGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_GovernTags;
+/**
  *  Unspecified. Will results in user error.
  *
  *  Value: "METHOD_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_MethodTypeUnspecified;
+/**
+ *  Constraint applied when removing an IAM grant.
+ *
+ *  Value: "REMOVE_GRANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1CustomConstraint_MethodTypes_RemoveGrant;
 /**
  *  Constraint applied when updating the resource.
  *
@@ -835,7 +866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Item_Type_AvailablePackage;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Item_Type_InstalledPackage;
 /**
- *  Invalid. An type must be specified.
+ *  Invalid. A type must be specified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -852,7 +883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Item_Type_TypeUnspecified;
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_PartitionKeyUnspecified;
 /**
  *  The time when the snapshot is taken. If specified as partition key, the
- *  result table(s) is partitoned by the additional timestamp column, readTime.
+ *  result table(s) is partitioned by the additional timestamp column, readTime.
  *  If [read_time] in ExportAssetsRequest is specified, the readTime column's
  *  value will be the same as it. Otherwise, its value will be the current time
  *  that is used to take the snapshot.
@@ -862,7 +893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_Pa
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_ReadTime;
 /**
  *  The time when the request is received and started to be processed. If
- *  specified as partition key, the result table(s) is partitoned by the
+ *  specified as partition key, the result table(s) is partitioned by the
  *  requestTime column, an additional timestamp column representing when the
  *  request was received.
  *
@@ -993,7 +1024,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The service account impersonation analysis if
- *  AnalyzeIamPolicyRequest.analyze_service_account_impersonation is enabled.
+ *  IamPolicyAnalysisQuery.Options.analyze_service_account_impersonation is
+ *  enabled.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_IamPolicyAnalysis *> *serviceAccountImpersonationAnalysis;
 
@@ -1208,6 +1240,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
 
+/** The exceptions of a resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AssetException *> *assetExceptions;
+
 /**
  *  The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported
  *  asset
@@ -1277,6 +1312,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  create/update/delete operation is performed.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The enhanced metadata information for a resource.
+ */
+@interface GTLRCloudAsset_AssetEnrichment : GTLRObject
+
+/**
+ *  The resource owners for a resource. Note that this field only contains the
+ *  members that have "roles/owner" role in the resource's IAM Policy.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceOwners *resourceOwners;
+
+@end
+
+
+/**
+ *  An exception of an asset.
+ */
+@interface GTLRCloudAsset_AssetException : GTLRObject
+
+/** The details of the exception. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  The type of exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_AssetException_ExceptionType_ExceptionTypeUnspecified
+ *        exception_type is not applicable for the current asset. (Value:
+ *        "EXCEPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAsset_AssetException_ExceptionType_Truncation The asset
+ *        content is truncated. (Value: "TRUNCATION")
+ */
+@property(nonatomic, copy, nullable) NSString *exceptionType;
 
 @end
 
@@ -1419,7 +1491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  If the destination table already exists and this flag is `TRUE`, the table
  *  will be overwritten by the contents of assets snapshot. If the flag is
  *  `FALSE` or unset and the destination table already exists, the export call
- *  returns an INVALID_ARGUMEMT error.
+ *  returns an INVALID_ARGUMENT error.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1709,7 +1781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The [full resource
  *  name](https://cloud.google.com/asset-inventory/docs/resource-name-format) of
- *  the ancestor from which an effective_tag is inherited, according to [tag
+ *  the ancestor from which effective_tags are inherited, according to [tag
  *  inheritance](https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
  */
 @property(nonatomic, copy, nullable) NSString *attachedResource;
@@ -2135,9 +2207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The ordered list of all organization policies from the
- *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource
- *  to the scope specified in the request. If the constraint is defined with
- *  default policy, it will also appear in the list.
+ *  consolidated_policy.attached_resource to the scope specified in the request.
+ *  If the constraint is defined with default policy, it will also appear in the
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
 
@@ -2277,7 +2349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        option. (Value: "PARTITION_KEY_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_RequestTime
  *        The time when the request is received. If specified as partition key,
- *        the result table(s) is partitoned by the RequestTime column, an
+ *        the result table(s) is partitioned by the RequestTime column, an
  *        additional timestamp column representing when the request was
  *        received. (Value: "REQUEST_TIME")
  */
@@ -2511,9 +2583,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The ordered list of all organization policies from the
- *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource.
- *  to the scope specified in the request. If the constraint is defined with
- *  default policy, it will also appear in the list.
+ *  consolidated_policy.attached_resource. to the scope specified in the
+ *  request. If the constraint is defined with default policy, it will also
+ *  appear in the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
 
@@ -3224,7 +3296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name for the `AccessLevel`. Format:
+ *  Identifier. Resource name for the `AccessLevel`. Format:
  *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
  *  `access_level` component must begin with a letter, followed by alphanumeric
  *  characters or `_`. Its maximum length is 50 characters. After you create an
@@ -3250,13 +3322,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Output only. An opaque identifier for the current version of the
  *  `AccessPolicy`. This will always be a strongly validated etag, meaning that
- *  two Access Polices will be identical if and only if their etags are
+ *  two Access Policies will be identical if and only if their etags are
  *  identical. Clients should not expect this to be in any specific format.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Resource name of the `AccessPolicy`. Format:
+ *  Output only. Identifier. Resource name of the `AccessPolicy`. Format:
  *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3479,8 +3551,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this [EgressPolicy], in
- *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
+ *  A list of identities that are allowed access through [EgressPolicy].
+ *  Identities can be an individual user, service account, Google group, or
+ *  third-party identity. For third-party identity, only single identities are
+ *  supported and other identity types are not supported. The `v1` identities
+ *  that have the prefix `user`, `group`, `serviceAccount`, and `principal` in
+ *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -3564,6 +3640,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo *egressTo;
 
+/**
+ *  Optional. Human-readable title for the egress rule. The title must be unique
+ *  within the perimeter and can not exceed 100 characters. Within the access
+ *  policy, the combined length of all rule titles must not exceed 240,000
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
 @end
 
 
@@ -3585,6 +3669,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, copy, nullable) NSString *accessLevel;
 
+/**
+ *  A Google Cloud resource from the service perimeter that you want to allow to
+ *  access data outside the perimeter. This field supports only projects. The
+ *  project format is `projects/{project_number}`. You can't use `*` in this
+ *  field to allow all Google Cloud resources.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
 @end
 
 
@@ -3601,8 +3693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A list of external resources that are allowed to be accessed. Only AWS and
- *  Azure resources are supported. For Amazon S3, the supported format is
- *  s3://BUCKET_NAME. For Azure Storage, the supported format is
+ *  Azure resources are supported. For Amazon S3, the supported formats are
+ *  s3://BUCKET_NAME, s3a://BUCKET_NAME, and s3n://BUCKET_NAME. For Azure
+ *  Storage, the supported format is
  *  azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches if
  *  it contains an external resource in this list (Example: s3://bucket/path).
  *  Currently '*' is not allowed.
@@ -3625,6 +3718,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
+/**
+ *  IAM roles that represent the set of operations that the sources specified in
+ *  the corresponding EgressFrom. are allowed to perform in this
+ *  ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
+
 @end
 
 
@@ -3637,8 +3737,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom : GTLRObject
 
 /**
- *  A list of identities that are allowed access through this ingress policy, in
- *  the format of `user:{email_id}` or `serviceAccount:{email_id}`.
+ *  A list of identities that are allowed access through [IngressPolicy].
+ *  Identities can be an individual user, service account, Google group, or
+ *  third-party identity. For third-party identity, only single identities are
+ *  supported and other identity types are not supported. The `v1` identities
+ *  that have the prefix `user`, `group`, `serviceAccount`, and `principal` in
+ *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -3694,6 +3798,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  cause this IngressPolicy to apply.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressTo *ingressTo;
+
+/**
+ *  Optional. Human-readable title for the ingress rule. The title must be
+ *  unique within the perimeter and can not exceed 100 characters. Within the
+ *  access policy, the combined length of all rule titles must not exceed
+ *  240,000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -3751,6 +3863,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  specified, then access to all resources inside the perimeter are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+/**
+ *  IAM roles that represent the set of operations that the sources specified in
+ *  the corresponding IngressFrom are allowed to perform in this
+ *  ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
 @end
 
@@ -3845,7 +3964,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Resource name for the `ServicePerimeter`. Format:
+ *  Optional. An opaque identifier for the current version of the
+ *  `ServicePerimeter`. This identifier does not follow any specific format. If
+ *  an etag is not provided, the operation will be performed as if a valid etag
+ *  is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. Resource name for the `ServicePerimeter`. Format:
  *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
  *  `service_perimeter` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
@@ -4320,8 +4447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  form of projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource
  *  (like VM instance, Cloud Storage bucket), the project field will indicate
  *  the project that contains the resource. If an IAM policy is set on a folder
- *  or orgnization, this field will be empty. To search against the `project`: *
- *  specify the `scope` field as this project in your search request.
+ *  or organization, this field will be empty. To search against the `project`:
+ *  * specify the `scope` field as this project in your search request.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -4448,7 +4575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        update that is available for a package. (Value: "AVAILABLE_PACKAGE")
  *    @arg @c kGTLRCloudAsset_Item_Type_InstalledPackage This represents a
  *        package that is installed on the VM. (Value: "INSTALLED_PACKAGE")
- *    @arg @c kGTLRCloudAsset_Item_Type_TypeUnspecified Invalid. An type must be
+ *    @arg @c kGTLRCloudAsset_Item_Type_TypeUnspecified Invalid. A type must be
  *        specified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -4767,8 +4894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The consolidated organization policy for the analyzed resource. The
  *  consolidated organization policy is computed by merging and evaluating
- *  AnalyzeOrgPoliciesResponse.policy_bundle. The evaluation will respect the
- *  organization policy [hierarchy
+ *  policy_bundle. The evaluation will respect the organization policy
+ *  [hierarchy
  *  rules](https://cloud.google.com/resource-manager/docs/organization-policy/understanding-hierarchy).
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_AnalyzerOrgPolicy *consolidatedPolicy;
@@ -4789,9 +4916,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The ordered list of all organization policies from the
- *  AnalyzeOrgPoliciesResponse.OrgPolicyResult.consolidated_policy.attached_resource.
- *  to the scope specified in the request. If the constraint is defined with
- *  default policy, it will also appear in the list.
+ *  consolidated_policy.attached_resource. to the scope specified in the
+ *  request. If the constraint is defined with default policy, it will also
+ *  appear in the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AnalyzerOrgPolicy *> *policyBundle;
 
@@ -4871,16 +4998,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        table. (Value: "PARTITION_KEY_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_PartitionSpec_PartitionKey_ReadTime The time when
  *        the snapshot is taken. If specified as partition key, the result
- *        table(s) is partitoned by the additional timestamp column, readTime.
+ *        table(s) is partitioned by the additional timestamp column, readTime.
  *        If [read_time] in ExportAssetsRequest is specified, the readTime
  *        column's value will be the same as it. Otherwise, its value will be
  *        the current time that is used to take the snapshot. (Value:
  *        "READ_TIME")
  *    @arg @c kGTLRCloudAsset_PartitionSpec_PartitionKey_RequestTime The time
  *        when the request is received and started to be processed. If specified
- *        as partition key, the result table(s) is partitoned by the requestTime
- *        column, an additional timestamp column representing when the request
- *        was received. (Value: "REQUEST_TIME")
+ *        as partition key, the result table(s) is partitioned by the
+ *        requestTime column, an additional timestamp column representing when
+ *        the request was received. (Value: "REQUEST_TIME")
  */
 @property(nonatomic, copy, nullable) NSString *partitionKey;
 
@@ -5109,9 +5236,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The query response, which can be either an `error` or a valid `response`. If
- *  `done` == `false` and the query result is being saved in a output, the
+ *  `done` == `false` and the query result is being saved in an output, the
  *  output_config field will be set. If `done` == `true`, exactly one of
- *  `error`, `query_result` or `output_config` will be set.
+ *  `error`, `query_result` or `output_config` will be set. [done] is unset
+ *  unless the [QueryAssetsResponse] contains a
+ *  [QueryAssetsResponse.job_reference].
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5124,8 +5253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *jobReference;
 
 /**
- *  Output configuration which indicates instead of being returned in API
- *  response on the fly, the query result will be saved in a specific output.
+ *  Output configuration, which indicates that instead of being returned in an
+ *  API response on the fly, the query result will be saved in a specific
+ *  output.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_QueryAssetsOutputConfig *outputConfig;
 
@@ -5387,8 +5517,18 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The resource owners information.
+ */
+@interface GTLRCloudAsset_ResourceOwners : GTLRObject
+
+/** List of resource owners. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceOwners;
+
+@end
+
+
+/**
  *  A result of Resource Search, containing information of a cloud resource.
- *  Next ID: 34
  */
 @interface GTLRCloudAsset_ResourceSearchResult : GTLRObject
 
@@ -5464,12 +5604,25 @@ GTLR_DEPRECATED
  *  inheritance](https://cloud.google.com/resource-manager/docs/tags/tags-overview#inheritance).
  *  To search against the `effective_tags`: * Use a field query. Example: -
  *  `effectiveTagKeys:"123456789/env*"` - `effectiveTagKeys="123456789/env"` -
- *  `effectiveTagKeys:"env"` - `effectiveTagValues:"env"` -
- *  `effectiveTagValues:"env/prod"` - `effectiveTagValues:"123456789/env/prod*"`
- *  - `effectiveTagValues="123456789/env/prod"` -
+ *  `effectiveTagKeys:"env"` - `effectiveTagKeyIds="tagKeys/123"` -
+ *  `effectiveTagValues:"env"` - `effectiveTagValues:"env/prod"` -
+ *  `effectiveTagValues:"123456789/env/prod*"` -
+ *  `effectiveTagValues="123456789/env/prod"` -
  *  `effectiveTagValueIds="tagValues/456"`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_EffectiveTagDetails *> *effectiveTags;
+
+/**
+ *  Enrichments of the asset. Currently supported enrichment types with
+ *  SearchAllResources API: * RESOURCE_OWNERS The corresponding read masks in
+ *  order to get the enrichment: * enrichments.resource_owners The corresponding
+ *  required permissions: * cloudasset.assets.searchEnrichmentResourceOwners
+ *  Example query to get resource owner enrichment: ``` scope:
+ *  "projects/my-project" query: "name: my-project" assetTypes:
+ *  "cloudresourcemanager.googleapis.com/Project" readMask: { paths:
+ *  "asset_type" paths: "name" paths: "enrichments.resource_owners" } ```
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AssetEnrichment *> *enrichments;
 
 /**
  *  The folder(s) that this resource belongs to, in the form of
@@ -5507,8 +5660,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeys;
 
 /**
- *  Labels associated with this resource. See [Labelling and grouping Google
- *  Cloud
+ *  User labels associated with this resource. See [Labelling and grouping
+ *  Google Cloud
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
  *  Protobuf contains it. To search against the `labels`: * Use a field query: -
@@ -5630,10 +5783,10 @@ GTLR_DEPRECATED
 /**
  *  The tags directly attached to this resource. To search against the `tags`: *
  *  Use a field query. Example: - `tagKeys:"123456789/env*"` -
- *  `tagKeys="123456789/env"` - `tagKeys:"env"` - `tagValues:"env"` -
- *  `tagValues:"env/prod"` - `tagValues:"123456789/env/prod*"` -
- *  `tagValues="123456789/env/prod"` - `tagValueIds="tagValues/456"` * Use a
- *  free text query. Example: - `env/prod`
+ *  `tagKeys="123456789/env"` - `tagKeys:"env"` - `tagKeyIds="tagKeys/123"` -
+ *  `tagValues:"env"` - `tagValues:"env/prod"` -
+ *  `tagValues:"123456789/env/prod*"` - `tagValues="123456789/env/prod"` -
+ *  `tagValueIds="tagValues/456"` * Use a free text query. Example: - `env/prod`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Tag *> *tags;
 
@@ -5705,8 +5858,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  Labels associated with this resource. See [Labelling and grouping Google
- *  Cloud
+ *  User labels associated with this resource. See [Labelling and grouping
+ *  Google Cloud
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
  *  for more information. This field is available only when the resource's
  *  Protobuf contains it. To search against the `labels`: * Use a field query: -
@@ -6051,6 +6204,9 @@ GTLR_DEPRECATED
 
 /** TagKey namespaced name, in the format of {ORG_ID}/{TAG_KEY_SHORT_NAME}. */
 @property(nonatomic, copy, nullable) NSString *tagKey;
+
+/** TagKey ID, in the format of tagKeys/{TAG_KEY_ID}. */
+@property(nonatomic, copy, nullable) NSString *tagKeyId;
 
 /**
  *  TagValue namespaced name, in the format of

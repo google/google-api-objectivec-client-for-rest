@@ -4,8 +4,9 @@
 // API:
 //   Google Chat API (chat/v1)
 // Description:
-//   Enables apps to fetch information and perform actions in Google Chat.
-//   Authentication is a prerequisite for using the Google Chat REST API.
+//   The Google Chat API lets you build Chat apps to integrate your services
+//   with Google Chat and manage Chat resources such as spaces, members, and
+//   messages.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -26,6 +27,70 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: Delete conversations and spaces owned by your
+ *  organization and remove access to associated files in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.delete"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminDelete;
+/**
+ *  Authorization scope: View, add, update and remove members and managers in
+ *  conversations owned by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.memberships"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminMemberships;
+/**
+ *  Authorization scope: View members and managers in conversations owned by
+ *  your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.memberships.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminMembershipsReadonly;
+/**
+ *  Authorization scope: View or edit display name, description, and other
+ *  metadata for all Google Chat conversations owned by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.spaces"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminSpaces;
+/**
+ *  Authorization scope: View display name, description, and other metadata for
+ *  all Google Chat conversations owned by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chat.admin.spaces.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAdminSpacesReadonly;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can delete
+ *  conversations and spaces and remove access to associated files
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.delete"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppDelete;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see, add,
+ *  update, and remove members from conversations and spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.memberships"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppMemberships;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can create
+ *  conversations and spaces and see or update their metadata (including history
+ *  settings and access settings)
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.spaces"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppSpaces;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can create
+ *  conversations and spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.spaces.create"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppSpacesCreate;
+/**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/chat.bot
  *
@@ -33,7 +98,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatBot;
 /**
- *  Authorization scope: Delete conversations and spaces & remove access to
+ *  Authorization scope: View, create, and delete custom emoji in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.customemojis"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatCustomemojis;
+/**
+ *  Authorization scope: View custom emoji in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.customemojis.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatCustomemojisReadonly;
+/**
+ *  Authorization scope: Delete conversations and spaces and remove access to
  *  associated files in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.delete"
@@ -47,14 +124,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatDelete;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatImport;
 /**
- *  Authorization scope: View, add, and remove members from conversations in
- *  Google Chat
+ *  Authorization scope: See, add, update, and remove members from conversations
+ *  and spaces in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.memberships"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMemberships;
 /**
- *  Authorization scope: Add and remove itself from conversations in Google Chat
+ *  Authorization scope: Add and remove itself from conversations and spaces in
+ *  Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.memberships.app"
  */
@@ -66,8 +144,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMembershipsApp;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMembershipsReadonly;
 /**
- *  Authorization scope: View, compose, send, update, and delete messages, and
- *  add, view, and delete reactions to messages.
+ *  Authorization scope: See, compose, send, update, and delete messages as well
+ *  as their message content; add, see, and delete reactions to messages.
  *
  *  Value "https://www.googleapis.com/auth/chat.messages"
  */
@@ -79,8 +157,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessages;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesCreate;
 /**
- *  Authorization scope: View, add, and delete reactions to messages in Google
- *  Chat
+ *  Authorization scope: See, add, and delete reactions as well as their
+ *  reaction content to messages in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions"
  */
@@ -92,26 +170,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReactions;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReactionsCreate;
 /**
- *  Authorization scope: View reactions to messages in Google Chat
+ *  Authorization scope: View reactions as well as their reaction content to
+ *  messages in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.reactions.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReactionsReadonly;
 /**
- *  Authorization scope: View messages and reactions in Google Chat
+ *  Authorization scope: See messages as well as their reactions and message
+ *  content in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.messages.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatMessagesReadonly;
 /**
- *  Authorization scope: Create conversations and spaces and see or edit
+ *  Authorization scope: Create conversations and spaces and see or update
  *  metadata (including history settings and access settings) in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.spaces"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpaces;
 /**
- *  Authorization scope: Create new conversations in Google Chat
+ *  Authorization scope: Create new conversations and spaces in Google Chat
  *
  *  Value "https://www.googleapis.com/auth/chat.spaces.create"
  */
@@ -122,6 +202,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesCreate;
  *  Value "https://www.googleapis.com/auth/chat.spaces.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesReadonly;
+/**
+ *  Authorization scope: View and modify last read time for Google Chat
+ *  conversations
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.readstate"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersReadstate;
+/**
+ *  Authorization scope: View last read time for Google Chat conversations
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.readstate.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersReadstateReadonly;
+/**
+ *  Authorization scope: Read and update your space settings
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.spacesettings"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersSpacesettings;
 
 // ----------------------------------------------------------------------------
 //   GTLRHangoutsChatService
@@ -130,8 +229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatSpacesReadonly;
 /**
  *  Service for executing Google Chat API queries.
  *
- *  Enables apps to fetch information and perform actions in Google Chat.
- *  Authentication is a prerequisite for using the Google Chat REST API.
+ *  The Google Chat API lets you build Chat apps to integrate your services with
+ *  Google Chat and manage Chat resources such as spaces, members, and messages.
  */
 @interface GTLRHangoutsChatService : GTLRService
 

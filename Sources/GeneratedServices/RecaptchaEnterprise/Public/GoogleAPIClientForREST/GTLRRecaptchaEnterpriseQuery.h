@@ -82,8 +82,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsAssessmentsCreate : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  Required. The name of the project in which the assessment will be created,
- *  in the format `projects/{project}`.
+ *  Required. The name of the project in which the assessment is created, in the
+ *  format `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -96,8 +96,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment to
  *    include in the query.
- *  @param parent Required. The name of the project in which the assessment will
- *    be created, in the format `projects/{project}`.
+ *  @param parent Required. The name of the project in which the assessment is
+ *    created, in the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsAssessmentsCreate
  */
@@ -119,7 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesCreate : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  Required. The name of the project this policy will apply to, in the format
+ *  Required. The name of the project this policy applies to, in the format
  *  `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -135,8 +135,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1FirewallPolicy to
  *    include in the query.
- *  @param parent Required. The name of the project this policy will apply to,
- *    in the format `projects/{project}`.
+ *  @param parent Required. The name of the project this policy applies to, in
+ *    the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsFirewallpoliciesCreate
  */
@@ -271,7 +271,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The mask to control which fields of the policy get updated. If the
- *  mask is not present, all fields will be updated.
+ *  mask is not present, all fields are updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -332,6 +332,45 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds an IP override to a key. The following restrictions hold: * The maximum
+ *  number of IP overrides per key is 1000. * For any conflict (such as IP
+ *  already exists or IP part of an existing IP range), an error is returned.
+ *
+ *  Method: recaptchaenterprise.projects.keys.addIpOverride
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysAddIpOverride : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The name of the key to which the IP override is added, in the
+ *  format `projects/{project}/keys/{key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideResponse.
+ *
+ *  Adds an IP override to a key. The following restrictions hold: * The maximum
+ *  number of IP overrides per key is 1000. * For any conflict (such as IP
+ *  already exists or IP part of an existing IP range), an error is returned.
+ *
+ *  @param object The @c
+ *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest
+ *    to include in the query.
+ *  @param name Required. The name of the key to which the IP override is added,
+ *    in the format `projects/{project}/keys/{key}`.
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysAddIpOverride
+ */
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AddIpOverrideRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new reCAPTCHA Enterprise key.
  *
  *  Method: recaptchaenterprise.projects.keys.create
@@ -342,8 +381,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysCreate : GTLRRecaptchaEnterpriseQuery
 
 /**
- *  Required. The name of the project in which the key will be created, in the
- *  format `projects/{project}`.
+ *  Required. The name of the project in which the key is created, in the format
+ *  `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -355,8 +394,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key to include in
  *    the query.
- *  @param parent Required. The name of the project in which the key will be
- *    created, in the format `projects/{project}`.
+ *  @param parent Required. The name of the project in which the key is created,
+ *    in the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysCreate
  */
@@ -481,8 +520,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the project that contains the keys that will be
- *  listed, in the format `projects/{project}`.
+ *  Required. The name of the project that contains the keys that is listed, in
+ *  the format `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -493,9 +532,58 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the list of all keys that belong to a project.
  *
  *  @param parent Required. The name of the project that contains the keys that
- *    will be listed, in the format `projects/{project}`.
+ *    is listed, in the format `projects/{project}`.
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all IP overrides for a key.
+ *
+ *  Method: recaptchaenterprise.projects.keys.listIpOverrides
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysListIpOverrides : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Optional. The maximum number of overrides to return. Default is 10. Max
+ *  limit is 100. If the number of overrides is less than the page_size, all
+ *  overrides are returned. If the page size is more than 100, it is coerced to
+ *  100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous
+ *  ListIpOverridesRequest, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent key for which the IP overrides are listed, in the
+ *  format `projects/{project}/keys/{key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListIpOverridesResponse.
+ *
+ *  Lists all IP overrides for a key.
+ *
+ *  @param parent Required. The parent key for which the IP overrides are
+ *    listed, in the format `projects/{project}/keys/{key}`.
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysListIpOverrides
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -565,7 +653,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The mask to control which fields of the key get updated. If the
- *  mask is not present, all fields will be updated.
+ *  mask is not present, all fields are updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -585,6 +673,47 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysPatch
  */
 + (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes an IP override from a key. The following restrictions hold: * If the
+ *  IP isn't found in an existing IP override, a `NOT_FOUND` error is returned.
+ *  * If the IP is found in an existing IP override, but the override type does
+ *  not match, a `NOT_FOUND` error is returned.
+ *
+ *  Method: recaptchaenterprise.projects.keys.removeIpOverride
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsKeysRemoveIpOverride : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The name of the key from which the IP override is removed, in the
+ *  format `projects/{project}/keys/{key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideResponse.
+ *
+ *  Removes an IP override from a key. The following restrictions hold: * If the
+ *  IP isn't found in an existing IP override, a `NOT_FOUND` error is returned.
+ *  * If the IP is found in an existing IP override, but the override type does
+ *  not match, a `NOT_FOUND` error is returned.
+ *
+ *  @param object The @c
+ *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest
+ *    to include in the query.
+ *  @param name Required. The name of the key from which the IP override is
+ *    removed, in the format `projects/{project}/keys/{key}`.
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsKeysRemoveIpOverride
+ */
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RemoveIpOverrideRequest *)object
                            name:(NSString *)name;
 
 @end

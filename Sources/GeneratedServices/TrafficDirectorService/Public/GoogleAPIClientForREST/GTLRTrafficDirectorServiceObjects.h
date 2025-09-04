@@ -67,6 +67,8 @@
 @class GTLRTrafficDirectorService_StaticRouteConfig_RouteConfig;
 @class GTLRTrafficDirectorService_StringMatcher;
 @class GTLRTrafficDirectorService_StructMatcher;
+@class GTLRTrafficDirectorService_TypedExtensionConfig;
+@class GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig;
 @class GTLRTrafficDirectorService_UpdateFailureState;
 @class GTLRTrafficDirectorService_UpdateFailureState_FailedConfiguration;
 @class GTLRTrafficDirectorService_ValueMatcher;
@@ -107,6 +109,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_Cl
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Nacked;
 /**
+ *  Client received an error from the control plane. The attached config dump is
+ *  the most recent accepted one. If no config is accepted yet, the attached
+ *  config dump will be empty.
+ *
+ *  Value: "RECEIVED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_ReceivedError;
+/**
  *  Client requested this resource but hasn't received any update from
  *  management server. The client will not fail requests, but will queue them
  *  until update arrives or the client times out waiting for the resource.
@@ -114,6 +124,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_Cl
  *  Value: "REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Requested;
+/**
+ *  Client timed out waiting for the resource from the control plane.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Timeout;
 /**
  *  Resource status is not available/unknown.
  *
@@ -147,6 +163,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Nacked;
 /**
+ *  Client received an error from the control plane. The attached config dump is
+ *  the most recent accepted one. If no config is accepted yet, the attached
+ *  config dump will be empty.
+ *
+ *  Value: "RECEIVED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_ReceivedError;
+/**
  *  Client requested this resource but hasn't received any update from
  *  management server. The client will not fail requests, but will queue them
  *  until update arrives or the client times out waiting for the resource.
@@ -154,6 +178,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointCo
  *  Value: "REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Requested;
+/**
+ *  Client timed out waiting for the resource from the control plane.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Timeout;
 /**
  *  Resource status is not available/unknown.
  *
@@ -187,6 +217,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Nacked;
 /**
+ *  Client received an error from the control plane. The attached config dump is
+ *  the most recent accepted one. If no config is accepted yet, the attached
+ *  config dump will be empty.
+ *
+ *  Value: "RECEIVED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_ReceivedError;
+/**
  *  Client requested this resource but hasn't received any update from
  *  management server. The client will not fail requests, but will queue them
  *  until update arrives or the client times out waiting for the resource.
@@ -194,6 +232,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_C
  *  Value: "REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Requested;
+/**
+ *  Client timed out waiting for the resource from the control plane.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Timeout;
 /**
  *  Resource status is not available/unknown.
  *
@@ -227,6 +271,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfi
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Nacked;
 /**
+ *  Client received an error from the control plane. The attached config dump is
+ *  the most recent accepted one. If no config is accepted yet, the attached
+ *  config dump will be empty.
+ *
+ *  Value: "RECEIVED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_ReceivedError;
+/**
  *  Client requested this resource but hasn't received any update from
  *  management server. The client will not fail requests, but will queue them
  *  until update arrives or the client times out waiting for the resource.
@@ -234,6 +286,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfi
  *  Value: "REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Requested;
+/**
+ *  Client timed out waiting for the resource from the control plane.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Timeout;
 /**
  *  Resource status is not available/unknown.
  *
@@ -267,6 +325,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRout
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Nacked;
 /**
+ *  Client received an error from the control plane. The attached config dump is
+ *  the most recent accepted one. If no config is accepted yet, the attached
+ *  config dump will be empty.
+ *
+ *  Value: "RECEIVED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_ReceivedError;
+/**
  *  Client requested this resource but hasn't received any update from
  *  management server. The client will not fail requests, but will queue them
  *  until update arrives or the client times out waiting for the resource.
@@ -274,6 +340,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRout
  *  Value: "REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Requested;
+/**
+ *  Client timed out waiting for the resource from the control plane.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Timeout;
 /**
  *  Resource status is not available/unknown.
  *
@@ -307,6 +379,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Nacked;
 /**
+ *  Client received an error from the control plane. The attached config dump is
+ *  the most recent accepted one. If no config is accepted yet, the attached
+ *  config dump will be empty.
+ *
+ *  Value: "RECEIVED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_ReceivedError;
+/**
  *  Client requested this resource but hasn't received any update from
  *  management server. The client will not fail requests, but will queue them
  *  until update arrives or the client times out waiting for the resource.
@@ -314,6 +394,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_
  *  Value: "REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Requested;
+/**
+ *  Client timed out waiting for the resource from the control plane.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Timeout;
 /**
  *  Resource status is not available/unknown.
  *
@@ -375,6 +461,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_PerXdsConfig_Clie
  *  Value: "CLIENT_NACKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientNacked;
+/**
+ *  Client received an error from the control plane. The attached config dump is
+ *  the most recent accepted one. If no config is accepted yet, the attached
+ *  config dump will be empty.
+ *
+ *  Value: "CLIENT_RECEIVED_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientReceivedError;
 /**
  *  Client requested the config but hasn't received any config from management
  *  server yet.
@@ -485,6 +579,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  All xds configs for a particular client.
  */
 @interface GTLRTrafficDirectorService_ClientConfig : GTLRObject
+
+/**
+ *  For xDS clients, the scope in which the data is used. For example, gRPC
+ *  indicates the data plane target or that the data is associated with gRPC
+ *  server(s).
+ */
+@property(nonatomic, copy, nullable) NSString *clientScope;
 
 /**
  *  Represents generic xDS config and the exact config structure depends on the
@@ -669,11 +770,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
  *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Nacked
  *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_ReceivedError
+ *        Client received an error from the control plane. The attached config
+ *        dump is the most recent accepted one. If no config is accepted yet,
+ *        the attached config dump will be empty. (Value: "RECEIVED_ERROR")
  *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Requested
  *        Client requested this resource but hasn't received any update from
  *        management server. The client will not fail requests, but will queue
  *        them until update arrives or the client times out waiting for the
  *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Timeout
+ *        Client timed out waiting for the resource from the control plane.
+ *        (Value: "TIMEOUT")
  *    @arg @c kGTLRTrafficDirectorService_DynamicCluster_ClientStatus_Unknown
  *        Resource status is not available/unknown. (Value: "UNKNOWN")
  */
@@ -735,11 +843,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
  *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Nacked
  *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_ReceivedError
+ *        Client received an error from the control plane. The attached config
+ *        dump is the most recent accepted one. If no config is accepted yet,
+ *        the attached config dump will be empty. (Value: "RECEIVED_ERROR")
  *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Requested
  *        Client requested this resource but hasn't received any update from
  *        management server. The client will not fail requests, but will queue
  *        them until update arrives or the client times out waiting for the
  *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Timeout
+ *        Client timed out waiting for the resource from the control plane.
+ *        (Value: "TIMEOUT")
  *    @arg @c kGTLRTrafficDirectorService_DynamicEndpointConfig_ClientStatus_Unknown
  *        Resource status is not available/unknown. (Value: "UNKNOWN")
  */
@@ -809,11 +924,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
  *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Nacked
  *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_ReceivedError
+ *        Client received an error from the control plane. The attached config
+ *        dump is the most recent accepted one. If no config is accepted yet,
+ *        the attached config dump will be empty. (Value: "RECEIVED_ERROR")
  *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Requested
  *        Client requested this resource but hasn't received any update from
  *        management server. The client will not fail requests, but will queue
  *        them until update arrives or the client times out waiting for the
  *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Timeout
+ *        Client timed out waiting for the resource from the control plane.
+ *        (Value: "TIMEOUT")
  *    @arg @c kGTLRTrafficDirectorService_DynamicListener_ClientStatus_Unknown
  *        Resource status is not available/unknown. (Value: "UNKNOWN")
  */
@@ -907,11 +1029,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
  *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Nacked
  *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_ReceivedError
+ *        Client received an error from the control plane. The attached config
+ *        dump is the most recent accepted one. If no config is accepted yet,
+ *        the attached config dump will be empty. (Value: "RECEIVED_ERROR")
  *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Requested
  *        Client requested this resource but hasn't received any update from
  *        management server. The client will not fail requests, but will queue
  *        them until update arrives or the client times out waiting for the
  *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Timeout
+ *        Client timed out waiting for the resource from the control plane.
+ *        (Value: "TIMEOUT")
  *    @arg @c kGTLRTrafficDirectorService_DynamicRouteConfig_ClientStatus_Unknown
  *        Resource status is not available/unknown. (Value: "UNKNOWN")
  */
@@ -972,11 +1101,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
  *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Nacked
  *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_ReceivedError
+ *        Client received an error from the control plane. The attached config
+ *        dump is the most recent accepted one. If no config is accepted yet,
+ *        the attached config dump will be empty. (Value: "RECEIVED_ERROR")
  *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Requested
  *        Client requested this resource but hasn't received any update from
  *        management server. The client will not fail requests, but will queue
  *        them until update arrives or the client times out waiting for the
  *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Timeout
+ *        Client timed out waiting for the resource from the control plane.
+ *        (Value: "TIMEOUT")
  *    @arg @c kGTLRTrafficDirectorService_DynamicScopedRouteConfigs_ClientStatus_Unknown
  *        Resource status is not available/unknown. (Value: "UNKNOWN")
  */
@@ -1126,11 +1262,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *        Resource Does Not Exist" ` section. (Value: "DOES_NOT_EXIST")
  *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Nacked
  *        Client received this resource and replied with NACK. (Value: "NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_ReceivedError
+ *        Client received an error from the control plane. The attached config
+ *        dump is the most recent accepted one. If no config is accepted yet,
+ *        the attached config dump will be empty. (Value: "RECEIVED_ERROR")
  *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Requested
  *        Client requested this resource but hasn't received any update from
  *        management server. The client will not fail requests, but will queue
  *        them until update arrives or the client times out waiting for the
  *        resource. (Value: "REQUESTED")
+ *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Timeout
+ *        Client timed out waiting for the resource from the control plane.
+ *        (Value: "TIMEOUT")
  *    @arg @c kGTLRTrafficDirectorService_GenericXdsConfig_ClientStatus_Unknown
  *        Resource status is not available/unknown. (Value: "UNKNOWN")
  */
@@ -1519,6 +1662,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *        attached config dump is not the NACKed version, but the most recent
  *        accepted one. If no config is accepted yet, the attached config dump
  *        will be empty. (Value: "CLIENT_NACKED")
+ *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientReceivedError
+ *        Client received an error from the control plane. The attached config
+ *        dump is the most recent accepted one. If no config is accepted yet,
+ *        the attached config dump will be empty. (Value:
+ *        "CLIENT_RECEIVED_ERROR")
  *    @arg @c kGTLRTrafficDirectorService_PerXdsConfig_ClientStatus_ClientRequested
  *        Client requested the config but hasn't received any config from
  *        management server yet. (Value: "CLIENT_REQUESTED")
@@ -1669,7 +1817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  [#next-free-field: 7]
+ *  [#next-free-field: 8]
  */
 @interface GTLRTrafficDirectorService_SocketAddress : GTLRObject
 
@@ -1701,6 +1849,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  resolver is capable of named port resolution.
  */
 @property(nonatomic, copy, nullable) NSString *namedPort;
+
+/**
+ *  Filepath that specifies the Linux network namespace this socket will be
+ *  created in (see ``man 7 network_namespaces``). If this field is set, Envoy
+ *  will create the socket in the specified network namespace. .. note:: Setting
+ *  this parameter requires Envoy to run with the ``CAP_NET_ADMIN`` capability.
+ *  .. note:: Currently only used for Listener sockets. .. attention:: Network
+ *  namespaces are only configurable on Linux. Otherwise, this field has no
+ *  effect.
+ */
+@property(nonatomic, copy, nullable) NSString *networkNamespaceFilepath;
 
 /**
  *  portValue
@@ -1837,16 +1996,22 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 
 
 /**
- *  Specifies the way to match a string. [#next-free-field: 8]
+ *  Specifies the way to match a string. [#next-free-field: 9]
  */
 @interface GTLRTrafficDirectorService_StringMatcher : GTLRObject
 
 /**
- *  The input string must have the substring specified here. Note: empty
- *  contains match is not allowed, please use regex instead. Examples: * ``abc``
- *  matches the value ``xyz.abc.def``
+ *  The input string must have the substring specified here. .. note:: Empty
+ *  contains match is not allowed, please use ``safe_regex`` instead. Examples:
+ *  * ``abc`` matches the value ``xyz.abc.def``
  */
 @property(nonatomic, copy, nullable) NSString *contains;
+
+/**
+ *  Use an extension as the matcher type. [#extension-category:
+ *  envoy.string_matcher]
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_TypedExtensionConfig *custom;
 
 /**
  *  The input string must match exactly the string specified here. Examples: *
@@ -1855,19 +2020,19 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 @property(nonatomic, copy, nullable) NSString *exact;
 
 /**
- *  If true, indicates the exact/prefix/suffix/contains matching should be case
- *  insensitive. This has no effect for the safe_regex match. For example, the
- *  matcher ``data`` will match both input string ``Data`` and ``data`` if set
- *  to true.
+ *  If ``true``, indicates the exact/prefix/suffix/contains matching should be
+ *  case insensitive. This has no effect for the ``safe_regex`` match. For
+ *  example, the matcher ``data`` will match both input string ``Data`` and
+ *  ``data`` if this option is set to ``true``.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreCase;
 
 /**
- *  The input string must have the prefix specified here. Note: empty prefix is
- *  not allowed, please use regex instead. Examples: * ``abc`` matches the value
- *  ``abc.xyz``
+ *  The input string must have the prefix specified here. .. note:: Empty prefix
+ *  match is not allowed, please use ``safe_regex`` instead. Examples: * ``abc``
+ *  matches the value ``abc.xyz``
  */
 @property(nonatomic, copy, nullable) NSString *prefix;
 
@@ -1875,9 +2040,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_RegexMatcher *safeRegex;
 
 /**
- *  The input string must have the suffix specified here. Note: empty prefix is
- *  not allowed, please use regex instead. Examples: * ``abc`` matches the value
- *  ``xyz.abc``
+ *  The input string must have the suffix specified here. .. note:: Empty suffix
+ *  match is not allowed, please use ``safe_regex`` instead. Examples: * ``abc``
+ *  matches the value ``xyz.abc``
  */
 @property(nonatomic, copy, nullable) NSString *suffix;
 
@@ -1911,6 +2076,45 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  */
 @property(nonatomic, strong, nullable) GTLRTrafficDirectorService_ValueMatcher *value;
 
+@end
+
+
+/**
+ *  Message type for extension configuration.
+ */
+@interface GTLRTrafficDirectorService_TypedExtensionConfig : GTLRObject
+
+/**
+ *  The name of an extension. This is not used to select the extension, instead
+ *  it serves the role of an opaque identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The typed config for the extension. The type URL will be used to identify
+ *  the extension. In the case that the type URL is *xds.type.v3.TypedStruct*
+ *  (or, for historical reasons, *udpa.type.v1.TypedStruct*), the inner type URL
+ *  of *TypedStruct* will be utilized. See the :ref:`extension configuration
+ *  overview ` for further details.
+ */
+@property(nonatomic, strong, nullable) GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig *typedConfig;
+
+@end
+
+
+/**
+ *  The typed config for the extension. The type URL will be used to identify
+ *  the extension. In the case that the type URL is *xds.type.v3.TypedStruct*
+ *  (or, for historical reasons, *udpa.type.v1.TypedStruct*), the inner type URL
+ *  of *TypedStruct* will be utilized. See the :ref:`extension configuration
+ *  overview ` for further details.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRTrafficDirectorService_TypedExtensionConfig_TypedConfig : GTLRObject
 @end
 
 

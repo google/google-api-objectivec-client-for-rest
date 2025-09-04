@@ -59,6 +59,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified;
 /**
+ *  For company-owned devices, this removes all eSIMs from the device when the
+ *  device is wiped. In personally-owned devices, this will remove managed eSIMs
+ *  (eSIMs which are added via the ADD_ESIM command) on the devices and no
+ *  personally owned eSIMs will be removed.
+ *
+ *  Value: "WIPE_ESIMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeEsims;
+/**
  *  Additionally wipe the device's external storage (such as SD cards).
  *
  *  Value: "WIPE_EXTERNAL_STORAGE"
@@ -176,7 +185,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Deletes an enterprise. Only available for EMM-managed enterprises.
+ *  Permanently deletes an enterprise and all accounts and data associated with
+ *  it. Warning: this will result in a cascaded deletion of all AM API devices
+ *  associated with the deleted enterprise. Only available for EMM-managed
+ *  enterprises.
  *
  *  Method: androidmanagement.enterprises.delete
  *
@@ -191,7 +203,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_Empty.
  *
- *  Deletes an enterprise. Only available for EMM-managed enterprises.
+ *  Permanently deletes an enterprise and all accounts and data associated with
+ *  it. Warning: this will result in a cascaded deletion of all AM API devices
+ *  associated with the deleted enterprise. Only available for EMM-managed
+ *  enterprises.
  *
  *  @param name The name of the enterprise in the form
  *    enterprises/{enterpriseId}.
@@ -203,9 +218,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Deletes a device. This operation wipes the device. Deleted devices do not
- *  show up in enterprises.devices.list calls and a 404 is returned from
- *  enterprises.devices.get.
+ *  Deletes a device. This operation attempts to wipe the device but this is not
+ *  guaranteed to succeed if the device is offline for an extended period.
+ *  Deleted devices do not show up in enterprises.devices.list calls and a 404
+ *  is returned from enterprises.devices.get.
  *
  *  Method: androidmanagement.enterprises.devices.delete
  *
@@ -232,6 +248,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage
  *        Additionally wipe the device's external storage (such as SD cards).
  *        (Value: "WIPE_EXTERNAL_STORAGE")
+ *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeEsims For company-owned
+ *        devices, this removes all eSIMs from the device when the device is
+ *        wiped. In personally-owned devices, this will remove managed eSIMs
+ *        (eSIMs which are added via the ADD_ESIM command) on the devices and no
+ *        personally owned eSIMs will be removed. (Value: "WIPE_ESIMS")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
 
@@ -245,9 +266,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_Empty.
  *
- *  Deletes a device. This operation wipes the device. Deleted devices do not
- *  show up in enterprises.devices.list calls and a 404 is returned from
- *  enterprises.devices.get.
+ *  Deletes a device. This operation attempts to wipe the device but this is not
+ *  guaranteed to succeed if the device is offline for an extended period.
+ *  Deleted devices do not show up in enterprises.devices.list calls and a 404
+ *  is returned from enterprises.devices.get.
  *
  *  @param name The name of the device in the form
  *    enterprises/{enterpriseId}/devices/{deviceId}.
@@ -336,8 +358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesList : GTLRAndroidManagementQuery
 
 /**
- *  The requested page size. The actual page size may be fixed to a min or max
- *  value.
+ *  The requested page size. If unspecified, at most 10 devices will be
+ *  returned. The maximum value is 100; values above 100 will be coerced to 100.
+ *  The limits can change over time.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -522,10 +545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Creates an enrollment token for a given enterprise. It's up to the caller's
  *  responsibility to manage the lifecycle of newly created tokens and deleting
- *  them when they're not intended to be used anymore. Once an enrollment token
- *  has been created, it's not possible to retrieve the token's content anymore
- *  using AM API. It is recommended for EMMs to securely store the token if it's
- *  intended to be reused.
+ *  them when they're not intended to be used anymore.
  *
  *  Method: androidmanagement.enterprises.enrollmentTokens.create
  *
@@ -542,10 +562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *
  *  Creates an enrollment token for a given enterprise. It's up to the caller's
  *  responsibility to manage the lifecycle of newly created tokens and deleting
- *  them when they're not intended to be used anymore. Once an enrollment token
- *  has been created, it's not possible to retrieve the token's content anymore
- *  using AM API. It is recommended for EMMs to securely store the token if it's
- *  intended to be reused.
+ *  them when they're not intended to be used anymore.
  *
  *  @param object The @c GTLRAndroidManagement_EnrollmentToken to include in the
  *    query.
@@ -592,12 +609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  Gets an active, unexpired enrollment token. Only a partial view of
- *  EnrollmentToken is returned: all the fields but name and
- *  expiration_timestamp are empty. This method is meant to help manage active
- *  enrollment tokens lifecycle. For security reasons, it's recommended to
- *  delete active enrollment tokens as soon as they're not intended to be used
- *  anymore.
+ *  Gets an active, unexpired enrollment token. A partial view of the enrollment
+ *  token is returned. Only the following fields are populated: name,
+ *  expirationTimestamp, allowPersonalUsage, value, qrCode. This method is meant
+ *  to help manage active enrollment tokens lifecycle. For security reasons,
+ *  it's recommended to delete active enrollment tokens as soon as they're not
+ *  intended to be used anymore.
  *
  *  Method: androidmanagement.enterprises.enrollmentTokens.get
  *
@@ -615,12 +632,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Fetches a @c GTLRAndroidManagement_EnrollmentToken.
  *
- *  Gets an active, unexpired enrollment token. Only a partial view of
- *  EnrollmentToken is returned: all the fields but name and
- *  expiration_timestamp are empty. This method is meant to help manage active
- *  enrollment tokens lifecycle. For security reasons, it's recommended to
- *  delete active enrollment tokens as soon as they're not intended to be used
- *  anymore.
+ *  Gets an active, unexpired enrollment token. A partial view of the enrollment
+ *  token is returned. Only the following fields are populated: name,
+ *  expirationTimestamp, allowPersonalUsage, value, qrCode. This method is meant
+ *  to help manage active enrollment tokens lifecycle. For security reasons,
+ *  it's recommended to delete active enrollment tokens as soon as they're not
+ *  intended to be used anymore.
  *
  *  @param name Required. The name of the enrollment token in the form
  *    enterprises/{enterpriseId}/enrollmentTokens/{enrollmentTokenId}.
@@ -633,8 +650,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 
 /**
  *  Lists active, unexpired enrollment tokens for a given enterprise. The list
- *  items contain only a partial view of EnrollmentToken: all the fields but
- *  name and expiration_timestamp are empty. This method is meant to help manage
+ *  items contain only a partial view of EnrollmentToken object. Only the
+ *  following fields are populated: name, expirationTimestamp,
+ *  allowPersonalUsage, value, qrCode. This method is meant to help manage
  *  active enrollment tokens lifecycle. For security reasons, it's recommended
  *  to delete active enrollment tokens as soon as they're not intended to be
  *  used anymore.
@@ -665,8 +683,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  Fetches a @c GTLRAndroidManagement_ListEnrollmentTokensResponse.
  *
  *  Lists active, unexpired enrollment tokens for a given enterprise. The list
- *  items contain only a partial view of EnrollmentToken: all the fields but
- *  name and expiration_timestamp are empty. This method is meant to help manage
+ *  items contain only a partial view of EnrollmentToken object. Only the
+ *  following fields are populated: name, expirationTimestamp,
+ *  allowPersonalUsage, value, qrCode. This method is meant to help manage
  *  active enrollment tokens lifecycle. For security reasons, it's recommended
  *  to delete active enrollment tokens as soon as they're not intended to be
  *  used anymore.
@@ -681,6 +700,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Generates an enterprise upgrade URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain. See the guide
+ *  (https://developers.google.com/android/management/upgrade-an-enterprise) for
+ *  more details.
+ *
+ *  Method: androidmanagement.enterprises.generateEnterpriseUpgradeUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesGenerateEnterpriseUpgradeUrl : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The name of the enterprise to be upgraded in the form
+ *  enterprises/{enterpriseId}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlResponse.
+ *
+ *  Generates an enterprise upgrade URL to upgrade an existing managed Google
+ *  Play Accounts enterprise to a managed Google domain. See the guide
+ *  (https://developers.google.com/android/management/upgrade-an-enterprise) for
+ *  more details.
+ *
+ *  @param object The @c
+ *    GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest to include in
+ *    the query.
+ *  @param name Required. The name of the enterprise to be upgraded in the form
+ *    enterprises/{enterpriseId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesGenerateEnterpriseUpgradeUrl
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_GenerateEnterpriseUpgradeUrlRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -764,7 +823,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 /**
  *  Creates a migration token, to migrate an existing device from being managed
  *  by the EMM's Device Policy Controller (DPC) to being managed by the Android
- *  Management API.
+ *  Management API. See the guide
+ *  (https://developers.google.com/android/management/dpc-migration) for more
+ *  details.
  *
  *  Method: androidmanagement.enterprises.migrationTokens.create
  *
@@ -774,7 +835,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @interface GTLRAndroidManagementQuery_EnterprisesMigrationTokensCreate : GTLRAndroidManagementQuery
 
 /**
- *  Required. The enterprise in which this migration token will be created.
+ *  Required. The enterprise in which this migration token is created. This must
+ *  be the same enterprise which already manages the device in the Play EMM API.
  *  Format: enterprises/{enterprise}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -784,12 +846,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *
  *  Creates a migration token, to migrate an existing device from being managed
  *  by the EMM's Device Policy Controller (DPC) to being managed by the Android
- *  Management API.
+ *  Management API. See the guide
+ *  (https://developers.google.com/android/management/dpc-migration) for more
+ *  details.
  *
  *  @param object The @c GTLRAndroidManagement_MigrationToken to include in the
  *    query.
- *  @param parent Required. The enterprise in which this migration token will be
- *    created. Format: enterprises/{enterprise}
+ *  @param parent Required. The enterprise in which this migration token is
+ *    created. This must be the same enterprise which already manages the device
+ *    in the Play EMM API. Format: enterprises/{enterprise}
  *
  *  @return GTLRAndroidManagementQuery_EnterprisesMigrationTokensCreate
  */
@@ -1018,6 +1083,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
+ *  Updates or creates applications in a policy.
+ *
+ *  Method: androidmanagement.enterprises.policies.modifyPolicyApplications
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesPoliciesModifyPolicyApplications : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The name of the Policy containing the ApplicationPolicy objects to
+ *  be updated, in the form enterprises/{enterpriseId}/policies/{policyId}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_ModifyPolicyApplicationsResponse.
+ *
+ *  Updates or creates applications in a policy.
+ *
+ *  @param object The @c GTLRAndroidManagement_ModifyPolicyApplicationsRequest
+ *    to include in the query.
+ *  @param name Required. The name of the Policy containing the
+ *    ApplicationPolicy objects to be updated, in the form
+ *    enterprises/{enterpriseId}/policies/{policyId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesModifyPolicyApplications
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_ModifyPolicyApplicationsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates or creates a policy.
  *
  *  Method: androidmanagement.enterprises.policies.patch
@@ -1053,6 +1152,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesPatch
  */
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Policy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes applications in a policy.
+ *
+ *  Method: androidmanagement.enterprises.policies.removePolicyApplications
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidManagement
+ */
+@interface GTLRAndroidManagementQuery_EnterprisesPoliciesRemovePolicyApplications : GTLRAndroidManagementQuery
+
+/**
+ *  Required. The name of the policy containing the ApplicationPolicy objects to
+ *  be removed, in the form enterprises/{enterpriseId}/policies/{policyId}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAndroidManagement_RemovePolicyApplicationsResponse.
+ *
+ *  Removes applications in a policy.
+ *
+ *  @param object The @c GTLRAndroidManagement_RemovePolicyApplicationsRequest
+ *    to include in the query.
+ *  @param name Required. The name of the policy containing the
+ *    ApplicationPolicy objects to be removed, in the form
+ *    enterprises/{enterpriseId}/policies/{policyId}.
+ *
+ *  @return GTLRAndroidManagementQuery_EnterprisesPoliciesRemovePolicyApplications
+ */
++ (instancetype)queryWithObject:(GTLRAndroidManagement_RemovePolicyApplicationsRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1128,7 +1261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 
 /**
  *  The name of the web app in the form
- *  enterprises/{enterpriseId}/webApp/{packageName}.
+ *  enterprises/{enterpriseId}/webApps/{packageName}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1138,7 +1271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  Gets a web app.
  *
  *  @param name The name of the web app in the form
- *    enterprises/{enterpriseId}/webApp/{packageName}.
+ *    enterprises/{enterpriseId}/webApps/{packageName}.
  *
  *  @return GTLRAndroidManagementQuery_EnterprisesWebAppsGet
  */
@@ -1298,6 +1431,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_SignupUrlsCreate : GTLRAndroidManagementQuery
+
+/**
+ *  Optional. Email address used to prefill the admin field of the enterprise
+ *  signup form. This value is a hint only and can be altered by the user. If
+ *  allowedDomains is non-empty then this must belong to one of the
+ *  allowedDomains.
+ */
+@property(nonatomic, copy, nullable) NSString *adminEmail;
+
+/**
+ *  Optional. A list of domains that are permitted for the admin email. The IT
+ *  admin cannot enter an email address with a domain name that is not in this
+ *  list. Subdomains of domains in this list are not allowed but can be allowed
+ *  by adding a second entry which has *. prefixed to the domain name (e.g.
+ *  *.example.com). If the field is not present or is an empty list then the IT
+ *  admin is free to use any valid domain name. Personal email domains are
+ *  always allowed, but will result in the creation of a managed Google Play
+ *  Accounts enterprise.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDomains;
 
 /**
  *  The callback URL that the admin will be redirected to after successfully

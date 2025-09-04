@@ -156,12 +156,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 @interface GTLRWorkspaceEvents_NotificationEndpoint : GTLRObject
 
 /**
- *  Immutable. The Cloud Pub/Sub topic that receives events for the
- *  subscription. Format: `projects/{project}/topics/{topic}` You must create
- *  the topic in the same Google Cloud project where you create this
- *  subscription. When the topic receives events, the events are encoded as
- *  Cloud Pub/Sub messages. For details, see the [Google Cloud Pub/Sub Protocol
- *  Binding for
+ *  Immutable. The Pub/Sub topic that receives events for the subscription.
+ *  Format: `projects/{project}/topics/{topic}` You must create the topic in the
+ *  same Google Cloud project where you create this subscription. Note: The
+ *  Google Workspace Events API uses [ordering
+ *  keys](https://cloud.google.com/pubsub/docs/ordering) for the benefit of
+ *  sequential events. If the Cloud Pub/Sub topic has a [message storage
+ *  policy](https://cloud.google.com/pubsub/docs/resource-location-restriction#exceptions)
+ *  configured to exclude the nearest Google Cloud region, publishing events
+ *  with ordering keys will fail. When the topic receives events, the events are
+ *  encoded as Pub/Sub messages. For details, see the [Google Cloud Pub/Sub
+ *  Protocol Binding for
  *  CloudEvents](https://github.com/googleapis/google-cloudevents/blob/main/docs/spec/pubsub.md).
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
@@ -251,7 +256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 
 /**
  *  Options about what data to include in the event payload. Only supported for
- *  Google Chat events.
+ *  Google Chat and Google Drive events.
  */
 @interface GTLRWorkspaceEvents_PayloadOptions : GTLRObject
 
@@ -335,10 +340,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview). A
- *  subscription to receive events about a Google Workspace resource. To learn
+ *  A subscription to receive events about a Google Workspace resource. To learn
  *  more about subscriptions, see the [Google Workspace Events API
- *  overview](https://developers.google.com/workspace/events/guides).
+ *  overview](https://developers.google.com/workspace/events).
  */
 @interface GTLRWorkspaceEvents_Subscription : GTLRObject
 
@@ -361,14 +365,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. Immutable. Unordered list. Input for creating a subscription.
- *  Otherwise, output only. One or more types of events to receive about the
- *  target resource. Formatted according to the CloudEvents specification. For a
- *  list of supported event types, see the following documentation: * [Google
- *  Chat
- *  events](https://developers.google.com/workspace/events/guides/events-chat) *
- *  [Google Meet
- *  events](https://developers.google.com/workspace/events/guides/events-meet)
+ *  Required. Unordered list. Input for creating a subscription. Otherwise,
+ *  output only. One or more types of events to receive about the target
+ *  resource. Formatted according to the CloudEvents specification. The
+ *  supported event types depend on the target resource of your subscription.
+ *  For details, see [Supported Google Workspace
+ *  events](https://developers.google.com/workspace/events/guides#supported-events).
  *  By default, you also receive events about the [lifecycle of your
  *  subscription](https://developers.google.com/workspace/events/guides/events-lifecycle).
  *  You don't need to specify lifecycle events for this field. If you specify an
@@ -384,7 +386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
- *  Optional. Immutable. Identifier. Resource name of the subscription. Format:
+ *  Identifier. Resource name of the subscription. Format:
  *  `subscriptions/{subscription}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -397,7 +399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 
 /**
  *  Optional. Options about what data to include in the event payload. Only
- *  supported for Google Chat events.
+ *  supported for Google Chat and Google Drive events.
  */
 @property(nonatomic, strong, nullable) GTLRWorkspaceEvents_PayloadOptions *payloadOptions;
 
@@ -469,9 +471,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
  *  Required. Immutable. The Google Workspace resource that's monitored for
  *  events, formatted as the [full resource
  *  name](https://google.aip.dev/122#full-resource-names). To learn about target
- *  resources, see [Supported Google Workspace
- *  resources](https://developers.google.com/workspace/events/guides#supported-resources).
- *  A user can only authorize your app to create one subscription for a given
+ *  resources and the events that they support, see [Supported Google Workspace
+ *  events](https://developers.google.com/workspace/events#supported-events). A
+ *  user can only authorize your app to create one subscription for a given
  *  target resource. If your app tries to create another subscription with the
  *  same user credentials, the request returns an `ALREADY_EXISTS` error.
  */

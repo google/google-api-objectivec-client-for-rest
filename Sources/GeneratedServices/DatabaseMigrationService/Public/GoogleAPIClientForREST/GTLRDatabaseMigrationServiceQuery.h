@@ -70,8 +70,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewFull;
 /**
+ *  Returns full entity details except for ddls and schema custom features.
+ *
+ *  Value: "DATABASE_ENTITY_VIEW_FULL_COMPACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEntityViewFullCompact;
+/**
  *  Top-most (Database, Schema) nodes which are returned contains summary
- *  details for their decendents such as the number of entities per type and
+ *  details for their descendants such as the number of entities per type and
  *  issues rollups. When this view is used, only a single page of result is
  *  returned and the page_size property of the request is ignored. The returned
  *  page will only include the top-most node types.
@@ -790,11 +796,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *        "DATABASE_ENTITY_VIEW_FULL")
  *    @arg @c kGTLRDatabaseMigrationServiceViewDatabaseEntityViewRootSummary
  *        Top-most (Database, Schema) nodes which are returned contains summary
- *        details for their decendents such as the number of entities per type
+ *        details for their descendants such as the number of entities per type
  *        and issues rollups. When this view is used, only a single page of
  *        result is returned and the page_size property of the request is
  *        ignored. The returned page will only include the top-most node types.
  *        (Value: "DATABASE_ENTITY_VIEW_ROOT_SUMMARY")
+ *    @arg @c kGTLRDatabaseMigrationServiceViewDatabaseEntityViewFullCompact
+ *        Returns full entity details except for ddls and schema custom
+ *        features. (Value: "DATABASE_ENTITY_VIEW_FULL_COMPACT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1490,6 +1499,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsList : GTLRDatabaseMigrationServiceQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -1644,6 +1659,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  */
 + (instancetype)queryWithObject:(GTLRDatabaseMigrationService_DemoteDestinationRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves objects from the source database that can be selected for data
+ *  migration. This is applicable for the following migrations: 1. PostgreSQL to
+ *  Cloud SQL for PostgreSQL 2. PostgreSQL to AlloyDB for PostgreSQL.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.fetchSourceObjects
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsFetchSourceObjects : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Required. The resource name for the migration job for which source objects
+ *  should be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Operation.
+ *
+ *  Retrieves objects from the source database that can be selected for data
+ *  migration. This is applicable for the following migrations: 1. PostgreSQL to
+ *  Cloud SQL for PostgreSQL 2. PostgreSQL to AlloyDB for PostgreSQL.
+ *
+ *  @param name Required. The resource name for the migration job for which
+ *    source objects should be returned.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsFetchSourceObjects
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1850,6 +1899,243 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Use this method to get details about a migration job object.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGet : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The name of the migration job object resource to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_MigrationJobObject.
+ *
+ *  Use this method to get details about a migration job object.
+ *
+ *  @param name Required. The name of the migration job object resource to get.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGetIamPolicy : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Use this method to list the objects of a specific migration job.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsList : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  Maximum number of objects to return. Default is 50. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token received from a previous `ListMigrationJObObjectsRequest` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListMigrationJobObjectsRequest` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent migration job that owns the collection of objects. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_ListMigrationJobObjectsResponse.
+ *
+ *  Use this method to list the objects of a specific migration job.
+ *
+ *  @param parent Required. The parent migration job that owns the collection of
+ *    objects.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Use this method to look up a migration job object by its source object
+ *  identifier.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.lookup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsLookup : GTLRDatabaseMigrationServiceQuery
+
+/** Required. The parent migration job that owns the collection of objects. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_MigrationJobObject.
+ *
+ *  Use this method to look up a migration job object by its source object
+ *  identifier.
+ *
+ *  @param object The @c
+ *    GTLRDatabaseMigrationService_LookupMigrationJobObjectRequest to include in
+ *    the query.
+ *  @param parent Required. The parent migration job that owns the collection of
+ *    objects.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsLookup
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_LookupMigrationJobObjectRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsSetIamPolicy : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: datamigration.projects.locations.migrationJobs.objects.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
+ */
+@interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsTestIamPermissions : GTLRDatabaseMigrationServiceQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDatabaseMigrationService_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRDatabaseMigrationService_TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRDatabaseMigrationService_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -2179,7 +2465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: datamigration.projects.locations.operations.cancel
@@ -2202,7 +2488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRDatabaseMigrationService_CancelOperationRequest to
@@ -2346,6 +2632,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 
 /** Optional. If set to true, will skip validations. */
 @property(nonatomic, assign) BOOL skipValidation;
+
+/**
+ *  Optional. For PSC Interface only - get the tenant project before creating
+ *  the resource.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_Operation.

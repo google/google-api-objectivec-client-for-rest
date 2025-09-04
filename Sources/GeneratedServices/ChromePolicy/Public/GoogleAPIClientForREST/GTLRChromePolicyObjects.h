@@ -235,6 +235,26 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV
 FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyVersionsV1UploadedFileConstraints_SupportedContentTypes_ContentTypeZip;
 
 // ----------------------------------------------------------------------------
+// GTLRChromePolicy_Proto2DescriptorProto.visibility
+
+/** Value: "VISIBILITY_EXPORT" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityExport;
+/** Value: "VISIBILITY_LOCAL" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityLocal;
+/** Value: "VISIBILITY_UNSET" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityUnset;
+
+// ----------------------------------------------------------------------------
+// GTLRChromePolicy_Proto2EnumDescriptorProto.visibility
+
+/** Value: "VISIBILITY_EXPORT" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityExport;
+/** Value: "VISIBILITY_LOCAL" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityLocal;
+/** Value: "VISIBILITY_UNSET" */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityUnset;
+
+// ----------------------------------------------------------------------------
 // GTLRChromePolicy_Proto2FieldDescriptorProto.label
 
 /**
@@ -706,7 +726,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
- *  A network setting contains network configurations.
+ *  A network setting contains network configurations. It adheres to the
+ *  PolicyAPI formats defined under the namespace
+ *  chrome.networks.{wifi/ethernet/cellular/vpn}.Details
  */
 @interface GTLRChromePolicy_GoogleChromePolicyVersionsV1NetworkSetting : GTLRObject
 
@@ -811,8 +833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /**
  *  Corresponding to deprecated_in_favor_of, the fully qualified namespace(s) of
  *  the old policies that will be deprecated because of introduction of this
- *  policy. This field should not be manually set but will be set and exposed
- *  through PolicyAPI automatically.
+ *  policy.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scheduledToDeprecatePolicies;
 
@@ -1467,6 +1488,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_Proto2DescriptorProto *> *nestedType;
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_Proto2OneofDescriptorProto *> *oneofDecl;
 
+/**
+ *  Support for `export` and `local` keywords on enums.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityExport
+ *        Value "VISIBILITY_EXPORT"
+ *    @arg @c kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityLocal
+ *        Value "VISIBILITY_LOCAL"
+ *    @arg @c kGTLRChromePolicy_Proto2DescriptorProto_Visibility_VisibilityUnset
+ *        Value "VISIBILITY_UNSET"
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
+
 @end
 
 
@@ -1477,6 +1511,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 @property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_Proto2EnumValueDescriptorProto *> *value;
+
+/**
+ *  Support for `export` and `local` keywords on enums.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityExport
+ *        Value "VISIBILITY_EXPORT"
+ *    @arg @c kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityLocal
+ *        Value "VISIBILITY_LOCAL"
+ *    @arg @c kGTLRChromePolicy_Proto2EnumDescriptorProto_Visibility_VisibilityUnset
+ *        Value "VISIBILITY_UNSET"
+ */
+@property(nonatomic, copy, nullable) NSString *visibility;
 
 @end
 
@@ -1641,8 +1688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @interface GTLRChromePolicy_Proto2FileDescriptorProto : GTLRObject
 
 /**
- *  BEGIN GOOGLE-INTERNAL TODO(b/297898292) Deprecate and remove this field in
- *  favor of enums. END GOOGLE-INTERNAL
+ *  copybara:strip_begin TODO(b/297898292) Deprecate and remove this field in
+ *  favor of enums. copybara:strip_end
  */
 @property(nonatomic, copy, nullable) NSString *editionDeprecated GTLR_DEPRECATED;
 
@@ -1654,12 +1701,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 /** file name, relative to root of source tree */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Names of files imported by this file purely for the purpose of providing
+ *  option extensions. These are excluded from the dependency list above.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *optionDependency;
+
 /** e.g. "foo", "foo.bar", etc. */
 @property(nonatomic, copy, nullable) NSString *package;
 
 /**
  *  The syntax of the proto file. The supported values are "proto2", "proto3",
  *  and "editions". If `edition` is present, this value must be "editions".
+ *  WARNING: This field should only be used by protobuf plugins or special cases
+ *  like the proto compiler. Other uses are discouraged and developers should
+ *  rely on the protoreflect APIs for their client language.
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
 

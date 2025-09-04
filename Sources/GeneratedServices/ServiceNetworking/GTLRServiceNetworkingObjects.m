@@ -24,6 +24,12 @@ NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_AppendPathTo
 NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_ConstantAddress = @"CONSTANT_ADDRESS";
 NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_PathTranslationUnspecified = @"PATH_TRANSLATION_UNSPECIFIED";
 
+// GTLRServiceNetworking_BatchingSettingsProto.flowControlLimitExceededBehavior
+NSString * const kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block = @"BLOCK";
+NSString * const kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore = @"IGNORE";
+NSString * const kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException = @"THROW_EXCEPTION";
+NSString * const kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior = @"UNSET_BEHAVIOR";
+
 // GTLRServiceNetworking_ClientLibrarySettings.launchStage
 NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceNetworking_ClientLibrarySettings_LaunchStage_Beta = @"BETA";
@@ -116,6 +122,12 @@ NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Lau
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRServiceNetworking_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -154,6 +166,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesExhausted = @"RANGES_EXHAUSTED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved = @"RANGES_NOT_RESERVED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled = @"SERVICE_NETWORKING_NOT_ENABLED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_SnServiceAgentPermissionDeniedOnConsumerProject = @"SN_SERVICE_AGENT_PERMISSION_DENIED_ON_CONSUMER_PROJECT";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_UsePermissionNotFound = @"USE_PERMISSION_NOT_FOUND";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified = @"VALIDATION_ERROR_UNSPECIFIED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested = @"VALIDATION_NOT_REQUESTED";
@@ -267,7 +280,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
          descriptionProperty, internalRange, ipPrefixLength,
          outsideAllocationPublicIpRange, privateIpv6GoogleAccess, purpose,
          region, requestedAddress, requestedRanges, role, secondaryIpRangeSpecs,
-         subnetwork, subnetworkUsers, useCustomComputeIdempotencyWindow;
+         skipRequestedAddressValidation, subnetwork, subnetworkUsers,
+         useCustomComputeIdempotencyWindow;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -291,7 +305,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Api
-@dynamic methods, mixins, name, options, sourceContext, syntax, version;
+@dynamic edition, methods, mixins, name, options, sourceContext, syntax,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -300,6 +315,37 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
     @"options" : [GTLRServiceNetworking_Option class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_Aspect
+//
+
+@implementation GTLRServiceNetworking_Aspect
+@dynamic kind, spec;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_Aspect_Spec
+//
+
+@implementation GTLRServiceNetworking_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -398,9 +444,9 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, overridesByRequestProtocol, pathTranslation,
-         protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, loadBalancingPolicy,
+         minDeadline, operationDeadline, overridesByRequestProtocol,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -415,6 +461,47 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   return [GTLRServiceNetworking_BackendRule class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_BatchingConfigProto
+//
+
+@implementation GTLRServiceNetworking_BatchingConfigProto
+@dynamic batchDescriptor, thresholds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_BatchingDescriptorProto
+//
+
+@implementation GTLRServiceNetworking_BatchingDescriptorProto
+@dynamic batchedField, discriminatorFields, subresponseField;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"discriminatorFields" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_BatchingSettingsProto
+//
+
+@implementation GTLRServiceNetworking_BatchingSettingsProto
+@dynamic delayThreshold, elementCountLimit, elementCountThreshold,
+         flowControlByteLimit, flowControlElementLimit,
+         flowControlLimitExceededBehavior, requestByteLimit,
+         requestByteThreshold;
 @end
 
 
@@ -465,6 +552,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_CleanupConnectionMetadata
+//
+
+@implementation GTLRServiceNetworking_CleanupConnectionMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_ClientLibrarySettings
 //
 
@@ -491,7 +587,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_CommonLanguageSettings
-@dynamic destinations, referenceDocsUri;
+@dynamic destinations, referenceDocsUri, selectiveGapicGeneration;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -761,8 +857,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Documentation
-@dynamic documentationRootUrl, overview, pages, rules, sectionOverrides,
-         serviceRootUrl, summary;
+@dynamic additionalIamInfo, documentationRootUrl, overview, pages, rules,
+         sectionOverrides, serviceRootUrl, summary;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -917,6 +1013,17 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_ExperimentalFeatures
+//
+
+@implementation GTLRServiceNetworking_ExperimentalFeatures
+@dynamic protobufPythonicTypesEnabled, restAsyncIoEnabled,
+         unversionedPackageDisabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Field
 //
 
@@ -1004,7 +1111,21 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_GoSettings
-@dynamic common;
+@dynamic common, renamedServices;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_GoSettings_RenamedServices
+//
+
+@implementation GTLRServiceNetworking_GoSettings_RenamedServices
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1267,8 +1388,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Method
-@dynamic name, options, requestStreaming, requestTypeUrl, responseStreaming,
-         responseTypeUrl, syntax;
+@dynamic edition, name, options, requestStreaming, requestTypeUrl,
+         responseStreaming, responseTypeUrl, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1304,7 +1425,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_MethodSettings
-@dynamic autoPopulatedFields, longRunning, selector;
+@dynamic autoPopulatedFields, batching, longRunning, selector;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1346,7 +1467,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1577,7 +1707,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_PhpSettings
-@dynamic common;
+@dynamic common, libraryPackage;
 @end
 
 
@@ -1620,7 +1750,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_PythonSettings
-@dynamic common;
+@dynamic common, experimentalFeatures;
 @end
 
 
@@ -1818,12 +1948,30 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_SelectiveGapicGeneration
+//
+
+@implementation GTLRServiceNetworking_SelectiveGapicGeneration
+@dynamic generateOmittedAsInternal, methods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Service
 //
 
 @implementation GTLRServiceNetworking_Service
-@dynamic apis, authentication, backend, billing, configVersion, context,
-         control, customError, documentation, endpoints, enums, http,
+@dynamic apis, aspects, authentication, backend, billing, configVersion,
+         context, control, customError, documentation, endpoints, enums, http,
          identifier, logging, logs, metrics, monitoredResources, monitoring,
          name, producerProjectId, publishing, quota, sourceInfo,
          systemParameters, systemTypes, title, types, usage;
@@ -1835,6 +1983,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"apis" : [GTLRServiceNetworking_Api class],
+    @"aspects" : [GTLRServiceNetworking_Aspect class],
     @"endpoints" : [GTLRServiceNetworking_Endpoint class],
     @"enums" : [GTLRServiceNetworking_Enum class],
     @"logs" : [GTLRServiceNetworking_LogDescriptor class],

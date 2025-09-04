@@ -26,6 +26,7 @@
 @class GTLRWorkflows_Status_Details_Item;
 @class GTLRWorkflows_Workflow;
 @class GTLRWorkflows_Workflow_Labels;
+@class GTLRWorkflows_Workflow_Tags;
 @class GTLRWorkflows_Workflow_UserEnvVars;
 
 // Generated comments include content from the discovery document; avoid them
@@ -82,6 +83,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogError
  *  Value: "LOG_NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_CallLogLevel_LogNone;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkflows_Workflow.executionHistoryLevel
+
+/**
+ *  Enable execution history basic feature.
+ *
+ *  Value: "EXECUTION_HISTORY_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryBasic;
+/**
+ *  Enable execution history detailed feature.
+ *
+ *  Value: "EXECUTION_HISTORY_DETAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryDetailed;
+/**
+ *  The default/unset value.
+ *
+ *  Value: "EXECUTION_HISTORY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkflows_Workflow.state
@@ -457,6 +480,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 @interface GTLRWorkflows_Workflow : GTLRObject
 
 /**
+ *  Output only. A list of all KMS crypto keys used to encrypt or decrypt the
+ *  data associated with the workflow.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allKmsKeys;
+
+/**
+ *  Output only. A list of all KMS crypto key versions used to encrypt or
+ *  decrypt the data associated with the workflow.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allKmsKeysVersions;
+
+/**
  *  Optional. Describes the level of platform logging to apply to calls and call
  *  responses during executions of this workflow. If both the workflow and the
  *  execution specify a logging level, the execution level takes precedence.
@@ -492,6 +527,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
 @property(nonatomic, copy, nullable) NSString *cryptoKeyName;
 
 /**
+ *  Output only. The resource name of a KMS crypto key version used to encrypt
+ *  or decrypt the data associated with the workflow. Format:
+ *  projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{cryptoKey}/cryptoKeyVersions/{cryptoKeyVersion}
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyVersion;
+
+/**
  *  Description of the workflow provided by the user. Must be at most 1000
  *  Unicode characters long. This is a workflow-wide field and is not tied to a
  *  specific revision.
@@ -499,6 +541,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Describes the execution history level to apply to this workflow.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryBasic
+ *        Enable execution history basic feature. (Value:
+ *        "EXECUTION_HISTORY_BASIC")
+ *    @arg @c kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryDetailed
+ *        Enable execution history detailed feature. (Value:
+ *        "EXECUTION_HISTORY_DETAILED")
+ *    @arg @c kGTLRWorkflows_Workflow_ExecutionHistoryLevel_ExecutionHistoryLevelUnspecified
+ *        The default/unset value. (Value:
+ *        "EXECUTION_HISTORY_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *executionHistoryLevel;
 
 /**
  *  Labels associated with this workflow. Labels can contain at most 64 entries.
@@ -568,6 +626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  */
 @property(nonatomic, strong, nullable) GTLRWorkflows_StateError *stateError;
 
+/** Optional. Input only. Immutable. Tags associated with this workflow. */
+@property(nonatomic, strong, nullable) GTLRWorkflows_Workflow_Tags *tags;
+
 /**
  *  Output only. The timestamp for when the workflow was last updated. This is a
  *  workflow-wide field and is not tied to a specific revision.
@@ -598,6 +659,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_Unavailable;
  *        fetch them all at once.
  */
 @interface GTLRWorkflows_Workflow_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tags associated with this workflow.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkflows_Workflow_Tags : GTLRObject
 @end
 
 

@@ -616,6 +616,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscovery_RestMethod : GTLRObject
 
 /**
+ *  The API Version of this method, as passed in via the `X-Goog-Api-Version`
+ *  header or `$apiVersion` query parameter.
+ */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
  *  Whether this method is deprecated.
  *
  *  Uses NSNumber of boolValue.

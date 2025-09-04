@@ -28,6 +28,7 @@
 @class GTLRServiceControl_AuthenticationInfo;
 @class GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal;
 @class GTLRServiceControl_AuthorizationInfo;
+@class GTLRServiceControl_CheckResponse_DynamicMetadata;
 @class GTLRServiceControl_CheckResponse_Headers;
 @class GTLRServiceControl_FirstPartyPrincipal;
 @class GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata;
@@ -37,6 +38,7 @@
 @class GTLRServiceControl_Peer;
 @class GTLRServiceControl_Peer_Labels;
 @class GTLRServiceControl_PolicyViolationInfo;
+@class GTLRServiceControl_ReportResponse_Extensions;
 @class GTLRServiceControl_Request;
 @class GTLRServiceControl_Request_Headers;
 @class GTLRServiceControl_RequestMetadata;
@@ -62,6 +64,7 @@
 @class GTLRServiceControl_V2LogEntry_StructPayload;
 @class GTLRServiceControl_V2LogEntryOperation;
 @class GTLRServiceControl_V2LogEntrySourceLocation;
+@class GTLRServiceControl_V2ResourceEvent_Payload;
 @class GTLRServiceControl_ViolationInfo;
 
 // Generated comments include content from the discovery document; avoid them
@@ -74,6 +77,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_AuthorizationInfo.permissionType
+
+/**
+ *  Permissions that gate reading resource configuration or metadata.
+ *
+ *  Value: "ADMIN_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminRead;
+/**
+ *  Permissions that gate modification of resource configuration or metadata.
+ *
+ *  Value: "ADMIN_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminWrite;
+/**
+ *  Permissions that gate reading user-provided data.
+ *
+ *  Value: "DATA_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_DataRead;
+/**
+ *  Permissions that gate writing user-provided data.
+ *
+ *  Value: "DATA_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_DataWrite;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "PERMISSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_AuthorizationInfo_PermissionType_PermissionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_V2LogEntry.severity
@@ -133,6 +170,63 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Notic
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_V2ResourceEvent.path
+
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "API_PATH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Path_ApiPathUnspecified;
+/**
+ *  The request path.
+ *
+ *  Value: "REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Path_Request;
+/**
+ *  The response path.
+ *
+ *  Value: "RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Path_Response;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceControl_V2ResourceEvent.type
+
+/**
+ *  The resource is created/inserted.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Create;
+/**
+ *  The resource is deleted.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Delete;
+/**
+ *  The resource event type is unclear. We do not expect any events to fall into
+ *  this category.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_TypeUnspecified;
+/**
+ *  The resource is un-deleted.
+ *
+ *  Value: "UNDELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Undelete;
+/**
+ *  The resource is updated.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceControl_V2ResourceEvent_Type_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceControl_ViolationInfo.policyType
@@ -617,6 +711,28 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *permission;
 
 /**
+ *  The type of the permission that was checked. For data access audit logs this
+ *  corresponds with the permission type that must be enabled in the
+ *  project/folder/organization IAM policy in order for the log to be written.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminRead
+ *        Permissions that gate reading resource configuration or metadata.
+ *        (Value: "ADMIN_READ")
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_AdminWrite
+ *        Permissions that gate modification of resource configuration or
+ *        metadata. (Value: "ADMIN_WRITE")
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_DataRead
+ *        Permissions that gate reading user-provided data. (Value: "DATA_READ")
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_DataWrite
+ *        Permissions that gate writing user-provided data. (Value:
+ *        "DATA_WRITE")
+ *    @arg @c kGTLRServiceControl_AuthorizationInfo_PermissionType_PermissionTypeUnspecified
+ *        Default. Should not be used. (Value: "PERMISSION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *permissionType;
+
+/**
  *  The resource being accessed, as a REST-style or cloud resource string. For
  *  example: bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID or
  *  projects/PROJECTID/datasets/DATASETID
@@ -663,6 +779,13 @@ GTLR_DEPRECATED
  */
 @interface GTLRServiceControl_CheckResponse : GTLRObject
 
+/**
+ *  Optional response metadata that will be emitted as dynamic metadata to be
+ *  consumed by the caller of ServiceController. For compatibility with the
+ *  ext_authz interface.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_CheckResponse_DynamicMetadata *dynamicMetadata;
+
 /** Returns a set of request contexts generated from the `CheckRequest`. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_CheckResponse_Headers *headers;
 
@@ -673,6 +796,20 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
 
+@end
+
+
+/**
+ *  Optional response metadata that will be emitted as dynamic metadata to be
+ *  consumed by the caller of ServiceController. For compatibility with the
+ *  ext_authz interface.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_CheckResponse_DynamicMetadata : GTLRObject
 @end
 
 
@@ -720,22 +857,17 @@ GTLR_DEPRECATED
 @interface GTLRServiceControl_OrgPolicyViolationInfo : GTLRObject
 
 /**
- *  Optional. Resource payload that is currently in scope and is subjected to
- *  orgpolicy conditions. This payload may be the subset of the actual Resource
- *  that may come in the request. This payload should not contain any core
- *  content.
+ *  Optional. Deprecated. Resource payload that is currently in scope and is
+ *  subjected to orgpolicy conditions. This payload may be the subset of the
+ *  actual Resource that may come in the request.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_Payload *payload;
+@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_Payload *payload GTLR_DEPRECATED;
 
 /**
- *  Optional. Tags referenced on the resource at the time of evaluation. These
- *  also include the federated tags, if they are supplied in the CheckOrgPolicy
- *  or CheckCustomConstraints Requests. Optional field as of now. These tags are
- *  the Cloud tags that are available on the resource during the policy
- *  evaluation and will be available as part of the OrgPolicy check response for
- *  logging purposes.
+ *  Optional. Deprecated. Tags referenced on the resource at the time of
+ *  evaluation.
  */
-@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags *resourceTags;
+@property(nonatomic, strong, nullable) GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags *resourceTags GTLR_DEPRECATED;
 
 /**
  *  Optional. Resource type that the orgpolicy is checked against. Example:
@@ -750,33 +882,30 @@ GTLR_DEPRECATED
 
 
 /**
- *  Optional. Resource payload that is currently in scope and is subjected to
- *  orgpolicy conditions. This payload may be the subset of the actual Resource
- *  that may come in the request. This payload should not contain any core
- *  content.
+ *  Optional. Deprecated. Resource payload that is currently in scope and is
+ *  subjected to orgpolicy conditions. This payload may be the subset of the
+ *  actual Resource that may come in the request.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
  *        get the list of properties and then fetch them; or @c
  *        -additionalProperties to fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRServiceControl_OrgPolicyViolationInfo_Payload : GTLRObject
 @end
 
 
 /**
- *  Optional. Tags referenced on the resource at the time of evaluation. These
- *  also include the federated tags, if they are supplied in the CheckOrgPolicy
- *  or CheckCustomConstraints Requests. Optional field as of now. These tags are
- *  the Cloud tags that are available on the resource during the policy
- *  evaluation and will be available as part of the OrgPolicy check response for
- *  logging purposes.
+ *  Optional. Deprecated. Tags referenced on the resource at the time of
+ *  evaluation.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
+GTLR_DEPRECATED
 @interface GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags : GTLRObject
 @end
 
@@ -868,6 +997,26 @@ GTLR_DEPRECATED
  *  Response message for the Report method.
  */
 @interface GTLRServiceControl_ReportResponse : GTLRObject
+
+/**
+ *  The extension field to store serialized OTel responses. e.g.
+ *  ExportLogsServiceResponse, ExportMetricsServiceResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ReportResponse_Extensions *extensions;
+
+@end
+
+
+/**
+ *  The extension field to store serialized OTel responses. e.g.
+ *  ExportLogsServiceResponse, ExportMetricsServiceResponse.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_ReportResponse_Extensions : GTLRObject
 @end
 
 
@@ -905,6 +1054,13 @@ GTLR_DEPRECATED
 
 /** The HTTP request method, such as `GET`, `POST`. */
 @property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  The values from Origin header from the HTTP request, such as
+ *  "https://console.cloud.google.com". Modern browsers can only have one
+ *  origin. Special browsers and/or HTTP clients may require multiple origins.
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
 
 /** The HTTP URL path, excluding the query parameters. */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1498,7 +1654,7 @@ GTLR_DEPRECATED
 
 /**
  *  The referer URL of the request, as defined in [HTTP/1.1 Header Field
- *  Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+ *  Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
  */
 @property(nonatomic, copy, nullable) NSString *referer;
 
@@ -1781,6 +1937,93 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *line;
 
+@end
+
+
+/**
+ *  Report v2 extension proto for passing the resource metadata associated with
+ *  a resource create/update/delete/undelete event from ESF to Chemist.
+ *  ResourceEvent proto should be serialized into the
+ *  ReportRequest.operations.extensions.
+ */
+@interface GTLRServiceControl_V2ResourceEvent : GTLRObject
+
+/**
+ *  The ESF unique context id of the api request, from which this resource event
+ *  originated. This field is only needed for CAIS integration via api
+ *  annotation. See go/cais-lro-delete for more details.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextId;
+
+/**
+ *  The destinations field determines which backend services should handle the
+ *  event. This should be specified as a comma-delimited string.
+ */
+@property(nonatomic, copy, nullable) NSString *destinations;
+
+/** The parent resource for the resource. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Resource *parent;
+
+/**
+ *  The api path the resource event was created in. This should match the source
+ *  of the `payload` field. For direct integrations with Chemist, this should
+ *  generally be the RESPONSE. go/resource-event-pipeline-type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Path_ApiPathUnspecified
+ *        Default value. Do not use. (Value: "API_PATH_UNSPECIFIED")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Path_Request The request path.
+ *        (Value: "REQUEST")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Path_Response The response
+ *        path. (Value: "RESPONSE")
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  The payload contains metadata associated with the resource event. A
+ *  ResourceEventPayloadStatus is provided instead if the original payload
+ *  cannot be returned due to a limitation (e.g. size limit).
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_V2ResourceEvent_Payload *payload;
+
+/** The resource associated with the event. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Resource *resource;
+
+/**
+ *  The resource event type determines how the backend service should process
+ *  the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_Create The resource is
+ *        created/inserted. (Value: "CREATE")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_Delete The resource is
+ *        deleted. (Value: "DELETE")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_TypeUnspecified The
+ *        resource event type is unclear. We do not expect any events to fall
+ *        into this category. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_Undelete The resource is
+ *        un-deleted. (Value: "UNDELETE")
+ *    @arg @c kGTLRServiceControl_V2ResourceEvent_Type_Update The resource is
+ *        updated. (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The payload contains metadata associated with the resource event. A
+ *  ResourceEventPayloadStatus is provided instead if the original payload
+ *  cannot be returned due to a limitation (e.g. size limit).
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_V2ResourceEvent_Payload : GTLRObject
 @end
 
 

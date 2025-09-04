@@ -50,6 +50,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersFail
 FOUNDATION_EXTERN NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersNoAction;
 
 // ----------------------------------------------------------------------------
+// applicationStatus
+
+/** Value: "APPLICATION_STATUS_COMPLETED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocApplicationStatusApplicationStatusCompleted;
+/** Value: "APPLICATION_STATUS_RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocApplicationStatusApplicationStatusRunning;
+/** Value: "APPLICATION_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocApplicationStatusApplicationStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// executorStatus
+
+/** Value: "EXECUTOR_STATUS_ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocExecutorStatusExecutorStatusActive;
+/** Value: "EXECUTOR_STATUS_DEAD" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocExecutorStatusExecutorStatusDead;
+/** Value: "EXECUTOR_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocExecutorStatusExecutorStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // jobStateMatcher
 
 /**
@@ -70,6 +90,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherAll;
  *  Value: "NON_ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
+
+// ----------------------------------------------------------------------------
+// jobStatus
+
+/** Value: "JOB_EXECUTION_STATUS_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStatusJobExecutionStatusFailed;
+/** Value: "JOB_EXECUTION_STATUS_RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStatusJobExecutionStatusRunning;
+/** Value: "JOB_EXECUTION_STATUS_SUCCEEDED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStatusJobExecutionStatusSucceeded;
+/** Value: "JOB_EXECUTION_STATUS_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStatusJobExecutionStatusUnknown;
+/** Value: "JOB_EXECUTION_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStatusJobExecutionStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// stageStatus
+
+/** Value: "STAGE_STATUS_ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocStageStatusStageStatusActive;
+/** Value: "STAGE_STATUS_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocStageStatusStageStatusComplete;
+/** Value: "STAGE_STATUS_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocStageStatusStageStatusFailed;
+/** Value: "STAGE_STATUS_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocStageStatusStageStatusPending;
+/** Value: "STAGE_STATUS_SKIPPED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocStageStatusStageStatusSkipped;
+/** Value: "STAGE_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocStageStatusStageStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// taskStatus
+
+/** Value: "TASK_STATUS_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusFailed;
+/** Value: "TASK_STATUS_KILLED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusKilled;
+/** Value: "TASK_STATUS_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusPending;
+/** Value: "TASK_STATUS_RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusRunning;
+/** Value: "TASK_STATUS_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusSuccess;
+/** Value: "TASK_STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -438,6 +504,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
+ *  Analyze a Batch for possible recommendations and insights.
+ *
+ *  Method: dataproc.projects.locations.batches.analyze
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesAnalyze : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to analyze in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Analyze a Batch for possible recommendations and insights.
+ *
+ *  @param object The @c GTLRDataproc_AnalyzeBatchRequest to include in the
+ *    query.
+ *  @param name Required. The fully qualified name of the batch to analyze in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesAnalyze
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_AnalyzeBatchRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a batch workload that executes asynchronously.
  *
  *  Method: dataproc.projects.locations.batches.create
@@ -567,9 +667,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  logical expression constraining the values of various fields in each batch
  *  resource. Filters are case sensitive, and may contain multiple clauses
  *  combined with logical operators (AND/OR). Supported fields are batch_id,
- *  batch_uuid, state, and create_time.e.g. state = RUNNING and create_time <
- *  "2023-01-01T00:00:00Z" filters for batches in state RUNNING that were
- *  created before 2023-01-01See
+ *  batch_uuid, state, create_time, and labels.e.g. state = RUNNING and
+ *  create_time < "2023-01-01T00:00:00Z" filters for batches in state RUNNING
+ *  that were created before 2023-01-01. state = RUNNING and
+ *  labels.environment=production filters for batches in state in a RUNNING
+ *  state that have a production environment label.See
  *  https://google.aip.dev/assets/misc/ebnf-filtering.txt for a detailed
  *  description of the filter syntax and a list of supported comparisons.
  */
@@ -613,6 +715,1019 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Obtain high level information corresponding to a single Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.access
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccess : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSparkApplicationResponse.
+ *
+ *  Obtain high level information corresponding to a single Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccess
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain environment details for a Spark Application
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.accessEnvironmentInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessEnvironmentInfo : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSparkApplicationEnvironmentInfoResponse.
+ *
+ *  Obtain environment details for a Spark Application
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessEnvironmentInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a spark job for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.accessJob
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessJob : GTLRDataprocQuery
+
+/** Required. Job ID to fetch data for. */
+@property(nonatomic, assign) long long jobId;
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSparkApplicationJobResponse.
+ *
+ *  Obtain data corresponding to a spark job for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessJob
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain Spark Plan Graph for a Spark Application SQL execution. Limits the
+ *  number of clusters returned as part of the graph to 10000.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.accessSqlPlan
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlPlan : GTLRDataprocQuery
+
+/** Required. Execution ID */
+@property(nonatomic, assign) long long executionId;
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSparkApplicationSqlSparkPlanGraphResponse.
+ *
+ *  Obtain Spark Plan Graph for a Spark Application SQL execution. Limits the
+ *  number of clusters returned as part of the graph to 10000.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlPlan
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a particular SQL Query for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.accessSqlQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlQuery : GTLRDataprocQuery
+
+/**
+ *  Optional. Lists/ hides details of Spark plan nodes. True is set to list and
+ *  false to hide.
+ */
+@property(nonatomic, assign) BOOL details;
+
+/** Required. Execution ID */
+@property(nonatomic, assign) long long executionId;
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Enables/ disables physical plan description on demand */
+@property(nonatomic, assign) BOOL planDescription;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSparkApplicationSqlQueryResponse.
+ *
+ *  Obtain data corresponding to a particular SQL Query for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlQuery
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a spark stage attempt for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.accessStageAttempt
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageAttempt : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage Attempt ID */
+@property(nonatomic, assign) NSInteger stageAttemptId;
+
+/** Required. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Optional. The list of summary metrics fields to include. Empty list will
+ *  default to skip all summary metrics fields. Example, if the response should
+ *  include TaskQuantileMetrics, the request should have task_quantile_metrics
+ *  in summary_metrics_mask field
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *summaryMetricsMask;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSparkApplicationStageAttemptResponse.
+ *
+ *  Obtain data corresponding to a spark stage attempt for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageAttempt
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain RDD operation graph for a Spark Application Stage. Limits the number
+ *  of clusters returned as part of the graph to 10000.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.accessStageRddGraph
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageRddGraph : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_AccessSparkApplicationStageRddOperationGraphResponse.
+ *
+ *  Obtain RDD operation graph for a Spark Application Stage. Limits the number
+ *  of clusters returned as part of the graph to 10000.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageRddGraph
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain high level information and list of Spark Applications corresponding
+ *  to a batch
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearch : GTLRDataprocQuery
+
+/**
+ *  Optional. Search only applications in the chosen state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocApplicationStatusApplicationStatusUnspecified Value
+ *        "APPLICATION_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocApplicationStatusApplicationStatusRunning Value
+ *        "APPLICATION_STATUS_RUNNING"
+ *    @arg @c kGTLRDataprocApplicationStatusApplicationStatusCompleted Value
+ *        "APPLICATION_STATUS_COMPLETED"
+ */
+@property(nonatomic, copy, nullable) NSString *applicationStatus;
+
+/** Optional. Latest end timestamp to list. */
+@property(nonatomic, strong, nullable) GTLRDateTime *maxEndTime;
+
+/** Optional. Latest start timestamp to list. */
+@property(nonatomic, strong, nullable) GTLRDateTime *maxTime;
+
+/** Optional. Earliest end timestamp to list. */
+@property(nonatomic, strong, nullable) GTLRDateTime *minEndTime;
+
+/** Optional. Earliest start timestamp to list. */
+@property(nonatomic, strong, nullable) GTLRDateTime *minTime;
+
+/**
+ *  Optional. Maximum number of applications to return in each response. The
+ *  service may return fewer than this. The default page size is 10; the maximum
+ *  page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous SearchSparkApplications
+ *  call. Provide this token to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSparkApplicationsResponse.
+ *
+ *  Obtain high level information and list of Spark Applications corresponding
+ *  to a batch
+ *
+ *  @param parent Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Obtain data corresponding to executors for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.searchExecutors
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutors : GTLRDataprocQuery
+
+/**
+ *  Optional. Filter to select whether active/ dead or all executors should be
+ *  selected.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocExecutorStatusExecutorStatusUnspecified Value
+ *        "EXECUTOR_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocExecutorStatusExecutorStatusActive Value
+ *        "EXECUTOR_STATUS_ACTIVE"
+ *    @arg @c kGTLRDataprocExecutorStatusExecutorStatusDead Value
+ *        "EXECUTOR_STATUS_DEAD"
+ */
+@property(nonatomic, copy, nullable) NSString *executorStatus;
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of executors to return in each response. The
+ *  service may return fewer than this. The default page size is 10; the maximum
+ *  page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  AccessSparkApplicationExecutorsList call. Provide this token to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSparkApplicationExecutorsResponse.
+ *
+ *  Obtain data corresponding to executors for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutors
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain executor summary with respect to a spark stage attempt.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.searchExecutorStageSummary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutorStageSummary : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of executors to return in each response. The
+ *  service may return fewer than this. The default page size is 10; the maximum
+ *  page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  AccessSparkApplicationExecutorsList call. Provide this token to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage Attempt ID */
+@property(nonatomic, assign) NSInteger stageAttemptId;
+
+/** Required. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_SearchSparkApplicationExecutorStageSummaryResponse.
+ *
+ *  Obtain executor summary with respect to a spark stage attempt.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutorStageSummary
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain list of spark jobs corresponding to a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.searchJobs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchJobs : GTLRDataprocQuery
+
+/**
+ *  Optional. List only jobs in the specific state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusUnspecified Value
+ *        "JOB_EXECUTION_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusRunning Value
+ *        "JOB_EXECUTION_STATUS_RUNNING"
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusSucceeded Value
+ *        "JOB_EXECUTION_STATUS_SUCCEEDED"
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusFailed Value
+ *        "JOB_EXECUTION_STATUS_FAILED"
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusUnknown Value
+ *        "JOB_EXECUTION_STATUS_UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *jobStatus;
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of jobs to return in each response. The service may
+ *  return fewer than this. The default page size is 10; the maximum page size
+ *  is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous SearchSparkApplicationJobs
+ *  call. Provide this token to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSparkApplicationJobsResponse.
+ *
+ *  Obtain list of spark jobs corresponding to a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchJobs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to SQL Queries for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.searchSqlQueries
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchSqlQueries : GTLRDataprocQuery
+
+/**
+ *  Optional. Lists/ hides details of Spark plan nodes. True is set to list and
+ *  false to hide.
+ */
+@property(nonatomic, assign) BOOL details;
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of queries to return in each response. The service
+ *  may return fewer than this. The default page size is 10; the maximum page
+ *  size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSparkApplicationSqlQueries call. Provide this token to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Enables/ disables physical plan description on demand */
+@property(nonatomic, assign) BOOL planDescription;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSparkApplicationSqlQueriesResponse.
+ *
+ *  Obtain data corresponding to SQL Queries for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchSqlQueries
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a spark stage attempts for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.searchStageAttempts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttempts : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of stage attempts (paging based on
+ *  stage_attempt_id) to return in each response. The service may return fewer
+ *  than this. The default page size is 10; the maximum page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSparkApplicationStageAttempts call. Provide this token to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage ID for which attempts are to be fetched */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Optional. The list of summary metrics fields to include. Empty list will
+ *  default to skip all summary metrics fields. Example, if the response should
+ *  include TaskQuantileMetrics, the request should have task_quantile_metrics
+ *  in summary_metrics_mask field
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *summaryMetricsMask;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSparkApplicationStageAttemptsResponse.
+ *
+ *  Obtain data corresponding to a spark stage attempts for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttempts
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to tasks for a spark stage attempt for a Spark
+ *  Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.searchStageAttemptTasks
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttemptTasks : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of tasks to return in each response. The service
+ *  may return fewer than this. The default page size is 10; the maximum page
+ *  size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  ListSparkApplicationStageAttemptTasks call. Provide this token to retrieve
+ *  the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Sort the tasks by runtime. */
+@property(nonatomic, assign) BOOL sortRuntime;
+
+/** Optional. Stage Attempt ID */
+@property(nonatomic, assign) NSInteger stageAttemptId;
+
+/** Optional. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Optional. List only tasks in the state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusUnspecified Value
+ *        "TASK_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusRunning Value
+ *        "TASK_STATUS_RUNNING"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusSuccess Value
+ *        "TASK_STATUS_SUCCESS"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusFailed Value "TASK_STATUS_FAILED"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusKilled Value "TASK_STATUS_KILLED"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusPending Value
+ *        "TASK_STATUS_PENDING"
+ */
+@property(nonatomic, copy, nullable) NSString *taskStatus;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSparkApplicationStageAttemptTasksResponse.
+ *
+ *  Obtain data corresponding to tasks for a spark stage attempt for a Spark
+ *  Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttemptTasks
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to stages for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.searchStages
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStages : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of stages (paging based on stage_id) to return in
+ *  each response. The service may return fewer than this. The default page size
+ *  is 10; the maximum page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  FetchSparkApplicationStagesList call. Provide this token to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. List only stages in the given state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocStageStatusStageStatusUnspecified Value
+ *        "STAGE_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusActive Value
+ *        "STAGE_STATUS_ACTIVE"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusComplete Value
+ *        "STAGE_STATUS_COMPLETE"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusFailed Value
+ *        "STAGE_STATUS_FAILED"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusPending Value
+ *        "STAGE_STATUS_PENDING"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusSkipped Value
+ *        "STAGE_STATUS_SKIPPED"
+ */
+@property(nonatomic, copy, nullable) NSString *stageStatus;
+
+/**
+ *  Optional. The list of summary metrics fields to include. Empty list will
+ *  default to skip all summary metrics fields. Example, if the response should
+ *  include TaskQuantileMetrics, the request should have task_quantile_metrics
+ *  in summary_metrics_mask field
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *summaryMetricsMask;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSparkApplicationStagesResponse.
+ *
+ *  Obtain data corresponding to stages for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStages
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain summary of Executor Summary for a Spark Application
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.summarizeExecutors
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeExecutors : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SummarizeSparkApplicationExecutorsResponse.
+ *
+ *  Obtain summary of Executor Summary for a Spark Application
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeExecutors
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain summary of Jobs for a Spark Application
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.summarizeJobs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeJobs : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SummarizeSparkApplicationJobsResponse.
+ *
+ *  Obtain summary of Jobs for a Spark Application
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeJobs
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain summary of Tasks for a Spark Application Stage Attempt
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.summarizeStageAttemptTasks
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStageAttemptTasks : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage Attempt ID */
+@property(nonatomic, assign) NSInteger stageAttemptId;
+
+/** Required. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_SummarizeSparkApplicationStageAttemptTasksResponse.
+ *
+ *  Obtain summary of Tasks for a Spark Application Stage Attempt
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStageAttemptTasks
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain summary of Stages for a Spark Application
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.summarizeStages
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStages : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the batch to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Batch) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SummarizeSparkApplicationStagesResponse.
+ *
+ *  Obtain summary of Stages for a Spark Application
+ *
+ *  @param name Required. The fully qualified name of the batch to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStages
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Write wrapper objects from dataplane to spanner
+ *
+ *  Method: dataproc.projects.locations.batches.sparkApplications.write
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsWrite : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the spark application to write data
+ *  about in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_WriteSparkApplicationContextResponse.
+ *
+ *  Write wrapper objects from dataplane to spanner
+ *
+ *  @param object The @c GTLRDataproc_WriteSparkApplicationContextRequest to
+ *    include in the query.
+ *  @param name Required. The fully qualified name of the spark application to
+ *    write data about in the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/batches/BATCH_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsWrite
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_WriteSparkApplicationContextRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -890,9 +2005,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  logical expression constraining the values of various fields in each session
  *  resource. Filters are case sensitive, and may contain multiple clauses
  *  combined with logical operators (AND, OR). Supported fields are session_id,
- *  session_uuid, state, and create_time.Example: state = ACTIVE and create_time
- *  < "2023-01-01T00:00:00Z" is a filter for sessions in an ACTIVE state that
- *  were created before 2023-01-01.See
+ *  session_uuid, state, create_time, and labels.Example: state = ACTIVE and
+ *  create_time < "2023-01-01T00:00:00Z" is a filter for sessions in an ACTIVE
+ *  state that were created before 2023-01-01. state = ACTIVE and
+ *  labels.environment=production is a filter for sessions in an ACTIVE state
+ *  that have a production environment label.See
  *  https://google.aip.dev/assets/misc/ebnf-filtering.txt for a detailed
  *  description of the filter syntax and a list of supported comparators.
  */
@@ -927,6 +2044,1056 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Obtain high level information corresponding to a single Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.access
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccess : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSessionSparkApplicationResponse.
+ *
+ *  Obtain high level information corresponding to a single Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccess
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain environment details for a Spark Application
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.accessEnvironmentInfo
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessEnvironmentInfo : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_AccessSessionSparkApplicationEnvironmentInfoResponse.
+ *
+ *  Obtain environment details for a Spark Application
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessEnvironmentInfo
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a spark job for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.accessJob
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessJob : GTLRDataprocQuery
+
+/** Required. Job ID to fetch data for. */
+@property(nonatomic, assign) long long jobId;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSessionSparkApplicationJobResponse.
+ *
+ *  Obtain data corresponding to a spark job for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessJob
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain Spark Plan Graph for a Spark Application SQL execution. Limits the
+ *  number of clusters returned as part of the graph to 10000.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.accessSqlPlan
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlPlan : GTLRDataprocQuery
+
+/** Required. Execution ID */
+@property(nonatomic, assign) long long executionId;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_AccessSessionSparkApplicationSqlSparkPlanGraphResponse.
+ *
+ *  Obtain Spark Plan Graph for a Spark Application SQL execution. Limits the
+ *  number of clusters returned as part of the graph to 10000.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlPlan
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a particular SQL Query for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.accessSqlQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlQuery : GTLRDataprocQuery
+
+/**
+ *  Optional. Lists/ hides details of Spark plan nodes. True is set to list and
+ *  false to hide.
+ */
+@property(nonatomic, assign) BOOL details;
+
+/** Required. Execution ID */
+@property(nonatomic, assign) long long executionId;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Enables/ disables physical plan description on demand */
+@property(nonatomic, assign) BOOL planDescription;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSessionSparkApplicationSqlQueryResponse.
+ *
+ *  Obtain data corresponding to a particular SQL Query for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlQuery
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a spark stage attempt for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.accessStageAttempt
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageAttempt : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage Attempt ID */
+@property(nonatomic, assign) NSInteger stageAttemptId;
+
+/** Required. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Optional. The list of summary metrics fields to include. Empty list will
+ *  default to skip all summary metrics fields. Example, if the response should
+ *  include TaskQuantileMetrics, the request should have task_quantile_metrics
+ *  in summary_metrics_mask field
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *summaryMetricsMask;
+
+/**
+ *  Fetches a @c GTLRDataproc_AccessSessionSparkApplicationStageAttemptResponse.
+ *
+ *  Obtain data corresponding to a spark stage attempt for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageAttempt
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain RDD operation graph for a Spark Application Stage. Limits the number
+ *  of clusters returned as part of the graph to 10000.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.accessStageRddGraph
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageRddGraph : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_AccessSessionSparkApplicationStageRddOperationGraphResponse.
+ *
+ *  Obtain RDD operation graph for a Spark Application Stage. Limits the number
+ *  of clusters returned as part of the graph to 10000.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageRddGraph
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain high level information and list of Spark Applications corresponding
+ *  to a batch
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearch : GTLRDataprocQuery
+
+/**
+ *  Optional. Search only applications in the chosen state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocApplicationStatusApplicationStatusUnspecified Value
+ *        "APPLICATION_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocApplicationStatusApplicationStatusRunning Value
+ *        "APPLICATION_STATUS_RUNNING"
+ *    @arg @c kGTLRDataprocApplicationStatusApplicationStatusCompleted Value
+ *        "APPLICATION_STATUS_COMPLETED"
+ */
+@property(nonatomic, copy, nullable) NSString *applicationStatus;
+
+/** Optional. Latest end timestamp to list. */
+@property(nonatomic, strong, nullable) GTLRDateTime *maxEndTime;
+
+/** Optional. Latest start timestamp to list. */
+@property(nonatomic, strong, nullable) GTLRDateTime *maxTime;
+
+/** Optional. Earliest end timestamp to list. */
+@property(nonatomic, strong, nullable) GTLRDateTime *minEndTime;
+
+/** Optional. Earliest start timestamp to list. */
+@property(nonatomic, strong, nullable) GTLRDateTime *minTime;
+
+/**
+ *  Optional. Maximum number of applications to return in each response. The
+ *  service may return fewer than this. The default page size is 10; the maximum
+ *  page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplications call. Provide this token to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSessionSparkApplicationsResponse.
+ *
+ *  Obtain high level information and list of Spark Applications corresponding
+ *  to a batch
+ *
+ *  @param parent Required. The fully qualified name of the session to retrieve
+ *    in the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Obtain data corresponding to executors for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.searchExecutors
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutors : GTLRDataprocQuery
+
+/**
+ *  Optional. Filter to select whether active/ dead or all executors should be
+ *  selected.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocExecutorStatusExecutorStatusUnspecified Value
+ *        "EXECUTOR_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocExecutorStatusExecutorStatusActive Value
+ *        "EXECUTOR_STATUS_ACTIVE"
+ *    @arg @c kGTLRDataprocExecutorStatusExecutorStatusDead Value
+ *        "EXECUTOR_STATUS_DEAD"
+ */
+@property(nonatomic, copy, nullable) NSString *executorStatus;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of executors to return in each response. The
+ *  service may return fewer than this. The default page size is 10; the maximum
+ *  page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplicationExecutors call. Provide this token to retrieve
+ *  the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSessionSparkApplicationExecutorsResponse.
+ *
+ *  Obtain data corresponding to executors for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutors
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain executor summary with respect to a spark stage attempt.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.searchExecutorStageSummary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutorStageSummary : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of executors to return in each response. The
+ *  service may return fewer than this. The default page size is 10; the maximum
+ *  page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplicationExecutorStageSummary call. Provide this token
+ *  to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage Attempt ID */
+@property(nonatomic, assign) NSInteger stageAttemptId;
+
+/** Required. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_SearchSessionSparkApplicationExecutorStageSummaryResponse.
+ *
+ *  Obtain executor summary with respect to a spark stage attempt.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutorStageSummary
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain list of spark jobs corresponding to a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.searchJobs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchJobs : GTLRDataprocQuery
+
+/**
+ *  Optional. List of Job IDs to filter by if provided.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *jobIds;
+
+/**
+ *  Optional. List only jobs in the specific state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusUnspecified Value
+ *        "JOB_EXECUTION_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusRunning Value
+ *        "JOB_EXECUTION_STATUS_RUNNING"
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusSucceeded Value
+ *        "JOB_EXECUTION_STATUS_SUCCEEDED"
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusFailed Value
+ *        "JOB_EXECUTION_STATUS_FAILED"
+ *    @arg @c kGTLRDataprocJobStatusJobExecutionStatusUnknown Value
+ *        "JOB_EXECUTION_STATUS_UNKNOWN"
+ */
+@property(nonatomic, copy, nullable) NSString *jobStatus;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of jobs to return in each response. The service may
+ *  return fewer than this. The default page size is 10; the maximum page size
+ *  is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplicationJobs call. Provide this token to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSessionSparkApplicationJobsResponse.
+ *
+ *  Obtain list of spark jobs corresponding to a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchJobs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to SQL Queries for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.searchSqlQueries
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchSqlQueries : GTLRDataprocQuery
+
+/**
+ *  Optional. Lists/ hides details of Spark plan nodes. True is set to list and
+ *  false to hide.
+ */
+@property(nonatomic, assign) BOOL details;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. List of Spark Connect operation IDs to filter by if provided. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;
+
+/**
+ *  Optional. Maximum number of queries to return in each response. The service
+ *  may return fewer than this. The default page size is 10; the maximum page
+ *  size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplicationSqlQueries call. Provide this token to retrieve
+ *  the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Enables/ disables physical plan description on demand */
+@property(nonatomic, assign) BOOL planDescription;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSessionSparkApplicationSqlQueriesResponse.
+ *
+ *  Obtain data corresponding to SQL Queries for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchSqlQueries
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to a spark stage attempts for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.searchStageAttempts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttempts : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of stage attempts (paging based on
+ *  stage_attempt_id) to return in each response. The service may return fewer
+ *  than this. The default page size is 10; the maximum page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplicationStageAttempts call. Provide this token to
+ *  retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage ID for which attempts are to be fetched */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Optional. The list of summary metrics fields to include. Empty list will
+ *  default to skip all summary metrics fields. Example, if the response should
+ *  include TaskQuantileMetrics, the request should have task_quantile_metrics
+ *  in summary_metrics_mask field
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *summaryMetricsMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_SearchSessionSparkApplicationStageAttemptsResponse.
+ *
+ *  Obtain data corresponding to a spark stage attempts for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttempts
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to tasks for a spark stage attempt for a Spark
+ *  Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.searchStageAttemptTasks
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttemptTasks : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of tasks to return in each response. The service
+ *  may return fewer than this. The default page size is 10; the maximum page
+ *  size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplicationStageAttemptTasks call. Provide this token to
+ *  retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Sort the tasks by runtime. */
+@property(nonatomic, assign) BOOL sortRuntime;
+
+/** Optional. Stage Attempt ID */
+@property(nonatomic, assign) NSInteger stageAttemptId;
+
+/** Optional. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Optional. List only tasks in the state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusUnspecified Value
+ *        "TASK_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusRunning Value
+ *        "TASK_STATUS_RUNNING"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusSuccess Value
+ *        "TASK_STATUS_SUCCESS"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusFailed Value "TASK_STATUS_FAILED"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusKilled Value "TASK_STATUS_KILLED"
+ *    @arg @c kGTLRDataprocTaskStatusTaskStatusPending Value
+ *        "TASK_STATUS_PENDING"
+ */
+@property(nonatomic, copy, nullable) NSString *taskStatus;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_SearchSessionSparkApplicationStageAttemptTasksResponse.
+ *
+ *  Obtain data corresponding to tasks for a spark stage attempt for a Spark
+ *  Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttemptTasks
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain data corresponding to stages for a Spark Application.
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.searchStages
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStages : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Maximum number of stages (paging based on stage_id) to return in
+ *  each response. The service may return fewer than this. The default page size
+ *  is 10; the maximum page size is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  SearchSessionSparkApplicationStages call. Provide this token to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. List of Stage IDs to filter by if provided.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *stageIds;
+
+/**
+ *  Optional. List only stages in the given state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocStageStatusStageStatusUnspecified Value
+ *        "STAGE_STATUS_UNSPECIFIED"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusActive Value
+ *        "STAGE_STATUS_ACTIVE"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusComplete Value
+ *        "STAGE_STATUS_COMPLETE"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusFailed Value
+ *        "STAGE_STATUS_FAILED"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusPending Value
+ *        "STAGE_STATUS_PENDING"
+ *    @arg @c kGTLRDataprocStageStatusStageStatusSkipped Value
+ *        "STAGE_STATUS_SKIPPED"
+ */
+@property(nonatomic, copy, nullable) NSString *stageStatus;
+
+/**
+ *  Optional. The list of summary metrics fields to include. Empty list will
+ *  default to skip all summary metrics fields. Example, if the response should
+ *  include TaskQuantileMetrics, the request should have task_quantile_metrics
+ *  in summary_metrics_mask field
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *summaryMetricsMask;
+
+/**
+ *  Fetches a @c GTLRDataproc_SearchSessionSparkApplicationStagesResponse.
+ *
+ *  Obtain data corresponding to stages for a Spark Application.
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStages
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain summary of Executor Summary for a Spark Application
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.summarizeExecutors
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeExecutors : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SummarizeSessionSparkApplicationExecutorsResponse.
+ *
+ *  Obtain summary of Executor Summary for a Spark Application
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeExecutors
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain summary of Jobs for a Spark Application
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.summarizeJobs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeJobs : GTLRDataprocQuery
+
+/**
+ *  Optional. List of Job IDs to filter by if provided.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *jobIds;
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_SummarizeSessionSparkApplicationJobsResponse.
+ *
+ *  Obtain summary of Jobs for a Spark Application
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeJobs
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain summary of Tasks for a Spark Application Stage Attempt
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.summarizeStageAttemptTasks
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStageAttemptTasks : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. Stage Attempt ID */
+@property(nonatomic, assign) NSInteger stageAttemptId;
+
+/** Required. Stage ID */
+@property(nonatomic, assign) long long stageId;
+
+/**
+ *  Fetches a @c
+ *  GTLRDataproc_SummarizeSessionSparkApplicationStageAttemptTasksResponse.
+ *
+ *  Obtain summary of Tasks for a Spark Application Stage Attempt
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStageAttemptTasks
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Obtain summary of Stages for a Spark Application
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.summarizeStages
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStages : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the session to retrieve in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Parent (Session) resource reference. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. List of Stage IDs to filter by if provided.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *stageIds;
+
+/**
+ *  Fetches a @c GTLRDataproc_SummarizeSessionSparkApplicationStagesResponse.
+ *
+ *  Obtain summary of Stages for a Spark Application
+ *
+ *  @param name Required. The fully qualified name of the session to retrieve in
+ *    the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStages
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Write wrapper objects from dataplane to spanner
+ *
+ *  Method: dataproc.projects.locations.sessions.sparkApplications.write
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsWrite : GTLRDataprocQuery
+
+/**
+ *  Required. The fully qualified name of the spark application to write data
+ *  about in the format
+ *  "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_WriteSessionSparkApplicationContextResponse.
+ *
+ *  Write wrapper objects from dataplane to spanner
+ *
+ *  @param object The @c GTLRDataproc_WriteSessionSparkApplicationContextRequest
+ *    to include in the query.
+ *  @param name Required. The fully qualified name of the spark application to
+ *    write data about in the format
+ *    "projects/PROJECT_ID/locations/DATAPROC_REGION/sessions/SESSION_ID/sparkApplications/APPLICATION_ID"
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsWrite
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_WriteSessionSparkApplicationContextRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1102,7 +3269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch : GTLRDataprocQuery
 
-/** Required. The resource name of the session template. */
+/** Required. Identifier. The resource name of the session template. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1111,7 +3278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Updates the session template synchronously.
  *
  *  @param object The @c GTLRDataproc_SessionTemplate to include in the query.
- *  @param name Required. The resource name of the session template.
+ *  @param name Required. Identifier. The resource name of the session template.
  *
  *  @return GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch
  */

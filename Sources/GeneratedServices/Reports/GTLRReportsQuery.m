@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/
+//   https://developers.google.com/workspace/admin/
 
 #import <GoogleAPIClientForREST/GTLRReportsQuery.h>
 
@@ -21,10 +21,12 @@ NSString * const kGTLRReportsApplicationNameAdmin              = @"admin";
 NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
 NSString * const kGTLRReportsApplicationNameChat               = @"chat";
 NSString * const kGTLRReportsApplicationNameChrome             = @"chrome";
+NSString * const kGTLRReportsApplicationNameClassroom          = @"classroom";
 NSString * const kGTLRReportsApplicationNameContextAwareAccess = @"context_aware_access";
 NSString * const kGTLRReportsApplicationNameDataStudio         = @"data_studio";
 NSString * const kGTLRReportsApplicationNameDrive              = @"drive";
 NSString * const kGTLRReportsApplicationNameGcp                = @"gcp";
+NSString * const kGTLRReportsApplicationNameGeminiInWorkspaceApps = @"gemini_in_workspace_apps";
 NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
 NSString * const kGTLRReportsApplicationNameGroups             = @"groups";
 NSString * const kGTLRReportsApplicationNameGroupsEnterprise   = @"groups_enterprise";

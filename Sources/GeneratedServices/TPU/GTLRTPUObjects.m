@@ -18,6 +18,9 @@ NSString * const kGTLRTPU_AcceleratorConfig_Type_TypeUnspecified = @"TYPE_UNSPEC
 NSString * const kGTLRTPU_AcceleratorConfig_Type_V2            = @"V2";
 NSString * const kGTLRTPU_AcceleratorConfig_Type_V3            = @"V3";
 NSString * const kGTLRTPU_AcceleratorConfig_Type_V4            = @"V4";
+NSString * const kGTLRTPU_AcceleratorConfig_Type_V5litePod     = @"V5LITE_POD";
+NSString * const kGTLRTPU_AcceleratorConfig_Type_V5p           = @"V5P";
+NSString * const kGTLRTPU_AcceleratorConfig_Type_V6e           = @"V6E";
 
 // GTLRTPU_AttachedDisk.mode
 NSString * const kGTLRTPU_AttachedDisk_Mode_DiskModeUnspecified = @"DISK_MODE_UNSPECIFIED";
@@ -54,6 +57,7 @@ NSString * const kGTLRTPU_Node_State_Stopped          = @"STOPPED";
 NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 NSString * const kGTLRTPU_Node_State_Terminated       = @"TERMINATED";
 NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
+NSString * const kGTLRTPU_Node_State_Unknown          = @"UNKNOWN";
 
 // GTLRTPU_QueuedResourceState.state
 NSString * const kGTLRTPU_QueuedResourceState_State_Accepted   = @"ACCEPTED";
@@ -80,6 +84,16 @@ NSString * const kGTLRTPU_Symptom_SymptomType_MeshBuildFail    = @"MESH_BUILD_FA
 NSString * const kGTLRTPU_Symptom_SymptomType_OutOfMemory      = @"OUT_OF_MEMORY";
 NSString * const kGTLRTPU_Symptom_SymptomType_ProjectAbuse     = @"PROJECT_ABUSE";
 NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM_TYPE_UNSPECIFIED";
+
+// GTLRTPU_UpcomingMaintenance.maintenanceStatus
+NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Ongoing = @"ONGOING";
+NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Pending = @"PENDING";
+NSString * const kGTLRTPU_UpcomingMaintenance_MaintenanceStatus_Unknown = @"UNKNOWN";
+
+// GTLRTPU_UpcomingMaintenance.type
+NSString * const kGTLRTPU_UpcomingMaintenance_Type_Scheduled   = @"SCHEDULED";
+NSString * const kGTLRTPU_UpcomingMaintenance_Type_UnknownType = @"UNKNOWN_TYPE";
+NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled = @"UNSCHEDULED";
 
 // ----------------------------------------------------------------------------
 //
@@ -514,9 +528,10 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 @implementation GTLRTPU_Node
 @dynamic acceleratorConfig, acceleratorType, apiVersion, cidrBlock, createTime,
          dataDisks, descriptionProperty, health, healthDescription, identifier,
-         labels, metadata, multisliceNode, name, networkConfig,
+         labels, metadata, multisliceNode, name, networkConfig, networkConfigs,
          networkEndpoints, queuedResource, runtimeVersion, schedulingConfig,
-         serviceAccount, shieldedInstanceConfig, state, symptoms, tags;
+         serviceAccount, shieldedInstanceConfig, state, symptoms, tags,
+         upcomingMaintenance;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -529,6 +544,7 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dataDisks" : [GTLRTPU_AttachedDisk class],
+    @"networkConfigs" : [GTLRTPU_NetworkConfig class],
     @"networkEndpoints" : [GTLRTPU_NetworkEndpoint class],
     @"symptoms" : [GTLRTPU_Symptom class],
     @"tags" : [NSString class]
@@ -837,4 +853,15 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_UpcomingMaintenance
+//
+
+@implementation GTLRTPU_UpcomingMaintenance
+@dynamic canReschedule, latestWindowStartTime, maintenanceStatus, type,
+         windowEndTime, windowStartTime;
 @end

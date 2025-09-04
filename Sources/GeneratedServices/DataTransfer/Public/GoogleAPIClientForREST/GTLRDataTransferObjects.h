@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/
+//   https://developers.google.com/workspace/admin/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The application's ID. Retrievable by using the
- *  [`applications.list()`](/admin-sdk/data-transfer/reference/rest/v1/applications/list)
+ *  [`applications.list()`](https://developers.google.com/workspace/admin/data-transfer/reference/rest/v1/applications/list)
  *  method.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -80,7 +80,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  select the data which will get transferred in context of this application.
  *  For more information about the specific values available for each
  *  application, see the [Transfer
- *  parameters](/admin-sdk/data-transfer/v1/parameters) reference.
+ *  parameters](https://developers.google.com/workspace/admin/data-transfer/v1/parameters)
+ *  reference.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataTransfer_ApplicationTransferParam *> *applicationTransferParams;
 

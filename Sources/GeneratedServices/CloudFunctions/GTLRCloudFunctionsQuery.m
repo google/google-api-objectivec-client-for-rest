@@ -116,6 +116,33 @@
 
 @end
 
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDetachFunction
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_DetachFunctionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:detachFunction";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDetachFunction *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.detachFunction";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateDownloadUrl
 
 @dynamic name;
@@ -172,7 +199,7 @@
 
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGet
 
-@dynamic name;
+@dynamic name, revision;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -395,7 +422,14 @@
 
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

@@ -60,6 +60,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Initiated by Cloud Console for Oauth consent flow for Workbench Instances.
+ *  Do not use this method directly. Design doc: go/wbi-euc:auth-dd
+ *
+ *  Method: notebooks.projects.locations.instances.checkAuthorization
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckAuthorization : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. The name of the Notebook Instance resource. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_CheckAuthorizationResponse.
+ *
+ *  Initiated by Cloud Console for Oauth consent flow for Workbench Instances.
+ *  Do not use this method directly. Design doc: go/wbi-euc:auth-dd
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_CheckAuthorizationRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Notebook Instance resource. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCheckAuthorization
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_CheckAuthorizationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Checks whether a notebook instance is upgradable.
  *
  *  Method: notebooks.projects.locations.instances.checkUpgradability
@@ -192,6 +227,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Called by VM to return an EUC for the instance owner. Do not use this method
+ *  directly. Design doc: go/wbi-euc:dd
+ *
+ *  Method: notebooks.projects.locations.instances.generateAccessToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGenerateAccessToken : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_GenerateAccessTokenResponse.
+ *
+ *  Called by VM to return an EUC for the instance owner. Do not use this method
+ *  directly. Design doc: go/wbi-euc:dd
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_GenerateAccessTokenRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGenerateAccessToken
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_GenerateAccessTokenRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets details of a single Instance.
  *
  *  Method: notebooks.projects.locations.instances.get
@@ -222,10 +292,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets general backend configurations that might also affect the frontend.
- *  Location is required by CCFE. Although we could bypass it to send location-
- *  less request directly to the backend job, we would need CPE (go/cloud-cpe).
- *  Having the location might also be useful depending on the query.
+ *  Returns various configuration parameters.
  *
  *  Method: notebooks.projects.locations.instances.getConfig
  *
@@ -240,10 +307,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAIPlatformNotebooks_Config.
  *
- *  Gets general backend configurations that might also affect the frontend.
- *  Location is required by CCFE. Although we could bypass it to send location-
- *  less request directly to the backend job, we would need CPE (go/cloud-cpe).
- *  Having the location might also be useful depending on the query.
+ *  Returns various configuration parameters.
  *
  *  @param name Required. Format: `projects/{project_id}/locations/{location}`
  *
@@ -371,7 +435,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Required. Mask used to update an instance
+ *  Required. Mask used to update an instance. Updatable fields: * `labels` *
+ *  `gce_setup.min_cpu_platform` * `gce_setup.metadata` *
+ *  `gce_setup.machine_type` * `gce_setup.accelerator_configs` *
+ *  `gce_setup.accelerator_configs.type` *
+ *  `gce_setup.accelerator_configs.core_count` * `gce_setup.gpu_driver_config` *
+ *  `gce_setup.gpu_driver_config.enable_gpu_driver` *
+ *  `gce_setup.gpu_driver_config.custom_gpu_driver_path` *
+ *  `gce_setup.shielded_instance_config` *
+ *  `gce_setup.shielded_instance_config.enable_secure_boot` *
+ *  `gce_setup.shielded_instance_config.enable_vtpm` *
+ *  `gce_setup.shielded_instance_config.enable_integrity_monitoring` *
+ *  `gce_setup.reservation_affinity` *
+ *  `gce_setup.reservation_affinity.consume_reservation_type` *
+ *  `gce_setup.reservation_affinity.key` *
+ *  `gce_setup.reservation_affinity.values` * `gce_setup.tags` *
+ *  `gce_setup.container_image` * `gce_setup.container_image.repository` *
+ *  `gce_setup.container_image.tag` * `gce_setup.disable_public_ip` *
+ *  `disable_proxy_access`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -494,6 +575,39 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ResizeDiskRequest *)object
                notebookInstance:(NSString *)notebookInstance;
+
+@end
+
+/**
+ *  RestoreInstance restores an Instance from a BackupSource.
+ *
+ *  Method: notebooks.projects.locations.instances.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRestore : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  RestoreInstance restores an Instance from a BackupSource.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_RestoreInstanceRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRestore
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_RestoreInstanceRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -759,6 +873,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsList : GTLRAIPlatformNotebooksQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -805,7 +925,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: notebooks.projects.locations.operations.cancel
@@ -828,7 +948,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRAIPlatformNotebooks_CancelOperationRequest to

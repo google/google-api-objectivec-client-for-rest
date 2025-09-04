@@ -6,7 +6,7 @@
 // Description:
 //   Manipulates events and other calendar data.
 // Documentation:
-//   https://developers.google.com/google-apps/calendar/firstapp
+//   https://developers.google.com/workspace/calendar/firstapp
 
 #import <GoogleAPIClientForREST/GTLRCalendarQuery.h>
 
@@ -14,8 +14,10 @@
 // Constants
 
 // eventTypes
+NSString * const kGTLRCalendarEventTypesBirthday        = @"birthday";
 NSString * const kGTLRCalendarEventTypesDefault         = @"default";
 NSString * const kGTLRCalendarEventTypesFocusTime       = @"focusTime";
+NSString * const kGTLRCalendarEventTypesFromGmail       = @"fromGmail";
 NSString * const kGTLRCalendarEventTypesOutOfOffice     = @"outOfOffice";
 NSString * const kGTLRCalendarEventTypesWorkingLocation = @"workingLocation";
 

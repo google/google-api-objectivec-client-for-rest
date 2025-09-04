@@ -286,6 +286,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. If set to true, the response will return partial results when some
+ *  regions are unreachable. If set to false, the response will fail if any
+ *  region is unreachable.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCloudBuild_ListConnectionsResponse.
  *
  *  Lists Connections in a given project and location.
@@ -371,7 +378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Arbitrary additional key to find the maching repository for a webhook event
+ *  Arbitrary additional key to find the matching repository for a webhook event
  *  if needed.
  */
 @property(nonatomic, copy, nullable) NSString *webhookKey;
@@ -585,7 +592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsConnectionsRepositoriesFetchGitRefs : GTLRCloudBuildQuery
 
-/** Optional. Number of results to return in the list. Default to 100. */
+/** Optional. Number of results to return in the list. Default to 20. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** Optional. Page start. */
@@ -681,6 +688,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
  *  `projects/ * /locations/ * /connections/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If set to true, the response will return partial results when some
+ *  regions are unreachable. If set to false, the response will fail if any
+ *  region is unreachable.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCloudBuild_ListRepositoriesResponse.
@@ -821,6 +835,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
 @interface GTLRCloudBuildQuery_ProjectsLocationsList : GTLRCloudBuildQuery
 
 /**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -867,7 +887,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: cloudbuild.projects.locations.operations.cancel
@@ -890,7 +910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuildRefTypeTag;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudBuild_CancelOperationRequest to include in the

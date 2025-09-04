@@ -25,13 +25,10 @@
 @class GTLRPolicySimulator_GoogleCloudOrgpolicyV2Policy;
 @class GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpec;
 @class GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule;
+@class GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters;
 @class GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRuleStringValues;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessTuple;
-@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlay;
-@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayCustomConstraintOverlay;
-@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayPolicyOverlay;
-@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreviewResourceCounts;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlay;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlayCustomConstraintOverlay;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaOrgPolicyOverlayPolicyOverlay;
@@ -41,11 +38,18 @@
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy;
+@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlay;
+@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayCustomConstraintOverlay;
+@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayPolicyOverlay;
+@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolation;
+@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview;
+@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreviewResourceCounts;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig_PolicyOverlay;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayDiff;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResult;
 @class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResultsSummary;
+@class GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ResourceContext;
 @class GTLRPolicySimulator_GoogleIamV1AuditConfig;
 @class GTLRPolicySimulator_GoogleIamV1AuditLogConfig;
 @class GTLRPolicySimulator_GoogleIamV1Binding;
@@ -72,7 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint.actionType
 
 /**
- *  Unspecified. Results in an error.
+ *  This is only used for distinguishing unset values and should never be used.
+ *  Results in an error.
  *
  *  Value: "ACTION_TYPE_UNSPECIFIED"
  */
@@ -100,17 +105,30 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2Cu
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Create;
 /**
- *  Constraint applied when deleting the resource. Not supported yet.
+ *  Constraint applied when deleting the resource. Not currently supported.
  *
  *  Value: "DELETE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Delete;
 /**
- *  Unspecified. Results in an error.
+ *  Constraint applied when enforcing forced tagging.
+ *
+ *  Value: "GOVERN_TAGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_GovernTags;
+/**
+ *  This is only used for distinguishing unset values and should never be used.
+ *  Results in an error.
  *
  *  Value: "METHOD_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_MethodTypeUnspecified;
+/**
+ *  Constraint applied when removing an IAM grant.
+ *
+ *  Value: "REMOVE_GRANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_RemoveGrant;
 /**
  *  Constraint applied when updating the resource.
  *
@@ -179,72 +197,38 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_UnknownChange;
 
 // ----------------------------------------------------------------------------
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata.state
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata.state
 
 /**
  *  The OrgPolicyViolationsPreview creation failed with an error.
  *
  *  Value: "PREVIEW_FAILED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewFailed;
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewFailed;
 /**
  *  The OrgPolicyViolationsPreview has not been created yet.
  *
  *  Value: "PREVIEW_PENDING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewPending;
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewPending;
 /**
  *  The OrgPolicyViolationsPreview is currently being created.
  *
  *  Value: "PREVIEW_RUNNING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewRunning;
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewRunning;
 /**
  *  The state is unspecified.
  *
  *  Value: "PREVIEW_STATE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewStateUnspecified;
 /**
  *  The OrgPolicyViolationsPreview creation finished successfully.
  *
  *  Value: "PREVIEW_SUCCEEDED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewSucceeded;
-
-// ----------------------------------------------------------------------------
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview.state
-
-/**
- *  The OrgPolicyViolationsPreview creation failed with an error.
- *
- *  Value: "PREVIEW_FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewFailed;
-/**
- *  The OrgPolicyViolationsPreview has not been created yet.
- *
- *  Value: "PREVIEW_PENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewPending;
-/**
- *  The OrgPolicyViolationsPreview is currently being created.
- *
- *  Value: "PREVIEW_RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewRunning;
-/**
- *  The state is unspecified.
- *
- *  Value: "PREVIEW_STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewStateUnspecified;
-/**
- *  The OrgPolicyViolationsPreview creation finished successfully.
- *
- *  Value: "PREVIEW_SUCCEEDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewSucceeded;
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewSucceeded;
 
 // ----------------------------------------------------------------------------
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaGenerateOrgPolicyViolationsPreviewOperationMetadata.state
@@ -586,6 +570,40 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Relevance_Normal;
 
 // ----------------------------------------------------------------------------
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview.state
+
+/**
+ *  The OrgPolicyViolationsPreview creation failed with an error.
+ *
+ *  Value: "PREVIEW_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewFailed;
+/**
+ *  The OrgPolicyViolationsPreview has not been created yet.
+ *
+ *  Value: "PREVIEW_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewPending;
+/**
+ *  The OrgPolicyViolationsPreview is currently being created.
+ *
+ *  Value: "PREVIEW_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewRunning;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "PREVIEW_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewStateUnspecified;
+/**
+ *  The OrgPolicyViolationsPreview creation finished successfully.
+ *
+ *  Value: "PREVIEW_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewSucceeded;
+
+// ----------------------------------------------------------------------------
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay.state
 
 /**
@@ -667,7 +685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  Similar to PolicySpec but with an extra 'launch' field for launch reference.
- *  The PolicySpec here is specific for dry-run/darklaunch.
+ *  The PolicySpec here is specific for dry-run.
  */
 @interface GTLRPolicySimulator_GoogleCloudOrgpolicyV2AlternatePolicySpec : GTLRObject
 
@@ -696,7 +714,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_ActionTypeUnspecified
- *        Unspecified. Results in an error. (Value: "ACTION_TYPE_UNSPECIFIED")
+ *        This is only used for distinguishing unset values and should never be
+ *        used. Results in an error. (Value: "ACTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Allow
  *        Allowed action type. (Value: "ALLOW")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Deny
@@ -705,7 +724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, copy, nullable) NSString *actionType;
 
 /**
- *  Org policy condition/expression. For example:
+ *  A Common Expression Language (CEL) condition which is used in the evaluation
+ *  of the constraint. For example:
  *  `resource.instanceName.matches("[production|test]_.*_(\\d)+")` or,
  *  `resource.management.auto_upgrade == true` The max length of the condition
  *  is 1000 characters.
@@ -748,7 +768,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 /**
  *  Output only. The last time this custom constraint was updated. This
  *  represents the last time that the `CreateCustomConstraint` or
- *  `UpdateCustomConstraint` RPC was called
+ *  `UpdateCustomConstraint` methods were called.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -791,7 +811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Basic information about the Organization Policy. */
+/** Basic information about the organization policy. */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpec *spec;
 
 @end
@@ -892,12 +912,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  If `true`, then the policy is enforced. If `false`, then any configuration
- *  is acceptable. This field can be set only in policies for boolean
- *  constraints.
+ *  is acceptable. This field can be set in policies for boolean constraints,
+ *  custom constraints and managed constraints.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enforce;
+
+/**
+ *  Optional. Required for managed constraints if parameters are defined. Passes
+ *  parameter values when policy enforcement is enabled. Ensure that parameter
+ *  value types match those defined in the constraint definition. For example:
+ *  ``` { "allowedLocations" : ["us-east1", "us-west1"], "allowAll" : true } ```
+ */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters *parameters;
 
 /**
  *  List of values to be used for this policy rule. This field can be set only
@@ -905,6 +933,21 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRuleStringValues *values;
 
+@end
+
+
+/**
+ *  Optional. Required for managed constraints if parameters are defined. Passes
+ *  parameter values when policy enforcement is enabled. Ensure that parameter
+ *  value types match those defined in the constraint definition. For example:
+ *  ``` { "allowedLocations" : ["us-east1", "us-west1"], "allowAll" : true } ```
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters : GTLRObject
 @end
 
 
@@ -1033,10 +1076,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
- *  GenerateOrgPolicyViolationsPreviewOperationMetadata is metadata about an
+ *  CreateOrgPolicyViolationsPreviewOperationMetadata is metadata about an
  *  OrgPolicyViolationsPreview generations operation.
  */
-@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata : GTLRObject
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata : GTLRObject
 
 /** Time when the request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
@@ -1064,216 +1107,31 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) NSNumber *resourcesScanned;
 
 /**
- *  Time when the request started processing, i.e. when the state was set to
+ *  Time when the request started processing, i.e., when the state was set to
  *  RUNNING.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  The current state of the operation.
+ *  Output only. The current state of the operation.
  *
  *  Likely values:
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewFailed
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewFailed
  *        The OrgPolicyViolationsPreview creation failed with an error. (Value:
  *        "PREVIEW_FAILED")
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewPending
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewPending
  *        The OrgPolicyViolationsPreview has not been created yet. (Value:
  *        "PREVIEW_PENDING")
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewRunning
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewRunning
  *        The OrgPolicyViolationsPreview is currently being created. (Value:
  *        "PREVIEW_RUNNING")
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewStateUnspecified
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewStateUnspecified
  *        The state is unspecified. (Value: "PREVIEW_STATE_UNSPECIFIED")
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaGenerateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewSucceeded
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1betaCreateOrgPolicyViolationsPreviewOperationMetadata_State_PreviewSucceeded
  *        The OrgPolicyViolationsPreview creation finished successfully. (Value:
  *        "PREVIEW_SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
-
-@end
-
-
-/**
- *  The proposed changes to OrgPolicy.
- */
-@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlay : GTLRObject
-
-/**
- *  Optional. The OrgPolicy CustomConstraint changes to preview violations for.
- *  Any existing CustomConstraints with the same name will be overridden in the
- *  simulation. That is, violations will be determined as if all custom
- *  constraints in the overlay were instantiated. Only a single
- *  custom_constraint is supported in the overlay at a time. For evaluating
- *  multiple constraints, multiple `GenerateOrgPolicyViolationsPreview` requests
- *  are made, where each request evaluates a single constraint.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayCustomConstraintOverlay *> *customConstraints;
-
-/**
- *  Optional. The OrgPolicy changes to preview violations for. Any existing
- *  OrgPolicies with the same name will be overridden in the simulation. That
- *  is, violations will be determined as if all policies in the overlay were
- *  created or updated.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayPolicyOverlay *> *policies;
-
-@end
-
-
-/**
- *  A change to an OrgPolicy custom constraint.
- */
-@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayCustomConstraintOverlay : GTLRObject
-
-/** Optional. The new or updated custom constraint. */
-@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint *customConstraint;
-
-/**
- *  Optional. Resource the constraint is attached to. Example:
- *  "organization/987654"
- */
-@property(nonatomic, copy, nullable) NSString *customConstraintParent;
-
-@end
-
-
-/**
- *  A change to an OrgPolicy.
- */
-@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlayPolicyOverlay : GTLRObject
-
-/** Optional. The new or updated OrgPolicy. */
-@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2Policy *policy;
-
-/**
- *  Optional. The parent of the policy we are attaching to. Example:
- *  "projects/123456"
- */
-@property(nonatomic, copy, nullable) NSString *policyParent;
-
-@end
-
-
-/**
- *  OrgPolicyViolationsPreview is a resource providing a preview of the
- *  violations that will exist if an OrgPolicy change is made. The list of
- *  violations are modeled as child resources and retrieved via a
- *  ListOrgPolicyViolations API call. There are potentially more
- *  OrgPolicyViolations than could fit in an embedded field. Thus, the use of a
- *  child resource instead of a field.
- */
-@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview : GTLRObject
-
-/** Output only. Time when this `OrgPolicyViolationsPreview` was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Output only. The names of the constraints against which all
- *  `OrgPolicyViolations` were evaluated. If `OrgPolicyOverlay` only contains
- *  `PolicyOverlay` then it contains the name of the configured custom
- *  constraint, applicable to the specified policies. Otherwise it contains the
- *  name of the constraint specified in `CustomConstraintOverlay`. Format:
- *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
- *  Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms`
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *customConstraints;
-
-/**
- *  Output only. The resource name of the `OrgPolicyViolationsPreview`. It has
- *  the following format:
- *  `organizations/{organization}/locations/{location}/orgPolicyViolationsPreviews/{orgPolicyViolationsPreview}`
- *  Example:
- *  `organizations/my-example-org/locations/global/orgPolicyViolationsPreviews/506a5f7f`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Required. The proposed changes we are previewing violations for. */
-@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyOverlay *overlay;
-
-/**
- *  Output only. A summary of the state of all resources scanned for compliance
- *  with the changed OrgPolicy.
- */
-@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreviewResourceCounts *resourceCounts;
-
-/**
- *  Output only. The state of the `OrgPolicyViolationsPreview`.
- *
- *  Likely values:
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewFailed
- *        The OrgPolicyViolationsPreview creation failed with an error. (Value:
- *        "PREVIEW_FAILED")
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewPending
- *        The OrgPolicyViolationsPreview has not been created yet. (Value:
- *        "PREVIEW_PENDING")
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewRunning
- *        The OrgPolicyViolationsPreview is currently being created. (Value:
- *        "PREVIEW_RUNNING")
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewStateUnspecified
- *        The state is unspecified. (Value: "PREVIEW_STATE_UNSPECIFIED")
- *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreview_State_PreviewSucceeded
- *        The OrgPolicyViolationsPreview creation finished successfully. (Value:
- *        "PREVIEW_SUCCEEDED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/**
- *  Output only. The number of OrgPolicyViolations in this
- *  `OrgPolicyViolationsPreview`. This count may differ from
- *  `resource_summary.noncompliant_count` because each OrgPolicyViolation is
- *  specific to a resource **and** constraint. If there are multiple constraints
- *  being evaluated (i.e. multiple policies in the overlay), a single resource
- *  may violate multiple constraints.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *violationsCount;
-
-@end
-
-
-/**
- *  A summary of the state of all resources scanned for compliance with the
- *  changed OrgPolicy.
- */
-@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1alphaOrgPolicyViolationsPreviewResourceCounts : GTLRObject
-
-/**
- *  Output only. Number of scanned resources with zero violations.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *compliant;
-
-/**
- *  Output only. Number of resources that returned an error when scanned.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *errors;
-
-/**
- *  Output only. Number of scanned resources with at least one violation.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *noncompliant;
-
-/**
- *  Output only. Number of resources checked for compliance. Must equal:
- *  unenforced + noncompliant + compliant + error
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *scanned;
-
-/**
- *  Output only. Number of resources where the constraint was not enforced, i.e.
- *  the Policy set `enforced: false` for that resource.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *unenforced;
 
 @end
 
@@ -1846,6 +1704,62 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
+ *  ListOrgPolicyViolationsPreviewsResponse is the response message for
+ *  OrgPolicyViolationsPreviewService.ListOrgPolicyViolationsPreviews.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "orgPolicyViolationsPreviews" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListOrgPolicyViolationsPreviewsResponse : GTLRCollectionObject
+
+/**
+ *  A token that you can use to retrieve the next page of results. If this field
+ *  is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of OrgPolicyViolationsPreview
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview *> *orgPolicyViolationsPreviews;
+
+@end
+
+
+/**
+ *  ListOrgPolicyViolationsResponse is the response message for
+ *  OrgPolicyViolationsPreviewService.ListOrgPolicyViolations
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "orgPolicyViolations" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListOrgPolicyViolationsResponse : GTLRCollectionObject
+
+/**
+ *  A token that you can use to retrieve the next page of results. If this field
+ *  is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of OrgPolicyViolations
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolation *> *orgPolicyViolations;
+
+@end
+
+
+/**
  *  Response message for Simulator.ListReplayResults.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1868,6 +1782,215 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResult *> *replayResults;
+
+@end
+
+
+/**
+ *  The proposed changes to OrgPolicy.
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlay : GTLRObject
+
+/**
+ *  Optional. The OrgPolicy CustomConstraint changes to preview violations for.
+ *  Any existing CustomConstraints with the same name will be overridden in the
+ *  simulation. That is, violations will be determined as if all custom
+ *  constraints in the overlay were instantiated. Only a single
+ *  custom_constraint is supported in the overlay at a time. For evaluating
+ *  multiple constraints, multiple `GenerateOrgPolicyViolationsPreview` requests
+ *  are made, where each request evaluates a single constraint.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayCustomConstraintOverlay *> *customConstraints;
+
+/**
+ *  Optional. The OrgPolicy changes to preview violations for. Any existing
+ *  OrgPolicies with the same name will be overridden in the simulation. That
+ *  is, violations will be determined as if all policies in the overlay were
+ *  created or updated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayPolicyOverlay *> *policies;
+
+@end
+
+
+/**
+ *  A change to an OrgPolicy custom constraint.
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayCustomConstraintOverlay : GTLRObject
+
+/** Optional. The new or updated custom constraint. */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint *customConstraint;
+
+/**
+ *  Optional. Resource the constraint is attached to. Example:
+ *  "organization/987654"
+ */
+@property(nonatomic, copy, nullable) NSString *customConstraintParent;
+
+@end
+
+
+/**
+ *  A change to an OrgPolicy.
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlayPolicyOverlay : GTLRObject
+
+/** Optional. The new or updated OrgPolicy. */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2Policy *policy;
+
+/**
+ *  Optional. The parent of the policy we are attaching to. Example:
+ *  "projects/123456"
+ */
+@property(nonatomic, copy, nullable) NSString *policyParent;
+
+@end
+
+
+/**
+ *  OrgPolicyViolation is a resource representing a single resource violating a
+ *  single OrgPolicy constraint.
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolation : GTLRObject
+
+/** The custom constraint being violated. */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint *customConstraint;
+
+/** Any error encountered during the evaluation. */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleRpcStatus *error;
+
+/**
+ *  The name of the `OrgPolicyViolation`. Example:
+ *  organizations/my-example-org/locations/global/orgPolicyViolationsPreviews/506a5f7f/orgPolicyViolations/38ce`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The resource violating the constraint. */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ResourceContext *resource;
+
+@end
+
+
+/**
+ *  OrgPolicyViolationsPreview is a resource providing a preview of the
+ *  violations that will exist if an OrgPolicy change is made. The list of
+ *  violations are modeled as child resources and retrieved via a
+ *  ListOrgPolicyViolations API call. There are potentially more
+ *  OrgPolicyViolations than could fit in an embedded field. Thus, the use of a
+ *  child resource instead of a field.
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview : GTLRObject
+
+/** Output only. Time when this `OrgPolicyViolationsPreview` was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The names of the constraints against which all
+ *  `OrgPolicyViolations` were evaluated. If `OrgPolicyOverlay` only contains
+ *  `PolicyOverlay` then it contains the name of the configured custom
+ *  constraint, applicable to the specified policies. Otherwise it contains the
+ *  name of the constraint specified in `CustomConstraintOverlay`. Format:
+ *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
+ *  Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customConstraints;
+
+/**
+ *  Output only. The resource name of the `OrgPolicyViolationsPreview`. It has
+ *  the following format:
+ *  `organizations/{organization}/locations/{location}/orgPolicyViolationsPreviews/{orgPolicyViolationsPreview}`
+ *  Example:
+ *  `organizations/my-example-org/locations/global/orgPolicyViolationsPreviews/506a5f7f`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The proposed changes we are previewing violations for. */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyOverlay *overlay;
+
+/**
+ *  Output only. A summary of the state of all resources scanned for compliance
+ *  with the changed OrgPolicy.
+ */
+@property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreviewResourceCounts *resourceCounts;
+
+/**
+ *  Output only. The state of the `OrgPolicyViolationsPreview`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewFailed
+ *        The OrgPolicyViolationsPreview creation failed with an error. (Value:
+ *        "PREVIEW_FAILED")
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewPending
+ *        The OrgPolicyViolationsPreview has not been created yet. (Value:
+ *        "PREVIEW_PENDING")
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewRunning
+ *        The OrgPolicyViolationsPreview is currently being created. (Value:
+ *        "PREVIEW_RUNNING")
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewStateUnspecified
+ *        The state is unspecified. (Value: "PREVIEW_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview_State_PreviewSucceeded
+ *        The OrgPolicyViolationsPreview creation finished successfully. (Value:
+ *        "PREVIEW_SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The number of OrgPolicyViolations in this
+ *  `OrgPolicyViolationsPreview`. This count may differ from
+ *  `resource_summary.noncompliant_count` because each OrgPolicyViolation is
+ *  specific to a resource **and** constraint. If there are multiple constraints
+ *  being evaluated (i.e. multiple policies in the overlay), a single resource
+ *  may violate multiple constraints.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *violationsCount;
+
+@end
+
+
+/**
+ *  A summary of the state of all resources scanned for compliance with the
+ *  changed OrgPolicy.
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreviewResourceCounts : GTLRObject
+
+/**
+ *  Output only. Number of scanned resources with zero violations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *compliant;
+
+/**
+ *  Output only. Number of resources that returned an error when scanned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errors;
+
+/**
+ *  Output only. Number of scanned resources with at least one violation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noncompliant;
+
+/**
+ *  Output only. Number of resources checked for compliance. Must equal:
+ *  unenforced + noncompliant + compliant + error
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scanned;
+
+/**
+ *  Output only. Number of resources where the constraint was not enforced, i.e.
+ *  the Policy set `enforced: false` for that resource.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unenforced;
 
 @end
 
@@ -2085,6 +2208,44 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unchangedCount;
+
+@end
+
+
+/**
+ *  ResourceContext provides the context we know about a resource. It is similar
+ *  in concept to google.cloud.asset.v1.Resource, but focuses on the information
+ *  specifically used by Simulator.
+ */
+@interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ResourceContext : GTLRObject
+
+/**
+ *  The ancestry path of the resource in Google Cloud [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  represented as a list of relative resource names. An ancestry path starts
+ *  with the closest ancestor in the hierarchy and ends at root. If the resource
+ *  is a project, folder, or organization, the ancestry path starts from the
+ *  resource itself. Example: `["projects/123456789", "folders/5432",
+ *  "organizations/1234"]`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
+
+/**
+ *  The asset type of the resource as defined by CAIS. Example:
+ *  `compute.googleapis.com/Firewall` See [Supported asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/**
+ *  The full name of the resource. Example:
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`
+ *  See [Resource
+ *  names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 @end
 

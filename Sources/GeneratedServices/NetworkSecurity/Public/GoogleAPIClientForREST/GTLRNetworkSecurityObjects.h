@@ -14,13 +14,41 @@
 
 @class GTLRNetworkSecurity_AddressGroup;
 @class GTLRNetworkSecurity_AddressGroup_Labels;
+@class GTLRNetworkSecurity_AntivirusOverride;
 @class GTLRNetworkSecurity_AuthorizationPolicy;
 @class GTLRNetworkSecurity_AuthorizationPolicy_Labels;
+@class GTLRNetworkSecurity_AuthzPolicy;
+@class GTLRNetworkSecurity_AuthzPolicy_Labels;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRule;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleFrom;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResourceTagValueIdSet;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleTo;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationHeaderSet;
+@class GTLRNetworkSecurity_AuthzPolicyCustomProvider;
+@class GTLRNetworkSecurity_AuthzPolicyCustomProviderAuthzExtension;
+@class GTLRNetworkSecurity_AuthzPolicyCustomProviderCloudIap;
+@class GTLRNetworkSecurity_AuthzPolicyTarget;
+@class GTLRNetworkSecurity_BackendAuthenticationConfig;
+@class GTLRNetworkSecurity_BackendAuthenticationConfig_Labels;
 @class GTLRNetworkSecurity_CertificateProviderInstance;
 @class GTLRNetworkSecurity_ClientTlsPolicy;
 @class GTLRNetworkSecurity_ClientTlsPolicy_Labels;
+@class GTLRNetworkSecurity_CustomInterceptProfile;
+@class GTLRNetworkSecurity_CustomMirroringProfile;
 @class GTLRNetworkSecurity_Destination;
 @class GTLRNetworkSecurity_Expr;
+@class GTLRNetworkSecurity_FirewallEndpoint;
+@class GTLRNetworkSecurity_FirewallEndpoint_Labels;
+@class GTLRNetworkSecurity_FirewallEndpointAssociation;
+@class GTLRNetworkSecurity_FirewallEndpointAssociation_Labels;
+@class GTLRNetworkSecurity_FirewallEndpointAssociationReference;
 @class GTLRNetworkSecurity_GatewaySecurityPolicy;
 @class GTLRNetworkSecurity_GatewaySecurityPolicyRule;
 @class GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider;
@@ -30,20 +58,55 @@
 @class GTLRNetworkSecurity_GoogleIamV1Binding;
 @class GTLRNetworkSecurity_GoogleIamV1Policy;
 @class GTLRNetworkSecurity_HttpHeaderMatch;
+@class GTLRNetworkSecurity_InterceptDeployment;
+@class GTLRNetworkSecurity_InterceptDeployment_Labels;
+@class GTLRNetworkSecurity_InterceptDeploymentGroup;
+@class GTLRNetworkSecurity_InterceptDeploymentGroup_Labels;
+@class GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup;
+@class GTLRNetworkSecurity_InterceptDeploymentGroupDeployment;
+@class GTLRNetworkSecurity_InterceptEndpointGroup;
+@class GTLRNetworkSecurity_InterceptEndpointGroup_Labels;
+@class GTLRNetworkSecurity_InterceptEndpointGroupAssociation;
+@class GTLRNetworkSecurity_InterceptEndpointGroupAssociation_Labels;
+@class GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails;
+@class GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails;
+@class GTLRNetworkSecurity_InterceptEndpointGroupConnectedDeploymentGroup;
+@class GTLRNetworkSecurity_InterceptLocation;
 @class GTLRNetworkSecurity_ListAddressGroupReferencesResponseAddressGroupReference;
 @class GTLRNetworkSecurity_Location;
 @class GTLRNetworkSecurity_Location_Labels;
 @class GTLRNetworkSecurity_Location_Metadata;
+@class GTLRNetworkSecurity_MirroringDeployment;
+@class GTLRNetworkSecurity_MirroringDeployment_Labels;
+@class GTLRNetworkSecurity_MirroringDeploymentGroup;
+@class GTLRNetworkSecurity_MirroringDeploymentGroup_Labels;
+@class GTLRNetworkSecurity_MirroringDeploymentGroupConnectedEndpointGroup;
+@class GTLRNetworkSecurity_MirroringDeploymentGroupDeployment;
+@class GTLRNetworkSecurity_MirroringEndpointGroup;
+@class GTLRNetworkSecurity_MirroringEndpointGroup_Labels;
+@class GTLRNetworkSecurity_MirroringEndpointGroupAssociation;
+@class GTLRNetworkSecurity_MirroringEndpointGroupAssociation_Labels;
+@class GTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails;
+@class GTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails;
+@class GTLRNetworkSecurity_MirroringEndpointGroupConnectedDeploymentGroup;
+@class GTLRNetworkSecurity_MirroringLocation;
 @class GTLRNetworkSecurity_MTLSPolicy;
 @class GTLRNetworkSecurity_Operation;
 @class GTLRNetworkSecurity_Operation_Metadata;
 @class GTLRNetworkSecurity_Operation_Response;
 @class GTLRNetworkSecurity_Rule;
+@class GTLRNetworkSecurity_SecurityProfile;
+@class GTLRNetworkSecurity_SecurityProfile_Labels;
+@class GTLRNetworkSecurity_SecurityProfileGroup;
+@class GTLRNetworkSecurity_SecurityProfileGroup_Labels;
 @class GTLRNetworkSecurity_ServerTlsPolicy;
 @class GTLRNetworkSecurity_ServerTlsPolicy_Labels;
+@class GTLRNetworkSecurity_SeverityOverride;
 @class GTLRNetworkSecurity_Source;
 @class GTLRNetworkSecurity_Status;
 @class GTLRNetworkSecurity_Status_Details_Item;
+@class GTLRNetworkSecurity_ThreatOverride;
+@class GTLRNetworkSecurity_ThreatPreventionProfile;
 @class GTLRNetworkSecurity_TlsInspectionPolicy;
 @class GTLRNetworkSecurity_UrlList;
 @class GTLRNetworkSecurity_ValidationCA;
@@ -57,6 +120,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AddressGroup.purpose
+
+/**
+ *  Address Group is usable in Cloud Armor.
+ *
+ *  Value: "CLOUD_ARMOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_CloudArmor;
+/**
+ *  Address Group is distributed to VMC, and is usable in Firewall Policies and
+ *  other systems that rely on VMC.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_Default;
+/**
+ *  Default value. Should never happen.
+ *
+ *  Value: "PURPOSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AddressGroup_Purpose_PurposeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_AddressGroup.type
@@ -81,6 +167,94 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AddressGroup_Type_Ipv6;
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AddressGroup_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AntivirusOverride.action
+
+/**
+ *  The packet matching this rule will be allowed to transmit, but a threat_log
+ *  entry will be sent to the consumer project.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_Alert;
+/**
+ *  The packet matching this rule will be allowed to transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_Allow;
+/**
+ *  The default action (as specified by the vendor) is taken.
+ *
+ *  Value: "DEFAULT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_DefaultAction;
+/**
+ *  The packet matching this rule will be dropped, and a threat_log entry will
+ *  be sent to the consumer project.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_Deny;
+/**
+ *  Threat action not specified.
+ *
+ *  Value: "THREAT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Action_ThreatActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AntivirusOverride.protocol
+
+/**
+ *  FTP protocol
+ *
+ *  Value: "FTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Ftp;
+/**
+ *  HTTP protocol
+ *
+ *  Value: "HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Http;
+/**
+ *  HTTP2 protocol
+ *
+ *  Value: "HTTP2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Http2;
+/**
+ *  IMAP protocol
+ *
+ *  Value: "IMAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Imap;
+/**
+ *  POP3 protocol
+ *
+ *  Value: "POP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Pop3;
+/**
+ *  Protocol not specified.
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_ProtocolUnspecified;
+/**
+ *  SMB protocol
+ *
+ *  Value: "SMB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smb;
+/**
+ *  SMTP protocol
+ *
+ *  Value: "SMTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smtp;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_AuthorizationPolicy.action
 
 /**
@@ -102,6 +276,210 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Acti
  *  Value: "DENY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthorizationPolicy_Action_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AuthzPolicy.action
+
+/**
+ *  Allow request to pass through to the backend.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Allow;
+/**
+ *  Unspecified action.
+ *
+ *  Value: "AUTHZ_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_AuthzActionUnspecified;
+/**
+ *  Delegate the authorization decision to an external authorization engine.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Custom;
+/**
+ *  Deny the request and return a HTTP 404 to the client.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal.principalSelector
+
+/**
+ *  The principal rule is matched against the common name in the client's
+ *  certificate. Authorization against multiple common names in the client
+ *  certificate is not supported. Requests with multiple common names in the
+ *  client certificate will be rejected if CLIENT_CERT_COMMON_NAME is set as the
+ *  principal selector. A match happens when there is an exact common name value
+ *  match. This is only applicable for Application Load Balancers except for
+ *  classic Global External Application load balancer. CLIENT_CERT_COMMON_NAME
+ *  is not supported for INTERNAL_SELF_MANAGED load balancing scheme.
+ *
+ *  Value: "CLIENT_CERT_COMMON_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertCommonName;
+/**
+ *  The principal rule is matched against a list of DNS Name SANs in the
+ *  validated client's certificate. A match happens when there is any exact DNS
+ *  Name SAN value match. This is only applicable for Application Load Balancers
+ *  except for classic Global External Application load balancer.
+ *  CLIENT_CERT_DNS_NAME_SAN is not supported for INTERNAL_SELF_MANAGED load
+ *  balancing scheme.
+ *
+ *  Value: "CLIENT_CERT_DNS_NAME_SAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan;
+/**
+ *  The principal rule is matched against a list of URI SANs in the validated
+ *  client's certificate. A match happens when there is any exact URI SAN value
+ *  match. This is the default principal selector.
+ *
+ *  Value: "CLIENT_CERT_URI_SAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertUriSan;
+/**
+ *  Unspecified principal selector. It will be treated as CLIENT_CERT_URI_SAN by
+ *  default.
+ *
+ *  Value: "PRINCIPAL_SELECTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_PrincipalSelectorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AuthzPolicyTarget.loadBalancingScheme
+
+/**
+ *  Signifies that this is used for Global external or Regional external
+ *  Application Load Balancing.
+ *
+ *  Value: "EXTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_ExternalManaged;
+/**
+ *  Signifies that this is used for Regional internal or Cross-region internal
+ *  Application Load Balancing.
+ *
+ *  Value: "INTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_InternalManaged;
+/**
+ *  Signifies that this is used for Cloud Service Mesh. Meant for use by CSM GKE
+ *  controller only.
+ *
+ *  Value: "INTERNAL_SELF_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_InternalSelfManaged;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "LOAD_BALANCING_SCHEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_BackendAuthenticationConfig.wellKnownRoots
+
+/**
+ *  The BackendService will only validate server certificates against roots
+ *  specified in TrustConfig.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_None;
+/**
+ *  The BackendService uses a set of well-known public roots, in addition to any
+ *  roots specified in the trustConfig field, when validating the server
+ *  certificates presented by the backend. Validation with these roots is only
+ *  considered when the TlsSettings.sni field in the BackendService is set. The
+ *  well-known roots are a set of root CAs managed by Google. CAs in this set
+ *  can be added or removed without notice.
+ *
+ *  Value: "PUBLIC_ROOTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_PublicRoots;
+/**
+ *  Equivalent to NONE.
+ *
+ *  Value: "WELL_KNOWN_ROOTS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_WellKnownRootsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_FirewallEndpoint.state
+
+/**
+ *  Processing configuration updates.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Active;
+/**
+ *  Being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Creating;
+/**
+ *  Being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Deleting;
+/**
+ *  Down or in an error state.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Inactive;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_FirewallEndpointAssociation.state
+
+/**
+ *  Active and ready for traffic.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Active;
+/**
+ *  Being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Creating;
+/**
+ *  Being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Deleting;
+/**
+ *  Down or in an error state.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive;
+/**
+ *  The project that housed the association has been deleted.
+ *
+ *  Value: "ORPHAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Orphan;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_GatewaySecurityPolicyRule.basicProfile
@@ -154,6 +532,650 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptDeployment.state
+
+/**
+ *  The deployment is ready and in sync with the parent group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Active;
+/**
+ *  The deployment is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Creating;
+/**
+ *  An attempt to delete the deployment has failed. This is a terminal state and
+ *  the deployment is not expected to recover. The only permitted operation is
+ *  to retry deleting the deployment.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_DeleteFailed;
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_Deleting;
+/**
+ *  The deployment is out of sync with the parent group. In most cases, this is
+ *  a result of a transient issue within the system (e.g. a delayed data-path
+ *  config) and the system is expected to recover automatically. See the parent
+ *  deployment group's state for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeployment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptDeploymentGroup.state
+
+/**
+ *  The deployment group is ready.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Active;
+/**
+ *  The deployment group is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Creating;
+/**
+ *  The deployment group is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Deleting;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptDeploymentGroupDeployment.state
+
+/**
+ *  The deployment is ready and in sync with the parent group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Active;
+/**
+ *  The deployment is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Creating;
+/**
+ *  An attempt to delete the deployment has failed. This is a terminal state and
+ *  the deployment is not expected to recover. The only permitted operation is
+ *  to retry deleting the deployment.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_DeleteFailed;
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Deleting;
+/**
+ *  The deployment is out of sync with the parent group. In most cases, this is
+ *  a result of a transient issue within the system (e.g. a delayed data-path
+ *  config) and the system is expected to recover automatically. See the parent
+ *  deployment group's state for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptEndpointGroup.state
+
+/**
+ *  The endpoint group is ready and in sync with the target deployment group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Active;
+/**
+ *  The deployment group backing this endpoint group has been force-deleted.
+ *  This endpoint group cannot be used and interception is effectively disabled.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Closed;
+/**
+ *  The endpoint group is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Creating;
+/**
+ *  An attempt to delete the endpoint group has failed. This is a terminal state
+ *  and the endpoint group is not expected to recover. The only permitted
+ *  operation is to retry deleting the endpoint group.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_DeleteFailed;
+/**
+ *  The endpoint group is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_Deleting;
+/**
+ *  The endpoint group is out of sync with the backing deployment group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  See the associations field for details per network and location.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociation.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Active;
+/**
+ *  The association is disabled due to a breaking change in another resource.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Closed;
+/**
+ *  The association is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Creating;
+/**
+ *  An attempt to delete the association has failed. This is a terminal state
+ *  and the association is not expected to be usable as some of its resources
+ *  have been deleted. The only permitted operation is to retry deleting the
+ *  association.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_DeleteFailed;
+/**
+ *  The association is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Deleting;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  Check the `locations_details` field for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Active;
+/**
+ *  The association is disabled due to a breaking change in another resource.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Closed;
+/**
+ *  The association is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Creating;
+/**
+ *  An attempt to delete the association has failed. This is a terminal state
+ *  and the association is not expected to be usable as some of its resources
+ *  have been deleted. The only permitted operation is to retry deleting the
+ *  association.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_DeleteFailed;
+/**
+ *  The association is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Deleting;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  Check the `locations_details` field for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_Active;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_InterceptLocation.state
+
+/**
+ *  The resource is ready and in sync in the location.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptLocation_State_Active;
+/**
+ *  The resource is out of sync in the location. In most cases, this is a result
+ *  of a transient issue within the system (e.g. an inaccessible location) and
+ *  the system is expected to recover automatically.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptLocation_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_InterceptLocation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringDeployment.state
+
+/**
+ *  The deployment is ready and in sync with the parent group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_Active;
+/**
+ *  The deployment is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_Creating;
+/**
+ *  An attempt to delete the deployment has failed. This is a terminal state and
+ *  the deployment is not expected to recover. The only permitted operation is
+ *  to retry deleting the deployment.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_DeleteFailed;
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_Deleting;
+/**
+ *  The deployment is out of sync with the parent group. In most cases, this is
+ *  a result of a transient issue within the system (e.g. a delayed data-path
+ *  config) and the system is expected to recover automatically. See the parent
+ *  deployment group's state for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringDeploymentGroup.state
+
+/**
+ *  The deployment group is ready.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Active;
+/**
+ *  The deployment group is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Creating;
+/**
+ *  The deployment group is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Deleting;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringDeploymentGroupDeployment.state
+
+/**
+ *  The deployment is ready and in sync with the parent group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Active;
+/**
+ *  The deployment is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Creating;
+/**
+ *  An attempt to delete the deployment has failed. This is a terminal state and
+ *  the deployment is not expected to recover. The only permitted operation is
+ *  to retry deleting the deployment.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_DeleteFailed;
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Deleting;
+/**
+ *  The deployment is out of sync with the parent group. In most cases, this is
+ *  a result of a transient issue within the system (e.g. a delayed data-path
+ *  config) and the system is expected to recover automatically. See the parent
+ *  deployment group's state for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringEndpointGroup.state
+
+/**
+ *  The endpoint group is ready and in sync with the target deployment group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Active;
+/**
+ *  The deployment group backing this endpoint group has been force-deleted.
+ *  This endpoint group cannot be used and mirroring is effectively disabled.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Closed;
+/**
+ *  The endpoint group is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Creating;
+/**
+ *  An attempt to delete the endpoint group has failed. This is a terminal state
+ *  and the endpoint group is not expected to recover. The only permitted
+ *  operation is to retry deleting the endpoint group.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_DeleteFailed;
+/**
+ *  The endpoint group is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Deleting;
+/**
+ *  The endpoint group is out of sync with the backing deployment group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  See the associations field for details per network and location.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringEndpointGroupAssociation.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Active;
+/**
+ *  The association is disabled due to a breaking change in another resource.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Closed;
+/**
+ *  The association is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Creating;
+/**
+ *  An attempt to delete the association has failed. This is a terminal state
+ *  and the association is not expected to be usable as some of its resources
+ *  have been deleted. The only permitted operation is to retry deleting the
+ *  association.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_DeleteFailed;
+/**
+ *  The association is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Deleting;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  Check the `locations_details` field for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Active;
+/**
+ *  The association is disabled due to a breaking change in another resource.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Closed;
+/**
+ *  The association is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Creating;
+/**
+ *  An attempt to delete the association has failed. This is a terminal state
+ *  and the association is not expected to be usable as some of its resources
+ *  have been deleted. The only permitted operation is to retry deleting the
+ *  association.
+ *
+ *  Value: "DELETE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_DeleteFailed;
+/**
+ *  The association is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Deleting;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *  Check the `locations_details` field for more details.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails.state
+
+/**
+ *  The association is ready and in sync with the linked endpoint group.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_Active;
+/**
+ *  The association is out of sync with the linked endpoint group. In most
+ *  cases, this is a result of a transient issue within the system (e.g. an
+ *  inaccessible location) and the system is expected to recover automatically.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_OutOfSync;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringLocation.state
+
+/**
+ *  The resource is ready and in sync in the location.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringLocation_State_Active;
+/**
+ *  The resource is out of sync in the location. In most cases, this is a result
+ *  of a transient issue within the system (e.g. an inaccessible location) and
+ *  the system is expected to recover automatically.
+ *
+ *  Value: "OUT_OF_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringLocation_State_OutOfSync;
+/**
+ *  State not set (this is not a valid state).
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringLocation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_MTLSPolicy.clientValidationMode
 
 /**
@@ -181,6 +1203,204 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidat
  *  Value: "REJECT_INVALID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_RejectInvalid;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SecurityProfile.type
+
+/**
+ *  Profile type for TPPI.
+ *
+ *  Value: "CUSTOM_INTERCEPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomIntercept;
+/**
+ *  Profile type for packet mirroring v2
+ *
+ *  Value: "CUSTOM_MIRRORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomMirroring;
+/**
+ *  Profile type not specified.
+ *
+ *  Value: "PROFILE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified;
+/**
+ *  Profile type for threat prevention.
+ *
+ *  Value: "THREAT_PREVENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SeverityOverride.action
+
+/**
+ *  The packet matching this rule will be allowed to transmit, but a threat_log
+ *  entry will be sent to the consumer project.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Alert;
+/**
+ *  The packet matching this rule will be allowed to transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Allow;
+/**
+ *  The default action (as specified by the vendor) is taken.
+ *
+ *  Value: "DEFAULT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_DefaultAction;
+/**
+ *  The packet matching this rule will be dropped, and a threat_log entry will
+ *  be sent to the consumer project.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Deny;
+/**
+ *  Threat action not specified.
+ *
+ *  Value: "THREAT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_ThreatActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_SeverityOverride.severity
+
+/**
+ *  Serious threats, such as those that affect default installations of widely
+ *  deployed software, result in root compromise of servers, and the exploit
+ *  code is widely available to attackers. The attacker usually does not need
+ *  any special authentication credentials or knowledge about the individual
+ *  victims and the target does not need to be manipulated into performing any
+ *  special functions.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Critical;
+/**
+ *  Threats that have the ability to become critical but have mitigating
+ *  factors; for example, they may be difficult to exploit, do not result in
+ *  elevated privileges, or do not have a large victim pool.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_High;
+/**
+ *  Suspicious events that do not pose an immediate threat, but that are
+ *  reported to call attention to deeper problems that could possibly exist.
+ *
+ *  Value: "INFORMATIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Informational;
+/**
+ *  Warning-level threats that have very little impact on an organization's
+ *  infrastructure. They usually require local or physical system access and may
+ *  often result in victim privacy issues and information leakage.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Low;
+/**
+ *  Minor threats in which impact is minimized, that do not compromise the
+ *  target or exploits that require an attacker to reside on the same local
+ *  network as the victim, affect only non-standard configurations or obscure
+ *  applications, or provide very limited access.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_Medium;
+/**
+ *  Severity level not specified.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SeverityOverride_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_ThreatOverride.action
+
+/**
+ *  The packet matching this rule will be allowed to transmit, but a threat_log
+ *  entry will be sent to the consumer project.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Alert;
+/**
+ *  The packet matching this rule will be allowed to transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Allow;
+/**
+ *  The default action (as specified by the vendor) is taken.
+ *
+ *  Value: "DEFAULT_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_DefaultAction;
+/**
+ *  The packet matching this rule will be dropped, and a threat_log entry will
+ *  be sent to the consumer project.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_Deny;
+/**
+ *  Threat action not specified.
+ *
+ *  Value: "THREAT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Action_ThreatActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_ThreatOverride.type
+
+/**
+ *  Threats related to viruses and malware found in executables and file types.
+ *
+ *  Value: "ANTIVIRUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Antivirus;
+/**
+ *  Threats related to DNS.
+ *
+ *  Value: "DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Dns;
+/**
+ *  Threats related to command-and-control (C2) activity, where spyware on an
+ *  infected client is collecting data without the user's consent and/or
+ *  communicating with a remote attacker.
+ *
+ *  Value: "SPYWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Spyware;
+/**
+ *  Type of threat not specified.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_ThreatTypeUnspecified;
+/**
+ *  Type of threat is not derivable from threat ID. An override will be created
+ *  for all types. Firewall will ignore overridden signature ID's that don't
+ *  exist in the specific type.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Unknown;
+/**
+ *  Threats related to system flaws that an attacker might otherwise attempt to
+ *  exploit.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_ThreatOverride_Type_Vulnerability;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_TlsInspectionPolicy.minTlsVersion
@@ -316,6 +1536,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Optional. List of supported purposes of the Address Group. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *purpose;
+
 /** Output only. Server-defined fully-qualified URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -348,6 +1571,58 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        fetch them all at once.
  */
 @interface GTLRNetworkSecurity_AddressGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  Defines what action to take for antivirus threats per protocol.
+ */
+@interface GTLRNetworkSecurity_AntivirusOverride : GTLRObject
+
+/**
+ *  Required. Threat action override. For some threat types, only a subset of
+ *  actions applies.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Action_Alert The packet
+ *        matching this rule will be allowed to transmit, but a threat_log entry
+ *        will be sent to the consumer project. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Action_Allow The packet
+ *        matching this rule will be allowed to transmit. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Action_DefaultAction The
+ *        default action (as specified by the vendor) is taken. (Value:
+ *        "DEFAULT_ACTION")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Action_Deny The packet
+ *        matching this rule will be dropped, and a threat_log entry will be
+ *        sent to the consumer project. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Action_ThreatActionUnspecified
+ *        Threat action not specified. (Value: "THREAT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Protocol to match.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Ftp FTP protocol
+ *        (Value: "FTP")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Http HTTP protocol
+ *        (Value: "HTTP")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Http2 HTTP2
+ *        protocol (Value: "HTTP2")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Imap IMAP protocol
+ *        (Value: "IMAP")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Pop3 POP3 protocol
+ *        (Value: "POP3")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_ProtocolUnspecified
+ *        Protocol not specified. (Value: "PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smb SMB protocol
+ *        (Value: "SMB")
+ *    @arg @c kGTLRNetworkSecurity_AntivirusOverride_Protocol_Smtp SMTP protocol
+ *        (Value: "SMTP")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
 @end
 
 
@@ -425,6 +1700,617 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  `AuthzPolicy` is a resource that allows to forward traffic to a callout
+ *  backend designed to scan the traffic for security purposes.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicy : GTLRObject
+
+/**
+ *  Required. Can be one of `ALLOW`, `DENY`, `CUSTOM`. When the action is
+ *  `CUSTOM`, `customProvider` must be specified. When the action is `ALLOW`,
+ *  only requests matching the policy will be allowed. When the action is
+ *  `DENY`, only requests matching the policy will be denied. When a request
+ *  arrives, the policies are evaluated in the following order: 1. If there is a
+ *  `CUSTOM` policy that matches the request, the `CUSTOM` policy is evaluated
+ *  using the custom authorization providers and the request is denied if the
+ *  provider rejects the request. 2. If there are any `DENY` policies that match
+ *  the request, the request is denied. 3. If there are no `ALLOW` policies for
+ *  the resource or if any of the `ALLOW` policies match the request, the
+ *  request is allowed. 4. Else the request is denied by default if none of the
+ *  configured AuthzPolicies with `ALLOW` action match the request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_Action_Allow Allow request to
+ *        pass through to the backend. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_Action_AuthzActionUnspecified
+ *        Unspecified action. (Value: "AUTHZ_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_Action_Custom Delegate the
+ *        authorization decision to an external authorization engine. (Value:
+ *        "CUSTOM")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_Action_Deny Deny the request and
+ *        return a HTTP 404 to the client. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Required if the action is `CUSTOM`. Allows delegating
+ *  authorization decisions to Cloud IAP or to Service Extensions. One of
+ *  `cloudIap` or `authzExtension` must be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyCustomProvider *customProvider;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. A list of authorization HTTP rules to match against the incoming
+ *  request. A policy match occurs when at least one HTTP rule matches the
+ *  request or when no HTTP rules are specified in the policy. At least one HTTP
+ *  Rule is required for Allow or Deny Action. Limited to 5 rules.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRule *> *httpRules;
+
+/**
+ *  Optional. Set of labels associated with the `AuthzPolicy` resource. The
+ *  format must comply with [the following
+ *  requirements](/compute/docs/labeling-resources#requirements).
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicy_Labels *labels;
+
+/**
+ *  Required. Identifier. Name of the `AuthzPolicy` resource in the following
+ *  format:
+ *  `projects/{project}/locations/{location}/authzPolicies/{authz_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Specifies the set of resources to which this policy should be
+ *  applied to.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyTarget *target;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `AuthzPolicy` resource. The
+ *  format must comply with [the following
+ *  requirements](/compute/docs/labeling-resources#requirements).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  Conditions to match against the incoming request.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRule : GTLRObject
+
+/** Optional. Describes properties of a source of a request. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleFrom *from;
+
+/** Optional. Describes properties of a target of a request. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleTo *to;
+
+/**
+ *  Optional. CEL expression that describes the conditions to be satisfied for
+ *  the action. The result of the CEL expression is ANDed with the from and to.
+ *  Refer to the CEL language reference for a list of available attributes.
+ */
+@property(nonatomic, copy, nullable) NSString *when;
+
+@end
+
+
+/**
+ *  Describes properties of one or more sources of a request.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleFrom : GTLRObject
+
+/**
+ *  Optional. Describes the negated properties of request sources. Matches
+ *  requests from sources that do not match the criteria specified in this
+ *  field. At least one of sources or notSources must be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource *> *notSources;
+
+/**
+ *  Optional. Describes the properties of a request's sources. At least one of
+ *  sources or notSources must be specified. Limited to 1 source. A match occurs
+ *  when ANY source (in sources or notSources) matches the request. Within a
+ *  single source, the match follows AND semantics across fields and OR
+ *  semantics within a single field, i.e. a match occurs when ANY principal
+ *  matches AND ANY ipBlocks match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource *> *sources;
+
+@end
+
+
+/**
+ *  Describes the properties of a single source.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleFromRequestSource : GTLRObject
+
+/**
+ *  Optional. A list of IP addresses or IP address ranges to match against the
+ *  source IP address of the request. Limited to 10 ip_blocks per Authorization
+ *  Policy
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock *> *ipBlocks;
+
+/**
+ *  Optional. A list of identities derived from the client's certificate. This
+ *  field will not match on a request unless frontend mutual TLS is enabled for
+ *  the forwarding rule or Gateway and the client certificate has been
+ *  successfully validated by mTLS. Each identity is a string whose value is
+ *  matched against a list of URI SANs, DNS Name SANs, or the common name in the
+ *  client's certificate. A match happens when any principal matches with the
+ *  rule. Limited to 50 principals per Authorization Policy for Regional
+ *  Internal Application Load Balancer, Regional External Application Load
+ *  Balancer, Cross-region Internal Application Load Balancer, and Cloud Service
+ *  Mesh. Limited to 25 principals per Authorization Policy for Global External
+ *  Application Load Balancer.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal *> *principals;
+
+/**
+ *  Optional. A list of resources to match against the resource of the source VM
+ *  of a request. Limited to 10 resources per Authorization Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource *> *resources;
+
+@end
+
+
+/**
+ *  Determines how a HTTP header should be matched.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch : GTLRObject
+
+/** Optional. Specifies the name of the header in the request. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Specifies how the header match will be performed. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *value;
+
+@end
+
+
+/**
+ *  Represents a range of IP Addresses.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleIpBlock : GTLRObject
+
+/**
+ *  Required. The length of the address range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *length;
+
+/** Required. The address prefix. */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
+@end
+
+
+/**
+ *  Describes the properties of a principal to be matched against.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal : GTLRObject
+
+/**
+ *  Required. A non-empty string whose value is matched against the principal
+ *  value based on the principal_selector. Only exact match can be applied for
+ *  CLIENT_CERT_URI_SAN, CLIENT_CERT_DNS_NAME_SAN, CLIENT_CERT_COMMON_NAME
+ *  selectors.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *principal;
+
+/**
+ *  Optional. An enum to decide what principal value the principal rule will
+ *  match against. If not specified, the PrincipalSelector is
+ *  CLIENT_CERT_URI_SAN.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertCommonName
+ *        The principal rule is matched against the common name in the client's
+ *        certificate. Authorization against multiple common names in the client
+ *        certificate is not supported. Requests with multiple common names in
+ *        the client certificate will be rejected if CLIENT_CERT_COMMON_NAME is
+ *        set as the principal selector. A match happens when there is an exact
+ *        common name value match. This is only applicable for Application Load
+ *        Balancers except for classic Global External Application load
+ *        balancer. CLIENT_CERT_COMMON_NAME is not supported for
+ *        INTERNAL_SELF_MANAGED load balancing scheme. (Value:
+ *        "CLIENT_CERT_COMMON_NAME")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan
+ *        The principal rule is matched against a list of DNS Name SANs in the
+ *        validated client's certificate. A match happens when there is any
+ *        exact DNS Name SAN value match. This is only applicable for
+ *        Application Load Balancers except for classic Global External
+ *        Application load balancer. CLIENT_CERT_DNS_NAME_SAN is not supported
+ *        for INTERNAL_SELF_MANAGED load balancing scheme. (Value:
+ *        "CLIENT_CERT_DNS_NAME_SAN")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertUriSan
+ *        The principal rule is matched against a list of URI SANs in the
+ *        validated client's certificate. A match happens when there is any
+ *        exact URI SAN value match. This is the default principal selector.
+ *        (Value: "CLIENT_CERT_URI_SAN")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_PrincipalSelectorUnspecified
+ *        Unspecified principal selector. It will be treated as
+ *        CLIENT_CERT_URI_SAN by default. (Value:
+ *        "PRINCIPAL_SELECTOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *principalSelector;
+
+@end
+
+
+/**
+ *  Describes the properties of a client VM resource accessing the internal
+ *  application load balancers.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResource : GTLRObject
+
+/**
+ *  Optional. An IAM service account to match against the source service account
+ *  of the VM sending the request.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *iamServiceAccount;
+
+/**
+ *  Optional. A list of resource tag value permanent IDs to match against the
+ *  resource manager tags value associated with the source VM of a request.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResourceTagValueIdSet *tagValueIdSet;
+
+@end
+
+
+/**
+ *  Describes a set of resource tag value permanent IDs to match against the
+ *  resource manager tags value associated with the source VM of a request.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleRequestResourceTagValueIdSet : GTLRObject
+
+/**
+ *  Required. A list of resource tag value permanent IDs to match against the
+ *  resource manager tags value associated with the source VM of a request. The
+ *  match follows AND semantics which means all the ids must match. Limited to 5
+ *  ids in the Tag value id set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *ids;
+
+@end
+
+
+/**
+ *  Determines how a string value should be matched.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch : GTLRObject
+
+/**
+ *  The input string must have the substring specified here. Note: empty
+ *  contains match is not allowed, please use regex instead. Examples: * ``abc``
+ *  matches the value ``xyz.abc.def``
+ */
+@property(nonatomic, copy, nullable) NSString *contains;
+
+/**
+ *  The input string must match exactly the string specified here. Examples: *
+ *  ``abc`` only matches the value ``abc``.
+ */
+@property(nonatomic, copy, nullable) NSString *exact;
+
+/**
+ *  If true, indicates the exact/prefix/suffix/contains matching should be case
+ *  insensitive. For example, the matcher ``data`` will match both input string
+ *  ``Data`` and ``data`` if set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreCase;
+
+/**
+ *  The input string must have the prefix specified here. Note: empty prefix is
+ *  not allowed, please use regex instead. Examples: * ``abc`` matches the value
+ *  ``abc.xyz``
+ */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
+/**
+ *  The input string must have the suffix specified here. Note: empty prefix is
+ *  not allowed, please use regex instead. Examples: * ``abc`` matches the value
+ *  ``xyz.abc``
+ */
+@property(nonatomic, copy, nullable) NSString *suffix;
+
+@end
+
+
+/**
+ *  Describes properties of one or more targets of a request.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleTo : GTLRObject
+
+/**
+ *  Optional. Describes the negated properties of the targets of a request.
+ *  Matches requests for operations that do not match the criteria specified in
+ *  this field. At least one of operations or notOperations must be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation *> *notOperations;
+
+/**
+ *  Optional. Describes properties of one or more targets of a request. At least
+ *  one of operations or notOperations must be specified. Limited to 1
+ *  operation. A match occurs when ANY operation (in operations or
+ *  notOperations) matches. Within an operation, the match follows AND semantics
+ *  across fields and OR semantics within a field, i.e. a match occurs when ANY
+ *  path matches AND ANY header matches and ANY method matches.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation *> *operations;
+
+@end
+
+
+/**
+ *  Describes properties of one or more targets of a request.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation : GTLRObject
+
+/** Optional. A list of headers to match against in http header. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationHeaderSet *headerSet;
+
+/**
+ *  Optional. A list of HTTP Hosts to match against. The match can be one of
+ *  exact, prefix, suffix, or contains (substring match). Matches are always
+ *  case sensitive unless the ignoreCase is set. Limited to 10 hosts per
+ *  Authorization Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *> *hosts;
+
+/**
+ *  Optional. A list of HTTP methods to match against. Each entry must be a
+ *  valid HTTP method name (GET, PUT, POST, HEAD, PATCH, DELETE, OPTIONS). It
+ *  only allows exact match and is always case sensitive. Limited to 10 methods
+ *  per Authorization Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
+
+/**
+ *  Optional. A list of paths to match against. The match can be one of exact,
+ *  prefix, suffix, or contains (substring match). Matches are always case
+ *  sensitive unless the ignoreCase is set. Limited to 10 paths per
+ *  Authorization Policy. Note that this path match includes the query
+ *  parameters. For gRPC services, this should be a fully-qualified name of the
+ *  form /package.service/method.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *> *paths;
+
+@end
+
+
+/**
+ *  Describes a set of HTTP headers to match against.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationHeaderSet : GTLRObject
+
+/**
+ *  Required. A list of headers to match against in http header. The match can
+ *  be one of exact, prefix, suffix, or contains (substring match). The match
+ *  follows AND semantics which means all the headers must match. Matches are
+ *  always case sensitive unless the ignoreCase is set. Limited to 10 headers
+ *  per Authorization Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch *> *headers;
+
+@end
+
+
+/**
+ *  Allows delegating authorization decisions to Cloud IAP or to Service
+ *  Extensions.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyCustomProvider : GTLRObject
+
+/**
+ *  Optional. Delegate authorization decision to user authored Service
+ *  Extension. Only one of cloudIap or authzExtension can be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyCustomProviderAuthzExtension *authzExtension;
+
+/**
+ *  Optional. Delegates authorization decisions to Cloud IAP. Applicable only
+ *  for managed load balancers. Enabling Cloud IAP at the AuthzPolicy level is
+ *  not compatible with Cloud IAP settings in the BackendService. Enabling IAP
+ *  in both places will result in request failure. Ensure that IAP is enabled in
+ *  either the AuthzPolicy or the BackendService but not in both places.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyCustomProviderCloudIap *cloudIap;
+
+@end
+
+
+/**
+ *  Optional. Delegate authorization decision to user authored extension. Only
+ *  one of cloudIap or authzExtension can be specified.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyCustomProviderAuthzExtension : GTLRObject
+
+/**
+ *  Required. A list of references to authorization extensions that will be
+ *  invoked for requests matching this policy. Limited to 1 custom provider.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+@end
+
+
+/**
+ *  Optional. Delegates authorization decisions to Cloud IAP. Applicable only
+ *  for managed load balancers. Enabling Cloud IAP at the AuthzPolicy level is
+ *  not compatible with Cloud IAP settings in the BackendService. Enabling IAP
+ *  in both places will result in request failure. Ensure that IAP is enabled in
+ *  either the AuthzPolicy or the BackendService but not in both places.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyCustomProviderCloudIap : GTLRObject
+@end
+
+
+/**
+ *  Specifies the set of targets to which this policy should be applied to.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyTarget : GTLRObject
+
+/**
+ *  Required. All gateways and forwarding rules referenced by this policy and
+ *  extensions must share the same load balancing scheme. Supported values:
+ *  `INTERNAL_MANAGED` and `EXTERNAL_MANAGED`. For more information, refer to
+ *  [Backend services
+ *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_ExternalManaged
+ *        Signifies that this is used for Global external or Regional external
+ *        Application Load Balancing. (Value: "EXTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_InternalManaged
+ *        Signifies that this is used for Regional internal or Cross-region
+ *        internal Application Load Balancing. (Value: "INTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_InternalSelfManaged
+ *        Signifies that this is used for Cloud Service Mesh. Meant for use by
+ *        CSM GKE controller only. (Value: "INTERNAL_SELF_MANAGED")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_LoadBalancingSchemeUnspecified
+ *        Default value. Do not use. (Value:
+ *        "LOAD_BALANCING_SCHEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  Required. A list of references to the Forwarding Rules on which this policy
+ *  will be applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+@end
+
+
+/**
+ *  BackendAuthenticationConfig message groups the TrustConfig together with
+ *  other settings that control how the load balancer authenticates, and
+ *  expresses its identity to, the backend: * `trustConfig` is the attached
+ *  TrustConfig. * `wellKnownRoots` indicates whether the load balance should
+ *  trust backend server certificates that are issued by public certificate
+ *  authorities, in addition to certificates trusted by the TrustConfig. *
+ *  `clientCertificate` is a client certificate that the load balancer uses to
+ *  express its identity to the backend, if the connection to the backend uses
+ *  mTLS. You can attach the BackendAuthenticationConfig to the load balancer's
+ *  BackendService directly determining how that BackendService negotiates TLS.
+ */
+@interface GTLRNetworkSecurity_BackendAuthenticationConfig : GTLRObject
+
+/**
+ *  Optional. A reference to a certificatemanager.googleapis.com.Certificate
+ *  resource. This is a relative resource path following the form
+ *  "projects/{project}/locations/{location}/certificates/{certificate}". Used
+ *  by a BackendService to negotiate mTLS when the backend connection uses TLS
+ *  and the backend requests a client certificate. Must have a CLIENT_AUTH
+ *  scope.
+ */
+@property(nonatomic, copy, nullable) NSString *clientCertificate;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Free-text description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Etag of the resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Set of label tags associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_BackendAuthenticationConfig_Labels *labels;
+
+/**
+ *  Required. Name of the BackendAuthenticationConfig resource. It matches the
+ *  pattern `projects/ *
+ *  /locations/{location}/backendAuthenticationConfigs/{backend_authentication_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A reference to a TrustConfig resource from the
+ *  certificatemanager.googleapis.com namespace. This is a relative resource
+ *  path following the form
+ *  "projects/{project}/locations/{location}/trustConfigs/{trust_config}". A
+ *  BackendService uses the chain of trust represented by this TrustConfig, if
+ *  specified, to validate the server certificates presented by the backend.
+ *  Required unless wellKnownRoots is set to PUBLIC_ROOTS.
+ */
+@property(nonatomic, copy, nullable) NSString *trustConfig;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Well known roots to use for server certificate validation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_None
+ *        The BackendService will only validate server certificates against
+ *        roots specified in TrustConfig. (Value: "NONE")
+ *    @arg @c kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_PublicRoots
+ *        The BackendService uses a set of well-known public roots, in addition
+ *        to any roots specified in the trustConfig field, when validating the
+ *        server certificates presented by the backend. Validation with these
+ *        roots is only considered when the TlsSettings.sni field in the
+ *        BackendService is set. The well-known roots are a set of root CAs
+ *        managed by Google. CAs in this set can be added or removed without
+ *        notice. (Value: "PUBLIC_ROOTS")
+ *    @arg @c kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_WellKnownRootsUnspecified
+ *        Equivalent to NONE. (Value: "WELL_KNOWN_ROOTS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wellKnownRoots;
+
+@end
+
+
+/**
+ *  Set of label tags associated with the resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_BackendAuthenticationConfig_Labels : GTLRObject
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRNetworkSecurity_CancelOperationRequest : GTLRObject
@@ -480,7 +2366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  Required. Name of the ClientTlsPolicy resource. It matches the pattern
- *  `projects/ * /locations/{location}/clientTlsPolicies/{client_tls_policy}`
+ *  `projects/{project}/locations/{location}/clientTlsPolicies/{client_tls_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -537,6 +2423,38 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /** Required. Source address group to clone items from. */
 @property(nonatomic, copy, nullable) NSString *sourceAddressGroup;
+
+@end
+
+
+/**
+ *  CustomInterceptProfile defines in-band integration behavior (intercept). It
+ *  is used by firewall rules with an APPLY_SECURITY_PROFILE_GROUP action.
+ */
+@interface GTLRNetworkSecurity_CustomInterceptProfile : GTLRObject
+
+/**
+ *  Required. The target InterceptEndpointGroup. When a firewall rule with this
+ *  security profile attached matches a packet, the packet will be intercepted
+ *  to the location-local target in this group.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptEndpointGroup;
+
+@end
+
+
+/**
+ *  CustomMirroringProfile defines out-of-band integration behavior (mirroring).
+ *  It is used by mirroring rules with a MIRROR action.
+ */
+@interface GTLRNetworkSecurity_CustomMirroringProfile : GTLRObject
+
+/**
+ *  Required. The target MirroringEndpointGroup. When a mirroring rule with this
+ *  security profile attached matches a packet, a replica will be mirrored to
+ *  the location-local target in this group.
+ */
+@property(nonatomic, copy, nullable) NSString *mirroringEndpointGroup;
 
 @end
 
@@ -635,6 +2553,201 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Message describing Endpoint object.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpoint : GTLRObject
+
+/**
+ *  Output only. List of networks that are associated with this endpoint in the
+ *  local zone. This is a projection of the FirewallEndpointAssociations
+ *  pointing at this endpoint. A network will only appear in this list after
+ *  traffic routing is fully configured. Format:
+ *  projects/{project}/global/networks/{name}.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *associatedNetworks GTLR_DEPRECATED;
+
+/**
+ *  Output only. List of FirewallEndpointAssociations that are associated to
+ *  this endpoint. An association will only appear in this list after traffic
+ *  routing is fully configured.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_FirewallEndpointAssociationReference *> *associations;
+
+/** Required. Project to bill on endpoint uptime usage. */
+@property(nonatomic, copy, nullable) NSString *billingProjectId;
+
+/** Output only. Create time stamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the firewall endpoint. Max length 2048 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpoint_Labels *labels;
+
+/** Immutable. Identifier. Name of resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether reconciling is in progress, recommended per
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. [Output Only] Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. [Output Only] Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
+ *  Output only. Current state of the endpoint.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_Active Processing
+ *        configuration updates. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_Creating Being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_Deleting Being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_Inactive Down or in an
+ *        error state. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpoint_State_StateUnspecified Not
+ *        set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpoint_Labels : GTLRObject
+@end
+
+
+/**
+ *  Message describing Association object
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointAssociation : GTLRObject
+
+/** Output only. Create time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Whether the association is disabled. True indicates that traffic
+ *  won't be intercepted
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** Required. The URL of the FirewallEndpoint that is being associated. */
+@property(nonatomic, copy, nullable) NSString *firewallEndpoint;
+
+/** Optional. Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpointAssociation_Labels *labels;
+
+/** Immutable. Identifier. name of resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The URL of the network that is being associated. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. Whether reconciling is in progress, recommended per
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Current state of the association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Active
+ *        Active and ready for traffic. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Creating
+ *        Being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Deleting
+ *        Being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Inactive
+ *        Down or in an error state. (Value: "INACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_Orphan The
+ *        project that housed the association has been deleted. (Value:
+ *        "ORPHAN")
+ *    @arg @c kGTLRNetworkSecurity_FirewallEndpointAssociation_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. The URL of the TlsInspectionPolicy that is being associated. */
+@property(nonatomic, copy, nullable) NSString *tlsInspectionPolicy;
+
+/** Output only. Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointAssociation_Labels : GTLRObject
+@end
+
+
+/**
+ *  This is a subset of the FirewallEndpointAssociation message, containing
+ *  fields to be used by the consumer.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointAssociationReference : GTLRObject
+
+/**
+ *  Output only. The resource name of the FirewallEndpointAssociation. Format:
+ *  projects/{project}/locations/{location}/firewallEndpointAssociations/{id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The VPC network associated. Format:
+ *  projects/{project}/global/networks/{name}.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 @end
 
@@ -1104,6 +3217,650 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  A deployment represents a zonal intercept backend ready to accept
+ *  GENEVE-encapsulated traffic, e.g. a zonal instance group fronted by an
+ *  internal passthrough load balancer. Deployments are always part of a global
+ *  deployment group which represents a global intercept service.
+ */
+@interface GTLRNetworkSecurity_InterceptDeployment : GTLRObject
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the deployment. Used as additional
+ *  context for the deployment.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The regional forwarding rule that fronts the
+ *  interceptors, for example:
+ *  `projects/123456789/regions/us-central1/forwardingRules/my-rule`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/**
+ *  Required. Immutable. The deployment group that this deployment is a part of,
+ *  for example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptDeploymentGroup;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptDeployment_Labels *labels;
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment, for example:
+ *  `projects/123456789/locations/us-central1-a/interceptDeployments/my-dep`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This part of
+ *  the normal operation (e.g. linking a new association to the parent group).
+ *  See https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the deployment. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_Active The
+ *        deployment is ready and in sync with the parent group. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_Creating The
+ *        deployment is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_DeleteFailed An
+ *        attempt to delete the deployment has failed. This is a terminal state
+ *        and the deployment is not expected to recover. The only permitted
+ *        operation is to retry deleting the deployment. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_Deleting The
+ *        deployment is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_OutOfSync The
+ *        deployment is out of sync with the parent group. In most cases, this
+ *        is a result of a transient issue within the system (e.g. a delayed
+ *        data-path config) and the system is expected to recover automatically.
+ *        See the parent deployment group's state for more details. (Value:
+ *        "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeployment_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_InterceptDeployment_Labels : GTLRObject
+@end
+
+
+/**
+ *  A deployment group aggregates many zonal intercept backends (deployments)
+ *  into a single global intercept service. Consumers can connect this service
+ *  using an endpoint group.
+ */
+@interface GTLRNetworkSecurity_InterceptDeploymentGroup : GTLRObject
+
+/**
+ *  Output only. The list of endpoint groups that are connected to this
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup *> *connectedEndpointGroups;
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the deployment group. Used as
+ *  additional context for the deployment group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptDeploymentGroup_Labels *labels;
+
+/**
+ *  Output only. The list of locations where the deployment group is present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptLocation *> *locations;
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment group, for
+ *  example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The list of Intercept Deployments that belong to this group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptDeploymentGroupDeployment *> *nestedDeployments GTLR_DEPRECATED;
+
+/**
+ *  Required. Immutable. The network that will be used for all child
+ *  deployments, for example: `projects/{project}/global/networks/{network}`.
+ *  See https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This is part of
+ *  the normal operation (e.g. adding a new deployment to the group) See
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the deployment group. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Active The
+ *        deployment group is ready. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Creating The
+ *        deployment group is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroup_State_Deleting The
+ *        deployment group is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroup_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_InterceptDeploymentGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  An endpoint group connected to this deployment group.
+ */
+@interface GTLRNetworkSecurity_InterceptDeploymentGroupConnectedEndpointGroup : GTLRObject
+
+/**
+ *  Output only. The connected endpoint group's resource name, for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A deployment belonging to this deployment group.
+ */
+@interface GTLRNetworkSecurity_InterceptDeploymentGroupDeployment : GTLRObject
+
+/**
+ *  Output only. The name of the Intercept Deployment, in the format:
+ *  `projects/{project}/locations/{location}/interceptDeployments/{intercept_deployment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Most recent known state of the deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Active
+ *        The deployment is ready and in sync with the parent group. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Creating
+ *        The deployment is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_DeleteFailed
+ *        An attempt to delete the deployment has failed. This is a terminal
+ *        state and the deployment is not expected to recover. The only
+ *        permitted operation is to retry deleting the deployment. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_Deleting
+ *        The deployment is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_OutOfSync
+ *        The deployment is out of sync with the parent group. In most cases,
+ *        this is a result of a transient issue within the system (e.g. a
+ *        delayed data-path config) and the system is expected to recover
+ *        automatically. See the parent deployment group's state for more
+ *        details. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptDeploymentGroupDeployment_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  An endpoint group is a consumer frontend for a deployment group (backend).
+ *  In order to configure intercept for a network, consumers must create: - An
+ *  association between their network and the endpoint group. - A security
+ *  profile that points to the endpoint group. - A firewall rule that references
+ *  the security profile (group).
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroup : GTLRObject
+
+/** Output only. List of associations to this endpoint group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails *> *associations;
+
+/**
+ *  Output only. Details about the connected deployment group to this endpoint
+ *  group.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptEndpointGroupConnectedDeploymentGroup *connectedDeploymentGroup;
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the endpoint group. Used as
+ *  additional context for the endpoint group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The deployment group that this endpoint group is
+ *  connected to, for example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptDeploymentGroup;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptEndpointGroup_Labels *labels;
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group, for
+ *  example:
+ *  `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This is part of
+ *  the normal operation (e.g. adding a new association to the group). See
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the endpoint group. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_Active The
+ *        endpoint group is ready and in sync with the target deployment group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_Closed The
+ *        deployment group backing this endpoint group has been force-deleted.
+ *        This endpoint group cannot be used and interception is effectively
+ *        disabled. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_Creating The
+ *        endpoint group is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_DeleteFailed An
+ *        attempt to delete the endpoint group has failed. This is a terminal
+ *        state and the endpoint group is not expected to recover. The only
+ *        permitted operation is to retry deleting the endpoint group. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_Deleting The
+ *        endpoint group is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_OutOfSync The
+ *        endpoint group is out of sync with the backing deployment group. In
+ *        most cases, this is a result of a transient issue within the system
+ *        (e.g. an inaccessible location) and the system is expected to recover
+ *        automatically. See the associations field for details per network and
+ *        location. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroup_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  An endpoint group association represents a link between a network and an
+ *  endpoint group in the organization. Creating an association creates the
+ *  networking infrastructure linking the network to the endpoint group, but
+ *  does not enable intercept by itself. To enable intercept, the user must also
+ *  create a network firewall policy containing intercept rules and associate it
+ *  with the network.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupAssociation : GTLRObject
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Immutable. The endpoint group that this association is connected
+ *  to, for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *interceptEndpointGroup;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_InterceptEndpointGroupAssociation_Labels *labels;
+
+/**
+ *  Output only. The list of locations where the association is configured. This
+ *  information is retrieved from the linked endpoint group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptLocation *> *locations;
+
+/**
+ *  Output only. The list of locations where the association is present. This
+ *  information is retrieved from the linked endpoint group, and not configured
+ *  as part of the association itself.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails *> *locationsDetails GTLR_DEPRECATED;
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group association,
+ *  for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-eg-association`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The VPC network that is associated. for example:
+ *  `projects/123456789/global/networks/my-network`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This part of
+ *  the normal operation (e.g. adding a new location to the target deployment
+ *  group). See https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Current state of the endpoint group association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Closed
+ *        The association is disabled due to a breaking change in another
+ *        resource. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Creating
+ *        The association is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_DeleteFailed
+ *        An attempt to delete the association has failed. This is a terminal
+ *        state and the association is not expected to be usable as some of its
+ *        resources have been deleted. The only permitted operation is to retry
+ *        deleting the association. (Value: "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_Deleting
+ *        The association is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. Check the `locations_details` field for more details.
+ *        (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociation_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupAssociation_Labels : GTLRObject
+@end
+
+
+/**
+ *  The endpoint group's view of a connected association.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails : GTLRObject
+
+/**
+ *  Output only. The connected association's resource name, for example:
+ *  `projects/123456789/locations/global/interceptEndpointGroupAssociations/my-ega`.
+ *  See https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The associated network, for example:
+ *  projects/123456789/global/networks/my-network. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. Most recent known state of the association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Closed
+ *        The association is disabled due to a breaking change in another
+ *        resource. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Creating
+ *        The association is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_DeleteFailed
+ *        An attempt to delete the association has failed. This is a terminal
+ *        state and the association is not expected to be usable as some of its
+ *        resources have been deleted. The only permitted operation is to retry
+ *        deleting the association. (Value: "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_Deleting
+ *        The association is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. Check the `locations_details` field for more details.
+ *        (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationDetails_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Contains details about the state of an association in a specific cloud
+ *  location.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails : GTLRObject
+
+/** Output only. The cloud location, e.g. "us-central1-a" or "asia-south1". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The current state of the association in this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptEndpointGroupAssociationLocationDetails_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The endpoint group's view of a connected deployment group.
+ */
+@interface GTLRNetworkSecurity_InterceptEndpointGroupConnectedDeploymentGroup : GTLRObject
+
+/**
+ *  Output only. The list of locations where the deployment group is present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptLocation *> *locations;
+
+/**
+ *  Output only. The connected deployment group's resource name, for example:
+ *  `projects/123456789/locations/global/interceptDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Details about intercept in a specific cloud location.
+ */
+@interface GTLRNetworkSecurity_InterceptLocation : GTLRObject
+
+/** Output only. The cloud location, e.g. "us-central1-a" or "asia-south1". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The current state of the association in this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_InterceptLocation_State_Active The resource
+ *        is ready and in sync in the location. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_InterceptLocation_State_OutOfSync The
+ *        resource is out of sync in the location. In most cases, this is a
+ *        result of a transient issue within the system (e.g. an inaccessible
+ *        location) and the system is expected to recover automatically. (Value:
+ *        "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_InterceptLocation_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Response of the ListAddressGroupReferences method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1177,6 +3934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -1209,6 +3969,64 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  Message for response to listing `AuthzPolicy` resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "authzPolicies" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkSecurity_ListAuthzPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  The list of `AuthzPolicy` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicy *> *authzPolicies;
+
+/** A token identifying a page of results that the server returns. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response returned by the ListBackendAuthenticationConfigs method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backendAuthenticationConfigs" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListBackendAuthenticationConfigsResponse : GTLRCollectionObject
+
+/**
+ *  List of BackendAuthenticationConfig resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_BackendAuthenticationConfig *> *backendAuthenticationConfigs;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response returned by the ListClientTlsPolicies method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1232,6 +4050,60 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  method again using the value of `next_page_token` as `page_token`.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Message for response to listing Associations
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "firewallEndpointAssociations" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListFirewallEndpointAssociationsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Association
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_FirewallEndpointAssociation *> *firewallEndpointAssociations;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing Endpoints
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "firewallEndpoints" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListFirewallEndpointsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Endpoint
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_FirewallEndpoint *> *firewallEndpoints;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1299,6 +4171,121 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  Response message for ListInterceptDeploymentGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "interceptDeploymentGroups" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListInterceptDeploymentGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The deployment groups from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptDeploymentGroup *> *interceptDeploymentGroups;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListInterceptDeployments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "interceptDeployments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListInterceptDeploymentsResponse : GTLRCollectionObject
+
+/**
+ *  The deployments from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptDeployment *> *interceptDeployments;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListInterceptEndpointGroupAssociations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "interceptEndpointGroupAssociations" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListInterceptEndpointGroupAssociationsResponse : GTLRCollectionObject
+
+/**
+ *  The associations from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptEndpointGroupAssociation *> *interceptEndpointGroupAssociations;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListInterceptEndpointGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "interceptEndpointGroups" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListInterceptEndpointGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The endpoint groups from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_InterceptEndpointGroup *> *interceptEndpointGroups;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1317,6 +4304,121 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_Location *> *locations;
 
 /** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListMirroringDeploymentGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "mirroringDeploymentGroups" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListMirroringDeploymentGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The deployment groups from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringDeploymentGroup *> *mirroringDeploymentGroups;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListMirroringDeployments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "mirroringDeployments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListMirroringDeploymentsResponse : GTLRCollectionObject
+
+/**
+ *  The deployments from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringDeployment *> *mirroringDeployments;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for ListMirroringEndpointGroupAssociations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "mirroringEndpointGroupAssociations" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListMirroringEndpointGroupAssociationsResponse : GTLRCollectionObject
+
+/**
+ *  The associations from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringEndpointGroupAssociation *> *mirroringEndpointGroupAssociations;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListMirroringEndpointGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "mirroringEndpointGroups" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListMirroringEndpointGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The endpoint groups from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringEndpointGroup *> *mirroringEndpointGroups;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. See
+ *  https://google.aip.dev/158 for more details.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -1347,6 +4449,62 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  Response returned by the ListSecurityProfileGroups method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityProfileGroups" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListSecurityProfileGroupsResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of SecurityProfileGroups resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_SecurityProfileGroup *> *securityProfileGroups;
+
+@end
+
+
+/**
+ *  Response returned by the ListSecurityProfiles method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityProfiles" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkSecurity_ListSecurityProfilesResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of SecurityProfile resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_SecurityProfile *> *securityProfiles;
+
+@end
+
+
+/**
  *  Response returned by the ListServerTlsPolicies method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1370,6 +4528,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_ServerTlsPolicy *> *serverTlsPolicies;
+
+/**
+ *  Unreachable resources. Populated when the request opts into
+ *  `return_partial_success` and reading across collections e.g. when attempting
+ *  to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1498,13 +4663,657 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  A deployment represents a zonal mirroring backend ready to accept
+ *  GENEVE-encapsulated replica traffic, e.g. a zonal instance group fronted by
+ *  an internal passthrough load balancer. Deployments are always part of a
+ *  global deployment group which represents a global mirroring service.
+ */
+@interface GTLRNetworkSecurity_MirroringDeployment : GTLRObject
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the deployment. Used as additional
+ *  context for the deployment.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The regional forwarding rule that fronts the mirroring
+ *  collectors, for example:
+ *  `projects/123456789/regions/us-central1/forwardingRules/my-rule`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_MirroringDeployment_Labels *labels;
+
+/**
+ *  Required. Immutable. The deployment group that this deployment is a part of,
+ *  for example:
+ *  `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *mirroringDeploymentGroup;
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment, for example:
+ *  `projects/123456789/locations/us-central1-a/mirroringDeployments/my-dep`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This part of
+ *  the normal operation (e.g. linking a new association to the parent group).
+ *  See https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the deployment. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeployment_State_Active The
+ *        deployment is ready and in sync with the parent group. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeployment_State_Creating The
+ *        deployment is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeployment_State_DeleteFailed An
+ *        attempt to delete the deployment has failed. This is a terminal state
+ *        and the deployment is not expected to recover. The only permitted
+ *        operation is to retry deleting the deployment. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeployment_State_Deleting The
+ *        deployment is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeployment_State_OutOfSync The
+ *        deployment is out of sync with the parent group. In most cases, this
+ *        is a result of a transient issue within the system (e.g. a delayed
+ *        data-path config) and the system is expected to recover automatically.
+ *        See the parent deployment group's state for more details. (Value:
+ *        "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeployment_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_MirroringDeployment_Labels : GTLRObject
+@end
+
+
+/**
+ *  A deployment group aggregates many zonal mirroring backends (deployments)
+ *  into a single global mirroring service. Consumers can connect this service
+ *  using an endpoint group.
+ */
+@interface GTLRNetworkSecurity_MirroringDeploymentGroup : GTLRObject
+
+/**
+ *  Output only. The list of endpoint groups that are connected to this
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringDeploymentGroupConnectedEndpointGroup *> *connectedEndpointGroups;
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the deployment group. Used as
+ *  additional context for the deployment group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_MirroringDeploymentGroup_Labels *labels;
+
+/**
+ *  Output only. The list of locations where the deployment group is present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringLocation *> *locations;
+
+/**
+ *  Immutable. Identifier. The resource name of this deployment group, for
+ *  example:
+ *  `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The list of Mirroring Deployments that belong to this group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringDeploymentGroupDeployment *> *nestedDeployments GTLR_DEPRECATED;
+
+/**
+ *  Required. Immutable. The network that will be used for all child
+ *  deployments, for example: `projects/{project}/global/networks/{network}`.
+ *  See https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This is part of
+ *  the normal operation (e.g. adding a new deployment to the group) See
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the deployment group. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Active The
+ *        deployment group is ready. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Creating The
+ *        deployment group is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Deleting The
+ *        deployment group is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroup_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_MirroringDeploymentGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  An endpoint group connected to this deployment group.
+ */
+@interface GTLRNetworkSecurity_MirroringDeploymentGroupConnectedEndpointGroup : GTLRObject
+
+/**
+ *  Output only. The connected endpoint group's resource name, for example:
+ *  `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A deployment belonging to this deployment group.
+ */
+@interface GTLRNetworkSecurity_MirroringDeploymentGroupDeployment : GTLRObject
+
+/**
+ *  Output only. The name of the Mirroring Deployment, in the format:
+ *  `projects/{project}/locations/{location}/mirroringDeployments/{mirroring_deployment}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Most recent known state of the deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Active
+ *        The deployment is ready and in sync with the parent group. (Value:
+ *        "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Creating
+ *        The deployment is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_DeleteFailed
+ *        An attempt to delete the deployment has failed. This is a terminal
+ *        state and the deployment is not expected to recover. The only
+ *        permitted operation is to retry deleting the deployment. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_Deleting
+ *        The deployment is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_OutOfSync
+ *        The deployment is out of sync with the parent group. In most cases,
+ *        this is a result of a transient issue within the system (e.g. a
+ *        delayed data-path config) and the system is expected to recover
+ *        automatically. See the parent deployment group's state for more
+ *        details. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroupDeployment_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  An endpoint group is a consumer frontend for a deployment group (backend).
+ *  In order to configure mirroring for a network, consumers must create: - An
+ *  association between their network and the endpoint group. - A security
+ *  profile that points to the endpoint group. - A mirroring rule that
+ *  references the security profile (group).
+ */
+@interface GTLRNetworkSecurity_MirroringEndpointGroup : GTLRObject
+
+/** Output only. List of associations to this endpoint group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails *> *associations;
+
+/**
+ *  Output only. List of details about the connected deployment groups to this
+ *  endpoint group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringEndpointGroupConnectedDeploymentGroup *> *connectedDeploymentGroups;
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description of the endpoint group. Used as
+ *  additional context for the endpoint group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_MirroringEndpointGroup_Labels *labels;
+
+/**
+ *  Immutable. The deployment group that this DIRECT endpoint group is connected
+ *  to, for example:
+ *  `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *mirroringDeploymentGroup;
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group, for
+ *  example:
+ *  `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This is part of
+ *  the normal operation (e.g. adding a new association to the group). See
+ *  https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. The current state of the endpoint group. See
+ *  https://google.aip.dev/216.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_State_Active The
+ *        endpoint group is ready and in sync with the target deployment group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_State_Closed The
+ *        deployment group backing this endpoint group has been force-deleted.
+ *        This endpoint group cannot be used and mirroring is effectively
+ *        disabled. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_State_Creating The
+ *        endpoint group is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_State_DeleteFailed An
+ *        attempt to delete the endpoint group has failed. This is a terminal
+ *        state and the endpoint group is not expected to recover. The only
+ *        permitted operation is to retry deleting the endpoint group. (Value:
+ *        "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_State_Deleting The
+ *        endpoint group is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_State_OutOfSync The
+ *        endpoint group is out of sync with the backing deployment group. In
+ *        most cases, this is a result of a transient issue within the system
+ *        (e.g. an inaccessible location) and the system is expected to recover
+ *        automatically. See the associations field for details per network and
+ *        location. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_MirroringEndpointGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  An endpoint group association represents a link between a network and an
+ *  endpoint group in the organization. Creating an association creates the
+ *  networking infrastructure linking the network to the endpoint group, but
+ *  does not enable mirroring by itself. To enable mirroring, the user must also
+ *  create a network firewall policy containing mirroring rules and associate it
+ *  with the network.
+ */
+@interface GTLRNetworkSecurity_MirroringEndpointGroupAssociation : GTLRObject
+
+/**
+ *  Output only. The timestamp when the resource was created. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_MirroringEndpointGroupAssociation_Labels *labels;
+
+/**
+ *  Output only. The list of locations where the association is configured. This
+ *  information is retrieved from the linked endpoint group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringLocation *> *locations;
+
+/**
+ *  Output only. The list of locations where the association is present. This
+ *  information is retrieved from the linked endpoint group, and not configured
+ *  as part of the association itself.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails *> *locationsDetails GTLR_DEPRECATED;
+
+/**
+ *  Immutable. The endpoint group that this association is connected to, for
+ *  example:
+ *  `projects/123456789/locations/global/mirroringEndpointGroups/my-eg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *mirroringEndpointGroup;
+
+/**
+ *  Immutable. Identifier. The resource name of this endpoint group association,
+ *  for example:
+ *  `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-association`.
+ *  See https://google.aip.dev/122 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The VPC network that is associated. for example:
+ *  `projects/123456789/global/networks/my-network`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. The current state of the resource does not match the user's
+ *  intended state, and the system is working to reconcile them. This part of
+ *  the normal operation (e.g. adding a new location to the target deployment
+ *  group). See https://google.aip.dev/128.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Current state of the endpoint group association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Closed
+ *        The association is disabled due to a breaking change in another
+ *        resource. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Creating
+ *        The association is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_DeleteFailed
+ *        An attempt to delete the association has failed. This is a terminal
+ *        state and the association is not expected to be usable as some of its
+ *        resources have been deleted. The only permitted operation is to retry
+ *        deleting the association. (Value: "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Deleting
+ *        The association is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. Check the `locations_details` field for more details.
+ *        (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The timestamp when the resource was most recently updated. See
+ *  https://google.aip.dev/148#timestamps.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels are key/value pairs that help to organize and filter
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_MirroringEndpointGroupAssociation_Labels : GTLRObject
+@end
+
+
+/**
+ *  The endpoint group's view of a connected association.
+ */
+@interface GTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails : GTLRObject
+
+/**
+ *  Output only. The connected association's resource name, for example:
+ *  `projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-ega`.
+ *  See https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The associated network, for example:
+ *  projects/123456789/global/networks/my-network. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. Most recent known state of the association.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Closed
+ *        The association is disabled due to a breaking change in another
+ *        resource. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Creating
+ *        The association is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_DeleteFailed
+ *        An attempt to delete the association has failed. This is a terminal
+ *        state and the association is not expected to be usable as some of its
+ *        resources have been deleted. The only permitted operation is to retry
+ *        deleting the association. (Value: "DELETE_FAILED")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_Deleting
+ *        The association is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. Check the `locations_details` field for more details.
+ *        (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationDetails_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Contains details about the state of an association in a specific cloud
+ *  location.
+ */
+@interface GTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails : GTLRObject
+
+/** Output only. The cloud location, e.g. "us-central1-a" or "asia-south1". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The current state of the association in this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_Active
+ *        The association is ready and in sync with the linked endpoint group.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_OutOfSync
+ *        The association is out of sync with the linked endpoint group. In most
+ *        cases, this is a result of a transient issue within the system (e.g.
+ *        an inaccessible location) and the system is expected to recover
+ *        automatically. (Value: "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroupAssociationLocationDetails_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The endpoint group's view of a connected deployment group.
+ */
+@interface GTLRNetworkSecurity_MirroringEndpointGroupConnectedDeploymentGroup : GTLRObject
+
+/**
+ *  Output only. The list of locations where the deployment group is present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_MirroringLocation *> *locations;
+
+/**
+ *  Output only. The connected deployment group's resource name, for example:
+ *  `projects/123456789/locations/global/mirroringDeploymentGroups/my-dg`. See
+ *  https://google.aip.dev/124.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Details about mirroring in a specific cloud location.
+ */
+@interface GTLRNetworkSecurity_MirroringLocation : GTLRObject
+
+/** Output only. The cloud location, e.g. "us-central1-a" or "asia-south1". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. The current state of the association in this location.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringLocation_State_Active The resource
+ *        is ready and in sync in the location. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringLocation_State_OutOfSync The
+ *        resource is out of sync in the location. In most cases, this is a
+ *        result of a transient issue within the system (e.g. an inaccessible
+ *        location) and the system is expected to recover automatically. (Value:
+ *        "OUT_OF_SYNC")
+ *    @arg @c kGTLRNetworkSecurity_MirroringLocation_State_StateUnspecified
+ *        State not set (this is not a valid state). (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Specification of the MTLSPolicy.
  */
 @interface GTLRNetworkSecurity_MTLSPolicy : GTLRObject
 
 /**
- *  Required if the policy is to be used with Traffic Director. For external
- *  HTTPS load balancers it must be empty. Defines the mechanism to obtain the
+ *  Required if the policy is to be used with Traffic Director. For Application
+ *  Load Balancers it must be empty. Defines the mechanism to obtain the
  *  Certificate Authority certificate to validate the client certificate.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_ValidationCA *> *clientValidationCa;
@@ -1513,7 +5322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  When the client presents an invalid certificate or no certificate to the
  *  load balancer, the `client_validation_mode` specifies how the client
  *  connection is handled. Required if the policy is to be used with the
- *  external HTTPS load balancing. For Traffic Director it must be empty.
+ *  Application Load Balancers. For Traffic Director it must be empty.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkSecurity_MTLSPolicy_ClientValidationMode_AllowInvalidOrMissingClientCert
@@ -1539,7 +5348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  Reference to the TrustConfig from certificatemanager.googleapis.com
  *  namespace. If specified, the chain validation will be performed against
  *  certificates configured in the given TrustConfig. Allowed only if the policy
- *  is to be used with external HTTPS load balancers.
+ *  is to be used with Application Load Balancers.
  */
 @property(nonatomic, copy, nullable) NSString *clientValidationTrustConfig;
 
@@ -1716,21 +5525,175 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  SecurityProfile is a resource that defines the behavior for one of many
+ *  ProfileTypes.
+ */
+@interface GTLRNetworkSecurity_SecurityProfile : GTLRObject
+
+/** Output only. Resource creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The custom TPPI configuration for the SecurityProfile. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_CustomInterceptProfile *customInterceptProfile;
+
+/** The custom Packet Mirroring v2 configuration for the SecurityProfile. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_CustomMirroringProfile *customMirroringProfile;
+
+/**
+ *  Optional. An optional description of the profile. Max length 512 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. Labels as key value pairs. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_SecurityProfile_Labels *labels;
+
+/**
+ *  Immutable. Identifier. Name of the SecurityProfile resource. It matches
+ *  pattern `projects|organizations/ *
+ *  /locations/{location}/securityProfiles/{security_profile}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The threat prevention configuration for the SecurityProfile. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_ThreatPreventionProfile *threatPreventionProfile;
+
+/**
+ *  Immutable. The single ProfileType that the SecurityProfile resource
+ *  configures.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_CustomIntercept Profile
+ *        type for TPPI. (Value: "CUSTOM_INTERCEPT")
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_CustomMirroring Profile
+ *        type for packet mirroring v2 (Value: "CUSTOM_MIRRORING")
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified
+ *        Profile type not specified. (Value: "PROFILE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention Profile
+ *        type for threat prevention. (Value: "THREAT_PREVENTION")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Last resource update timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_SecurityProfile_Labels : GTLRObject
+@end
+
+
+/**
+ *  SecurityProfileGroup is a resource that defines the behavior for various
+ *  ProfileTypes.
+ */
+@interface GTLRNetworkSecurity_SecurityProfileGroup : GTLRObject
+
+/** Output only. Resource creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Reference to a SecurityProfile with the CustomIntercept
+ *  configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *customInterceptProfile;
+
+/**
+ *  Optional. Reference to a SecurityProfile with the CustomMirroring
+ *  configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *customMirroringProfile;
+
+/**
+ *  Output only. Identifier used by the data-path. Unique within {container,
+ *  location}.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataPathId;
+
+/**
+ *  Optional. An optional description of the profile group. Max length 2048
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. Labels as key value pairs. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_SecurityProfileGroup_Labels *labels;
+
+/**
+ *  Immutable. Identifier. Name of the SecurityProfileGroup resource. It matches
+ *  pattern `projects|organizations/ *
+ *  /locations/{location}/securityProfileGroups/{security_profile_group}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Reference to a SecurityProfile with the ThreatPrevention
+ *  configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *threatPreventionProfile;
+
+/** Output only. Last resource update timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_SecurityProfileGroup_Labels : GTLRObject
+@end
+
+
+/**
  *  ServerTlsPolicy is a resource that specifies how a server should
  *  authenticate incoming requests. This resource itself does not affect
  *  configuration unless it is attached to a target HTTPS proxy or endpoint
- *  config selector resource. ServerTlsPolicy in the form accepted by external
- *  HTTPS load balancers can be attached only to TargetHttpsProxy with an
- *  `EXTERNAL` or `EXTERNAL_MANAGED` load balancing scheme. Traffic Director
- *  compatible ServerTlsPolicies can be attached to EndpointPolicy and
- *  TargetHttpsProxy with Traffic Director `INTERNAL_SELF_MANAGED` load
- *  balancing scheme.
+ *  config selector resource. ServerTlsPolicy in the form accepted by
+ *  Application Load Balancers can be attached only to TargetHttpsProxy with an
+ *  `EXTERNAL`, `EXTERNAL_MANAGED` or `INTERNAL_MANAGED` load balancing scheme.
+ *  Traffic Director compatible ServerTlsPolicies can be attached to
+ *  EndpointPolicy and TargetHttpsProxy with Traffic Director
+ *  `INTERNAL_SELF_MANAGED` load balancing scheme.
  */
 @interface GTLRNetworkSecurity_ServerTlsPolicy : GTLRObject
 
 /**
  *  This field applies only for Traffic Director policies. It is must be set to
- *  false for external HTTPS load balancer policies. Determines if server allows
+ *  false for Application Load Balancer policies. Determines if server allows
  *  plaintext connections. If set to true, server allows plain text connections.
  *  By default, it is set to false. This setting is not exclusive of other
  *  encryption modes. For example, if `allow_open` and `mtls_policy` are set,
@@ -1757,8 +5720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_ServerTlsPolicy_Labels *labels;
 
 /**
- *  This field is required if the policy is used with external HTTPS load
- *  balancers. This field can be empty for Traffic Director. Defines a mechanism
+ *  This field is required if the policy is used with Application Load
+ *  Balancers. This field can be empty for Traffic Director. Defines a mechanism
  *  to provision peer validation certificates for peer to peer authentication
  *  (Mutual TLS - mTLS). If not specified, client certificate will not be
  *  requested. The connection is treated as TLS and not mTLS. If `allow_open`
@@ -1774,10 +5737,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional if policy is to be used with Traffic Director. For external HTTPS
- *  load balancer must be empty. Defines a mechanism to provision server
- *  identity (public and private keys). Cannot be combined with `allow_open` as
- *  a permissive mode that allows both plain text and TLS is not supported.
+ *  Optional if policy is to be used with Traffic Director. For Application Load
+ *  Balancers must be empty. Defines a mechanism to provision server identity
+ *  (public and private keys). Cannot be combined with `allow_open` as a
+ *  permissive mode that allows both plain text and TLS is not supported.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider *serverCertificate;
 
@@ -1796,6 +5759,69 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        fetch them all at once.
  */
 @interface GTLRNetworkSecurity_ServerTlsPolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  Defines what action to take for a specific severity match.
+ */
+@interface GTLRNetworkSecurity_SeverityOverride : GTLRObject
+
+/**
+ *  Required. Threat action override.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_Alert The packet
+ *        matching this rule will be allowed to transmit, but a threat_log entry
+ *        will be sent to the consumer project. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_Allow The packet
+ *        matching this rule will be allowed to transmit. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_DefaultAction The
+ *        default action (as specified by the vendor) is taken. (Value:
+ *        "DEFAULT_ACTION")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_Deny The packet
+ *        matching this rule will be dropped, and a threat_log entry will be
+ *        sent to the consumer project. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Action_ThreatActionUnspecified
+ *        Threat action not specified. (Value: "THREAT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Severity level to match.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_Critical Serious
+ *        threats, such as those that affect default installations of widely
+ *        deployed software, result in root compromise of servers, and the
+ *        exploit code is widely available to attackers. The attacker usually
+ *        does not need any special authentication credentials or knowledge
+ *        about the individual victims and the target does not need to be
+ *        manipulated into performing any special functions. (Value: "CRITICAL")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_High Threats that
+ *        have the ability to become critical but have mitigating factors; for
+ *        example, they may be difficult to exploit, do not result in elevated
+ *        privileges, or do not have a large victim pool. (Value: "HIGH")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_Informational
+ *        Suspicious events that do not pose an immediate threat, but that are
+ *        reported to call attention to deeper problems that could possibly
+ *        exist. (Value: "INFORMATIONAL")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_Low Warning-level
+ *        threats that have very little impact on an organization's
+ *        infrastructure. They usually require local or physical system access
+ *        and may often result in victim privacy issues and information leakage.
+ *        (Value: "LOW")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_Medium Minor
+ *        threats in which impact is minimized, that do not compromise the
+ *        target or exploits that require an attacker to reside on the same
+ *        local network as the victim, affect only non-standard configurations
+ *        or obscure applications, or provide very limited access. (Value:
+ *        "MEDIUM")
+ *    @arg @c kGTLRNetworkSecurity_SeverityOverride_Severity_SeverityUnspecified
+ *        Severity level not specified. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
 @end
 
 
@@ -1868,6 +5894,87 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRNetworkSecurity_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Defines what action to take for a specific threat_id match.
+ */
+@interface GTLRNetworkSecurity_ThreatOverride : GTLRObject
+
+/**
+ *  Required. Threat action override. For some threat types, only a subset of
+ *  actions applies.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_Alert The packet
+ *        matching this rule will be allowed to transmit, but a threat_log entry
+ *        will be sent to the consumer project. (Value: "ALERT")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_Allow The packet
+ *        matching this rule will be allowed to transmit. (Value: "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_DefaultAction The
+ *        default action (as specified by the vendor) is taken. (Value:
+ *        "DEFAULT_ACTION")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_Deny The packet
+ *        matching this rule will be dropped, and a threat_log entry will be
+ *        sent to the consumer project. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Action_ThreatActionUnspecified
+ *        Threat action not specified. (Value: "THREAT_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Required. Vendor-specific ID of a threat to override. */
+@property(nonatomic, copy, nullable) NSString *threatId;
+
+/**
+ *  Output only. Type of the threat (read only).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Antivirus Threats related
+ *        to viruses and malware found in executables and file types. (Value:
+ *        "ANTIVIRUS")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Dns Threats related to
+ *        DNS. (Value: "DNS")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Spyware Threats related
+ *        to command-and-control (C2) activity, where spyware on an infected
+ *        client is collecting data without the user's consent and/or
+ *        communicating with a remote attacker. (Value: "SPYWARE")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_ThreatTypeUnspecified
+ *        Type of threat not specified. (Value: "THREAT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Unknown Type of threat is
+ *        not derivable from threat ID. An override will be created for all
+ *        types. Firewall will ignore overridden signature ID's that don't exist
+ *        in the specific type. (Value: "UNKNOWN")
+ *    @arg @c kGTLRNetworkSecurity_ThreatOverride_Type_Vulnerability Threats
+ *        related to system flaws that an attacker might otherwise attempt to
+ *        exploit. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  ThreatPreventionProfile defines an action for specific threat signatures or
+ *  severity levels.
+ */
+@interface GTLRNetworkSecurity_ThreatPreventionProfile : GTLRObject
+
+/** Optional. Configuration for overriding antivirus actions per protocol. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AntivirusOverride *> *antivirusOverrides;
+
+/**
+ *  Optional. Configuration for overriding threats actions by severity match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_SeverityOverride *> *severityOverrides;
+
+/**
+ *  Optional. Configuration for overriding threats actions by threat_id match.
+ *  If a threat is matched both by configuration provided in severity_overrides
+ *  and threat_overrides, the threat_overrides action is applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_ThreatOverride *> *threatOverrides;
+
 @end
 
 

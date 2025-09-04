@@ -8,9 +8,132 @@
 
 #import <GoogleAPIClientForREST/GTLRNetworkServicesQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRNetworkServicesViewWasmPluginViewBasic   = @"WASM_PLUGIN_VIEW_BASIC";
+NSString * const kGTLRNetworkServicesViewWasmPluginViewFull    = @"WASM_PLUGIN_VIEW_FULL";
+NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUGIN_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRNetworkServicesQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsCreate
+
+@dynamic authzExtensionId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_AuthzExtension *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/authzExtensions";
+  GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.authzExtensions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.authzExtensions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_AuthzExtension class];
+  query.loggingName = @"networkservices.projects.locations.authzExtensions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/authzExtensions";
+  GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListAuthzExtensionsResponse class];
+  query.loggingName = @"networkservices.projects.locations.authzExtensions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_AuthzExtension *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsAuthzExtensionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.authzExtensions.patch";
+  return query;
+}
 
 @end
 
@@ -310,32 +433,9 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.endpointPolicies.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -374,60 +474,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkServices_Operation class];
   query.loggingName = @"networkservices.projects.locations.endpointPolicies.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.endpointPolicies.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.endpointPolicies.testIamPermissions";
   return query;
 }
 
@@ -498,29 +544,6 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsGatewaysGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.gateways.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysList
 
 @dynamic pageSize, pageToken, parent;
@@ -567,55 +590,39 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysSetIamPolicy
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsGet
 
-@dynamic resource;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsGatewaysSetIamPolicy *query =
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.gateways.setIamPolicy";
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_GatewayRouteView class];
+  query.loggingName = @"networkservices.projects.locations.gateways.routeViews.get";
   return query;
 }
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysTestIamPermissions
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsList
 
-@dynamic resource;
+@dynamic pageSize, pageToken, parent;
 
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsGatewaysTestIamPermissions *query =
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/routeViews";
+  GTLRNetworkServicesQuery_ProjectsLocationsGatewaysRouteViewsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.gateways.testIamPermissions";
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListGatewayRouteViewsResponse class];
+  query.loggingName = @"networkservices.projects.locations.gateways.routeViews.list";
   return query;
 }
 
@@ -707,7 +714,7 @@
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -818,7 +825,7 @@
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1086,7 +1093,14 @@
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1168,32 +1182,9 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsMeshesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.meshes.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1237,55 +1228,39 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesSetIamPolicy
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsGet
 
-@dynamic resource;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsMeshesSetIamPolicy *query =
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.meshes.setIamPolicy";
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_MeshRouteView class];
+  query.loggingName = @"networkservices.projects.locations.meshes.routeViews.get";
   return query;
 }
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesTestIamPermissions
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsList
 
-@dynamic resource;
+@dynamic pageSize, pageToken, parent;
 
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsMeshesTestIamPermissions *query =
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/routeViews";
+  GTLRNetworkServicesQuery_ProjectsLocationsMeshesRouteViewsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.meshes.testIamPermissions";
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListMeshRouteViewsResponse class];
+  query.loggingName = @"networkservices.projects.locations.meshes.routeViews.list";
   return query;
 }
 
@@ -1440,29 +1415,6 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.serviceBindings.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsList
 
 @dynamic pageSize, pageToken, parent;
@@ -1482,55 +1434,28 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsPatch
 
-@dynamic resource;
+@dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
++ (instancetype)queryWithObject:(GTLRNetworkServices_ServiceBinding *)object
+                           name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsSetIamPolicy *query =
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.serviceBindings.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceBindingsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.serviceBindings.testIamPermissions";
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.serviceBindings.patch";
   return query;
 }
 
@@ -1601,29 +1526,6 @@
 
 @end
 
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.serviceLbPolicies.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesList
 
 @dynamic pageSize, pageToken, parent;
@@ -1665,60 +1567,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkServices_Operation class];
   query.loggingName = @"networkservices.projects.locations.serviceLbPolicies.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_Policy class];
-  query.loggingName = @"networkservices.projects.locations.serviceLbPolicies.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkServicesQuery_ProjectsLocationsServiceLbPoliciesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkServices_TestIamPermissionsResponse class];
-  query.loggingName = @"networkservices.projects.locations.serviceLbPolicies.testIamPermissions";
   return query;
 }
 
@@ -1791,7 +1639,7 @@
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1902,7 +1750,7 @@
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1941,6 +1789,201 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkServices_Operation class];
   query.loggingName = @"networkservices.projects.locations.tlsRoutes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsCreate
+
+@dynamic parent, wasmPluginId;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_WasmPlugin *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/wasmPlugins";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_WasmPlugin class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/wasmPlugins";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListWasmPluginsResponse class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_WasmPlugin *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsCreate
+
+@dynamic parent, wasmPluginVersionId;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_WasmPluginVersion *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.versions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.versions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_WasmPluginVersion class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.versions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
+  GTLRNetworkServicesQuery_ProjectsLocationsWasmPluginsVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListWasmPluginVersionsResponse class];
+  query.loggingName = @"networkservices.projects.locations.wasmPlugins.versions.list";
   return query;
 }
 

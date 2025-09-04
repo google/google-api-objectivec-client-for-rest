@@ -23,11 +23,17 @@
 @class GTLRCloudDomains_CustomDns;
 @class GTLRCloudDomains_DnsSettings;
 @class GTLRCloudDomains_Domain;
+@class GTLRCloudDomains_DomainForwarding;
 @class GTLRCloudDomains_DsRecord;
+@class GTLRCloudDomains_EmailForwarding;
 @class GTLRCloudDomains_Expr;
+@class GTLRCloudDomains_GeoPolicy;
+@class GTLRCloudDomains_GeoPolicyItem;
 @class GTLRCloudDomains_GlueRecord;
 @class GTLRCloudDomains_GoogleDomainsDns;
+@class GTLRCloudDomains_HealthCheckTargets;
 @class GTLRCloudDomains_ImportDomainRequest_Labels;
+@class GTLRCloudDomains_LoadBalancerTarget;
 @class GTLRCloudDomains_Location;
 @class GTLRCloudDomains_Location_Labels;
 @class GTLRCloudDomains_Location_Metadata;
@@ -38,12 +44,17 @@
 @class GTLRCloudDomains_Operation_Response;
 @class GTLRCloudDomains_Policy;
 @class GTLRCloudDomains_PostalAddress;
+@class GTLRCloudDomains_PrimaryBackupPolicy;
 @class GTLRCloudDomains_RegisterParameters;
 @class GTLRCloudDomains_Registration;
 @class GTLRCloudDomains_Registration_Labels;
+@class GTLRCloudDomains_ResourceRecordSet;
+@class GTLRCloudDomains_RRSetRoutingPolicy;
 @class GTLRCloudDomains_Status;
 @class GTLRCloudDomains_Status_Details_Item;
 @class GTLRCloudDomains_TransferParameters;
+@class GTLRCloudDomains_WrrPolicy;
+@class GTLRCloudDomains_WrrPolicyItem;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -186,6 +197,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Domain_ResourceState_Suspen
  *  Value: "UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Domain_ResourceState_Unsupported;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_DomainForwarding.redirectType
+
+/**
+ *  302 redirect. Allows browsers to cache the forwarding address. This may help
+ *  the address resolve more quickly. Changes may take longer to propagate
+ *
+ *  Value: "PERMANENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DomainForwarding_RedirectType_Permanent;
+/**
+ *  Redirect Type is unspecified.
+ *
+ *  Value: "REDIRECT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DomainForwarding_RedirectType_RedirectTypeUnspecified;
+/**
+ *  301 redirect. Allows to propagate changes to the forwarding address quickly.
+ *
+ *  Value: "TEMPORARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DomainForwarding_RedirectType_Temporary;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDomains_DsRecord.algorithm
@@ -358,6 +392,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_Ds
  *  Value: "DS_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_DsStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_LoadBalancerTarget.ipProtocol
+
+/**
+ *  Indicates the load balancer is accessible via TCP.
+ *
+ *  Value: "TCP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Tcp;
+/**
+ *  Indicates the load balancer is accessible via UDP.
+ *
+ *  Value: "UDP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Udp;
+/** Value: "UNDEFINED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Undefined;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_LoadBalancerTarget.loadBalancerType
+
+/**
+ *  Indicates the load balancer is a Cross-Region Application Load Balancer.
+ *
+ *  Value: "GLOBAL_L7ILB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_GlobalL7ilb;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_None;
+/**
+ *  Indicates the load balancer is a Regional Network Passthrough Load Balancer.
+ *
+ *  Value: "REGIONAL_L4ILB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_RegionalL4ilb;
+/**
+ *  Indicates the load balancer is a Regional Application Load Balancer.
+ *
+ *  Value: "REGIONAL_L7ILB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_RegionalL7ilb;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_ManagementSettings.effectiveTransferLockState
+
+/**
+ *  The domain is locked and cannot be transferred to another registrar.
+ *
+ *  Value: "LOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_Locked;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "TRANSFER_LOCK_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_TransferLockStateUnspecified;
+/**
+ *  The domain is unlocked and can be transferred to another registrar.
+ *
+ *  Value: "UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_Unlocked;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDomains_ManagementSettings.preferredRenewalMethod
@@ -574,6 +672,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_Supporte
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_SupportedPrivacy_RedactedContactData;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDomains_Registration.domainProperties
+
+/**
+ *  The property is undefined.
+ *
+ *  Value: "DOMAIN_PROPERTY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_DomainProperties_DomainPropertyUnspecified;
+/**
+ *  The domain uses an alternative `Push Transfer` process to transfer the
+ *  domain to another registrar. There are two important consequences: * Cloud
+ *  Domains does not supply the authorization codes. * To initiate the process
+ *  to transfer the domain to another registrar, you must provide a tag of the
+ *  registrar you want to transfer to. You can do this by using the
+ *  `InitiatePushTransfer` method. For more information, see [Transfer a
+ *  registered domain to another
+ *  registrar](https://cloud.google.com/domains/docs/transfer-domain-to-another-registrar).
+ *
+ *  Value: "REQUIRE_PUSH_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_DomainProperties_RequirePushTransfer;
+/**
+ *  The domain does not support transfer locks due to restrictions of the
+ *  registry. Such domains are effectively always unlocked and any change made
+ *  to `management_settings.transfer_lock_state` is ignored.
+ *
+ *  Value: "TRANSFER_LOCK_UNSUPPORTED_BY_REGISTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_DomainProperties_TransferLockUnsupportedByRegistry;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDomains_Registration.issues
 
 /**
@@ -582,6 +711,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_RegisterParameters_Supporte
  *  Value: "CONTACT_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_ContactSupport;
+/**
+ *  The registry failed to validate your DNS configuration and activate your
+ *  domain. The failure might happen for the following reasons: * You recently
+ *  registered the domain (wait up to 72 hours). * You provided invalid name
+ *  servers or name servers that correspond to a newly created DNS zone. Verify
+ *  your DNS configuration. If the configuration is incorrect, you must fix it.
+ *  If the configuration is correct, either wait or call the
+ *  ConfigureDnsSettings method to retry the registry validation.
+ *
+ *  Value: "DNS_NOT_ACTIVATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_DnsNotActivated;
 /**
  *  The issue is undefined.
  *
@@ -1280,6 +1421,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_GoogleDomainsDns *googleDomainsDns GTLR_DEPRECATED;
 
+/**
+ *  Output only. Indicates if this `Registration` has configured one of the
+ *  following deprecated Google Domains DNS features: * Domain forwarding (HTTP
+ *  `301` and `302` response status codes), * Email forwarding. See
+ *  https://cloud.google.com/domains/docs/deprecations/feature-deprecations for
+ *  more details. If any of these features is enabled call the
+ *  `RetrieveGoogleDomainsForwardingConfig` method to get details about the
+ *  feature's configuration. A forwarding configuration might not work correctly
+ *  if required DNS records are not present in the domain's authoritative DNS
+ *  Zone.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleDomainsRedirectsDataAvailable;
+
 @end
 
 
@@ -1323,6 +1479,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  `IMPORTABLE`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_Money *yearlyPrice;
+
+@end
+
+
+/**
+ *  Domain forwarding configuration.
+ */
+@interface GTLRCloudDomains_DomainForwarding : GTLRObject
+
+/**
+ *  If true, forwards the path after the domain name to the same path at the new
+ *  address.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pathForwarding;
+
+/** The PEM-encoded certificate chain. */
+@property(nonatomic, copy, nullable) NSString *pemCertificate;
+
+/**
+ *  The redirect type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_DomainForwarding_RedirectType_Permanent 302
+ *        redirect. Allows browsers to cache the forwarding address. This may
+ *        help the address resolve more quickly. Changes may take longer to
+ *        propagate (Value: "PERMANENT")
+ *    @arg @c kGTLRCloudDomains_DomainForwarding_RedirectType_RedirectTypeUnspecified
+ *        Redirect Type is unspecified. (Value: "REDIRECT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDomains_DomainForwarding_RedirectType_Temporary 301
+ *        redirect. Allows to propagate changes to the forwarding address
+ *        quickly. (Value: "TEMPORARY")
+ */
+@property(nonatomic, copy, nullable) NSString *redirectType;
+
+/**
+ *  If true, the forwarding works also over HTTPS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sslEnabled;
+
+/**
+ *  The subdomain of the registered domain that is being forwarded. E.g.
+ *  `www.example.com`, `example.com` (i.e. the registered domain itself) or
+ *  `*.example.com` (i.e. all subdomains).
+ */
+@property(nonatomic, copy, nullable) NSString *subdomain;
+
+/**
+ *  The target of the domain forwarding, i.e. the path to redirect the
+ *  `subdomain` to.
+ */
+@property(nonatomic, copy, nullable) NSString *targetUri;
 
 @end
 
@@ -1408,6 +1619,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 
 
 /**
+ *  Email forwarding configuration.
+ */
+@interface GTLRCloudDomains_EmailForwarding : GTLRObject
+
+/**
+ *  An alias recipient email that forwards emails to the `target_email_address`.
+ *  For example, `admin\@example.com` or `*\@example.com` (wildcard alias
+ *  forwards all the emails under the registered domain).
+ */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/** Target email that receives emails sent to the `alias`. */
+@property(nonatomic, copy, nullable) NSString *targetEmailAddress;
+
+@end
+
+
+/**
  *  Deprecated: For more information, see [Cloud Domains feature
  *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Request for the `ExportRegistration` method.
@@ -1462,6 +1691,65 @@ GTLR_DEPRECATED
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Configures a `RRSetRoutingPolicy` that routes based on the geo location of
+ *  the querying user.
+ */
+@interface GTLRCloudDomains_GeoPolicy : GTLRObject
+
+/**
+ *  Without fencing, if health check fails for all configured items in the
+ *  current geo bucket, we failover to the next nearest geo bucket. With
+ *  fencing, if health checking is enabled, as long as some targets in the
+ *  current geo bucket are healthy, we return only the healthy targets. However,
+ *  if all targets are unhealthy, we don't failover to the next nearest bucket;
+ *  instead, we return all the items in the current bucket even when all targets
+ *  are unhealthy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableFencing;
+
+/**
+ *  The primary geo routing configuration. If there are multiple items with the
+ *  same location, an error is returned instead.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_GeoPolicyItem *> *item;
+
+@end
+
+
+/**
+ *  ResourceRecordSet data for one geo location.
+ */
+@interface GTLRCloudDomains_GeoPolicyItem : GTLRObject
+
+/**
+ *  For A and AAAA types only. Endpoints to return in the query result only if
+ *  they are healthy. These can be specified along with `rrdata` within this
+ *  item.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_HealthCheckTargets *healthCheckedTargets;
+
+/**
+ *  The geo-location granularity is a GCP region. This location string should
+ *  correspond to a GCP region. e.g. "us-east1", "southamerica-east1",
+ *  "asia-east1", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdata;
+
+/**
+ *  DNSSEC generated signatures for all the `rrdata` within this item. When
+ *  using health-checked targets for DNSSEC-enabled zones, you can only use at
+ *  most one health-checked IP address per item.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdata;
 
 @end
 
@@ -1544,6 +1832,27 @@ GTLR_DEPRECATED
 
 
 /**
+ *  HealthCheckTargets describes endpoints to health-check when responding to
+ *  Routing Policy queries. Only the healthy endpoints will be included in the
+ *  response. Set either `internal_load_balancer` or `external_endpoints`. Do
+ *  not set both.
+ */
+@interface GTLRCloudDomains_HealthCheckTargets : GTLRObject
+
+/**
+ *  The Internet IP addresses to be health checked. The format matches the
+ *  format of ResourceRecordSet.rrdata as defined in RFC 1035 (section 5) and
+ *  RFC 1034 (section 3.6.1)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalEndpoints;
+
+/** Configuration for internal load balancers to be health checked. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_LoadBalancerTarget *> *internalLoadBalancer;
+
+@end
+
+
+/**
  *  Deprecated: For more information, see [Cloud Domains feature
  *  deprecation](https://cloud.google.com/domains/docs/deprecations/feature-deprecations).
  *  Request for the `ImportDomain` method.
@@ -1572,6 +1881,20 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRCloudDomains_ImportDomainRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  Request for the `InitiatePushTransfer` method.
+ */
+@interface GTLRCloudDomains_InitiatePushTransferRequest : GTLRObject
+
+/**
+ *  Required. The Tag of the new registrar. Can be found at [List of
+ *  registrars](https://nominet.uk/registrar-list/).
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
 @end
 
 
@@ -1651,6 +1974,69 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The configuration for an individual load balancer to health check.
+ */
+@interface GTLRCloudDomains_LoadBalancerTarget : GTLRObject
+
+/** The frontend IP address of the load balancer to health check. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/**
+ *  The protocol of the load balancer to health check.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Tcp Indicates the
+ *        load balancer is accessible via TCP. (Value: "TCP")
+ *    @arg @c kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Udp Indicates the
+ *        load balancer is accessible via UDP. (Value: "UDP")
+ *    @arg @c kGTLRCloudDomains_LoadBalancerTarget_IpProtocol_Undefined Value
+ *        "UNDEFINED"
+ */
+@property(nonatomic, copy, nullable) NSString *ipProtocol;
+
+/**
+ *  The type of load balancer specified by this target. This value must match
+ *  the configuration of the load balancer located at the LoadBalancerTarget's
+ *  IP address, port, and region. Use the following: - *regionalL4ilb*: for a
+ *  regional internal passthrough Network Load Balancer. - *regionalL7ilb*: for
+ *  a regional internal Application Load Balancer. - *globalL7ilb*: for a global
+ *  internal Application Load Balancer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_GlobalL7ilb
+ *        Indicates the load balancer is a Cross-Region Application Load
+ *        Balancer. (Value: "GLOBAL_L7ILB")
+ *    @arg @c kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_None Value
+ *        "NONE"
+ *    @arg @c kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_RegionalL4ilb
+ *        Indicates the load balancer is a Regional Network Passthrough Load
+ *        Balancer. (Value: "REGIONAL_L4ILB")
+ *    @arg @c kGTLRCloudDomains_LoadBalancerTarget_LoadBalancerType_RegionalL7ilb
+ *        Indicates the load balancer is a Regional Application Load Balancer.
+ *        (Value: "REGIONAL_L7ILB")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancerType;
+
+/**
+ *  The fully qualified URL of the network that the load balancer is attached
+ *  to. This should be formatted like
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}`.
+ */
+@property(nonatomic, copy, nullable) NSString *networkUrl;
+
+/** The configured port of the load balancer. */
+@property(nonatomic, copy, nullable) NSString *port;
+
+/** The project ID in which the load balancer is located. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The region in which the load balancer is located. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
  *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudDomains_Location : GTLRObject
@@ -1717,6 +2103,21 @@ GTLR_DEPRECATED
 @interface GTLRCloudDomains_ManagementSettings : GTLRObject
 
 /**
+ *  Output only. The actual transfer lock state for this `Registration`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_Locked
+ *        The domain is locked and cannot be transferred to another registrar.
+ *        (Value: "LOCKED")
+ *    @arg @c kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_TransferLockStateUnspecified
+ *        The state is unspecified. (Value: "TRANSFER_LOCK_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDomains_ManagementSettings_EffectiveTransferLockState_Unlocked
+ *        The domain is unlocked and can be transferred to another registrar.
+ *        (Value: "UNLOCKED")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveTransferLockState;
+
+/**
  *  Optional. The desired renewal method for this `Registration`. The actual
  *  `renewal_method` is automatically updated to reflect this choice. If unset
  *  or equal to `RENEWAL_METHOD_UNSPECIFIED`, the actual `renewalMethod` is
@@ -1774,7 +2175,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *renewalMethod;
 
 /**
- *  Controls whether the domain can be transferred to another registrar.
+ *  This is the desired transfer lock state for this `Registration`. A transfer
+ *  lock controls whether the domain can be transferred to another registrar.
+ *  The transfer lock state of the domain is returned in the
+ *  `effective_transfer_lock_state` property. The transfer lock state values
+ *  might be different for the following reasons: * `transfer_lock_state` was
+ *  updated only a short time ago. * Domains with the
+ *  `TRANSFER_LOCK_UNSUPPORTED_BY_REGISTRY` state are in the list of
+ *  `domain_properties`. These domains are always in the `UNLOCKED` state.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_ManagementSettings_TransferLockState_Locked The
@@ -2019,16 +2427,16 @@ GTLR_DEPRECATED
 
 
 /**
- *  Represents a postal address, e.g. for postal delivery or payments addresses.
- *  Given a postal address, a postal service can deliver items to a premise,
- *  P.O. Box or similar. It is not intended to model geographical locations
- *  (roads, towns, mountains). In typical usage an address would be created via
- *  user input or from importing existing data, depending on the type of
- *  process. Advice on address input / editing: - Use an
+ *  Represents a postal address. For example for postal delivery or payments
+ *  addresses. Given a postal address, a postal service can deliver items to a
+ *  premise, P.O. Box or similar. It is not intended to model geographical
+ *  locations (roads, towns, mountains). In typical usage an address would be
+ *  created by user input or from importing existing data, depending on the type
+ *  of process. Advice on address input / editing: - Use an
  *  internationalization-ready address widget such as
  *  https://github.com/google/libaddressinput) - Users should not be presented
  *  with UI elements for input or editing of fields outside countries where that
- *  field is used. For more guidance on how to use this schema, please see:
+ *  field is used. For more guidance on how to use this schema, see:
  *  https://support.google.com/business/answer/6397478
  */
 @interface GTLRCloudDomains_PostalAddress : GTLRObject
@@ -2036,13 +2444,13 @@ GTLR_DEPRECATED
 /**
  *  Unstructured address lines describing the lower levels of an address.
  *  Because values in address_lines do not have type information and may
- *  sometimes contain multiple values in a single field (e.g. "Austin, TX"), it
- *  is important that the line order is clear. The order of address lines should
- *  be "envelope order" for the country/region of the address. In places where
- *  this can vary (e.g. Japan), address_language is used to make it explicit
- *  (e.g. "ja" for large-to-small ordering and "ja-Latn" or "en" for
- *  small-to-large). This way, the most specific line of an address can be
- *  selected based on the language. The minimum permitted structural
+ *  sometimes contain multiple values in a single field (For example "Austin,
+ *  TX"), it is important that the line order is clear. The order of address
+ *  lines should be "envelope order" for the country/region of the address. In
+ *  places where this can vary (For example Japan), address_language is used to
+ *  make it explicit (For example "ja" for large-to-small ordering and "ja-Latn"
+ *  or "en" for small-to-large). This way, the most specific line of an address
+ *  can be selected based on the language. The minimum permitted structural
  *  representation of an address consists of a region_code with all remaining
  *  information placed in the address_lines. It would be possible to format such
  *  an address very approximately without geocoding, but no semantic reasoning
@@ -2058,9 +2466,9 @@ GTLR_DEPRECATED
  *  Optional. Highest administrative subdivision which is used for postal
  *  addresses of a country or region. For example, this can be a state, a
  *  province, an oblast, or a prefecture. Specifically, for Spain this is the
- *  province and not the autonomous community (e.g. "Barcelona" and not
+ *  province and not the autonomous community (For example "Barcelona" and not
  *  "Catalonia"). Many countries don't use an administrative area in postal
- *  addresses. E.g. in Switzerland this should be left unpopulated.
+ *  addresses. For example in Switzerland this should be left unpopulated.
  */
 @property(nonatomic, copy, nullable) NSString *administrativeArea;
 
@@ -2090,7 +2498,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. Postal code of the address. Not all countries use or require
  *  postal codes to be present, but where they are used, they may trigger
- *  additional validation with other parts of the address (e.g. state/zip
+ *  additional validation with other parts of the address (For example state/zip
  *  validation in the U.S.A.).
  */
 @property(nonatomic, copy, nullable) NSString *postalCode;
@@ -2123,9 +2531,9 @@ GTLR_DEPRECATED
 /**
  *  Optional. Additional, country-specific, sorting code. This is not used in
  *  most regions. Where it is used, the value is either a string like "CEDEX",
- *  optionally followed by a number (e.g. "CEDEX 7"), or just a number alone,
- *  representing the "sector code" (Jamaica), "delivery area indicator" (Malawi)
- *  or "post office indicator" (e.g. Côte d'Ivoire).
+ *  optionally followed by a number (For example "CEDEX 7"), or just a number
+ *  alone, representing the "sector code" (Jamaica), "delivery area indicator"
+ *  (Malawi) or "post office indicator" (For example Côte d'Ivoire).
  */
 @property(nonatomic, copy, nullable) NSString *sortingCode;
 
@@ -2134,6 +2542,38 @@ GTLR_DEPRECATED
  *  neighborhoods, boroughs, districts.
  */
 @property(nonatomic, copy, nullable) NSString *sublocality;
+
+@end
+
+
+/**
+ *  Configures a RRSetRoutingPolicy such that all queries are responded with the
+ *  primary_targets if they are healthy. And if all of them are unhealthy, then
+ *  we fallback to a geo localized policy.
+ */
+@interface GTLRCloudDomains_PrimaryBackupPolicy : GTLRObject
+
+/**
+ *  Backup targets provide a regional failover policy for the otherwise global
+ *  primary targets. If serving state is set to `BACKUP`, this policy
+ *  essentially becomes a geo routing policy.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_GeoPolicy *backupGeoTargets;
+
+/**
+ *  Endpoints that are health checked before making the routing decision.
+ *  Unhealthy endpoints are omitted from the results. If all endpoints are
+ *  unhealthy, we serve a response based on the `backup_geo_targets`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_HealthCheckTargets *primaryTargets;
+
+/**
+ *  When serving state is `PRIMARY`, this field provides the option of sending a
+ *  small percentage of the traffic to the backup targets.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trickleTraffic;
 
 @end
 
@@ -2267,6 +2707,9 @@ GTLR_DEPRECATED
  *  in Punycode format.
  */
 @property(nonatomic, copy, nullable) NSString *domainName;
+
+/** Output only. Special properties of the domain. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domainProperties;
 
 /** Output only. The expiration timestamp of the `Registration`. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
@@ -2431,9 +2874,124 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request for the `RenewDomain` method.
+ */
+@interface GTLRCloudDomains_RenewDomainRequest : GTLRObject
+
+/**
+ *  Optional. When true, only validation is performed, without actually renewing
+ *  the domain. For more information, see [Request
+ *  validation](https://cloud.google.com/apis/design/design_patterns#request_validation)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+/**
+ *  Required. Acknowledgement of the price to renew the domain for one year. To
+ *  get the price, see [Cloud Domains
+ *  pricing](https://cloud.google.com/domains/pricing). If not provided, the
+ *  expected price is returned in the error message.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_Money *yearlyPrice;
+
+@end
+
+
+/**
  *  Request for the `ResetAuthorizationCode` method.
  */
 @interface GTLRCloudDomains_ResetAuthorizationCodeRequest : GTLRObject
+@end
+
+
+/**
+ *  A unit of data that is returned by the DNS servers.
+ */
+@interface GTLRCloudDomains_ResourceRecordSet : GTLRObject
+
+/** For example, www.example.com. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Configures dynamic query responses based on either the geo location of the
+ *  querying user or a weighted round robin based routing policy. A valid
+ *  `ResourceRecordSet` contains only `rrdata` (for static resolution) or a
+ *  `routing_policy` (for dynamic resolution).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_RRSetRoutingPolicy *routingPolicy;
+
+/**
+ *  As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see
+ *  examples.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdata;
+
+/** As defined in RFC 4034 (section 3.2). */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdata;
+
+/**
+ *  Number of seconds that this `ResourceRecordSet` can be cached by resolvers.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ttl;
+
+/**
+ *  The identifier of a supported record type. See the list of Supported DNS
+ *  record types.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Response for the `RetrieveGoogleDomainsDnsRecords` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rrset" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDomains_RetrieveGoogleDomainsDnsRecordsResponse : GTLRCollectionObject
+
+/**
+ *  When present, there are more results to retrieve. Set `page_token` to this
+ *  value on a subsequent call to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resource record set resources (DNS Zone records).
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_ResourceRecordSet *> *rrset;
+
+@end
+
+
+/**
+ *  Response for the `RetrieveGoogleDomainsForwardingConfig` method.
+ */
+@interface GTLRCloudDomains_RetrieveGoogleDomainsForwardingConfigResponse : GTLRObject
+
+/**
+ *  The list of domain forwarding configurations. A forwarding configuration
+ *  might not work correctly if the required DNS records are not present in the
+ *  domain's authoritative DNS zone.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_DomainForwarding *> *domainForwardings;
+
+/**
+ *  The list of email forwarding configurations. A forwarding configuration
+ *  might not work correctly if the required DNS records are not present in the
+ *  domain's authoritative DNS zone.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_EmailForwarding *> *emailForwardings;
+
 @end
 
 
@@ -2488,6 +3046,31 @@ GTLR_DEPRECATED
 
 /** Parameters to use when calling the `TransferDomain` method. */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_TransferParameters *transferParameters;
+
+@end
+
+
+/**
+ *  A RRSetRoutingPolicy represents ResourceRecordSet data that is returned
+ *  dynamically with the response varying based on configured properties such as
+ *  geolocation or by weighted random selection.
+ */
+@interface GTLRCloudDomains_RRSetRoutingPolicy : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCloudDomains_GeoPolicy *geo;
+@property(nonatomic, strong, nullable) GTLRCloudDomains_GeoPolicy *geoPolicy GTLR_DEPRECATED;
+
+/**
+ *  The fully qualified URL of the HealthCheck to use for this
+ *  RRSetRoutingPolicy. Format this URL like
+ *  `https://www.googleapis.com/compute/v1/projects/{project}/global/healthChecks/{healthCheck}`.
+ *  https://cloud.google.com/compute/docs/reference/rest/v1/healthChecks
+ */
+@property(nonatomic, copy, nullable) NSString *healthCheck;
+
+@property(nonatomic, strong, nullable) GTLRCloudDomains_PrimaryBackupPolicy *primaryBackup;
+@property(nonatomic, strong, nullable) GTLRCloudDomains_WrrPolicy *wrr;
+@property(nonatomic, strong, nullable) GTLRCloudDomains_WrrPolicy *wrrPolicy GTLR_DEPRECATED;
 
 @end
 
@@ -2688,6 +3271,53 @@ GTLR_DEPRECATED
 
 /** Price to transfer or renew the domain for one year. */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_Money *yearlyPrice;
+
+@end
+
+
+/**
+ *  Configures a RRSetRoutingPolicy that routes in a weighted round robin
+ *  fashion.
+ */
+@interface GTLRCloudDomains_WrrPolicy : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_WrrPolicyItem *> *item;
+
+@end
+
+
+/**
+ *  A routing block which contains the routing information for one WRR item.
+ */
+@interface GTLRCloudDomains_WrrPolicyItem : GTLRObject
+
+/**
+ *  Endpoints that are health checked before making the routing decision. The
+ *  unhealthy endpoints are omitted from the result. If all endpoints within a
+ *  bucket are unhealthy, we choose a different bucket (sampled with respect to
+ *  its weight) for responding. If DNSSEC is enabled for this zone, only one of
+ *  `rrdata` or `health_checked_targets` can be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_HealthCheckTargets *healthCheckedTargets;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdata;
+
+/**
+ *  DNSSEC generated signatures for all the `rrdata` within this item. When
+ *  using health-checked targets for DNSSEC-enabled zones, you can only use at
+ *  most one health-checked IP address per item.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdata;
+
+/**
+ *  The weight corresponding to this `WrrPolicyItem` object. When multiple
+ *  `WrrPolicyItem` objects are configured, the probability of returning an
+ *  `WrrPolicyItem` object's data is proportional to its weight relative to the
+ *  sum of weights configured for all items. This weight must be non-negative.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
 
 @end
 

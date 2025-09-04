@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Data Portability API (dataportability/v1beta)
+//   Data Portability API (dataportability/v1)
 // Description:
 //   The Data Portability API lets you build applications that request
 //   authorization from a user to move a copy of data from Google services into
@@ -16,12 +16,63 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataPortability_InitiatePortabilityArchiveResponse.accessType
+NSString * const kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeOneTime = @"ACCESS_TYPE_ONE_TIME";
+NSString * const kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeTimeBased = @"ACCESS_TYPE_TIME_BASED";
+NSString * const kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeUnspecified = @"ACCESS_TYPE_UNSPECIFIED";
+
 // GTLRDataPortability_PortabilityArchiveState.state
 NSString * const kGTLRDataPortability_PortabilityArchiveState_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRDataPortability_PortabilityArchiveState_State_Complete = @"COMPLETE";
 NSString * const kGTLRDataPortability_PortabilityArchiveState_State_Failed = @"FAILED";
 NSString * const kGTLRDataPortability_PortabilityArchiveState_State_InProgress = @"IN_PROGRESS";
 NSString * const kGTLRDataPortability_PortabilityArchiveState_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataPortability_CancelPortabilityArchiveRequest
+//
+
+@implementation GTLRDataPortability_CancelPortabilityArchiveRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataPortability_CancelPortabilityArchiveResponse
+//
+
+@implementation GTLRDataPortability_CancelPortabilityArchiveResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataPortability_CheckAccessTypeRequest
+//
+
+@implementation GTLRDataPortability_CheckAccessTypeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataPortability_CheckAccessTypeResponse
+//
+
+@implementation GTLRDataPortability_CheckAccessTypeResponse
+@dynamic oneTimeResources, timeBasedResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"oneTimeResources" : [NSString class],
+    @"timeBasedResources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -38,7 +89,7 @@ NSString * const kGTLRDataPortability_PortabilityArchiveState_State_StateUnspeci
 //
 
 @implementation GTLRDataPortability_InitiatePortabilityArchiveRequest
-@dynamic resources;
+@dynamic endTime, resources, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -56,7 +107,7 @@ NSString * const kGTLRDataPortability_PortabilityArchiveState_State_StateUnspeci
 //
 
 @implementation GTLRDataPortability_InitiatePortabilityArchiveResponse
-@dynamic archiveJobId;
+@dynamic accessType, archiveJobId;
 @end
 
 
@@ -66,7 +117,7 @@ NSString * const kGTLRDataPortability_PortabilityArchiveState_State_StateUnspeci
 //
 
 @implementation GTLRDataPortability_PortabilityArchiveState
-@dynamic name, state, urls;
+@dynamic exportTime, name, startTime, state, urls;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -2,11 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Discovery Engine API (discoveryengine/v1beta)
+//   Discovery Engine API (discoveryengine/v1)
 // Description:
 //   Discovery Engine API.
 // Documentation:
-//   https://cloud.google.com/discovery-engine/docs
+//   https://cloud.google.com/generative-ai-app-builder/docs/
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -22,7 +22,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
@@ -31,6 +31,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDiscoveryEngineCloudPlatform;
+/**
+ *  Authorization scope: Search your organization's data in the Cloud Search
+ *  index
+ *
+ *  Value "https://www.googleapis.com/auth/cloud_search.query"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDiscoveryEngineCloudSearchQuery;
 
 // ----------------------------------------------------------------------------
 //   GTLRDiscoveryEngineService

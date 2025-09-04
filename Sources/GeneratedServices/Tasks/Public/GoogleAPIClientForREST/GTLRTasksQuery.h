@@ -6,7 +6,7 @@
 // Description:
 //   The Google Tasks API lets you manage your tasks and task lists.
 // Documentation:
-//   https://developers.google.com/tasks/
+//   https://developers.google.com/workspace/tasks/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -34,7 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the authenticated user's specified task list.
+ *  Deletes the authenticated user's specified task list. If the list contains
+ *  assigned tasks, both the assigned tasks and the original tasks in the
+ *  assignment surface (Docs, Chat Spaces) are deleted.
  *
  *  Method: tasks.tasklists.delete
  *
@@ -50,7 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the authenticated user's specified task list.
+ *  Deletes the authenticated user's specified task list. If the list contains
+ *  assigned tasks, both the assigned tasks and the original tasks in the
+ *  assignment surface (Docs, Chat Spaces) are deleted.
  *
  *  @param tasklist Task list identifier.
  *
@@ -89,6 +93,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new task list and adds it to the authenticated user's task lists.
+ *  A user can have up to 2000 lists at a time.
  *
  *  Method: tasks.tasklists.insert
  *
@@ -101,6 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRTasks_TaskList.
  *
  *  Creates a new task list and adds it to the authenticated user's task lists.
+ *  A user can have up to 2000 lists at a time.
  *
  *  @param object The @c GTLRTasks_TaskList to include in the query.
  *
@@ -111,7 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all the authenticated user's task lists.
+ *  Returns all the authenticated user's task lists. A user can have up to 2000
+ *  lists at a time.
  *
  *  Method: tasks.tasklists.list
  *
@@ -123,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Maximum number of task lists returned on one page. Optional. The default is
- *  20 (max allowed: 100).
+ *  1000 (max allowed: 1000).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -133,7 +140,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_TaskLists.
  *
- *  Returns all the authenticated user's task lists.
+ *  Returns all the authenticated user's task lists. A user can have up to 2000
+ *  lists at a time.
  *
  *  @return GTLRTasksQuery_TasklistsList
  *
@@ -235,7 +243,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the specified task from the task list.
+ *  Deletes the specified task from the task list. If the task is assigned, both
+ *  the assigned task and the original task (in Docs, Chat Spaces) are deleted.
+ *  To delete the assigned task only, navigate to the assignment surface and
+ *  unassign the task from there.
  *
  *  Method: tasks.tasks.delete
  *
@@ -254,7 +265,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the specified task from the task list.
+ *  Deletes the specified task from the task list. If the task is assigned, both
+ *  the assigned task and the original task (in Docs, Chat Spaces) are deleted.
+ *  To delete the assigned task only, navigate to the assignment surface and
+ *  unassign the task from there.
  *
  *  @param tasklist Task list identifier.
  *  @param task Task identifier.
@@ -299,7 +313,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new task on the specified task list.
+ *  Creates a new task on the specified task list. Tasks assigned from Docs or
+ *  Chat Spaces cannot be inserted from Tasks Public API; they can only be
+ *  created by assigning them from Docs or Chat Spaces. A user can have up to
+ *  20,000 non-hidden tasks per list and up to 100,000 tasks in total at a time.
  *
  *  Method: tasks.tasks.insert
  *
@@ -310,7 +327,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Parent task identifier. If the task is created at the top level, this
- *  parameter is omitted. Optional.
+ *  parameter is omitted. An assigned task cannot be a parent task, nor can it
+ *  have a parent. Setting the parent to an assigned task results in failure of
+ *  the request. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -326,7 +345,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_Task.
  *
- *  Creates a new task on the specified task list.
+ *  Creates a new task on the specified task list. Tasks assigned from Docs or
+ *  Chat Spaces cannot be inserted from Tasks Public API; they can only be
+ *  created by assigning them from Docs or Chat Spaces. A user can have up to
+ *  20,000 non-hidden tasks per list and up to 100,000 tasks in total at a time.
  *
  *  @param object The @c GTLRTasks_Task to include in the query.
  *  @param tasklist Task list identifier.
@@ -339,7 +361,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns all tasks in the specified task list.
+ *  Returns all tasks in the specified task list. Doesn't return assigned tasks
+ *  by default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden
+ *  tasks per list and up to 100,000 tasks in total at a time.
  *
  *  Method: tasks.tasks.list
  *
@@ -374,8 +398,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *dueMin;
 
 /**
- *  Maximum number of task lists returned on one page. Optional. The default is
- *  20 (max allowed: 100).
+ *  Maximum number of tasks returned on one page. Optional. The default is 20
+ *  (max allowed: 100).
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -383,10 +407,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Flag indicating whether completed tasks are returned in the result.
- *  Optional. The default is True. Note that showHidden must also be True to
- *  show tasks completed in first party clients, such as the web UI and Google's
- *  mobile apps.
+ *  Optional. Flag indicating whether tasks assigned to the current user are
+ *  returned in the result. Optional. The default is False.
+ */
+@property(nonatomic, assign) BOOL showAssigned;
+
+/**
+ *  Flag indicating whether completed tasks are returned in the result. Note
+ *  that showHidden must also be True to show tasks completed in first party
+ *  clients, such as the web UI and Google's mobile apps. Optional. The default
+ *  is True.
  */
 @property(nonatomic, assign) BOOL showCompleted;
 
@@ -414,7 +444,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_Tasks.
  *
- *  Returns all tasks in the specified task list.
+ *  Returns all tasks in the specified task list. Doesn't return assigned tasks
+ *  by default (from Docs, Chat Spaces). A user can have up to 20,000 non-hidden
+ *  tasks per list and up to 100,000 tasks in total at a time.
  *
  *  @param tasklist Task list identifier.
  *
@@ -429,9 +461,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Moves the specified task to another position in the task list. This can
- *  include putting it as a child task under a new parent and/or move it to a
- *  different position among its sibling tasks.
+ *  Moves the specified task to another position in the destination task list.
+ *  If the destination list is not specified, the task is moved within its
+ *  current list. This can include putting it as a child task under a new parent
+ *  and/or move it to a different position among its sibling tasks. A user can
+ *  have up to 2,000 subtasks per task.
  *
  *  Method: tasks.tasks.move
  *
@@ -441,14 +475,28 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasksQuery_TasksMove : GTLRTasksQuery
 
 /**
- *  New parent task identifier. If the task is moved to the top level, this
- *  parameter is omitted. Optional.
+ *  Optional. Destination task list identifier. If set, the task is moved from
+ *  tasklist to the destinationTasklist list. Otherwise the task is moved within
+ *  its current list. Recurrent tasks cannot currently be moved between lists.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationTasklist;
+
+/**
+ *  Optional. New parent task identifier. If the task is moved to the top level,
+ *  this parameter is omitted. The task set as parent must exist in the task
+ *  list and can not be hidden. Exceptions: 1. Assigned and repeating tasks
+ *  cannot be set as parent tasks (have subtasks), or be moved under a parent
+ *  task (become subtasks). 2. Tasks that are both completed and hidden cannot
+ *  be nested, so the parent field must be empty.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  New previous sibling task identifier. If the task is moved to the first
- *  position among its siblings, this parameter is omitted. Optional.
+ *  Optional. New previous sibling task identifier. If the task is moved to the
+ *  first position among its siblings, this parameter is omitted. The task set
+ *  as previous must exist in the task list and can not be hidden. Exceptions:
+ *  1. Tasks that are both completed and hidden can only be moved to position 0,
+ *  so the previous field must be empty.
  */
 @property(nonatomic, copy, nullable) NSString *previous;
 
@@ -461,9 +509,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTasks_Task.
  *
- *  Moves the specified task to another position in the task list. This can
- *  include putting it as a child task under a new parent and/or move it to a
- *  different position among its sibling tasks.
+ *  Moves the specified task to another position in the destination task list.
+ *  If the destination list is not specified, the task is moved within its
+ *  current list. This can include putting it as a child task under a new parent
+ *  and/or move it to a different position among its sibling tasks. A user can
+ *  have up to 2,000 subtasks per task.
  *
  *  @param tasklist Task list identifier.
  *  @param task Task identifier.

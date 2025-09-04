@@ -435,7 +435,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 - (void)maybeLogAPI:(GTLRDiscovery_RestDescription *)api {
   if (self.apiLogDir == nil) return;
 
-  NSString *fileName = [NSString stringWithFormat:@"%@_%@.json",
+  NSString *fileName = [NSString stringWithFormat:@"%@.%@.json",
                         api.name, api.version];
   NSString *filePath = [self.apiLogDir stringByAppendingPathComponent:fileName];
   NSError *writeErr = nil;
@@ -1186,7 +1186,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       } else {
         GTLRDiscovery_DirectoryList *apiList = (GTLRDiscovery_DirectoryList *)object;
         if (self.apiLogDir != nil) {
-          NSString *filePath = [self.apiLogDir stringByAppendingPathComponent:@"DirectoryList.json"];
+          NSString *filePath = [self.apiLogDir stringByAppendingPathComponent:@"index.json"];
           NSError *writeErr = nil;
           if (![apiList.JSONString writeToFile:filePath
                                     atomically:YES

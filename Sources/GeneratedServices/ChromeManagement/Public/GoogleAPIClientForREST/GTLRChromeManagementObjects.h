@@ -8,7 +8,7 @@
 //   administrators to view, manage and gain insights on their Chrome OS and
 //   Chrome Browser devices.
 // Documentation:
-//   http://developers.google.com/chrome/management/
+//   https://developers.google.com/chrome/management/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -18,6 +18,8 @@
 
 @class GTLRChromeManagement_GoogleChromeManagementV1AndroidAppInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1AndroidAppPermission;
+@class GTLRChromeManagement_GoogleChromeManagementV1AppReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1AppUsageData;
 @class GTLRChromeManagement_GoogleChromeManagementV1AudioStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport;
@@ -28,6 +30,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess;
+@class GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount;
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo;
@@ -35,6 +38,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceActivityReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceAueCountReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1DeviceHardwareCountReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails;
 @class GTLRChromeManagement_GoogleChromeManagementV1DiskInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1DisplayDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo;
@@ -56,9 +60,16 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1PrinterReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1PrintJob;
+@class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessment;
+@class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData;
+@class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry;
+@class GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
 @class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryAudioSevereUnderrunEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDeviceInfo;
@@ -69,6 +80,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkSignalStrengthEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationConfig;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryNotificationFilter;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUsbPeripheralsEvent;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUser;
 @class GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice;
@@ -79,6 +91,24 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1TouchScreenInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1UsbPeripheralReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1UserPrintReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
 @class GTLRChromeManagement_GoogleTypeDate;
@@ -122,10 +152,113 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_Web;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1AppUsageData.appType
+
+/**
+ *  Application type arc (Android app).
+ *
+ *  Value: "APPLICATION_TYPE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeArc;
+/**
+ *  Application type borealis.
+ *
+ *  Value: "APPLICATION_TYPE_BOREALIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBorealis;
+/**
+ *  Application type bruschetta.
+ *
+ *  Value: "APPLICATION_TYPE_BRUSCHETTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta;
+/**
+ *  Deprecated. This value is no longer used. Application type built-in.
+ *
+ *  Value: "APPLICATION_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn GTLR_DEPRECATED;
+/**
+ *  Application type Chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeChromeApp;
+/**
+ *  Application type Linux (via Crostini).
+ *
+ *  Value: "APPLICATION_TYPE_CROSTINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeCrostini;
+/**
+ *  Application type extension.
+ *
+ *  Value: "APPLICATION_TYPE_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeExtension;
+/**
+ *  Application type Mac OS.
+ *
+ *  Value: "APPLICATION_TYPE_MAC_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeMacOs;
+/**
+ *  Application type Plugin VM.
+ *
+ *  Value: "APPLICATION_TYPE_PLUGIN_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypePluginVm;
+/**
+ *  Application type remote.
+ *
+ *  Value: "APPLICATION_TYPE_REMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser (Lacros browser app).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser extension.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension GTLR_DEPRECATED;
+/**
+ *  Application type system web.
+ *
+ *  Value: "APPLICATION_TYPE_SYSTEM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeSystemWeb;
+/**
+ *  Application type web.
+ *
+ *  Value: "APPLICATION_TYPE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeWeb;
+/**
+ *  Application type unknown.
+ *
+ *  Value: "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_TelemetryApplicationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport.batteryHealth
 
 /**
- *  Battery is healthy.
+ *  Battery is healthy, full charge capacity / design capacity > 80%
  *
  *  Value: "BATTERY_HEALTH_NORMAL"
  */
@@ -137,13 +270,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthUnspecified;
 /**
- *  Battery is unhealthy and should be replaced.
+ *  Battery is unhealthy and suggested to be replaced, full charge capacity /
+ *  design capacity < 75%
  *
  *  Value: "BATTERY_REPLACE_NOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceNow;
 /**
- *  Battery is moderately unhealthy and should be replaced soon.
+ *  Battery is moderately unhealthy and suggested to be replaced soon, full
+ *  charge capacity / design capacity 75% - 80%
  *
  *  Value: "BATTERY_REPLACE_SOON"
  */
@@ -420,6 +555,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport.state
 
+/**
+ *  Device is outdated
+ *
+ *  Value: "DEVICE_OUTDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_DeviceOutdated;
 /**
  *  Device is offline
  *
@@ -804,8 +945,850 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1PrintJob_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData.overallRiskLevel
+
+/**
+ *  Extension that represents a high risk.
+ *
+ *  Value: "RISK_LEVEL_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelHigh;
+/**
+ *  Extension that represents a low risk.
+ *
+ *  Value: "RISK_LEVEL_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelLow;
+/**
+ *  Extension that represents a medium risk.
+ *
+ *  Value: "RISK_LEVEL_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelMedium;
+/**
+ *  Risk level not specified.
+ *
+ *  Value: "RISK_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry.provider
+
+/**
+ *  CRXcavator.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_CRXCAVATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator;
+/**
+ *  LayerX Security.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_LAYERX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderLayerx;
+/**
+ *  Spin.Ai.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi;
+/**
+ *  Default value when no provider is specified.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry.riskLevel
+
+/**
+ *  Extension that represents a high risk.
+ *
+ *  Value: "RISK_LEVEL_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelHigh;
+/**
+ *  Extension that represents a low risk.
+ *
+ *  Value: "RISK_LEVEL_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelLow;
+/**
+ *  Extension that represents a medium risk.
+ *
+ *  Value: "RISK_LEVEL_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelMedium;
+/**
+ *  Risk level not specified.
+ *
+ *  Value: "RISK_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallReason
+
+/**
+ *  Application installed by command line argument.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_COMMAND_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonCommandLine;
+/**
+ *  Application installed by default, but is not considered a system app.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonDefault;
+/**
+ *  Application installed by Kiosk on Chrome OS.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_KIOSK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonKiosk;
+/**
+ *  Application installed by an original equipment manufacturer (OEM).
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_OEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonOem;
+/**
+ *  Application installed by policy.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonPolicy;
+/**
+ *  Application installed bt SubApp API call.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_SUB_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSubApp;
+/**
+ *  Application installed by sync.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSync;
+/**
+ *  Application installed with the system and is considered part of the OS.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSystem;
+/**
+ *  Application install reason is unknown.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonUnspecified;
+/**
+ *  Application installed by user action.
+ *
+ *  Value: "APPLICATION_INSTALL_REASON_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonUser;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallSource
+
+/**
+ *  Application install source is a browser.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceBrowser;
+/**
+ *  Application install source is the Chrome web store.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_CHROME_WEB_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceChromeWebStore;
+/**
+ *  Application install source is the Play store.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_PLAY_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourcePlayStore;
+/**
+ *  Application install source is a sync.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceSync;
+/**
+ *  Application installed as part of Chrome OS.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceSystem;
+/**
+ *  Application install source is unknown.
+ *
+ *  Value: "APPLICATION_INSTALL_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appInstallTime
+
+/**
+ *  Application install is initialized.
+ *
+ *  Value: "APPLICATION_INSTALL_TIME_INIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeInit;
+/**
+ *  Application install is currently running.
+ *
+ *  Value: "APPLICATION_INSTALL_TIME_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeRunning;
+/**
+ *  Application install time unknown.
+ *
+ *  Value: "APPLICATION_INSTALL_TIME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent.appType
+
+/**
+ *  Application type arc (Android app).
+ *
+ *  Value: "APPLICATION_TYPE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeArc;
+/**
+ *  Application type borealis.
+ *
+ *  Value: "APPLICATION_TYPE_BOREALIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBorealis;
+/**
+ *  Application type bruschetta.
+ *
+ *  Value: "APPLICATION_TYPE_BRUSCHETTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBruschetta;
+/**
+ *  Deprecated. This value is no longer used. Application type built-in.
+ *
+ *  Value: "APPLICATION_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBuiltIn GTLR_DEPRECATED;
+/**
+ *  Application type Chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeChromeApp;
+/**
+ *  Application type Linux (via Crostini).
+ *
+ *  Value: "APPLICATION_TYPE_CROSTINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeCrostini;
+/**
+ *  Application type extension.
+ *
+ *  Value: "APPLICATION_TYPE_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeExtension;
+/**
+ *  Application type Mac OS.
+ *
+ *  Value: "APPLICATION_TYPE_MAC_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeMacOs;
+/**
+ *  Application type Plugin VM.
+ *
+ *  Value: "APPLICATION_TYPE_PLUGIN_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypePluginVm;
+/**
+ *  Application type remote.
+ *
+ *  Value: "APPLICATION_TYPE_REMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeRemote;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser (Lacros browser app).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser extension.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension GTLR_DEPRECATED;
+/**
+ *  Application type system web.
+ *
+ *  Value: "APPLICATION_TYPE_SYSTEM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeSystemWeb;
+/**
+ *  Application type web.
+ *
+ *  Value: "APPLICATION_TYPE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeWeb;
+/**
+ *  Application type unknown.
+ *
+ *  Value: "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_TelemetryApplicationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent.appLaunchSource
+
+/**
+ *  Application launched from app home (chrome://apps) page.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_HOME_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppHomePage;
+/**
+ *  Application launched from the grid of apps, not the search box.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListGrid;
+/**
+ *  Application launched from the grid of apps, off of the context menu.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID_CONTEXT_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListGridContextMenu;
+/**
+ *  Application launched from query-dependent results (larger icons).
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListQuery;
+/**
+ *  Application launched from query-dependent results, off of the context menu.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY_CONTEXT_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListQueryContextMenu;
+/**
+ *  Application launched from query-less recommendations (smaller icons).
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListRecommendation;
+/**
+ *  Application launched from Arc.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceArc;
+/**
+ *  Application launched from background mode.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_BACKGROUND_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceBackgroundMode;
+/**
+ *  Application launched from a Chrome internal call.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_CHROME_INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceChromeInternal;
+/**
+ *  Application launched from the command line.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_COMMAND_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceCommandLine;
+/**
+ *  Application launched from a discover tab notification.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_DISCOVER_TAB_NOTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceDiscoverTabNotification;
+/**
+ *  Application launched from the file manager
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_FILE_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFileManager;
+/**
+ *  Count first-run Help app launches separately so that we can understand the
+ *  number of user-triggered launches.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_FIRST_RUN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFirstRun;
+/**
+ *  Applicationed launched from focus panel.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_FOCUS_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFocusMode;
+/**
+ *  Application launched from a full restore.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_FULL_RESTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFullRestore;
+/**
+ *  Application launched from the installed notification.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_INSTALLED_NOTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceInstalledNotification;
+/**
+ *  Application launched from source installer.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_INSTALLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceInstaller;
+/**
+ *  Application launched from an intent URL.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_INTENT_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceIntentUrl;
+/**
+ *  Application launched from keyboard shortcut for opening app.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_KEYBOARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceKeyboard;
+/**
+ *  Application launched from kiosk.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_KIOSK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceKiosk;
+/**
+ *  Application launched from left click on a link in the browser.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceLink;
+/**
+ *  Application launched from lock screen app launcher.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_LOCK_SCREEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceLockScreen;
+/**
+ *  Application launched from the Management API.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_MANAGEMENT_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceManagementApi;
+/**
+ *  Application launched from menu.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceMenu;
+/**
+ *  Application launched from navigation capturing.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_NAVIGATION_CAPTURING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNavigationCapturing;
+/**
+ *  Application launched from the new tab page.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_NEW_TAB_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNewTabPage;
+/**
+ *  Application launched from entering a URL in the Omnibox on the browser.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_OMNIBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOmnibox;
+/**
+ *  Application launched from OS login.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_OS_LOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOsLogin;
+/**
+ *  Application launched from clicking a link in another app or WebUI.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_OTHER_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOtherApp;
+/**
+ *  Application launched from the Parental Controls Settings section and Per App
+ *  time notification.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_PARENTAL_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceParentalControls;
+/**
+ *  Application launched from profile menu of installable
+ *  chrome://password-manager WebUI.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_PROFILE_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceProfileMenu;
+/**
+ *  Application launched from protocol handler.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_PROTOCOL_HANDLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceProtocolHandler;
+/**
+ *  Application launched from the release notes notification.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_RELEASE_NOTES_NOTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceReleaseNotesNotification;
+/**
+ *  Application launched from moving content into an app.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_REPARENTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceReparenting;
+/**
+ *  Application launched from Sharesheet.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SHARESHEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSharesheet;
+/**
+ *  Application launched from shelf.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SHELF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceShelf;
+/**
+ *  Application launched from a smart text selection context menu.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SMART_TEXT_CONTEXT_MENU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSmartTextContextMenu;
+/**
+ *  Application launched from experimental feature Sparky.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SPARKY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSparky;
+/**
+ *  Application launched from system tray calendar.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_SYSTEM_TRAY_CALENDAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSystemTrayCalendar;
+/**
+ *  Application launched from a test.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceTest;
+/**
+ *  Application launch source unknown.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUnspecified;
+/**
+ *  Application launched from URL handler.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_URL_HANDLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUrlHandler;
+/**
+ *  Application launched from web install API.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_WEB_INSTALL_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWebInstallApi;
+/**
+ *  Application launched from welcome tour.
+ *
+ *  Value: "APPLICATION_LAUNCH_SOURCE_WELCOME_TOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWelcomeTour;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent.appType
+
+/**
+ *  Application type arc (Android app).
+ *
+ *  Value: "APPLICATION_TYPE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeArc;
+/**
+ *  Application type borealis.
+ *
+ *  Value: "APPLICATION_TYPE_BOREALIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBorealis;
+/**
+ *  Application type bruschetta.
+ *
+ *  Value: "APPLICATION_TYPE_BRUSCHETTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBruschetta;
+/**
+ *  Deprecated. This value is no longer used. Application type built-in.
+ *
+ *  Value: "APPLICATION_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBuiltIn GTLR_DEPRECATED;
+/**
+ *  Application type Chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeChromeApp;
+/**
+ *  Application type Linux (via Crostini).
+ *
+ *  Value: "APPLICATION_TYPE_CROSTINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeCrostini;
+/**
+ *  Application type extension.
+ *
+ *  Value: "APPLICATION_TYPE_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeExtension;
+/**
+ *  Application type Mac OS.
+ *
+ *  Value: "APPLICATION_TYPE_MAC_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeMacOs;
+/**
+ *  Application type Plugin VM.
+ *
+ *  Value: "APPLICATION_TYPE_PLUGIN_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypePluginVm;
+/**
+ *  Application type remote.
+ *
+ *  Value: "APPLICATION_TYPE_REMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeRemote;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser (Lacros browser app).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser extension.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserExtension GTLR_DEPRECATED;
+/**
+ *  Application type system web.
+ *
+ *  Value: "APPLICATION_TYPE_SYSTEM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeSystemWeb;
+/**
+ *  Application type web.
+ *
+ *  Value: "APPLICATION_TYPE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeWeb;
+/**
+ *  Application type unknown.
+ *
+ *  Value: "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_TelemetryApplicationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent.appType
+
+/**
+ *  Application type arc (Android app).
+ *
+ *  Value: "APPLICATION_TYPE_ARC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeArc;
+/**
+ *  Application type borealis.
+ *
+ *  Value: "APPLICATION_TYPE_BOREALIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBorealis;
+/**
+ *  Application type bruschetta.
+ *
+ *  Value: "APPLICATION_TYPE_BRUSCHETTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBruschetta;
+/**
+ *  Deprecated. This value is no longer used. Application type built-in.
+ *
+ *  Value: "APPLICATION_TYPE_BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBuiltIn GTLR_DEPRECATED;
+/**
+ *  Application type Chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeChromeApp;
+/**
+ *  Application type Linux (via Crostini).
+ *
+ *  Value: "APPLICATION_TYPE_CROSTINI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeCrostini;
+/**
+ *  Application type extension.
+ *
+ *  Value: "APPLICATION_TYPE_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeExtension;
+/**
+ *  Application type Mac OS.
+ *
+ *  Value: "APPLICATION_TYPE_MAC_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeMacOs;
+/**
+ *  Application type Plugin VM.
+ *
+ *  Value: "APPLICATION_TYPE_PLUGIN_VM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypePluginVm;
+/**
+ *  Application type remote.
+ *
+ *  Value: "APPLICATION_TYPE_REMOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeRemote;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser (Lacros browser app).
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser GTLR_DEPRECATED;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser chrome app.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp GTLR_DEPRECATED;
+/**
+ *  Deprecated. This value is no longer used. Application type standalone
+ *  browser extension.
+ *
+ *  Value: "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension GTLR_DEPRECATED;
+/**
+ *  Application type system web.
+ *
+ *  Value: "APPLICATION_TYPE_SYSTEM_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeSystemWeb;
+/**
+ *  Application type web.
+ *
+ *  Value: "APPLICATION_TYPE_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeWeb;
+/**
+ *  Application type unknown.
+ *
+ *  Value: "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_TelemetryApplicationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent.appUninstallSource
+
+/**
+ *  Application uninstalled from the App List (Launcher).
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_APP_LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceAppList;
+/**
+ *  Application uninstalled from the App Managedment page.
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_APP_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceAppManagement;
+/**
+ *  Application uninstalled by app migration.
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceMigration;
+/**
+ *  Application uninstalled from the Shelf.
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_SHELF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceShelf;
+/**
+ *  Application uninstall source unknown.
+ *
+ *  Value: "APPLICATION_UNINSTALL_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent.eventType
 
+/**
+ *  Triggered when an app is installed.
+ *
+ *  Value: "APP_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppInstalled;
+/**
+ *  Triggered when an app is launched.
+ *
+ *  Value: "APP_LAUNCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppLaunched;
+/**
+ *  Triggered when an app is uninstalled.
+ *
+ *  Value: "APP_UNINSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppUninstalled;
 /**
  *  Triggered when a audio devices run out of buffer data for more than 5
  *  seconds.
@@ -820,6 +1803,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified;
 /**
+ *  Triggered when an external display is connected.
+ *
+ *  Value: "EXTERNAL_DISPLAY_CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayConnected;
+/**
+ *  Triggered when an external display is disconnected.
+ *
+ *  Value: "EXTERNAL_DISPLAY_DISCONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayDisconnected;
+/**
  *  Triggered when a new HTTPS latency problem was detected or the device has
  *  recovered form an existing HTTPS latency problem.
  *
@@ -832,6 +1827,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "NETWORK_STATE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkStateChange;
+/**
+ *  Triggered when a crash occurs.
+ *
+ *  Value: "OS_CRASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_OsCrash;
 /**
  *  Triggered when USB devices are added.
  *
@@ -868,6 +1869,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 // GTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter.eventTypes
 
 /**
+ *  Triggered when an app is installed.
+ *
+ *  Value: "APP_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AppInstalled;
+/**
+ *  Triggered when an app is launched.
+ *
+ *  Value: "APP_LAUNCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AppLaunched;
+/**
+ *  Triggered when an app is uninstalled.
+ *
+ *  Value: "APP_UNINSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_AppUninstalled;
+/**
  *  Triggered when a audio devices run out of buffer data for more than 5
  *  seconds.
  *
@@ -881,6 +1900,18 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_EventTypeUnspecified;
 /**
+ *  Triggered when an external display is connected.
+ *
+ *  Value: "EXTERNAL_DISPLAY_CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_ExternalDisplayConnected;
+/**
+ *  Triggered when an external display is disconnected.
+ *
+ *  Value: "EXTERNAL_DISPLAY_DISCONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_ExternalDisplayDisconnected;
+/**
  *  Triggered when a new HTTPS latency problem was detected or the device has
  *  recovered form an existing HTTPS latency problem.
  *
@@ -893,6 +1924,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "NETWORK_STATE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_NetworkStateChange;
+/**
+ *  Triggered when a crash occurs.
+ *
+ *  Value: "OS_CRASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEventNotificationFilter_EventTypes_OsCrash;
 /**
  *  Triggered when USB devices are added.
  *
@@ -988,6 +2025,62 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "PORTAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent_ConnectionState_Portal;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent.crashType
+
+/**
+ *  Embedded controller crash.
+ *
+ *  Value: "CRASH_TYPE_EMBEDDED_CONTROLLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeEmbeddedController;
+/**
+ *  Kernel crash.
+ *
+ *  Value: "CRASH_TYPE_KERNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeKernel;
+/**
+ *  Crash type unknown.
+ *
+ *  Value: "CRASH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent.sessionType
+
+/**
+ *  Active directory session.
+ *
+ *  Value: "SESSION_TYPE_ACTIVE_DIRECTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeActiveDirectory;
+/**
+ *  Kiosk.
+ *
+ *  Value: "SESSION_TYPE_KIOSK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeKiosk;
+/**
+ *  Managed guest session.
+ *
+ *  Value: "SESSION_TYPE_MANAGED_GUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeManagedGuest;
+/**
+ *  Signed in user.
+ *
+ *  Value: "SESSION_TYPE_SIGNED_IN_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeSignedInUser;
+/**
+ *  Session type unknown.
+ *
+ *  Value: "SESSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1ThunderboltInfo.securityLevel
@@ -1102,6 +2195,369 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "MEMORY_ENCRYPTION_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1TotalMemoryEncryptionInfo_EncryptionState_MemoryEncryptionStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential.keyTrustLevel
+
+/**
+ *  Represents a HW key.
+ *
+ *  Value: "CHROME_BROWSER_HW_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserHwKey;
+/**
+ *  Represents an OS key.
+ *
+ *  Value: "CHROME_BROWSER_OS_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserOsKey;
+/**
+ *  Represents an unspecified public key trust level.
+ *
+ *  Value: "KEY_TRUST_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_KeyTrustLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential.keyType
+
+/**
+ *  Represents an EC key.
+ *
+ *  Value: "EC_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_EcKey;
+/**
+ *  Represents an unspecified public key type.
+ *
+ *  Value: "KEY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_KeyTypeUnspecified;
+/**
+ *  Represents a RSA key.
+ *
+ *  Value: "RSA_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
+
+/**
+ *  The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
+ *  constructed on the server-side. The client should sign using RSA with PKCS#1
+ *  v1.5 padding.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.affiliationState
+
+/**
+ *  Affiliated - Both the profile and the managed browser are managed by the
+ *  same organization.
+ *
+ *  Value: "AFFILIATED_CLOUD_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliatedCloudManaged;
+/**
+ *  Unspecified affiliation state.
+ *
+ *  Value: "AFFILIATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliationStateUnspecified;
+/**
+ *  Unaffiliated - A managed profile that appears on a totally unamanaged
+ *  browser.
+ *
+ *  Value: "PROFILE_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_ProfileOnly;
+/**
+ *  Unaffiliated - A managed profile that appears on a managed browser that is
+ *  cloud managed by a different organization (using Chrome Browser Cloud
+ *  Management).
+ *
+ *  Value: "UNAFFILIATED_CLOUD_MACHINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedCloudMachine;
+/**
+ *  Unaffiliated - but we do not have the details for the type of unaffiliated
+ *  profile.
+ *
+ *  Value: "UNAFFILIATED_GENERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedGeneric;
+/**
+ *  Unaffiliated - A managed profile that appears on a machine that is locally
+ *  managed by a different organization (through platform management mechanisms
+ *  like GPO).
+ *
+ *  Value: "UNAFFILIATED_LOCAL_MACHINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedLocalMachine;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.identityProvider
+
+/**
+ *  Represents an external identity provider.
+ *
+ *  Value: "EXTERNAL_IDENTITY_PROVIDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_ExternalIdentityProvider;
+/**
+ *  Represents a Google identity provider.
+ *
+ *  Value: "GOOGLE_IDENTITY_PROVIDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_GoogleIdentityProvider;
+/**
+ *  Represents an unspecified identity provider.
+ *
+ *  Value: "IDENTITY_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_IdentityProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand.commandState
+
+/**
+ *  Represents an unspecified command state.
+ *
+ *  Value: "COMMAND_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_CommandStateUnspecified;
+/**
+ *  Represents a command that has been executed by the client.
+ *
+ *  Value: "EXECUTED_BY_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_ExecutedByClient;
+/**
+ *  Represents a command that has expired.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Expired;
+/**
+ *  Represents a command in a pending state.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Pending;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult.resultType
+
+/**
+ *  Represents an unspecified command result.
+ *
+ *  Value: "COMMAND_RESULT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_CommandResultTypeUnspecified;
+/**
+ *  Represents a failed command.
+ *
+ *  Value: "FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Failure;
+/**
+ *  Represents a command with an ignored result.
+ *
+ *  Value: "IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Ignored;
+/**
+ *  Represents a succeeded command.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Success;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo.deviceType
+
+/**
+ *  Represents a Chrome browser device.
+ *
+ *  Value: "CHROME_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_ChromeBrowser;
+/**
+ *  Represents an unspecified device type.
+ *
+ *  Value: "DEVICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_DeviceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData.source
+
+/**
+ *  Represents a machine level user cloud policy.
+ *
+ *  Value: "MACHINE_LEVEL_USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineLevelUserCloud;
+/**
+ *  Represents a machine level merged policy.
+ *
+ *  Value: "MACHINE_MERGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineMerged;
+/**
+ *  Represents a machine level platform policy.
+ *
+ *  Value: "MACHINE_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachinePlatform;
+/**
+ *  Represents an unspecified policy source.
+ *
+ *  Value: "POLICY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_PolicySourceUnspecified;
+/**
+ *  Represents a user level cloud policy.
+ *
+ *  Value: "USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_UserCloud;
+/**
+ *  Represents a user level platform policy.
+ *
+ *  Value: "USER_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_UserPlatform;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData.extensionType
+
+/**
+ *  Represents an app.
+ *
+ *  Value: "APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_App;
+/**
+ *  Represents an extension.
+ *
+ *  Value: "EXTENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_Extension;
+/**
+ *  Represents an unspecified extension type.
+ *
+ *  Value: "EXTENSION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_ExtensionTypeUnspecified;
+/**
+ *  Represents a hosted app.
+ *
+ *  Value: "HOSTED_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_HostedApp;
+/**
+ *  Represents a theme.
+ *
+ *  Value: "THEME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_Theme;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData.installationType
+
+/**
+ *  Represents an installation by admin.
+ *
+ *  Value: "ADMIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Admin;
+/**
+ *  Represents a development installation type.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Development;
+/**
+ *  Represents an unspecified installation type.
+ *
+ *  Value: "INSTALLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_InstallationTypeUnspecified;
+/**
+ *  Represents instances of the extension having mixed installation types.
+ *
+ *  Value: "MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Multiple;
+/**
+ *  Represents a normal installation type.
+ *
+ *  Value: "NORMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Normal;
+/**
+ *  Represents an installation type that is not covered in the other options.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Other;
+/**
+ *  Represents a sideload installation type.
+ *
+ *  Value: "SIDELOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Sideload;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData.source
+
+/**
+ *  Represents a machine level user cloud policy.
+ *
+ *  Value: "MACHINE_LEVEL_USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachineLevelUserCloud;
+/**
+ *  Represents a machine level merged policy.
+ *
+ *  Value: "MACHINE_MERGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachineMerged;
+/**
+ *  Represents a machine level platform policy.
+ *
+ *  Value: "MACHINE_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachinePlatform;
+/**
+ *  Represents an unspecified policy source.
+ *
+ *  Value: "POLICY_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_PolicySourceUnspecified;
+/**
+ *  Represents a user level cloud policy.
+ *
+ *  Value: "USER_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserCloud;
+/**
+ *  Represents a user level platform policy.
+ *
+ *  Value: "USER_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserPlatform;
 
 /**
  *  Android app information.
@@ -1232,6 +2688,85 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        Web app. (Value: "WEB")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  App report.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1AppReport : GTLRObject
+
+/** Timestamp when the report was collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** App usage data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AppUsageData *> *usageData;
+
+@end
+
+
+/**
+ *  App usage data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1AppUsageData : GTLRObject
+
+/** App id. */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/** Application instance id. This will be unique per window/instance. */
+@property(nonatomic, copy, nullable) NSString *appInstanceId;
+
+/**
+ *  Type of app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeArc
+ *        Application type arc (Android app). (Value: "APPLICATION_TYPE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBorealis
+ *        Application type borealis. (Value: "APPLICATION_TYPE_BOREALIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBruschetta
+ *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeBuiltIn
+ *        Deprecated. This value is no longer used. Application type built-in.
+ *        (Value: "APPLICATION_TYPE_BUILT_IN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeChromeApp
+ *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeCrostini
+ *        Application type Linux (via Crostini). (Value:
+ *        "APPLICATION_TYPE_CROSTINI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeExtension
+ *        Application type extension. (Value: "APPLICATION_TYPE_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeMacOs
+ *        Application type Mac OS. (Value: "APPLICATION_TYPE_MAC_OS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypePluginVm
+ *        Application type Plugin VM. (Value: "APPLICATION_TYPE_PLUGIN_VM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeRemote
+ *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowser
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser (Lacros browser app). (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserChromeApp
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser chrome app. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeStandaloneBrowserExtension
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser extension. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeSystemWeb
+ *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_ApplicationTypeWeb
+ *        Application type web. (Value: "APPLICATION_TYPE_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1AppUsageData_AppType_TelemetryApplicationTypeUnspecified
+ *        Application type unknown. (Value:
+ *        "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/** App foreground running time. */
+@property(nonatomic, strong, nullable) GTLRDuration *runningDuration;
 
 @end
 
@@ -1413,14 +2948,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *
  *  Likely values:
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthNormal
- *        Battery is healthy. (Value: "BATTERY_HEALTH_NORMAL")
+ *        Battery is healthy, full charge capacity / design capacity > 80%
+ *        (Value: "BATTERY_HEALTH_NORMAL")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthUnspecified
  *        Health unknown. (Value: "BATTERY_HEALTH_UNSPECIFIED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceNow
- *        Battery is unhealthy and should be replaced. (Value:
- *        "BATTERY_REPLACE_NOW")
+ *        Battery is unhealthy and suggested to be replaced, full charge
+ *        capacity / design capacity < 75% (Value: "BATTERY_REPLACE_NOW")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceSoon
- *        Battery is moderately unhealthy and should be replaced soon. (Value:
+ *        Battery is moderately unhealthy and suggested to be replaced soon,
+ *        full charge capacity / design capacity 75% - 80% (Value:
  *        "BATTERY_REPLACE_SOON")
  */
 @property(nonatomic, copy, nullable) NSString *batteryHealth;
@@ -1615,6 +3152,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, strong, nullable) NSNumber *kioskEnabled;
 
 /**
+ *  Output only. The version of this extension's manifest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manifestVersion;
+
+/**
  *  Output only. The minimum number of users using this app.
  *
  *  Uses NSNumber of intValue.
@@ -1800,6 +3344,39 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recentlyEnrolledCount;
+
+@end
+
+
+/**
+ *  Response contains a list of CrashEventCountByVersionPerDay which count the
+ *  chrome crash at the certain date.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponse : GTLRObject
+
+/** Crash event counts grouped by date and browser version. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount *> *crashEventCounts;
+
+@end
+
+
+/**
+ *  The `count` of the Chrome crash events at the `date`.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponseCrashEventCount : GTLRObject
+
+/** Browser version this is counting. */
+@property(nonatomic, copy, nullable) NSString *browserVersion;
+
+/**
+ *  Total count of crash events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** Date of the crash event. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleTypeDate *date;
 
 @end
 
@@ -2279,6 +3856,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Details of a device requesting an extension, including the name of the
+ *  device and the justification of the request.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails : GTLRObject
+
+/** The name of a device that has requested the extension. */
+@property(nonatomic, copy, nullable) NSString *deviceName;
+
+/** Request justification as entered by the user. */
+@property(nonatomic, copy, nullable) NSString *justification;
+
+@end
+
+
+/**
  *  Status of the single storage device.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1DiskInfo : GTLRObject
@@ -2365,6 +3957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSNumber *displayWidthMm;
 
+/** Output only. EDID version. */
+@property(nonatomic, copy, nullable) NSString *edidVersion;
+
 /**
  *  Output only. Is display internal or not.
  *
@@ -2389,6 +3984,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSNumber *modelId;
 
+/**
+ *  Output only. Serial number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *serialNumber;
+
 @end
 
 
@@ -2406,6 +4008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Display device name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. EDID version. */
+@property(nonatomic, copy, nullable) NSString *edidVersion;
 
 /**
  *  Output only. Indicates if display is internal or not.
@@ -2434,6 +4039,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resolutionWidth;
+
+/**
+ *  Output only. Serial number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *serialNumber;
 
 @end
 
@@ -2468,6 +4080,73 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response containing a list of devices that have requested the queried
+ *  extension.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deviceDetails" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1FetchDevicesRequestingExtensionResponse : GTLRCollectionObject
+
+/**
+ *  Details of devices that have requested the queried extension.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DeviceRequestingExtensionDetails *> *deviceDetails;
+
+/**
+ *  Optional. Token to specify the next page in the list. Token expires after 1
+ *  day.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Optional. Total number of devices in response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response containing a list of users that have requested the queried
+ *  extension.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userDetails" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1FetchUsersRequestingExtensionResponse : GTLRCollectionObject
+
+/** Token to specify the next page in the list. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total number of users in response.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+/**
+ *  Details of users that have requested the queried extension.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails *> *userDetails;
 
 @end
 
@@ -2607,6 +4286,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  State the device changed to
  *
  *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_DeviceOutdated
+ *        Device is outdated (Value: "DEVICE_OUTDATED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Offline
  *        Device is offline (Value: "OFFLINE")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1HeartbeatStatusReport_State_Online
@@ -2760,6 +4441,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. Permissions of the installed app. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  Output only. If available, the risk assessment data about this extension.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData *riskAssessment;
 
 @end
 
@@ -3409,6 +5095,139 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Risk assessment for a Chrome extension.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1RiskAssessment : GTLRObject
+
+/**
+ *  Risk assessment for the extension. Currently, this is a numerical value, and
+ *  its interpretation is specific to each risk assessment provider.
+ */
+@property(nonatomic, copy, nullable) NSString *assessment;
+
+/**
+ *  A URL that a user can navigate to for more information about the risk
+ *  assessment.
+ */
+@property(nonatomic, copy, nullable) NSString *detailsUrl;
+
+/** The version of the extension that this assessment applies to. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Risk assessment data about an extension/app.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData : GTLRObject
+
+/** Individual risk assessments. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry *> *entries;
+
+/**
+ *  Overall assessed risk level across all entries. This will be the highest
+ *  risk level from all entries.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelHigh
+ *        Extension that represents a high risk. (Value: "RISK_LEVEL_HIGH")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelLow
+ *        Extension that represents a low risk. (Value: "RISK_LEVEL_LOW")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelMedium
+ *        Extension that represents a medium risk. (Value: "RISK_LEVEL_MEDIUM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData_OverallRiskLevel_RiskLevelUnspecified
+ *        Risk level not specified. (Value: "RISK_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *overallRiskLevel;
+
+@end
+
+
+/**
+ *  One risk assessment entry.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry : GTLRObject
+
+/**
+ *  The risk assessment provider from which this entry comes from.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator
+ *        CRXcavator. (Value: "RISK_ASSESSMENT_PROVIDER_CRXCAVATOR")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderLayerx
+ *        LayerX Security. (Value: "RISK_ASSESSMENT_PROVIDER_LAYERX")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi
+ *        Spin.Ai. (Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderUnspecified
+ *        Default value when no provider is specified. (Value:
+ *        "RISK_ASSESSMENT_PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *provider;
+
+/** The details of the provider's risk assessment. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1RiskAssessment *riskAssessment;
+
+/**
+ *  The bucketed risk level for the risk assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelHigh
+ *        Extension that represents a high risk. (Value: "RISK_LEVEL_HIGH")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelLow
+ *        Extension that represents a low risk. (Value: "RISK_LEVEL_LOW")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelMedium
+ *        Extension that represents a medium risk. (Value: "RISK_LEVEL_MEDIUM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelUnspecified
+ *        Risk level not specified. (Value: "RISK_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *riskLevel;
+
+@end
+
+
+/**
+ *  Runtime counters retrieved from CPU. Currently the runtime counters
+ *  telemetry is only supported by Intel vPro PSR on Gen 14+.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport : GTLRObject
+
+/**
+ *  Number of times that the device has entered into the hibernation state.
+ *  Currently obtained via the PSR, count from S0->S4.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enterHibernationCount;
+
+/**
+ *  Number of times that the device has entered into the power-off state.
+ *  Currently obtained via the PSR, count from S0->S5.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enterPoweroffCount;
+
+/**
+ *  Number of times that the device has entered into the sleep state. Currently
+ *  obtained via the PSR, count from S0->S3.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enterSleepCount;
+
+/** Timestamp when the report was collected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/**
+ *  Total lifetime runtime. Currently always S0 runtime from Intel vPro PSR.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *uptimeRuntimeDuration;
+
+@end
+
+
+/**
  *  Status data for storage. * This field is telemetry information and this will
  *  change over time as the device is utilized. * Data for this field is
  *  controlled via policy:
@@ -3489,6 +5308,434 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  App installation data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent : GTLRObject
+
+/**
+ *  App id. For PWAs this is the start URL, and for extensions this is the
+ *  extension id.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  App installation reason.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonCommandLine
+ *        Application installed by command line argument. (Value:
+ *        "APPLICATION_INSTALL_REASON_COMMAND_LINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonDefault
+ *        Application installed by default, but is not considered a system app.
+ *        (Value: "APPLICATION_INSTALL_REASON_DEFAULT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonKiosk
+ *        Application installed by Kiosk on Chrome OS. (Value:
+ *        "APPLICATION_INSTALL_REASON_KIOSK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonOem
+ *        Application installed by an original equipment manufacturer (OEM).
+ *        (Value: "APPLICATION_INSTALL_REASON_OEM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonPolicy
+ *        Application installed by policy. (Value:
+ *        "APPLICATION_INSTALL_REASON_POLICY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSubApp
+ *        Application installed bt SubApp API call. (Value:
+ *        "APPLICATION_INSTALL_REASON_SUB_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSync
+ *        Application installed by sync. (Value:
+ *        "APPLICATION_INSTALL_REASON_SYNC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonSystem
+ *        Application installed with the system and is considered part of the
+ *        OS. (Value: "APPLICATION_INSTALL_REASON_SYSTEM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonUnspecified
+ *        Application install reason is unknown. (Value:
+ *        "APPLICATION_INSTALL_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallReason_ApplicationInstallReasonUser
+ *        Application installed by user action. (Value:
+ *        "APPLICATION_INSTALL_REASON_USER")
+ */
+@property(nonatomic, copy, nullable) NSString *appInstallReason;
+
+/**
+ *  App installation source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceBrowser
+ *        Application install source is a browser. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceChromeWebStore
+ *        Application install source is the Chrome web store. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_CHROME_WEB_STORE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourcePlayStore
+ *        Application install source is the Play store. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_PLAY_STORE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceSync
+ *        Application install source is a sync. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_SYNC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceSystem
+ *        Application installed as part of Chrome OS. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_SYSTEM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallSource_ApplicationInstallSourceUnspecified
+ *        Application install source is unknown. (Value:
+ *        "APPLICATION_INSTALL_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appInstallSource;
+
+/**
+ *  App installation time depending on the app lifecycle.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeInit
+ *        Application install is initialized. (Value:
+ *        "APPLICATION_INSTALL_TIME_INIT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeRunning
+ *        Application install is currently running. (Value:
+ *        "APPLICATION_INSTALL_TIME_RUNNING")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppInstallTime_ApplicationInstallTimeUnspecified
+ *        Application install time unknown. (Value:
+ *        "APPLICATION_INSTALL_TIME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appInstallTime;
+
+/**
+ *  Type of app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeArc
+ *        Application type arc (Android app). (Value: "APPLICATION_TYPE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBorealis
+ *        Application type borealis. (Value: "APPLICATION_TYPE_BOREALIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBruschetta
+ *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeBuiltIn
+ *        Deprecated. This value is no longer used. Application type built-in.
+ *        (Value: "APPLICATION_TYPE_BUILT_IN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeChromeApp
+ *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeCrostini
+ *        Application type Linux (via Crostini). (Value:
+ *        "APPLICATION_TYPE_CROSTINI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeExtension
+ *        Application type extension. (Value: "APPLICATION_TYPE_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeMacOs
+ *        Application type Mac OS. (Value: "APPLICATION_TYPE_MAC_OS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypePluginVm
+ *        Application type Plugin VM. (Value: "APPLICATION_TYPE_PLUGIN_VM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeRemote
+ *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowser
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser (Lacros browser app). (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser chrome app. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser extension. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeSystemWeb
+ *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_ApplicationTypeWeb
+ *        Application type web. (Value: "APPLICATION_TYPE_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent_AppType_TelemetryApplicationTypeUnspecified
+ *        Application type unknown. (Value:
+ *        "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+@end
+
+
+/**
+ *  App launch data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent : GTLRObject
+
+/**
+ *  App id. For PWAs this is the start URL, and for extensions this is the
+ *  extension id.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  App launch source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppHomePage
+ *        Application launched from app home (chrome://apps) page. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_APP_HOME_PAGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListGrid
+ *        Application launched from the grid of apps, not the search box.
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListGridContextMenu
+ *        Application launched from the grid of apps, off of the context menu.
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_GRID_CONTEXT_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListQuery
+ *        Application launched from query-dependent results (larger icons).
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListQueryContextMenu
+ *        Application launched from query-dependent results, off of the context
+ *        menu. (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_QUERY_CONTEXT_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceAppListRecommendation
+ *        Application launched from query-less recommendations (smaller icons).
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_APP_LIST_RECOMMENDATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceArc
+ *        Application launched from Arc. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceBackgroundMode
+ *        Application launched from background mode. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_BACKGROUND_MODE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceChromeInternal
+ *        Application launched from a Chrome internal call. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_CHROME_INTERNAL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceCommandLine
+ *        Application launched from the command line. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_COMMAND_LINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceDiscoverTabNotification
+ *        Application launched from a discover tab notification. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_DISCOVER_TAB_NOTIFICATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFileManager
+ *        Application launched from the file manager (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_FILE_MANAGER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFirstRun
+ *        Count first-run Help app launches separately so that we can understand
+ *        the number of user-triggered launches. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_FIRST_RUN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFocusMode
+ *        Applicationed launched from focus panel. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_FOCUS_MODE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceFullRestore
+ *        Application launched from a full restore. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_FULL_RESTORE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceInstalledNotification
+ *        Application launched from the installed notification. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_INSTALLED_NOTIFICATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceInstaller
+ *        Application launched from source installer. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_INSTALLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceIntentUrl
+ *        Application launched from an intent URL. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_INTENT_URL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceKeyboard
+ *        Application launched from keyboard shortcut for opening app. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_KEYBOARD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceKiosk
+ *        Application launched from kiosk. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_KIOSK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceLink
+ *        Application launched from left click on a link in the browser. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_LINK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceLockScreen
+ *        Application launched from lock screen app launcher. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_LOCK_SCREEN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceManagementApi
+ *        Application launched from the Management API. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_MANAGEMENT_API")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceMenu
+ *        Application launched from menu. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNavigationCapturing
+ *        Application launched from navigation capturing. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_NAVIGATION_CAPTURING")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceNewTabPage
+ *        Application launched from the new tab page. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_NEW_TAB_PAGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOmnibox
+ *        Application launched from entering a URL in the Omnibox on the
+ *        browser. (Value: "APPLICATION_LAUNCH_SOURCE_OMNIBOX")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOsLogin
+ *        Application launched from OS login. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_OS_LOGIN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceOtherApp
+ *        Application launched from clicking a link in another app or WebUI.
+ *        (Value: "APPLICATION_LAUNCH_SOURCE_OTHER_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceParentalControls
+ *        Application launched from the Parental Controls Settings section and
+ *        Per App time notification. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_PARENTAL_CONTROLS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceProfileMenu
+ *        Application launched from profile menu of installable
+ *        chrome://password-manager WebUI. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_PROFILE_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceProtocolHandler
+ *        Application launched from protocol handler. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_PROTOCOL_HANDLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceReleaseNotesNotification
+ *        Application launched from the release notes notification. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_RELEASE_NOTES_NOTIFICATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceReparenting
+ *        Application launched from moving content into an app. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_REPARENTING")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSharesheet
+ *        Application launched from Sharesheet. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SHARESHEET")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceShelf
+ *        Application launched from shelf. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SHELF")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSmartTextContextMenu
+ *        Application launched from a smart text selection context menu. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SMART_TEXT_CONTEXT_MENU")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSparky
+ *        Application launched from experimental feature Sparky. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SPARKY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceSystemTrayCalendar
+ *        Application launched from system tray calendar. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_SYSTEM_TRAY_CALENDAR")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceTest
+ *        Application launched from a test. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_TEST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUnspecified
+ *        Application launch source unknown. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceUrlHandler
+ *        Application launched from URL handler. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_URL_HANDLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWebInstallApi
+ *        Application launched from web install API. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_WEB_INSTALL_API")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppLaunchSource_ApplicationLaunchSourceWelcomeTour
+ *        Application launched from welcome tour. (Value:
+ *        "APPLICATION_LAUNCH_SOURCE_WELCOME_TOUR")
+ */
+@property(nonatomic, copy, nullable) NSString *appLaunchSource;
+
+/**
+ *  Type of app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeArc
+ *        Application type arc (Android app). (Value: "APPLICATION_TYPE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBorealis
+ *        Application type borealis. (Value: "APPLICATION_TYPE_BOREALIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBruschetta
+ *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeBuiltIn
+ *        Deprecated. This value is no longer used. Application type built-in.
+ *        (Value: "APPLICATION_TYPE_BUILT_IN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeChromeApp
+ *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeCrostini
+ *        Application type Linux (via Crostini). (Value:
+ *        "APPLICATION_TYPE_CROSTINI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeExtension
+ *        Application type extension. (Value: "APPLICATION_TYPE_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeMacOs
+ *        Application type Mac OS. (Value: "APPLICATION_TYPE_MAC_OS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypePluginVm
+ *        Application type Plugin VM. (Value: "APPLICATION_TYPE_PLUGIN_VM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeRemote
+ *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowser
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser (Lacros browser app). (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser chrome app. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeStandaloneBrowserExtension
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser extension. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeSystemWeb
+ *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_ApplicationTypeWeb
+ *        Application type web. (Value: "APPLICATION_TYPE_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent_AppType_TelemetryApplicationTypeUnspecified
+ *        Application type unknown. (Value:
+ *        "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+@end
+
+
+/**
+ *  App uninstall data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent : GTLRObject
+
+/**
+ *  App id. For PWAs this is the start URL, and for extensions this is the
+ *  extension id.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  Type of app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeArc
+ *        Application type arc (Android app). (Value: "APPLICATION_TYPE_ARC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBorealis
+ *        Application type borealis. (Value: "APPLICATION_TYPE_BOREALIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBruschetta
+ *        Application type bruschetta. (Value: "APPLICATION_TYPE_BRUSCHETTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeBuiltIn
+ *        Deprecated. This value is no longer used. Application type built-in.
+ *        (Value: "APPLICATION_TYPE_BUILT_IN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeChromeApp
+ *        Application type Chrome app. (Value: "APPLICATION_TYPE_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeCrostini
+ *        Application type Linux (via Crostini). (Value:
+ *        "APPLICATION_TYPE_CROSTINI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeExtension
+ *        Application type extension. (Value: "APPLICATION_TYPE_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeMacOs
+ *        Application type Mac OS. (Value: "APPLICATION_TYPE_MAC_OS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypePluginVm
+ *        Application type Plugin VM. (Value: "APPLICATION_TYPE_PLUGIN_VM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeRemote
+ *        Application type remote. (Value: "APPLICATION_TYPE_REMOTE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowser
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser (Lacros browser app). (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserChromeApp
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser chrome app. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_CHROME_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeStandaloneBrowserExtension
+ *        Deprecated. This value is no longer used. Application type standalone
+ *        browser extension. (Value:
+ *        "APPLICATION_TYPE_STANDALONE_BROWSER_EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeSystemWeb
+ *        Application type system web. (Value: "APPLICATION_TYPE_SYSTEM_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_ApplicationTypeWeb
+ *        Application type web. (Value: "APPLICATION_TYPE_WEB")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppType_TelemetryApplicationTypeUnspecified
+ *        Application type unknown. (Value:
+ *        "TELEMETRY_APPLICATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/**
+ *  App uninstall source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceAppList
+ *        Application uninstalled from the App List (Launcher). (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_APP_LIST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceAppManagement
+ *        Application uninstalled from the App Managedment page. (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_APP_MANAGEMENT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceMigration
+ *        Application uninstalled by app migration. (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_MIGRATION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceShelf
+ *        Application uninstalled from the Shelf. (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_SHELF")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent_AppUninstallSource_ApplicationUninstallSourceUnspecified
+ *        Application uninstall source unknown. (Value:
+ *        "APPLICATION_UNINSTALL_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appUninstallSource;
+
+@end
+
+
+/**
  *  `TelemetryAudioSevereUnderrunEvent` is triggered when a audio devices run
  *  out of buffer data for more than 5 seconds. * Granular permission needed:
  *  TELEMETRY_API_AUDIO_REPORT
@@ -3502,6 +5749,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  needed: TELEMETRY_API_DEVICE
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice : GTLRObject
+
+/**
+ *  Output only. App reports collected periodically sorted in a decreasing order
+ *  of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AppReport *> *appReport;
 
 /**
  *  Output only. Audio reports collected periodically sorted in a decreasing
@@ -3598,6 +5851,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport *> *peripheralsReport;
 
 /**
+ *  Output only. Runtime counters reports collected device lifetime runtime, as
+ *  well as the counts of S0->S3, S0->S4, and S0->S5 transitions, meaning
+ *  entering into sleep, hibernation, and power-off states
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1RuntimeCountersReport *> *runtimeCountersReport;
+
+/**
  *  Output only. Device serial number. This value is the same as the Admin
  *  Console's Serial Number in the ChromeOS Devices tab.
  */
@@ -3639,6 +5899,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent : GTLRObject
 
 /**
+ *  Output only. Payload for app install event. Present only when `event_type`
+ *  is `APP_INSTALLED`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppInstallEvent *appInstallEvent;
+
+/**
+ *  Output only. Payload for app launch event.Present only when `event_type` is
+ *  `APP_LAUNCHED`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppLaunchEvent *appLaunchEvent;
+
+/**
+ *  Output only. Payload for app uninstall event. Present only when `event_type`
+ *  is `APP_UNINSTALLED`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryAppUninstallEvent *appUninstallEvent;
+
+/**
  *  Output only. Payload for audio severe underrun event. Present only when the
  *  `event_type` field is `AUDIO_SEVERE_UNDERRUN`.
  */
@@ -3651,11 +5929,23 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  The event type of the current event.
  *
  *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppInstalled
+ *        Triggered when an app is installed. (Value: "APP_INSTALLED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppLaunched
+ *        Triggered when an app is launched. (Value: "APP_LAUNCHED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AppUninstalled
+ *        Triggered when an app is uninstalled. (Value: "APP_UNINSTALLED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_AudioSevereUnderrun
  *        Triggered when a audio devices run out of buffer data for more than 5
  *        seconds. (Value: "AUDIO_SEVERE_UNDERRUN")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_EventTypeUnspecified
  *        Event type unknown. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayConnected
+ *        Triggered when an external display is connected. (Value:
+ *        "EXTERNAL_DISPLAY_CONNECTED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_ExternalDisplayDisconnected
+ *        Triggered when an external display is disconnected. (Value:
+ *        "EXTERNAL_DISPLAY_DISCONNECTED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkHttpsLatencyChange
  *        Triggered when a new HTTPS latency problem was detected or the device
  *        has recovered form an existing HTTPS latency problem. (Value:
@@ -3663,6 +5953,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_NetworkStateChange
  *        Triggered immediately on any changes to a network connection. (Value:
  *        "NETWORK_STATE_CHANGE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_OsCrash
+ *        Triggered when a crash occurs. (Value: "OS_CRASH")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbAdded
  *        Triggered when USB devices are added. (Value: "USB_ADDED")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent_EventType_UsbRemoved
@@ -3693,6 +5985,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  when `event_type` is `NETWORK_STATE_CHANGE`.
  */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryNetworkConnectionStateChangeEvent *networkStateChangeEvent;
+
+/**
+ *  Output only. Payload for OS crash event. Present only when `event_type` is
+ *  `OS_CRASH`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent *osCrashEvent;
 
 /** Timestamp that represents when the event was reported. */
 @property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
@@ -3873,6 +6171,47 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  OS crash data.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent : GTLRObject
+
+/** Crash id. */
+@property(nonatomic, copy, nullable) NSString *crashId;
+
+/**
+ *  Crash type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeEmbeddedController
+ *        Embedded controller crash. (Value: "CRASH_TYPE_EMBEDDED_CONTROLLER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeKernel
+ *        Kernel crash. (Value: "CRASH_TYPE_KERNEL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_CrashType_CrashTypeUnspecified
+ *        Crash type unknown. (Value: "CRASH_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crashType;
+
+/**
+ *  Session type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeActiveDirectory
+ *        Active directory session. (Value: "SESSION_TYPE_ACTIVE_DIRECTORY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeKiosk
+ *        Kiosk. (Value: "SESSION_TYPE_KIOSK")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeManagedGuest
+ *        Managed guest session. (Value: "SESSION_TYPE_MANAGED_GUEST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeSignedInUser
+ *        Signed in user. (Value: "SESSION_TYPE_SIGNED_IN_USER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1TelemetryOsCrashEvent_SessionType_SessionTypeUnspecified
+ *        Session type unknown. (Value: "SESSION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sessionType;
+
+@end
+
+
+/**
  *  `TelemetryUsbPeripheralsEvent` is triggered USB devices are either added or
  *  removed. * Granular permission needed: TELEMETRY_API_PERIPHERALS_REPORT
  */
@@ -3916,6 +6255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  permission needed: TELEMETRY_API_DEVICE
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryUserDevice : GTLRObject
+
+/**
+ *  Output only. App reports collected periodically sorted in a decreasing order
+ *  of report_time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1AppReport *> *appReport;
 
 /**
  *  Output only. Audio reports collected periodically sorted in a decreasing
@@ -4208,6 +6553,885 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** The unique Directory API ID of the user. */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Details of a user requesting an extension, including the email and the
+ *  justification.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1UserRequestingExtensionDetails : GTLRObject
+
+/** The e-mail address of a user that has requested the extension. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Request justification as entered by the user. */
+@property(nonatomic, copy, nullable) NSString *justification;
+
+@end
+
+
+/**
+ *  Information of public key associated with a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential : GTLRObject
+
+/** Output only. Latest rotation timestamp of the public key rotation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *keyRotationTime;
+
+/**
+ *  Output only. Trust level of the public key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserHwKey
+ *        Represents a HW key. (Value: "CHROME_BROWSER_HW_KEY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_ChromeBrowserOsKey
+ *        Represents an OS key. (Value: "CHROME_BROWSER_OS_KEY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyTrustLevel_KeyTrustLevelUnspecified
+ *        Represents an unspecified public key trust level. (Value:
+ *        "KEY_TRUST_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *keyTrustLevel;
+
+/**
+ *  Output only. Type of the public key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_EcKey
+ *        Represents an EC key. (Value: "EC_KEY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_KeyTypeUnspecified
+ *        Represents an unspecified public key type. (Value:
+ *        "KEY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey
+ *        Represents a RSA key. (Value: "RSA_KEY")
+ */
+@property(nonatomic, copy, nullable) NSString *keyType;
+
+/**
+ *  Output only. Value of the public key.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *publicKey;
+
+@end
+
+
+/**
+ *  A certificate provisioning process.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess : GTLRObject
+
+/**
+ *  Output only. The client certificate is being provisioned for a ChromeOS
+ *  device. This contains information about the device.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice *chromeOsDevice;
+
+/**
+ *  Output only. The client certificate is being provisioned for a ChromeOS
+ *  user. This contains information about the current user session.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession *chromeOsUserSession;
+
+/**
+ *  Output only. A message describing why this `CertificateProvisioningProcess`
+ *  has failed. Presence of this field indicates that the
+ *  `CertificateProvisioningProcess` has failed.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/** Output only. The CA connection is a generic CA connection. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection *genericCaConnection;
+
+/** Output only. The profile is a generic certificate provisioning profile. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile *genericProfile;
+
+/**
+ *  Output only. The issued certificate for this
+ *  `CertificateProvisioningProcess` in PEM format.
+ */
+@property(nonatomic, copy, nullable) NSString *issuedCertificate;
+
+/**
+ *  Identifier. Resource name of the `CertificateProvisioningProcess`. The name
+ *  pattern is given as
+ *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *  with `{customer}` being the obfuscated customer id and
+ *  `{certificate_provisioning_process}` being the certificate provisioning
+ *  process id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The ID of the certificate provisioning profile. */
+@property(nonatomic, copy, nullable) NSString *provisioningProfileId;
+
+/**
+ *  Output only. The signature of `signature_algorithm`, generated using the
+ *  client's private key using `signature_algorithm`. This field is only present
+ *  after the `SignData` operation has finished.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+/**
+ *  Output only. The signature algorithm that the adapter expects the client and
+ *  backend components to use when processing `sign_data`. This field is only
+ *  present after the `SignData` operation has been initiated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256
+ *        The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
+ *        constructed on the server-side. The client should sign using RSA with
+ *        PKCS#1 v1.5 padding. (Value:
+ *        "SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "SIGNATURE_ALGORITHM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signatureAlgorithm;
+
+/**
+ *  Output only. The data that the client was asked to sign. This field is only
+ *  present after the `SignData` operation has been initiated.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signData;
+
+/**
+ *  Output only. Server-generated timestamp of when the certificate provisioning
+ *  process has been created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The public key for which a certificate should be provisioned.
+ *  Represented as a DER-encoded X.509 SubjectPublicKeyInfo.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *subjectPublicKeyInfo;
+
+@end
+
+
+/**
+ *  A representation of a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile : GTLRObject
+
+/**
+ *  Output only. The specific affiliation state of the profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliatedCloudManaged
+ *        Affiliated - Both the profile and the managed browser are managed by
+ *        the same organization. (Value: "AFFILIATED_CLOUD_MANAGED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_AffiliationStateUnspecified
+ *        Unspecified affiliation state. (Value:
+ *        "AFFILIATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_ProfileOnly
+ *        Unaffiliated - A managed profile that appears on a totally unamanaged
+ *        browser. (Value: "PROFILE_ONLY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedCloudMachine
+ *        Unaffiliated - A managed profile that appears on a managed browser
+ *        that is cloud managed by a different organization (using Chrome
+ *        Browser Cloud Management). (Value: "UNAFFILIATED_CLOUD_MACHINE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedGeneric
+ *        Unaffiliated - but we do not have the details for the type of
+ *        unaffiliated profile. (Value: "UNAFFILIATED_GENERIC")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_AffiliationState_UnaffiliatedLocalMachine
+ *        Unaffiliated - A managed profile that appears on a machine that is
+ *        locally managed by a different organization (through platform
+ *        management mechanisms like GPO). (Value: "UNAFFILIATED_LOCAL_MACHINE")
+ */
+@property(nonatomic, copy, nullable) NSString *affiliationState;
+
+/** Optional. Location of the profile annotated by the admin. */
+@property(nonatomic, copy, nullable) NSString *annotatedLocation;
+
+/** Optional. User of the profile annotated by the admin. */
+@property(nonatomic, copy, nullable) NSString *annotatedUser;
+
+/** Output only. Attestation credential information of the profile. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential *attestationCredential;
+
+/** Output only. Channel of the browser on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *browserChannel;
+
+/** Output only. Version of the browser on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *browserVersion;
+
+/**
+ *  Output only. Basic information of the device on which the profile exists.
+ *  This information is only available for the affiliated profiles.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo *deviceInfo;
+
+/** Output only. Profile display name set by client. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Etag of this ChromeBrowserProfile resource. This etag can be
+ *  used with UPDATE operation to ensure consistency.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Number of extensions installed on the profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *extensionCount;
+
+/** Output only. Timestamp of the first enrollment of the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstEnrollmentTime;
+
+/**
+ *  Output only. Identify provider of the profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_ExternalIdentityProvider
+ *        Represents an external identity provider. (Value:
+ *        "EXTERNAL_IDENTITY_PROVIDER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_GoogleIdentityProvider
+ *        Represents a Google identity provider. (Value:
+ *        "GOOGLE_IDENTITY_PROVIDER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile_IdentityProvider_IdentityProviderUnspecified
+ *        Represents an unspecified identity provider. (Value:
+ *        "IDENTITY_PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *identityProvider;
+
+/** Output only. Timestamp of the latest activity by the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastActivityTime;
+
+/** Output only. Timestamp of the latest policy fetch by the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicyFetchTime;
+
+/** Output only. Timestamp of the latest policy sync by the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPolicySyncTime;
+
+/** Output only. Timestamp of the latest status report by the profile. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastStatusReportTime;
+
+/**
+ *  Identifier. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. OS platform of the device on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *osPlatformType;
+
+/**
+ *  Output only. Major OS platform version of the device on which the profile
+ *  exists, from profile reporting.
+ */
+@property(nonatomic, copy, nullable) NSString *osPlatformVersion;
+
+/** Output only. OS version of the device on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/**
+ *  Output only. Number of policies applied on the profile.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyCount;
+
+/** Output only. Chrome client side profile ID. */
+@property(nonatomic, copy, nullable) NSString *profileId;
+
+/**
+ *  Output only. Profile permanent ID is the unique identifier of a profile
+ *  within one customer.
+ */
+@property(nonatomic, copy, nullable) NSString *profilePermanentId;
+
+/**
+ *  Output only. Detailed reporting data of the profile. This information is
+ *  only available when the profile reporting policy is enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData *reportingData;
+
+/** Output only. Email address of the user to which the profile belongs. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+/**
+ *  Output only. Unique Directory API ID of the user that can be used in Admin
+ *  SDK Users API.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  A representation of a remote command for a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand : GTLRObject
+
+/** Output only. Result of the remote command. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult *commandResult;
+
+/**
+ *  Output only. State of the remote command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_CommandStateUnspecified
+ *        Represents an unspecified command state. (Value:
+ *        "COMMAND_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_ExecutedByClient
+ *        Represents a command that has been executed by the client. (Value:
+ *        "EXECUTED_BY_CLIENT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Expired
+ *        Represents a command that has expired. (Value: "EXPIRED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_CommandState_Pending
+ *        Represents a command in a pending state. (Value: "PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *commandState;
+
+/**
+ *  Required. Type of the remote command. The only supported command_type is
+ *  "clearBrowsingData".
+ */
+@property(nonatomic, copy, nullable) NSString *commandType;
+
+/** Output only. Timestamp of the issurance of the remote command. */
+@property(nonatomic, strong, nullable) GTLRDateTime *issueTime;
+
+/**
+ *  Identifier. Format:
+ *  customers/{customer_id}/profiles/{profile_permanent_id}/commands/{command_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Payload of the remote command. The payload for "clearBrowsingData"
+ *  command supports: - fields "clearCache" and "clearCookies" - values of
+ *  boolean type.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload *payload;
+
+/** Output only. Valid duration of the remote command. */
+@property(nonatomic, strong, nullable) GTLRDuration *validDuration;
+
+@end
+
+
+/**
+ *  Required. Payload of the remote command. The payload for "clearBrowsingData"
+ *  command supports: - fields "clearCache" and "clearCookies" - values of
+ *  boolean type.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand_Payload : GTLRObject
+@end
+
+
+/**
+ *  Result of the execution of a command.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult : GTLRObject
+
+/** Output only. Timestamp of the client execution of the remote command. */
+@property(nonatomic, strong, nullable) GTLRDateTime *clientExecutionTime;
+
+/**
+ *  Output only. Result code that indicates the type of error or success of the
+ *  command.
+ */
+@property(nonatomic, copy, nullable) NSString *resultCode;
+
+/**
+ *  Output only. Result type of the remote command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_CommandResultTypeUnspecified
+ *        Represents an unspecified command result. (Value:
+ *        "COMMAND_RESULT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Failure
+ *        Represents a failed command. (Value: "FAILURE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Ignored
+ *        Represents a command with an ignored result. (Value: "IGNORED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Success
+ *        Represents a succeeded command. (Value: "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *resultType;
+
+@end
+
+
+/**
+ *  Describes the ChromeOS device that a `CertificateProvisioningProcess`
+ *  belongs to.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice : GTLRObject
+
+/**
+ *  Output only. The unique Directory API ID of the device. This value is the
+ *  same as the Admin Console's Directory API ID in the ChromeOS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceDirectoryApiId;
+
+/**
+ *  Output only. Device serial number. This value is the same as the Admin
+ *  Console's Serial Number in the ChromeOS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+@end
+
+
+/**
+ *  Describes the ChromeOS user session that a `CertificateProvisioningProcess`
+ *  belongs to.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession : GTLRObject
+
+/**
+ *  Output only. This field contains information about the ChromeOS device that
+ *  the user session is running on. It is only set if the user is affiliated,
+ *  i.e., if the user is managed by the same organization that manages the
+ *  ChromeOS device.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice *chromeOsDevice;
+
+/** Output only. The unique Directory API ID of the user. */
+@property(nonatomic, copy, nullable) NSString *userDirectoryApiId;
+
+/** Output only. The primary e-mail address of the user. */
+@property(nonatomic, copy, nullable) NSString *userPrimaryEmail;
+
+@end
+
+
+/**
+ *  Information of a device that runs a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo : GTLRObject
+
+/**
+ *  Output only. Device ID that identifies the affiliated device on which the
+ *  profile exists. If the device type is CHROME_BROWSER, then this represents a
+ *  unique Directory API ID of the device that can be used in Admin SDK Browsers
+ *  API.
+ */
+@property(nonatomic, copy, nullable) NSString *affiliatedDeviceId;
+
+/**
+ *  Output only. Type of the device on which the profile exists.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_ChromeBrowser
+ *        Represents a Chrome browser device. (Value: "CHROME_BROWSER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_DeviceTypeUnspecified
+ *        Represents an unspecified device type. (Value:
+ *        "DEVICE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
+/** Output only. Hostname of the device on which the profile exists. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Output only. Machine name of the device on which the profile exists. On
+ *  platforms which do not report the machine name (currently iOS and Android)
+ *  this is instead set to the browser's device_id - but note that this is a
+ *  different device_id than the |affiliated_device_id|.
+ */
+@property(nonatomic, copy, nullable) NSString *machine;
+
+@end
+
+
+/**
+ *  Describes a generic Certificate Authority Connection.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection : GTLRObject
+
+/**
+ *  Output only. A string that references the administrator-provided
+ *  configuration for the certification authority service. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *caConnectionAdapterConfigReference;
+
+@end
+
+
+/**
+ *  Describes a generic certificate provisioning profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile : GTLRObject
+
+/**
+ *  Output only. A string that references the administrator-provided
+ *  configuration for the certificate provisioning profile. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *profileAdapterConfigReference;
+
+@end
+
+
+/**
+ *  Response to ListChromeBrowserProfileCommands method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "chromeBrowserProfileCommands" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfileCommandsResponse : GTLRCollectionObject
+
+/**
+ *  The list of commands returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand *> *chromeBrowserProfileCommands;
+
+/** The pagination token that can be used to list the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total size represents an estimated number of resources returned.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response to ListChromeBrowserProfiles method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "chromeBrowserProfiles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfilesResponse : GTLRCollectionObject
+
+/**
+ *  The list of profiles returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile *> *chromeBrowserProfiles;
+
+/** The pagination token that can be used to list the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Total size represents an estimated number of resources returned. Not
+ *  guaranteed to be accurate above 10k profiles.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Request to MoveThirdPartyProfileUser method.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest : GTLRObject
+
+/**
+ *  Required. Destination organizational unit where the third party chrome
+ *  profile user will be moved to.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationOrgUnit;
+
+@end
+
+
+/**
+ *  Response for MoveThirdPartyProfileUser method.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserResponse : GTLRObject
+
+/** Output only. The moved third party profile user. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser *thirdPartyProfileUser;
+
+@end
+
+
+/**
+ *  Reporting data of a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData : GTLRObject
+
+/**
+ *  Output only. Executable path of the installed Chrome browser. A valid path
+ *  is included only in affiliated profiles.
+ */
+@property(nonatomic, copy, nullable) NSString *browserExecutablePath;
+
+/** Output only. Information of the extensions installed on the profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData *> *extensionData;
+
+/** Output only. Information of the policies applied on the extensions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData *> *extensionPolicyData;
+
+/**
+ *  Output only. Updated version of a browser, if it is different from the
+ *  active browser version.
+ */
+@property(nonatomic, copy, nullable) NSString *installedBrowserVersion;
+
+/** Output only. Information of the policies applied on the profile. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData *> *policyData;
+
+/**
+ *  Output only. Path of the profile. A valid path is included only in
+ *  affiliated profiles.
+ */
+@property(nonatomic, copy, nullable) NSString *profilePath;
+
+@end
+
+
+/**
+ *  Information of conflicting policy applied on a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData : GTLRObject
+
+/**
+ *  Output only. Source of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineLevelUserCloud
+ *        Represents a machine level user cloud policy. (Value:
+ *        "MACHINE_LEVEL_USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineMerged
+ *        Represents a machine level merged policy. (Value: "MACHINE_MERGED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachinePlatform
+ *        Represents a machine level platform policy. (Value:
+ *        "MACHINE_PLATFORM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_PolicySourceUnspecified
+ *        Represents an unspecified policy source. (Value:
+ *        "POLICY_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_UserCloud
+ *        Represents a user level cloud policy. (Value: "USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_UserPlatform
+ *        Represents a user level platform policy. (Value: "USER_PLATFORM")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  Information of an extension installed on a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData : GTLRObject
+
+/**
+ *  Output only. Description of the extension.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. ID of the extension. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/**
+ *  Output only. Type of the extension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_App
+ *        Represents an app. (Value: "APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_Extension
+ *        Represents an extension. (Value: "EXTENSION")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_ExtensionTypeUnspecified
+ *        Represents an unspecified extension type. (Value:
+ *        "EXTENSION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_HostedApp
+ *        Represents a hosted app. (Value: "HOSTED_APP")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_ExtensionType_Theme
+ *        Represents a theme. (Value: "THEME")
+ */
+@property(nonatomic, copy, nullable) NSString *extensionType;
+
+/** Output only. The URL of the homepage of the extension. */
+@property(nonatomic, copy, nullable) NSString *homepageUri;
+
+/**
+ *  Output only. Installation type of the extension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Admin
+ *        Represents an installation by admin. (Value: "ADMIN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Development
+ *        Represents a development installation type. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_InstallationTypeUnspecified
+ *        Represents an unspecified installation type. (Value:
+ *        "INSTALLATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Multiple
+ *        Represents instances of the extension having mixed installation types.
+ *        (Value: "MULTIPLE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Normal
+ *        Represents a normal installation type. (Value: "NORMAL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Other
+ *        Represents an installation type that is not covered in the other
+ *        options. (Value: "OTHER")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData_InstallationType_Sideload
+ *        Represents a sideload installation type. (Value: "SIDELOAD")
+ */
+@property(nonatomic, copy, nullable) NSString *installationType;
+
+/**
+ *  Output only. Represents whether the user disabled the extension.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDisabled;
+
+/**
+ *  Output only. Represents whether the extension is from the webstore.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isWebstoreExtension;
+
+/**
+ *  Output only. Manifest version of the extension.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manifestVersion;
+
+/** Output only. Name of the extension. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Permissions requested by the extension. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/** Output only. Version of the extension. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Information of the policies applied on an extension.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData : GTLRObject
+
+/** Output only. ID of the extension. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/** Output only. Name of the extension. */
+@property(nonatomic, copy, nullable) NSString *extensionName;
+
+/** Output only. Information of the policies applied on the extension. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData *> *policyData;
+
+@end
+
+
+/**
+ *  Information of a policy applied on a Chrome browser profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData : GTLRObject
+
+/** Output only. Conflicting policy information. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData *> *conflicts;
+
+/** Output only. Error message of the policy, if any. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/** Output only. Name of the policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Source of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachineLevelUserCloud
+ *        Represents a machine level user cloud policy. (Value:
+ *        "MACHINE_LEVEL_USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachineMerged
+ *        Represents a machine level merged policy. (Value: "MACHINE_MERGED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_MachinePlatform
+ *        Represents a machine level platform policy. (Value:
+ *        "MACHINE_PLATFORM")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_PolicySourceUnspecified
+ *        Represents an unspecified policy source. (Value:
+ *        "POLICY_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserCloud
+ *        Represents a user level cloud policy. (Value: "USER_CLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserPlatform
+ *        Represents a user level platform policy. (Value: "USER_PLATFORM")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** Output only. Value of the policy. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Metadata for the long-running operation returned by signData.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataMetadata : GTLRObject
+
+/** Output only. Start time of the SignData operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Response message for requesting a signature from the client that initated a
+ *  certificate provisioning process.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataResponse : GTLRObject
+
+/**
+ *  Output only. The certificate provisioning process. The signature generated
+ *  by the client will be available in the `signature` field of
+ *  `CertificateProvisioningProcess`.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess *certificateProvisioningProcess;
+
+@end
+
+
+/**
+ *  A representation of non-Google (third party) user that is associated with a
+ *  managed Chrome profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser : GTLRObject
+
+/**
+ *  Identifier. Format:
+ *  customers/{customer_id}/thirdPartyProfileUsers/{third_party_profile_user_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The ID of the organizational unit assigned to the user. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 @end
 

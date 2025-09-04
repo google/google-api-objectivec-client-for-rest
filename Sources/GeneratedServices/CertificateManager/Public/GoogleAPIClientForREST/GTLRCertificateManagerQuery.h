@@ -139,24 +139,26 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsList : GTLRCertificateManagerQuery
 
-/** Filter expression to restrict the Certificates Configs returned. */
+/**
+ *  Optional. Filter expression to restrict the Certificates Configs returned.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  A list of Certificate Config field names used to specify the order of the
- *  returned results. The default sorting order is ascending. To specify
- *  descending order for a field, add a suffix " desc".
+ *  Optional. A list of Certificate Config field names used to specify the order
+ *  of the returned results. The default sorting order is ascending. To specify
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Maximum number of certificate configs to return per call. */
+/** Optional. Maximum number of certificate configs to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListCertificateIssuanceConfigsResponse`.
- *  Indicates that this is a continuation of a prior
- *  `ListCertificateIssuanceConfigs` call, and that the system should return the
- *  next page of data.
+ *  Optional. The value returned by the last
+ *  `ListCertificateIssuanceConfigsResponse`. Indicates that this is a
+ *  continuation of a prior `ListCertificateIssuanceConfigs` call, and that the
+ *  system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -181,6 +183,50 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a CertificateIssuanceConfig.
+ *
+ *  Method: certificatemanager.projects.locations.certificateIssuanceConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
+ */
+@interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsPatch : GTLRCertificateManagerQuery
+
+/**
+ *  Identifier. A user-defined name of the certificate issuance config.
+ *  CertificateIssuanceConfig names must be unique globally and match pattern
+ *  `projects/ * /locations/ * /certificateIssuanceConfigs/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCertificateManager_Operation.
+ *
+ *  Updates a CertificateIssuanceConfig.
+ *
+ *  @param object The @c GTLRCertificateManager_CertificateIssuanceConfig to
+ *    include in the query.
+ *  @param name Identifier. A user-defined name of the certificate issuance
+ *    config. CertificateIssuanceConfig names must be unique globally and match
+ *    pattern `projects/ * /locations/ * /certificateIssuanceConfigs/ *`.
+ *
+ *  @return GTLRCertificateManagerQuery_ProjectsLocationsCertificateIssuanceConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCertificateManager_CertificateIssuanceConfig *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -294,28 +340,32 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateMapsCertificateMapEntriesList : GTLRCertificateManagerQuery
 
-/** Filter expression to restrict the returned Certificate Map Entries. */
+/**
+ *  Optional. Filter expression to restrict the returned Certificate Map
+ *  Entries.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  A list of Certificate Map Entry field names used to specify the order of the
- *  returned results. The default sorting order is ascending. To specify
- *  descending order for a field, add a suffix " desc".
+ *  Optional. A list of Certificate Map Entry field names used to specify the
+ *  order of the returned results. The default sorting order is ascending. To
+ *  specify descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Maximum number of certificate map entries to return. The service may return
- *  fewer than this value. If unspecified, at most 50 certificate map entries
- *  will be returned. The maximum value is 1000; values above 1000 will be
- *  coerced to 1000.
+ *  Optional. Maximum number of certificate map entries to return. The service
+ *  may return fewer than this value. If unspecified, at most 50 certificate map
+ *  entries will be returned. The maximum value is 1000; values above 1000 will
+ *  be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListCertificateMapEntriesResponse`.
- *  Indicates that this is a continuation of a prior `ListCertificateMapEntries`
- *  call, and that the system should return the next page of data.
+ *  Optional. The value returned by the last
+ *  `ListCertificateMapEntriesResponse`. Indicates that this is a continuation
+ *  of a prior `ListCertificateMapEntries` call, and that the system should
+ *  return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -356,9 +406,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateMapsCertificateMapEntriesPatch : GTLRCertificateManagerQuery
 
 /**
- *  A user-defined name of the Certificate Map Entry. Certificate Map Entry
- *  names must be unique globally and match pattern `projects/ * /locations/ *
- *  /certificateMaps/ * /certificateMapEntries/ *`.
+ *  Identifier. A user-defined name of the Certificate Map Entry. Certificate
+ *  Map Entry names must be unique globally and match pattern `projects/ *
+ *  /locations/ * /certificateMaps/ * /certificateMapEntries/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -378,9 +428,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateManager_CertificateMapEntry to include
  *    in the query.
- *  @param name A user-defined name of the Certificate Map Entry. Certificate
- *    Map Entry names must be unique globally and match pattern `projects/ *
- *    /locations/ * /certificateMaps/ * /certificateMapEntries/ *`.
+ *  @param name Identifier. A user-defined name of the Certificate Map Entry.
+ *    Certificate Map Entry names must be unique globally and match pattern
+ *    `projects/ * /locations/ * /certificateMaps/ * /certificateMapEntries/ *`.
  *
  *  @return GTLRCertificateManagerQuery_ProjectsLocationsCertificateMapsCertificateMapEntriesPatch
  */
@@ -499,23 +549,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateMapsList : GTLRCertificateManagerQuery
 
-/** Filter expression to restrict the Certificates Maps returned. */
+/** Optional. Filter expression to restrict the Certificates Maps returned. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  A list of Certificate Map field names used to specify the order of the
- *  returned results. The default sorting order is ascending. To specify
- *  descending order for a field, add a suffix " desc".
+ *  Optional. A list of Certificate Map field names used to specify the order of
+ *  the returned results. The default sorting order is ascending. To specify
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Maximum number of certificate maps to return per call. */
+/** Optional. Maximum number of certificate maps to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListCertificateMapsResponse`. Indicates that
- *  this is a continuation of a prior `ListCertificateMaps` call, and that the
- *  system should return the next page of data.
+ *  Optional. The value returned by the last `ListCertificateMapsResponse`.
+ *  Indicates that this is a continuation of a prior `ListCertificateMaps` call,
+ *  and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -555,8 +605,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateManagerQuery_ProjectsLocationsCertificateMapsPatch : GTLRCertificateManagerQuery
 
 /**
- *  A user-defined name of the Certificate Map. Certificate Map names must be
- *  unique globally and match pattern `projects/ * /locations/ *
+ *  Identifier. A user-defined name of the Certificate Map. Certificate Map
+ *  names must be unique globally and match pattern `projects/ * /locations/ *
  *  /certificateMaps/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -577,9 +627,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateManager_CertificateMap to include in the
  *    query.
- *  @param name A user-defined name of the Certificate Map. Certificate Map
- *    names must be unique globally and match pattern `projects/ * /locations/ *
- *    /certificateMaps/ *`.
+ *  @param name Identifier. A user-defined name of the Certificate Map.
+ *    Certificate Map names must be unique globally and match pattern `projects/
+ *    * /locations/ * /certificateMaps/ *`.
  *
  *  @return GTLRCertificateManagerQuery_ProjectsLocationsCertificateMapsPatch
  */
@@ -694,23 +744,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCertificateManagerQuery_ProjectsLocationsCertificatesList : GTLRCertificateManagerQuery
 
-/** Filter expression to restrict the Certificates returned. */
+/** Optional. Filter expression to restrict the Certificates returned. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  A list of Certificate field names used to specify the order of the returned
- *  results. The default sorting order is ascending. To specify descending order
- *  for a field, add a suffix " desc".
+ *  Optional. A list of Certificate field names used to specify the order of the
+ *  returned results. The default sorting order is ascending. To specify
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Maximum number of certificates to return per call. */
+/** Optional. Maximum number of certificates to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListCertificatesResponse`. Indicates that
- *  this is a continuation of a prior `ListCertificates` call, and that the
- *  system should return the next page of data.
+ *  Optional. The value returned by the last `ListCertificatesResponse`.
+ *  Indicates that this is a continuation of a prior `ListCertificates` call,
+ *  and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -749,8 +799,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateManagerQuery_ProjectsLocationsCertificatesPatch : GTLRCertificateManagerQuery
 
 /**
- *  A user-defined name of the certificate. Certificate names must be unique
- *  globally and match pattern `projects/ * /locations/ * /certificates/ *`.
+ *  Identifier. A user-defined name of the certificate. Certificate names must
+ *  be unique globally and match pattern `projects/ * /locations/ *
+ *  /certificates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -770,8 +821,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateManager_Certificate to include in the
  *    query.
- *  @param name A user-defined name of the certificate. Certificate names must
- *    be unique globally and match pattern `projects/ * /locations/ *
+ *  @param name Identifier. A user-defined name of the certificate. Certificate
+ *    names must be unique globally and match pattern `projects/ * /locations/ *
  *    /certificates/ *`.
  *
  *  @return GTLRCertificateManagerQuery_ProjectsLocationsCertificatesPatch
@@ -887,23 +938,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCertificateManagerQuery_ProjectsLocationsDnsAuthorizationsList : GTLRCertificateManagerQuery
 
-/** Filter expression to restrict the Dns Authorizations returned. */
+/**
+ *  Optional. Filter expression to restrict the Dns Authorizations returned.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  A list of Dns Authorization field names used to specify the order of the
- *  returned results. The default sorting order is ascending. To specify
- *  descending order for a field, add a suffix " desc".
+ *  Optional. A list of Dns Authorization field names used to specify the order
+ *  of the returned results. The default sorting order is ascending. To specify
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Maximum number of dns authorizations to return per call. */
+/** Optional. Maximum number of dns authorizations to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListDnsAuthorizationsResponse`. Indicates
- *  that this is a continuation of a prior `ListDnsAuthorizations` call, and
- *  that the system should return the next page of data.
+ *  Optional. The value returned by the last `ListDnsAuthorizationsResponse`.
+ *  Indicates that this is a continuation of a prior `ListDnsAuthorizations`
+ *  call, and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -943,8 +996,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateManagerQuery_ProjectsLocationsDnsAuthorizationsPatch : GTLRCertificateManagerQuery
 
 /**
- *  A user-defined name of the dns authorization. DnsAuthorization names must be
- *  unique globally and match pattern `projects/ * /locations/ *
+ *  Identifier. A user-defined name of the dns authorization. DnsAuthorization
+ *  names must be unique globally and match pattern `projects/ * /locations/ *
  *  /dnsAuthorizations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -965,9 +1018,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateManager_DnsAuthorization to include in
  *    the query.
- *  @param name A user-defined name of the dns authorization. DnsAuthorization
- *    names must be unique globally and match pattern `projects/ * /locations/ *
- *    /dnsAuthorizations/ *`.
+ *  @param name Identifier. A user-defined name of the dns authorization.
+ *    DnsAuthorization names must be unique globally and match pattern
+ *    `projects/ * /locations/ * /dnsAuthorizations/ *`.
  *
  *  @return GTLRCertificateManagerQuery_ProjectsLocationsDnsAuthorizationsPatch
  */
@@ -1011,6 +1064,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateManagerCloudPlatform
  */
 @interface GTLRCertificateManagerQuery_ProjectsLocationsList : GTLRCertificateManagerQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -1059,7 +1118,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: certificatemanager.projects.locations.operations.cancel
@@ -1082,7 +1141,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCertificateManager_CancelOperationRequest to
@@ -1249,9 +1308,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsDelete : GTLRCertificateManagerQuery
 
 /**
- *  The current etag of the TrustConfig. If an etag is provided and does not
- *  match the current etag of the resource, deletion will be blocked and an
- *  ABORTED error will be returned.
+ *  Optional. The current etag of the TrustConfig. If an etag is provided and
+ *  does not match the current etag of the resource, deletion will be blocked
+ *  and an ABORTED error will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -1315,23 +1374,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsList : GTLRCertificateManagerQuery
 
-/** Filter expression to restrict the TrustConfigs returned. */
+/** Optional. Filter expression to restrict the TrustConfigs returned. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  A list of TrustConfig field names used to specify the order of the returned
- *  results. The default sorting order is ascending. To specify descending order
- *  for a field, add a suffix " desc".
+ *  Optional. A list of TrustConfig field names used to specify the order of the
+ *  returned results. The default sorting order is ascending. To specify
+ *  descending order for a field, add a suffix `" desc"`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Maximum number of TrustConfigs to return per call. */
+/** Optional. Maximum number of TrustConfigs to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListTrustConfigsResponse`. Indicates that
- *  this is a continuation of a prior `ListTrustConfigs` call, and that the
- *  system should return the next page of data.
+ *  Optional. The value returned by the last `ListTrustConfigsResponse`.
+ *  Indicates that this is a continuation of a prior `ListTrustConfigs` call,
+ *  and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1370,8 +1429,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsPatch : GTLRCertificateManagerQuery
 
 /**
- *  A user-defined name of the trust config. TrustConfig names must be unique
- *  globally and match pattern `projects/ * /locations/ * /trustConfigs/ *`.
+ *  Identifier. A user-defined name of the trust config. TrustConfig names must
+ *  be unique globally and match pattern `projects/ * /locations/ *
+ *  /trustConfigs/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1391,8 +1451,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateManager_TrustConfig to include in the
  *    query.
- *  @param name A user-defined name of the trust config. TrustConfig names must
- *    be unique globally and match pattern `projects/ * /locations/ *
+ *  @param name Identifier. A user-defined name of the trust config. TrustConfig
+ *    names must be unique globally and match pattern `projects/ * /locations/ *
  *    /trustConfigs/ *`.
  *
  *  @return GTLRCertificateManagerQuery_ProjectsLocationsTrustConfigsPatch

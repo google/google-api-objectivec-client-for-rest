@@ -70,7 +70,7 @@
 
 @implementation GTLRDataFusionQuery_ProjectsLocationsInstancesDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -323,7 +323,14 @@
 
 @implementation GTLRDataFusionQuery_ProjectsLocationsList
 
-@dynamic filter, includeUnrevealedLocations, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

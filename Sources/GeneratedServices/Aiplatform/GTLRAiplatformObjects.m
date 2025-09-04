@@ -14,136 +14,54 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRAiplatform_CloudAiLargeModelsVisionFilteredText.category
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_Celebrity = @"CELEBRITY";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_ChildImg = @"CHILD_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_ChildText = @"CHILD_TEXT";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_Csai = @"CSAI";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_CsaiImg = @"CSAI_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_DangerousContent = @"DANGEROUS_CONTENT";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_DeathHarmTragedy = @"DEATH_HARM_TRAGEDY";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_FaceImg = @"FACE_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_FirearmsWeapons = @"FIREARMS_WEAPONS";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_HateSymbolImg = @"HATE_SYMBOL_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_Health = @"HEALTH";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_IcaImg = @"ICA_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_IdentityAttack = @"IDENTITY_ATTACK";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_IllicitDrugs = @"ILLICIT_DRUGS";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_IuImg = @"IU_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_MemorizationImg = @"MEMORIZATION_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_Obscene = @"OBSCENE";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_PedoImg = @"PEDO_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_PersonImg = @"PERSON_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_Politics = @"POLITICS";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_PornImg = @"PORN_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_RacyImg = @"RACY_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_RaiCategoryUnspecified = @"RAI_CATEGORY_UNSPECIFIED";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_RecitationText = @"RECITATION_TEXT";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_ReligiousBelief = @"RELIGIOUS_BELIEF";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_SensitiveWord = @"SENSITIVE_WORD";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_SexualImg = @"SEXUAL_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_SexuallyExplicit = @"SEXUALLY_EXPLICIT";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_Spii = @"SPII";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_Toxic = @"TOXIC";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_ViolenceAbuse = @"VIOLENCE_ABUSE";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_ViolenceImg = @"VIOLENCE_IMG";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_WarConflict = @"WAR_CONFLICT";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Category_WatermarkImg = @"WATERMARK_IMG";
-
-// GTLRAiplatform_CloudAiLargeModelsVisionFilteredText.confidence
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Confidence_ConfidenceHigh = @"CONFIDENCE_HIGH";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Confidence_ConfidenceLow = @"CONFIDENCE_LOW";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Confidence_ConfidenceMedium = @"CONFIDENCE_MEDIUM";
-NSString * const kGTLRAiplatform_CloudAiLargeModelsVisionFilteredText_Confidence_ConfidenceUnspecified = @"CONFIDENCE_UNSPECIFIED";
-
-// GTLRAiplatform_CloudAiNlLlmProtoServiceCandidate.finishReason
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonMaxTokens = @"FINISH_REASON_MAX_TOKENS";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonOther = @"FINISH_REASON_OTHER";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonRecitation = @"FINISH_REASON_RECITATION";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonSafety = @"FINISH_REASON_SAFETY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonStop = @"FINISH_REASON_STOP";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceCandidate_FinishReason_FinishReasonUnspecified = @"FINISH_REASON_UNSPECIFIED";
-
-// GTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback.blockReason
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_BlockedReasonUnspecified = @"BLOCKED_REASON_UNSPECIFIED";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_Other = @"OTHER";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback_BlockReason_Safety = @"SAFETY";
-
-// GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal.confidence
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceHigh = @"CONFIDENCE_HIGH";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceLow = @"CONFIDENCE_LOW";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceMedium = @"CONFIDENCE_MEDIUM";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceNone = @"CONFIDENCE_NONE";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_Confidence_ConfidenceUnspecified = @"CONFIDENCE_UNSPECIFIED";
-
-// GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal.raiCategory
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Csai = @"CSAI";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Csam = @"CSAM";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DangerousContent = @"DANGEROUS_CONTENT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DangerousContentSeverity = @"DANGEROUS_CONTENT_SEVERITY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DeathHarmTragedy = @"DEATH_HARM_TRAGEDY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Derogatory = @"DEROGATORY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_DerogatorySeverity = @"DEROGATORY_SEVERITY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Drugs = @"DRUGS";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Finance = @"FINANCE";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_FirearmsWeapons = @"FIREARMS_WEAPONS";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Fringe = @"FRINGE";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Harassment = @"HARASSMENT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_HateSpeech = @"HATE_SPEECH";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Health = @"HEALTH";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_IdentityAttack = @"IDENTITY_ATTACK";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_IllicitDrugs = @"ILLICIT_DRUGS";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Insult = @"INSULT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_InsultSeverity = @"INSULT_SEVERITY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Legal = @"LEGAL";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Obscene = @"OBSCENE";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Politics = @"POLITICS";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Profanity = @"PROFANITY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_PublicSafety = @"PUBLIC_SAFETY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_RaiCategoryUnspecified = @"RAI_CATEGORY_UNSPECIFIED";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_ReligiousBelief = @"RELIGIOUS_BELIEF";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SevereToxicity = @"SEVERE_TOXICITY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Sexual = @"SEXUAL";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SexuallyExplicit = @"SEXUALLY_EXPLICIT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_SexualSeverity = @"SEXUAL_SEVERITY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Spii = @"SPII";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Threat = @"THREAT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Toxic = @"TOXIC";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Toxicity = @"TOXICITY";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_ViolenceAbuse = @"VIOLENCE_ABUSE";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_Violent = @"VIOLENT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal_RaiCategory_WarConflict = @"WAR_CONFLICT";
-
-// GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating.category
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Category_HarmCategoryDangerousContent = @"HARM_CATEGORY_DANGEROUS_CONTENT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Category_HarmCategoryHarassment = @"HARM_CATEGORY_HARASSMENT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Category_HarmCategoryHateSpeech = @"HARM_CATEGORY_HATE_SPEECH";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Category_HarmCategorySexuallyExplicit = @"HARM_CATEGORY_SEXUALLY_EXPLICIT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Category_HarmCategoryUnspecified = @"HARM_CATEGORY_UNSPECIFIED";
-
-// GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating.probability
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Probability_HarmProbabilityUnspecified = @"HARM_PROBABILITY_UNSPECIFIED";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Probability_High = @"HIGH";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Probability_Low = @"LOW";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Probability_Medium = @"MEDIUM";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Probability_Negligible = @"NEGLIGIBLE";
-
-// GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating.severity
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_HarmProbabilityUnspecified = @"HARM_PROBABILITY_UNSPECIFIED";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_High = @"HIGH";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Low = @"LOW";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Medium = @"MEDIUM";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating_Severity_Negligible = @"NEGLIGIBLE";
-
-// GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm.source
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_Prompt = @"PROMPT";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_Response = @"RESPONSE";
-NSString * const kGTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
+// GTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail.errorCause
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_CloudApiNotEnabled = @"CLOUD_API_NOT_ENABLED";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_ErrorCauseUnspecified = @"ERROR_CAUSE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InsufficientQuota = @"INSUFFICIENT_QUOTA";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_Internal = @"INTERNAL";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidComponentSpec = @"INVALID_COMPONENT_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidContainerSpec = @"INVALID_CONTAINER_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidCustomJob = @"INVALID_CUSTOM_JOB";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidDagOutputsSpec = @"INVALID_DAG_OUTPUTS_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidDagSpec = @"INVALID_DAG_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidDeploymentConfig = @"INVALID_DEPLOYMENT_CONFIG";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidDeploymentSpec = @"INVALID_DEPLOYMENT_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidGcsInputUri = @"INVALID_GCS_INPUT_URI";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidGcsOutputUri = @"INVALID_GCS_OUTPUT_URI";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidImporterSpec = @"INVALID_IMPORTER_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidInstanceSchema = @"INVALID_INSTANCE_SCHEMA";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidKmsSetup = @"INVALID_KMS_SETUP";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidNetworkSetup = @"INVALID_NETWORK_SETUP";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidNotificationEmailSetup = @"INVALID_NOTIFICATION_EMAIL_SETUP";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidPipelineSpec = @"INVALID_PIPELINE_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidPipelineSpecFormat = @"INVALID_PIPELINE_SPEC_FORMAT";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidPipelineTaskArtifact = @"INVALID_PIPELINE_TASK_ARTIFACT";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidPipelineTaskSpec = @"INVALID_PIPELINE_TASK_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidResolverSpec = @"INVALID_RESOLVER_SPEC";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidRuntimeParameters = @"INVALID_RUNTIME_PARAMETERS";
+NSString * const kGTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail_ErrorCause_InvalidServiceAccountSetup = @"INVALID_SERVICE_ACCOUNT_SETUP";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1Artifact.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifact_State_Live = @"LIVE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifact_State_Pending = @"PENDING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Artifact_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig.authType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_ApiKeyAuth = @"API_KEY_AUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_AuthTypeUnspecified = @"AUTH_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_GoogleServiceAccountAuth = @"GOOGLE_SERVICE_ACCOUNT_AUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_HttpBasicAuth = @"HTTP_BASIC_AUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_NoAuth = @"NO_AUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_Oauth = @"OAUTH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfig_AuthType_OidcAuth = @"OIDC_AUTH";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig.httpElementLocation
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInBody = @"HTTP_IN_BODY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInCookie = @"HTTP_IN_COOKIE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInHeader = @"HTTP_IN_HEADER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInPath = @"HTTP_IN_PATH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInQuery = @"HTTP_IN_QUERY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig_HttpElementLocation_HttpInUnspecified = @"HTTP_IN_UNSPECIFIED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob_State_JobStateCancelled = @"JOB_STATE_CANCELLED";
@@ -160,12 +78,49 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob_State
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob_State_JobStateUpdating = @"JOB_STATE_UPDATING";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1Candidate.finishReason
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Blocklist = @"BLOCKLIST";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_FinishReasonUnspecified = @"FINISH_REASON_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageOther = @"IMAGE_OTHER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageProhibitedContent = @"IMAGE_PROHIBITED_CONTENT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageRecitation = @"IMAGE_RECITATION";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageSafety = @"IMAGE_SAFETY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedFunctionCall = @"MALFORMED_FUNCTION_CALL";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MaxTokens = @"MAX_TOKENS";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ModelArmor = @"MODEL_ARMOR";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Other = @"OTHER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ProhibitedContent = @"PROHIBITED_CONTENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Recitation = @"RECITATION";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Safety = @"SAFETY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Spii = @"SPII";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Stop = @"STOP";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_UnexpectedToolCall = @"UNEXPECTED_TOOL_CALL";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult.outcome
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult_Outcome_OutcomeDeadlineExceeded = @"OUTCOME_DEADLINE_EXCEEDED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult_Outcome_OutcomeFailed = @"OUTCOME_FAILED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult_Outcome_OutcomeOk = @"OUTCOME_OK";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult_Outcome_OutcomeUnspecified = @"OUTCOME_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1CometSpec.version
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CometSpec_Version_Comet22SrcRef = @"COMET_22_SRC_REF";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CometSpec_Version_CometVersionUnspecified = @"COMET_VERSION_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1CorpusStatus.state
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CorpusStatus_State_Active = @"ACTIVE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CorpusStatus_State_Error = @"ERROR";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CorpusStatus_State_Initialized = @"INITIALIZED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CorpusStatus_State_Unknown = @"UNKNOWN";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata.deploymentStage
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_AddingNodesToCluster = @"ADDING_NODES_TO_CLUSTER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_CreatingServingCluster = @"CREATING_SERVING_CLUSTER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_DeploymentStageUnspecified = @"DEPLOYMENT_STAGE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_DeploymentTerminated = @"DEPLOYMENT_TERMINATED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_FinishingUp = @"FINISHING_UP";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_GettingContainerImage = @"GETTING_CONTAINER_IMAGE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_PreparingModel = @"PREPARING_MODEL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_StartingDeployment = @"STARTING_DEPLOYMENT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata_DeploymentStage_StartingModelServer = @"STARTING_MODEL_SERVER";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1CustomJob.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1CustomJob_State_JobStateCancelled = @"JOB_STATE_CANCELLED";
@@ -195,6 +150,25 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DataLabelingJob_State_Jo
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DataLabelingJob_State_JobStateUnspecified = @"JOB_STATE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DataLabelingJob_State_JobStateUpdating = @"JOB_STATE_UPDATING";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex.deploymentTier
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex_DeploymentTier_DeploymentTierUnspecified = @"DEPLOYMENT_TIER_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex_DeploymentTier_Storage = @"STORAGE";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata.deploymentStage
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_AddingNodesToCluster = @"ADDING_NODES_TO_CLUSTER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_CreatingServingCluster = @"CREATING_SERVING_CLUSTER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_DeploymentStageUnspecified = @"DEPLOYMENT_STAGE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_DeploymentTerminated = @"DEPLOYMENT_TERMINATED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_FinishingUp = @"FINISHING_UP";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_GettingContainerImage = @"GETTING_CONTAINER_IMAGE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_PreparingModel = @"PREPARING_MODEL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_StartingDeployment = @"STARTING_DEPLOYMENT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata_DeploymentStage_StartingModelServer = @"STARTING_MODEL_SERVER";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig.mode
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig_Mode_ModeDynamic = @"MODE_DYNAMIC";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1ErrorAnalysisAnnotation.queryType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ErrorAnalysisAnnotation_QueryType_AllSimilar = @"ALL_SIMILAR";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ErrorAnalysisAnnotation_QueryType_QueryTypeUnspecified = @"QUERY_TYPE_UNSPECIFIED";
@@ -220,6 +194,10 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExamplesExampleGcsSource
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExamplesOverride_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExamplesOverride_DataFormat_Embeddings = @"EMBEDDINGS";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExamplesOverride_DataFormat_Instances = @"INSTANCES";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1ExecutableCode.language
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExecutableCode_Language_LanguageUnspecified = @"LANGUAGE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExecutableCode_Language_Python = @"PYTHON";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1Execution.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Execution_State_Cached = @"CACHED";
@@ -270,6 +248,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExplanationMetadataInput
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExportDataConfig_ExportUse_CustomCodeTraining = @"CUSTOM_CODE_TRAINING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExportDataConfig_ExportUse_ExportUseUnspecified = @"EXPORT_USE_UNSPECIFIED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi.apiSpec
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_ApiSpecUnspecified = @"API_SPEC_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_ElasticSearch = @"ELASTIC_SEARCH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ExternalApi_ApiSpec_SimpleSearch = @"SIMPLE_SEARCH";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1Feature.valueType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_Bool = @"BOOL";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_BoolArray = @"BOOL_ARRAY";
@@ -280,7 +263,13 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_Int64 
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_Int64Array = @"INT64_ARRAY";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_String = @"STRING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_StringArray = @"STRING_ARRAY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_Struct = @"STRUCT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Feature_ValueType_ValueTypeUnspecified = @"VALUE_TYPE_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup.serviceAgentType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup_ServiceAgentType_ServiceAgentTypeFeatureGroup = @"SERVICE_AGENT_TYPE_FEATURE_GROUP";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup_ServiceAgentType_ServiceAgentTypeProject = @"SERVICE_AGENT_TYPE_PROJECT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup_ServiceAgentType_ServiceAgentTypeUnspecified = @"SERVICE_AGENT_TYPE_UNSPECIFIED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1FeatureMonitoringStatsAnomaly.objective
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureMonitoringStatsAnomaly_Objective_ImportFeatureAnalysis = @"IMPORT_FEATURE_ANALYSIS";
@@ -309,15 +298,69 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeaturestoreMonitoringCo
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeaturestoreMonitoringConfigImportFeaturesAnalysis_State_Enabled = @"ENABLED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeaturestoreMonitoringConfigImportFeaturesAnalysis_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1FeatureView.serviceAgentType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureView_ServiceAgentType_ServiceAgentTypeFeatureView = @"SERVICE_AGENT_TYPE_FEATURE_VIEW";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureView_ServiceAgentType_ServiceAgentTypeProject = @"SERVICE_AGENT_TYPE_PROJECT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureView_ServiceAgentType_ServiceAgentTypeUnspecified = @"SERVICE_AGENT_TYPE_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfig.distanceMeasureType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfig_DistanceMeasureType_CosineDistance = @"COSINE_DISTANCE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfig_DistanceMeasureType_DistanceMeasureTypeUnspecified = @"DISTANCE_MEASURE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfig_DistanceMeasureType_DotProductDistance = @"DOT_PRODUCT_DISTANCE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfig_DistanceMeasureType_SquaredL2Distance = @"SQUARED_L2_DISTANCE";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest.dataFormat
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_FeatureViewDataFormatUnspecified = @"FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_KeyValue = @"KEY_VALUE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesRequest_DataFormat_ProtoStruct = @"PROTO_STRUCT";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1FileStatus.state
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FileStatus_State_Active = @"ACTIVE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FileStatus_State_Error = @"ERROR";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FileStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig.mode
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig_Mode_Any = @"ANY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig_Mode_Auto = @"AUTO";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig_Mode_None = @"NONE";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback.blockReason
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_BlockedReasonUnspecified = @"BLOCKED_REASON_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Blocklist = @"BLOCKLIST";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ImageSafety = @"IMAGE_SAFETY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ModelArmor = @"MODEL_ARMOR";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Other = @"OTHER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ProhibitedContent = @"PROHIBITED_CONTENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Safety = @"SAFETY";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata.trafficType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata_TrafficType_OnDemand = @"ON_DEMAND";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata_TrafficType_ProvisionedThroughput = @"PROVISIONED_THROUGHPUT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata_TrafficType_TrafficTypeUnspecified = @"TRAFFIC_TYPE_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig.mediaResolution
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionHigh = @"MEDIA_RESOLUTION_HIGH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionLow = @"MEDIA_RESOLUTION_LOW";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionMedium = @"MEDIA_RESOLUTION_MEDIUM";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_MediaResolution_MediaResolutionUnspecified = @"MEDIA_RESOLUTION_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig.responseModalities
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_ResponseModalities_Audio = @"AUDIO";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_ResponseModalities_Image = @"IMAGE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_ResponseModalities_ModalityUnspecified = @"MODALITY_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig_ResponseModalities_Text = @"TEXT";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode.modelRoutingPreference
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_Balanced = @"BALANCED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_PrioritizeCost = @"PRIORITIZE_COST";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_PrioritizeQuality = @"PRIORITIZE_QUALITY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_Unknown = @"UNKNOWN";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId.resourceType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId_ResourceType_ResourceTypeFile = @"RESOURCE_TYPE_FILE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId_ResourceType_ResourceTypeFolder = @"RESOURCE_TYPE_FOLDER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob_State_JobStateCancelled = @"JOB_STATE_CANCELLED";
@@ -344,11 +387,17 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRes
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_GreaterEqual = @"GREATER_EQUAL";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_Less = @"LESS";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_LessEqual = @"LESS_EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_NotEqual = @"NOT_EQUAL";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointNumericRestriction_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec.acceleratorType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaB200 = @"NVIDIA_B200";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaGb200 = @"NVIDIA_GB200";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH10080gb = @"NVIDIA_H100_80GB";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH200141gb = @"NVIDIA_H200_141GB";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaL4 = @"NVIDIA_L4";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
@@ -359,12 +408,40 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorT
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV2 = @"TPU_V2";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV3 = @"TPU_V3";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV4Pod = @"TPU_V4_POD";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV5Litepod = @"TPU_V5_LITEPOD";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1MetadataSchema.schemaType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MetadataSchema_SchemaType_ArtifactType = @"ARTIFACT_TYPE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MetadataSchema_SchemaType_ContextType = @"CONTEXT_TYPE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MetadataSchema_SchemaType_ExecutionType = @"EXECUTION_TYPE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MetadataSchema_SchemaType_MetadataSchemaTypeUnspecified = @"METADATA_SCHEMA_TYPE_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1Metric.aggregationMetrics
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_AggregationMetricUnspecified = @"AGGREGATION_METRIC_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_Average = @"AVERAGE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_Maximum = @"MAXIMUM";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_Median = @"MEDIAN";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_Minimum = @"MINIMUM";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_Mode = @"MODE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_PercentileP90 = @"PERCENTILE_P90";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_PercentileP95 = @"PERCENTILE_P95";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_PercentileP99 = @"PERCENTILE_P99";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_StandardDeviation = @"STANDARD_DEVIATION";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Metric_AggregationMetrics_Variance = @"VARIANCE";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1MetricxSpec.version
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MetricxSpec_Version_Metricx24Ref = @"METRICX_24_REF";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MetricxSpec_Version_Metricx24Src = @"METRICX_24_SRC";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MetricxSpec_Version_Metricx24SrcRef = @"METRICX_24_SRC_REF";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MetricxSpec_Version_MetricxVersionUnspecified = @"METRICX_VERSION_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount.modality
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount_Modality_Audio = @"AUDIO";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount_Modality_Document = @"DOCUMENT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount_Modality_Image = @"IMAGE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount_Modality_ModalityUnspecified = @"MODALITY_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount_Modality_Text = @"TEXT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount_Modality_Video = @"VIDEO";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1Model.supportedDeploymentResourcesTypes
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Model_SupportedDeploymentResourcesTypes_AutomaticResources = @"AUTOMATIC_RESOURCES";
@@ -461,21 +538,50 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTrial_State_StateUnsp
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTrial_State_Stopping = @"STOPPING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NasTrial_State_Succeeded = @"SUCCEEDED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter.op
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_Equal = @"EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_Greater = @"GREATER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_GreaterEqual = @"GREATER_EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_Less = @"LESS";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_LessEqual = @"LESS_EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_NotEqual = @"NOT_EQUAL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError.errorType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_DuplicateNamespace = @"DUPLICATE_NAMESPACE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmbeddingMetadataExceedsSizeLimit = @"EMBEDDING_METADATA_EXCEEDS_SIZE_LIMIT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmbeddingSizeMismatch = @"EMBEDDING_SIZE_MISMATCH";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_EmptyLine = @"EMPTY_LINE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidAvroSyntax = @"INVALID_AVRO_SYNTAX";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidCsvSyntax = @"INVALID_CSV_SYNTAX";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEmbedding = @"INVALID_EMBEDDING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEmbeddingId = @"INVALID_EMBEDDING_ID";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEmbeddingMetadata = @"INVALID_EMBEDDING_METADATA";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidEncoding = @"INVALID_ENCODING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidJsonSyntax = @"INVALID_JSON_SYNTAX";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidNumericValue = @"INVALID_NUMERIC_VALUE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidSparseDimensions = @"INVALID_SPARSE_DIMENSIONS";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidSparseEmbedding = @"INVALID_SPARSE_EMBEDDING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_InvalidTokenValue = @"INVALID_TOKEN_VALUE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_MultipleValues = @"MULTIPLE_VALUES";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_NamespaceMissing = @"NAMESPACE_MISSING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_OpInDatapoint = @"OP_IN_DATAPOINT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataRecordError_ErrorType_ParsingError = @"PARSING_ERROR";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob.jobState
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateCancelled = @"JOB_STATE_CANCELLED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateCancelling = @"JOB_STATE_CANCELLING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateExpired = @"JOB_STATE_EXPIRED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateFailed = @"JOB_STATE_FAILED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStatePartiallySucceeded = @"JOB_STATE_PARTIALLY_SUCCEEDED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStatePaused = @"JOB_STATE_PAUSED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStatePending = @"JOB_STATE_PENDING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateQueued = @"JOB_STATE_QUEUED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateRunning = @"JOB_STATE_RUNNING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateSucceeded = @"JOB_STATE_SUCCEEDED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateUnspecified = @"JOB_STATE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_JobState_JobStateUpdating = @"JOB_STATE_UPDATING";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1NotebookReservationAffinity.consumeReservationType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookReservationAffinity_ConsumeReservationType_ReservationAffinityTypeUnspecified = @"RESERVATION_AFFINITY_TYPE_UNSPECIFIED";
@@ -497,6 +603,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_Notebook
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingStarted = @"BEING_STARTED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingStopped = @"BEING_STOPPED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_BeingUpgraded = @"BEING_UPGRADED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_Error = @"ERROR";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_Invalid = @"INVALID";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_Running = @"RUNNING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_RuntimeStateUnspecified = @"RUNTIME_STATE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeState_Stopped = @"STOPPED";
@@ -505,6 +613,33 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime_RuntimeS
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_NotebookRuntimeTypeUnspecified = @"NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_OneClick = @"ONE_CLICK";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_UserDefined = @"USER_DEFINED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult.pairwiseChoice
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult_PairwiseChoice_Baseline = @"BASELINE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult_PairwiseChoice_Candidate = @"CANDIDATE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult_PairwiseChoice_PairwiseChoiceUnspecified = @"PAIRWISE_CHOICE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult_PairwiseChoice_Tie = @"TIE";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult.pairwiseChoice
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Baseline = @"BASELINE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Candidate = @"CANDIDATE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_PairwiseChoiceUnspecified = @"PAIRWISE_CHOICE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult_PairwiseChoice_Tie = @"TIE";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult.pairwiseChoice
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Baseline = @"BASELINE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Candidate = @"CANDIDATE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_PairwiseChoiceUnspecified = @"PAIRWISE_CHOICE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Tie = @"TIE";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource.state
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_State_Error = @"ERROR";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_State_Rebooting = @"REBOOTING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_State_Running = @"RUNNING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_State_Stopping = @"STOPPING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_State_Updating = @"UPDATING";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob.state
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PipelineJob_State_PipelineStateCancelled = @"PIPELINE_STATE_CANCELLED";
@@ -546,6 +681,12 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetailPipeli
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetailPipelineTaskStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetailPipelineTaskStatus_State_Succeeded = @"SUCCEEDED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1PostStartupScriptConfig.postStartupScriptBehavior
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PostStartupScriptConfig_PostStartupScriptBehavior_DownloadAndRunEveryStart = @"DOWNLOAD_AND_RUN_EVERY_START";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PostStartupScriptConfig_PostStartupScriptBehavior_PostStartupScriptBehaviorUnspecified = @"POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PostStartupScriptConfig_PostStartupScriptBehavior_RunEveryStart = @"RUN_EVERY_START";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PostStartupScriptConfig_PostStartupScriptBehavior_RunOnce = @"RUN_ONCE";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1Presets.modality
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Modality_Image = @"IMAGE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Modality_ModalityUnspecified = @"MODALITY_UNSPECIFIED";
@@ -555,6 +696,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Modality_Text = 
 // GTLRAiplatform_GoogleCloudAiplatformV1Presets.query
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Query_Fast = @"FAST";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Presets_Query_Precise = @"PRECISE";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig.state
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig_State_PscAutomationStateFailed = @"PSC_AUTOMATION_STATE_FAILED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig_State_PscAutomationStateSuccessful = @"PSC_AUTOMATION_STATE_SUCCESSFUL";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig_State_PscAutomationStateUnspecified = @"PSC_AUTOMATION_STATE_UNSPECIFIED";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1PublisherModel.launchStage
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PublisherModel_LaunchStage_Experimental = @"EXPERIMENTAL";
@@ -576,12 +722,31 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PublisherModel_VersionSt
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PublisherModel_VersionState_VersionStateUnspecified = @"VERSION_STATE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PublisherModel_VersionState_VersionStateUnstable = @"VERSION_STATE_UNSTABLE";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity.reservationAffinityType
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_AnyReservation = @"ANY_RESERVATION";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_NoReservation = @"NO_RESERVATION";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_SpecificReservation = @"SPECIFIC_RESERVATION";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating.category
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryCivicIntegrity = @"HARM_CATEGORY_CIVIC_INTEGRITY";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryDangerousContent = @"HARM_CATEGORY_DANGEROUS_CONTENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryHarassment = @"HARM_CATEGORY_HARASSMENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryHateSpeech = @"HARM_CATEGORY_HATE_SPEECH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryImageDangerousContent = @"HARM_CATEGORY_IMAGE_DANGEROUS_CONTENT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryImageHarassment = @"HARM_CATEGORY_IMAGE_HARASSMENT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryImageHate = @"HARM_CATEGORY_IMAGE_HATE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryImageSexuallyExplicit = @"HARM_CATEGORY_IMAGE_SEXUALLY_EXPLICIT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategorySexuallyExplicit = @"HARM_CATEGORY_SEXUALLY_EXPLICIT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Category_HarmCategoryUnspecified = @"HARM_CATEGORY_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating.overwrittenThreshold
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_OverwrittenThreshold_BlockLowAndAbove = @"BLOCK_LOW_AND_ABOVE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_OverwrittenThreshold_BlockMediumAndAbove = @"BLOCK_MEDIUM_AND_ABOVE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_OverwrittenThreshold_BlockNone = @"BLOCK_NONE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_OverwrittenThreshold_BlockOnlyHigh = @"BLOCK_ONLY_HIGH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_OverwrittenThreshold_HarmBlockThresholdUnspecified = @"HARM_BLOCK_THRESHOLD_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_OverwrittenThreshold_Off = @"OFF";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating.probability
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Probability_HarmProbabilityUnspecified = @"HARM_PROBABILITY_UNSPECIFIED";
@@ -590,12 +755,29 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Probability
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Probability_Medium = @"MEDIUM";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Probability_Negligible = @"NEGLIGIBLE";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating.severity
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Severity_HarmSeverityHigh = @"HARM_SEVERITY_HIGH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Severity_HarmSeverityLow = @"HARM_SEVERITY_LOW";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Severity_HarmSeverityMedium = @"HARM_SEVERITY_MEDIUM";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Severity_HarmSeverityNegligible = @"HARM_SEVERITY_NEGLIGIBLE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetyRating_Severity_HarmSeverityUnspecified = @"HARM_SEVERITY_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting.category
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryCivicIntegrity = @"HARM_CATEGORY_CIVIC_INTEGRITY";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryDangerousContent = @"HARM_CATEGORY_DANGEROUS_CONTENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryHarassment = @"HARM_CATEGORY_HARASSMENT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryHateSpeech = @"HARM_CATEGORY_HATE_SPEECH";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryImageDangerousContent = @"HARM_CATEGORY_IMAGE_DANGEROUS_CONTENT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryImageHarassment = @"HARM_CATEGORY_IMAGE_HARASSMENT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryImageHate = @"HARM_CATEGORY_IMAGE_HATE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryImageSexuallyExplicit = @"HARM_CATEGORY_IMAGE_SEXUALLY_EXPLICIT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategorySexuallyExplicit = @"HARM_CATEGORY_SEXUALLY_EXPLICIT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Category_HarmCategoryUnspecified = @"HARM_CATEGORY_UNSPECIFIED";
+
+// GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting.method
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Method_HarmBlockMethodUnspecified = @"HARM_BLOCK_METHOD_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Method_Probability = @"PROBABILITY";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Method_Severity = @"SEVERITY";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting.threshold
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_BlockLowAndAbove = @"BLOCK_LOW_AND_ABOVE";
@@ -603,6 +785,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_BlockNone = @"BLOCK_NONE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_BlockOnlyHigh = @"BLOCK_ONLY_HIGH";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_HarmBlockThresholdUnspecified = @"HARM_BLOCK_THRESHOLD_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SafetySetting_Threshold_Off = @"OFF";
 
 // GTLRAiplatform_GoogleCloudAiplatformV1SampleConfig.sampleStrategy
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SampleConfig_SampleStrategy_SampleStrategyUnspecified = @"SAMPLE_STRATEGY_UNSPECIFIED";
@@ -614,10 +797,19 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schedule_State_Completed
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schedule_State_Paused = @"PAUSED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schedule_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1Scheduling.strategy
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_FlexStart = @"FLEX_START";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_LowCost = @"LOW_COST";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_OnDemand = @"ON_DEMAND";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_Spot = @"SPOT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_Standard = @"STANDARD";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Scheduling_Strategy_StrategyUnspecified = @"STRATEGY_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1Schema.type
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema_Type_Array = @"ARRAY";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema_Type_Boolean = @"BOOLEAN";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema_Type_Integer = @"INTEGER";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema_Type_Null = @"NULL";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema_Type_Number = @"NUMBER";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema_Type_Object = @"OBJECT";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Schema_Type_String = @"STRING";
@@ -766,6 +958,15 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SuggestTrialsResponse_St
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SuggestTrialsResponse_StudyState_Inactive = @"INACTIVE";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SuggestTrialsResponse_StudyState_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters.adapterSize
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeEight = @"ADAPTER_SIZE_EIGHT";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeFour = @"ADAPTER_SIZE_FOUR";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeOne = @"ADAPTER_SIZE_ONE";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeSixteen = @"ADAPTER_SIZE_SIXTEEN";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeThirtyTwo = @"ADAPTER_SIZE_THIRTY_TWO";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeTwo = @"ADAPTER_SIZE_TWO";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters_AdapterSize_AdapterSizeUnspecified = @"ADAPTER_SIZE_UNSPECIFIED";
+
 // GTLRAiplatform_GoogleCloudAiplatformV1Tensor.dtype
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tensor_Dtype_Bool = @"BOOL";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Tensor_Dtype_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
@@ -812,1517 +1013,28 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_State_StateUnspeci
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_State_Stopping = @"STOPPING";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Trial_State_Succeeded = @"SUCCEEDED";
 
-// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution.category
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryNews = @"CATEGORY_NEWS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryNonNewsWebdoc = @"CATEGORY_NON_NEWS_WEBDOC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryUnknownMissingSignal = @"CATEGORY_UNKNOWN_MISSING_SIGNAL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Category_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
+// GTLRAiplatform_GoogleCloudAiplatformV1TuningJob.state
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateCancelled = @"JOB_STATE_CANCELLED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateCancelling = @"JOB_STATE_CANCELLING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateExpired = @"JOB_STATE_EXPIRED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateFailed = @"JOB_STATE_FAILED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStatePartiallySucceeded = @"JOB_STATE_PARTIALLY_SUCCEEDED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStatePaused = @"JOB_STATE_PAUSED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStatePending = @"JOB_STATE_PENDING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateQueued = @"JOB_STATE_QUEUED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateRunning = @"JOB_STATE_RUNNING";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateSucceeded = @"JOB_STATE_SUCCEEDED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateUnspecified = @"JOB_STATE_UNSPECIFIED";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1TuningJob_State_JobStateUpdating = @"JOB_STATE_UPDATING";
 
-// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution.dataset
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AmpsKhan = @"AMPS_KHAN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AmpsMathematica = @"AMPS_MATHEMATICA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Aqua = @"AQUA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_AssistantPersonalitySafety = @"ASSISTANT_PERSONALITY_SAFETY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardArcadeGithub = @"BARD_ARCADE_GITHUB";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardGolden = @"BARD_GOLDEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BardPersonalityGolden = @"BARD_PERSONALITY_GOLDEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BooksFullView = @"BOOKS_FULL_VIEW";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_BooksPrivate = @"BOOKS_PRIVATE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_C4JoinedDocjoins = @"C4_JOINED_DOCJOINS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CanariesShuffled = @"CANARIES_SHUFFLED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CleanArxiv = @"CLEAN_ARXIV";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix = @"CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCloudFactualityGroundingMagi = @"CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCodeIfV1 = @"CLOUD_GEMIT_CODE_IF_V1";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCodeSelfRepair = @"CLOUD_GEMIT_CODE_SELF_REPAIR";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitCommitMsgGenV3 = @"CLOUD_GEMIT_COMMIT_MSG_GEN_V3";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitIdentity = @"CLOUD_GEMIT_IDENTITY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitMtDialgueLmsys = @"CLOUD_GEMIT_MT_DIALGUE_LMSYS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudGemitMtsDialogueV3 = @"CLOUD_GEMIT_MTS_DIALOGUE_V3";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityFinetuning = @"CLOUD_SECURITY_FINETUNING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CloudSecurityPretraining = @"CLOUD_SECURITY_PRETRAINING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsGithubMultifileV4 = @"CMS_GITHUB_MULTIFILE_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsGithubV4 = @"CMS_GITHUB_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsStackexchange = @"CMS_STACKEXCHANGE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsStackoverflowMultilingual = @"CMS_STACKOVERFLOW_MULTILINGUAL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CmsWikipediaLangFiltered = @"CMS_WIKIPEDIA_LANG_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaFtFormat = @"CODE_QA_FT_FORMAT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaFtKnowledge = @"CODE_QA_FT_KNOWLEDGE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaGithubFilteredCode = @"CODE_QA_GITHUB_FILTERED_CODE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaSe = @"CODE_QA_SE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeQaSo = @"CODE_QA_SO";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeyCode = @"CODEY_CODE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CodeyNotebookLmPretraining = @"CODEY_NOTEBOOK_LM_PRETRAINING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CombinedReddit = @"COMBINED_REDDIT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CommonSenseReasoning = @"COMMON_SENSE_REASONING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CoqStep = @"COQ_STEP";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_CoqTheories = @"COQ_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DatasetUnspecified = @"DATASET_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DocumentChunks = @"DOCUMENT_CHUNKS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudBlogPosts = @"DUET_CLOUD_BLOG_POSTS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudDocs = @"DUET_CLOUD_DOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudDocsTroubleshootingTables = @"DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudGithubCodeSnippetsGenerated = @"DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudGithubCodeSnippetsHandwritten = @"DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudIxPrompts = @"DUET_CLOUD_IX_PROMPTS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudPodcastEpisodes = @"DUET_CLOUD_PODCAST_EPISODES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudSecurityDocs = @"DUET_CLOUD_SECURITY_DOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetCloudSkillsBoost = @"DUET_CLOUD_SKILLS_BOOST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetDevsiteDocs = @"DUET_DEVSITE_DOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGithubCodeSnippets = @"DUET_GITHUB_CODE_SNIPPETS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGithubFiles = @"DUET_GITHUB_FILES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGobyexample = @"DUET_GOBYEXAMPLE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGolangDocs = @"DUET_GOLANG_DOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetGooglesqlGeneration = @"DUET_GOOGLESQL_GENERATION";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetRad = @"DUET_RAD";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_DuetYoutubeVideos = @"DUET_YOUTUBE_VIDEOS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop100bAllIndexedGcc = @"GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop10bGcc = @"GEMINI_DOCJOINS_EN_TOP10B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop10bTop20bGcc = @"GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsEnTop20bTop100bGcc = @"GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop10bGcc = @"GEMINI_DOCJOINS_I18N_TOP10B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop10bTop20bGcc = @"GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsI18nTop20bTop100bGcc = @"GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc = @"GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiGoosePublic = @"GEMINI_GOOSE_PUBLIC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiGooseSiloed = @"GEMINI_GOOSE_SILOED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAciBench = @"GEMINI_IT_ACI_BENCH";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItAquamuse = @"GEMINI_IT_AQUAMUSE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudCodeIf = @"GEMINI_IT_CLOUD_CODE_IF";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudEurLexJson = @"GEMINI_IT_CLOUD_EUR_LEX_JSON";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudOasst = @"GEMINI_IT_CLOUD_OASST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudSelfInstruct = @"GEMINI_IT_CLOUD_SELF_INSTRUCT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCloudUcsAquamuse = @"GEMINI_IT_CLOUD_UCS_AQUAMUSE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItCodeInstruct = @"GEMINI_IT_CODE_INSTRUCT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItDscoutFactuality = @"GEMINI_IT_DSCOUT_FACTUALITY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItEitlGen = @"GEMINI_IT_EITL_GEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItHedging = @"GEMINI_IT_HEDGING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItHitlGen = @"GEMINI_IT_HITL_GEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItM3w = @"GEMINI_IT_M3W";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItMech = @"GEMINI_IT_MECH";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItMedPalm = @"GEMINI_IT_MED_PALM";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItNimbusDecibel = @"GEMINI_IT_NIMBUS_DECIBEL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItNimbusGroundingToPrompt = @"GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItQaWithUrl = @"GEMINI_IT_QA_WITH_URL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItShotgun = @"GEMINI_IT_SHOTGUN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItShutterstock = @"GEMINI_IT_SHUTTERSTOCK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItSpiderFiltered = @"GEMINI_IT_SPIDER_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTableGen = @"GEMINI_IT_TABLE_GEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTabSumBq = @"GEMINI_IT_TAB_SUM_BQ";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiItTaskOrientedDialog = @"GEMINI_IT_TASK_ORIENTED_DIALOG";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtInk = @"GEMINI_MULTIMODAL_FT_INK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtNone = @"GEMINI_MULTIMODAL_FT_NONE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtOther = @"GEMINI_MULTIMODAL_FT_OTHER";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtShutterstock = @"GEMINI_MULTIMODAL_FT_SHUTTERSTOCK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtUrl = @"GEMINI_MULTIMODAL_FT_URL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalFtYt = @"GEMINI_MULTIMODAL_FT_YT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiMultimodalIt = @"GEMINI_MULTIMODAL_IT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate = @"GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7 = @"GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsGithubV7 = @"GEMINI_V1_CMS_GITHUB_V7";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont = @"GEMINI_V1_CMS_STACKEXCHANGE_DECONT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsStackoverflowMultilingualV2 = @"GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CmsWikipediaLangFiltered = @"GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1CombinedReddit = @"GEMINI_V1_COMBINED_REDDIT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags = @"GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1FormalMathWithoutHolstepsAndMizar = @"GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubDiffWithCommitMessageV2 = @"GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubHtmlCssXmlV4 = @"GEMINI_V1_GITHUB_HTML_CSS_XML_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubJuptyerNotebooksSstable = @"GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubLongTailV4 = @"GEMINI_V1_GITHUB_LONG_TAIL_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubOtherV4 = @"GEMINI_V1_GITHUB_OTHER_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1GithubTechdocsV2 = @"GEMINI_V1_GITHUB_TECHDOCS_V2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn = @"GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen = @"GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1PodcastsRobotstxt = @"GEMINI_V1_PODCASTS_ROBOTSTXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Pubmed = @"GEMINI_V1_PUBMED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Quora = @"GEMINI_V1_QUORA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1SciencePdf68mHqDocsGcc = @"GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1SimplifiedHtmlV2Gcc = @"GEMINI_V1_SIMPLIFIED_HTML_V2_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1StemBooks650kText = @"GEMINI_V1_STEM_BOOKS_650K_TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1TranslateDatav2AlltiersGccMix = @"GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1UlmArxivSstable = @"GEMINI_V1_ULM_ARXIV_SSTABLE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered = @"GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix = @"GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1WebMathV2 = @"GEMINI_V1_WEB_MATH_V2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV1WikipediaDiffs = @"GEMINI_V1_WIKIPEDIA_DIFFS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Arxiv2023Compliant = @"GEMINI_V2_ARXIV_2023_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2BiologyTargetedDataCompliant2 = @"GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CanariesShuffledCompliant = @"GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ChemistryTargetedDataCompliant2 = @"GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ChessCompliant = @"GEMINI_V2_CHESS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix = @"GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths = @"GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsStackexchangeCompliant = @"GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsStackoverflowMultilingualV2Compliant = @"GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CmsWikipediaLangFilteredGccPii = @"GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodeContestsCompliant = @"GEMINI_V2_CODE_CONTESTS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2CodewebV1Compliant = @"GEMINI_V2_CODEWEB_V1_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EconomicsV2TargetedDataCompliant2 = @"GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant = @"GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant = @"GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2FormalCompliant = @"GEMINI_V2_FORMAL_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2ForumsV2Compliant = @"GEMINI_V2_FORUMS_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubDiffsCompliant = @"GEMINI_V2_GITHUB_DIFFS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubEvaledLanguagesCompliant = @"GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubLongTailAndStructuredDataCompliant = @"GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant = @"GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant = @"GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubPythonNotebooksCompliant = @"GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GithubTechdocsCompliant = @"GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant = @"GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2 = @"GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2LeetcodeGccPii = @"GEMINI_V2_LEETCODE_GCC_PII";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MachineLearningTargetedDataCompliant2 = @"GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MathTargetedDataCompliant2 = @"GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2MedicalTargetedDataCompliant2 = @"GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant = @"GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlNtlv4aMonolingualDedupN5 = @"GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSttTranslateDedupN5 = @"GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSynBtTranslateDedupN5 = @"GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlSynFtFixedTranslateDedupN5 = @"GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2NtlTranslitBilexTranslateDedupN5 = @"GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PhysicsV2TargetedDataCompliant2 = @"GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PodcastsCompliant = @"GEMINI_V2_PODCASTS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2PubmedCompliant = @"GEMINI_V2_PUBMED_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2QaTargetedDataCompliant2 = @"GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2QuoraCompliant = @"GEMINI_V2_QUORA_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex = @"GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SciencewebV0GccPii = @"GEMINI_V2_SCIENCEWEB_V0_GCC_PII";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant = @"GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant = @"GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant = @"GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WebMathV3Compliant = @"GEMINI_V2_WEB_MATH_V3_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WebPolymathV1Compliant = @"GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2WikipediaDiffsCompliant = @"GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GeminiV2YoutubeScienceV4FilteredCompliant = @"GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GemitBridgeSuffixFt = @"GEMIT_BRIDGE_SUFFIX_FT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GenesisNewsInsights = @"GENESIS_NEWS_INSIGHTS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubDiffsWithCommitMessage = @"GITHUB_DIFFS_WITH_COMMIT_MESSAGE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubHtmlV4 = @"GITHUB_HTML_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubLongTailV4 = @"GITHUB_LONG_TAIL_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirror = @"GITHUB_MIRROR";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirrorV101 = @"GITHUB_MIRROR_V1_0_1";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubMirrorV210 = @"GITHUB_MIRROR_V2_1_0";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GithubOtherV4 = @"GITHUB_OTHER_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Gnews = @"GNEWS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Books = @"GOODALL_MTV5_BOOKS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5C4 = @"GOODALL_MTV5_C4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Github = @"GOODALL_MTV5_GITHUB";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMtv5Wikipedia = @"GOODALL_MTV5_WIKIPEDIA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwStackExchange = @"GOODALL_MW_STACK_EXCHANGE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop010b = @"GOODALL_MW_TOP_0_10B";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop100b = @"GOODALL_MW_TOP_100B";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_GoodallMwTop10b20b = @"GOODALL_MW_TOP_10B_20B";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Hol4Theories = @"HOL4_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_HolLightTheories = @"HOL_LIGHT_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Holsteps = @"HOLSTEPS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_IsabelleStep = @"ISABELLE_STEP";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_IsabelleTheories = @"ISABELLE_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaDeleware = @"LABS_AQA_DELEWARE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaDscout = @"LABS_AQA_DSCOUT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LabsAqaTailwind = @"LABS_AQA_TAILWIND";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityE2eQueryGeneration = @"LAMDA_FACTUALITY_E2E_QUERY_GENERATION";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityE2eResponseGeneration = @"LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaFactualityTrigger = @"LAMDA_FACTUALITY_TRIGGER";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaSafetyV2SchemaNoBroadcast = @"LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LamdaSsiDiscriminative = @"LAMDA_SSI_DISCRIMINATIVE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LeanMathlibTheories = @"LEAN_MATHLIB_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_LeanStep = @"LEAN_STEP";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredBard = @"MASSIVE_FORUM_THREAD_SCORED_BARD";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredLong200 = @"MASSIVE_FORUM_THREAD_SCORED_LONG_200";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MassiveForumThreadScoredLong500 = @"MASSIVE_FORUM_THREAD_SCORED_LONG_500";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Math = @"MATH";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MathReasoning = @"MATH_REASONING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaFc = @"MEENA_FC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResearchPhaseGoldenMarkdown = @"MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResearchPhaseGooglers = @"MEENA_RESEARCH_PHASE_GOOGLERS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyHumanGen = @"MEENA_RESPONSE_SAFETY_HUMAN_GEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetySchemaNoBroadcast = @"MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyV3HumanGen2 = @"MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MeenaResponseSafetyV3SchemaNoBroadcast = @"MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MizarTheories = @"MIZAR_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MobileAssistantMagiFiltered0825373k = @"MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_MobileAssistantPalm24bFiltered400k = @"MOBILE_ASSISTANT_PALM24B_FILTERED_400K";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly = @"NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly = @"NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Podcast = @"PODCAST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_PodcastFinetuneDialog = @"PODCAST_FINETUNE_DIALOG";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_PodcastsRobotstxt = @"PODCASTS_ROBOTSTXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Pubmed = @"PUBMED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Quora = @"QUORA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_SciencePdf70mDocsFiltered = @"SCIENCE_PDF_70M_DOCS_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_SimplifiedHtmlV1Gcc = @"SIMPLIFIED_HTML_V1_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_TechdocsDataSource = @"TECHDOCS_DATA_SOURCE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmArxiv = @"ULM_ARXIV";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoins = @"ULM_DOCJOINS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsDeduped = @"ULM_DOCJOINS_DEDUPED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsWithUrlsEn = @"ULM_DOCJOINS_WITH_URLS_EN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_UlmDocjoinsWithUrlsI18n = @"ULM_DOCJOINS_WITH_URLS_I18N";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_VertexSafeFlan = @"VERTEX_SAFE_FLAN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WebAsr = @"WEB_ASR";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Webdocs = @"WEBDOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WebdocsFinetune = @"WEBDOCS_FINETUNE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_Wikipedia = @"WIKIPEDIA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution_Dataset_WorldQueryGenerator = @"WORLD_QUERY_GENERATOR";
-
-// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult.recitationAction
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_ActionUnspecified = @"ACTION_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_Block = @"BLOCK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_Cite = @"CITE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_ExemptFoundInPrompt = @"EXEMPT_FOUND_IN_PROMPT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult_RecitationAction_NoAction = @"NO_ACTION";
-
-// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult.attributionDataset
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AmpsKhan = @"AMPS_KHAN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AmpsMathematica = @"AMPS_MATHEMATICA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Aqua = @"AQUA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_AssistantPersonalitySafety = @"ASSISTANT_PERSONALITY_SAFETY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardArcadeGithub = @"BARD_ARCADE_GITHUB";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardGolden = @"BARD_GOLDEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BardPersonalityGolden = @"BARD_PERSONALITY_GOLDEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BooksFullView = @"BOOKS_FULL_VIEW";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_BooksPrivate = @"BOOKS_PRIVATE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_C4JoinedDocjoins = @"C4_JOINED_DOCJOINS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CanariesShuffled = @"CANARIES_SHUFFLED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CleanArxiv = @"CLEAN_ARXIV";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix = @"CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCloudFactualityGroundingMagi = @"CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCodeIfV1 = @"CLOUD_GEMIT_CODE_IF_V1";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCodeSelfRepair = @"CLOUD_GEMIT_CODE_SELF_REPAIR";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitCommitMsgGenV3 = @"CLOUD_GEMIT_COMMIT_MSG_GEN_V3";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitIdentity = @"CLOUD_GEMIT_IDENTITY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitMtDialgueLmsys = @"CLOUD_GEMIT_MT_DIALGUE_LMSYS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudGemitMtsDialogueV3 = @"CLOUD_GEMIT_MTS_DIALOGUE_V3";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityFinetuning = @"CLOUD_SECURITY_FINETUNING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CloudSecurityPretraining = @"CLOUD_SECURITY_PRETRAINING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsGithubMultifileV4 = @"CMS_GITHUB_MULTIFILE_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsGithubV4 = @"CMS_GITHUB_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsStackexchange = @"CMS_STACKEXCHANGE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsStackoverflowMultilingual = @"CMS_STACKOVERFLOW_MULTILINGUAL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CmsWikipediaLangFiltered = @"CMS_WIKIPEDIA_LANG_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaFtFormat = @"CODE_QA_FT_FORMAT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaFtKnowledge = @"CODE_QA_FT_KNOWLEDGE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaGithubFilteredCode = @"CODE_QA_GITHUB_FILTERED_CODE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaSe = @"CODE_QA_SE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeQaSo = @"CODE_QA_SO";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeyCode = @"CODEY_CODE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CodeyNotebookLmPretraining = @"CODEY_NOTEBOOK_LM_PRETRAINING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CombinedReddit = @"COMBINED_REDDIT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CommonSenseReasoning = @"COMMON_SENSE_REASONING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CoqStep = @"COQ_STEP";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_CoqTheories = @"COQ_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DatasetUnspecified = @"DATASET_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DocumentChunks = @"DOCUMENT_CHUNKS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudBlogPosts = @"DUET_CLOUD_BLOG_POSTS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudDocs = @"DUET_CLOUD_DOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudDocsTroubleshootingTables = @"DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsGenerated = @"DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsHandwritten = @"DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudIxPrompts = @"DUET_CLOUD_IX_PROMPTS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudPodcastEpisodes = @"DUET_CLOUD_PODCAST_EPISODES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudSecurityDocs = @"DUET_CLOUD_SECURITY_DOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetCloudSkillsBoost = @"DUET_CLOUD_SKILLS_BOOST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetDevsiteDocs = @"DUET_DEVSITE_DOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGithubCodeSnippets = @"DUET_GITHUB_CODE_SNIPPETS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGithubFiles = @"DUET_GITHUB_FILES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGobyexample = @"DUET_GOBYEXAMPLE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGolangDocs = @"DUET_GOLANG_DOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetGooglesqlGeneration = @"DUET_GOOGLESQL_GENERATION";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetRad = @"DUET_RAD";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_DuetYoutubeVideos = @"DUET_YOUTUBE_VIDEOS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop100bAllIndexedGcc = @"GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bGcc = @"GEMINI_DOCJOINS_EN_TOP10B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bTop20bGcc = @"GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsEnTop20bTop100bGcc = @"GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bGcc = @"GEMINI_DOCJOINS_I18N_TOP10B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bTop20bGcc = @"GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop20bTop100bGcc = @"GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc = @"GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiGoosePublic = @"GEMINI_GOOSE_PUBLIC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiGooseSiloed = @"GEMINI_GOOSE_SILOED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAciBench = @"GEMINI_IT_ACI_BENCH";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItAquamuse = @"GEMINI_IT_AQUAMUSE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudCodeIf = @"GEMINI_IT_CLOUD_CODE_IF";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudEurLexJson = @"GEMINI_IT_CLOUD_EUR_LEX_JSON";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudOasst = @"GEMINI_IT_CLOUD_OASST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudSelfInstruct = @"GEMINI_IT_CLOUD_SELF_INSTRUCT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCloudUcsAquamuse = @"GEMINI_IT_CLOUD_UCS_AQUAMUSE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItCodeInstruct = @"GEMINI_IT_CODE_INSTRUCT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItDscoutFactuality = @"GEMINI_IT_DSCOUT_FACTUALITY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItEitlGen = @"GEMINI_IT_EITL_GEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItHedging = @"GEMINI_IT_HEDGING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItHitlGen = @"GEMINI_IT_HITL_GEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItM3w = @"GEMINI_IT_M3W";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItMech = @"GEMINI_IT_MECH";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItMedPalm = @"GEMINI_IT_MED_PALM";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItNimbusDecibel = @"GEMINI_IT_NIMBUS_DECIBEL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItNimbusGroundingToPrompt = @"GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItQaWithUrl = @"GEMINI_IT_QA_WITH_URL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItShotgun = @"GEMINI_IT_SHOTGUN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItShutterstock = @"GEMINI_IT_SHUTTERSTOCK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItSpiderFiltered = @"GEMINI_IT_SPIDER_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTableGen = @"GEMINI_IT_TABLE_GEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTabSumBq = @"GEMINI_IT_TAB_SUM_BQ";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiItTaskOrientedDialog = @"GEMINI_IT_TASK_ORIENTED_DIALOG";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtInk = @"GEMINI_MULTIMODAL_FT_INK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtNone = @"GEMINI_MULTIMODAL_FT_NONE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtOther = @"GEMINI_MULTIMODAL_FT_OTHER";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtShutterstock = @"GEMINI_MULTIMODAL_FT_SHUTTERSTOCK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtUrl = @"GEMINI_MULTIMODAL_FT_URL";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalFtYt = @"GEMINI_MULTIMODAL_FT_YT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiMultimodalIt = @"GEMINI_MULTIMODAL_IT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate = @"GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7 = @"GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsGithubV7 = @"GEMINI_V1_CMS_GITHUB_V7";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont = @"GEMINI_V1_CMS_STACKEXCHANGE_DECONT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsStackoverflowMultilingualV2 = @"GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CmsWikipediaLangFiltered = @"GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1CombinedReddit = @"GEMINI_V1_COMBINED_REDDIT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags = @"GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1FormalMathWithoutHolstepsAndMizar = @"GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubDiffWithCommitMessageV2 = @"GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubHtmlCssXmlV4 = @"GEMINI_V1_GITHUB_HTML_CSS_XML_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubJuptyerNotebooksSstable = @"GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubLongTailV4 = @"GEMINI_V1_GITHUB_LONG_TAIL_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubOtherV4 = @"GEMINI_V1_GITHUB_OTHER_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1GithubTechdocsV2 = @"GEMINI_V1_GITHUB_TECHDOCS_V2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn = @"GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen = @"GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1PodcastsRobotstxt = @"GEMINI_V1_PODCASTS_ROBOTSTXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Pubmed = @"GEMINI_V1_PUBMED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Quora = @"GEMINI_V1_QUORA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1SciencePdf68mHqDocsGcc = @"GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1SimplifiedHtmlV2Gcc = @"GEMINI_V1_SIMPLIFIED_HTML_V2_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1StemBooks650kText = @"GEMINI_V1_STEM_BOOKS_650K_TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1TranslateDatav2AlltiersGccMix = @"GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1UlmArxivSstable = @"GEMINI_V1_ULM_ARXIV_SSTABLE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered = @"GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix = @"GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1WebMathV2 = @"GEMINI_V1_WEB_MATH_V2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV1WikipediaDiffs = @"GEMINI_V1_WIKIPEDIA_DIFFS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Arxiv2023Compliant = @"GEMINI_V2_ARXIV_2023_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2BiologyTargetedDataCompliant2 = @"GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CanariesShuffledCompliant = @"GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ChemistryTargetedDataCompliant2 = @"GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ChessCompliant = @"GEMINI_V2_CHESS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix = @"GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths = @"GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsStackexchangeCompliant = @"GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsStackoverflowMultilingualV2Compliant = @"GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CmsWikipediaLangFilteredGccPii = @"GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant = @"GEMINI_V2_CODE_CONTESTS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant = @"GEMINI_V2_CODEWEB_V1_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EconomicsV2TargetedDataCompliant2 = @"GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant = @"GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant = @"GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2FormalCompliant = @"GEMINI_V2_FORMAL_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2ForumsV2Compliant = @"GEMINI_V2_FORUMS_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubDiffsCompliant = @"GEMINI_V2_GITHUB_DIFFS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubEvaledLanguagesCompliant = @"GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubLongTailAndStructuredDataCompliant = @"GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant = @"GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant = @"GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubPythonNotebooksCompliant = @"GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GithubTechdocsCompliant = @"GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant = @"GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2 = @"GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii = @"GEMINI_V2_LEETCODE_GCC_PII";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MachineLearningTargetedDataCompliant2 = @"GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MathTargetedDataCompliant2 = @"GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2MedicalTargetedDataCompliant2 = @"GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant = @"GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlNtlv4aMonolingualDedupN5 = @"GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSttTranslateDedupN5 = @"GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSynBtTranslateDedupN5 = @"GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlSynFtFixedTranslateDedupN5 = @"GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2NtlTranslitBilexTranslateDedupN5 = @"GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PhysicsV2TargetedDataCompliant2 = @"GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PodcastsCompliant = @"GEMINI_V2_PODCASTS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2PubmedCompliant = @"GEMINI_V2_PUBMED_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2QaTargetedDataCompliant2 = @"GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2QuoraCompliant = @"GEMINI_V2_QUORA_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex = @"GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SciencewebV0GccPii = @"GEMINI_V2_SCIENCEWEB_V0_GCC_PII";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant = @"GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant = @"GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant = @"GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WebMathV3Compliant = @"GEMINI_V2_WEB_MATH_V3_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WebPolymathV1Compliant = @"GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2WikipediaDiffsCompliant = @"GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GeminiV2YoutubeScienceV4FilteredCompliant = @"GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GemitBridgeSuffixFt = @"GEMIT_BRIDGE_SUFFIX_FT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GenesisNewsInsights = @"GENESIS_NEWS_INSIGHTS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubDiffsWithCommitMessage = @"GITHUB_DIFFS_WITH_COMMIT_MESSAGE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubHtmlV4 = @"GITHUB_HTML_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubLongTailV4 = @"GITHUB_LONG_TAIL_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirror = @"GITHUB_MIRROR";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirrorV101 = @"GITHUB_MIRROR_V1_0_1";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubMirrorV210 = @"GITHUB_MIRROR_V2_1_0";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GithubOtherV4 = @"GITHUB_OTHER_V4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Gnews = @"GNEWS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Books = @"GOODALL_MTV5_BOOKS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5C4 = @"GOODALL_MTV5_C4";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Github = @"GOODALL_MTV5_GITHUB";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMtv5Wikipedia = @"GOODALL_MTV5_WIKIPEDIA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwStackExchange = @"GOODALL_MW_STACK_EXCHANGE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop010b = @"GOODALL_MW_TOP_0_10B";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop100b = @"GOODALL_MW_TOP_100B";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_GoodallMwTop10b20b = @"GOODALL_MW_TOP_10B_20B";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Hol4Theories = @"HOL4_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_HolLightTheories = @"HOL_LIGHT_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Holsteps = @"HOLSTEPS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_IsabelleStep = @"ISABELLE_STEP";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_IsabelleTheories = @"ISABELLE_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaDeleware = @"LABS_AQA_DELEWARE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaDscout = @"LABS_AQA_DSCOUT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LabsAqaTailwind = @"LABS_AQA_TAILWIND";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityE2eQueryGeneration = @"LAMDA_FACTUALITY_E2E_QUERY_GENERATION";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityE2eResponseGeneration = @"LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaFactualityTrigger = @"LAMDA_FACTUALITY_TRIGGER";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaSafetyV2SchemaNoBroadcast = @"LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LamdaSsiDiscriminative = @"LAMDA_SSI_DISCRIMINATIVE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LeanMathlibTheories = @"LEAN_MATHLIB_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_LeanStep = @"LEAN_STEP";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredBard = @"MASSIVE_FORUM_THREAD_SCORED_BARD";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredLong200 = @"MASSIVE_FORUM_THREAD_SCORED_LONG_200";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MassiveForumThreadScoredLong500 = @"MASSIVE_FORUM_THREAD_SCORED_LONG_500";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Math = @"MATH";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MathReasoning = @"MATH_REASONING";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaFc = @"MEENA_FC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResearchPhaseGoldenMarkdown = @"MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResearchPhaseGooglers = @"MEENA_RESEARCH_PHASE_GOOGLERS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyHumanGen = @"MEENA_RESPONSE_SAFETY_HUMAN_GEN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetySchemaNoBroadcast = @"MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyV3HumanGen2 = @"MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MeenaResponseSafetyV3SchemaNoBroadcast = @"MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MizarTheories = @"MIZAR_THEORIES";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MobileAssistantMagiFiltered0825373k = @"MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_MobileAssistantPalm24bFiltered400k = @"MOBILE_ASSISTANT_PALM24B_FILTERED_400K";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly = @"NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly = @"NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Podcast = @"PODCAST";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_PodcastFinetuneDialog = @"PODCAST_FINETUNE_DIALOG";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_PodcastsRobotstxt = @"PODCASTS_ROBOTSTXT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Pubmed = @"PUBMED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Quora = @"QUORA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_SciencePdf70mDocsFiltered = @"SCIENCE_PDF_70M_DOCS_FILTERED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_SimplifiedHtmlV1Gcc = @"SIMPLIFIED_HTML_V1_GCC";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_TechdocsDataSource = @"TECHDOCS_DATA_SOURCE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmArxiv = @"ULM_ARXIV";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoins = @"ULM_DOCJOINS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsDeduped = @"ULM_DOCJOINS_DEDUPED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsEn = @"ULM_DOCJOINS_WITH_URLS_EN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsI18n = @"ULM_DOCJOINS_WITH_URLS_I18N";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_VertexSafeFlan = @"VERTEX_SAFE_FLAN";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WebAsr = @"WEB_ASR";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Webdocs = @"WEBDOCS";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WebdocsFinetune = @"WEBDOCS_FINETUNE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_Wikipedia = @"WIKIPEDIA";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_AttributionDataset_WorldQueryGenerator = @"WORLD_QUERY_GENERATOR";
-
-// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult.segmentRecitationAction
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_ActionUnspecified = @"ACTION_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_Block = @"BLOCK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_Cite = @"CITE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_ExemptFoundInPrompt = @"EXEMPT_FOUND_IN_PROMPT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult_SegmentRecitationAction_NoAction = @"NO_ACTION";
-
-// GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult.recitationAction
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_ActionUnspecified = @"ACTION_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_Block = @"BLOCK";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_Cite = @"CITE";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_ExemptFoundInPrompt = @"EXEMPT_FOUND_IN_PROMPT";
-NSString * const kGTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult_RecitationAction_NoAction = @"NO_ACTION";
-
-// GTLRAiplatform_LearningGenaiRecitationDocAttribution.dataset
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AmpsKhan = @"AMPS_KHAN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AmpsMathematica = @"AMPS_MATHEMATICA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Aqua = @"AQUA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_AssistantPersonalitySafety = @"ASSISTANT_PERSONALITY_SAFETY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardArcadeGithub = @"BARD_ARCADE_GITHUB";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardGolden = @"BARD_GOLDEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BardPersonalityGolden = @"BARD_PERSONALITY_GOLDEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BooksFullView = @"BOOKS_FULL_VIEW";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_BooksPrivate = @"BOOKS_PRIVATE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_C4JoinedDocjoins = @"C4_JOINED_DOCJOINS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CanariesShuffled = @"CANARIES_SHUFFLED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CleanArxiv = @"CLEAN_ARXIV";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_ClmTranslateDatav2AlltiersGccMix = @"CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCloudFactualityGroundingMagi = @"CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCodeIfV1 = @"CLOUD_GEMIT_CODE_IF_V1";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCodeSelfRepair = @"CLOUD_GEMIT_CODE_SELF_REPAIR";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitCommitMsgGenV3 = @"CLOUD_GEMIT_COMMIT_MSG_GEN_V3";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitIdentity = @"CLOUD_GEMIT_IDENTITY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitMtDialgueLmsys = @"CLOUD_GEMIT_MT_DIALGUE_LMSYS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudGemitMtsDialogueV3 = @"CLOUD_GEMIT_MTS_DIALOGUE_V3";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityFinetuning = @"CLOUD_SECURITY_FINETUNING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CloudSecurityPretraining = @"CLOUD_SECURITY_PRETRAINING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsGithubMultifileV4 = @"CMS_GITHUB_MULTIFILE_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsGithubV4 = @"CMS_GITHUB_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsStackexchange = @"CMS_STACKEXCHANGE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsStackoverflowMultilingual = @"CMS_STACKOVERFLOW_MULTILINGUAL";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CmsWikipediaLangFiltered = @"CMS_WIKIPEDIA_LANG_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaFtFormat = @"CODE_QA_FT_FORMAT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaFtKnowledge = @"CODE_QA_FT_KNOWLEDGE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaGithubFilteredCode = @"CODE_QA_GITHUB_FILTERED_CODE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaSe = @"CODE_QA_SE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeQaSo = @"CODE_QA_SO";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeyCode = @"CODEY_CODE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CodeyNotebookLmPretraining = @"CODEY_NOTEBOOK_LM_PRETRAINING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CombinedReddit = @"COMBINED_REDDIT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CommonSenseReasoning = @"COMMON_SENSE_REASONING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CoqStep = @"COQ_STEP";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_CoqTheories = @"COQ_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DatasetUnspecified = @"DATASET_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DocumentChunks = @"DOCUMENT_CHUNKS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudBlogPosts = @"DUET_CLOUD_BLOG_POSTS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudDocs = @"DUET_CLOUD_DOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudDocsTroubleshootingTables = @"DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudGithubCodeSnippetsGenerated = @"DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudGithubCodeSnippetsHandwritten = @"DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudIxPrompts = @"DUET_CLOUD_IX_PROMPTS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudPodcastEpisodes = @"DUET_CLOUD_PODCAST_EPISODES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudSecurityDocs = @"DUET_CLOUD_SECURITY_DOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetCloudSkillsBoost = @"DUET_CLOUD_SKILLS_BOOST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetDevsiteDocs = @"DUET_DEVSITE_DOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGithubCodeSnippets = @"DUET_GITHUB_CODE_SNIPPETS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGithubFiles = @"DUET_GITHUB_FILES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGobyexample = @"DUET_GOBYEXAMPLE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGolangDocs = @"DUET_GOLANG_DOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetGooglesqlGeneration = @"DUET_GOOGLESQL_GENERATION";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetRad = @"DUET_RAD";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_DuetYoutubeVideos = @"DUET_YOUTUBE_VIDEOS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop100bAllIndexedGcc = @"GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop10bGcc = @"GEMINI_DOCJOINS_EN_TOP10B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop10bTop20bGcc = @"GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsEnTop20bTop100bGcc = @"GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop10bGcc = @"GEMINI_DOCJOINS_I18N_TOP10B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop10bTop20bGcc = @"GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsI18nTop20bTop100bGcc = @"GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiDocjoinsToxicityTaggedGcc = @"GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiGoosePublic = @"GEMINI_GOOSE_PUBLIC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiGooseSiloed = @"GEMINI_GOOSE_SILOED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAciBench = @"GEMINI_IT_ACI_BENCH";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItAquamuse = @"GEMINI_IT_AQUAMUSE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudCodeIf = @"GEMINI_IT_CLOUD_CODE_IF";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudEurLexJson = @"GEMINI_IT_CLOUD_EUR_LEX_JSON";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudOasst = @"GEMINI_IT_CLOUD_OASST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudSelfInstruct = @"GEMINI_IT_CLOUD_SELF_INSTRUCT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCloudUcsAquamuse = @"GEMINI_IT_CLOUD_UCS_AQUAMUSE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItCodeInstruct = @"GEMINI_IT_CODE_INSTRUCT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItDscoutFactuality = @"GEMINI_IT_DSCOUT_FACTUALITY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItEitlGen = @"GEMINI_IT_EITL_GEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItHedging = @"GEMINI_IT_HEDGING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItHitlGen = @"GEMINI_IT_HITL_GEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItM3w = @"GEMINI_IT_M3W";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItMech = @"GEMINI_IT_MECH";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItMedPalm = @"GEMINI_IT_MED_PALM";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItNimbusDecibel = @"GEMINI_IT_NIMBUS_DECIBEL";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItNimbusGroundingToPrompt = @"GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItQaWithUrl = @"GEMINI_IT_QA_WITH_URL";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItShotgun = @"GEMINI_IT_SHOTGUN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItShutterstock = @"GEMINI_IT_SHUTTERSTOCK";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItSpiderFiltered = @"GEMINI_IT_SPIDER_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTableGen = @"GEMINI_IT_TABLE_GEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTabSumBq = @"GEMINI_IT_TAB_SUM_BQ";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiItTaskOrientedDialog = @"GEMINI_IT_TASK_ORIENTED_DIALOG";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtInk = @"GEMINI_MULTIMODAL_FT_INK";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtNone = @"GEMINI_MULTIMODAL_FT_NONE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtOther = @"GEMINI_MULTIMODAL_FT_OTHER";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtShutterstock = @"GEMINI_MULTIMODAL_FT_SHUTTERSTOCK";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtUrl = @"GEMINI_MULTIMODAL_FT_URL";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalFtYt = @"GEMINI_MULTIMODAL_FT_YT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiMultimodalIt = @"GEMINI_MULTIMODAL_IT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate = @"GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsGithubDecontaminatedV7 = @"GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsGithubV7 = @"GEMINI_V1_CMS_GITHUB_V7";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackexchangeDecont = @"GEMINI_V1_CMS_STACKEXCHANGE_DECONT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsStackoverflowMultilingualV2 = @"GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CmsWikipediaLangFiltered = @"GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1CombinedReddit = @"GEMINI_V1_COMBINED_REDDIT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags = @"GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1FormalMathWithoutHolstepsAndMizar = @"GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubDiffWithCommitMessageV2 = @"GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubHtmlCssXmlV4 = @"GEMINI_V1_GITHUB_HTML_CSS_XML_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubJuptyerNotebooksSstable = @"GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubLongTailV4 = @"GEMINI_V1_GITHUB_LONG_TAIL_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubOtherV4 = @"GEMINI_V1_GITHUB_OTHER_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1GithubTechdocsV2 = @"GEMINI_V1_GITHUB_TECHDOCS_V2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn = @"GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen = @"GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1PodcastsRobotstxt = @"GEMINI_V1_PODCASTS_ROBOTSTXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Pubmed = @"GEMINI_V1_PUBMED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Quora = @"GEMINI_V1_QUORA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1SciencePdf68mHqDocsGcc = @"GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1SimplifiedHtmlV2Gcc = @"GEMINI_V1_SIMPLIFIED_HTML_V2_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1StemBooks650kText = @"GEMINI_V1_STEM_BOOKS_650K_TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1TranslateDatav2AlltiersGccMix = @"GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1UlmArxivSstable = @"GEMINI_V1_ULM_ARXIV_SSTABLE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered = @"GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix = @"GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1WebMathV2 = @"GEMINI_V1_WEB_MATH_V2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV1WikipediaDiffs = @"GEMINI_V1_WIKIPEDIA_DIFFS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Arxiv2023Compliant = @"GEMINI_V2_ARXIV_2023_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2BiologyTargetedDataCompliant2 = @"GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CanariesShuffledCompliant = @"GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ChemistryTargetedDataCompliant2 = @"GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ChessCompliant = @"GEMINI_V2_CHESS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix = @"GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths = @"GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsStackexchangeCompliant = @"GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsStackoverflowMultilingualV2Compliant = @"GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CmsWikipediaLangFilteredGccPii = @"GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodeContestsCompliant = @"GEMINI_V2_CODE_CONTESTS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2CodewebV1Compliant = @"GEMINI_V2_CODEWEB_V1_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EconomicsV2TargetedDataCompliant2 = @"GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant = @"GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant = @"GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2FormalCompliant = @"GEMINI_V2_FORMAL_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2ForumsV2Compliant = @"GEMINI_V2_FORUMS_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubDiffsCompliant = @"GEMINI_V2_GITHUB_DIFFS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubEvaledLanguagesCompliant = @"GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubLongTailAndStructuredDataCompliant = @"GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant = @"GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant = @"GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubPythonNotebooksCompliant = @"GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GithubTechdocsCompliant = @"GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant = @"GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2HighQualityCodeTargetedDataCompliant2 = @"GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2LeetcodeGccPii = @"GEMINI_V2_LEETCODE_GCC_PII";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MachineLearningTargetedDataCompliant2 = @"GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MathTargetedDataCompliant2 = @"GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2MedicalTargetedDataCompliant2 = @"GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant = @"GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlNtlv4aMonolingualDedupN5 = @"GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSttTranslateDedupN5 = @"GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSynBtTranslateDedupN5 = @"GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlSynFtFixedTranslateDedupN5 = @"GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2NtlTranslitBilexTranslateDedupN5 = @"GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PhysicsV2TargetedDataCompliant2 = @"GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PodcastsCompliant = @"GEMINI_V2_PODCASTS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2PubmedCompliant = @"GEMINI_V2_PUBMED_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2QaTargetedDataCompliant2 = @"GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2QuoraCompliant = @"GEMINI_V2_QUORA_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex = @"GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SciencewebV0GccPii = @"GEMINI_V2_SCIENCEWEB_V0_GCC_PII";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant = @"GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemBooks318kTextCompliant = @"GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant = @"GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WebMathV3Compliant = @"GEMINI_V2_WEB_MATH_V3_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WebPolymathV1Compliant = @"GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2WikipediaDiffsCompliant = @"GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GeminiV2YoutubeScienceV4FilteredCompliant = @"GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GemitBridgeSuffixFt = @"GEMIT_BRIDGE_SUFFIX_FT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GenesisNewsInsights = @"GENESIS_NEWS_INSIGHTS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubDiffsWithCommitMessage = @"GITHUB_DIFFS_WITH_COMMIT_MESSAGE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubHtmlV4 = @"GITHUB_HTML_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubLongTailV4 = @"GITHUB_LONG_TAIL_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirror = @"GITHUB_MIRROR";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirrorV101 = @"GITHUB_MIRROR_V1_0_1";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubMirrorV210 = @"GITHUB_MIRROR_V2_1_0";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GithubOtherV4 = @"GITHUB_OTHER_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Gnews = @"GNEWS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Books = @"GOODALL_MTV5_BOOKS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5C4 = @"GOODALL_MTV5_C4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Github = @"GOODALL_MTV5_GITHUB";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMtv5Wikipedia = @"GOODALL_MTV5_WIKIPEDIA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwStackExchange = @"GOODALL_MW_STACK_EXCHANGE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop010b = @"GOODALL_MW_TOP_0_10B";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop100b = @"GOODALL_MW_TOP_100B";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_GoodallMwTop10b20b = @"GOODALL_MW_TOP_10B_20B";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Hol4Theories = @"HOL4_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_HolLightTheories = @"HOL_LIGHT_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Holsteps = @"HOLSTEPS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_IsabelleStep = @"ISABELLE_STEP";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_IsabelleTheories = @"ISABELLE_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaDeleware = @"LABS_AQA_DELEWARE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaDscout = @"LABS_AQA_DSCOUT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LabsAqaTailwind = @"LABS_AQA_TAILWIND";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityE2eQueryGeneration = @"LAMDA_FACTUALITY_E2E_QUERY_GENERATION";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityE2eResponseGeneration = @"LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaFactualityTrigger = @"LAMDA_FACTUALITY_TRIGGER";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaSafetyV2SchemaNoBroadcast = @"LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LamdaSsiDiscriminative = @"LAMDA_SSI_DISCRIMINATIVE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LeanMathlibTheories = @"LEAN_MATHLIB_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_LeanStep = @"LEAN_STEP";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredBard = @"MASSIVE_FORUM_THREAD_SCORED_BARD";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredLong200 = @"MASSIVE_FORUM_THREAD_SCORED_LONG_200";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MassiveForumThreadScoredLong500 = @"MASSIVE_FORUM_THREAD_SCORED_LONG_500";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Math = @"MATH";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MathReasoning = @"MATH_REASONING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaFc = @"MEENA_FC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResearchPhaseGoldenMarkdown = @"MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResearchPhaseGooglers = @"MEENA_RESEARCH_PHASE_GOOGLERS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyHumanGen = @"MEENA_RESPONSE_SAFETY_HUMAN_GEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetySchemaNoBroadcast = @"MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyV3HumanGen2 = @"MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MeenaResponseSafetyV3SchemaNoBroadcast = @"MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MizarTheories = @"MIZAR_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MobileAssistantMagiFiltered0825373k = @"MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_MobileAssistantPalm24bFiltered400k = @"MOBILE_ASSISTANT_PALM24B_FILTERED_400K";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly = @"NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly = @"NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Podcast = @"PODCAST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_PodcastFinetuneDialog = @"PODCAST_FINETUNE_DIALOG";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_PodcastsRobotstxt = @"PODCASTS_ROBOTSTXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Pubmed = @"PUBMED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Quora = @"QUORA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_SciencePdf70mDocsFiltered = @"SCIENCE_PDF_70M_DOCS_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_SimplifiedHtmlV1Gcc = @"SIMPLIFIED_HTML_V1_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_TechdocsDataSource = @"TECHDOCS_DATA_SOURCE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmArxiv = @"ULM_ARXIV";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoins = @"ULM_DOCJOINS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsDeduped = @"ULM_DOCJOINS_DEDUPED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsWithUrlsEn = @"ULM_DOCJOINS_WITH_URLS_EN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_UlmDocjoinsWithUrlsI18n = @"ULM_DOCJOINS_WITH_URLS_I18N";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_VertexSafeFlan = @"VERTEX_SAFE_FLAN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WebAsr = @"WEB_ASR";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Webdocs = @"WEBDOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WebdocsFinetune = @"WEBDOCS_FINETUNE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_Wikipedia = @"WIKIPEDIA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationDocAttribution_Dataset_WorldQueryGenerator = @"WORLD_QUERY_GENERATOR";
-
-// GTLRAiplatform_LearningGenaiRecitationRecitationResult.recitationAction
-NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_ActionUnspecified = @"ACTION_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_Block = @"BLOCK";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_Cite = @"CITE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_ExemptFoundInPrompt = @"EXEMPT_FOUND_IN_PROMPT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationRecitationResult_RecitationAction_NoAction = @"NO_ACTION";
-
-// GTLRAiplatform_LearningGenaiRecitationSegmentResult.attributionDataset
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AmpsKhan = @"AMPS_KHAN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AmpsMathematica = @"AMPS_MATHEMATICA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Aqua = @"AQUA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_AssistantPersonalitySafety = @"ASSISTANT_PERSONALITY_SAFETY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardArcadeGithub = @"BARD_ARCADE_GITHUB";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardGolden = @"BARD_GOLDEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BardPersonalityGolden = @"BARD_PERSONALITY_GOLDEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BooksFullView = @"BOOKS_FULL_VIEW";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_BooksPrivate = @"BOOKS_PRIVATE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_C4JoinedDocjoins = @"C4_JOINED_DOCJOINS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CanariesShuffled = @"CANARIES_SHUFFLED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CleanArxiv = @"CLEAN_ARXIV";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_ClmTranslateDatav2AlltiersGccMix = @"CLM_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCloudFactualityGroundingMagi = @"CLOUD_GEMIT_CLOUD_FACTUALITY_GROUNDING_MAGI";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCodeIfV1 = @"CLOUD_GEMIT_CODE_IF_V1";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCodeSelfRepair = @"CLOUD_GEMIT_CODE_SELF_REPAIR";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitCommitMsgGenV3 = @"CLOUD_GEMIT_COMMIT_MSG_GEN_V3";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitIdentity = @"CLOUD_GEMIT_IDENTITY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitMtDialgueLmsys = @"CLOUD_GEMIT_MT_DIALGUE_LMSYS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudGemitMtsDialogueV3 = @"CLOUD_GEMIT_MTS_DIALOGUE_V3";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityFinetuning = @"CLOUD_SECURITY_FINETUNING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CloudSecurityPretraining = @"CLOUD_SECURITY_PRETRAINING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsGithubMultifileV4 = @"CMS_GITHUB_MULTIFILE_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsGithubV4 = @"CMS_GITHUB_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsStackexchange = @"CMS_STACKEXCHANGE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsStackoverflowMultilingual = @"CMS_STACKOVERFLOW_MULTILINGUAL";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CmsWikipediaLangFiltered = @"CMS_WIKIPEDIA_LANG_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaFtFormat = @"CODE_QA_FT_FORMAT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaFtKnowledge = @"CODE_QA_FT_KNOWLEDGE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaGithubFilteredCode = @"CODE_QA_GITHUB_FILTERED_CODE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaSe = @"CODE_QA_SE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeQaSo = @"CODE_QA_SO";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeyCode = @"CODEY_CODE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CodeyNotebookLmPretraining = @"CODEY_NOTEBOOK_LM_PRETRAINING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CombinedReddit = @"COMBINED_REDDIT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CommonSenseReasoning = @"COMMON_SENSE_REASONING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CoqStep = @"COQ_STEP";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_CoqTheories = @"COQ_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DatasetUnspecified = @"DATASET_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DocumentChunks = @"DOCUMENT_CHUNKS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudBlogPosts = @"DUET_CLOUD_BLOG_POSTS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudDocs = @"DUET_CLOUD_DOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudDocsTroubleshootingTables = @"DUET_CLOUD_DOCS_TROUBLESHOOTING_TABLES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsGenerated = @"DUET_CLOUD_GITHUB_CODE_SNIPPETS_GENERATED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudGithubCodeSnippetsHandwritten = @"DUET_CLOUD_GITHUB_CODE_SNIPPETS_HANDWRITTEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudIxPrompts = @"DUET_CLOUD_IX_PROMPTS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudPodcastEpisodes = @"DUET_CLOUD_PODCAST_EPISODES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudSecurityDocs = @"DUET_CLOUD_SECURITY_DOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetCloudSkillsBoost = @"DUET_CLOUD_SKILLS_BOOST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetDevsiteDocs = @"DUET_DEVSITE_DOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGithubCodeSnippets = @"DUET_GITHUB_CODE_SNIPPETS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGithubFiles = @"DUET_GITHUB_FILES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGobyexample = @"DUET_GOBYEXAMPLE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGolangDocs = @"DUET_GOLANG_DOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetGooglesqlGeneration = @"DUET_GOOGLESQL_GENERATION";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetRad = @"DUET_RAD";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_DuetYoutubeVideos = @"DUET_YOUTUBE_VIDEOS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop100bAllIndexedGcc = @"GEMINI_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bGcc = @"GEMINI_DOCJOINS_EN_TOP10B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop10bTop20bGcc = @"GEMINI_DOCJOINS_EN_TOP10B_TOP20B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsEnTop20bTop100bGcc = @"GEMINI_DOCJOINS_EN_TOP20B_TOP100B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bGcc = @"GEMINI_DOCJOINS_I18N_TOP10B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop10bTop20bGcc = @"GEMINI_DOCJOINS_I18N_TOP10B_TOP20B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsI18nTop20bTop100bGcc = @"GEMINI_DOCJOINS_I18N_TOP20B_TOP100B_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiDocjoinsToxicityTaggedGcc = @"GEMINI_DOCJOINS_TOXICITY_TAGGED_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiGoosePublic = @"GEMINI_GOOSE_PUBLIC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiGooseSiloed = @"GEMINI_GOOSE_SILOED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAciBench = @"GEMINI_IT_ACI_BENCH";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItAquamuse = @"GEMINI_IT_AQUAMUSE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudCodeIf = @"GEMINI_IT_CLOUD_CODE_IF";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudEurLexJson = @"GEMINI_IT_CLOUD_EUR_LEX_JSON";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudOasst = @"GEMINI_IT_CLOUD_OASST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudSelfInstruct = @"GEMINI_IT_CLOUD_SELF_INSTRUCT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCloudUcsAquamuse = @"GEMINI_IT_CLOUD_UCS_AQUAMUSE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItCodeInstruct = @"GEMINI_IT_CODE_INSTRUCT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItDscoutFactuality = @"GEMINI_IT_DSCOUT_FACTUALITY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItEitlGen = @"GEMINI_IT_EITL_GEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItHedging = @"GEMINI_IT_HEDGING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItHitlGen = @"GEMINI_IT_HITL_GEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItM3w = @"GEMINI_IT_M3W";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItMech = @"GEMINI_IT_MECH";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItMedPalm = @"GEMINI_IT_MED_PALM";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItNimbusDecibel = @"GEMINI_IT_NIMBUS_DECIBEL";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItNimbusGroundingToPrompt = @"GEMINI_IT_NIMBUS_GROUNDING_TO_PROMPT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItQaWithUrl = @"GEMINI_IT_QA_WITH_URL";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItShotgun = @"GEMINI_IT_SHOTGUN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItShutterstock = @"GEMINI_IT_SHUTTERSTOCK";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItSpiderFiltered = @"GEMINI_IT_SPIDER_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTableGen = @"GEMINI_IT_TABLE_GEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTabSumBq = @"GEMINI_IT_TAB_SUM_BQ";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiItTaskOrientedDialog = @"GEMINI_IT_TASK_ORIENTED_DIALOG";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtInk = @"GEMINI_MULTIMODAL_FT_INK";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtNone = @"GEMINI_MULTIMODAL_FT_NONE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtOther = @"GEMINI_MULTIMODAL_FT_OTHER";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtShutterstock = @"GEMINI_MULTIMODAL_FT_SHUTTERSTOCK";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtUrl = @"GEMINI_MULTIMODAL_FT_URL";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalFtYt = @"GEMINI_MULTIMODAL_FT_YT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiMultimodalIt = @"GEMINI_MULTIMODAL_IT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CanariesShuffledDocjoinEnNonenCodeArxivTranslate = @"GEMINI_V1_CANARIES_SHUFFLED_DOCJOIN_EN_NONEN_CODE_ARXIV_TRANSLATE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsGithubDecontaminatedV7 = @"GEMINI_V1_CMS_GITHUB_DECONTAMINATED_V_7";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsGithubV7 = @"GEMINI_V1_CMS_GITHUB_V7";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackexchangeDecont = @"GEMINI_V1_CMS_STACKEXCHANGE_DECONT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsStackoverflowMultilingualV2 = @"GEMINI_V1_CMS_STACKOVERFLOW_MULTILINGUAL_V2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CmsWikipediaLangFiltered = @"GEMINI_V1_CMS_WIKIPEDIA_LANG_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1CombinedReddit = @"GEMINI_V1_COMBINED_REDDIT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Docjoin100bEnToxicityTaggedGccFixedTags = @"GEMINI_V1_DOCJOIN_100B_EN_TOXICITY_TAGGED_GCC_FIXED_TAGS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop100bAllIndexedGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP100B_ALL_INDEXED_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP10B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop10bTop20bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP10B_TOP20B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsEnTop20bTop100bGccNodedup050523 = @"GEMINI_V1_DOCJOINS_EN_TOP20B_TOP100B_GCC_NODEDUP_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP10B_GCC_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop10bTop20bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP10B_TOP20B_GCC_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1DocjoinsI18nTop20bTop100bGcc050523 = @"GEMINI_V1_DOCJOINS_I18N_TOP20B_TOP100B_GCC_050523";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1FormalMathWithoutHolstepsAndMizar = @"GEMINI_V1_FORMAL_MATH_WITHOUT_HOLSTEPS_AND_MIZAR";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubDiffWithCommitMessageV2 = @"GEMINI_V1_GITHUB_DIFF_WITH_COMMIT_MESSAGE_V2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubHtmlCssXmlV4 = @"GEMINI_V1_GITHUB_HTML_CSS_XML_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubJuptyerNotebooksSstable = @"GEMINI_V1_GITHUB_JUPTYER_NOTEBOOKS_SSTABLE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubLongTailV4 = @"GEMINI_V1_GITHUB_LONG_TAIL_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubOtherV4 = @"GEMINI_V1_GITHUB_OTHER_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1GithubTechdocsV2 = @"GEMINI_V1_GITHUB_TECHDOCS_V2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupEn = @"GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_EN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1NonpubCopyrightBooksV270ConfLongDedupNonen = @"GEMINI_V1_NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_LONG_DEDUP_NONEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1PodcastsRobotstxt = @"GEMINI_V1_PODCASTS_ROBOTSTXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Pubmed = @"GEMINI_V1_PUBMED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Quora = @"GEMINI_V1_QUORA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1SciencePdf68mHqDocsGcc = @"GEMINI_V1_SCIENCE_PDF_68M_HQ_DOCS_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1SimplifiedHtmlV2Gcc = @"GEMINI_V1_SIMPLIFIED_HTML_V2_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1StemBooks650kText = @"GEMINI_V1_STEM_BOOKS_650K_TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1TranslateDatav2AlltiersGccMix = @"GEMINI_V1_TRANSLATE_DATAV2_ALLTIERS_GCC_MIX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1UlmArxivSstable = @"GEMINI_V1_ULM_ARXIV_SSTABLE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mEnPrefixedImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_EN_PREFIXED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCc3mI18nPrefixedImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CC3M_I18N_PREFIXED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresCulturePrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_CULTURE_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresM3wV2Filtered = @"GEMINI_V1_VQCOCA_1B_MULTIRES_M3W_V2_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrEnPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_EN_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresOcrNonEnPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_OCR_NON_EN_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresScreenaiPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_SCREENAI_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresVtp4fVideo2textPrefix = @"GEMINI_V1_VQCOCA_1B_MULTIRES_VTP_4F_VIDEO2TEXT_PREFIX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1Vqcoca1bMultiresWebliEnV4350mPrefixedFilteredImage2text = @"GEMINI_V1_VQCOCA_1B_MULTIRES_WEBLI_EN_V4_350M_PREFIXED_FILTERED_IMAGE2TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1WebMathV2 = @"GEMINI_V1_WEB_MATH_V2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV1WikipediaDiffs = @"GEMINI_V1_WIKIPEDIA_DIFFS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Arxiv2023Compliant = @"GEMINI_V2_ARXIV_2023_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2BiologyTargetedDataCompliant2 = @"GEMINI_V2_BIOLOGY_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tArxivEquationsV2ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_ARXIV_EQUATIONS_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tBiorxivImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_BIORXIV_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCc3mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CC3M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudai3dDocImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_3D_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiDocImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_DOC_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html2dImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_2D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCloudaiTable2html3dImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CLOUDAI_TABLE2HTML_3D_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tCultureImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_CULTURE_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tInfographicsLargeWebImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_INFOGRAPHICS_LARGE_WEB_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM3wWithImageTokensInsertedInterleavedCompliantPiiFilteredSoft = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M3W_WITH_IMAGE_TOKENS_INSERTED_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tM4wInterleavedCompliantPiiFilteredSoft = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_M4W_INTERLEAVED_COMPLIANT_PII_FILTERED_SOFT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathEq2latexImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_EQ2LATEX_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPhotomathIm2solProblemAndSolutionImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PHOTOMATH_IM2SOL_PROBLEM_AND_SOLUTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tPlot2tableV2ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_PLOT2TABLE_V2_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiFullHtml75mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_FULL_HTML_75M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tScreenaiV11ImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SCREENAI_V1_1_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tShutterstockVideoVideoToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SHUTTERSTOCK_VIDEO_VIDEO_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tSpatialAwarePaliImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_SPATIAL_AWARE_PALI_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2EnImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTable2mdV2NonEnImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TABLE2MD_V2_NON_EN_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tTikzDerenderingMergedImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_TIKZ_DERENDERING_MERGED_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliAltTextNonen500mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_ALT_TEXT_NONEN_500M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliDetectionImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_DETECTION_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliEnV4350mT2iTextToImageCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_EN_V4_350M_T2I_TEXT_TO_IMAGE_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrDoc240mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_DOC_240M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWebliOcrI18n680mImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WEBLI_OCR_I18N_680M_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CachedVqcocaMmft17tWikipediaEquationsImageToTextCompliantPiiFiltered = @"GEMINI_V2_CACHED_VQCOCA_MMFT_17T_WIKIPEDIA_EQUATIONS_IMAGE_TO_TEXT_COMPLIANT_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CanariesShuffledCompliant = @"GEMINI_V2_CANARIES_SHUFFLED_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ChemistryTargetedDataCompliant2 = @"GEMINI_V2_CHEMISTRY_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ChessCompliant = @"GEMINI_V2_CHESS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ClmTranslateDatav3WebUnwmtIncrMix = @"GEMINI_V2_CLM_TRANSLATE_DATAV3_WEB_UNWMT_INCR_MIX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsGithubMultiFileForFimGembagzFixedBytesLengths = @"GEMINI_V2_CMS_GITHUB_MULTI_FILE_FOR_FIM_GEMBAGZ_FIXED_BYTES_LENGTHS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsStackexchangeCompliant = @"GEMINI_V2_CMS_STACKEXCHANGE_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsStackoverflowMultilingualV2Compliant = @"GEMINI_V2_CMS_STACKOVERFLOW_MULTILINGUAL_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CmsWikipediaLangFilteredGccPii = @"GEMINI_V2_CMS_WIKIPEDIA_LANG_FILTERED_GCC_PII";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodeContestsCompliant = @"GEMINI_V2_CODE_CONTESTS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2CodewebV1Compliant = @"GEMINI_V2_CODEWEB_V1_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EconomicsV2TargetedDataCompliant2 = @"GEMINI_V2_ECONOMICS_V2_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop100b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP100B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop10b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP10B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop20b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP20B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishArticlesTop500b211123PiiFiltered = @"GEMINI_V2_ENGLISH_ARTICLES_TOP500B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop100b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP100B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop10b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP10B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop20b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP20B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnglishNonarticlesTop500b211123PiiFiltered = @"GEMINI_V2_ENGLISH_NONARTICLES_TOP500B_211123_PII_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2EnNonsciencePdfDedup46mDocsCompliant = @"GEMINI_V2_EN_NONSCIENCE_PDF_DEDUP_46M_DOCS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2FirsttimesSciencePdfDedupHqLengthFilteredCompliant = @"GEMINI_V2_FIRSTTIMES_SCIENCE_PDF_DEDUP_HQ_LENGTH_FILTERED_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2FormalCompliant = @"GEMINI_V2_FORMAL_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2ForumsV2Compliant = @"GEMINI_V2_FORUMS_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop100b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP100B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop10b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP10B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopArticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_ARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsNonenTop20b111323WithoutCjktStopNonarticlesCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_NONEN_TOP20B_111323_WITHOUT_CJKT_STOP_NONARTICLES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GeminiDocjoinsToxicityTaggedFixedTagsCompliant = @"GEMINI_V2_GEMINI_DOCJOINS_TOXICITY_TAGGED_FIXED_TAGS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubDiffsCompliant = @"GEMINI_V2_GITHUB_DIFFS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubEvaledLanguagesCompliant = @"GEMINI_V2_GITHUB_EVALED_LANGUAGES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubLongTailAndStructuredDataCompliant = @"GEMINI_V2_GITHUB_LONG_TAIL_AND_STRUCTURED_DATA_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubLowPriLanguagesAndConfigsCompliant = @"GEMINI_V2_GITHUB_LOW_PRI_LANGUAGES_AND_CONFIGS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubNonEvalHighPriLanguagesCompliant = @"GEMINI_V2_GITHUB_NON_EVAL_HIGH_PRI_LANGUAGES_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubPythonNotebooksCompliant = @"GEMINI_V2_GITHUB_PYTHON_NOTEBOOKS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GithubTechdocsCompliant = @"GEMINI_V2_GITHUB_TECHDOCS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2GoaldmineXlGeneratedPlusGtNoDmMathCompliant = @"GEMINI_V2_GOALDMINE_XL_GENERATED_PLUS_GT_NO_DM_MATH_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2HighQualityCodeTargetedDataCompliant2 = @"GEMINI_V2_HIGH_QUALITY_CODE_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2LeetcodeGccPii = @"GEMINI_V2_LEETCODE_GCC_PII";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MachineLearningTargetedDataCompliant2 = @"GEMINI_V2_MACHINE_LEARNING_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MathTargetedDataCompliant2 = @"GEMINI_V2_MATH_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2MedicalTargetedDataCompliant2 = @"GEMINI_V2_MEDICAL_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NonpubCopyrightBooksV370Conf082323LongDedupEnonlyCompliant = @"GEMINI_V2_NONPUB_COPYRIGHT_BOOKS_V3_70_CONF_082323_LONG_DEDUP_ENONLY_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlNtlv4aMonolingualDedupN5 = @"GEMINI_V2_NTL_NTLV4A_MONOLINGUAL_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSttTranslateDedupN5 = @"GEMINI_V2_NTL_STT_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSynBtTranslateDedupN5 = @"GEMINI_V2_NTL_SYN_BT_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlSynFtFixedTranslateDedupN5 = @"GEMINI_V2_NTL_SYN_FT_FIXED_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2NtlTranslitBilexTranslateDedupN5 = @"GEMINI_V2_NTL_TRANSLIT_BILEX_TRANSLATE_DEDUP_N5";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PhysicsV2TargetedDataCompliant2 = @"GEMINI_V2_PHYSICS_V2_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PodcastsCompliant = @"GEMINI_V2_PODCASTS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2PubmedCompliant = @"GEMINI_V2_PUBMED_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2QaTargetedDataCompliant2 = @"GEMINI_V2_QA_TARGETED_DATA_COMPLIANT2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2QuoraCompliant = @"GEMINI_V2_QUORA_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SciencePdf68mHqDocsDedupCompliantCleanTex = @"GEMINI_V2_SCIENCE_PDF_68M_HQ_DOCS_DEDUP_COMPLIANT_CLEAN_TEX";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SciencewebV0GccPii = @"GEMINI_V2_SCIENCEWEB_V0_GCC_PII";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2SimplifiedHtmlV2CorrectFormatCompliant = @"GEMINI_V2_SIMPLIFIED_HTML_V2_CORRECT_FORMAT_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemBooks318kTextCompliant = @"GEMINI_V2_STEM_BOOKS_318K_TEXT_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2StemCopyrightBooksV3111823LongDedupEnonlyCompliant = @"GEMINI_V2_STEM_COPYRIGHT_BOOKS_V3_111823_LONG_DEDUP_ENONLY_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveEnusGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_ENUS_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5PodiosetInterleaveI18nGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_PODIOSET_INTERLEAVE_I18N_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsr4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtAsrSupGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_ASR_SUP_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleave1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveHead4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_HEAD_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceEnusGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_ENUS_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtInterleaveScienceI18nGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_INTERLEAVE_SCIENCE_I18N_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts1p5mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_1P5M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTts4mGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_4M_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2Usm2bMlpv5YtTtsSupGembagzV2Compliant = @"GEMINI_V2_USM2B_MLPV5_YT_TTS_SUP_GEMBAGZ_V2_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WebMathV3Compliant = @"GEMINI_V2_WEB_MATH_V3_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WebPolymathV1Compliant = @"GEMINI_V2_WEB_POLYMATH_V1_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2WikipediaDiffsCompliant = @"GEMINI_V2_WIKIPEDIA_DIFFS_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GeminiV2YoutubeScienceV4FilteredCompliant = @"GEMINI_V2_YOUTUBE_SCIENCE_V4_FILTERED_COMPLIANT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GemitBridgeSuffixFt = @"GEMIT_BRIDGE_SUFFIX_FT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GenesisNewsInsights = @"GENESIS_NEWS_INSIGHTS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubDiffsWithCommitMessage = @"GITHUB_DIFFS_WITH_COMMIT_MESSAGE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubHtmlV4 = @"GITHUB_HTML_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubLongTailV4 = @"GITHUB_LONG_TAIL_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirror = @"GITHUB_MIRROR";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirrorV101 = @"GITHUB_MIRROR_V1_0_1";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubMirrorV210 = @"GITHUB_MIRROR_V2_1_0";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GithubOtherV4 = @"GITHUB_OTHER_V4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Gnews = @"GNEWS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Books = @"GOODALL_MTV5_BOOKS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5C4 = @"GOODALL_MTV5_C4";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Github = @"GOODALL_MTV5_GITHUB";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMtv5Wikipedia = @"GOODALL_MTV5_WIKIPEDIA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwStackExchange = @"GOODALL_MW_STACK_EXCHANGE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop010b = @"GOODALL_MW_TOP_0_10B";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop100b = @"GOODALL_MW_TOP_100B";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_GoodallMwTop10b20b = @"GOODALL_MW_TOP_10B_20B";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Hol4Theories = @"HOL4_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_HolLightTheories = @"HOL_LIGHT_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Holsteps = @"HOLSTEPS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_IsabelleStep = @"ISABELLE_STEP";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_IsabelleTheories = @"ISABELLE_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaDeleware = @"LABS_AQA_DELEWARE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaDscout = @"LABS_AQA_DSCOUT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LabsAqaTailwind = @"LABS_AQA_TAILWIND";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityE2eQueryGeneration = @"LAMDA_FACTUALITY_E2E_QUERY_GENERATION";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityE2eResponseGeneration = @"LAMDA_FACTUALITY_E2E_RESPONSE_GENERATION";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaFactualityTrigger = @"LAMDA_FACTUALITY_TRIGGER";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaSafetyV2SchemaNoBroadcast = @"LAMDA_SAFETY_V2_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LamdaSsiDiscriminative = @"LAMDA_SSI_DISCRIMINATIVE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LeanMathlibTheories = @"LEAN_MATHLIB_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_LeanStep = @"LEAN_STEP";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredBard = @"MASSIVE_FORUM_THREAD_SCORED_BARD";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredLong200 = @"MASSIVE_FORUM_THREAD_SCORED_LONG_200";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MassiveForumThreadScoredLong500 = @"MASSIVE_FORUM_THREAD_SCORED_LONG_500";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Math = @"MATH";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MathReasoning = @"MATH_REASONING";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaFc = @"MEENA_FC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResearchPhaseGoldenMarkdown = @"MEENA_RESEARCH_PHASE_GOLDEN_MARKDOWN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResearchPhaseGooglers = @"MEENA_RESEARCH_PHASE_GOOGLERS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyHumanGen = @"MEENA_RESPONSE_SAFETY_HUMAN_GEN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetySchemaNoBroadcast = @"MEENA_RESPONSE_SAFETY_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyV3HumanGen2 = @"MEENA_RESPONSE_SAFETY_V3_HUMAN_GEN2";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MeenaResponseSafetyV3SchemaNoBroadcast = @"MEENA_RESPONSE_SAFETY_V3_SCHEMA_NO_BROADCAST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MizarTheories = @"MIZAR_THEORIES";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MobileAssistantMagiFiltered0825373k = @"MOBILE_ASSISTANT_MAGI_FILTERED_0825_373K";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_MobileAssistantPalm24bFiltered400k = @"MOBILE_ASSISTANT_PALM24B_FILTERED_400K";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupEnonly = @"NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_ENONLY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_NonpubCopyrightBooksV270Conf040623LongDedupNonenonly = @"NONPUB_COPYRIGHT_BOOKS_V2_70_CONF_040623_LONG_DEDUP_NONENONLY";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Podcast = @"PODCAST";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_PodcastFinetuneDialog = @"PODCAST_FINETUNE_DIALOG";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_PodcastsRobotstxt = @"PODCASTS_ROBOTSTXT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Pubmed = @"PUBMED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Quora = @"QUORA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_SciencePdf70mDocsFiltered = @"SCIENCE_PDF_70M_DOCS_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_SimplifiedHtmlV1Gcc = @"SIMPLIFIED_HTML_V1_GCC";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_TechdocsDataSource = @"TECHDOCS_DATA_SOURCE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmArxiv = @"ULM_ARXIV";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoins = @"ULM_DOCJOINS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsDeduped = @"ULM_DOCJOINS_DEDUPED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsEn = @"ULM_DOCJOINS_WITH_URLS_EN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_UlmDocjoinsWithUrlsI18n = @"ULM_DOCJOINS_WITH_URLS_I18N";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_VertexSafeFlan = @"VERTEX_SAFE_FLAN";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WebAsr = @"WEB_ASR";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Webdocs = @"WEBDOCS";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WebdocsFinetune = @"WEBDOCS_FINETUNE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_Wikipedia = @"WIKIPEDIA";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_AttributionDataset_WorldQueryGenerator = @"WORLD_QUERY_GENERATOR";
-
-// GTLRAiplatform_LearningGenaiRecitationSegmentResult.segmentRecitationAction
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_ActionUnspecified = @"ACTION_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_Block = @"BLOCK";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_Cite = @"CITE";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_ExemptFoundInPrompt = @"EXEMPT_FOUND_IN_PROMPT";
-NSString * const kGTLRAiplatform_LearningGenaiRecitationSegmentResult_SegmentRecitationAction_NoAction = @"NO_ACTION";
-
-// GTLRAiplatform_LearningGenaiRootCalculationType.scoreType
-NSString * const kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeGeneration = @"TYPE_GENERATION";
-NSString * const kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypePolicy = @"TYPE_POLICY";
-NSString * const kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeSafe = @"TYPE_SAFE";
-NSString * const kGTLRAiplatform_LearningGenaiRootCalculationType_ScoreType_TypeUnknown = @"TYPE_UNKNOWN";
-
-// GTLRAiplatform_LearningGenaiRootFilterMetadata.confidence
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceHigh = @"FILTER_CONFIDENCE_HIGH";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceLow = @"FILTER_CONFIDENCE_LOW";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceMedium = @"FILTER_CONFIDENCE_MEDIUM";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceUnknown = @"FILTER_CONFIDENCE_UNKNOWN";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceVeryHigh = @"FILTER_CONFIDENCE_VERY_HIGH";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Confidence_FilterConfidenceVeryLow = @"FILTER_CONFIDENCE_VERY_LOW";
-
-// GTLRAiplatform_LearningGenaiRootFilterMetadata.reason
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlas = @"FILTER_REASON_ATLAS";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasAwsAzureRelated = @"FILTER_REASON_ATLAS_AWS_AZURE_RELATED";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasBilling = @"FILTER_REASON_ATLAS_BILLING";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasNonEnglishQuestion = @"FILTER_REASON_ATLAS_NON_ENGLISH_QUESTION";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasNotRelatedToGcp = @"FILTER_REASON_ATLAS_NOT_RELATED_TO_GCP";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonAtlasPricing = @"FILTER_REASON_ATLAS_PRICING";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonClassifier = @"FILTER_REASON_CLASSIFIER";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonCodey = @"FILTER_REASON_CODEY";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonEmail = @"FILTER_REASON_EMAIL";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonEmptyResponse = @"FILTER_REASON_EMPTY_RESPONSE";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonLanguage = @"FILTER_REASON_LANGUAGE";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonNotFiltered = @"FILTER_REASON_NOT_FILTERED";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonPairwiseClassifier = @"FILTER_REASON_PAIRWISE_CLASSIFIER";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiContextualDangerous = @"FILTER_REASON_RAI_CONTEXTUAL_DANGEROUS";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiCsam = @"FILTER_REASON_RAI_CSAM";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiFringe = @"FILTER_REASON_RAI_FRINGE";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiGrailImage = @"FILTER_REASON_RAI_GRAIL_IMAGE";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiGrailText = @"FILTER_REASON_RAI_GRAIL_TEXT";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImageCsam = @"FILTER_REASON_RAI_IMAGE_CSAM";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImagePedo = @"FILTER_REASON_RAI_IMAGE_PEDO";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImagePorn = @"FILTER_REASON_RAI_IMAGE_PORN";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiImageViolence = @"FILTER_REASON_RAI_IMAGE_VIOLENCE";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiPqc = @"FILTER_REASON_RAI_PQC";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiSafetycat = @"FILTER_REASON_RAI_SAFETYCAT";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiSpii = @"FILTER_REASON_RAI_SPII";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFrameCsam = @"FILTER_REASON_RAI_VIDEO_FRAME_CSAM";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFramePedo = @"FILTER_REASON_RAI_VIDEO_FRAME_PEDO";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFramePorn = @"FILTER_REASON_RAI_VIDEO_FRAME_PORN";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRaiVideoFrameViolence = @"FILTER_REASON_RAI_VIDEO_FRAME_VIOLENCE";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRecitation = @"FILTER_REASON_RECITATION";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonRequestResponseTakedown = @"FILTER_REASON_REQUEST_RESPONSE_TAKEDOWN";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSafetyCat = @"FILTER_REASON_SAFETY_CAT";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSensitive = @"FILTER_REASON_SENSITIVE";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonSimilarityTakedown = @"FILTER_REASON_SIMILARITY_TAKEDOWN";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonTakedown = @"FILTER_REASON_TAKEDOWN";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonToxicity = @"FILTER_REASON_TOXICITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUnknown = @"FILTER_REASON_UNKNOWN";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUnsafe = @"FILTER_REASON_UNSAFE";
-NSString * const kGTLRAiplatform_LearningGenaiRootFilterMetadata_Reason_FilterReasonUrl = @"FILTER_REASON_URL";
-
-// GTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType.imageHarmType
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeCsai = @"IMAGE_HARM_TYPE_CSAI";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeDangerous = @"IMAGE_HARM_TYPE_DANGEROUS";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeGenerativeMinorPresence = @"IMAGE_HARM_TYPE_GENERATIVE_MINOR_PRESENCE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeGenerativeRealisticVisibleFace = @"IMAGE_HARM_TYPE_GENERATIVE_REALISTIC_VISIBLE_FACE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeMedical = @"IMAGE_HARM_TYPE_MEDICAL";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeMinorPresence = @"IMAGE_HARM_TYPE_MINOR_PRESENCE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeMinors = @"IMAGE_HARM_TYPE_MINORS";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeObscene = @"IMAGE_HARM_TYPE_OBSCENE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypePedo = @"IMAGE_HARM_TYPE_PEDO";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypePorn = @"IMAGE_HARM_TYPE_PORN";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeRacy = @"IMAGE_HARM_TYPE_RACY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeUnspecified = @"IMAGE_HARM_TYPE_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType_ImageHarmType_ImageHarmTypeViolence = @"IMAGE_HARM_TYPE_VIOLENCE";
-
-// GTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType.harmType
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeCsai = @"HARM_TYPE_CSAI";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeFringe = @"HARM_TYPE_FRINGE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeHarassment = @"HARM_TYPE_HARASSMENT";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeHate = @"HARM_TYPE_HATE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeMedical = @"HARM_TYPE_MEDICAL";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeMemorization = @"HARM_TYPE_MEMORIZATION";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeNewDangerous = @"HARM_TYPE_NEW_DANGEROUS";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypePolitical = @"HARM_TYPE_POLITICAL";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeSexual = @"HARM_TYPE_SEXUAL";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeSpii = @"HARM_TYPE_SPII";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeToxicity = @"HARM_TYPE_TOXICITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeUnspecified = @"HARM_TYPE_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType_HarmType_HarmTypeViolence = @"HARM_TYPE_VIOLENCE";
-
-// GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories.categories
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Dangerous = @"DANGEROUS";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_DangerousSeverity = @"DANGEROUS_SEVERITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_DeathHarmTragedy = @"DEATH_HARM_TRAGEDY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Drugs = @"DRUGS";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Finance = @"FINANCE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_FirearmsWeapons = @"FIREARMS_WEAPONS";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_HarassmentSeverity = @"HARASSMENT_SEVERITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_HateSeverity = @"HATE_SEVERITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Health = @"HEALTH";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_IdentityHate = @"IDENTITY_HATE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Insult = @"INSULT";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Legal = @"LEGAL";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Obscene = @"OBSCENE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Politics = @"POLITICS";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_PublicSafety = @"PUBLIC_SAFETY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_ReligionBelief = @"RELIGION_BELIEF";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_SafetycatCategoryUnspecified = @"SAFETYCAT_CATEGORY_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Sexual = @"SEXUAL";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_SexualSeverity = @"SEXUAL_SEVERITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_Toxicity = @"TOXICITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_ViolenceAbuse = @"VIOLENCE_ABUSE";
-NSString * const kGTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories_Categories_WarConflict = @"WAR_CONFLICT";
-
-// GTLRAiplatform_LearningGenaiRootRuleOutput.decision
-NSString * const kGTLRAiplatform_LearningGenaiRootRuleOutput_Decision_Match = @"MATCH";
-NSString * const kGTLRAiplatform_LearningGenaiRootRuleOutput_Decision_NoMatch = @"NO_MATCH";
-
-// GTLRAiplatform_LearningGenaiRootThresholdType.scoreType
-NSString * const kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeGeneration = @"TYPE_GENERATION";
-NSString * const kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypePolicy = @"TYPE_POLICY";
-NSString * const kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeSafe = @"TYPE_SAFE";
-NSString * const kGTLRAiplatform_LearningGenaiRootThresholdType_ScoreType_TypeUnknown = @"TYPE_UNKNOWN";
-
-// GTLRAiplatform_LearningGenaiRootToxicitySignal.label
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_AccidentsDisasters = @"ACCIDENTS_DISASTERS";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Adult = @"ADULT";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ComputerSecurity = @"COMPUTER_SECURITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ControversialSocialIssues = @"CONTROVERSIAL_SOCIAL_ISSUES";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_DeathTragedy = @"DEATH_TRAGEDY";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Drugs = @"DRUGS";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_FinancialHardship = @"FINANCIAL_HARDSHIP";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_FirearmsWeapons = @"FIREARMS_WEAPONS";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Health = @"HEALTH";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_IdentityEthnicity = @"IDENTITY_ETHNICITY";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Insult = @"INSULT";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_LabelUnspecified = @"LABEL_UNSPECIFIED";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Legal = @"LEGAL";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_MentalHealth = @"MENTAL_HEALTH";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_NotSensitive = @"NOT_SENSITIVE";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Politics = @"POLITICS";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ReligionBeliefs = @"RELIGION_BELIEFS";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Safety = @"SAFETY";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_SelfHarm = @"SELF_HARM";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Sensitive = @"SENSITIVE";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_SpecialNeeds = @"SPECIAL_NEEDS";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Terrorism = @"TERRORISM";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Toxic = @"TOXIC";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_TroubledRelationship = @"TROUBLED_RELATIONSHIP";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_ViolenceAbuse = @"VIOLENCE_ABUSE";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_Vulgar = @"VULGAR";
-NSString * const kGTLRAiplatform_LearningGenaiRootToxicitySignal_Label_WarConflict = @"WAR_CONFLICT";
-
-// GTLRAiplatform_LearningServingLlmMessageMetadata.finishReason
-NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Filter = @"FILTER";
-NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_MaxTokens = @"MAX_TOKENS";
-NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Return = @"RETURN";
-NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Stop = @"STOP";
-NSString * const kGTLRAiplatform_LearningServingLlmMessageMetadata_FinishReason_Unspecified = @"UNSPECIFIED";
-
-// GTLRAiplatform_NlpSaftLangIdResult.modelVersion
-NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20181017 = @"INDEXING_20181017";
-NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20191206 = @"INDEXING_20191206";
-NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20200313 = @"INDEXING_20200313";
-NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Indexing20210618 = @"INDEXING_20210618";
-NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_Standard20220516 = @"STANDARD_20220516";
-NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspecified = @"VERSION_UNSPECIFIED";
+// GTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata.urlRetrievalStatus
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrievalStatus_UrlRetrievalStatusError = @"URL_RETRIEVAL_STATUS_ERROR";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrievalStatus_UrlRetrievalStatusSuccess = @"URL_RETRIEVAL_STATUS_SUCCESS";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrievalStatus_UrlRetrievalStatusUnspecified = @"URL_RETRIEVAL_STATUS_UNSPECIFIED";
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiLargeModelsVisionEmbedVideoResponse
-//
-
-@implementation GTLRAiplatform_CloudAiLargeModelsVisionEmbedVideoResponse
-@dynamic videoEmbeddings;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"videoEmbeddings" : [NSObject class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiLargeModelsVisionFilteredText
-//
-
-@implementation GTLRAiplatform_CloudAiLargeModelsVisionFilteredText
-@dynamic category, confidence, prompt, score;
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -2331,16 +1043,27 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoResponse
 @dynamic generatedSamples, raiMediaFilteredCount, raiMediaFilteredReasons,
-         raiTextFilteredReason;
+         videos;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"generatedSamples" : [GTLRAiplatform_CloudAiLargeModelsVisionMedia class],
-    @"raiMediaFilteredReasons" : [NSString class]
+    @"raiMediaFilteredReasons" : [NSString class],
+    @"videos" : [GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoResponseVideo class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoResponseVideo
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionGenerateVideoResponseVideo
+@dynamic bytesBase64Encoded, gcsUri, mimeType;
 @end
 
 
@@ -2350,7 +1073,18 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionImage
-@dynamic encoding, image, imageRaiScores, raiInfo, semanticFilterResponse, uri;
+@dynamic encoding, generationSeed, image, imageRaiScores, imageSize, raiInfo,
+         semanticFilterResponse, text, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_CloudAiLargeModelsVisionImageImageSize
+//
+
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionImageImageSize
+@dynamic channels, height, width;
 @end
 
 
@@ -2371,16 +1105,6 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionMedia
 @dynamic image, video;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiLargeModelsVisionMediaGenerateContentResponse
-//
-
-@implementation GTLRAiplatform_CloudAiLargeModelsVisionMediaGenerateContentResponse
-@dynamic response;
 @end
 
 
@@ -2410,10 +1134,12 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionRaiInfo
-@dynamic raiCategories, scores;
+@dynamic blockedEntities, detectedLabels, modelName, raiCategories, scores;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"blockedEntities" : [NSString class],
+    @"detectedLabels" : [GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabels class],
     @"raiCategories" : [NSString class],
     @"scores" : [NSNumber class]
   };
@@ -2425,15 +1151,15 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAiplatform_CloudAiLargeModelsVisionReasonVideoResponse
+//   GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabels
 //
 
-@implementation GTLRAiplatform_CloudAiLargeModelsVisionReasonVideoResponse
-@dynamic responses;
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabels
+@dynamic entities, raiCategory;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"responses" : [GTLRAiplatform_CloudAiLargeModelsVisionReasonVideoResponseTextResponse class]
+    @"entities" : [GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabelsEntity class]
   };
   return map;
 }
@@ -2443,21 +1169,26 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAiplatform_CloudAiLargeModelsVisionReasonVideoResponseTextResponse
+//   GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabelsBoundingBox
 //
 
-@implementation GTLRAiplatform_CloudAiLargeModelsVisionReasonVideoResponseTextResponse
-@dynamic relativeTemporalPartition, text;
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabelsBoundingBox
+@dynamic x1, x2, y1, y2;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAiplatform_CloudAiLargeModelsVisionRelativeTemporalPartition
+//   GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabelsEntity
 //
 
-@implementation GTLRAiplatform_CloudAiLargeModelsVisionRelativeTemporalPartition
-@dynamic endOffset, startOffset;
+@implementation GTLRAiplatform_CloudAiLargeModelsVisionRaiInfoDetectedLabelsEntity
+@dynamic boundingBox, descriptionProperty, iouScore, mid, score;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -2485,297 +1216,17 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_CloudAiLargeModelsVisionVideo
-@dynamic uri, video;
+@dynamic encodedVideo, encoding, text, uri, video;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceCandidate
+//   GTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail
 //
 
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceCandidate
-@dynamic citationMetadata, content, finishMessage, finishReason,
-         groundingMetadata, index, safetyRatings;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"safetyRatings" : [GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceCitation
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceCitation
-@dynamic endIndex, license, publicationDate, startIndex, title, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceCitationMetadata
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceCitationMetadata
-@dynamic citations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"citations" : [GTLRAiplatform_CloudAiNlLlmProtoServiceCitation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceContent
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceContent
-@dynamic parts, role;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"parts" : [GTLRAiplatform_CloudAiNlLlmProtoServicePart class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceFact
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceFact
-@dynamic query, summary, title, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionCall
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionCall
-@dynamic args, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionCall_Args
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionCall_Args
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionResponse
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionResponse
-@dynamic name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionResponse_Response
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceFunctionResponse_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceGenerateMultiModalResponse
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceGenerateMultiModalResponse
-@dynamic candidates, debugMetadata, facts, promptFeedback, reportingMetrics,
-         usageMetadata;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"candidates" : [GTLRAiplatform_CloudAiNlLlmProtoServiceCandidate class],
-    @"facts" : [GTLRAiplatform_CloudAiNlLlmProtoServiceFact class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceMessageMetadata
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceMessageMetadata
-@dynamic inputFilterInfo, modelRoutingDecision, outputFilterInfo;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"outputFilterInfo" : [GTLRAiplatform_LearningServingLlmMessageMetadata class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServicePart
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServicePart
-@dynamic fileData, functionCall, functionResponse, inlineData, text,
-         videoMetadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServicePartBlob
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServicePartBlob
-@dynamic data, mimeType, originalFileData;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServicePartFileData
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServicePartFileData
-@dynamic fileUri, mimeType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadata
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServicePartVideoMetadata
-@dynamic endOffset, startOffset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServicePromptFeedback
-@dynamic blockReason, blockReasonMessage, safetyRatings;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"safetyRatings" : [GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceRaiResult
-@dynamic aidaRecitationResult, blocked, errorCodes, filtered,
-         languageFilterResult, raiSignals, triggeredBlocklist,
-         triggeredRecitation, triggeredSafetyFilter;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"errorCodes" : [NSNumber class],
-    @"raiSignals" : [GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceRaiSignal
-@dynamic confidence, flagged, raiCategory, score;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRating
-@dynamic blocked, category, influentialTerms, probability, probabilityScore,
-         severity, severityScore;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"influentialTerms" : [GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceSafetyRatingInfluentialTerm
-@dynamic beginOffset, confidence, source, term;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_CloudAiNlLlmProtoServiceUsageMetadata
-//
-
-@implementation GTLRAiplatform_CloudAiNlLlmProtoServiceUsageMetadata
-@dynamic candidatesTokenCount, promptTokenCount, totalTokenCount;
+@implementation GTLRAiplatform_CloudAiPlatformCommonCreatePipelineJobApiErrorDetail
+@dynamic errorCause, publicMessage;
 @end
 
 
@@ -2960,6 +1411,26 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ApiAuth
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ApiAuth
+@dynamic apiKeyConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ApiAuthApiKeyConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ApiAuthApiKeyConfig
+@dynamic apiKeySecretVersion, apiKeyString;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Artifact
 //
 
@@ -3047,11 +1518,129 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptRequest
+@dynamic contents, model, vertexRagStore;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptRequestModel
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptRequestModel
+@dynamic model, modelVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AugmentPromptResponse
+@dynamic augmentedPrompt, facts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"augmentedPrompt" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class],
+    @"facts" : [GTLRAiplatform_GoogleCloudAiplatformV1Fact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfig
+@dynamic apiKeyConfig, authType, googleServiceAccountConfig,
+         httpBasicAuthConfig, oauthConfig, oidcConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigApiKeyConfig
+@dynamic apiKeySecret, apiKeyString, httpElementLocation, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigGoogleServiceAccountConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigGoogleServiceAccountConfig
+@dynamic serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigHttpBasicAuthConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigHttpBasicAuthConfig
+@dynamic credentialSecret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOauthConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOauthConfig
+@dynamic accessToken, serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOidcConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AuthConfigOidcConfig
+@dynamic idToken, serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1AutomaticResources
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1AutomaticResources
 @dynamic maxReplicaCount, minReplicaCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1AutoraterConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1AutoraterConfig
+@dynamic autoraterModel, flipEnabled, samplingCount;
 @end
 
 
@@ -3072,6 +1661,24 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1AvroSource
 @dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BatchCancelPipelineJobsRequest
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3200,6 +1807,24 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1BatchDedicatedResources
 @dynamic machineSpec, maxReplicaCount, startingReplicaCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BatchDeletePipelineJobsRequest
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3342,8 +1967,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
          explanationSpec, generateExplanation, inputConfig, instanceConfig,
          labels, manualBatchTuningParameters, model, modelParameters,
          modelVersionId, name, outputConfig, outputInfo, partialFailures,
-         resourcesConsumed, serviceAccount, startTime, state,
-         unmanagedContainerModel, updateTime;
+         resourcesConsumed, satisfiesPzi, satisfiesPzs, serviceAccount,
+         startTime, state, unmanagedContainerModel, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3525,11 +2150,77 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1BleuInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BleuInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1BleuInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BleuInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BleuInstance
+@dynamic prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BleuMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BleuMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BleuResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BleuResults
+@dynamic bleuMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bleuMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1BleuMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1BleuSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1BleuSpec
+@dynamic useEffectiveOrder;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Blob
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Blob
-@dynamic data, mimeType;
+@dynamic data, displayName, mimeType;
 @end
 
 
@@ -3558,6 +2249,48 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CacheConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CacheConfig
+@dynamic disableCache, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CachedContent
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CachedContent
+@dynamic contents, createTime, displayName, encryptionSpec, expireTime, model,
+         name, systemInstruction, toolConfig, tools, ttl, updateTime,
+         usageMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class],
+    @"tools" : [GTLRAiplatform_GoogleCloudAiplatformV1Tool class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CachedContentUsageMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CachedContentUsageMetadata
+@dynamic audioDurationSeconds, imageCount, textCount, totalTokenCount,
+         videoDurationSeconds;
 @end
 
 
@@ -3626,12 +2359,22 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1CancelTuningJobRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CancelTuningJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Candidate
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Candidate
-@dynamic citationMetadata, content, finishMessage, finishReason,
-         groundingMetadata, index, safetyRatings;
+@dynamic avgLogprobs, citationMetadata, content, finishMessage, finishReason,
+         groundingMetadata, index, logprobsResult, safetyRatings,
+         urlContextMetadata;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3640,6 +2383,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Checkpoint
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Checkpoint
+@dynamic checkpointId, epoch, step;
 @end
 
 
@@ -3702,6 +2455,139 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1Claim
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Claim
+@dynamic endIndex, factIndexes, score, startIndex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"factIndexes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ClientConnectionConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ClientConnectionConfig
+@dynamic inferenceTimeout;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CodeExecutionResult
+@dynamic outcome, output;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CoherenceInstance
+@dynamic prediction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CoherenceResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CoherenceResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CoherenceSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CoherenceSpec
+@dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ColabImage
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ColabImage
+@dynamic descriptionProperty, releaseName;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CometInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CometInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CometInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CometInstance
+@dynamic prediction, reference, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CometResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CometResult
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CometSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CometSpec
+@dynamic sourceLanguage, targetLanguage, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1CompleteTrialRequest
 //
 
@@ -3727,10 +2613,11 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1ComputeTokensRequest
-@dynamic instances;
+@dynamic contents, instances, model;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class],
     @"instances" : [NSObject class]
   };
   return map;
@@ -3798,6 +2685,48 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"parts" : [GTLRAiplatform_GoogleCloudAiplatformV1Part class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ContentMap
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ContentMap
+@dynamic values;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ContentMap_Values
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ContentMap_Values
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAiplatform_GoogleCloudAiplatformV1ContentMapContents class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ContentMapContents
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ContentMapContents
+@dynamic contents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class]
   };
   return map;
 }
@@ -3892,16 +2821,73 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1CorpusStatus
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CorpusStatus
+@dynamic errorStatus, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentRequest
+@dynamic content, facts, parameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facts" : [GTLRAiplatform_GoogleCloudAiplatformV1Fact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentRequestParameters
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentRequestParameters
+@dynamic citationThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CorroborateContentResponse
+@dynamic claims, corroborationScore;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"claims" : [GTLRAiplatform_GoogleCloudAiplatformV1Claim class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CountTokensRequest
-@dynamic contents, instances, model;
+@dynamic contents, generationConfig, instances, model, systemInstruction, tools;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"contents" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class],
-    @"instances" : [NSObject class]
+    @"instances" : [NSObject class],
+    @"tools" : [GTLRAiplatform_GoogleCloudAiplatformV1Tool class]
   };
   return map;
 }
@@ -3915,7 +2901,15 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CountTokensResponse
-@dynamic totalBillableCharacters, totalTokens;
+@dynamic promptTokensDetails, totalBillableCharacters, totalTokens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"promptTokensDetails" : [GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3965,7 +2959,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CreateEndpointOperationMetadata
-@dynamic genericMetadata;
+@dynamic deploymentStage, genericMetadata;
 @end
 
 
@@ -4071,11 +3065,41 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobOperationMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobOperationMetadata
+@dynamic genericMetadata, progressMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookExecutionJobRequest
+@dynamic notebookExecutionJob, notebookExecutionJobId, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookRuntimeTemplateOperationMetadata
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CreateNotebookRuntimeTemplateOperationMetadata
 @dynamic genericMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CreatePersistentResourceOperationMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CreatePersistentResourceOperationMetadata
+@dynamic genericMetadata, progressMessage;
 @end
 
 
@@ -4166,7 +3190,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CustomJob
 @dynamic createTime, displayName, encryptionSpec, endTime, error, jobSpec,
-         labels, name, startTime, state, updateTime, webAccessUris;
+         labels, name, satisfiesPzi, satisfiesPzs, startTime, state, updateTime,
+         webAccessUris;
 @end
 
 
@@ -4205,9 +3230,9 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CustomJobSpec
 @dynamic baseOutputDirectory, enableDashboardAccess, enableWebAccess,
-         experiment, experimentRun, models, network,
-         protectedArtifactLocationId, reservedIpRanges, scheduling,
-         serviceAccount, tensorboard, workerPoolSpecs;
+         experiment, experimentRun, models, network, persistentResourceId,
+         protectedArtifactLocationId, pscInterfaceConfig, reservedIpRanges,
+         scheduling, serviceAccount, tensorboard, workerPoolSpecs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4223,11 +3248,32 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1CustomOutput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CustomOutput
+@dynamic rawOutputs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1CustomOutputFormatConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1CustomOutputFormatConfig
+@dynamic returnRawOutput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1DataItem
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DataItem
-@dynamic createTime, ETag, labels, name, payload, updateTime;
+@dynamic createTime, ETag, labels, name, payload, satisfiesPzi, satisfiesPzs,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -4326,7 +3372,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Dataset
 @dynamic createTime, dataItemCount, descriptionProperty, displayName,
          encryptionSpec, ETag, labels, metadata, metadataArtifact,
-         metadataSchemaUri, name, savedQueries, updateTime;
+         metadataSchemaUri, modelReference, name, satisfiesPzi, satisfiesPzs,
+         savedQueries, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4366,7 +3413,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DatasetVersion
-@dynamic bigQueryDatasetName, createTime, ETag, name, updateTime;
+@dynamic bigQueryDatasetName, createTime, displayName, ETag, metadata,
+         modelReference, name, satisfiesPzi, satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -4381,7 +3429,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DedicatedResources
-@dynamic autoscalingMetricSpecs, machineSpec, maxReplicaCount, minReplicaCount;
+@dynamic autoscalingMetricSpecs, machineSpec, maxReplicaCount, minReplicaCount,
+         requiredReplicaCount, spot;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4491,9 +3540,10 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployedIndex
 @dynamic automaticResources, createTime, dedicatedResources,
-         deployedIndexAuthConfig, deploymentGroup, displayName,
-         enableAccessLogging, identifier, index, indexSyncTime,
-         privateEndpoints, reservedIpRanges;
+         deployedIndexAuthConfig, deploymentGroup, deploymentTier, displayName,
+         enableAccessLogging, enableDatapointUpsertLogging, identifier, index,
+         indexSyncTime, privateEndpoints, pscAutomationConfigs,
+         reservedIpRanges;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -4501,6 +3551,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"pscAutomationConfigs" : [GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig class],
     @"reservedIpRanges" : [NSString class]
   };
   return map;
@@ -4554,13 +3605,29 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployedModel
-@dynamic automaticResources, createTime, dedicatedResources,
-         disableContainerLogging, displayName, enableAccessLogging,
-         explanationSpec, identifier, model, modelVersionId, privateEndpoints,
-         serviceAccount, sharedResources;
+@dynamic automaticResources, checkpointId, createTime, dedicatedResources,
+         disableContainerLogging, disableExplanations, displayName,
+         enableAccessLogging, explanationSpec, fasterDeploymentConfig,
+         gdcConnectedModel, identifier, model, modelVersionId, privateEndpoints,
+         serviceAccount, sharedResources, speculativeDecodingSpec, status,
+         systemLabels;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployedModel_SystemLabels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployedModel_SystemLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -4572,7 +3639,17 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployedModelRef
-@dynamic deployedModelId, endpoint;
+@dynamic checkpointId, deployedModelId, endpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployedModelStatus
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployedModelStatus
+@dynamic availableReplicaCount, lastUpdateTime, message;
 @end
 
 
@@ -4612,7 +3689,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeploymentResourcePool
-@dynamic createTime, dedicatedResources, name;
+@dynamic createTime, dedicatedResources, disableContainerLogging,
+         encryptionSpec, name, satisfiesPzi, satisfiesPzs, serviceAccount;
 @end
 
 
@@ -4622,7 +3700,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployModelOperationMetadata
-@dynamic genericMetadata;
+@dynamic deploymentStage, genericMetadata;
 @end
 
 
@@ -4657,6 +3735,83 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployModelResponse
 @dynamic deployedModel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployOperationMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployOperationMetadata
+@dynamic destination, genericMetadata, modelId, projectNumber, publisherModel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployRequest
+@dynamic deployConfig, endpointConfig, huggingFaceModelId, modelConfig,
+         publisherModelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestDeployConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestDeployConfig
+@dynamic dedicatedResources, fastTryoutEnabled, systemLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestDeployConfig_SystemLabels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestDeployConfig_SystemLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestEndpointConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestEndpointConfig
+@dynamic dedicatedEndpointDisabled, dedicatedEndpointEnabled,
+         endpointDisplayName, endpointUserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestModelConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestModelConfig
+@dynamic acceptEula, containerSpec, huggingFaceAccessToken,
+         huggingFaceCacheEnabled, modelDisplayName, modelUserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DeployResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployResponse
+@dynamic endpoint, model, publisherModel;
 @end
 
 
@@ -4728,11 +3883,30 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1DirectUploadSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DirectUploadSource
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1DiskSpec
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DiskSpec
 @dynamic bootDiskSizeGb, bootDiskType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1DnsPeeringConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DnsPeeringConfig
+@dynamic domain, targetNetwork, targetProject;
 @end
 
 
@@ -4756,6 +3930,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1DynamicRetrievalConfig
+@dynamic dynamicThreshold, mode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1EncryptionSpec
 //
 
@@ -4770,11 +3954,13 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Endpoint
-@dynamic createTime, deployedModels, descriptionProperty, displayName,
-         enablePrivateServiceConnect, encryptionSpec, ETag, labels,
+@dynamic clientConnectionConfig, createTime, dedicatedEndpointDns,
+         dedicatedEndpointEnabled, deployedModels, descriptionProperty,
+         displayName, enablePrivateServiceConnect, encryptionSpec, ETag,
+         gdcConfig, genAiAdvancedFeaturesConfig, labels,
          modelDeploymentMonitoringJob, name, network,
          predictRequestResponseLoggingConfig, privateServiceConnectConfig,
-         trafficSplit, updateTime;
+         satisfiesPzi, satisfiesPzs, trafficSplit, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4824,6 +4010,24 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1EnterpriseWebSearch
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1EnterpriseWebSearch
+@dynamic excludeDomains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludeDomains" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1EntityIdSelector
 //
 
@@ -4839,7 +4043,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EntityType
 @dynamic createTime, descriptionProperty, ETag, labels, monitoringConfig, name,
-         offlineStorageTtlDays, updateTime;
+         offlineStorageTtlDays, satisfiesPzi, satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4938,6 +4142,80 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest
+@dynamic autoraterConfig, dataset, metrics, outputConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRAiplatform_GoogleCloudAiplatformV1Metric class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest
+@dynamic autoraterConfig, bleuInput, coherenceInput, cometInput,
+         exactMatchInput, fluencyInput, fulfillmentInput, groundednessInput,
+         metricxInput, pairwiseMetricInput,
+         pairwiseQuestionAnsweringQualityInput,
+         pairwiseSummarizationQualityInput, pointwiseMetricInput,
+         questionAnsweringCorrectnessInput, questionAnsweringHelpfulnessInput,
+         questionAnsweringQualityInput, questionAnsweringRelevanceInput,
+         rougeInput, rubricBasedInstructionFollowingInput, safetyInput,
+         summarizationHelpfulnessInput, summarizationQualityInput,
+         summarizationVerbosityInput, toolCallValidInput, toolNameMatchInput,
+         toolParameterKeyMatchInput, toolParameterKvMatchInput,
+         trajectoryAnyOrderMatchInput, trajectoryExactMatchInput,
+         trajectoryInOrderMatchInput, trajectoryPrecisionInput,
+         trajectoryRecallInput, trajectorySingleToolUseInput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesResponse
+@dynamic bleuResults, coherenceResult, cometResult, exactMatchResults,
+         fluencyResult, fulfillmentResult, groundednessResult, metricxResult,
+         pairwiseMetricResult, pairwiseQuestionAnsweringQualityResult,
+         pairwiseSummarizationQualityResult, pointwiseMetricResult,
+         questionAnsweringCorrectnessResult, questionAnsweringHelpfulnessResult,
+         questionAnsweringQualityResult, questionAnsweringRelevanceResult,
+         rougeResults, rubricBasedInstructionFollowingResult, safetyResult,
+         summarizationHelpfulnessResult, summarizationQualityResult,
+         summarizationVerbosityResult, toolCallValidResults,
+         toolNameMatchResults, toolParameterKeyMatchResults,
+         toolParameterKvMatchResults, trajectoryAnyOrderMatchResults,
+         trajectoryExactMatchResults, trajectoryInOrderMatchResults,
+         trajectoryPrecisionResults, trajectoryRecallResults,
+         trajectorySingleToolUseResults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1EvaluationDataset
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluationDataset
+@dynamic bigquerySource, gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Event
 //
 
@@ -4957,6 +4235,71 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInstance
+@dynamic prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchResults
+@dynamic exactMatchMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exactMatchMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchSpec
 @end
 
 
@@ -5015,6 +4358,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExecutableCode
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExecutableCode
+@dynamic code, language;
 @end
 
 
@@ -5503,12 +4856,62 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExternalApi
+@dynamic apiAuth, apiSpec, authConfig, elasticSearchParams, endpoint,
+         simpleSearchParams;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiElasticSearchParams
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiElasticSearchParams
+@dynamic index, numHits, searchTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiSimpleSearchParams
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ExternalApiSimpleSearchParams
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Fact
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Fact
+@dynamic chunk, query, score, summary, title, uri, vectorDistance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FasterDeploymentConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FasterDeploymentConfig
+@dynamic fastTryoutEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Feature
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Feature
 @dynamic createTime, descriptionProperty, disableMonitoring, ETag, labels,
-         monitoringStatsAnomalies, name, updateTime, valueType,
+         monitoringStatsAnomalies, name, pointOfContact, updateTime, valueType,
          versionColumnName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -5550,7 +4953,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroup
 @dynamic bigQuery, createTime, descriptionProperty, ETag, labels, name,
-         updateTime;
+         serviceAccountEmail, serviceAgentType, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -5583,7 +4986,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQuery
-@dynamic bigQuerySource, entityIdColumns;
+@dynamic bigQuerySource, dense, entityIdColumns, staticDataSource, timeSeries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5592,6 +4995,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQueryTimeSeries
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureGroupBigQueryTimeSeries
+@dynamic timestampColumn;
 @end
 
 
@@ -5639,7 +5052,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStore
-@dynamic bigtable, createTime, ETag, labels, name, state, updateTime;
+@dynamic bigtable, createTime, dedicatedServingEndpoint, encryptionSpec, ETag,
+         labels, name, optimized, satisfiesPzi, satisfiesPzs, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -5684,6 +5098,26 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreDedicatedServingEndpoint
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreDedicatedServingEndpoint
+@dynamic privateServiceConnectConfig, publicEndpointDomainName,
+         serviceAttachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreOptimized
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureOnlineStoreOptimized
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1FeatureSelector
 //
 
@@ -5710,7 +5144,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Featurestore
 @dynamic createTime, encryptionSpec, ETag, labels, name, onlineServingConfig,
-         onlineStorageTtlDays, state, updateTime;
+         onlineStorageTtlDays, satisfiesPzi, satisfiesPzs, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -5801,7 +5235,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureValue
 @dynamic boolArrayValue, boolValue, bytesValue, doubleArrayValue, doubleValue,
-         int64ArrayValue, int64Value, metadata, stringArrayValue, stringValue;
+         int64ArrayValue, int64Value, metadata, stringArrayValue, stringValue,
+         structValue;
 @end
 
 
@@ -5849,8 +5284,10 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureView
-@dynamic bigQuerySource, createTime, ETag, featureRegistrySource, labels, name,
-         syncConfig, updateTime;
+@dynamic bigQuerySource, createTime, ETag, featureRegistrySource, indexConfig,
+         labels, name, optimizedConfig, satisfiesPzi, satisfiesPzs,
+         serviceAccountEmail, serviceAgentType, syncConfig, updateTime,
+         vertexRagSource;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -5897,7 +5334,99 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKey
-@dynamic key;
+@dynamic compositeKey, key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKeyCompositeKey
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDataKeyCompositeKey
+@dynamic parts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequest
+@dynamic dataKeyAndFeatureValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataKeyAndFeatureValues" : [GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValues class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValues
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValues
+@dynamic dataKey, features;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"features" : [GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValuesFeature class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValuesFeature
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteRequestDataKeyAndFeatureValuesFeature
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponse
+@dynamic status, writeResponses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"writeResponses" : [GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponseWriteResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponseWriteResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewDirectWriteResponseWriteResponse
+@dynamic dataKey, onlineStoreWriteTime;
 @end
 
 
@@ -5939,11 +5468,60 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfig
+@dynamic bruteForceConfig, crowdingColumn, distanceMeasureType, embeddingColumn,
+         embeddingDimension, filterColumns, treeAhConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"filterColumns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfigBruteForceConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfigBruteForceConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfigTreeAHConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewIndexConfigTreeAHConfig
+@dynamic leafNodeEmbeddingCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewOptimizedConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewOptimizedConfig
+@dynamic automaticResources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSync
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSync
-@dynamic createTime, finalStatus, name, runTime, syncSummary;
+@dynamic createTime, finalStatus, name, runTime, satisfiesPzi, satisfiesPzs,
+         syncSummary;
 @end
 
 
@@ -5953,7 +5531,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncConfig
-@dynamic cron;
+@dynamic continuous, cron;
 @end
 
 
@@ -5963,7 +5541,17 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewSyncSyncSummary
-@dynamic rowSynced, totalSlot;
+@dynamic rowSynced, systemWatermarkTime, totalSlot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewVertexRagSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FeatureViewVertexRagSource
+@dynamic ragCorpusId, uri;
 @end
 
 
@@ -5983,7 +5571,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FetchFeatureValuesResponse
-@dynamic keyValues, protoStruct;
+@dynamic dataKey, keyValues, protoStruct;
 @end
 
 
@@ -6031,11 +5619,31 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FetchPredictOperationRequest
+@dynamic operationName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1FileData
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FileData
-@dynamic fileUri, mimeType;
+@dynamic displayName, fileUri, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FileStatus
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FileStatus
+@dynamic errorStatus, state;
 @end
 
 
@@ -6074,7 +5682,17 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQuery
 @dynamic approximateNeighborCount, datapoint, fractionLeafNodesToSearchOverride,
-         neighborCount, perCrowdingAttributeNeighborCount;
+         neighborCount, perCrowdingAttributeNeighborCount, rrf;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQueryRRF
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsRequestQueryRRF
+@dynamic alpha;
 @end
 
 
@@ -6124,7 +5742,47 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FindNeighborsResponseNeighbor
-@dynamic datapoint, distance;
+@dynamic datapoint, distance, sparseDistance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FluencyInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FluencyInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FluencyInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FluencyInstance
+@dynamic prediction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FluencyResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FluencyResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FluencySpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FluencySpec
+@dynamic version;
 @end
 
 
@@ -6135,6 +5793,46 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FractionSplit
 @dynamic testFraction, trainingFraction, validationFraction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentInstance
+@dynamic instruction, prediction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FulfillmentSpec
+@dynamic version;
 @end
 
 
@@ -6164,11 +5862,30 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1FunctionCallingConfig
+@dynamic allowedFunctionNames, mode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedFunctionNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1FunctionDeclaration
-@dynamic descriptionProperty, name, parameters;
+@dynamic descriptionProperty, name, parameters, parametersJsonSchema, response,
+         responseJsonSchema;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -6231,11 +5948,47 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1GdcConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GdcConfig
+@dynamic zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfig
+@dynamic ragConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfigRagConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenAiAdvancedFeaturesConfigRagConfig
+@dynamic enableRag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest
-@dynamic contents, generationConfig, safetySettings, tools;
+@dynamic cachedContent, contents, generationConfig, labels, modelArmorConfig,
+         safetySettings, systemInstruction, toolConfig, tools;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6251,11 +6004,26 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponse
-@dynamic candidates, promptFeedback, usageMetadata;
+@dynamic candidates, createTime, modelVersion, promptFeedback, responseId,
+         usageMetadata;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6291,7 +6059,52 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata
-@dynamic candidatesTokenCount, promptTokenCount, totalTokenCount;
+@dynamic cachedContentTokenCount, cacheTokensDetails, candidatesTokenCount,
+         candidatesTokensDetails, promptTokenCount, promptTokensDetails,
+         thoughtsTokenCount, toolUsePromptTokenCount,
+         toolUsePromptTokensDetails, totalTokenCount, trafficType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cacheTokensDetails" : [GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount class],
+    @"candidatesTokensDetails" : [GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount class],
+    @"promptTokensDetails" : [GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount class],
+    @"toolUsePromptTokensDetails" : [GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponse
+@dynamic generatedSamples, raiMediaFilteredCount, raiMediaFilteredReasons,
+         videos;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"generatedSamples" : [NSString class],
+    @"raiMediaFilteredReasons" : [NSString class],
+    @"videos" : [GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponseVideo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponseVideo
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponseVideo
+@dynamic bytesBase64Encoded, gcsUri, mimeType;
 @end
 
 
@@ -6301,16 +6114,61 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig
-@dynamic candidateCount, maxOutputTokens, stopSequences, temperature, topK,
+@dynamic audioTimestamp, candidateCount, enableAffectiveDialog,
+         frequencyPenalty, logprobs, maxOutputTokens, mediaResolution,
+         presencePenalty, responseJsonSchema, responseLogprobs,
+         responseMimeType, responseModalities, responseSchema, routingConfig,
+         seed, speechConfig, stopSequences, temperature, thinkingConfig, topK,
          topP;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"responseModalities" : [NSString class],
     @"stopSequences" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfig
+@dynamic autoMode, manualMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode
+@dynamic modelRoutingPreference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigManualRoutingMode
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigManualRoutingMode
+@dynamic modelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig
+@dynamic includeThoughts, thinkingBudget;
 @end
 
 
@@ -6334,31 +6192,177 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1GenieSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GenieSource
+@dynamic baseModelUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSource
+@dynamic resourceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceIds" : [GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId
+@dynamic resourceId, resourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval
-@dynamic disableAttribution;
+@dynamic dynamicRetrievalConfig;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInput
 //
 
-@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution
-@dynamic confidenceScore, segment, web;
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInput
+@dynamic instance, metricSpec;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttributionWeb
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInstance
 //
 
-@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttributionWeb
-@dynamic title, uri;
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInstance
+@dynamic context, prediction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundednessResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundednessResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundednessSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundednessSpec
+@dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk
+@dynamic maps, retrievedContext, web;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMaps
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMaps
+@dynamic placeAnswerSources, placeId, text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSources
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSources
+@dynamic flagContentUri, reviewSnippets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviewSnippets" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution
+@dynamic displayName, photoUri, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet
+@dynamic authorAttribution, flagContentUri, googleMapsUri,
+         relativePublishTimeDescription, review;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkRetrievedContext
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkRetrievedContext
+@dynamic documentName, ragChunk, text, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkWeb
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkWeb
+@dynamic domain, title, uri;
 @end
 
 
@@ -6368,12 +6372,33 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata
-@dynamic groundingAttributions, webSearchQueries;
+@dynamic googleMapsWidgetContextToken, groundingChunks, groundingSupports,
+         retrievalMetadata, searchEntryPoint, webSearchQueries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"groundingAttributions" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingAttribution class],
+    @"groundingChunks" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk class],
+    @"groundingSupports" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingSupport class],
     @"webSearchQueries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingSupport
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingSupport
+@dynamic confidenceScores, groundingChunkIndices, segment;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"confidenceScores" : [NSNumber class],
+    @"groundingChunkIndices" : [NSNumber class]
   };
   return map;
 }
@@ -6389,7 +6414,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob
 @dynamic createTime, displayName, encryptionSpec, endTime, error, labels,
          maxFailedTrialCount, maxTrialCount, name, parallelTrialCount,
-         startTime, state, studySpec, trialJobSpec, trials, updateTime;
+         satisfiesPzi, satisfiesPzs, startTime, state, studySpec, trialJobSpec,
+         trials, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6587,13 +6613,37 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ImportRagFilesConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ImportRagFilesConfig
+@dynamic gcsSource, googleDriveSource, importResultBigquerySink,
+         importResultGcsSink, jiraSource, maxEmbeddingRequestsPerMin,
+         partialFailureBigquerySink, partialFailureGcsSink,
+         ragFileParsingConfig, ragFileTransformationConfig, rebuildAnnIndex,
+         sharePointSources, slackSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ImportRagFilesRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ImportRagFilesRequest
+@dynamic importRagFilesConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Index
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Index
 @dynamic createTime, deployedIndexes, descriptionProperty, displayName,
          encryptionSpec, ETag, indexStats, indexUpdateMethod, labels, metadata,
-         metadataSchemaUri, name, updateTime;
+         metadataSchemaUri, name, satisfiesPzi, satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6633,7 +6683,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint
-@dynamic crowdingTag, datapointId, featureVector, numericRestricts, restricts;
+@dynamic crowdingTag, datapointId, embeddingMetadata, featureVector,
+         numericRestricts, restricts, sparseEmbedding;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6642,6 +6693,20 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
     @"restricts" : [GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointRestriction class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint_EmbeddingMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapoint_EmbeddingMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -6697,6 +6762,25 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointSparseEmbedding
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1IndexDatapointSparseEmbedding
+@dynamic dimensions, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [NSNumber class],
+    @"values" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1IndexEndpoint
 //
 
@@ -6704,7 +6788,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 @dynamic createTime, deployedIndexes, descriptionProperty, displayName,
          enablePrivateServiceConnect, encryptionSpec, ETag, labels, name,
          network, privateServiceConnectConfig, publicEndpointDomainName,
-         publicEndpointEnabled, updateTime;
+         publicEndpointEnabled, satisfiesPzi, satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6762,7 +6846,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1IndexStats
-@dynamic shardsCount, vectorsCount;
+@dynamic shardsCount, sparseVectorsCount, vectorsCount;
 @end
 
 
@@ -6803,6 +6887,43 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1IntegratedGradientsAttribution
 @dynamic blurBaselineConfig, smoothGradConfig, stepCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1JiraSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1JiraSource
+@dynamic jiraQueries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jiraQueries" : [GTLRAiplatform_GoogleCloudAiplatformV1JiraSourceJiraQueries class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1JiraSourceJiraQueries
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1JiraSourceJiraQueries
+@dynamic apiKeyConfig, customQueries, email, projects, serverUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customQueries" : [NSString class],
+    @"projects" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -6897,6 +7018,28 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 + (NSString *)collectionItemsKey {
   return @"batchPredictionJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListCachedContentsResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListCachedContentsResponse
+@dynamic cachedContents, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cachedContents" : [GTLRAiplatform_GoogleCloudAiplatformV1CachedContent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"cachedContents";
 }
 
 @end
@@ -7454,6 +7597,28 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListModelVersionCheckpointsResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListModelVersionCheckpointsResponse
+@dynamic checkpoints, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"checkpoints" : [GTLRAiplatform_GoogleCloudAiplatformV1ModelVersionCheckpoint class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"checkpoints";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1ListModelVersionsResponse
 //
 
@@ -7513,6 +7678,28 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 + (NSString *)collectionItemsKey {
   return @"nasTrialDetails";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookExecutionJobsResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListNotebookExecutionJobsResponse
+@dynamic nextPageToken, notebookExecutionJobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notebookExecutionJobs" : [GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"notebookExecutionJobs";
 }
 
 @end
@@ -7591,6 +7778,28 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListPersistentResourcesResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListPersistentResourcesResponse
+@dynamic nextPageToken, persistentResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"persistentResources" : [GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"persistentResources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1ListPipelineJobsResponse
 //
 
@@ -7606,6 +7815,72 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 + (NSString *)collectionItemsKey {
   return @"pipelineJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListRagCorporaResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListRagCorporaResponse
+@dynamic nextPageToken, ragCorpora;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragCorpora" : [GTLRAiplatform_GoogleCloudAiplatformV1RagCorpus class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"ragCorpora";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListRagFilesResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListRagFilesResponse
+@dynamic nextPageToken, ragFiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragFiles" : [GTLRAiplatform_GoogleCloudAiplatformV1RagFile class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"ragFiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListReasoningEnginesResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListReasoningEnginesResponse
+@dynamic nextPageToken, reasoningEngines;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reasoningEngines" : [GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reasoningEngines";
 }
 
 @end
@@ -7833,6 +8108,75 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ListTuningJobsResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ListTuningJobsResponse
+@dynamic nextPageToken, tuningJobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tuningJobs" : [GTLRAiplatform_GoogleCloudAiplatformV1TuningJob class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tuningJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult
+@dynamic chosenCandidates, topCandidates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chosenCandidates" : [GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate class],
+    @"topCandidates" : [GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultTopCandidates class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate
+@dynamic logProbability, token, tokenId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultTopCandidates
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultTopCandidates
+@dynamic candidates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"candidates" : [GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1LookupStudyRequest
 //
 
@@ -7847,7 +8191,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec
-@dynamic acceleratorCount, acceleratorType, machineType, tpuTopology;
+@dynamic acceleratorCount, acceleratorType, machineType, reservationAffinity,
+         tpuTopology;
 @end
 
 
@@ -7929,8 +8274,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1MetadataStore
-@dynamic createTime, descriptionProperty, encryptionSpec, name, state,
-         updateTime;
+@dynamic createTime, dataplexConfig, descriptionProperty, encryptionSpec, name,
+         state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -7941,11 +8286,80 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1MetadataStoreDataplexConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1MetadataStoreDataplexConfig
+@dynamic enabledPipelinesLineage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1MetadataStoreMetadataStoreState
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1MetadataStoreMetadataStoreState
 @dynamic diskUtilizationBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Metric
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Metric
+@dynamic aggregationMetrics, bleuSpec, exactMatchSpec, pairwiseMetricSpec,
+         pointwiseMetricSpec, rougeSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aggregationMetrics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1MetricxInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1MetricxInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1MetricxInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1MetricxInstance
+@dynamic prediction, reference, source;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1MetricxResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1MetricxResult
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1MetricxSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1MetricxSpec
+@dynamic sourceLanguage, targetLanguage, version;
 @end
 
 
@@ -8100,18 +8514,30 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount
+@dynamic modality, tokenCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Model
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Model
-@dynamic artifactUri, containerSpec, createTime, dataStats, deployedModels,
-         descriptionProperty, displayName, encryptionSpec, ETag,
-         explanationSpec, labels, metadata, metadataArtifact, metadataSchemaUri,
-         modelSourceInfo, name, originalModelInfo, pipelineJob, predictSchemata,
-         supportedDeploymentResourcesTypes, supportedExportFormats,
-         supportedInputStorageFormats, supportedOutputStorageFormats,
-         trainingPipeline, updateTime, versionAliases, versionCreateTime,
-         versionDescription, versionId, versionUpdateTime;
+@dynamic artifactUri, baseModelSource, checkpoints, containerSpec, createTime,
+         dataStats, defaultCheckpointId, deployedModels, descriptionProperty,
+         displayName, encryptionSpec, ETag, explanationSpec, labels, metadata,
+         metadataArtifact, metadataSchemaUri, modelSourceInfo, name,
+         originalModelInfo, pipelineJob, predictSchemata, satisfiesPzi,
+         satisfiesPzs, supportedDeploymentResourcesTypes,
+         supportedExportFormats, supportedInputStorageFormats,
+         supportedOutputStorageFormats, trainingPipeline, updateTime,
+         versionAliases, versionCreateTime, versionDescription, versionId,
+         versionUpdateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -8123,6 +8549,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"checkpoints" : [GTLRAiplatform_GoogleCloudAiplatformV1Checkpoint class],
     @"deployedModels" : [GTLRAiplatform_GoogleCloudAiplatformV1DeployedModelRef class],
     @"supportedDeploymentResourcesTypes" : [NSString class],
     @"supportedExportFormats" : [GTLRAiplatform_GoogleCloudAiplatformV1ModelExportFormat class],
@@ -8152,13 +8579,33 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ModelArmorConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ModelArmorConfig
+@dynamic promptTemplateName, responseTemplateName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ModelBaseModelSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ModelBaseModelSource
+@dynamic genieSource, modelGardenSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1ModelContainerSpec
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1ModelContainerSpec
 @dynamic args, command, deploymentTimeout, env, grpcPorts, healthProbe,
-         healthRoute, imageUri, ports, predictRoute, sharedMemorySizeMb,
-         startupProbe;
+         healthRoute, imageUri, invokeRoutePrefix, livenessProbe, ports,
+         predictRoute, sharedMemorySizeMb, startupProbe;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8209,8 +8656,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
          modelDeploymentMonitoringObjectiveConfigs,
          modelDeploymentMonitoringScheduleConfig, modelMonitoringAlertConfig,
          name, nextScheduleTime, predictInstanceSchemaUri,
-         samplePredictInstance, scheduleState, state,
-         statsAnomaliesBaseDirectory, updateTime;
+         samplePredictInstance, satisfiesPzi, satisfiesPzs, scheduleState,
+         state, statsAnomaliesBaseDirectory, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8409,6 +8856,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ModelGardenSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ModelGardenSource
+@dynamic publicModelName, skipHfModelCache, versionId;
 @end
 
 
@@ -8630,6 +9087,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ModelVersionCheckpoint
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ModelVersionCheckpoint
+@dynamic checkpointId, epoch, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1MutateDeployedIndexOperationMetadata
 //
 
@@ -8685,8 +9152,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NasJob
 @dynamic createTime, displayName, enableRestrictedImageTraining, encryptionSpec,
-         endTime, error, labels, name, nasJobOutput, nasJobSpec, startTime,
-         state, updateTime;
+         endTime, error, labels, name, nasJobOutput, nasJobSpec, satisfiesPzi,
+         satisfiesPzs, startTime, state, updateTime;
 @end
 
 
@@ -8815,11 +9282,12 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQuery
-@dynamic embedding, entityId, neighborCount, parameters,
+@dynamic embedding, entityId, neighborCount, numericFilters, parameters,
          perCrowdingAttributeNeighborCount, stringFilters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"numericFilters" : [GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter class],
     @"stringFilters" : [GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryStringFilter class]
   };
   return map;
@@ -8843,6 +9311,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborQueryNumericFilter
+@dynamic name, op, valueDouble, valueFloat, valueInt;
 @end
 
 
@@ -8917,7 +9395,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NearestNeighborSearchOperationMetadataContentValidationStats
-@dynamic invalidRecordCount, partialErrors, sourceGcsUri, validRecordCount;
+@dynamic invalidRecordCount, invalidSparseRecordCount, partialErrors,
+         sourceGcsUri, validRecordCount, validSparseRecordCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8991,6 +9470,84 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob
+@dynamic createTime, customEnvironmentSpec, dataformRepositorySource,
+         directNotebookSource, displayName, encryptionSpec, executionTimeout,
+         executionUser, gcsNotebookSource, gcsOutputUri, jobState, kernelName,
+         labels, name, notebookRuntimeTemplateResourceName,
+         scheduleResourceName, serviceAccount, status, updateTime,
+         workbenchRuntime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_Labels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJob_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobCustomEnvironmentSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobCustomEnvironmentSpec
+@dynamic machineSpec, networkSpec, persistentDiskSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobDataformRepositorySource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobDataformRepositorySource
+@dynamic commitSha, dataformRepositoryResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobDirectNotebookSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobDirectNotebookSource
+@dynamic content;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobGcsNotebookSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobGcsNotebookSource
+@dynamic generation, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobWorkbenchRuntime
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookExecutionJobWorkbenchRuntime
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1NotebookIdleShutdownConfig
 //
 
@@ -9023,11 +9580,13 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntime
-@dynamic createTime, descriptionProperty, displayName, expirationTime,
-         healthState, isUpgradable, labels, name, networkTags,
-         notebookRuntimeTemplateRef, notebookRuntimeType, proxyUri,
-         reservationAffinity, runtimeState, runtimeUser, serviceAccount,
-         updateTime, version;
+@dynamic createTime, dataPersistentDiskSpec, descriptionProperty, displayName,
+         encryptionSpec, eucConfig, expirationTime, healthState,
+         idleShutdownConfig, isUpgradable, labels, machineSpec, name,
+         networkSpec, networkTags, notebookRuntimeTemplateRef,
+         notebookRuntimeType, proxyUri, reservationAffinity, runtimeState,
+         runtimeUser, satisfiesPzi, satisfiesPzs, serviceAccount,
+         shieldedVmConfig, softwareConfig, updateTime, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -9064,9 +9623,10 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate
 @dynamic createTime, dataPersistentDiskSpec, descriptionProperty, displayName,
-         ETag, eucConfig, idleShutdownConfig, isDefault, labels, machineSpec,
-         name, networkSpec, networkTags, notebookRuntimeType,
-         reservationAffinity, serviceAccount, shieldedVmConfig, updateTime;
+         encryptionSpec, ETag, eucConfig, idleShutdownConfig, isDefault, labels,
+         machineSpec, name, networkSpec, networkTags, notebookRuntimeType,
+         reservationAffinity, serviceAccount, shieldedVmConfig, softwareConfig,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -9112,11 +9672,161 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1NotebookSoftwareConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1NotebookSoftwareConfig
+@dynamic colabImage, env, postStartupScriptConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"env" : [GTLRAiplatform_GoogleCloudAiplatformV1EnvVar class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1OutputConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1OutputConfig
+@dynamic gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInstance
+@dynamic contentMapInstance, jsonInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult
+@dynamic customOutput, explanation, pairwiseChoice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricSpec
+@dynamic baselineResponseFieldName, candidateResponseFieldName,
+         customOutputFormatConfig, metricPromptTemplate, systemInstruction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityInstance
+@dynamic baselinePrediction, context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualityResult
+@dynamic confidence, explanation, pairwiseChoice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualitySpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseQuestionAnsweringQualitySpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityInstance
+@dynamic baselinePrediction, context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult
+@dynamic confidence, explanation, pairwiseChoice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualitySpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualitySpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Part
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Part
-@dynamic fileData, functionCall, functionResponse, inlineData, text,
+@dynamic codeExecutionResult, executableCode, fileData, functionCall,
+         functionResponse, inlineData, text, thought, thoughtSignature,
          videoMetadata;
 @end
 
@@ -9151,14 +9861,51 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource
+@dynamic createTime, displayName, encryptionSpec, error, labels, name, network,
+         pscInterfaceConfig, reservedIpRanges, resourcePools, resourceRuntime,
+         resourceRuntimeSpec, satisfiesPzi, satisfiesPzs, startTime, state,
+         updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservedIpRanges" : [NSString class],
+    @"resourcePools" : [GTLRAiplatform_GoogleCloudAiplatformV1ResourcePool class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_Labels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PipelineJob
 @dynamic createTime, displayName, encryptionSpec, endTime, error, jobDetail,
-         labels, name, network, pipelineSpec, reservedIpRanges, runtimeConfig,
-         scheduleName, serviceAccount, startTime, state, templateMetadata,
-         templateUri, updateTime;
+         labels, name, network, pipelineSpec, preflightValidations,
+         pscInterfaceConfig, reservedIpRanges, runtimeConfig, scheduleName,
+         serviceAccount, startTime, state, templateMetadata, templateUri,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -9286,7 +10033,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PipelineTaskDetail
 @dynamic createTime, endTime, error, execution, executorDetail, inputs, outputs,
-         parentTaskId, pipelineTaskStatus, startTime, state, taskId, taskName;
+         parentTaskId, pipelineTaskStatus, startTime, state, taskId, taskName,
+         taskUniqueName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -9413,6 +10161,46 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricInstance
+@dynamic contentMapInstance, jsonInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricResult
+@dynamic customOutput, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricSpec
+@dynamic customOutputFormatConfig, metricPromptTemplate, systemInstruction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Port
 //
 
@@ -9423,11 +10211,49 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1PostStartupScriptConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PostStartupScriptConfig
+@dynamic postStartupScript, postStartupScriptBehavior, postStartupScriptUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PrebuiltVoiceConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PrebuiltVoiceConfig
+@dynamic voiceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1PredefinedSplit
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PredefinedSplit
 @dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PredictLongRunningRequest
+@dynamic instances, parameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [NSObject class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -9514,11 +10340,13 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig
-@dynamic enablePrivateServiceConnect, projectAllowlist;
+@dynamic enablePrivateServiceConnect, projectAllowlist, pscAutomationConfigs,
+         serviceAttachment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"projectAllowlist" : [NSString class]
+    @"projectAllowlist" : [NSString class],
+    @"pscAutomationConfigs" : [GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig class]
   };
   return map;
 }
@@ -9532,7 +10360,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Probe
-@dynamic exec, periodSeconds, timeoutSeconds;
+@dynamic exec, failureThreshold, grpc, httpGet, initialDelaySeconds,
+         periodSeconds, successThreshold, tcpSocket, timeoutSeconds;
 @end
 
 
@@ -9556,11 +10385,87 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ProbeGrpcAction
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ProbeGrpcAction
+@dynamic port, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpGetAction
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpGetAction
+@dynamic host, httpHeaders, path, port, scheme;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"httpHeaders" : [GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpHeader class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpHeader
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ProbeHttpHeader
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ProbeTcpSocketAction
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ProbeTcpSocketAction
+@dynamic host, port;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PscAutomatedEndpoints
 @dynamic matchAddress, network, projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PSCAutomationConfig
+@dynamic errorMessage, forwardingRule, ipAddress, network, projectId, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PscInterfaceConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PscInterfaceConfig
+@dynamic dnsPeeringConfigs, networkAttachment;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsPeeringConfigs" : [GTLRAiplatform_GoogleCloudAiplatformV1DnsPeeringConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -9589,10 +10494,11 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToAction
-@dynamic createApplication, deploy, deployGke, openEvaluationPipeline,
-         openFineTuningPipeline, openFineTuningPipelines,
-         openGenerationAiStudio, openGenie, openNotebook, openNotebooks,
-         openPromptTuningPipeline, requestAccess, viewRestApi;
+@dynamic createApplication, deploy, deployGke, multiDeployVertex,
+         openEvaluationPipeline, openFineTuningPipeline,
+         openFineTuningPipelines, openGenerationAiStudio, openGenie,
+         openNotebook, openNotebooks, openPromptTuningPipeline, requestAccess,
+         viewRestApi;
 @end
 
 
@@ -9603,8 +10509,32 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy
 @dynamic artifactUri, automaticResources, containerSpec, dedicatedResources,
-         largeModelReference, modelDisplayName, publicArtifactUri,
-         sharedResources, title;
+         deployMetadata, deployTaskName, largeModelReference, modelDisplayName,
+         publicArtifactUri, sharedResources, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata
+@dynamic labels, sampleRequest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata_Labels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployDeployMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -9619,6 +10549,24 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"gkeYamlConfigs" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployVertex
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeployVertex
+@dynamic multiDeployVertex;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"multiDeployVertex" : [GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionDeploy class]
   };
   return map;
 }
@@ -9668,7 +10616,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1PublisherModelCallToActionRegionalResourceReferences
-@dynamic references, resourceDescription, resourceTitle, resourceUseCase, title;
+@dynamic colabNotebookDisabled, references, resourceDescription, resourceTitle,
+         resourceUseCase, supportsWorkbench, title;
 @end
 
 
@@ -9885,11 +10834,596 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest
+@dynamic classMethod, input;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest_Input
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest_Input
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineResponse
+@dynamic output;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessInstance
+@dynamic context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringCorrectnessSpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessInstance
+@dynamic context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringHelpfulnessSpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityInstance
+@dynamic context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualityResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualitySpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringQualitySpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceInstance
+@dynamic context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1QuestionAnsweringRelevanceSpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagChunk
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagChunk
+@dynamic pageSpan, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagChunkPageSpan
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagChunkPageSpan
+@dynamic firstPage, lastPage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagContexts
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagContexts
+@dynamic contexts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contexts" : [GTLRAiplatform_GoogleCloudAiplatformV1RagContextsContext class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagContextsContext
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagContextsContext
+@dynamic chunk, score, sourceDisplayName, sourceUri, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagCorpus
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagCorpus
+@dynamic corpusStatus, createTime, descriptionProperty, displayName,
+         encryptionSpec, name, updateTime, vectorDbConfig, vertexAiSearchConfig;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagEmbeddingModelConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagEmbeddingModelConfig
+@dynamic vertexPredictionEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagEmbeddingModelConfigVertexPredictionEndpoint
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagEmbeddingModelConfigVertexPredictionEndpoint
+@dynamic endpoint, model, modelVersionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagEngineConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagEngineConfig
+@dynamic name, ragManagedDbConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagFile
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFile
+@dynamic createTime, descriptionProperty, directUploadSource, displayName,
+         fileStatus, gcsSource, googleDriveSource, jiraSource, name,
+         sharePointSources, slackSource, updateTime, userMetadata;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagFileChunkingConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileChunkingConfig
+@dynamic fixedLengthChunking;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagFileChunkingConfigFixedLengthChunking
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileChunkingConfigFixedLengthChunking
+@dynamic chunkOverlap, chunkSize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfig
+@dynamic layoutParser, llmParser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLayoutParser
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLayoutParser
+@dynamic maxParsingRequestsPerMin, processorName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLlmParser
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileParsingConfigLlmParser
+@dynamic customParsingPrompt, maxParsingRequestsPerMin, modelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagFileTransformationConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagFileTransformationConfig
+@dynamic ragFileChunkingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagManagedDbConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagManagedDbConfig
+@dynamic basic, scaled, unprovisioned;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagManagedDbConfigBasic
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagManagedDbConfigBasic
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagManagedDbConfigScaled
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagManagedDbConfigScaled
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagManagedDbConfigUnprovisioned
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagManagedDbConfigUnprovisioned
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagQuery
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagQuery
+@dynamic ragRetrievalConfig, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfig
+@dynamic filter, ranking, topK;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigFilter
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigFilter
+@dynamic metadataFilter, vectorDistanceThreshold, vectorSimilarityThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigRanking
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigRanking
+@dynamic llmRanker, rankService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigRankingLlmRanker
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigRankingLlmRanker
+@dynamic modelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigRankingRankService
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagRetrievalConfigRankingRankService
+@dynamic modelName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfig
+@dynamic apiAuth, pinecone, ragEmbeddingModelConfig, ragManagedDb,
+         vertexVectorSearch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigPinecone
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigPinecone
+@dynamic indexName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDb
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDb
+@dynamic ann, knn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbANN
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbANN
+@dynamic leafCount, treeDepth;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbKNN
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigRagManagedDbKNN
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigVertexVectorSearch
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RagVectorDbConfigVertexVectorSearch
+@dynamic index, indexEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RawOutput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RawOutput
+@dynamic rawOutput;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rawOutput" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1RawPredictRequest
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1RawPredictRequest
 @dynamic httpBody;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RayLogsSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RayLogsSpec
+@dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RayMetricSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RayMetricSpec
+@dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RaySpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RaySpec
+@dynamic headNodeResourcePoolId, imageUri, rayLogsSpec, rayMetricSpec,
+         resourcePoolImages;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RaySpec_ResourcePoolImages
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RaySpec_ResourcePoolImages
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -10102,6 +11636,133 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine
+@dynamic createTime, descriptionProperty, displayName, encryptionSpec, ETag,
+         name, spec, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec
+@dynamic agentFramework, classMethods, deploymentSpec, packageSpec,
+         serviceAccount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"classMethods" : [GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_ClassMethods_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_ClassMethods_Item
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_ClassMethods_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec
+@dynamic containerConcurrency, env, maxInstances, minInstances,
+         pscInterfaceConfig, resourceLimits, secretEnv;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"env" : [GTLRAiplatform_GoogleCloudAiplatformV1EnvVar class],
+    @"secretEnv" : [GTLRAiplatform_GoogleCloudAiplatformV1SecretEnvVar class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec_ResourceLimits
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec_ResourceLimits
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec
+@dynamic dependencyFilesGcsUri, pickleObjectGcsUri, pythonVersion,
+         requirementsGcsUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest
+@dynamic artifactDestination, deployToSameEndpoint, tunedModelRef, tuningJob;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RebootPersistentResourceOperationMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RebootPersistentResourceOperationMetadata
+@dynamic genericMetadata, progressMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RebootPersistentResourceRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RebootPersistentResourceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1RemoveContextChildrenRequest
 //
 
@@ -10156,6 +11817,84 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity
+@dynamic key, reservationAffinityType, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ResourcePool
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ResourcePool
+@dynamic autoscalingSpec, diskSpec, identifier, machineSpec, replicaCount,
+         usedReplicaCount;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ResourcePoolAutoscalingSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ResourcePoolAutoscalingSpec
+@dynamic maxReplicaCount, minReplicaCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntime
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntime
+@dynamic accessUris;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntime_AccessUris
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntime_AccessUris
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntimeSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ResourceRuntimeSpec
+@dynamic raySpec, serviceAccountSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1ResourcesConsumed
 //
 
@@ -10199,7 +11938,226 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Retrieval
-@dynamic disableAttribution, vertexAiSearch;
+@dynamic disableAttribution, externalApi, vertexAiSearch, vertexRagStore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RetrievalConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RetrievalConfig
+@dynamic languageCode, latLng;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RetrievalMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RetrievalMetadata
+@dynamic googleSearchDynamicRetrievalScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequest
+@dynamic query, vertexRagStore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequestVertexRagStore
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequestVertexRagStore
+@dynamic ragResources, vectorDistanceThreshold;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragResources" : [GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequestVertexRagStoreRagResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequestVertexRagStoreRagResource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequestVertexRagStoreRagResource
+@dynamic ragCorpus, ragFileIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragFileIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsResponse
+@dynamic contexts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RougeInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RougeInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1RougeInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RougeInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RougeInstance
+@dynamic prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RougeResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RougeResults
+@dynamic rougeMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rougeMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RougeSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RougeSpec
+@dynamic rougeType, splitSummaries, useStemmer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingInstance
+@dynamic jsonInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingResult
+@dynamic rubricCritiqueResults, score;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rubricCritiqueResults" : [GTLRAiplatform_GoogleCloudAiplatformV1RubricCritiqueResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1RubricCritiqueResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1RubricCritiqueResult
+@dynamic rubric, verdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SafetyInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SafetyInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SafetyInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SafetyInstance
+@dynamic prediction;
 @end
 
 
@@ -10209,7 +12167,18 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating
-@dynamic blocked, category, probability;
+@dynamic blocked, category, overwrittenThreshold, probability, probabilityScore,
+         severity, severityScore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SafetyResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SafetyResult
+@dynamic confidence, explanation, score;
 @end
 
 
@@ -10219,7 +12188,17 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting
-@dynamic category, threshold;
+@dynamic category, method, threshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SafetySpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SafetySpec
+@dynamic version;
 @end
 
 
@@ -10296,10 +12275,11 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Schedule
-@dynamic allowQueueing, catchUp, createPipelineJobRequest, createTime, cron,
-         displayName, endTime, lastPauseTime, lastResumeTime,
-         lastScheduledRunResponse, maxConcurrentRunCount, maxRunCount, name,
-         nextRunTime, startedRunCount, startTime, state, updateTime;
+@dynamic allowQueueing, catchUp, createNotebookExecutionJobRequest,
+         createPipelineJobRequest, createTime, cron, displayName, endTime,
+         lastPauseTime, lastResumeTime, lastScheduledRunResponse,
+         maxConcurrentRunCount, maxRunCount, name, nextRunTime, startedRunCount,
+         startTime, state, updateTime;
 @end
 
 
@@ -10319,7 +12299,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Scheduling
-@dynamic disableRetries, restartJobOnWorkerRestart, timeout;
+@dynamic disableRetries, maxWaitDuration, restartJobOnWorkerRestart, strategy,
+         timeout;
 @end
 
 
@@ -10329,11 +12310,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Schema
-@dynamic descriptionProperty, enumProperty, example, format, items, nullable,
-         properties, required, type;
+@dynamic additionalPropertiesProperty, anyOf, defaultProperty, defs,
+         descriptionProperty, enumProperty, example, format, items, maximum,
+         maxItems, maxLength, maxProperties, minimum, minItems, minLength,
+         minProperties, nullable, pattern, properties, propertyOrdering, ref,
+         required, title, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
+    @"additionalPropertiesProperty" : @"additionalProperties",
+    @"defaultProperty" : @"default",
     @"descriptionProperty" : @"description",
     @"enumProperty" : @"enum"
   };
@@ -10342,10 +12328,26 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"anyOf" : [GTLRAiplatform_GoogleCloudAiplatformV1Schema class],
     @"enum" : [NSString class],
+    @"propertyOrdering" : [NSString class],
     @"required" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Schema_Defs
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Schema_Defs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAiplatform_GoogleCloudAiplatformV1Schema class];
 }
 
 @end
@@ -10663,6 +12665,19 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaModelevaluationMetricsImageSegmentationEvaluationMetricsConfidenceMetricsEntry
 @dynamic confidenceThreshold, confusionMatrix, diceScoreCoefficient, iouScore,
          precision, recall;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaModelevaluationMetricsPairwiseTextGenerationEvaluationMetrics
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaModelevaluationMetricsPairwiseTextGenerationEvaluationMetrics
+@dynamic accuracy, baselineModelWinRate, cohensKappa, f1Score,
+         falseNegativeCount, falsePositiveCount,
+         humanPreferenceBaselineModelWinRate, humanPreferenceModelWinRate,
+         modelWinRate, precision, recall, trueNegativeCount, truePositiveCount;
 @end
 
 
@@ -11278,6 +13293,227 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptApiSchema
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptApiSchema
+@dynamic apiSchemaVersion, executions, multimodalPrompt, structuredPrompt,
+         translationPrompt;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"executions" : [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstancePromptExecution class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstancePromptExecution
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstancePromptExecution
+@dynamic arguments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstancePromptExecution_Arguments
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstancePromptExecution_Arguments
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstanceVariableValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstanceVariableValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstanceVariableValue
+@dynamic partList;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecMultimodalPrompt
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecMultimodalPrompt
+@dynamic promptMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPartList
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPartList
+@dynamic parts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parts" : [GTLRAiplatform_GoogleCloudAiplatformV1Part class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessage
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessage
+@dynamic contents, generationConfig, model, safetySettings, systemInstruction,
+         toolConfig, tools;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class],
+    @"safetySettings" : [GTLRAiplatform_GoogleCloudAiplatformV1SafetySetting class],
+    @"tools" : [GTLRAiplatform_GoogleCloudAiplatformV1Tool class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecReferenceSentencePair
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecReferenceSentencePair
+@dynamic sourceSentence, targetSentence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecReferenceSentencePairList
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecReferenceSentencePairList
+@dynamic referenceSentencePairs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referenceSentencePairs" : [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecReferenceSentencePair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecStructuredPrompt
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecStructuredPrompt
+@dynamic context, examples, infillPrefix, infillSuffix, inputPrefixes,
+         outputPrefixes, predictionInputs, promptMessage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"examples" : [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPartList class],
+    @"inputPrefixes" : [NSString class],
+    @"outputPrefixes" : [NSString class],
+    @"predictionInputs" : [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPartList class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationExample
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationExample
+@dynamic referenceSentencePairLists, referenceSentencesFileInputs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referenceSentencePairLists" : [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecReferenceSentencePairList class],
+    @"referenceSentencesFileInputs" : [GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationSentenceFileInput class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationFileInputSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationFileInputSource
+@dynamic content, displayName, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationGcsInputSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationGcsInputSource
+@dynamic inputUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationOption
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationOption
+@dynamic numberOfShots;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationPrompt
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationPrompt
+@dynamic example, option, promptMessage, sourceLanguageCode, targetLanguageCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationSentenceFileInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecTranslationSentenceFileInput
+@dynamic fileInputSource, gcsInputSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1SchemaTablesDatasetMetadata
 //
 
@@ -11370,8 +13606,10 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1SchemaTextPromptDatasetMetadata
-@dynamic candidateCount, gcsUri, groundingConfig, maxOutputTokens, note,
-         promptType, stopSequences, temperature, text, topK, topP;
+@dynamic candidateCount, gcsUri, groundingConfig, hasPromptVariable, logprobs,
+         maxOutputTokens, note, promptApiSchema, promptType, seedEnabled,
+         seedValue, stopSequences, systemInstruction, systemInstructionGcsUri,
+         temperature, text, topK, topP;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -12429,6 +14667,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1SearchEntryPoint
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SearchEntryPoint
+@dynamic renderedContent, sdkBlob;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1SearchFeaturesResponse
 //
 
@@ -12554,11 +14802,70 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1SecretEnvVar
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SecretEnvVar
+@dynamic name, secretRef;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SecretRef
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SecretRef
+@dynamic secret, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1Segment
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Segment
-@dynamic endIndex, partIndex, startIndex;
+@dynamic endIndex, partIndex, startIndex, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ServiceAccountSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ServiceAccountSpec
+@dynamic enableCustomServiceAccount, serviceAccount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources
+@dynamic sharePointSources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sharePointSources" : [GTLRAiplatform_GoogleCloudAiplatformV1SharePointSourcesSharePointSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SharePointSourcesSharePointSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SharePointSourcesSharePointSource
+@dynamic clientId, clientSecret, driveId, driveName, fileId, sharepointFolderId,
+         sharepointFolderPath, sharepointSiteName, tenantId;
 @end
 
 
@@ -12569,6 +14876,52 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1ShieldedVmConfig
 @dynamic enableSecureBoot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SlackSource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SlackSource
+@dynamic channels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"channels" : [GTLRAiplatform_GoogleCloudAiplatformV1SlackSourceSlackChannels class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SlackSourceSlackChannels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SlackSourceSlackChannels
+@dynamic apiKeyConfig, channels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"channels" : [GTLRAiplatform_GoogleCloudAiplatformV1SlackSourceSlackChannelsSlackChannel class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SlackSourceSlackChannelsSlackChannel
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SlackSourceSlackChannelsSlackChannel
+@dynamic channelId, endTime, startTime;
 @end
 
 
@@ -12605,6 +14958,46 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1SpeculativeDecodingSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SpeculativeDecodingSpec
+@dynamic draftModelSpeculation, ngramSpeculation, speculativeTokenCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SpeculativeDecodingSpecDraftModelSpeculation
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SpeculativeDecodingSpecDraftModelSpeculation
+@dynamic draftModel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SpeculativeDecodingSpecNgramSpeculation
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SpeculativeDecodingSpecNgramSpeculation
+@dynamic ngramSize;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SpeechConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SpeechConfig
+@dynamic languageCode, voiceConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1StartNotebookRuntimeOperationMetadata
 //
 
@@ -12619,6 +15012,15 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1StartNotebookRuntimeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1StopNotebookRuntimeRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1StopNotebookRuntimeRequest
 @end
 
 
@@ -12697,6 +15099,30 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest
+@dynamic classMethod, input;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest_Input
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest_Input
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1StreamRawPredictRequest
 //
 
@@ -12716,6 +15142,34 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1StructFieldValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1StructFieldValue
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1StructValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1StructValue
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRAiplatform_GoogleCloudAiplatformV1StructFieldValue class]
   };
   return map;
 }
@@ -13015,6 +15469,200 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessInstance
+@dynamic context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationHelpfulnessSpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityInstance
+@dynamic context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualityResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualitySpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationQualitySpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInput
+@dynamic instance, metricSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInstance
+@dynamic context, instruction, prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityResult
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityResult
+@dynamic confidence, explanation, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbositySpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbositySpec
+@dynamic useReference, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters
+@dynamic adapterSize, epochCount, learningRateMultiplier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistribution
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistribution
+@dynamic billableSum, buckets, max, mean, median, min, p5, p95, sum;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buckets" : [GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistributionDatasetBucket class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistributionDatasetBucket
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistributionDatasetBucket
+@dynamic count, left, right;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDataStats
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDataStats
+@dynamic droppedExampleReasons, totalBillableCharacterCount,
+         totalBillableTokenCount, totalTruncatedExampleCount,
+         totalTuningCharacterCount, truncatedExampleIndices,
+         tuningDatasetExampleCount, tuningStepCount, userDatasetExamples,
+         userInputTokenDistribution, userMessagePerExampleDistribution,
+         userOutputTokenDistribution;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"droppedExampleReasons" : [NSString class],
+    @"truncatedExampleIndices" : [NSNumber class],
+    @"userDatasetExamples" : [GTLRAiplatform_GoogleCloudAiplatformV1Content class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningSpec
+@dynamic exportLastCheckpointOnly, hyperParameters, trainingDatasetUri,
+         validationDatasetUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1SyncFeatureViewRequest
 //
 
@@ -13082,7 +15730,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Tensorboard
 @dynamic blobStoragePathPrefix, createTime, descriptionProperty, displayName,
-         encryptionSpec, ETag, isDefault, labels, name, runCount, updateTime;
+         encryptionSpec, ETag, isDefault, labels, name, runCount, satisfiesPzi,
+         satisfiesPzs, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -13314,7 +15963,7 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1TokensInfo
-@dynamic tokenIds, tokens;
+@dynamic role, tokenIds, tokens;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -13333,7 +15982,8 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Tool
-@dynamic functionDeclarations, googleSearchRetrieval, retrieval;
+@dynamic codeExecution, enterpriseWebSearch, functionDeclarations, googleMaps,
+         googleSearch, googleSearchRetrieval, retrieval, urlContext;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -13342,6 +15992,314 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolCall
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolCall
+@dynamic toolInput, toolName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidInstance
+@dynamic prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidResults
+@dynamic toolCallValidMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolCallValidMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolCallValidSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolCodeExecution
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolCodeExecution
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolConfig
+@dynamic functionCallingConfig, retrievalConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch
+@dynamic excludeDomains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludeDomains" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchInstance
+@dynamic prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchResults
+@dynamic toolNameMatchMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolNameMatchMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolNameMatchSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchInstance
+@dynamic prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchResults
+@dynamic toolParameterKeyMatchMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolParameterKeyMatchMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKeyMatchSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchInstance
+@dynamic prediction, reference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchResults
+@dynamic toolParameterKvMatchMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolParameterKvMatchMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1ToolParameterKVMatchSpec
+@dynamic useStrictStringMatch;
 @end
 
 
@@ -13379,6 +16337,415 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1Trajectory
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1Trajectory
+@dynamic toolCalls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolCalls" : [GTLRAiplatform_GoogleCloudAiplatformV1ToolCall class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchInstance
+@dynamic predictedTrajectory, referenceTrajectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchResults
+@dynamic trajectoryAnyOrderMatchMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trajectoryAnyOrderMatchMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryAnyOrderMatchSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchInstance
+@dynamic predictedTrajectory, referenceTrajectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchResults
+@dynamic trajectoryExactMatchMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trajectoryExactMatchMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryExactMatchSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchInstance
+@dynamic predictedTrajectory, referenceTrajectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchResults
+@dynamic trajectoryInOrderMatchMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trajectoryInOrderMatchMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryInOrderMatchSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionInstance
+@dynamic predictedTrajectory, referenceTrajectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionResults
+@dynamic trajectoryPrecisionMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trajectoryPrecisionMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryPrecisionSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallInstance
+@dynamic predictedTrajectory, referenceTrajectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallResults
+@dynamic trajectoryRecallMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trajectoryRecallMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectoryRecallSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInput
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInput
+@dynamic instances, metricSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInstance
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseInstance
+@dynamic predictedTrajectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseMetricValue
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseMetricValue
+@dynamic score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseResults
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseResults
+@dynamic trajectorySingleToolUseMetricValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trajectorySingleToolUseMetricValues" : [GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseMetricValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TrajectorySingleToolUseSpec
+@dynamic toolName;
 @end
 
 
@@ -13450,6 +16817,86 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1TrialParameter
 @dynamic parameterId, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TunedModel
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TunedModel
+@dynamic checkpoints, endpoint, model;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"checkpoints" : [GTLRAiplatform_GoogleCloudAiplatformV1TunedModelCheckpoint class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TunedModelCheckpoint
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TunedModelCheckpoint
+@dynamic checkpointId, endpoint, epoch, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TunedModelRef
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TunedModelRef
+@dynamic pipelineJob, tunedModel, tuningJob;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TuningDataStats
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TuningDataStats
+@dynamic supervisedTuningDataStats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TuningJob
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TuningJob
+@dynamic baseModel, createTime, descriptionProperty, encryptionSpec, endTime,
+         error, experiment, labels, name, serviceAccount, startTime, state,
+         supervisedTuningSpec, tunedModel, tunedModelDisplayName,
+         tuningDataStats, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1TuningJob_Labels
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1TuningJob_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -13542,6 +16989,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1UpdateDeploymentResourcePoolOperationMetadata
 @dynamic genericMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1UpdateEndpointLongRunningRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1UpdateEndpointLongRunningRequest
+@dynamic endpoint;
 @end
 
 
@@ -13646,6 +17103,16 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1UpdatePersistentResourceOperationMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1UpdatePersistentResourceOperationMetadata
+@dynamic genericMetadata, progressMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1UpdateSpecialistPoolOperationMetadata
 //
 
@@ -13715,6 +17182,36 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileConfig
+@dynamic ragFileTransformationConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileRequest
+@dynamic ragFile, uploadRagFileConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileResponse
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1UploadRagFileResponse
+@dynamic error, ragFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1UpsertDatapointsRequest
 //
 
@@ -13737,6 +17234,43 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1UpsertDatapointsResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1UrlContext
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1UrlContext
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1UrlContextMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1UrlContextMetadata
+@dynamic urlMetadata;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urlMetadata" : [GTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata
+@dynamic retrievedUrl, urlRetrievalStatus;
 @end
 
 
@@ -13766,7 +17300,72 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearch
-@dynamic datastore;
+@dynamic datastore, dataStoreSpecs, engine, filter, maxResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataStoreSpecs" : [GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1VertexAiSearchConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexAiSearchConfig
+@dynamic servingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexAISearchDataStoreSpec
+@dynamic dataStore, filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStore
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStore
+@dynamic ragResources, ragRetrievalConfig, similarityTopK,
+         vectorDistanceThreshold;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragResources" : [GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1VertexRagStoreRagResource
+@dynamic ragCorpus, ragFileIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ragFileIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -13776,7 +17375,17 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1VideoMetadata
-@dynamic endOffset, startOffset;
+@dynamic endOffset, fps, startOffset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1VoiceConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1VoiceConfig
+@dynamic prebuiltVoiceConfig;
 @end
 
 
@@ -14190,805 +17799,21 @@ NSString * const kGTLRAiplatform_NlpSaftLangIdResult_ModelVersion_VersionUnspeci
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleTypeLatLng
+//
+
+@implementation GTLRAiplatform_GoogleTypeLatLng
+@dynamic latitude, longitude;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleTypeMoney
 //
 
 @implementation GTLRAiplatform_GoogleTypeMoney
 @dynamic currencyCode, nanos, units;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry
-//
-
-@implementation GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry
-@dynamic argentumMetricId, doubleValue, int64Value, metricName, systemLabels;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"systemLabels" : [GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel
-//
-
-@implementation GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntryLabel
-@dynamic labelName, labelValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics
-//
-
-@implementation GTLRAiplatform_IntelligenceCloudAutomlXpsReportingMetrics
-@dynamic effectiveTrainingDuration, metricEntries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"metricEntries" : [GTLRAiplatform_IntelligenceCloudAutomlXpsMetricEntry class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution
-//
-
-@implementation GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoDocAttribution
-@dynamic amarnaId, arxivId, author, bibkey, biorxivId, bookTitle, bookVolumeId,
-         category, conversationId, dataset, filepath, geminiId,
-         gnewsArticleTitle, goodallExampleId, isOptOut, isPrompt,
-         lamdaExampleId, license, meenaConversationId, naturalLanguageCode,
-         noAttribution, podcastUtteranceId, publicationDate,
-         qualityScoreExperimentOnly, repo, url, volumeId, wikipediaArticleTitle,
-         youtubeVideoId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult
-//
-
-@implementation GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoRecitationResult
-@dynamic dynamicSegmentResults, recitationAction, trainingSegmentResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dynamicSegmentResults" : [GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult class],
-    @"trainingSegmentResults" : [GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult
-//
-
-@implementation GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult
-@dynamic attributionDataset, displayAttributionMessage, docAttribution,
-         docOccurrences, endIndex, rawText, segmentRecitationAction, startIndex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult
-//
-
-@implementation GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoStreamRecitationResult
-@dynamic dynamicSegmentResults, fullyCheckedTextIndex, recitationAction,
-         trainingSegmentResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dynamicSegmentResults" : [GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult class],
-    @"trainingSegmentResults" : [GTLRAiplatform_LanguageLabsAidaTrustRecitationProtoSegmentResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRecitationDocAttribution
-//
-
-@implementation GTLRAiplatform_LearningGenaiRecitationDocAttribution
-@dynamic amarnaId, arxivId, author, bibkey, biorxivId, bookTitle, bookVolumeId,
-         conversationId, dataset, filepath, geminiId, gnewsArticleTitle,
-         goodallExampleId, isOptOut, isPrompt, lamdaExampleId, license,
-         meenaConversationId, naturalLanguageCode, noAttribution,
-         podcastUtteranceId, publicationDate, qualityScoreExperimentOnly, repo,
-         url, volumeId, wikipediaArticleTitle, youtubeVideoId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRecitationRecitationResult
-//
-
-@implementation GTLRAiplatform_LearningGenaiRecitationRecitationResult
-@dynamic dynamicSegmentResults, recitationAction, trainingSegmentResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dynamicSegmentResults" : [GTLRAiplatform_LearningGenaiRecitationSegmentResult class],
-    @"trainingSegmentResults" : [GTLRAiplatform_LearningGenaiRecitationSegmentResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRecitationSegmentResult
-//
-
-@implementation GTLRAiplatform_LearningGenaiRecitationSegmentResult
-@dynamic attributionDataset, displayAttributionMessage, docAttribution,
-         docOccurrences, endIndex, rawText, segmentRecitationAction, startIndex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootCalculationType
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootCalculationType
-@dynamic scoreType, weights;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootClassifierOutput
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootClassifierOutput
-@dynamic ruleOutput, ruleOutputs, state;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"ruleOutputs" : [GTLRAiplatform_LearningGenaiRootRuleOutput class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootClassifierOutputSummary
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootClassifierOutputSummary
-@dynamic metrics, ruleOutput, ruleOutputs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"metrics" : [GTLRAiplatform_LearningGenaiRootMetricOutput class],
-    @"ruleOutputs" : [GTLRAiplatform_LearningGenaiRootRuleOutput class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootClassifierState
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootClassifierState
-@dynamic dataProviderOutput, metricOutput;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dataProviderOutput" : [GTLRAiplatform_LearningGenaiRootDataProviderOutput class],
-    @"metricOutput" : [GTLRAiplatform_LearningGenaiRootMetricOutput class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootDataProviderOutput
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootDataProviderOutput
-@dynamic name, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootFilterMetadata
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootFilterMetadata
-@dynamic confidence, debugInfo, fallback, info, name, reason, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootFilterMetadataFilterDebugInfo
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootFilterMetadataFilterDebugInfo
-@dynamic classifierOutput, defaultMetadata, languageFilterResult, raiOutput,
-         raiResult, raiSignal, streamRecitationResult, takedownResult,
-         toxicityResult;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootGroundingMetadata
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootGroundingMetadata
-@dynamic citations, groundingCancelled, searchQueries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"citations" : [GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation class],
-    @"searchQueries" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootGroundingMetadataCitation
-@dynamic endIndex, factIndex, score, startIndex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootHarm
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootHarm
-@dynamic contextualDangerous, csam, fringe, grailImageHarmType,
-         grailTextHarmType, imageCsam, imagePedo, imagePorn, imageViolence, pqc,
-         safetycat, spii, threshold, videoFrameCsam, videoFramePedo,
-         videoFramePorn, videoFrameViolence;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootHarmGrailImageHarmType
-@dynamic imageHarmType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"imageHarmType" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootHarmGrailTextHarmType
-@dynamic harmType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"harmType" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootHarmSafetyCatCategories
-@dynamic categories;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"categories" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootHarmSpiiFilter
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootHarmSpiiFilter
-@dynamic usBankRoutingMicr, usEmployerIdentificationNumber,
-         usSocialSecurityNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootInternalMetadata
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootInternalMetadata
-@dynamic scoredTokens;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"scoredTokens" : [GTLRAiplatform_LearningGenaiRootScoredToken class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootLanguageFilterResult
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootLanguageFilterResult
-@dynamic allowed, detectedLanguage, detectedLanguageProbability;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootMetricOutput
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootMetricOutput
-@dynamic debug, name, numericValue, status, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRAIOutput
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRAIOutput
-@dynamic allowed, harm, name, score;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRegexTakedownResult
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRegexTakedownResult
-@dynamic allowed, takedownRegex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRequestResponseTakedownResult
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRequestResponseTakedownResult
-@dynamic allowed, requestTakedownRegex, responseTakedownRegex;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRoutingDecision
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRoutingDecision
-@dynamic metadata, modelConfigId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadata
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadata
-@dynamic scoreBasedRoutingMetadata, tokenLengthBasedRoutingMetadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataScoreBased
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataScoreBased
-@dynamic matchedRule, score, usedDefaultFallback;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBased
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBased
-@dynamic modelInputTokenMetadata, modelMaxTokenMetadata;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"modelInputTokenMetadata" : [GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelInputTokenMetadata class],
-    @"modelMaxTokenMetadata" : [GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelMaxTokenMetadata class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelInputTokenMetadata
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelInputTokenMetadata
-@dynamic computedInputTokenLength, modelId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelMaxTokenMetadata
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRoutingDecisionMetadataTokenLengthBasedModelMaxTokenMetadata
-@dynamic maxNumInputTokens, maxNumOutputTokens, modelId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootRuleOutput
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootRuleOutput
-@dynamic decision, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootScore
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootScore
-@dynamic calculationType, internalMetadata, thresholdType,
-         tokensAndLogprobPerDecodingStep, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootScoreBasedRoutingConfigRule
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootScoreBasedRoutingConfigRule
-@dynamic equalOrGreaterThan, lessThan, modelConfigId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootScoredSimilarityTakedownPhrase
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootScoredSimilarityTakedownPhrase
-@dynamic phrase, similarityScore;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootScoredToken
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootScoredToken
-@dynamic endTokenScore, score, token;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootSimilarityTakedownPhrase
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootSimilarityTakedownPhrase
-@dynamic blockedPhrase;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootSimilarityTakedownResult
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootSimilarityTakedownResult
-@dynamic allowed, scoredPhrases;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"scoredPhrases" : [GTLRAiplatform_LearningGenaiRootScoredSimilarityTakedownPhrase class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootTakedownResult
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootTakedownResult
-@dynamic allowed, regexTakedownResult, requestResponseTakedownResult,
-         similarityTakedownResult;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootThresholdType
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootThresholdType
-@dynamic scoreType, threshold;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStep
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStep
-@dynamic chosenCandidates, topCandidates;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"chosenCandidates" : [GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepCandidate class],
-    @"topCandidates" : [GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepTopCandidates class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepCandidate
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepCandidate
-@dynamic logProbability, token;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepTopCandidates
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepTopCandidates
-@dynamic candidates;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"candidates" : [GTLRAiplatform_LearningGenaiRootTokensAndLogProbPerDecodingStepCandidate class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootToxicityResult
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootToxicityResult
-@dynamic signals;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"signals" : [GTLRAiplatform_LearningGenaiRootToxicitySignal class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningGenaiRootToxicitySignal
-//
-
-@implementation GTLRAiplatform_LearningGenaiRootToxicitySignal
-@dynamic allowed, label, score;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_LearningServingLlmMessageMetadata
-//
-
-@implementation GTLRAiplatform_LearningServingLlmMessageMetadata
-@dynamic classifierSummary, currentStreamTextLength, deleted, filterMeta,
-         finalMessageScore, finishReason, groundingMetadata, isCode, isFallback,
-         langidResult, language, lmPrefix, originalText,
-         perStreamDecodedTokenCount, raiOutputs, recitationResult,
-         returnTokenCount, scores, streamTerminated, totalDecodedTokenCount,
-         translatedUserPrompts, vertexRaiResult;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"filterMeta" : [GTLRAiplatform_LearningGenaiRootFilterMetadata class],
-    @"raiOutputs" : [GTLRAiplatform_LearningGenaiRootRAIOutput class],
-    @"scores" : [GTLRAiplatform_LearningGenaiRootScore class],
-    @"translatedUserPrompts" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_NlpSaftLangIdLocalesResult
-//
-
-@implementation GTLRAiplatform_NlpSaftLangIdLocalesResult
-@dynamic predictions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"predictions" : [GTLRAiplatform_NlpSaftLangIdLocalesResultLocale class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_NlpSaftLangIdLocalesResultLocale
-//
-
-@implementation GTLRAiplatform_NlpSaftLangIdLocalesResultLocale
-@dynamic languageCode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_NlpSaftLangIdResult
-//
-
-@implementation GTLRAiplatform_NlpSaftLangIdResult
-@dynamic modelVersion, predictions, spanPredictions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"predictions" : [GTLRAiplatform_NlpSaftLanguageSpan class],
-    @"spanPredictions" : [GTLRAiplatform_NlpSaftLanguageSpanSequence class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_NlpSaftLanguageSpan
-//
-
-@implementation GTLRAiplatform_NlpSaftLanguageSpan
-@dynamic end, languageCode, locales, probability, start;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_NlpSaftLanguageSpanSequence
-//
-
-@implementation GTLRAiplatform_NlpSaftLanguageSpanSequence
-@dynamic languageSpans, probability;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"languageSpans" : [GTLRAiplatform_NlpSaftLanguageSpan class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_Proto2BridgeMessageSet
-//
-
-@implementation GTLRAiplatform_Proto2BridgeMessageSet
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_UtilStatusProto
-//
-
-@implementation GTLRAiplatform_UtilStatusProto
-@dynamic canonicalCode, code, message, messageSet, space;
 @end
 
 #pragma clang diagnostic pop

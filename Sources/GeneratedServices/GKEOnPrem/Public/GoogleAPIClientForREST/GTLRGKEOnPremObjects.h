@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Anthos On-Prem API (gkeonprem/v1)
+//   GKE On-Prem API (gkeonprem/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/clusters/docs/on-prem/
 
@@ -103,6 +103,8 @@
 @class GTLRGKEOnPrem_ValidationCheck;
 @class GTLRGKEOnPrem_ValidationCheckResult;
 @class GTLRGKEOnPrem_ValidationCheckStatus;
+@class GTLRGKEOnPrem_Version;
+@class GTLRGKEOnPrem_Versions;
 @class GTLRGKEOnPrem_VmwareAAGConfig;
 @class GTLRGKEOnPrem_VmwareAddressPool;
 @class GTLRGKEOnPrem_VmwareAdminAddonNodeConfig;
@@ -117,6 +119,7 @@
 @class GTLRGKEOnPrem_VmwareAdminMetalLbConfig;
 @class GTLRGKEOnPrem_VmwareAdminNetworkConfig;
 @class GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig;
+@class GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig;
 @class GTLRGKEOnPrem_VmwareAdminSeesawConfig;
 @class GTLRGKEOnPrem_VmwareAdminVCenterConfig;
 @class GTLRGKEOnPrem_VmwareAdminVipConfig;
@@ -1612,6 +1615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *localName;
 
+/** Output only. The namespace of the cluster. */
+@property(nonatomic, copy, nullable) NSString *localNamespace;
+
 /** Maintenance configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalMaintenanceConfig *maintenanceConfig;
 
@@ -1735,6 +1741,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  BareMetalClusterUpgradePolicy defines the cluster upgrade policy.
  */
 @interface GTLRGKEOnPrem_BareMetalClusterUpgradePolicy : GTLRObject
+
+/**
+ *  Output only. Pause is used to show the upgrade pause status. It's view only
+ *  for now.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pause;
 
 /**
  *  Specifies which upgrade policy to use.
@@ -2718,6 +2732,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *localName;
 
+/** Optional. The namespace of the cluster. */
+@property(nonatomic, copy, nullable) NSString *localNamespace;
+
 @end
 
 
@@ -3672,6 +3689,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
+/** Reflect current version of the resource. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+/**
+ *  Shows the mapping of a given version to the number of machines under this
+ *  version.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_Versions *versions;
+
 @end
 
 
@@ -3880,6 +3906,39 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  Version describes the number of nodes at a given version under a resource.
+ */
+@interface GTLRGKEOnPrem_Version : GTLRObject
+
+/**
+ *  Number of machines under the above version.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** Resource version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Versions describes the mapping of a given version to the number of machines
+ *  under this version.
+ */
+@interface GTLRGKEOnPrem_Versions : GTLRObject
+
+/**
+ *  Shows the mapping of a given version to the number of machines under this
+ *  version.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_Version *> *versions;
+
+@end
+
+
+/**
  *  Specifies anti affinity group config for the VMware user cluster.
  */
 @interface GTLRGKEOnPrem_VmwareAAGConfig : GTLRObject
@@ -3998,6 +4057,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Enable advanced cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAdvancedCluster;
+
 /** Output only. The DNS name of VMware admin cluster's API server. */
 @property(nonatomic, copy, nullable) NSString *endpoint;
 
@@ -4049,6 +4115,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig *preparedSecrets;
 
+/** Configuration for registry. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig *privateRegistryConfig;
+
 /**
  *  Output only. If set, there are currently changes in flight to the VMware
  *  admin cluster.
@@ -4092,6 +4161,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** Output only. The time at which VMware admin cluster was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. ValidationCheck represents the result of the preflight check
+ *  job.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_ValidationCheck *validationCheck;
 
 /** The VMware admin cluster VCenter configuration. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminVCenterConfig *vcenter;
@@ -4257,6 +4332,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  load balancer. For admin clusters, currently no configurations is needed.
  */
 @interface GTLRGKEOnPrem_VmwareAdminMetalLbConfig : GTLRObject
+
+/**
+ *  Whether MetalLB is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 @end
 
 
@@ -4312,6 +4395,26 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  VmwareAdminPrivateRegistryConfig represents configuration for admin cluster
+ *  registry.
+ */
+@interface GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig : GTLRObject
+
+/** The registry address. */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  When the container runtime pulls an image from private registry, the
+ *  registry must prove its identity by presenting a certificate. The registry's
+ *  certificate is signed by a certificate authority (CA). The container runtime
+ *  uses the CA's certificate to validate the registry's certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *caCert;
 
 @end
 
@@ -4535,6 +4638,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableBundledIngress;
+
+/**
+ *  Enable advanced cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAdvancedCluster;
 
 /**
  *  Enable control plane V2. Default to false.
@@ -5027,7 +5137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /**
  *  Required. The OS image to be used for each node in a node pool. Currently
- *  `cos`, `ubuntu`, `ubuntu_containerd` and `windows` are supported.
+ *  `cos`, `cos_cgv2`, `ubuntu`, `ubuntu_cgv2`, `ubuntu_containerd` and
+ *  `windows` are supported.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 

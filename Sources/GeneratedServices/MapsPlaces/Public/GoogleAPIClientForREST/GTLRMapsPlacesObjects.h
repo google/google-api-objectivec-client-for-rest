@@ -13,8 +13,26 @@
 #endif
 
 @class GTLRMapsPlaces_GoogleGeoTypeViewport;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptor;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationBias;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationRestriction;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestion;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionFormattableText;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionPlacePrediction;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionQueryPrediction;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStringRange;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStructuredFormat;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Circle;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContent;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationBusinessAvailabilityAttributesJustification;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustification;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedText;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedTextHighlightedTextRange;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions;
@@ -24,6 +42,11 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAccessibilityOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriod;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriodPoint;
@@ -31,15 +54,26 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceParkingOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePaymentOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlacePlusCode;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceReviewSummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1Polyline;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1Review;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1RouteModifiers;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummaryLeg;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequestLocationRestriction;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationBias;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationRestriction;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestSearchAlongRouteParameters;
 @class GTLRMapsPlaces_GoogleTypeDate;
 @class GTLRMapsPlaces_GoogleTypeLatLng;
 @class GTLRMapsPlaces_GoogleTypeLocalizedText;
 @class GTLRMapsPlaces_GoogleTypeMoney;
+@class GTLRMapsPlaces_GoogleTypePostalAddress;
+@class GTLRMapsPlaces_GoogleTypeTimeZone;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -50,6 +84,81 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea.containment
+
+/**
+ *  The containment is unspecified.
+ *
+ *  Value: "CONTAINMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_ContainmentUnspecified;
+/**
+ *  The target location is outside the area region, but close by.
+ *
+ *  Value: "NEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Near;
+/**
+ *  The target location is within the area region, close to the edge.
+ *
+ *  Value: "OUTSKIRTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Outskirts;
+/**
+ *  The target location is within the area region, close to the center.
+ *
+ *  Value: "WITHIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Within;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark.spatialRelationship
+
+/**
+ *  The target is directly opposite the landmark on the other side of the road.
+ *
+ *  Value: "ACROSS_THE_ROAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AcrossTheRoad;
+/**
+ *  Not on the same route as the landmark but a single turn away.
+ *
+ *  Value: "AROUND_THE_CORNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AroundTheCorner;
+/**
+ *  Close to the landmark's structure but further away from its street
+ *  entrances.
+ *
+ *  Value: "BEHIND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Behind;
+/**
+ *  The target is directly adjacent to the landmark.
+ *
+ *  Value: "BESIDE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Beside;
+/**
+ *  On the same route as the landmark but not besides or across.
+ *
+ *  Value: "DOWN_THE_ROAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_DownTheRoad;
+/**
+ *  This is the default relationship when nothing more specific below applies.
+ *
+ *  Value: "NEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Near;
+/**
+ *  The landmark has a spatial geometry and the target is within its bounds.
+ *
+ *  Value: "WITHIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Within;
 
 // ----------------------------------------------------------------------------
 // GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation.type
@@ -78,6 +187,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOpt
  *  Value: "EV_CONNECTOR_TYPE_J1772"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeJ1772;
+/**
+ *  The North American Charging System (NACS), standardized as SAE J3400.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_NACS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeNacs;
 /**
  *  Other connector types.
  *
@@ -136,6 +251,18 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Diesel;
 /**
+ *  Diesel plus fuel.
+ *
+ *  Value: "DIESEL_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_DieselPlus;
+/**
+ *  E 100.
+ *
+ *  Value: "E100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E100;
+/**
  *  E 80.
  *
  *  Value: "E80"
@@ -154,7 +281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_FuelTypeUnspecified;
 /**
- *  LPG.
+ *  Liquefied Petroleum Gas.
  *
  *  Value: "LPG"
  */
@@ -300,7 +427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_Price
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_PriceLevel_PriceLevelUnspecified;
 /**
- *  Place provides very expensive service s.
+ *  Place provides very expensive services.
  *
  *  Value: "PRICE_LEVEL_VERY_EXPENSIVE"
  */
@@ -395,6 +522,86 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpenin
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours_SecondaryHoursType_Takeout;
 
 // ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters.routingPreference
+
+/**
+ *  No routing preference specified. Default to `TRAFFIC_UNAWARE`.
+ *
+ *  Value: "ROUTING_PREFERENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_RoutingPreferenceUnspecified;
+/**
+ *  Calculates routes taking live traffic conditions into consideration. In
+ *  contrast to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied to
+ *  significantly reduce latency.
+ *
+ *  Value: "TRAFFIC_AWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficAware;
+/**
+ *  Calculates the routes taking live traffic conditions into consideration,
+ *  without applying most performance optimizations. Using this value produces
+ *  the highest latency.
+ *
+ *  Value: "TRAFFIC_AWARE_OPTIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficAwareOptimal;
+/**
+ *  Computes routes without taking live traffic conditions into consideration.
+ *  Suitable when traffic conditions don't matter or are not applicable. Using
+ *  this value produces the lowest latency. Note: For `TravelMode` `DRIVE` and
+ *  `TWO_WHEELER`, the route and duration chosen are based on road network and
+ *  average time-independent traffic conditions, not current road conditions.
+ *  Consequently, routes may include roads that are temporarily closed. Results
+ *  for a given request may vary over time due to changes in the road network,
+ *  updated average traffic conditions, and the distributed nature of the
+ *  service. Results may also vary between nearly-equivalent routes at any time
+ *  or frequency.
+ *
+ *  Value: "TRAFFIC_UNAWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficUnaware;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters.travelMode
+
+/**
+ *  Travel by bicycle. Not supported with `search_along_route_parameters`.
+ *
+ *  Value: "BICYCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Bicycle;
+/**
+ *  Travel by passenger car.
+ *
+ *  Value: "DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Drive;
+/**
+ *  No travel mode specified. Defaults to `DRIVE`.
+ *
+ *  Value: "TRAVEL_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_TravelModeUnspecified;
+/**
+ *  Motorized two wheeled vehicles of all kinds such as scooters and
+ *  motorcycles. Note that this is distinct from the `BICYCLE` travel mode which
+ *  covers human-powered transport. Not supported with
+ *  `search_along_route_parameters`. Only supported in those countries listed at
+ *  [Countries and regions supported for two-wheeled
+ *  vehicles](https://developers.google.com/maps/documentation/routes/coverage-two-wheeled).
+ *
+ *  Value: "TWO_WHEELER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_TwoWheeler;
+/**
+ *  Travel by walking. Not supported with `search_along_route_parameters`.
+ *
+ *  Value: "WALK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Walk;
+
+// ----------------------------------------------------------------------------
 // GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest.rankPreference
 
 /**
@@ -450,7 +657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_PriceLevels_PriceLevelUnspecified;
 /**
- *  Place provides very expensive service s.
+ *  Place provides very expensive services.
  *
  *  Value: "PRICE_LEVEL_VERY_EXPENSIVE"
  */
@@ -466,7 +673,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Distance;
 /**
- *  RankPreference value not set. Will default to DISTANCE.
+ *  For a categorical query such as "Restaurants in New York City", RELEVANCE is
+ *  the default. For non-categorical queries such as "Mountain View, CA" we
+ *  recommend that you leave rankPreference unset.
  *
  *  Value: "RANK_PREFERENCE_UNSPECIFIED"
  */
@@ -477,6 +686,81 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Value: "RELEVANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Relevance;
+
+// ----------------------------------------------------------------------------
+// GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions.connectorTypes
+
+/**
+ *  Combined Charging System (AC and DC). Based on SAE. Type-1 J-1772 connector
+ *
+ *  Value: "EV_CONNECTOR_TYPE_CCS_COMBO_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeCcsCombo1;
+/**
+ *  Combined Charging System (AC and DC). Based on Type-2 Mennekes connector
+ *
+ *  Value: "EV_CONNECTOR_TYPE_CCS_COMBO_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeCcsCombo2;
+/**
+ *  CHAdeMO type connector.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_CHADEMO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeChademo;
+/**
+ *  J1772 type 1 connector.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_J1772"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeJ1772;
+/**
+ *  The North American Charging System (NACS), standardized as SAE J3400.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_NACS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeNacs;
+/**
+ *  Other connector types.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeOther;
+/**
+ *  The generic TESLA connector. This is NACS in the North America but can be
+ *  non-NACS in other parts of the world (e.g. CCS Combo 2 (CCS2) or GB/T). This
+ *  value is less representative of an actual connector type, and more
+ *  represents the ability to charge a Tesla brand vehicle at a Tesla owned
+ *  charging station.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_TESLA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeTesla;
+/**
+ *  IEC 62196 type 2 connector. Often referred to as MENNEKES.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_TYPE_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeType2;
+/**
+ *  Unspecified connector.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecified;
+/**
+ *  GB/T type corresponds to the GB/T standard in China. This type covers all
+ *  GB_T types.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_UNSPECIFIED_GB_T"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecifiedGbT;
+/**
+ *  Unspecified wall outlet.
+ *
+ *  Value: "EV_CONNECTOR_TYPE_UNSPECIFIED_WALL_OUTLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_ConnectorTypes_EvConnectorTypeUnspecifiedWallOutlet;
 
 /**
  *  A latitude-longitude viewport, represented as two diagonally opposite `low`
@@ -508,6 +792,137 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  A relational description of a location. Includes a ranked set of nearby
+ *  landmarks and precise containing areas and their relationship to the target
+ *  location.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptor : GTLRObject
+
+/**
+ *  A ranked list of containing or adjacent areas. The most recognizable and
+ *  precise areas are ranked first.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea *> *areas;
+
+/**
+ *  A ranked list of nearby landmarks. The most recognizable and nearby
+ *  landmarks are ranked first.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark *> *landmarks;
+
+@end
+
+
+/**
+ *  Area information and the area's relationship with the target location. Areas
+ *  includes precise sublocality, neighborhoods, and large compounds that are
+ *  useful for describing a location.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea : GTLRObject
+
+/**
+ *  Defines the spatial relationship between the target location and the area.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_ContainmentUnspecified
+ *        The containment is unspecified. (Value: "CONTAINMENT_UNSPECIFIED")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Near
+ *        The target location is outside the area region, but close by. (Value:
+ *        "NEAR")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Outskirts
+ *        The target location is within the area region, close to the edge.
+ *        (Value: "OUTSKIRTS")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorArea_Containment_Within
+ *        The target location is within the area region, close to the center.
+ *        (Value: "WITHIN")
+ */
+@property(nonatomic, copy, nullable) NSString *containment;
+
+/** The area's display name. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/** The area's resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The area's place id. */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+@end
+
+
+/**
+ *  Basic landmark information and the landmark's relationship with the target
+ *  location. Landmarks are prominent places that can be used to describe a
+ *  location.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark : GTLRObject
+
+/** The landmark's display name. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *displayName;
+
+/** The landmark's resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The landmark's place id. */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+/**
+ *  Defines the spatial relationship between the target location and the
+ *  landmark.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AcrossTheRoad
+ *        The target is directly opposite the landmark on the other side of the
+ *        road. (Value: "ACROSS_THE_ROAD")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_AroundTheCorner
+ *        Not on the same route as the landmark but a single turn away. (Value:
+ *        "AROUND_THE_CORNER")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Behind
+ *        Close to the landmark's structure but further away from its street
+ *        entrances. (Value: "BEHIND")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Beside
+ *        The target is directly adjacent to the landmark. (Value: "BESIDE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_DownTheRoad
+ *        On the same route as the landmark but not besides or across. (Value:
+ *        "DOWN_THE_ROAD")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Near
+ *        This is the default relationship when nothing more specific below
+ *        applies. (Value: "NEAR")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptorLandmark_SpatialRelationship_Within
+ *        The landmark has a spatial geometry and the target is within its
+ *        bounds. (Value: "WITHIN")
+ */
+@property(nonatomic, copy, nullable) NSString *spatialRelationship;
+
+/**
+ *  The straight line distance, in meters, between the center point of the
+ *  target and the center point of the landmark. In some situations, this value
+ *  can be longer than `travel_distance_meters`.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *straightLineDistanceMeters;
+
+/**
+ *  The travel distance, in meters, along the road network from the target to
+ *  the landmark, if known. This value does not take into account the mode of
+ *  transportation, such as walking, driving, or biking.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *travelDistanceMeters;
+
+/**
+ *  A set of type tags for this landmark. For a complete list of possible
+ *  values, see
+ *  https://developers.google.com/maps/documentation/places/web-service/place-types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *types;
+
+@end
+
+
+/**
  *  Information about the author of the UGC data. Used in Photo, and Review.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution : GTLRObject
@@ -520,6 +935,342 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** URI of the author of the Photo or Review. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Request proto for AutocompletePlaces.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequest : GTLRObject
+
+/**
+ *  Optional. Included primary Place type (for example, "restaurant" or
+ *  "gas_station") in Place Types
+ *  (https://developers.google.com/maps/documentation/places/web-service/place-types),
+ *  or only `(regions)`, or only `(cities)`. A Place is only returned if its
+ *  primary type is included in this list. Up to 5 values can be specified. If
+ *  no types are specified, all Place types are returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedPrimaryTypes;
+
+/**
+ *  Optional. Only include results in the specified regions, specified as up to
+ *  15 CLDR two-character region codes. An empty set will not restrict the
+ *  results. If both `location_restriction` and `included_region_codes` are set,
+ *  the results will be located in the area of intersection.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includedRegionCodes;
+
+/**
+ *  Optional. Include pure service area businesses if the field is set to true.
+ *  Pure service area business is a business that visits or delivers to
+ *  customers directly but does not serve customers at their business address.
+ *  For example, businesses like cleaning services or plumbers. Those businesses
+ *  do not have a physical address or location on Google Maps. Places will not
+ *  return fields including `location`, `plus_code`, and other location related
+ *  fields for these businesses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includePureServiceAreaBusinesses;
+
+/**
+ *  Optional. If true, the response will include both Place and query
+ *  predictions. Otherwise the response will only return Place predictions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeQueryPredictions;
+
+/** Required. The text string on which to search. */
+@property(nonatomic, copy, nullable) NSString *input;
+
+/**
+ *  Optional. A zero-based Unicode character offset of `input` indicating the
+ *  cursor position in `input`. The cursor position may influence what
+ *  predictions are returned. If empty, defaults to the length of `input`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputOffset;
+
+/**
+ *  Optional. The language in which to return results. Defaults to en-US. The
+ *  results may be in mixed languages if the language used in `input` is
+ *  different from `language_code` or if the returned Place does not have a
+ *  translation from the local language to `language_code`.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional. Bias results to a specified location. At most one of
+ *  `location_bias` or `location_restriction` should be set. If neither are set,
+ *  the results will be biased by IP address, meaning the IP address will be
+ *  mapped to an imprecise location and used as a biasing signal.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationBias *locationBias;
+
+/**
+ *  Optional. Restrict results to a specified location. At most one of
+ *  `location_bias` or `location_restriction` should be set. If neither are set,
+ *  the results will be biased by IP address, meaning the IP address will be
+ *  mapped to an imprecise location and used as a biasing signal.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationRestriction *locationRestriction;
+
+/**
+ *  Optional. The origin point from which to calculate geodesic distance to the
+ *  destination (returned as `distance_meters`). If this value is omitted,
+ *  geodesic distance will not be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLatLng *origin;
+
+/**
+ *  Optional. The region code, specified as a CLDR two-character region code.
+ *  This affects address formatting, result ranking, and may influence what
+ *  results are returned. This does not restrict results to the specified
+ *  region. To restrict results to a region, use `region_code_restriction`.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Optional. A string which identifies an Autocomplete session for billing
+ *  purposes. Must be a URL and filename safe base64 string with at most 36
+ *  ASCII characters in length. Otherwise an INVALID_ARGUMENT error is returned.
+ *  The session begins when the user starts typing a query, and concludes when
+ *  they select a place and a call to Place Details or Address Validation is
+ *  made. Each session can have multiple queries, followed by one Place Details
+ *  or Address Validation request. The credentials used for each request within
+ *  a session must belong to the same Google Cloud Console project. Once a
+ *  session has concluded, the token is no longer valid; your app must generate
+ *  a fresh token for each session. If the `session_token` parameter is omitted,
+ *  or if you reuse a session token, the session is charged as if no session
+ *  token was provided (each request is billed separately). We recommend the
+ *  following guidelines: * Use session tokens for all Place Autocomplete calls.
+ *  * Generate a fresh token for each session. Using a version 4 UUID is
+ *  recommended. * Ensure that the credentials used for all Place Autocomplete,
+ *  Place Details, and Address Validation requests within a session belong to
+ *  the same Cloud Console project. * Be sure to pass a unique session token for
+ *  each new session. Using the same token for more than one session will result
+ *  in each request being billed individually.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionToken;
+
+@end
+
+
+/**
+ *  The region to search. The results may be biased around the specified region.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationBias : GTLRObject
+
+/** A circle defined by a center point and radius. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1Circle *circle;
+
+/** A viewport defined by a northeast and a southwest corner. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleGeoTypeViewport *rectangle;
+
+@end
+
+
+/**
+ *  The region to search. The results will be restricted to the specified
+ *  region.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequestLocationRestriction : GTLRObject
+
+/** A circle defined by a center point and radius. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1Circle *circle;
+
+/** A viewport defined by a northeast and a southwest corner. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleGeoTypeViewport *rectangle;
+
+@end
+
+
+/**
+ *  Response proto for AutocompletePlaces.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponse : GTLRObject
+
+/**
+ *  Contains a list of suggestions, ordered in descending order of relevance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestion *> *suggestions;
+
+@end
+
+
+/**
+ *  An Autocomplete suggestion result.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestion : GTLRObject
+
+/** A prediction for a Place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionPlacePrediction *placePrediction;
+
+/** A prediction for a query. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionQueryPrediction *queryPrediction;
+
+@end
+
+
+/**
+ *  Text representing a Place or query prediction. The text may be used as is or
+ *  formatted.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionFormattableText : GTLRObject
+
+/**
+ *  A list of string ranges identifying where the input request matched in
+ *  `text`. The ranges can be used to format specific parts of `text`. The
+ *  substrings may not be exact matches of `input` if the matching was
+ *  determined by criteria other than string matching (for example, spell
+ *  corrections or transliterations). These values are Unicode character offsets
+ *  of `text`. The ranges are guaranteed to be ordered in increasing offset
+ *  values.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStringRange *> *matches;
+
+/** Text that may be used as is or formatted with `matches`. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Prediction results for a Place Autocomplete prediction.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionPlacePrediction : GTLRObject
+
+/**
+ *  The length of the geodesic in meters from `origin` if `origin` is specified.
+ *  Certain predictions such as routes may not populate this field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distanceMeters;
+
+/**
+ *  The resource name of the suggested Place. This name can be used in other
+ *  APIs that accept Place names.
+ */
+@property(nonatomic, copy, nullable) NSString *place;
+
+/**
+ *  The unique identifier of the suggested Place. This identifier can be used in
+ *  other APIs that accept Place IDs.
+ */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
+/**
+ *  A breakdown of the Place prediction into main text containing the name of
+ *  the Place and secondary text containing additional disambiguating features
+ *  (such as a city or region). `structured_format` is recommended for
+ *  developers who wish to show two separate, but related, UI elements.
+ *  Developers who wish to show a single UI element may want to use `text`
+ *  instead. They are two different ways to represent a Place prediction. Users
+ *  should not try to parse `structured_format` into `text` or vice versa.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStructuredFormat *structuredFormat;
+
+/**
+ *  Contains the human-readable name for the returned result. For establishment
+ *  results, this is usually the business name and address. `text` is
+ *  recommended for developers who wish to show a single UI element. Developers
+ *  who wish to show two separate, but related, UI elements may want to use
+ *  `structured_format` instead. They are two different ways to represent a
+ *  Place prediction. Users should not try to parse `structured_format` into
+ *  `text` or vice versa. This text may be different from the `display_name`
+ *  returned by GetPlace. May be in mixed languages if the request `input` and
+ *  `language_code` are in different languages or if the Place does not have a
+ *  translation from the local language to `language_code`.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionFormattableText *text;
+
+/**
+ *  List of types that apply to this Place from Table A or Table B in
+ *  https://developers.google.com/maps/documentation/places/web-service/place-types.
+ *  A type is a categorization of a Place. Places with shared types will share
+ *  similar characteristics.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *types;
+
+@end
+
+
+/**
+ *  Prediction results for a Query Autocomplete prediction.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionQueryPrediction : GTLRObject
+
+/**
+ *  A breakdown of the query prediction into main text containing the query and
+ *  secondary text containing additional disambiguating features (such as a city
+ *  or region). `structured_format` is recommended for developers who wish to
+ *  show two separate, but related, UI elements. Developers who wish to show a
+ *  single UI element may want to use `text` instead. They are two different
+ *  ways to represent a query prediction. Users should not try to parse
+ *  `structured_format` into `text` or vice versa.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStructuredFormat *structuredFormat;
+
+/**
+ *  The predicted text. This text does not represent a Place, but rather a text
+ *  query that could be used in a search endpoint (for example, Text Search).
+ *  `text` is recommended for developers who wish to show a single UI element.
+ *  Developers who wish to show two separate, but related, UI elements may want
+ *  to use `structured_format` instead. They are two different ways to represent
+ *  a query prediction. Users should not try to parse `structured_format` into
+ *  `text` or vice versa. May be in mixed languages if the request `input` and
+ *  `language_code` are in different languages or if part of the query does not
+ *  have a translation from the local language to `language_code`.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionFormattableText *text;
+
+@end
+
+
+/**
+ *  Identifies a substring within a given text.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStringRange : GTLRObject
+
+/**
+ *  Zero-based offset of the last Unicode character (exclusive).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endOffset;
+
+/**
+ *  Zero-based offset of the first Unicode character of the string (inclusive).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startOffset;
+
+@end
+
+
+/**
+ *  Contains a breakdown of a Place or query prediction into main text and
+ *  secondary text. For Place predictions, the main text contains the specific
+ *  name of the Place. For query predictions, the main text contains the query.
+ *  The secondary text contains additional disambiguating features (such as a
+ *  city or region) to further identify the Place or refine the query.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionStructuredFormat : GTLRObject
+
+/** Represents the name of the Place or query. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionFormattableText *mainText;
+
+/**
+ *  Represents additional disambiguating features (such as a city or region) to
+ *  further identify the Place or refine the query.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponseSuggestionFormattableText *secondaryText;
 
 @end
 
@@ -543,6 +1294,161 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *radius;
+
+@end
+
+
+/**
+ *  A block of content that can be served individually.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock : GTLRObject
+
+/** Content related to the topic. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *content;
+
+/**
+ *  The list of resource names of the referenced places. This name can be used
+ *  in other APIs that accept Place resource names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *referencedPlaces;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. Content that is contextual to the place query.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContent : GTLRObject
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. Justifications for the place.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification *> *justifications;
+
+/**
+ *  Information (including references) about photos of this place, contexual to
+ *  the place query.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Photo *> *photos;
+
+/** List of reviews about this place, contexual to the place query. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Review *> *reviews;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. Justifications for the place. Justifications answers the
+ *  question of why a place could interest an end user.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification : GTLRObject
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationBusinessAvailabilityAttributesJustification *businessAvailabilityAttributesJustification;
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustification *reviewJustification;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. BusinessAvailabilityAttributes justifications. This shows
+ *  some attributes a business has that could interest an end user.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationBusinessAvailabilityAttributesJustification : GTLRObject
+
+/**
+ *  If a place provides delivery.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *delivery;
+
+/**
+ *  If a place provides dine-in.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dineIn;
+
+/**
+ *  If a place provides takeout.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *takeout;
+
+@end
+
+
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. User review justifications. This highlights a section of
+ *  the user review that would interest an end user. For instance, if the search
+ *  query is "firewood pizza", the review justification highlights the text
+ *  relevant to the search query.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustification : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedText *highlightedText;
+
+/** The review that the highlighted text is generated from. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1Review *review;
+
+@end
+
+
+/**
+ *  The text highlighted by the justification. This is a subset of the review
+ *  itself. The exact word to highlight is marked by the HighlightedTextRange.
+ *  There could be several words in the text being highlighted.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedText : GTLRObject
+
+/** The list of the ranges of the highlighted text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedTextHighlightedTextRange *> *highlightedTextRanges;
+
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  The range of highlighted text.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustificationReviewJustificationHighlightedTextHighlightedTextRange : GTLRObject
+
+/**
+ *  endIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  startIndex
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 @end
 
@@ -629,6 +1535,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        CHAdeMO type connector. (Value: "EV_CONNECTOR_TYPE_CHADEMO")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeJ1772
  *        J1772 type 1 connector. (Value: "EV_CONNECTOR_TYPE_J1772")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeNacs
+ *        The North American Charging System (NACS), standardized as SAE J3400.
+ *        (Value: "EV_CONNECTOR_TYPE_NACS")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeOther
  *        Other connector types. (Value: "EV_CONNECTOR_TYPE_OTHER")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptionsConnectorAggregation_Type_EvConnectorTypeTesla
@@ -685,6 +1594,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        Bio-diesel. (Value: "BIO_DIESEL")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Diesel
  *        Diesel fuel. (Value: "DIESEL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_DieselPlus
+ *        Diesel plus fuel. (Value: "DIESEL_PLUS")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E100 E
+ *        100. (Value: "E100")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E80 E
  *        80. (Value: "E80")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_E85 E
@@ -692,7 +1605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_FuelTypeUnspecified
  *        Unspecified fuel type. (Value: "FUEL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Lpg
- *        LPG. (Value: "LPG")
+ *        Liquefied Petroleum Gas. (Value: "LPG")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Methane
  *        Methane. (Value: "METHANE")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Midgrade
@@ -735,6 +1648,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** This photo's authors. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution *> *authorAttributions;
+
+/** A link where users can flag a problem with the photo. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** A link to show the photo on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *googleMapsUri;
 
 /**
  *  The maximum available height, in pixels.
@@ -803,6 +1722,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent *> *addressComponents;
 
 /**
+ *  The address descriptor of the place. Address descriptors include additional
+ *  information that help describe a location using landmarks and areas. See
+ *  address descriptor regional coverage in
+ *  https://developers.google.com/maps/documentation/geocoding/address-descriptors/coverage.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AddressDescriptor *addressDescriptor;
+
+/**
  *  The place's address in adr microformat: http://microformats.org/wiki/adr.
  */
 @property(nonatomic, copy, nullable) NSString *adrFormatAddress;
@@ -833,6 +1760,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        "OPERATIONAL")
  */
 @property(nonatomic, copy, nullable) NSString *businessStatus;
+
+/** List of places in which the current place is located. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace *> *containingPlaces;
 
 /**
  *  Specifies if the business supports curbside pickup.
@@ -888,6 +1818,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *editorialSummary;
 
+/** The summary of amenities near the EV charging station. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary *evChargeAmenitySummary;
+
 /** Information of ev charging options. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1EVChargeOptions *evChargeOptions;
 
@@ -899,6 +1832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  information is updated regularly.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1FuelOptions *fuelOptions;
+
+/** AI-generated summary of the place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary *generativeSummary;
 
 /**
  *  Place is good for children.
@@ -920,6 +1856,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *goodForWatchingSports;
+
+/** Links to trigger different Google Maps actions. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks *googleMapsLinks;
 
 /** A URL providing more information about this place. */
 @property(nonatomic, copy, nullable) NSString *googleMapsUri;
@@ -969,6 +1908,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /** A human-readable phone number for the place, in national format. */
 @property(nonatomic, copy, nullable) NSString *nationalPhoneNumber;
 
+/** A summary of points of interest near the place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary *neighborhoodSummary;
+
 /**
  *  Place provides outdoor seating.
  *
@@ -985,11 +1927,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlacePaymentOptions *paymentOptions;
 
-/** Information (including references) about photos of this place. */
+/**
+ *  Information (including references) about photos of this place. A maximum of
+ *  10 photos can be returned.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Photo *> *photos;
 
 /** Plus code of the place location lat/long. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlacePlusCode *plusCode;
+
+/** The address in postal address format. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypePostalAddress *postalAddress;
 
 /**
  *  Price level of the place.
@@ -1009,17 +1957,23 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        Place price level is unspecified or unknown. (Value:
  *        "PRICE_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1Place_PriceLevel_PriceLevelVeryExpensive
- *        Place provides very expensive service s. (Value:
+ *        Place provides very expensive services. (Value:
  *        "PRICE_LEVEL_VERY_EXPENSIVE")
  */
 @property(nonatomic, copy, nullable) NSString *priceLevel;
 
+/** The price range associated with a Place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange *priceRange;
+
 /**
- *  The primary type of the given result. This type must one of the Places API
- *  supported types. For example, "restaurant", "cafe", "airport", etc. A place
- *  can only have a single primary type. For the complete list of possible
+ *  The primary type of the given result. This type must be one of the Places
+ *  API supported types. For example, "restaurant", "cafe", "airport", etc. A
+ *  place can only have a single primary type. For the complete list of possible
  *  values, see Table A and Table B at
- *  https://developers.google.com/maps/documentation/places/web-service/place-types
+ *  https://developers.google.com/maps/documentation/places/web-service/place-types.
+ *  The primary type may be missing if the place's primary type is not a
+ *  supported type. When a primary type is present, it is always one of the
+ *  types in the `types` field.
  */
 @property(nonatomic, copy, nullable) NSString *primaryType;
 
@@ -1027,9 +1981,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  The display name of the primary type, localized to the request language if
  *  applicable. For the complete list of possible values, see Table A and Table
  *  B at
- *  https://developers.google.com/maps/documentation/places/web-service/place-types
+ *  https://developers.google.com/maps/documentation/places/web-service/place-types.
+ *  The primary type may be missing if the place's primary type is not a
+ *  supported type.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *primaryTypeDisplayName;
+
+/**
+ *  Indicates whether the place is a pure service area business. Pure service
+ *  area business is a business that visits or delivers to customers directly
+ *  but does not serve customers at their business address. For example,
+ *  businesses like cleaning services or plumbers. Those businesses may not have
+ *  a physical address or location on Google Maps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pureServiceAreaBusiness;
 
 /**
  *  A rating between 1.0 and 5.0, based on user reviews of this place.
@@ -1038,7 +2005,19 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSNumber *rating;
 
-/** The regular hours of operation. */
+/**
+ *  The regular hours of operation. Note that if a place is always open (24
+ *  hours), the `close` field will not be set. Clients can rely on always open
+ *  (24 hours) being represented as an
+ *  [`open`](https://developers.google.com/maps/documentation/places/web-service/reference/rest/v1/places#Period)
+ *  period containing
+ *  [`day`](https://developers.google.com/maps/documentation/places/web-service/reference/rest/v1/places#Point)
+ *  with value `0`,
+ *  [`hour`](https://developers.google.com/maps/documentation/places/web-service/reference/rest/v1/places#Point)
+ *  with value `0`, and
+ *  [`minute`](https://developers.google.com/maps/documentation/places/web-service/reference/rest/v1/places#Point)
+ *  with value `0`.
+ */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours *regularOpeningHours;
 
 /**
@@ -1065,8 +2044,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSNumber *restroom;
 
-/** List of reviews about this place, sorted by relevance. */
+/**
+ *  List of reviews about this place, sorted by relevance. A maximum of 5
+ *  reviews can be returned.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Review *> *reviews;
+
+/** AI-generated summary of the place using user reviews. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceReviewSummary *reviewSummary;
 
 /**
  *  Specifies if the place serves beer.
@@ -1141,7 +2126,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /** A short, human-readable address for this place. */
 @property(nonatomic, copy, nullable) NSString *shortFormattedAddress;
 
-/** A list of sub destinations related to the place. */
+/** A list of sub-destinations related to the place. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination *> *subDestinations;
 
 /**
@@ -1150,6 +2135,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *takeout;
+
+/** IANA Time Zone Database time zone. For example "America/New_York". */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeTimeZone *timeZone;
 
 /**
  *  A set of type tags for this result. For example, "political" and "locality".
@@ -1174,7 +2162,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSNumber *utcOffsetMinutes;
 
-/** A viewport suitable for displaying the place on an average-sized map. */
+/**
+ *  A viewport suitable for displaying the place on an average-sized map. This
+ *  viewport should not be used as the physical boundary or the service area of
+ *  the business.
+ */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleGeoTypeViewport *viewport;
 
 /**
@@ -1267,13 +2259,156 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  Info about the place in which this place is located.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace : GTLRObject
+
+/**
+ *  The place id of the place in which this place is located.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The resource name of the place in which this place is located. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The summary of amenities near the EV charging station. This only applies to
+ *  places with type `electric_vehicle_charging_station`. The `overview` field
+ *  is guaranteed to be provided while the other fields are optional.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary : GTLRObject
+
+/** A summary of the nearby coffee options. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *coffee;
+
+/**
+ *  The AI disclosure message "Summarized with Gemini" (and its localized
+ *  variants). This will be in the language specified in the request if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *disclosureText;
+
+/** A link where users can flag a problem with the summary. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/**
+ *  An overview of the available amenities. This is guaranteed to be provided.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *overview;
+
+/** A summary of the nearby restaurants. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *restaurant;
+
+/** A summary of the nearby stores. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *store;
+
+@end
+
+
+/**
+ *  AI-generated summary of the place.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary : GTLRObject
+
+/**
+ *  The AI disclosure message "Summarized with Gemini" (and its localized
+ *  variants). This will be in the language specified in the request if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *disclosureText;
+
+/** The overview of the place. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *overview;
+
+/** A link where users can flag a problem with the overview summary. */
+@property(nonatomic, copy, nullable) NSString *overviewFlagContentUri;
+
+@end
+
+
+/**
+ *  Links to trigger different Google Maps actions.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks : GTLRObject
+
+/**
+ *  A link to show the directions to the place. The link only populates the
+ *  destination location and uses the default travel mode `DRIVE`.
+ */
+@property(nonatomic, copy, nullable) NSString *directionsUri;
+
+/** A link to show reviews of this place on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *photosUri;
+
+/** A link to show this place. */
+@property(nonatomic, copy, nullable) NSString *placeUri;
+
+/** A link to show reviews of this place on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *reviewsUri;
+
+/** A link to write a review for this place on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *writeAReviewUri;
+
+@end
+
+
+/**
+ *  A summary of points of interest near the place.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary : GTLRObject
+
+/**
+ *  A detailed description of the neighborhood.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *descriptionProperty;
+
+/**
+ *  The AI disclosure message "Summarized with Gemini" (and its localized
+ *  variants). This will be in the language specified in the request if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *disclosureText;
+
+/** A link where users can flag a problem with the summary. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** An overview summary of the neighborhood. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1ContentBlock *overview;
+
+@end
+
+
+/**
  *  Information about business hour of the place.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHours : GTLRObject
 
 /**
- *  Is this place open right now? Always present unless we lack time-of-day or
- *  timezone data for these opening hours.
+ *  The next time the current opening hours period ends up to 7 days in the
+ *  future. This field is only populated if the opening hours period is active
+ *  at the time of serving the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextCloseTime;
+
+/**
+ *  The next time the current opening hours period starts up to 7 days in the
+ *  future. This field is only populated if the opening hours period is not
+ *  active at the time of serving the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextOpenTime;
+
+/**
+ *  Whether the opening hours period is currently active. For regular opening
+ *  hours and current opening hours, this field means whether the place is open.
+ *  For secondary opening hours and current secondary opening hours, this field
+ *  means whether the secondary hours of this place is active.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1281,9 +2416,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  The periods that this place is open during the week. The periods are in
- *  chronological order, starting with Sunday in the place-local timezone. An
- *  empty (but not absent) value indicates a place that is never open, e.g.
- *  because it is closed temporarily for renovations.
+ *  chronological order, in the place-local timezone. An empty (but not absent)
+ *  value indicates a place that is never open, e.g. because it is closed
+ *  temporarily for renovations. The starting day of `periods` is NOT fixed and
+ *  should not be assumed to be Sunday. The API determines the start day based
+ *  on a variety of factors. For example, for a 24/7 business, the first period
+ *  may begin on the day of the request. For other businesses, it might be the
+ *  first day of the week that they are open. NOTE: The ordering of the
+ *  `periods` array is independent of the ordering of the `weekday_descriptions`
+ *  array. Do not assume they will begin on the same day.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceOpeningHoursPeriod *> *periods;
 
@@ -1334,8 +2475,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /**
  *  Localized strings describing the opening hours of this place, one string for
- *  each day of the week. Will be empty if the hours are unknown or could not be
- *  converted to localized text. Example: "Sun: 18:00–06:00"
+ *  each day of the week. NOTE: The order of the days and the start of the week
+ *  is determined by the locale (language and region). The ordering of the
+ *  `periods` array is independent of the ordering of the `weekday_descriptions`
+ *  array. Do not assume they will begin on the same day. Will be empty if the
+ *  hours are unknown or could not be converted to localized text. Example:
+ *  "Sun: 18:00–06:00"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *weekdayDescriptions;
 
@@ -1373,14 +2518,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  The hour in 2 digits. Ranges from 00 to 23.
+ *  The hour in 24 hour format. Ranges from 0 to 23.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hour;
 
 /**
- *  The minute in 2 digits. Ranges from 00 to 59.
+ *  The minute. Ranges from 0 to 59.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1531,20 +2676,95 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
- *  Place resource name and id of sub destinations that relate to the place. For
- *  example, different terminals are different destinations of an airport.
+ *  AI-generated summary of the place using user reviews.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceReviewSummary : GTLRObject
+
+/**
+ *  The AI disclosure message "Summarized with Gemini" (and its localized
+ *  variants). This will be in the language specified in the request if
+ *  available.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *disclosureText;
+
+/** A link where users can flag a problem with the summary. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** A link to show reviews of this place on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *reviewsUri;
+
+/** The summary of user reviews. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *text;
+
+@end
+
+
+/**
+ *  Sub-destinations are specific places associated with a main place. These
+ *  provide more specific destinations for users who are searching within a
+ *  large or complex place, like an airport, national park, university, or
+ *  stadium. For example, sub-destinations at an airport might include
+ *  associated terminals and parking lots. Sub-destinations return the place ID
+ *  and place resource name, which can be used in subsequent Place Details (New)
+ *  requests to fetch richer details, including the sub-destination's display
+ *  name and location.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceSubDestination : GTLRObject
 
 /**
- *  The place id of the sub destination.
+ *  The place id of the sub-destination.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The resource name of the sub destination. */
+/** The resource name of the sub-destination. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A route polyline. Only supports an [encoded
+ *  polyline](https://developers.google.com/maps/documentation/utilities/polylinealgorithm),
+ *  which can be passed as a string and includes compression with minimal
+ *  lossiness. This is the Routes API default output.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1Polyline : GTLRObject
+
+/**
+ *  An [encoded
+ *  polyline](https://developers.google.com/maps/documentation/utilities/polylinealgorithm),
+ *  as returned by the [Routes API by
+ *  default](https://developers.google.com/maps/documentation/routes/reference/rest/v2/TopLevel/computeRoutes#polylineencoding).
+ *  See the
+ *  [encoder](https://developers.google.com/maps/documentation/utilities/polylineutility)
+ *  and
+ *  [decoder](https://developers.google.com/maps/documentation/routes/polylinedecoder)
+ *  tools.
+ */
+@property(nonatomic, copy, nullable) NSString *encodedPolyline;
+
+@end
+
+
+/**
+ *  The price range associated with a Place. `end_price` could be unset, which
+ *  indicates a range without upper bound (e.g. "More than $100").
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PriceRange : GTLRObject
+
+/**
+ *  The high end of the price range (exclusive). Price should be lower than this
+ *  amount.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeMoney *endPrice;
+
+/**
+ *  The low end of the price range (inclusive). Price should be at or above this
+ *  amount.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeMoney *startPrice;
 
 @end
 
@@ -1556,6 +2776,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** This review's author. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1AuthorAttribution *authorAttribution;
+
+/** A link where users can flag a problem with the review. */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** A link to show the review on Google Maps. */
+@property(nonatomic, copy, nullable) NSString *googleMapsUri;
 
 /**
  *  A reference representing this place review which may be used to look up this
@@ -1585,6 +2811,180 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** The localized text of the review. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *text;
+
+@end
+
+
+/**
+ *  Encapsulates a set of optional conditions to satisfy when calculating the
+ *  routes.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1RouteModifiers : GTLRObject
+
+/**
+ *  Optional. When set to true, avoids ferries where reasonable, giving
+ *  preference to routes not containing ferries. Applies only to the `DRIVE` and
+ *  `TWO_WHEELER` `TravelMode`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidFerries;
+
+/**
+ *  Optional. When set to true, avoids highways where reasonable, giving
+ *  preference to routes not containing highways. Applies only to the `DRIVE`
+ *  and `TWO_WHEELER` `TravelMode`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidHighways;
+
+/**
+ *  Optional. When set to true, avoids navigating indoors where reasonable,
+ *  giving preference to routes not containing indoor navigation. Applies only
+ *  to the `WALK` `TravelMode`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidIndoor;
+
+/**
+ *  Optional. When set to true, avoids toll roads where reasonable, giving
+ *  preference to routes not containing toll roads. Applies only to the `DRIVE`
+ *  and `TWO_WHEELER` `TravelMode`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidTolls;
+
+@end
+
+
+/**
+ *  Parameters to configure the routing calculations to the places in the
+ *  response, both along a route (where result ranking will be influenced) and
+ *  for calculating travel times on results.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters : GTLRObject
+
+/**
+ *  Optional. An explicit routing origin that overrides the origin defined in
+ *  the polyline. By default, the polyline origin is used.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLatLng *origin;
+
+/** Optional. The route modifiers. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1RouteModifiers *routeModifiers;
+
+/**
+ *  Optional. Specifies how to compute the routing summaries. The server
+ *  attempts to use the selected routing preference to compute the route. The
+ *  traffic aware routing preference is only available for the `DRIVE` or
+ *  `TWO_WHEELER` `travelMode`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_RoutingPreferenceUnspecified
+ *        No routing preference specified. Default to `TRAFFIC_UNAWARE`. (Value:
+ *        "ROUTING_PREFERENCE_UNSPECIFIED")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficAware
+ *        Calculates routes taking live traffic conditions into consideration.
+ *        In contrast to `TRAFFIC_AWARE_OPTIMAL`, some optimizations are applied
+ *        to significantly reduce latency. (Value: "TRAFFIC_AWARE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficAwareOptimal
+ *        Calculates the routes taking live traffic conditions into
+ *        consideration, without applying most performance optimizations. Using
+ *        this value produces the highest latency. (Value:
+ *        "TRAFFIC_AWARE_OPTIMAL")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_RoutingPreference_TrafficUnaware
+ *        Computes routes without taking live traffic conditions into
+ *        consideration. Suitable when traffic conditions don't matter or are
+ *        not applicable. Using this value produces the lowest latency. Note:
+ *        For `TravelMode` `DRIVE` and `TWO_WHEELER`, the route and duration
+ *        chosen are based on road network and average time-independent traffic
+ *        conditions, not current road conditions. Consequently, routes may
+ *        include roads that are temporarily closed. Results for a given request
+ *        may vary over time due to changes in the road network, updated average
+ *        traffic conditions, and the distributed nature of the service. Results
+ *        may also vary between nearly-equivalent routes at any time or
+ *        frequency. (Value: "TRAFFIC_UNAWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *routingPreference;
+
+/**
+ *  Optional. The travel mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Bicycle
+ *        Travel by bicycle. Not supported with `search_along_route_parameters`.
+ *        (Value: "BICYCLE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Drive
+ *        Travel by passenger car. (Value: "DRIVE")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_TravelModeUnspecified
+ *        No travel mode specified. Defaults to `DRIVE`. (Value:
+ *        "TRAVEL_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_TwoWheeler
+ *        Motorized two wheeled vehicles of all kinds such as scooters and
+ *        motorcycles. Note that this is distinct from the `BICYCLE` travel mode
+ *        which covers human-powered transport. Not supported with
+ *        `search_along_route_parameters`. Only supported in those countries
+ *        listed at [Countries and regions supported for two-wheeled
+ *        vehicles](https://developers.google.com/maps/documentation/routes/coverage-two-wheeled).
+ *        (Value: "TWO_WHEELER")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters_TravelMode_Walk
+ *        Travel by walking. Not supported with `search_along_route_parameters`.
+ *        (Value: "WALK")
+ */
+@property(nonatomic, copy, nullable) NSString *travelMode;
+
+@end
+
+
+/**
+ *  The duration and distance from the routing origin to a place in the
+ *  response, and a second leg from that place to the destination, if requested.
+ *  **Note:** Adding `routingSummaries` in the field mask without also including
+ *  either the `routingParameters.origin` parameter or the
+ *  `searchAlongRouteParameters.polyline.encodedPolyline` parameter in the
+ *  request causes an error.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary : GTLRObject
+
+/**
+ *  A link to show directions on Google Maps using the waypoints from the given
+ *  routing summary. The route generated by this link is not guaranteed to be
+ *  the same as the route used to generate the routing summary. The link uses
+ *  information provided in the request, from fields including
+ *  `routingParameters` and `searchAlongRouteParameters` when applicable, to
+ *  generate the directions link.
+ */
+@property(nonatomic, copy, nullable) NSString *directionsUri;
+
+/**
+ *  The legs of the trip. When you calculate travel duration and distance from a
+ *  set origin, `legs` contains a single leg containing the duration and
+ *  distance from the origin to the destination. When you do a search along
+ *  route, `legs` contains two legs: one from the origin to place, and one from
+ *  the place to the destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummaryLeg *> *legs;
+
+@end
+
+
+/**
+ *  A leg is a single portion of a journey from one location to another.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummaryLeg : GTLRObject
+
+/**
+ *  The distance of this leg of the trip.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distanceMeters;
+
+/** The time it takes to complete this leg of the trip. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 @end
 
@@ -1705,6 +3105,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
+/** Optional. Parameters that affect the routing to the search results. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters *routingParameters;
+
 @end
 
 
@@ -1730,6 +3133,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Place *> *places;
 
+/**
+ *  A list of routing summaries where each entry associates to the corresponding
+ *  place in the same index in the `places` field. If the routing summary is not
+ *  available for one of the places, it will contain an empty entry. This list
+ *  should have as many entries as the list of places if requested.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary *> *routingSummaries;
+
 @end
 
 
@@ -1738,12 +3149,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest : GTLRObject
 
+/** Optional. Set the searchable EV options of a place search request. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions *evOptions;
+
 /**
  *  The requested place type. Full list of types supported:
  *  https://developers.google.com/maps/documentation/places/web-service/place-types.
  *  Only support one included type.
  */
 @property(nonatomic, copy, nullable) NSString *includedType;
+
+/**
+ *  Optional. Include pure service area businesses if the field is set to true.
+ *  Pure service area business is a business that visits or delivers to
+ *  customers directly but does not serve customers at their business address.
+ *  For example, businesses like cleaning services or plumbers. Those businesses
+ *  do not have a physical address or location on Google Maps. Places will not
+ *  return fields including `location`, `plus_code`, and other location related
+ *  fields for these businesses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includePureServiceAreaBusinesses;
 
 /**
  *  Place details will be displayed with the preferred language if available. If
@@ -1769,14 +3196,18 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestLocationRestriction *locationRestriction;
 
 /**
- *  Maximum number of results to return. It must be between 1 and 20,
- *  inclusively. The default is 20. If the number is unset, it falls back to the
- *  upper limit. If the number is set to negative or exceeds the upper limit, an
- *  INVALID_ARGUMENT error is returned.
+ *  Deprecated: Use `page_size` instead. The maximum number of results per page
+ *  that can be returned. If the number of available results is larger than
+ *  `max_result_count`, a `next_page_token` is returned which can be passed to
+ *  `page_token` to get the next page of results in subsequent requests. If 0 or
+ *  no value is provided, a default of 20 is used. The maximum value is 20;
+ *  values above 20 will be coerced to 20. Negative values will return an
+ *  INVALID_ARGUMENT error. If both `max_result_count` and `page_size` are
+ *  specified, `max_result_count` will be ignored.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxResultCount;
+@property(nonatomic, strong, nullable) NSNumber *maxResultCount GTLR_DEPRECATED;
 
 /**
  *  Filter out results whose average user rating is strictly less than this
@@ -1798,6 +3229,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSNumber *openNow;
 
 /**
+ *  Optional. The maximum number of results per page that can be returned. If
+ *  the number of available results is larger than `page_size`, a
+ *  `next_page_token` is returned which can be passed to `page_token` to get the
+ *  next page of results in subsequent requests. If 0 or no value is provided, a
+ *  default of 20 is used. The maximum value is 20; values above 20 will be set
+ *  to 20. Negative values will return an INVALID_ARGUMENT error. If both
+ *  `max_result_count` and `page_size` are specified, `max_result_count` will be
+ *  ignored.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous TextSearch call. Provide
+ *  this to retrieve the subsequent page. When paginating, all parameters other
+ *  than `page_token`, `page_size`, and `max_result_count` provided to
+ *  TextSearch must match the initial call that provided the page token.
+ *  Otherwise an INVALID_ARGUMENT error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
  *  Used to restrict the search to places that are marked as certain price
  *  levels. Users can choose any combinations of price levels. Default to select
  *  all price levels.
@@ -1811,8 +3265,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Distance
  *        Ranks results by distance. (Value: "DISTANCE")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_RankPreferenceUnspecified
- *        RankPreference value not set. Will default to DISTANCE. (Value:
- *        "RANK_PREFERENCE_UNSPECIFIED")
+ *        For a categorical query such as "Restaurants in New York City",
+ *        RELEVANCE is the default. For non-categorical queries such as
+ *        "Mountain View, CA" we recommend that you leave rankPreference unset.
+ *        (Value: "RANK_PREFERENCE_UNSPECIFIED")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest_RankPreference_Relevance
  *        Ranks results by relevance. Sort order determined by normal ranking
  *        stack. (Value: "RELEVANCE")
@@ -1829,6 +3285,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
+/** Optional. Additional parameters for routing to results. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1RoutingParameters *routingParameters;
+
+/** Optional. Additional parameters proto for searching along a route. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestSearchAlongRouteParameters *searchAlongRouteParameters;
+
 /**
  *  Used to set strict type filtering for included_type. If set to true, only
  *  results of the same type will be returned. Default to false.
@@ -1839,6 +3301,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** Required. The text query for textual search. */
 @property(nonatomic, copy, nullable) NSString *textQuery;
+
+@end
+
+
+/**
+ *  Searchable EV options of a place search request.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions : GTLRObject
+
+/**
+ *  Optional. The list of preferred EV connector types. A place that does not
+ *  support any of the listed connector types is filtered out.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *connectorTypes;
+
+/**
+ *  Optional. Minimum required charging rate in kilowatts. A place with a
+ *  charging rate less than the specified rate is filtered out.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumChargingRateKw;
 
 @end
 
@@ -1885,12 +3369,67 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 
 /**
+ *  Specifies a precalculated polyline from the [Routes
+ *  API](https://developers.google.com/maps/documentation/routes) defining the
+ *  route to search. Searching along a route is similar to using the
+ *  `locationBias` or `locationRestriction` request option to bias the search
+ *  results. However, while the `locationBias` and `locationRestriction` options
+ *  let you specify a region to bias the search results, this option lets you
+ *  bias the results along a trip route. Results are not guaranteed to be along
+ *  the route provided, but rather are ranked within the search area defined by
+ *  the polyline and, optionally, by the `locationBias` or `locationRestriction`
+ *  based on minimal detour times from origin to destination. The results might
+ *  be along an alternate route, especially if the provided polyline does not
+ *  define an optimal route from origin to destination.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestSearchAlongRouteParameters : GTLRObject
+
+/** Required. The route polyline. */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1Polyline *polyline;
+
+@end
+
+
+/**
  *  Response proto for SearchText.
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextResponse : GTLRObject
 
+/**
+ *  Experimental: See
+ *  https://developers.google.com/maps/documentation/places/web-service/experimental/places-generative
+ *  for more details. A list of contextual contents where each entry associates
+ *  to the corresponding place in the same index in the places field. The
+ *  contents that are relevant to the `text_query` in the request are preferred.
+ *  If the contextual content is not available for one of the places, it will
+ *  return non-contextual content. It will be empty only when the content is
+ *  unavailable for this place. This list will have as many entries as the list
+ *  of places if requested.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContent *> *contextualContents;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted or empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 /** A list of places that meet the user's text search criteria. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Place *> *places;
+
+/**
+ *  A list of routing summaries where each entry associates to the corresponding
+ *  place in the same index in the `places` field. If the routing summary is not
+ *  available for one of the places, it will contain an empty entry. This list
+ *  will have as many entries as the list of places if requested.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1RoutingSummary *> *routingSummaries;
+
+/**
+ *  A link allows the user to search with the same text query as specified in
+ *  the request on Google Maps.
+ */
+@property(nonatomic, copy, nullable) NSString *searchUri;
 
 @end
 
@@ -2004,6 +3543,145 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
+ *  Represents a postal address, such as for postal delivery or payments
+ *  addresses. With a postal address, a postal service can deliver items to a
+ *  premise, P.O. box, or similar. A postal address is not intended to model
+ *  geographical locations like roads, towns, or mountains. In typical usage, an
+ *  address would be created by user input or from importing existing data,
+ *  depending on the type of process. Advice on address input or editing: - Use
+ *  an internationalization-ready address widget such as
+ *  https://github.com/google/libaddressinput. - Users should not be presented
+ *  with UI elements for input or editing of fields outside countries where that
+ *  field is used. For more guidance on how to use this schema, see:
+ *  https://support.google.com/business/answer/6397478.
+ */
+@interface GTLRMapsPlaces_GoogleTypePostalAddress : GTLRObject
+
+/**
+ *  Unstructured address lines describing the lower levels of an address.
+ *  Because values in `address_lines` do not have type information and may
+ *  sometimes contain multiple values in a single field (for example, "Austin,
+ *  TX"), it is important that the line order is clear. The order of address
+ *  lines should be "envelope order" for the country or region of the address.
+ *  In places where this can vary (for example, Japan), `address_language` is
+ *  used to make it explicit (for example, "ja" for large-to-small ordering and
+ *  "ja-Latn" or "en" for small-to-large). In this way, the most specific line
+ *  of an address can be selected based on the language. The minimum permitted
+ *  structural representation of an address consists of a `region_code` with all
+ *  remaining information placed in the `address_lines`. It would be possible to
+ *  format such an address very approximately without geocoding, but no semantic
+ *  reasoning could be made about any of the address components until it was at
+ *  least partially resolved. Creating an address only containing a
+ *  `region_code` and `address_lines` and then geocoding is the recommended way
+ *  to handle completely unstructured addresses (as opposed to guessing which
+ *  parts of the address should be localities or administrative areas).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addressLines;
+
+/**
+ *  Optional. Highest administrative subdivision which is used for postal
+ *  addresses of a country or region. For example, this can be a state, a
+ *  province, an oblast, or a prefecture. For Spain, this is the province and
+ *  not the autonomous community (for example, "Barcelona" and not "Catalonia").
+ *  Many countries don't use an administrative area in postal addresses. For
+ *  example, in Switzerland, this should be left unpopulated.
+ */
+@property(nonatomic, copy, nullable) NSString *administrativeArea;
+
+/**
+ *  Optional. BCP-47 language code of the contents of this address (if known).
+ *  This is often the UI language of the input form or is expected to match one
+ *  of the languages used in the address' country/region, or their
+ *  transliterated equivalents. This can affect formatting in certain countries,
+ *  but is not critical to the correctness of the data and will never affect any
+ *  validation or other non-formatting related operations. If this value is not
+ *  known, it should be omitted (rather than specifying a possibly incorrect
+ *  default). Examples: "zh-Hant", "ja", "ja-Latn", "en".
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Optional. Generally refers to the city or town portion of the address.
+ *  Examples: US city, IT comune, UK post town. In regions of the world where
+ *  localities are not well defined or do not fit into this structure well,
+ *  leave `locality` empty and use `address_lines`.
+ */
+@property(nonatomic, copy, nullable) NSString *locality;
+
+/** Optional. The name of the organization at the address. */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  Optional. Postal code of the address. Not all countries use or require
+ *  postal codes to be present, but where they are used, they may trigger
+ *  additional validation with other parts of the address (for example, state or
+ *  zip code validation in the United States).
+ */
+@property(nonatomic, copy, nullable) NSString *postalCode;
+
+/**
+ *  Optional. The recipient at the address. This field may, under certain
+ *  circumstances, contain multiline information. For example, it might contain
+ *  "care of" information.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *recipients;
+
+/**
+ *  Required. CLDR region code of the country/region of the address. This is
+ *  never inferred and it is up to the user to ensure the value is correct. See
+ *  https://cldr.unicode.org/ and
+ *  https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
+ *  for details. Example: "CH" for Switzerland.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  The schema revision of the `PostalAddress`. This must be set to 0, which is
+ *  the latest revision. All new revisions **must** be backward compatible with
+ *  old revisions.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revision;
+
+/**
+ *  Optional. Additional, country-specific, sorting code. This is not used in
+ *  most regions. Where it is used, the value is either a string like "CEDEX",
+ *  optionally followed by a number (for example, "CEDEX 7"), or just a number
+ *  alone, representing the "sector code" (Jamaica), "delivery area indicator"
+ *  (Malawi) or "post office indicator" (Côte d'Ivoire).
+ */
+@property(nonatomic, copy, nullable) NSString *sortingCode;
+
+/**
+ *  Optional. Sublocality of the address. For example, this can be a
+ *  neighborhood, borough, or district.
+ */
+@property(nonatomic, copy, nullable) NSString *sublocality;
+
+@end
+
+
+/**
+ *  Represents a time zone from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones).
+ */
+@interface GTLRMapsPlaces_GoogleTypeTimeZone : GTLRObject
+
+/**
+ *  IANA Time Zone Database time zone. For example "America/New_York".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

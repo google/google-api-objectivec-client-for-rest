@@ -20,6 +20,7 @@
 @class GTLRCloudKMS_Binding;
 @class GTLRCloudKMS_Certificate;
 @class GTLRCloudKMS_CertificateChains;
+@class GTLRCloudKMS_ChecksummedData;
 @class GTLRCloudKMS_CryptoKey;
 @class GTLRCloudKMS_CryptoKey_Labels;
 @class GTLRCloudKMS_CryptoKeyVersion;
@@ -29,13 +30,21 @@
 @class GTLRCloudKMS_Expr;
 @class GTLRCloudKMS_ExternalProtectionLevelOptions;
 @class GTLRCloudKMS_ImportJob;
+@class GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig;
+@class GTLRCloudKMS_KeyAccessJustificationsPolicy;
+@class GTLRCloudKMS_KeyAccessJustificationsPolicyConfig;
+@class GTLRCloudKMS_KeyHandle;
 @class GTLRCloudKMS_KeyOperationAttestation;
 @class GTLRCloudKMS_KeyRing;
 @class GTLRCloudKMS_Location;
 @class GTLRCloudKMS_Location_Labels;
 @class GTLRCloudKMS_Location_Metadata;
+@class GTLRCloudKMS_Operation_Metadata;
+@class GTLRCloudKMS_Operation_Response;
 @class GTLRCloudKMS_Policy;
 @class GTLRCloudKMS_ServiceResolver;
+@class GTLRCloudKMS_Status;
+@class GTLRCloudKMS_Status_Details_Item;
 @class GTLRCloudKMS_WrappingPublicKey;
 
 // Generated comments include content from the discovery document; avoid them
@@ -145,6 +154,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataWrit
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_AutokeyConfig.state
+
+/**
+ *  The AutokeyConfig is currently active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_Active;
+/**
+ *  A previously configured key project has been deleted and the current
+ *  AutokeyConfig is unusable.
+ *
+ *  Value: "KEY_PROJECT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted;
+/**
+ *  The state of the AutokeyConfig is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_StateUnspecified;
+/**
+ *  The AutokeyConfig is not yet initialized or has been reset to its default
+ *  uninitialized state.
+ *
+ *  Value: "UNINITIALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_State_Uninitialized;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKey.purpose
 
 /**
@@ -173,6 +212,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_CryptoKeyPurp
  *  Value: "ENCRYPT_DECRYPT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_EncryptDecrypt;
+/**
+ *  CryptoKeys with this purpose may be used with GetPublicKey and Decapsulate.
+ *
+ *  Value: "KEY_ENCAPSULATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_KeyEncapsulation;
 /**
  *  CryptoKeys with this purpose may be used with MacSign.
  *
@@ -233,6 +278,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Aes2
  *  Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
+/**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignEd25519;
 /**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
@@ -299,6 +350,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Hmac
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_MlKem768;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -452,7 +543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLeve
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified;
 /**
- *  This version is destroyed, and the key material is no longer stored. This
+ *  The key material of this version is destroyed and no longer stored. This
  *  version may only become ENABLED again if this version is reimport_eligible
  *  and the original key material is reimported with a call to
  *  KeyManagementService.ImportCryptoKeyVersion.
@@ -576,6 +667,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignEd25519;
+/**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
  *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
@@ -641,6 +738,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_MlKem768;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -783,6 +920,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Protec
  *  Value: "SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_DecapsulateResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_ExternalVpc;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_Software;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_DecryptResponse.protectionLevel
@@ -968,6 +1139,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignEd25519;
+/**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
  *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
@@ -1033,6 +1210,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_MlKem768;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -1275,6 +1492,100 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_ImportJobStateU
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_State_PendingGeneration;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_KeyAccessJustificationsPolicy.allowedAccessReasons
+
+/**
+ *  One of the following operations is being executed while simultaneously
+ *  encountering an internal technical issue which prevented a more precise
+ *  justification code from being generated: * Your account has been used to
+ *  perform any access to your own data which your IAM policy authorizes. * An
+ *  automated Google system operates on encrypted customer data which your IAM
+ *  policy authorizes. * Customer-initiated Google support access. *
+ *  Google-initiated support access to protect system reliability.
+ *
+ *  Value: "CUSTOMER_AUTHORIZED_WORKFLOW_SERVICING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerAuthorizedWorkflowServicing;
+/**
+ *  Customer uses their account to perform any access to their own data which
+ *  their IAM policy authorizes.
+ *
+ *  Value: "CUSTOMER_INITIATED_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedAccess;
+/**
+ *  Customer-initiated support.
+ *
+ *  Value: "CUSTOMER_INITIATED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_CustomerInitiatedSupport;
+/**
+ *  Google-initiated access for security, fraud, abuse, or compliance purposes.
+ *
+ *  Value: "GOOGLE_INITIATED_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedReview;
+/**
+ *  Google-initiated access for system management and troubleshooting.
+ *
+ *  Value: "GOOGLE_INITIATED_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedService;
+/**
+ *  Google systems access customer data to help optimize the structure of the
+ *  data or quality for future uses by the customer.
+ *
+ *  Value: "GOOGLE_INITIATED_SYSTEM_OPERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleInitiatedSystemOperation;
+/**
+ *  Google-initiated access to maintain system reliability.
+ *
+ *  Value: "GOOGLE_RESPONSE_TO_PRODUCTION_ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_GoogleResponseToProductionAlert;
+/**
+ *  Customer uses their account to perform any access to their own data which
+ *  their IAM policy authorizes, and one of the following is true: * A Google
+ *  administrator has reset the root-access account associated with the user's
+ *  organization within the past 7 days. * A Google-initiated emergency access
+ *  operation has interacted with a resource in the same project or folder as
+ *  the currently accessed resource within the past 7 days.
+ *
+ *  Value: "MODIFIED_CUSTOMER_INITIATED_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedCustomerInitiatedAccess;
+/**
+ *  Google systems access customer data to help optimize the structure of the
+ *  data or quality for future uses by the customer, and one of the following is
+ *  true: * A Google administrator has reset the root-access account associated
+ *  with the user's organization within the past 7 days. * A Google-initiated
+ *  emergency access operation has interacted with a resource in the same
+ *  project or folder as the currently accessed resource within the past 7 days.
+ *
+ *  Value: "MODIFIED_GOOGLE_INITIATED_SYSTEM_OPERATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ModifiedGoogleInitiatedSystemOperation;
+/**
+ *  No reason is expected for this key request.
+ *
+ *  Value: "REASON_NOT_EXPECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonNotExpected;
+/**
+ *  Unspecified access reason.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ReasonUnspecified;
+/**
+ *  Google-initiated access in response to a legal request or legal process.
+ *
+ *  Value: "THIRD_PARTY_DATA_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyAccessJustificationsPolicy_AllowedAccessReasons_ThirdPartyDataRequest;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_KeyOperationAttestation.format
 
 /**
@@ -1413,6 +1724,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_Aes256Gcm;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified;
 /**
+ *  EdDSA on the Curve25519 in pure mode (taking data as input).
+ *
+ *  Value: "EC_SIGN_ED25519"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignEd25519;
+/**
  *  ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *  also be used:
  *  https://cloud.google.com/kms/docs/create-validate-signatures#ecdsa_support_for_other_hash_algorithms
@@ -1478,6 +1795,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha384;
  *  Value: "HMAC_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512;
+/**
+ *  X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *  datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/.
+ *
+ *  Value: "KEM_XWING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_KemXwing;
+/**
+ *  ML-KEM-1024 (FIPS 203)
+ *
+ *  Value: "ML_KEM_1024"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_MlKem1024;
+/**
+ *  ML-KEM-768 (FIPS 203)
+ *
+ *  Value: "ML_KEM_768"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_MlKem768;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized pre-hash version supporting SHA256 digests.
+ *
+ *  Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignHashSlhDsaSha2128sSha256;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum stateless hash-based digital signature algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_SLH_DSA_SHA2_128S"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignSlhDsaSha2128s;
 /**
  *  RSAES-OAEP 2048 bit key with a SHA1 digest.
  *
@@ -1620,6 +1977,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Prote
  *  Value: "SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_PublicKey.publicKeyFormat
+
+/**
+ *  The returned public key will be encoded in DER format (the PrivateKeyInfo
+ *  structure from RFC 5208).
+ *
+ *  Value: "DER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_PublicKeyFormat_Der;
+/**
+ *  This is supported only for PQC algorithms. The key material is returned in
+ *  the format defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
+ *
+ *  Value: "NIST_PQC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_PublicKeyFormat_NistPqc;
+/**
+ *  The returned public key will be encoded in PEM format. See the
+ *  [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *  Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual
+ *  Encoding of Subject Public Key Info]
+ *  (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *
+ *  Value: "PEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_PublicKeyFormat_Pem;
+/**
+ *  If the public_key_format field is not specified: - For PQC algorithms, an
+ *  error will be returned. - For non-PQC algorithms, the default format is PEM,
+ *  and the field pem will be populated. Otherwise, the public key will be
+ *  exported through the public_key field in the requested format.
+ *
+ *  Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_PublicKeyFormat_PublicKeyFormatUnspecified;
+/**
+ *  The returned public key is in raw bytes format defined in its standard
+ *  https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *
+ *  Value: "XWING_RAW_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_PublicKeyFormat_XwingRawBytes;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_RawDecryptResponse.protectionLevel
@@ -1999,6 +2400,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
+ *  Cloud KMS Autokey configuration for a folder.
+ */
+@interface GTLRCloudKMS_AutokeyConfig : GTLRObject
+
+/**
+ *  Optional. A checksum computed by the server based on the value of other
+ *  fields. This may be sent on update requests to ensure that the client has an
+ *  up-to-date value before proceeding. The request will be rejected with an
+ *  ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Name of the key project, e.g. `projects/{PROJECT_ID}` or
+ *  `projects/{PROJECT_NUMBER}`, where Cloud KMS Autokey will provision a new
+ *  CryptoKey when a KeyHandle is created. On UpdateAutokeyConfig, the caller
+ *  will require `cloudkms.cryptoKeys.setIamPolicy` permission on this key
+ *  project. Once configured, for Cloud KMS Autokey to function properly, this
+ *  key project must have the Cloud KMS API activated and the Cloud KMS Service
+ *  Agent for this key project must be granted the `cloudkms.admin` role (or
+ *  pertinent permissions). A request with an empty key project field will clear
+ *  the configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *keyProject;
+
+/**
+ *  Identifier. Name of the AutokeyConfig resource, e.g.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state for the AutokeyConfig.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_Active The AutokeyConfig is
+ *        currently active. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted A previously
+ *        configured key project has been deleted and the current AutokeyConfig
+ *        is unusable. (Value: "KEY_PROJECT_DELETED")
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_StateUnspecified The state of
+ *        the AutokeyConfig is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_AutokeyConfig_State_Uninitialized The AutokeyConfig
+ *        is not yet initialized or has been reset to its default uninitialized
+ *        state. (Value: "UNINITIALIZED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudKMS_Binding : GTLRObject
@@ -2170,6 +2623,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
+ *  Data with integrity verification field.
+ */
+@interface GTLRCloudKMS_ChecksummedData : GTLRObject
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  ChecksummedData.data. An integrity check of ChecksummedData.data can be
+ *  performed by computing the CRC32C checksum of ChecksummedData.data and
+ *  comparing your results to this field. Discard the response in case of
+ *  non-matching checksum values, and perform a limited number of retries. A
+ *  persistent mismatch may indicate an issue in your computation of the CRC32C
+ *  checksum. Note: This field is defined as int64 for reasons of compatibility
+ *  across different languages. However, it is a non-negative integer, which
+ *  will never exceed `2^32-1`, and can be safely downconverted to uint32 in
+ *  languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crc32cChecksum;
+
+/**
+ *  Raw Data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+@end
+
+
+/**
  *  A CryptoKey represents a logical key that can be used for cryptographic
  *  operations. A CryptoKey is made up of zero or more versions, which represent
  *  the actual key material used in cryptographic operations.
@@ -2193,7 +2678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 /**
  *  Immutable. The period of time that versions of this key spend in the
  *  DESTROY_SCHEDULED state before transitioning to DESTROYED. If not specified
- *  at creation time, the default duration is 24 hours.
+ *  at creation time, the default duration is 30 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *destroyScheduledDuration;
 
@@ -2203,6 +2688,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *importOnly;
+
+/**
+ *  Optional. The policy used for Key Access Justifications Policy Enforcement.
+ *  If this field is present and this key is enrolled in Key Access
+ *  Justifications Policy Enforcement, the policy will be evaluated in encrypt,
+ *  decrypt, and sign operations, and the operation will fail if rejected by the
+ *  policy. The policy is defined by specifying zero or more allowed
+ *  justification codes.
+ *  https://cloud.google.com/assured-workloads/key-access-justifications/docs/justification-codes
+ *  By default, this field is absent, and all justification codes are allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsPolicy *keyAccessJustificationsPolicy;
 
 /**
  *  Labels with user-defined metadata. For more information, see [Labeling
@@ -2250,6 +2747,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_EncryptDecrypt CryptoKeys with
  *        this purpose may be used with Encrypt and Decrypt. (Value:
  *        "ENCRYPT_DECRYPT")
+ *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_KeyEncapsulation CryptoKeys with
+ *        this purpose may be used with GetPublicKey and Decapsulate. (Value:
+ *        "KEY_ENCAPSULATION")
  *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_Mac CryptoKeys with this purpose
  *        may be used with MacSign. (Value: "MAC")
  *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_RawEncryptDecrypt CryptoKeys with
@@ -2321,6 +2821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignEd25519 EdDSA on
+ *        the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP256Sha256 ECDSA on
  *        the NIST P-256 curve with a SHA256 digest. Other hash functions can
  *        also be used:
@@ -2352,6 +2855,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha512 HMAC-SHA512
  *        signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_KemXwing X-Wing hybrid
+ *        KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_MlKem1024 ML-KEM-1024
+ *        (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_MlKem768 ML-KEM-768 (FIPS
+ *        203) (Value: "ML_KEM_768")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa65 The
+ *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s The
+ *        post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -2517,9 +3039,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  Likely values:
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed This version is
- *        destroyed, and the key material is no longer stored. This version may
- *        only become ENABLED again if this version is reimport_eligible and the
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed The key material of
+ *        this version is destroyed and no longer stored. This version may only
+ *        become ENABLED again if this version is reimport_eligible and the
  *        original key material is reimported with a call to
  *        KeyManagementService.ImportCryptoKeyVersion. (Value: "DESTROYED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_DestroyScheduled This version
@@ -2598,6 +3120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        (Galois Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:
@@ -2629,6 +3154,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_KemXwing X-Wing
+ *        hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65 The
+ *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -2705,6 +3249,114 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        Crypto operations are performed in software. (Value: "SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+@end
+
+
+/**
+ *  Request message for KeyManagementService.Decapsulate.
+ */
+@interface GTLRCloudKMS_DecapsulateRequest : GTLRObject
+
+/**
+ *  Required. The ciphertext produced from encapsulation with the named
+ *  CryptoKeyVersion public key(s).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ciphertext;
+
+/**
+ *  Optional. A CRC32C checksum of the DecapsulateRequest.ciphertext. If
+ *  specified, KeyManagementService will verify the integrity of the received
+ *  DecapsulateRequest.ciphertext using this checksum. KeyManagementService will
+ *  report an error if the checksum verification fails. If you receive a
+ *  checksum error, your client should verify that
+ *  CRC32C(DecapsulateRequest.ciphertext) is equal to
+ *  DecapsulateRequest.ciphertext_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ciphertextCrc32c;
+
+@end
+
+
+/**
+ *  Response message for KeyManagementService.Decapsulate.
+ */
+@interface GTLRCloudKMS_DecapsulateResponse : GTLRObject
+
+/**
+ *  The resource name of the CryptoKeyVersion used for decapsulation. Check this
+ *  field to verify that the intended resource was used for decapsulation.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion used in decapsulation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_External Crypto
+ *        operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_ExternalVpc
+ *        Crypto operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
+ *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_Software Crypto
+ *        operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  The decapsulated shared_secret originally encapsulated with the matching
+ *  public key.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sharedSecret;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  DecapsulateResponse.shared_secret. An integrity check of
+ *  DecapsulateResponse.shared_secret can be performed by computing the CRC32C
+ *  checksum of DecapsulateResponse.shared_secret and comparing your results to
+ *  this field. Discard the response in case of non-matching checksum values,
+ *  and perform a limited number of retries. A persistent mismatch may indicate
+ *  an issue in your computation of the CRC32C checksum. Note: receiving this
+ *  response message indicates that KeyManagementService is able to successfully
+ *  decrypt the ciphertext. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharedSecretCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  DecapsulateRequest.ciphertext_crc32c was received by KeyManagementService
+ *  and used for the integrity verification of the ciphertext. A false value of
+ *  this field indicates either that DecapsulateRequest.ciphertext_crc32c was
+ *  left unset or that it was not delivered to KeyManagementService. If you've
+ *  set DecapsulateRequest.ciphertext_crc32c but this field is still false,
+ *  discard the response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedCiphertextCrc32c;
 
 @end
 
@@ -2949,9 +3601,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A list of ServiceResolvers where the EKM can be reached. There should be one
- *  ServiceResolver per EKM replica. Currently, only a single ServiceResolver is
- *  supported.
+ *  Optional. A list of ServiceResolvers where the EKM can be reached. There
+ *  should be one ServiceResolver per EKM replica. Currently, only a single
+ *  ServiceResolver is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_ServiceResolver *> *serviceResolvers;
 
@@ -3278,6 +3930,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignEd25519
+ *        EdDSA on the Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256
  *        ECDSA on the NIST P-256 curve with a SHA256 digest. Other hash
  *        functions can also be used:
@@ -3309,6 +3964,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        HMAC-SHA384 signing with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha512
  *        HMAC-SHA512 signing with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_KemXwing
+ *        X-Wing hybrid KEM combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_MlKem1024
+ *        ML-KEM-1024 (FIPS 203) (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_MlKem768
+ *        ML-KEM-768 (FIPS 203) (Value: "ML_KEM_768")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignSlhDsaSha2128s
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -3569,6 +4243,99 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
+ *  The configuration of a protection level for a project's Key Access
+ *  Justifications enrollment.
+ */
+@interface GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig : GTLRObject
+
+/**
+ *  Whether the project has KAJ logging enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *auditLogging;
+
+/**
+ *  Whether the project is enrolled in KAJ policy enforcement.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyEnforcement;
+
+@end
+
+
+/**
+ *  A KeyAccessJustificationsPolicy specifies zero or more allowed AccessReason
+ *  values for encrypt, decrypt, and sign operations on a CryptoKey.
+ */
+@interface GTLRCloudKMS_KeyAccessJustificationsPolicy : GTLRObject
+
+/**
+ *  The list of allowed reasons for access to a CryptoKey. Zero allowed access
+ *  reasons means all encrypt, decrypt, and sign operations for the CryptoKey
+ *  associated with this policy will fail.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedAccessReasons;
+
+@end
+
+
+/**
+ *  A singleton configuration for Key Access Justifications policies.
+ */
+@interface GTLRCloudKMS_KeyAccessJustificationsPolicyConfig : GTLRObject
+
+/**
+ *  Optional. The default key access justification policy used when a CryptoKey
+ *  is created in this folder. This is only used when a Key Access
+ *  Justifications policy is not provided in the CreateCryptoKeyRequest. This
+ *  overrides any default policies in its ancestry.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsPolicy *defaultKeyAccessJustificationPolicy;
+
+/**
+ *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
+ *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Resource-oriented representation of a request to Cloud KMS Autokey and the
+ *  resulting provisioning of a CryptoKey.
+ */
+@interface GTLRCloudKMS_KeyHandle : GTLRObject
+
+/**
+ *  Output only. Name of a CryptoKey that has been provisioned for Customer
+ *  Managed Encryption Key (CMEK) use in the KeyHandle project and location for
+ *  the requested resource type. The CryptoKey project will reflect the value
+ *  configured in the AutokeyConfig on the resource project's ancestor folder at
+ *  the time of the KeyHandle creation. If more than one ancestor folder has a
+ *  configured AutokeyConfig, the nearest of these configurations is used.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Identifier. Name of the KeyHandle resource, e.g.
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/keyHandles/{KEY_HANDLE_ID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Indicates the resource type that the resulting CryptoKey is meant
+ *  to protect, e.g. `{SERVICE}.googleapis.com/{TYPE}`. See documentation for
+ *  supported resource types.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceTypeSelector;
+
+@end
+
+
+/**
  *  Contains an HSM-generated attestation about a key operation. For more
  *  information, see [Verifying attestations]
  *  (https://cloud.google.com/kms/docs/attest-key).
@@ -3649,7 +4416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The total number of CryptoKeys that matched the query.
+ *  The total number of CryptoKeys that matched the query. This field is not
+ *  populated if ListCryptoKeysRequest.filter is applied.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3684,7 +4452,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The total number of CryptoKeyVersions that matched the query.
+ *  The total number of CryptoKeyVersions that matched the query. This field is
+ *  not populated if ListCryptoKeyVersionsRequest.filter is applied.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3718,7 +4487,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The total number of EkmConnections that matched the query.
+ *  The total number of EkmConnections that matched the query. This field is not
+ *  populated if ListEkmConnectionsRequest.filter is applied.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3752,11 +4522,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The total number of ImportJobs that matched the query.
+ *  The total number of ImportJobs that matched the query. This field is not
+ *  populated if ListImportJobsRequest.filter is applied.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response message for Autokey.ListKeyHandles.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "keyHandles" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudKMS_ListKeyHandlesResponse : GTLRCollectionObject
+
+/**
+ *  Resulting KeyHandles.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_KeyHandle *> *keyHandles;
+
+/**
+ *  A token to retrieve next page of results. Pass this value in
+ *  ListKeyHandlesRequest.page_token to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -3786,7 +4584,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The total number of KeyRings that matched the query.
+ *  The total number of KeyRings that matched the query. This field is not
+ *  populated if ListKeyRingsRequest.filter is applied.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4052,7 +4851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  specified, KeyManagementService will verify the integrity of the received
  *  MacVerifyRequest.mac using this checksum. KeyManagementService will report
  *  an error if the checksum verification fails. If you receive a checksum
- *  error, your client should verify that CRC32C(MacVerifyRequest.tag) is equal
+ *  error, your client should verify that CRC32C(MacVerifyRequest.mac) is equal
  *  to MacVerifyRequest.mac_crc32c, and if so, perform a limited number of
  *  retries. A persistent mismatch may indicate an issue in your computation of
  *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
@@ -4141,6 +4940,86 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  */
 @property(nonatomic, strong, nullable) NSNumber *verifiedSuccessIntegrity;
 
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRCloudKMS_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudKMS_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudKMS_Operation_Response : GTLRObject
 @end
 
 
@@ -4258,6 +5137,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        Counter Mode) using 256-bit keys. (Value: "AES_256_GCM")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignEd25519 EdDSA on the
+ *        Curve25519 in pure mode (taking data as input). (Value:
+ *        "EC_SIGN_ED25519")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256Sha256 ECDSA on the
  *        NIST P-256 curve with a SHA256 digest. Other hash functions can also
  *        be used:
@@ -4289,6 +5171,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        with a 384 bit key. (Value: "HMAC_SHA384")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha512 HMAC-SHA512 signing
  *        with a 512 bit key. (Value: "HMAC_SHA512")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_KemXwing X-Wing hybrid KEM
+ *        combining ML-KEM-768 with X25519 following
+ *        datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem/. (Value:
+ *        "KEM_XWING")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_MlKem1024 ML-KEM-1024 (FIPS 203)
+ *        (Value: "ML_KEM_1024")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_MlKem768 ML-KEM-768 (FIPS 203)
+ *        (Value: "ML_KEM_768")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignHashSlhDsaSha2128sSha256
+ *        The post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized pre-hash version supporting SHA256
+ *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa65 The post-quantum
+ *        Module-Lattice-Based Digital Signature Algorithm, at security level 3.
+ *        Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignSlhDsaSha2128s The
+ *        post-quantum stateless hash-based digital signature algorithm, at
+ *        security level 1. Randomized version. (Value:
+ *        "PQ_SIGN_SLH_DSA_SHA2_128S")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha1
  *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA1")
@@ -4349,8 +5250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A public key encoded in PEM format, populated only when GetPublicKey returns
- *  one key. For more information, see the [RFC
+ *  The public key, encoded in PEM format. For more information, see the [RFC
  *  7468](https://tools.ietf.org/html/rfc7468) sections for [General
  *  Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual
  *  Encoding of Subject Public Key Info]
@@ -4359,17 +5259,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, copy, nullable) NSString *pem;
 
 /**
- *  Integrity verification field: A CRC32C checksum of the returned
- *  PublicKey.pem. It is only populated when GetPublicKey returns one key. An
- *  integrity check of PublicKey.pem can be performed by computing the CRC32C
- *  checksum of PublicKey.pem and comparing your results to this field. Discard
- *  the response in case of non-matching checksum values, and perform a limited
- *  number of retries. A persistent mismatch may indicate an issue in your
- *  computation of the CRC32C checksum. Note: This field is defined as int64 for
- *  reasons of compatibility across different languages. However, it is a
- *  non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  PublicKey.pem. An integrity check of PublicKey.pem can be performed by
+ *  computing the CRC32C checksum of PublicKey.pem and comparing your results to
+ *  this field. Discard the response in case of non-matching checksum values,
+ *  and perform a limited number of retries. A persistent mismatch may indicate
+ *  an issue in your computation of the CRC32C checksum. Note: This field is
+ *  defined as int64 for reasons of compatibility across different languages.
+ *  However, it is a non-negative integer, which will never exceed `2^32-1`, and
+ *  can be safely downconverted to uint32 in languages that support this type.
+ *  NOTE: This field is in Beta.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4392,6 +5291,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        are performed in software. (Value: "SOFTWARE")
  */
 @property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  This field contains the public key (with integrity verification), formatted
+ *  according to the public_key_format field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_ChecksummedData *publicKey;
+
+/**
+ *  The PublicKey format specified by the customer through the public_key_format
+ *  field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_PublicKey_PublicKeyFormat_Der The returned public
+ *        key will be encoded in DER format (the PrivateKeyInfo structure from
+ *        RFC 5208). (Value: "DER")
+ *    @arg @c kGTLRCloudKMS_PublicKey_PublicKeyFormat_NistPqc This is supported
+ *        only for PQC algorithms. The key material is returned in the format
+ *        defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
+ *        (Value: "NIST_PQC")
+ *    @arg @c kGTLRCloudKMS_PublicKey_PublicKeyFormat_Pem The returned public
+ *        key will be encoded in PEM format. See the
+ *        [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *        Considerations](https://tools.ietf.org/html/rfc7468#section-2) and
+ *        [Textual Encoding of Subject Public Key Info]
+ *        (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *        (Value: "PEM")
+ *    @arg @c kGTLRCloudKMS_PublicKey_PublicKeyFormat_PublicKeyFormatUnspecified
+ *        If the public_key_format field is not specified: - For PQC algorithms,
+ *        an error will be returned. - For non-PQC algorithms, the default
+ *        format is PEM, and the field pem will be populated. Otherwise, the
+ *        public key will be exported through the public_key field in the
+ *        requested format. (Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_PublicKey_PublicKeyFormat_XwingRawBytes The returned
+ *        public key is in raw bytes format defined in its standard
+ *        https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *        (Value: "XWING_RAW_BYTES")
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFormat;
 
 @end
 
@@ -4883,6 +5820,101 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
+@end
+
+
+/**
+ *  Response message for ShowEffectiveAutokeyConfig.
+ */
+@interface GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse : GTLRObject
+
+/**
+ *  Name of the key project configured in the resource project's folder
+ *  ancestry.
+ */
+@property(nonatomic, copy, nullable) NSString *keyProject;
+
+@end
+
+
+/**
+ *  Response message for
+ *  KeyAccessJustificationsConfig.ShowEffectiveKeyAccessJustificationsEnrollmentConfig
+ */
+@interface GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsEnrollmentConfigResponse : GTLRObject
+
+/**
+ *  The effective KeyAccessJustificationsEnrollmentConfig for external keys.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *externalConfig;
+
+/**
+ *  The effective KeyAccessJustificationsEnrollmentConfig for hardware keys.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *hardwareConfig;
+
+/**
+ *  The effective KeyAccessJustificationsEnrollmentConfig for software keys.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *softwareConfig;
+
+@end
+
+
+/**
+ *  Response message for
+ *  KeyAccessJustificationsConfig.ShowEffectiveKeyAccessJustificationsPolicyConfig.
+ */
+@interface GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse : GTLRObject
+
+/** The effective KeyAccessJustificationsPolicyConfig. */
+@property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *effectiveKajPolicy;
+
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRCloudKMS_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCloudKMS_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudKMS_Status_Details_Item : GTLRObject
 @end
 
 

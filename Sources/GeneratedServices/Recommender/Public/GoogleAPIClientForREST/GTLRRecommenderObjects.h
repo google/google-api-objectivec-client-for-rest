@@ -387,11 +387,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
 /** Use with CategoryType.COST */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1CostProjection *costProjection;
 
+/**
+ *  If populated, the impact contains multiple components. In this case, the
+ *  top-level impact contains aggregated values and each component contains
+ *  per-service details.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1Impact *> *impactComponents;
+
 /** Use with CategoryType.RELIABILITY */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection *reliabilityProjection;
 
 /** Use with CategoryType.SECURITY */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection *securityProjection;
+
+/** The service that this impact is associated with. */
+@property(nonatomic, copy, nullable) NSString *service;
 
 /** Use with CategoryType.SUSTAINABILITY */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1SustainabilityProjection *sustainabilityProjection;
@@ -457,7 +467,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
 /** Timestamp of the latest data used to generate the insight. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
-/** Name of the insight. */
+/** Identifier. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -603,7 +613,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1InsightTypeGenerationConfig *insightTypeGenerationConfig;
 
 /**
- *  Name of insight type config. Eg,
+ *  Identifier. Name of insight type config. Eg,
  *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]/config
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1047,7 +1057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
-/** Name of recommendation. */
+/** Identifier. Name of recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1229,7 +1239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Name of recommender config. Eg,
+ *  Identifier. Name of recommender config. Eg,
  *  projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]/config
  */
 @property(nonatomic, copy, nullable) NSString *name;

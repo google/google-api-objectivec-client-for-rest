@@ -6,13 +6,15 @@
 // Description:
 //   Manages classes, rosters, and invitations in Google Classroom.
 // Documentation:
-//   https://developers.google.com/classroom/
+//   https://developers.google.com/workspace/classroom/
 
 #import <GoogleAPIClientForREST/GTLRClassroom.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeClassroomAddonsStudent          = @"https://www.googleapis.com/auth/classroom.addons.student";
+NSString * const kGTLRAuthScopeClassroomAddonsTeacher          = @"https://www.googleapis.com/auth/classroom.addons.teacher";
 NSString * const kGTLRAuthScopeClassroomAnnouncements          = @"https://www.googleapis.com/auth/classroom.announcements";
 NSString * const kGTLRAuthScopeClassroomAnnouncementsReadonly  = @"https://www.googleapis.com/auth/classroom.announcements.readonly";
 NSString * const kGTLRAuthScopeClassroomCourses                = @"https://www.googleapis.com/auth/classroom.courses";

@@ -6,7 +6,7 @@
 // Description:
 //   Version History API - Prod
 // Documentation:
-//   https://developers.chrome.com/versionhistory
+//   https://developer.chrome.com/docs/web-platform/versionhistory/guide
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -18,6 +18,7 @@
 @class GTLRVersionHistory_Interval;
 @class GTLRVersionHistory_Platform;
 @class GTLRVersionHistory_Release;
+@class GTLRVersionHistory_RolloutData;
 @class GTLRVersionHistory_Version;
 
 // Generated comments include content from the discovery document; avoid them
@@ -35,17 +36,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Value: "ALL" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_All;
-/** Value: "BETA" */
+/**
+ *  The Beta channel.
+ *
+ *  Value: "BETA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Beta;
-/** Value: "CANARY" */
+/**
+ *  The Canary channel.
+ *
+ *  Value: "CANARY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Canary;
-/** Value: "CANARY_ASAN" */
+/**
+ *  The Canary channel for Chrome, with DCHECK/ASAN enabled.
+ *
+ *  Value: "CANARY_ASAN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_CanaryAsan;
 /** Value: "CHANNEL_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_ChannelTypeUnspecified;
-/** Value: "DEV" */
+/**
+ *  The Dev channel.
+ *
+ *  Value: "DEV"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Dev;
-/** Value: "EXTENDED" */
+/**
+ *  The Extended Stable channel for Chrome.
+ *
+ *  Value: "EXTENDED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Extended;
 /**
  *  The Long-term support candidate channel for ChromeOS.
@@ -59,7 +80,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Ltc;
  *  Value: "LTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Lts;
-/** Value: "STABLE" */
+/**
+ *  The Stable channel.
+ *
+ *  Value: "STABLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Stable;
 
 // ----------------------------------------------------------------------------
@@ -67,34 +92,92 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Stabl
 
 /** Value: "ALL" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_All;
-/** Value: "ANDROID" */
+/**
+ *  Chrome for Android.
+ *
+ *  Value: "ANDROID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Android;
-/** Value: "CHROMEOS" */
+/**
+ *  ChromeOS.
+ *
+ *  Value: "CHROMEOS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Chromeos;
-/** Value: "FUCHSIA" */
+/**
+ *  Chrome for Fuchsia.
+ *
+ *  Value: "FUCHSIA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Fuchsia;
-/** Value: "IOS" */
+/**
+ *  Chrome for iOS.
+ *
+ *  Value: "IOS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Ios;
-/** Value: "LACROS" */
+/**
+ *  ChromeOS Lacros (x86_64).
+ *
+ *  Value: "LACROS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Lacros;
-/** Value: "LACROS_ARM32" */
+/**
+ *  ChromeOS Lacros (ARM).
+ *
+ *  Value: "LACROS_ARM32"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_LacrosArm32;
-/** Value: "LACROS_ARM64" */
+/**
+ *  ChromeOS Lacros (ARM64).
+ *
+ *  Value: "LACROS_ARM64"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_LacrosArm64;
-/** Value: "LINUX" */
+/**
+ *  Chrome Desktop for Linux.
+ *
+ *  Value: "LINUX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Linux;
-/** Value: "MAC" */
+/**
+ *  Chrome Desktop for macOS (x86_64).
+ *
+ *  Value: "MAC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Mac;
-/** Value: "MAC_ARM64" */
+/**
+ *  Chrome for macOS (ARM64).
+ *
+ *  Value: "MAC_ARM64"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_MacArm64;
 /** Value: "PLATFORM_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_PlatformTypeUnspecified;
-/** Value: "WEBVIEW" */
+/**
+ *  WebView for Android.
+ *
+ *  Value: "WEBVIEW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Webview;
-/** Value: "WIN" */
+/**
+ *  Chrome Desktop for Windows (32-bit).
+ *
+ *  Value: "WIN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win;
-/** Value: "WIN64" */
+/**
+ *  Chrome Desktop for Windows (x86_64).
+ *
+ *  Value: "WIN64"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win64;
+/**
+ *  Chrome Desktop for Windows (ARM64).
+ *
+ *  Value: "WIN_ARM64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_WinArm64;
 
 /**
  *  Each Channel is owned by a Platform and owns a collection of versions.
@@ -108,19 +191,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
  *
  *  Likely values:
  *    @arg @c kGTLRVersionHistory_Channel_ChannelType_All Value "ALL"
- *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Beta Value "BETA"
- *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Canary Value "CANARY"
- *    @arg @c kGTLRVersionHistory_Channel_ChannelType_CanaryAsan Value
- *        "CANARY_ASAN"
+ *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Beta The Beta channel.
+ *        (Value: "BETA")
+ *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Canary The Canary channel.
+ *        (Value: "CANARY")
+ *    @arg @c kGTLRVersionHistory_Channel_ChannelType_CanaryAsan The Canary
+ *        channel for Chrome, with DCHECK/ASAN enabled. (Value: "CANARY_ASAN")
  *    @arg @c kGTLRVersionHistory_Channel_ChannelType_ChannelTypeUnspecified
  *        Value "CHANNEL_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Dev Value "DEV"
- *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Extended Value "EXTENDED"
+ *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Dev The Dev channel.
+ *        (Value: "DEV")
+ *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Extended The Extended
+ *        Stable channel for Chrome. (Value: "EXTENDED")
  *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Ltc The Long-term support
  *        candidate channel for ChromeOS. (Value: "LTC")
  *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Lts The Long-term support
  *        channel for ChromeOS. (Value: "LTS")
- *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Stable Value "STABLE"
+ *    @arg @c kGTLRVersionHistory_Channel_ChannelType_Stable The Stable channel.
+ *        (Value: "STABLE")
  */
 @property(nonatomic, copy, nullable) NSString *channelType;
 
@@ -278,25 +366,36 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
  *
  *  Likely values:
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_All Value "ALL"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Android Value "ANDROID"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Chromeos Value
- *        "CHROMEOS"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Fuchsia Value "FUCHSIA"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Ios Value "IOS"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Lacros Value "LACROS"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_LacrosArm32 Value
- *        "LACROS_ARM32"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_LacrosArm64 Value
- *        "LACROS_ARM64"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Linux Value "LINUX"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Mac Value "MAC"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_MacArm64 Value
- *        "MAC_ARM64"
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Android Chrome for
+ *        Android. (Value: "ANDROID")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Chromeos ChromeOS.
+ *        (Value: "CHROMEOS")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Fuchsia Chrome for
+ *        Fuchsia. (Value: "FUCHSIA")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Ios Chrome for iOS.
+ *        (Value: "IOS")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Lacros ChromeOS Lacros
+ *        (x86_64). (Value: "LACROS")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_LacrosArm32 ChromeOS
+ *        Lacros (ARM). (Value: "LACROS_ARM32")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_LacrosArm64 ChromeOS
+ *        Lacros (ARM64). (Value: "LACROS_ARM64")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Linux Chrome Desktop for
+ *        Linux. (Value: "LINUX")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Mac Chrome Desktop for
+ *        macOS (x86_64). (Value: "MAC")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_MacArm64 Chrome for
+ *        macOS (ARM64). (Value: "MAC_ARM64")
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_PlatformTypeUnspecified
  *        Value "PLATFORM_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Webview Value "WEBVIEW"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Win Value "WIN"
- *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Win64 Value "WIN64"
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Webview WebView for
+ *        Android. (Value: "WEBVIEW")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Win Chrome Desktop for
+ *        Windows (32-bit). (Value: "WIN")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Win64 Chrome Desktop for
+ *        Windows (x86_64). (Value: "WIN64")
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_WinArm64 Chrome Desktop
+ *        for Windows (ARM64). (Value: "WIN_ARM64")
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
@@ -337,6 +436,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Whether or not the release was available for version pinning.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pinnable;
+
+/**
+ *  Rollout-related metadata. Some releases are part of one or more A/B
+ *  rollouts. This field contains the names and data describing this release's
+ *  role in any rollouts.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVersionHistory_RolloutData *> *rolloutData;
+
+/**
  *  Timestamp interval of when the release was live. If end_time is unspecified,
  *  the release is currently live.
  */
@@ -344,6 +457,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
 
 /** String containing just the version number. e.g. "84.0.4147.38" */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Rollout-related metadata for a release.
+ */
+@interface GTLRVersionHistory_RolloutData : GTLRObject
+
+/** The name of the rollout. */
+@property(nonatomic, copy, nullable) NSString *rolloutName;
+
+/**
+ *  Tags associated with a release's role in a rollout. Most rollouts will have
+ *  at least one release with a "rollout" tag and another release with a
+ *  "control" tag. Some rollouts may have additional named arms.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tag;
 
 @end
 

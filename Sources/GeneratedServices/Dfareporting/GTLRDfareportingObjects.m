@@ -138,6 +138,11 @@ NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Cpm = @"CPM";
 NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Ea = @"EA";
 NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c = @"P2C";
 
+// GTLRDfareporting_ContentSource.resourceType
+NSString * const kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeGoogleSpreadsheet = @"RESOURCE_TYPE_GOOGLE_SPREADSHEET";
+NSString * const kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeRemoteFile = @"RESOURCE_TYPE_REMOTE_FILE";
+NSString * const kGTLRDfareporting_ContentSource_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
+
 // GTLRDfareporting_Conversion.adUserDataConsent
 NSString * const kGTLRDfareporting_Conversion_AdUserDataConsent_Denied = @"DENIED";
 NSString * const kGTLRDfareporting_Conversion_AdUserDataConsent_Granted = @"GRANTED";
@@ -715,6 +720,36 @@ NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_IframeJa
 NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_InternalRedirectInterstitial = @"INTERNAL_REDIRECT_INTERSTITIAL";
 NSString * const kGTLRDfareporting_DirectorySite_InterstitialTagFormats_JavascriptInterstitial = @"JAVASCRIPT_INTERSTITIAL";
 
+// GTLRDfareporting_DynamicFeed.status
+NSString * const kGTLRDfareporting_DynamicFeed_Status_Active   = @"ACTIVE";
+NSString * const kGTLRDfareporting_DynamicFeed_Status_Deleted  = @"DELETED";
+NSString * const kGTLRDfareporting_DynamicFeed_Status_Inactive = @"INACTIVE";
+NSString * const kGTLRDfareporting_DynamicFeed_Status_StatusUnknown = @"STATUS_UNKNOWN";
+
+// GTLRDfareporting_DynamicProfile.archiveStatus
+NSString * const kGTLRDfareporting_DynamicProfile_ArchiveStatus_Archived = @"ARCHIVED";
+NSString * const kGTLRDfareporting_DynamicProfile_ArchiveStatus_ArchiveStatusUnknown = @"ARCHIVE_STATUS_UNKNOWN";
+NSString * const kGTLRDfareporting_DynamicProfile_ArchiveStatus_Unarchived = @"UNARCHIVED";
+
+// GTLRDfareporting_DynamicProfile.status
+NSString * const kGTLRDfareporting_DynamicProfile_Status_Active = @"ACTIVE";
+NSString * const kGTLRDfareporting_DynamicProfile_Status_Deleted = @"DELETED";
+NSString * const kGTLRDfareporting_DynamicProfile_Status_Inactive = @"INACTIVE";
+NSString * const kGTLRDfareporting_DynamicProfile_Status_StatusUnknown = @"STATUS_UNKNOWN";
+
+// GTLRDfareporting_DynamicRules.rotationType
+NSString * const kGTLRDfareporting_DynamicRules_RotationType_Optimized = @"OPTIMIZED";
+NSString * const kGTLRDfareporting_DynamicRules_RotationType_Random = @"RANDOM";
+NSString * const kGTLRDfareporting_DynamicRules_RotationType_RotationTypeUnknown = @"ROTATION_TYPE_UNKNOWN";
+NSString * const kGTLRDfareporting_DynamicRules_RotationType_Weighted = @"WEIGHTED";
+
+// GTLRDfareporting_DynamicRules.ruleType
+NSString * const kGTLRDfareporting_DynamicRules_RuleType_Auto  = @"AUTO";
+NSString * const kGTLRDfareporting_DynamicRules_RuleType_Custom = @"CUSTOM";
+NSString * const kGTLRDfareporting_DynamicRules_RuleType_Open  = @"OPEN";
+NSString * const kGTLRDfareporting_DynamicRules_RuleType_ProximityTargeting = @"PROXIMITY_TARGETING";
+NSString * const kGTLRDfareporting_DynamicRules_RuleType_RuleSetTypeUnknown = @"RULE_SET_TYPE_UNKNOWN";
+
 // GTLRDfareporting_DynamicTargetingKey.objectType
 NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectAd = @"OBJECT_AD";
 NSString * const kGTLRDfareporting_DynamicTargetingKey_ObjectType_ObjectAdvertiser = @"OBJECT_ADVERTISER";
@@ -747,6 +782,112 @@ NSString * const kGTLRDfareporting_EventTag_Status_Enabled  = @"ENABLED";
 NSString * const kGTLRDfareporting_EventTag_Type_ClickThroughEventTag = @"CLICK_THROUGH_EVENT_TAG";
 NSString * const kGTLRDfareporting_EventTag_Type_ImpressionImageEventTag = @"IMPRESSION_IMAGE_EVENT_TAG";
 NSString * const kGTLRDfareporting_EventTag_Type_ImpressionJavascriptEventTag = @"IMPRESSION_JAVASCRIPT_EVENT_TAG";
+
+// GTLRDfareporting_FeedField.type
+NSString * const kGTLRDfareporting_FeedField_Type_AssetLibraryDirectoryHandle = @"ASSET_LIBRARY_DIRECTORY_HANDLE";
+NSString * const kGTLRDfareporting_FeedField_Type_AssetLibraryHandle = @"ASSET_LIBRARY_HANDLE";
+NSString * const kGTLRDfareporting_FeedField_Type_AssetLibraryVideoHandle = @"ASSET_LIBRARY_VIDEO_HANDLE";
+NSString * const kGTLRDfareporting_FeedField_Type_Bool         = @"BOOL";
+NSString * const kGTLRDfareporting_FeedField_Type_City         = @"CITY";
+NSString * const kGTLRDfareporting_FeedField_Type_Cm360AdId    = @"CM360_AD_ID";
+NSString * const kGTLRDfareporting_FeedField_Type_Cm360AdvertiserId = @"CM360_ADVERTISER_ID";
+NSString * const kGTLRDfareporting_FeedField_Type_Cm360CampaignId = @"CM360_CAMPAIGN_ID";
+NSString * const kGTLRDfareporting_FeedField_Type_Cm360CreativeId = @"CM360_CREATIVE_ID";
+NSString * const kGTLRDfareporting_FeedField_Type_Cm360DynamicTargetingKey = @"CM360_DYNAMIC_TARGETING_KEY";
+NSString * const kGTLRDfareporting_FeedField_Type_Cm360Keyword = @"CM360_KEYWORD";
+NSString * const kGTLRDfareporting_FeedField_Type_Cm360PlacementId = @"CM360_PLACEMENT_ID";
+NSString * const kGTLRDfareporting_FeedField_Type_Cm360SiteId  = @"CM360_SITE_ID";
+NSString * const kGTLRDfareporting_FeedField_Type_CountryCodeIso = @"COUNTRY_CODE_ISO";
+NSString * const kGTLRDfareporting_FeedField_Type_CreativeDimension = @"CREATIVE_DIMENSION";
+NSString * const kGTLRDfareporting_FeedField_Type_CustomValue  = @"CUSTOM_VALUE";
+NSString * const kGTLRDfareporting_FeedField_Type_Datetime     = @"DATETIME";
+NSString * const kGTLRDfareporting_FeedField_Type_Dv360LineItemId = @"DV360_LINE_ITEM_ID";
+NSString * const kGTLRDfareporting_FeedField_Type_ExitUrl      = @"EXIT_URL";
+NSString * const kGTLRDfareporting_FeedField_Type_Float        = @"FLOAT";
+NSString * const kGTLRDfareporting_FeedField_Type_GeoCanonical = @"GEO_CANONICAL";
+NSString * const kGTLRDfareporting_FeedField_Type_GpaServedAssetUrl = @"GPA_SERVED_ASSET_URL";
+NSString * const kGTLRDfareporting_FeedField_Type_GpaServedImageUrl = @"GPA_SERVED_IMAGE_URL";
+NSString * const kGTLRDfareporting_FeedField_Type_Long         = @"LONG";
+NSString * const kGTLRDfareporting_FeedField_Type_Metro        = @"METRO";
+NSString * const kGTLRDfareporting_FeedField_Type_PostalCode   = @"POSTAL_CODE";
+NSString * const kGTLRDfareporting_FeedField_Type_Region       = @"REGION";
+NSString * const kGTLRDfareporting_FeedField_Type_RemarketingValue = @"REMARKETING_VALUE";
+NSString * const kGTLRDfareporting_FeedField_Type_String       = @"STRING";
+NSString * const kGTLRDfareporting_FeedField_Type_StringList   = @"STRING_LIST";
+NSString * const kGTLRDfareporting_FeedField_Type_ThirdPartyServedUrl = @"THIRD_PARTY_SERVED_URL";
+NSString * const kGTLRDfareporting_FeedField_Type_TypeUnknown  = @"TYPE_UNKNOWN";
+NSString * const kGTLRDfareporting_FeedField_Type_UserlistId   = @"USERLIST_ID";
+NSString * const kGTLRDfareporting_FeedField_Type_Weight       = @"WEIGHT";
+
+// GTLRDfareporting_FeedIngestionStatus.state
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_FeedProcessingStateUnknown = @"FEED_PROCESSING_STATE_UNKNOWN";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_IngestedFailure = @"INGESTED_FAILURE";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_IngestedSuccess = @"INGESTED_SUCCESS";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_Ingesting = @"INGESTING";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_IngestingQueued = @"INGESTING_QUEUED";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_PublishedFailure = @"PUBLISHED_FAILURE";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_PublishedSuccess = @"PUBLISHED_SUCCESS";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_Publishing = @"PUBLISHING";
+NSString * const kGTLRDfareporting_FeedIngestionStatus_State_RequestToPublish = @"REQUEST_TO_PUBLISH";
+
+// GTLRDfareporting_FieldError.ingestionError
+NSString * const kGTLRDfareporting_FieldError_IngestionError_AirportGeoTarget = @"AIRPORT_GEO_TARGET";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_AssetDownloadError = @"ASSET_DOWNLOAD_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_BoolParsingError = @"BOOL_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_CanonicalNameQueryMismatch = @"CANONICAL_NAME_QUERY_MISMATCH";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_CountryParsingError = @"COUNTRY_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_CreativeDimensionParsingError = @"CREATIVE_DIMENSION_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_DatetimeParsingError = @"DATETIME_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_DatetimeWithoutTimezoneParsingError = @"DATETIME_WITHOUT_TIMEZONE_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_DuplicateId = @"DUPLICATE_ID";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_DynamicTargetingKeyNotDefinedForAdvertiser = @"DYNAMIC_TARGETING_KEY_NOT_DEFINED_FOR_ADVERTISER";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_EmptyValue = @"EMPTY_VALUE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_EndtimeBeforeStarttime = @"ENDTIME_BEFORE_STARTTIME";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_EndtimePassed = @"ENDTIME_PASSED";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_EndtimeTooSoon = @"ENDTIME_TOO_SOON";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_ExpandedUrlParsingError = @"EXPANDED_URL_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_FloatParsingError = @"FLOAT_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_GeoNotFoundError = @"GEO_NOT_FOUND_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_GeoParsingError = @"GEO_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_GeoProximityTargetingMultipleLocationError = @"GEO_PROXIMITY_TARGETING_MULTIPLE_LOCATION_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_IdTooLong = @"ID_TOO_LONG";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_ImageAssetScsReference = @"IMAGE_ASSET_SCS_REFERENCE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryDirectoryHandle = @"INVALID_ASSET_LIBRARY_DIRECTORY_HANDLE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryHandle = @"INVALID_ASSET_LIBRARY_HANDLE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_InvalidAssetLibraryVideoHandle = @"INVALID_ASSET_LIBRARY_VIDEO_HANDLE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_InvalidPreferenceValue = @"INVALID_PREFERENCE_VALUE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_LongParsingError = @"LONG_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_MetroCodeParsingError = @"METRO_CODE_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_MissingId = @"MISSING_ID";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_MissingReportingLabel = @"MISSING_REPORTING_LABEL";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_MultivalueId = @"MULTIVALUE_ID";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_NoActiveDefaultRow = @"NO_ACTIVE_DEFAULT_ROW";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_NoActiveDefaultRowInDateRange = @"NO_ACTIVE_DEFAULT_ROW_IN_DATE_RANGE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_NoDefaultRow = @"NO_DEFAULT_ROW";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_NoDefaultRowInDateRange = @"NO_DEFAULT_ROW_IN_DATE_RANGE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_ParsingError = @"PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_PayloadLimitExceeded = @"PAYLOAD_LIMIT_EXCEEDED";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_PostalCodeParsingError = @"POSTAL_CODE_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_SslNotCompliant = @"SSL_NOT_COMPLIANT";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_TextAssetReference = @"TEXT_ASSET_REFERENCE";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_UnknownParsingError = @"UNKNOWN_PARSING_ERROR";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_UserlistIdNotAccessibleForAdvertiser = @"USERLIST_ID_NOT_ACCESSIBLE_FOR_ADVERTISER";
+NSString * const kGTLRDfareporting_FieldError_IngestionError_WeightParsingError = @"WEIGHT_PARSING_ERROR";
+
+// GTLRDfareporting_FieldFilter.matchType
+NSString * const kGTLRDfareporting_FieldFilter_MatchType_Equals = @"EQUALS";
+NSString * const kGTLRDfareporting_FieldFilter_MatchType_EqualsOrUnrestricted = @"EQUALS_OR_UNRESTRICTED";
+NSString * const kGTLRDfareporting_FieldFilter_MatchType_LhsMatchTypeUnknown = @"LHS_MATCH_TYPE_UNKNOWN";
+NSString * const kGTLRDfareporting_FieldFilter_MatchType_NotEquals = @"NOT_EQUALS";
+NSString * const kGTLRDfareporting_FieldFilter_MatchType_Unrestricted = @"UNRESTRICTED";
+
+// GTLRDfareporting_FieldFilter.valueType
+NSString * const kGTLRDfareporting_FieldFilter_ValueType_Bool  = @"BOOL";
+NSString * const kGTLRDfareporting_FieldFilter_ValueType_Dependent = @"DEPENDENT";
+NSString * const kGTLRDfareporting_FieldFilter_ValueType_Request = @"REQUEST";
+NSString * const kGTLRDfareporting_FieldFilter_ValueType_RhsValueTypeUnknown = @"RHS_VALUE_TYPE_UNKNOWN";
+NSString * const kGTLRDfareporting_FieldFilter_ValueType_String = @"STRING";
 
 // GTLRDfareporting_File.format
 NSString * const kGTLRDfareporting_File_Format_Csv   = @"CSV";
@@ -943,6 +1084,7 @@ NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_M
 NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkWrappingPending = @"MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING";
 NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerModeChangePending = @"MEASUREMENT_PARTNER_MODE_CHANGE_PENDING";
 NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked = @"MEASUREMENT_PARTNER_UNLINKED";
+NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinkPending = @"MEASUREMENT_PARTNER_UNLINK_PENDING";
 
 // GTLRDfareporting_MeasurementPartnerAdvertiserLink.measurementPartner
 NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_DoubleVerify = @"DOUBLE_VERIFY";
@@ -958,6 +1100,7 @@ NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_Mea
 NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkWrappingPending = @"MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING";
 NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerModeChangePending = @"MEASUREMENT_PARTNER_MODE_CHANGE_PENDING";
 NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked = @"MEASUREMENT_PARTNER_UNLINKED";
+NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinkPending = @"MEASUREMENT_PARTNER_UNLINK_PENDING";
 
 // GTLRDfareporting_MeasurementPartnerCampaignLink.measurementPartner
 NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_DoubleVerify = @"DOUBLE_VERIFY";
@@ -973,6 +1116,7 @@ NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_Mea
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkWrappingPending = @"MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerModeChangePending = @"MEASUREMENT_PARTNER_MODE_CHANGE_PENDING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked = @"MEASUREMENT_PARTNER_UNLINKED";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinkPending = @"MEASUREMENT_PARTNER_UNLINK_PENDING";
 
 // GTLRDfareporting_MeasurementPartnerWrappingData.measurementPartner
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_DoubleVerify = @"DOUBLE_VERIFY";
@@ -1017,18 +1161,6 @@ NSString * const kGTLRDfareporting_ObjectFilter_Status_None    = @"NONE";
 NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerBillingContact = @"PLANNING_ORDER_CONTACT_BUYER_BILLING_CONTACT";
 NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact = @"PLANNING_ORDER_CONTACT_BUYER_CONTACT";
 NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact = @"PLANNING_ORDER_CONTACT_SELLER_CONTACT";
-
-// GTLRDfareporting_PathFilter.pathMatchPosition
-NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Any = @"ANY";
-NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_First = @"FIRST";
-NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_Last = @"LAST";
-NSString * const kGTLRDfareporting_PathFilter_PathMatchPosition_PathMatchPositionUnspecified = @"PATH_MATCH_POSITION_UNSPECIFIED";
-
-// GTLRDfareporting_PathReportDimensionValue.matchType
-NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_BeginsWith = @"BEGINS_WITH";
-NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Contains = @"CONTAINS";
-NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_Exact = @"EXACT";
-NSString * const kGTLRDfareporting_PathReportDimensionValue_MatchType_WildcardExpression = @"WILDCARD_EXPRESSION";
 
 // GTLRDfareporting_Placement.activeStatus
 NSString * const kGTLRDfareporting_Placement_ActiveStatus_PlacementStatusActive = @"PLACEMENT_STATUS_ACTIVE";
@@ -1145,6 +1277,19 @@ NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAgeU
 NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderFemale = @"PLANNING_AUDIENCE_GENDER_FEMALE";
 NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderMale = @"PLANNING_AUDIENCE_GENDER_MALE";
 
+// GTLRDfareporting_ProximityFilter.radiusBucketType
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_Large = @"LARGE";
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_Medium = @"MEDIUM";
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_MultiRegional = @"MULTI_REGIONAL";
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_National = @"NATIONAL";
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_RadiusBucketTypeUnknown = @"RADIUS_BUCKET_TYPE_UNKNOWN";
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusBucketType_Small = @"SMALL";
+
+// GTLRDfareporting_ProximityFilter.radiusUnitType
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusUnitType_Kilometers = @"KILOMETERS";
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusUnitType_Miles = @"MILES";
+NSString * const kGTLRDfareporting_ProximityFilter_RadiusUnitType_RadiusUnitTypeUnknown = @"RADIUS_UNIT_TYPE_UNKNOWN";
+
 // GTLRDfareporting_Recipient.deliveryType
 NSString * const kGTLRDfareporting_Recipient_DeliveryType_Attachment = @"ATTACHMENT";
 NSString * const kGTLRDfareporting_Recipient_DeliveryType_Link = @"LINK";
@@ -1168,9 +1313,8 @@ NSString * const kGTLRDfareporting_Report_Format_Excel = @"EXCEL";
 
 // GTLRDfareporting_Report.type
 NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach = @"CROSS_DIMENSION_REACH";
+NSString * const kGTLRDfareporting_Report_Type_CrossMediaReach = @"CROSS_MEDIA_REACH";
 NSString * const kGTLRDfareporting_Report_Type_Floodlight      = @"FLOODLIGHT";
-NSString * const kGTLRDfareporting_Report_Type_Path            = @"PATH";
-NSString * const kGTLRDfareporting_Report_Type_PathAttribution = @"PATH_ATTRIBUTION";
 NSString * const kGTLRDfareporting_Report_Type_PathToConversion = @"PATH_TO_CONVERSION";
 NSString * const kGTLRDfareporting_Report_Type_Reach           = @"REACH";
 NSString * const kGTLRDfareporting_Report_Type_Standard        = @"STANDARD";
@@ -1282,6 +1426,20 @@ NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_Video
 NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStart = @"VIDEO_START";
 NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoStop = @"VIDEO_STOP";
 NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_ThirdPartyUrlType_VideoThirdQuartile = @"VIDEO_THIRD_QUARTILE";
+
+// GTLRDfareporting_TvCampaignSummary.type
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Brand = @"BRAND";
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Campaign = @"CAMPAIGN";
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_CampaignComponentTypeUnspecified = @"CAMPAIGN_COMPONENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Company = @"COMPANY";
+NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Product = @"PRODUCT";
+
+// GTLRDfareporting_TvCampaignTimepoint.dateWindow
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksEight = @"WEEKS_EIGHT";
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksFour = @"WEEKS_FOUR";
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksOne = @"WEEKS_ONE";
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksTwelve = @"WEEKS_TWELVE";
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksUnspecified = @"WEEKS_UNSPECIFIED";
 
 // GTLRDfareporting_UniversalAdId.registry
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOfficial = @"AD_ID_OFFICIAL";
@@ -1403,11 +1561,6 @@ NSString * const kGTLRDfareporting_UserRolePermission_Availability_NotAvailableB
 NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountAlways = @"SUBACCOUNT_AND_ACCOUNT_ALWAYS";
 NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault = @"SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT";
 NSString * const kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly = @"USER_PROFILE_ONLY";
-
-// GTLRDfareporting_UvarFilter.match
-NSString * const kGTLRDfareporting_UvarFilter_Match_Contains   = @"CONTAINS";
-NSString * const kGTLRDfareporting_UvarFilter_Match_Exact      = @"EXACT";
-NSString * const kGTLRDfareporting_UvarFilter_Match_Unspecified = @"UNSPECIFIED";
 
 // GTLRDfareporting_VideoFormat.fileType
 NSString * const kGTLRDfareporting_VideoFormat_FileType_Flv    = @"FLV";
@@ -2280,6 +2433,34 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_CartData
+//
+
+@implementation GTLRDfareporting_CartData
+@dynamic items, merchantFeedLabel, merchantFeedLanguage, merchantId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRDfareporting_CartDataItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CartDataItem
+//
+
+@implementation GTLRDfareporting_CartDataItem
+@dynamic itemId, quantity, unitPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_ChangeLog
 //
 
@@ -2324,54 +2505,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 + (NSString *)collectionItemsKey {
   return @"changeLogs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_ChannelGrouping
-//
-
-@implementation GTLRDfareporting_ChannelGrouping
-@dynamic fallbackName, kind, name, rules;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rules" : [GTLRDfareporting_ChannelGroupingRule class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_ChannelGroupingRule
-//
-
-@implementation GTLRDfareporting_ChannelGroupingRule
-@dynamic disjunctiveMatchStatements, kind, name;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"disjunctiveMatchStatements" : [GTLRDfareporting_DisjunctiveMatchStatement class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
 }
 
 @end
@@ -2491,8 +2624,8 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_CompatibleFields
 @dynamic crossDimensionReachReportCompatibleFields,
+         crossMediaReachReportCompatibleFields,
          floodlightReportCompatibleFields, kind,
-         pathAttributionReportCompatibleFields, pathReportCompatibleFields,
          pathToConversionReportCompatibleFields, reachReportCompatibleFields,
          reportCompatibleFields;
 
@@ -2601,15 +2734,45 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_ContentSource
+//
+
+@implementation GTLRDfareporting_ContentSource
+@dynamic contentSourceName, createInfo, lastModifiedInfo, metaData,
+         resourceLink, resourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_ContentSourceMetaData
+//
+
+@implementation GTLRDfareporting_ContentSourceMetaData
+@dynamic charset, fieldNames, rowNumber, separator;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_Conversion
 //
 
 @implementation GTLRDfareporting_Conversion
-@dynamic adUserDataConsent, childDirectedTreatment, customVariables, dclid,
-         encryptedUserId, encryptedUserIdCandidates, floodlightActivityId,
-         floodlightConfigurationId, gclid, impressionId, kind, limitAdTracking,
-         matchId, mobileDeviceId, nonPersonalizedAd, ordinal, quantity,
-         timestampMicros, treatmentForUnderage, userIdentifiers, value;
+@dynamic adUserDataConsent, cartData, childDirectedTreatment, customVariables,
+         dclid, encryptedUserId, encryptedUserIdCandidates,
+         floodlightActivityId, floodlightConfigurationId, gclid, impressionId,
+         kind, limitAdTracking, matchId, mobileDeviceId, nonPersonalizedAd,
+         ordinal, quantity, sessionAttributesEncoded, timestampMicros,
+         treatmentForUnderage, userIdentifiers, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3280,6 +3443,32 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_CrossMediaReachReportCompatibleFields
+//
+
+@implementation GTLRDfareporting_CrossMediaReachReportCompatibleFields
+@dynamic dimensionFilters, dimensions, kind, metrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionFilters" : [GTLRDfareporting_Dimension class],
+    @"dimensions" : [GTLRDfareporting_Dimension class],
+    @"metrics" : [GTLRDfareporting_Metric class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_CustomFloodlightVariable
 //
 
@@ -3316,6 +3505,34 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomRule
+//
+
+@implementation GTLRDfareporting_CustomRule
+@dynamic name, priority, ruleBlocks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ruleBlocks" : [GTLRDfareporting_RuleBlock class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_CustomValueField
+//
+
+@implementation GTLRDfareporting_CustomValueField
+@dynamic fieldId, requestKey;
 @end
 
 
@@ -3421,6 +3638,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_DeliverySchedule
 @dynamic frequencyCap, hardCutoff, impressionRatio, priority;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_DependentFieldValue
+//
+
+@implementation GTLRDfareporting_DependentFieldValue
+@dynamic elementId, fieldId;
 @end
 
 
@@ -3553,7 +3780,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_DirectorySite
 @dynamic identifier, idDimensionValue, inpageTagFormats, interstitialTagFormats,
-         kind, name, settings, url;
+         kind, name, publisherSpecificationId, settings, url;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -3617,23 +3844,94 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDfareporting_DisjunctiveMatchStatement
+//   GTLRDfareporting_DynamicFeed
 //
 
-@implementation GTLRDfareporting_DisjunctiveMatchStatement
-@dynamic eventFilters, kind;
+@implementation GTLRDfareporting_DynamicFeed
+@dynamic contentSource, createInfo, dynamicFeedId, dynamicFeedName, element,
+         feedIngestionStatus, feedSchedule, hasPublished, lastModifiedInfo,
+         status, studioAdvertiserId;
+@end
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"eventFilters" : [GTLRDfareporting_EventFilter class]
-  };
-  return map;
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_DynamicFeedsInsertRequest
+//
+
+@implementation GTLRDfareporting_DynamicFeedsInsertRequest
+@dynamic dynamicFeed, dynamicProfileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_DynamicProfile
+//
+
+@implementation GTLRDfareporting_DynamicProfile
+@dynamic active, archiveStatus, createInfo, descriptionProperty, draft,
+         dynamicProfileId, kind, lastModifiedInfo, name, status,
+         studioAdvertiserId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_DynamicProfileFeedSettings
+//
+
+@implementation GTLRDfareporting_DynamicProfileFeedSettings
+@dynamic dynamicFeedId, dynamicRules, quantity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_DynamicProfileVersion
+//
+
+@implementation GTLRDfareporting_DynamicProfileVersion
+@dynamic dynamicProfileFeedSettings, versionId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dynamicProfileFeedSettings" : [GTLRDfareporting_DynamicProfileFeedSettings class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_DynamicRules
+//
+
+@implementation GTLRDfareporting_DynamicRules
+@dynamic autoTargetedFieldIds, customRules, customValueFields, proximityFilter,
+         remarketingValueAttributes, rotationType, ruleType, weightFieldId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"autoTargetedFieldIds" : [NSNumber class],
+    @"customRules" : [GTLRDfareporting_CustomRule class],
+    @"customValueFields" : [GTLRDfareporting_CustomValueField class],
+    @"remarketingValueAttributes" : [GTLRDfareporting_RemarketingValueAttribute class]
+  };
+  return map;
 }
 
 @end
@@ -3682,16 +3980,20 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDfareporting_EncryptionInfo
+//   GTLRDfareporting_Element
 //
 
-@implementation GTLRDfareporting_EncryptionInfo
-@dynamic encryptionEntityId, encryptionEntityType, encryptionSource, kind;
+@implementation GTLRDfareporting_Element
+@dynamic activeFieldId, createInfo, defaultFieldId, elementName,
+         endTimestampFieldId, externalIdFieldId, feedFields, isLocalTimestamp,
+         lastModifiedInfo, proximityTargetingFieldId, reportingLabelFieldId,
+         startTimestampFieldId;
 
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"feedFields" : [GTLRDfareporting_FeedField class]
+  };
+  return map;
 }
 
 @end
@@ -3699,11 +4001,11 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDfareporting_EventFilter
+//   GTLRDfareporting_EncryptionInfo
 //
 
-@implementation GTLRDfareporting_EventFilter
-@dynamic dimensionFilter, kind, uvarFilter;
+@implementation GTLRDfareporting_EncryptionInfo
+@dynamic encryptionEntityId, encryptionEntityType, encryptionSource, kind;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -3781,6 +4083,78 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_FeedField
+//
+
+@implementation GTLRDfareporting_FeedField
+@dynamic defaultValue, filterable, identifier, name, renderable, required, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_FeedIngestionStatus
+//
+
+@implementation GTLRDfareporting_FeedIngestionStatus
+@dynamic ingestionErrorRecords, ingestionStatus, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ingestionErrorRecords" : [GTLRDfareporting_IngestionErrorRecord class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_FeedSchedule
+//
+
+@implementation GTLRDfareporting_FeedSchedule
+@dynamic repeatValue, scheduleEnabled, startHour, startMinute, timeZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_FieldError
+//
+
+@implementation GTLRDfareporting_FieldError
+@dynamic fieldId, fieldName, fieldValues, ingestionError, isError;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_FieldFilter
+//
+
+@implementation GTLRDfareporting_FieldFilter
+@dynamic boolValue, dependentFieldValue, fieldId, matchType, requestValue,
+         stringValue, valueType;
 @end
 
 
@@ -4142,6 +4516,35 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_IngestionErrorRecord
+//
+
+@implementation GTLRDfareporting_IngestionErrorRecord
+@dynamic errors, recordId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDfareporting_FieldError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_IngestionStatus
+//
+
+@implementation GTLRDfareporting_IngestionStatus
+@dynamic numActiveRows, numRowsProcessed, numRowsTotal, numRowsWithErrors,
+         numWarningsTotal;
 @end
 
 
@@ -4845,82 +5248,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDfareporting_PathFilter
-//
-
-@implementation GTLRDfareporting_PathFilter
-@dynamic eventFilters, kind, pathMatchPosition;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"eventFilters" : [GTLRDfareporting_EventFilter class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_PathReportCompatibleFields
-//
-
-@implementation GTLRDfareporting_PathReportCompatibleFields
-@dynamic channelGroupings, dimensions, kind, metrics, pathFilters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"channelGroupings" : [GTLRDfareporting_Dimension class],
-    @"dimensions" : [GTLRDfareporting_Dimension class],
-    @"metrics" : [GTLRDfareporting_Metric class],
-    @"pathFilters" : [GTLRDfareporting_Dimension class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_PathReportDimensionValue
-//
-
-@implementation GTLRDfareporting_PathReportDimensionValue
-@dynamic dimensionName, ids, kind, matchType, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"ids" : [NSString class],
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDfareporting_PathToConversionReportCompatibleFields
 //
 
@@ -4954,17 +5281,17 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_Placement
 @dynamic accountId, activeStatus, adBlockingOptOut, additionalSizes,
-         advertiserId, advertiserIdDimensionValue, campaignId,
-         campaignIdDimensionValue, comment, compatibility, contentCategoryId,
-         conversionDomainOverride, createInfo, directorySiteId,
-         directorySiteIdDimensionValue, externalId, identifier,
+         adServingPlatformId, advertiserId, advertiserIdDimensionValue,
+         campaignId, campaignIdDimensionValue, comment, compatibility,
+         contentCategoryId, conversionDomainOverride, createInfo,
+         directorySiteId, directorySiteIdDimensionValue, externalId, identifier,
          idDimensionValue, keyName, kind, lastModifiedInfo,
          lookbackConfiguration, name, partnerWrappingData, paymentApproved,
          paymentSource, placementGroupId, placementGroupIdDimensionValue,
          placementStrategyId, pricingSchedule, primary, publisherUpdateInfo,
-         siteId, siteIdDimensionValue, size, sslRequired, status, subaccountId,
-         tagFormats, tagSetting, videoActiveViewOptOut, videoSettings,
-         vpaidAdapterChoice, wrappingOptOut;
+         siteId, siteIdDimensionValue, siteServed, size, sslRequired, status,
+         subaccountId, tagFormats, tagSetting, videoActiveViewOptOut,
+         videoSettings, vpaidAdapterChoice, wrappingOptOut;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -5410,6 +5737,16 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_ProximityFilter
+//
+
+@implementation GTLRDfareporting_ProximityFilter
+@dynamic fieldId, radiusBucketType, radiusUnitType, radiusValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_ReachReportCompatibleFields
 //
 
@@ -5577,15 +5914,32 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_RemarketingValueAttribute
+//
+
+@implementation GTLRDfareporting_RemarketingValueAttribute
+@dynamic fieldId, userAttributeIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userAttributeIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_Report
 //
 
 @implementation GTLRDfareporting_Report
-@dynamic accountId, criteria, crossDimensionReachCriteria, delivery, ETag,
-         fileName, floodlightCriteria, format, identifier, kind,
-         lastModifiedTime, name, ownerProfileId, pathAttributionCriteria,
-         pathCriteria, pathToConversionCriteria, reachCriteria, schedule,
-         subAccountId, type;
+@dynamic accountId, criteria, crossDimensionReachCriteria,
+         crossMediaReachCriteria, delivery, ETag, fileName, floodlightCriteria,
+         format, identifier, kind, lastModifiedTime, name, ownerProfileId,
+         pathToConversionCriteria, reachCriteria, schedule, subAccountId, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -5649,6 +6003,26 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_Report_CrossMediaReachCriteria
+//
+
+@implementation GTLRDfareporting_Report_CrossMediaReachCriteria
+@dynamic dateRange, dimensionFilters, dimensions, metricNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionFilters" : [GTLRDfareporting_DimensionValue class],
+    @"dimensions" : [GTLRDfareporting_SortedDimension class],
+    @"metricNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_Report_Delivery
 //
 
@@ -5680,50 +6054,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
     @"dimensionFilters" : [GTLRDfareporting_DimensionValue class],
     @"dimensions" : [GTLRDfareporting_SortedDimension class],
     @"metricNames" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_Report_PathAttributionCriteria
-//
-
-@implementation GTLRDfareporting_Report_PathAttributionCriteria
-@dynamic activityFilters, customChannelGrouping, dateRange, dimensions,
-         floodlightConfigId, metricNames, pathFilters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"activityFilters" : [GTLRDfareporting_DimensionValue class],
-    @"dimensions" : [GTLRDfareporting_SortedDimension class],
-    @"metricNames" : [NSString class],
-    @"pathFilters" : [GTLRDfareporting_PathFilter class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_Report_PathCriteria
-//
-
-@implementation GTLRDfareporting_Report_PathCriteria
-@dynamic activityFilters, customChannelGrouping, dateRange, dimensions,
-         floodlightConfigId, metricNames, pathFilters;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"activityFilters" : [GTLRDfareporting_DimensionValue class],
-    @"dimensions" : [GTLRDfareporting_SortedDimension class],
-    @"metricNames" : [NSString class],
-    @"pathFilters" : [GTLRDfareporting_PathFilter class]
   };
   return map;
 }
@@ -5891,6 +6221,25 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_RequestValue
+//
+
+@implementation GTLRDfareporting_RequestValue
+@dynamic excludeFromUserAttributeIds, key, userAttributeIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludeFromUserAttributeIds" : [NSNumber class],
+    @"userAttributeIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_RichMediaExitOverride
 //
 
@@ -5911,13 +6260,31 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_RuleBlock
+//
+
+@implementation GTLRDfareporting_RuleBlock
+@dynamic fieldFilter;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldFilter" : [GTLRDfareporting_FieldFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_Site
 //
 
 @implementation GTLRDfareporting_Site
-@dynamic accountId, approved, directorySiteId, directorySiteIdDimensionValue,
-         identifier, idDimensionValue, keyName, kind, name, siteContacts,
-         siteSettings, subaccountId, videoSettings;
+@dynamic accountId, adServingPlatformId, approved, directorySiteId,
+         directorySiteIdDimensionValue, identifier, idDimensionValue, keyName,
+         kind, name, siteContacts, siteSettings, subaccountId, videoSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -6229,7 +6596,7 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 @implementation GTLRDfareporting_TagSetting
 @dynamic additionalKeyValues, includeClickThroughUrls, includeClickTracking,
-         keywordOption;
+         includeUnescapedlpurlMacro, keywordOption;
 @end
 
 
@@ -6425,6 +6792,90 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_TvCampaignDetail
+//
+
+@implementation GTLRDfareporting_TvCampaignDetail
+@dynamic identifier, kind, timepoints;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timepoints" : [GTLRDfareporting_TvCampaignTimepoint class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_TvCampaignSummariesListResponse
+//
+
+@implementation GTLRDfareporting_TvCampaignSummariesListResponse
+@dynamic kind, tvCampaignSummaries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tvCampaignSummaries" : [GTLRDfareporting_TvCampaignSummary class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_TvCampaignSummary
+//
+
+@implementation GTLRDfareporting_TvCampaignSummary
+@dynamic endDate, grp, identifier, impressions, kind, name, spend, startDate,
+         type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_TvCampaignTimepoint
+//
+
+@implementation GTLRDfareporting_TvCampaignTimepoint
+@dynamic dateWindow, spend, startDate;
 @end
 
 
@@ -6650,30 +7101,6 @@ NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait = @"PORTRA
 
 + (NSString *)collectionItemsKey {
   return @"userRoles";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDfareporting_UvarFilter
-//
-
-@implementation GTLRDfareporting_UvarFilter
-@dynamic complement, index, kind, match, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
 }
 
 @end

@@ -8,7 +8,7 @@
 //   administrators to view, manage and gain insights on their Chrome OS and
 //   Chrome Browser devices.
 // Documentation:
-//   http://developers.google.com/chrome/management/
+//   https://developers.google.com/chrome/management/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -208,6 +208,114 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Get a list of devices that have requested to install an extension.
+ *
+ *  Method: chromemanagement.customers.apps.fetchDevicesRequestingExtension
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersAppsFetchDevicesRequestingExtension : GTLRChromeManagementQuery
+
+/** Required. The customer ID or "my_customer" prefixed with "customers/". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Required. The extension for which we want to find requesting devices. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/**
+ *  The ID of the organizational unit. Only consider devices that directly
+ *  belong to this org unit, i.e. sub-orgunits are not counted. If omitted, all
+ *  data will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Optional. Maximum number of results to return. Maximum and default are 50.
+ *  Any page size larger than 50 will be coerced to 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token to specify the page of the request to be returned. Token
+ *  expires after 1 day.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1FetchDevicesRequestingExtensionResponse.
+ *
+ *  Get a list of devices that have requested to install an extension.
+ *
+ *  @param customer Required. The customer ID or "my_customer" prefixed with
+ *    "customers/".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersAppsFetchDevicesRequestingExtension
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Get a list of users that have requested to install an extension.
+ *
+ *  Method: chromemanagement.customers.apps.fetchUsersRequestingExtension
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersAppsFetchUsersRequestingExtension : GTLRChromeManagementQuery
+
+/** Required. The customer ID or "my_customer" prefixed with "customers/". */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Required. The extension for which we want to find the requesting users. */
+@property(nonatomic, copy, nullable) NSString *extensionId;
+
+/**
+ *  The ID of the organizational unit. Only consider devices that directly
+ *  belong to this org unit, i.e. sub-orgunits are not counted. If omitted, all
+ *  data will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Optional. Maximum number of results to return. Maximum and default are 50.
+ *  Any page size larger than 50 will be coerced to 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token to specify the page of the request to be returned. Token
+ *  expires after 1 day.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1FetchUsersRequestingExtensionResponse.
+ *
+ *  Get a list of users that have requested to install an extension.
+ *
+ *  @param customer Required. The customer ID or "my_customer" prefixed with
+ *    "customers/".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersAppsFetchUsersRequestingExtension
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
  *  Get a specific app for a customer by its resource name.
  *
  *  Method: chromemanagement.customers.apps.web.get
@@ -244,6 +352,259 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Creates a Chrome browser profile remote command.
+ *
+ *  Method: chromemanagement.customers.profiles.commands.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesCommandsCreate : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand.
+ *
+ *  Creates a Chrome browser profile remote command.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand
+ *    to include in the query.
+ *  @param parent Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesCommandsCreate
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a Chrome browser profile remote command.
+ *
+ *  Method: chromemanagement.customers.profiles.commands.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesCommandsGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format:
+ *  customers/{customer_id}/profiles/{profile_permanent_id}/commands/{command_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommand.
+ *
+ *  Gets a Chrome browser profile remote command.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}/commands/{command_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesCommandsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists remote commands of a Chrome browser profile.
+ *
+ *  Method: chromemanagement.customers.profiles.commands.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesCommandsList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The maximum number of commands to return. The default page size is
+ *  100 if page_size is unspecified, and the maximum page size allowed is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token used to retrieve a specific page of the listing
+ *  request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfileCommandsResponse.
+ *
+ *  Lists remote commands of a Chrome browser profile.
+ *
+ *  @param parent Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesCommandsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the data collected from a Chrome browser profile.
+ *
+ *  Method: chromemanagement.customers.profiles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesDelete : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleProtobufEmpty.
+ *
+ *  Deletes the data collected from a Chrome browser profile.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Chrome browser profile with customer ID and profile permanent ID.
+ *
+ *  Method: chromemanagement.customers.profiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format: customers/{customer_id}/profiles/{profile_permanent_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfile.
+ *
+ *  Gets a Chrome browser profile with customer ID and profile permanent ID.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer_id}/profiles/{profile_permanent_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Chrome browser profiles of a customer based on the given search and
+ *  sorting criteria.
+ *
+ *  Method: chromemanagement.customers.profiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfilesReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersProfilesList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The filter used to filter profiles. The following fields can be
+ *  used in the filter: - profile_id - display_name - user_email -
+ *  last_activity_time - last_policy_sync_time - last_status_report_time -
+ *  first_enrollment_time - os_platform_type - os_version - browser_version -
+ *  browser_channel - policy_count - extension_count - identity_provider -
+ *  affiliation_state - os_platform_version - ouId Any of the above fields can
+ *  be used to specify a filter, and filtering by multiple fields is supported
+ *  with AND operator. String type fields and enum type fields support '=' and
+ *  '!=' operators. The integer type and the timestamp type fields support '=',
+ *  '!=', '<', '>', '<=' and '>=' operators. Timestamps expect an RFC-3339
+ *  formatted string (e.g. 2012-04-21T11:30:00-04:00). Wildcard '*' can be used
+ *  with a string type field filter. In addition, string literal filtering is
+ *  also supported, for example, 'ABC' as a filter maps to a filter that checks
+ *  if any of the filterable string type fields contains 'ABC'. Organization
+ *  unit number can be used as a filtering criteria here by specifying 'ouId =
+ *  ${your_org_unit_id}', please note that only single OU ID matching is
+ *  supported.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The fields used to specify the ordering of the results. The
+ *  supported fields are: - profile_id - display_name - user_email -
+ *  last_activity_time - last_policy_sync_time - last_status_report_time -
+ *  first_enrollment_time - os_platform_type - os_version - browser_version -
+ *  browser_channel - policy_count - extension_count - identity_provider -
+ *  affiliation_state - os_platform_version By default, sorting is in ascending
+ *  order, to specify descending order for a field, a suffix " desc" should be
+ *  added to the field name. The default ordering is the descending order of
+ *  last_status_report_time.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of profiles to return. The default page size is
+ *  100 if page_size is unspecified, and the maximum page size allowed is 200.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token used to retrieve a specific page of the listing
+ *  request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ListChromeBrowserProfilesResponse.
+ *
+ *  Lists Chrome browser profiles of a customer based on the given search and
+ *  sorting criteria.
+ *
+ *  @param parent Required. Format: customers/{customer_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Count of Chrome Browsers that have been recently enrolled, have new policy
  *  to be synced, or have no recent activity.
  *
@@ -274,6 +635,53 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *    "customers/".
  *
  *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeBrowsersNeedingAttention
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Get a count of Chrome crash events.
+ *
+ *  Method: chromemanagement.customers.reports.countChromeCrashEvents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountChromeCrashEvents : GTLRChromeManagementQuery
+
+/** Customer ID. */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Query string to filter results, AND-separated fields in EBNF syntax.
+ *  Supported filter fields: * major_browser_version * minor_browser_version *
+ *  browser_channel * device_platform * past_number_days Example:
+ *  `major_browser_version = 'M115' AND past_number_days = '28'`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Field used to order results. Supported order by fields: * browser_version *
+ *  count * date
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  If specified, only count the number of crash events of the devices in this
+ *  organizational unit.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountChromeCrashEventsResponse.
+ *
+ *  Get a count of Chrome crash events.
+ *
+ *  @param customer Customer ID.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountChromeCrashEvents
  */
 + (instancetype)queryWithCustomer:(NSString *)customer;
 
@@ -498,13 +906,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  OR operations are not supported in this filter. Supported filter fields: *
  *  app_name * app_type * install_type * number_of_permissions *
  *  total_install_count * latest_profile_active_date * permission_name * app_id
+ *  * manifest_versions * risk_score
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field used to order results. Supported order by fields: * app_name *
  *  app_type * install_type * number_of_permissions * total_install_count *
- *  app_id
+ *  app_id * manifest_versions * risk_score
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -757,7 +1166,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *appId;
 
 /**
- *  Type of the app.
+ *  Type of the app. Optional. If not provided, an app type will be inferred
+ *  from the format of the app ID.
  *
  *  Likely values:
  *    @arg @c kGTLRChromeManagementAppTypeAppTypeUnspecified App type not
@@ -835,7 +1245,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Read mask to specify which fields to return.
+ *  Required. Read mask to specify which fields to return. Supported read_mask
+ *  paths are: - name - org_unit_id - device_id - serial_number - cpu_info -
+ *  cpu_status_report - memory_info - memory_status_report - network_info -
+ *  network_diagnostics_report - network_status_report - os_update_status -
+ *  graphics_info - graphics_status_report - battery_info -
+ *  battery_status_report - storage_info - storage_status_report -
+ *  thunderbolt_info - audio_status_report - boot_performance_report -
+ *  heartbeat_status_report - network_bandwidth_report - peripherals_report -
+ *  kiosk_app_status_report - app_report - runtime_counters_report
  *
  *  String format is a comma-separated list of fields.
  */
@@ -865,11 +1283,13 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @interface GTLRChromeManagementQuery_CustomersTelemetryDevicesList : GTLRChromeManagementQuery
 
 /**
- *  Optional. Only include resources that match the filter. Supported filter
- *  fields: - org_unit_id - serial_number - device_id - reports_timestamp The
- *  "reports_timestamp" filter accepts either the Unix Epoch milliseconds format
- *  or the RFC3339 UTC "Zulu" format with nanosecond resolution and up to nine
- *  fractional digits. Both formats should be surrounded by simple double
+ *  Optional. Only include resources that match the filter. Requests that don't
+ *  specify a "reports_timestamp" value will default to returning only recent
+ *  reports. Specify "reports_timestamp>=0" to get all report data. Supported
+ *  filter fields: - org_unit_id - serial_number - device_id - reports_timestamp
+ *  The "reports_timestamp" filter accepts either the Unix Epoch milliseconds
+ *  format or the RFC3339 UTC "Zulu" format with nanosecond resolution and up to
+ *  nine fractional digits. Both formats should be surrounded by simple double
  *  quotes. Examples: "2014-10-02T15:01:23Z", "2014-10-02T15:01:23.045123456Z",
  *  "1679283943823".
  */
@@ -891,7 +1311,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. Read mask to specify which fields to return.
+ *  Required. Read mask to specify which fields to return. Supported read_mask
+ *  paths are: - name - org_unit_id - device_id - serial_number - cpu_info -
+ *  cpu_status_report - memory_info - memory_status_report - network_info -
+ *  network_diagnostics_report - network_status_report - os_update_status -
+ *  graphics_info - graphics_status_report - battery_info -
+ *  battery_status_report - storage_info - storage_status_report -
+ *  thunderbolt_info - audio_status_report - boot_performance_report -
+ *  heartbeat_status_report - network_bandwidth_report - peripherals_report -
+ *  kiosk_app_status_report - app_report - runtime_counters_report
  *
  *  String format is a comma-separated list of fields.
  */
@@ -957,7 +1385,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 /**
  *  Required. Read mask to specify which fields to return. Although currently
  *  required, this field will become optional, while the filter parameter with
- *  an event type will be come required.
+ *  an event type will be come required. Supported read_mask paths are: - device
+ *  - user - audio_severe_underrun_event - usb_peripherals_event -
+ *  https_latency_change_event - network_state_change_event -
+ *  wifi_signal_strength_event - vpn_connection_state_change_event -
+ *  app_install_event - app_uninstall_event - app_launch_event - os_crash_event
+ *  - external_displays_event
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1108,7 +1541,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Read mask to specify which fields to return.
+ *  Read mask to specify which fields to return. Supported read_mask paths are:
+ *  - name - org_unit_id - user_id - user_email - user_device.device_id -
+ *  user_device.audio_status_report - user_device.device_activity_report -
+ *  user_device.network_bandwidth_report - user_device.peripherals_report -
+ *  user_device.app_report
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1159,7 +1596,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Read mask to specify which fields to return.
+ *  Read mask to specify which fields to return. Supported read_mask paths are:
+ *  - name - org_unit_id - user_id - user_email - user_device.device_id -
+ *  user_device.audio_status_report - user_device.device_activity_report -
+ *  user_device.network_bandwidth_report - user_device.peripherals_report -
+ *  user_device.app_report
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1181,6 +1622,43 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves a third party chrome profile user to a destination OU. All profiles
+ *  associated to that user will be moved to the destination OU.
+ *
+ *  Method: chromemanagement.customers.thirdPartyProfileUsers.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementProfiles
+ */
+@interface GTLRChromeManagementQuery_CustomersThirdPartyProfileUsersMove : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format:
+ *  customers/{customer_id}/thirdPartyProfileUsers/{third_party_profile_user_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserResponse.
+ *
+ *  Moves a third party chrome profile user to a destination OU. All profiles
+ *  associated to that user will be moved to the destination OU.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest
+ *    to include in the query.
+ *  @param name Required. Format:
+ *    customers/{customer_id}/thirdPartyProfileUsers/{third_party_profile_user_id}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersThirdPartyProfileUsersMove
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest *)object
+                           name:(NSString *)name;
 
 @end
 

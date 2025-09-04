@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Page size. If a value is not specified, the default value of 10 is
- *  used.
+ *  used. The maximum value is 50.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -260,6 +260,50 @@ NS_ASSUME_NONNULL_BEGIN
  *    organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
  *
  *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  This endpoint enables Assured Workloads service to offer compliance updates
+ *  for the folder based assured workload. It sets up an Assured Workloads
+ *  Service Agent, having permissions to read compliance controls (for example:
+ *  Org Policies) applied on the workload. The caller must have
+ *  `resourcemanager.folders.getIamPolicy` and
+ *  `resourcemanager.folders.setIamPolicy` permissions on the assured workload
+ *  folder.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.enableComplianceUpdates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableComplianceUpdates : GTLRAssuredworkloadsQuery
+
+/**
+ *  Required. The `name` field is used to identify the workload. Format:
+ *  organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse.
+ *
+ *  This endpoint enables Assured Workloads service to offer compliance updates
+ *  for the folder based assured workload. It sets up an Assured Workloads
+ *  Service Agent, having permissions to read compliance controls (for example:
+ *  Org Policies) applied on the workload. The caller must have
+ *  `resourcemanager.folders.getIamPolicy` and
+ *  `resourcemanager.folders.setIamPolicy` permissions on the assured workload
+ *  folder.
+ *
+ *  @param name Required. The `name` field is used to identify the workload.
+ *    Format:
+ *    organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsEnableComplianceUpdates
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -518,6 +562,81 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  This endpoint creates a new operation to apply the given update.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.updates.apply
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsUpdatesApply : GTLRAssuredworkloadsQuery
+
+/**
+ *  Required. The resource name of the update. Format:
+ *  organizations/{org_id}/locations/{location_id}/workloads/{workload_id}/updates/{update_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAssuredworkloads_GoogleLongrunningOperation.
+ *
+ *  This endpoint creates a new operation to apply the given update.
+ *
+ *  @param object The @c
+ *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the update. Format:
+ *    organizations/{org_id}/locations/{location_id}/workloads/{workload_id}/updates/{update_id}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsUpdatesApply
+ */
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  This endpoint lists all updates for the given workload.
+ *
+ *  Method: assuredworkloads.organizations.locations.workloads.updates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsUpdatesList : GTLRAssuredworkloadsQuery
+
+/** Page size. The default value is 20 and the max allowed value is 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page token returned from previous request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required.
+ *  organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListWorkloadUpdatesResponse.
+ *
+ *  This endpoint lists all updates for the given workload.
+ *
+ *  @param parent Required.
+ *    organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
+ *
+ *  @return GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsUpdatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

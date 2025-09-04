@@ -27,12 +27,13 @@
 //
 
 @implementation GTLRWebfonts_Webfont
-@dynamic axes, category, family, files, kind, lastModified, menu, subsets,
-         variants, version;
+@dynamic axes, category, colorCapabilities, family, files, kind, lastModified,
+         menu, subsets, variants, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"axes" : [GTLRWebfonts_Axis class],
+    @"colorCapabilities" : [NSString class],
     @"subsets" : [NSString class],
     @"variants" : [NSString class]
   };

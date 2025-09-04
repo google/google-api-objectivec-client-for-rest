@@ -54,6 +54,26 @@ NSString * const kGTLRAdsense_Header_Type_MetricMilliseconds   = @"METRIC_MILLIS
 NSString * const kGTLRAdsense_Header_Type_MetricRatio          = @"METRIC_RATIO";
 NSString * const kGTLRAdsense_Header_Type_MetricTally          = @"METRIC_TALLY";
 
+// GTLRAdsense_PolicyIssue.action
+NSString * const kGTLRAdsense_PolicyIssue_Action_AdPersonalizationRestricted = @"AD_PERSONALIZATION_RESTRICTED";
+NSString * const kGTLRAdsense_PolicyIssue_Action_AdServedWithClickConfirmation = @"AD_SERVED_WITH_CLICK_CONFIRMATION";
+NSString * const kGTLRAdsense_PolicyIssue_Action_AdServingDisabled = @"AD_SERVING_DISABLED";
+NSString * const kGTLRAdsense_PolicyIssue_Action_AdServingRestricted = @"AD_SERVING_RESTRICTED";
+NSString * const kGTLRAdsense_PolicyIssue_Action_EnforcementActionUnspecified = @"ENFORCEMENT_ACTION_UNSPECIFIED";
+NSString * const kGTLRAdsense_PolicyIssue_Action_Warned        = @"WARNED";
+
+// GTLRAdsense_PolicyIssue.entityType
+NSString * const kGTLRAdsense_PolicyIssue_EntityType_EntityTypeUnspecified = @"ENTITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRAdsense_PolicyIssue_EntityType_Page      = @"PAGE";
+NSString * const kGTLRAdsense_PolicyIssue_EntityType_Site      = @"SITE";
+NSString * const kGTLRAdsense_PolicyIssue_EntityType_SiteSection = @"SITE_SECTION";
+
+// GTLRAdsense_PolicyTopic.type
+NSString * const kGTLRAdsense_PolicyTopic_Type_AdvertiserPreference = @"ADVERTISER_PREFERENCE";
+NSString * const kGTLRAdsense_PolicyTopic_Type_Policy          = @"POLICY";
+NSString * const kGTLRAdsense_PolicyTopic_Type_PolicyTopicTypeUnspecified = @"POLICY_TOPIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRAdsense_PolicyTopic_Type_Regulatory      = @"REGULATORY";
+
 // GTLRAdsense_Site.state
 NSString * const kGTLRAdsense_Site_State_GettingReady     = @"GETTING_READY";
 NSString * const kGTLRAdsense_Site_State_NeedsAttention   = @"NEEDS_ATTENTION";
@@ -422,6 +442,28 @@ NSString * const kGTLRAdsense_Site_State_StateUnspecified = @"STATE_UNSPECIFIED"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAdsense_ListPolicyIssuesResponse
+//
+
+@implementation GTLRAdsense_ListPolicyIssuesResponse
+@dynamic nextPageToken, policyIssues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyIssues" : [GTLRAdsense_PolicyIssue class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"policyIssues";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAdsense_ListSavedReportsResponse
 //
 
@@ -493,6 +535,37 @@ NSString * const kGTLRAdsense_Site_State_StateUnspecified = @"STATE_UNSPECIFIED"
 
 @implementation GTLRAdsense_Payment
 @dynamic amount, date, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdsense_PolicyIssue
+//
+
+@implementation GTLRAdsense_PolicyIssue
+@dynamic action, adClients, adRequestCount, entityType, firstDetectedDate,
+         lastDetectedDate, name, policyTopics, site, siteSection, uri,
+         warningEscalationDate;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adClients" : [NSString class],
+    @"policyTopics" : [GTLRAdsense_PolicyTopic class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdsense_PolicyTopic
+//
+
+@implementation GTLRAdsense_PolicyTopic
+@dynamic mustFix, topic, type;
 @end
 
 

@@ -22,63 +22,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Constants - For some of the query classes' properties below.
-
-// ----------------------------------------------------------------------------
-// levels
-
-/** Value: "administrativeArea1" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsAdministrativeArea1;
-/** Value: "administrativeArea2" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsAdministrativeArea2;
-/** Value: "country" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsCountry;
-/** Value: "international" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsInternational;
-/** Value: "locality" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsLocality;
-/** Value: "regional" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsRegional;
-/** Value: "special" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsSpecial;
-/** Value: "subLocality1" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsSubLocality1;
-/** Value: "subLocality2" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoLevelsSubLocality2;
-
-// ----------------------------------------------------------------------------
-// roles
-
-/** Value: "deputyHeadOfGovernment" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesDeputyHeadOfGovernment;
-/** Value: "executiveCouncil" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesExecutiveCouncil;
-/** Value: "governmentOfficer" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesGovernmentOfficer;
-/** Value: "headOfGovernment" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesHeadOfGovernment;
-/** Value: "headOfState" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesHeadOfState;
-/** Value: "highestCourtJudge" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesHighestCourtJudge;
-/** Value: "judge" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesJudge;
-/** Value: "legislatorLowerBody" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorLowerBody;
-/** Value: "legislatorUpperBody" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorUpperBody;
-/** Value: "otherRole" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesOtherRole;
-/** Value: "schoolBoard" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSchoolBoard;
-/** Value: "specialPurposeOfficer" */
-FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 /**
  *  Parent class for other Civic Info query classes.
  */
@@ -86,6 +29,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Lookup OCDIDs and names for divisions related to an address.
+ *
+ *  Method: civicinfo.divisions.queryDivisionByAddress
+ */
+@interface GTLRCivicInfoQuery_DivisionsQueryDivisionByAddress : GTLRCivicInfoQuery
+
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  Fetches a @c GTLRCivicInfo_ApiprotosV2DivisionByAddressResponse.
+ *
+ *  Lookup OCDIDs and names for divisions related to an address.
+ *
+ *  @return GTLRCivicInfoQuery_DivisionsQueryDivisionByAddress
+ */
++ (instancetype)query;
 
 @end
 
@@ -106,7 +69,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Fetches a @c GTLRCivicInfo_DivisionSearchResponse.
+ *  Fetches a @c GTLRCivicInfo_CivicinfoApiprotosV2DivisionSearchResponse.
  *
  *  Searches for political divisions by their natural name or OCD ID.
  *
@@ -131,7 +94,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, assign) BOOL productionDataOnly;
 
 /**
- *  Fetches a @c GTLRCivicInfo_ElectionsQueryResponse.
+ *  Fetches a @c GTLRCivicInfo_CivicinfoApiprotosV2ElectionsQueryResponse.
  *
  *  List of available elections to query.
  *
@@ -189,168 +152,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
 @property(nonatomic, assign) BOOL returnAllAvailableData;
 
 /**
- *  Fetches a @c GTLRCivicInfo_VoterInfoResponse.
+ *  Fetches a @c GTLRCivicInfo_CivicinfoApiprotosV2VoterInfoResponse.
  *
  *  Looks up information relevant to a voter based on the voter's registered
  *  address.
  *
- *  @param address The registered address of the voter to look up.
- *
  *  @return GTLRCivicInfoQuery_ElectionsVoterInfoQuery
  */
-+ (instancetype)queryWithAddress:(NSString *)address;
-
-@end
-
-/**
- *  Looks up political geography and representative information for a single
- *  address.
- *
- *  Method: civicinfo.representatives.representativeInfoByAddress
- */
-@interface GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByAddress : GTLRCivicInfoQuery
-
-/**
- *  The address to look up. May only be specified if the field ocdId is not
- *  given in the URL
- */
-@property(nonatomic, copy, nullable) NSString *address;
-
-/**
- *  Whether to return information about offices and officials. If false, only
- *  the top-level district information will be returned.
- *
- *  @note If not set, the documented server-side default will be true.
- */
-@property(nonatomic, assign) BOOL includeOffices;
-
-/**
- *  A list of office levels to filter by. Only offices that serve at least one
- *  of these levels will be returned. Divisions that don't contain a matching
- *  office will not be returned.
- *
- *  Likely values:
- *    @arg @c kGTLRCivicInfoLevelsInternational Value "international"
- *    @arg @c kGTLRCivicInfoLevelsCountry Value "country"
- *    @arg @c kGTLRCivicInfoLevelsAdministrativeArea1 Value
- *        "administrativeArea1"
- *    @arg @c kGTLRCivicInfoLevelsRegional Value "regional"
- *    @arg @c kGTLRCivicInfoLevelsAdministrativeArea2 Value
- *        "administrativeArea2"
- *    @arg @c kGTLRCivicInfoLevelsLocality Value "locality"
- *    @arg @c kGTLRCivicInfoLevelsSubLocality1 Value "subLocality1"
- *    @arg @c kGTLRCivicInfoLevelsSubLocality2 Value "subLocality2"
- *    @arg @c kGTLRCivicInfoLevelsSpecial Value "special"
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *levels;
-
-/**
- *  A list of office roles to filter by. Only offices fulfilling one of these
- *  roles will be returned. Divisions that don't contain a matching office will
- *  not be returned.
- *
- *  Likely values:
- *    @arg @c kGTLRCivicInfoRolesHeadOfState Value "headOfState"
- *    @arg @c kGTLRCivicInfoRolesHeadOfGovernment Value "headOfGovernment"
- *    @arg @c kGTLRCivicInfoRolesDeputyHeadOfGovernment Value
- *        "deputyHeadOfGovernment"
- *    @arg @c kGTLRCivicInfoRolesGovernmentOfficer Value "governmentOfficer"
- *    @arg @c kGTLRCivicInfoRolesExecutiveCouncil Value "executiveCouncil"
- *    @arg @c kGTLRCivicInfoRolesLegislatorUpperBody Value "legislatorUpperBody"
- *    @arg @c kGTLRCivicInfoRolesLegislatorLowerBody Value "legislatorLowerBody"
- *    @arg @c kGTLRCivicInfoRolesHighestCourtJudge Value "highestCourtJudge"
- *    @arg @c kGTLRCivicInfoRolesJudge Value "judge"
- *    @arg @c kGTLRCivicInfoRolesSchoolBoard Value "schoolBoard"
- *    @arg @c kGTLRCivicInfoRolesSpecialPurposeOfficer Value
- *        "specialPurposeOfficer"
- *    @arg @c kGTLRCivicInfoRolesOtherRole Value "otherRole"
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
-
-/**
- *  Fetches a @c GTLRCivicInfo_RepresentativeInfoResponse.
- *
- *  Looks up political geography and representative information for a single
- *  address.
- *
- *  @return GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByAddress
- */
 + (instancetype)query;
-
-@end
-
-/**
- *  Looks up representative information for a single geographic division.
- *
- *  Method: civicinfo.representatives.representativeInfoByDivision
- */
-@interface GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByDivision : GTLRCivicInfoQuery
-
-/**
- *  A list of office levels to filter by. Only offices that serve at least one
- *  of these levels will be returned. Divisions that don't contain a matching
- *  office will not be returned.
- *
- *  Likely values:
- *    @arg @c kGTLRCivicInfoLevelsInternational Value "international"
- *    @arg @c kGTLRCivicInfoLevelsCountry Value "country"
- *    @arg @c kGTLRCivicInfoLevelsAdministrativeArea1 Value
- *        "administrativeArea1"
- *    @arg @c kGTLRCivicInfoLevelsRegional Value "regional"
- *    @arg @c kGTLRCivicInfoLevelsAdministrativeArea2 Value
- *        "administrativeArea2"
- *    @arg @c kGTLRCivicInfoLevelsLocality Value "locality"
- *    @arg @c kGTLRCivicInfoLevelsSubLocality1 Value "subLocality1"
- *    @arg @c kGTLRCivicInfoLevelsSubLocality2 Value "subLocality2"
- *    @arg @c kGTLRCivicInfoLevelsSpecial Value "special"
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *levels;
-
-/** The Open Civic Data division identifier of the division to look up. */
-@property(nonatomic, copy, nullable) NSString *ocdId;
-
-/**
- *  If true, information about all divisions contained in the division requested
- *  will be included as well. For example, if querying
- *  ocd-division/country:us/district:dc, this would also return all DC's wards
- *  and ANCs.
- */
-@property(nonatomic, assign) BOOL recursive;
-
-/**
- *  A list of office roles to filter by. Only offices fulfilling one of these
- *  roles will be returned. Divisions that don't contain a matching office will
- *  not be returned.
- *
- *  Likely values:
- *    @arg @c kGTLRCivicInfoRolesHeadOfState Value "headOfState"
- *    @arg @c kGTLRCivicInfoRolesHeadOfGovernment Value "headOfGovernment"
- *    @arg @c kGTLRCivicInfoRolesDeputyHeadOfGovernment Value
- *        "deputyHeadOfGovernment"
- *    @arg @c kGTLRCivicInfoRolesGovernmentOfficer Value "governmentOfficer"
- *    @arg @c kGTLRCivicInfoRolesExecutiveCouncil Value "executiveCouncil"
- *    @arg @c kGTLRCivicInfoRolesLegislatorUpperBody Value "legislatorUpperBody"
- *    @arg @c kGTLRCivicInfoRolesLegislatorLowerBody Value "legislatorLowerBody"
- *    @arg @c kGTLRCivicInfoRolesHighestCourtJudge Value "highestCourtJudge"
- *    @arg @c kGTLRCivicInfoRolesJudge Value "judge"
- *    @arg @c kGTLRCivicInfoRolesSchoolBoard Value "schoolBoard"
- *    @arg @c kGTLRCivicInfoRolesSpecialPurposeOfficer Value
- *        "specialPurposeOfficer"
- *    @arg @c kGTLRCivicInfoRolesOtherRole Value "otherRole"
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
-
-/**
- *  Fetches a @c GTLRCivicInfo_RepresentativeInfoData.
- *
- *  Looks up representative information for a single geographic division.
- *
- *  @param ocdId The Open Civic Data division identifier of the division to look
- *    up.
- *
- *  @return GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByDivision
- */
-+ (instancetype)queryWithOcdId:(NSString *)ocdId;
 
 @end
 

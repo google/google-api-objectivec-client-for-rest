@@ -82,6 +82,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesDelete : GTLRBigQueryDataPolicyServiceQuery
 
 /**
+ *  Optional. If true, the data policy will be deleted even when it is
+ *  referenced by one or more table columns.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
  *  Required. Resource name of the data policy to delete. Format is
  *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
  */
@@ -237,6 +243,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryDataPolicyServiceCloudPlatform
  */
 @interface GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesPatch : GTLRBigQueryDataPolicyServiceQuery
+
+/**
+ *  Optional. If set to true, and the data policy is not found, a new data
+ *  policy will be created. In this situation, update_mask is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
 
 /**
  *  Output only. Resource name of this data policy, in the format of

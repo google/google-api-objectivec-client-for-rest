@@ -4,7 +4,7 @@
 // API:
 //   BigQuery Reservation API (bigqueryreservation/v1)
 // Description:
-//   A service to modify your BigQuery flat-rate reservations.
+//   A service to modify your BigQuery reservations.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
@@ -367,6 +367,151 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new reservation group.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsCreate : GTLRBigQueryReservationQuery
+
+/** Required. Project, location. E.g., `projects/myproject/locations/US` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The reservation group ID. It must only contain lower case
+ *  alphanumeric characters or dashes. It must start with a letter and must not
+ *  end with a dash. Its maximum length is 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationGroupId;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_ReservationGroup.
+ *
+ *  Creates a new reservation group.
+ *
+ *  @param object The @c GTLRBigQueryReservation_ReservationGroup to include in
+ *    the query.
+ *  @param parent Required. Project, location. E.g.,
+ *    `projects/myproject/locations/US`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_ReservationGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a reservation. Returns `google.rpc.Code.FAILED_PRECONDITION` when
+ *  reservation has assignments.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsDelete : GTLRBigQueryReservationQuery
+
+/**
+ *  Required. Resource name of the reservation group to retrieve. E.g.,
+ *  `projects/myproject/locations/US/reservationGroups/team1-prod`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Empty.
+ *
+ *  Deletes a reservation. Returns `google.rpc.Code.FAILED_PRECONDITION` when
+ *  reservation has assignments.
+ *
+ *  @param name Required. Resource name of the reservation group to retrieve.
+ *    E.g., `projects/myproject/locations/US/reservationGroups/team1-prod`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns information about the reservation group.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsGet : GTLRBigQueryReservationQuery
+
+/**
+ *  Required. Resource name of the reservation group to retrieve. E.g.,
+ *  `projects/myproject/locations/US/reservationGroups/team1-prod`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_ReservationGroup.
+ *
+ *  Returns information about the reservation group.
+ *
+ *  @param name Required. Resource name of the reservation group to retrieve.
+ *    E.g., `projects/myproject/locations/US/reservationGroups/team1-prod`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the reservation groups for the project in the specified location.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservationGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsList : GTLRBigQueryReservationQuery
+
+/** The maximum number of items to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name containing project and location, e.g.:
+ *  `projects/myproject/locations/US`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_ListReservationGroupsResponse.
+ *
+ *  Lists all the reservation groups for the project in the specified location.
+ *
+ *  @param parent Required. The parent resource name containing project and
+ *    location, e.g.: `projects/myproject/locations/US`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates an assignment object which allows the given project to submit jobs
  *  of a certain type using slots from the specified reservation. Currently a
  *  resource (project, folder, organization) can only have one assignment per
@@ -489,6 +634,66 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May return: * A`NOT_FOUND`
+ *  error if the resource doesn't exist or you don't have the permission to view
+ *  it. * An empty policy if the resource exists but doesn't have a set policy.
+ *  Supported resources are: - Reservations - ReservationAssignments To call
+ *  this method, you must have the following Google IAM permissions: -
+ *  `bigqueryreservation.reservations.getIamPolicy` to get policies on
+ *  reservations.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.assignments.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsGetIamPolicy : GTLRBigQueryReservationQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Policy.
+ *
+ *  Gets the access control policy for a resource. May return: * A`NOT_FOUND`
+ *  error if the resource doesn't exist or you don't have the permission to view
+ *  it. * An empty policy if the resource exists but doesn't have a set policy.
+ *  Supported resources are: - Reservations - ReservationAssignments To call
+ *  this method, you must have the following Google IAM permissions: -
+ *  `bigqueryreservation.reservations.getIamPolicy` to get policies on
+ *  reservations.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -639,6 +844,92 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets an access control policy for a resource. Replaces any existing policy.
+ *  Supported resources are: - Reservations To call this method, you must have
+ *  the following Google IAM permissions: -
+ *  `bigqueryreservation.reservations.setIamPolicy` to set policies on
+ *  reservations.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.assignments.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsSetIamPolicy : GTLRBigQueryReservationQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Policy.
+ *
+ *  Sets an access control policy for a resource. Replaces any existing policy.
+ *  Supported resources are: - Reservations To call this method, you must have
+ *  the following Google IAM permissions: -
+ *  `bigqueryreservation.reservations.setIamPolicy` to set policies on
+ *  reservations.
+ *
+ *  @param object The @c GTLRBigQueryReservation_SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets your permissions on a resource. Returns an empty set of permissions if
+ *  the resource doesn't exist. Supported resources are: - Reservations No
+ *  Google IAM permissions are required to call this method.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.assignments.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsTestIamPermissions : GTLRBigQueryReservationQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_TestIamPermissionsResponse.
+ *
+ *  Gets your permissions on a resource. Returns an empty set of permissions if
+ *  the resource doesn't exist. Supported resources are: - Reservations No
+ *  Google IAM permissions are required to call this method.
+ *
+ *  @param object The @c GTLRBigQueryReservation_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a new reservation resource.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.create
@@ -710,6 +1001,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Fail over a reservation to the secondary location. The operation should be
+ *  done in the current secondary location, which will be promoted to the new
+ *  primary location for the reservation. Attempting to failover a reservation
+ *  in the current primary location will fail with the error code
+ *  `google.rpc.Code.FAILED_PRECONDITION`.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.failoverReservation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsFailoverReservation : GTLRBigQueryReservationQuery
+
+/**
+ *  Required. Resource name of the reservation to failover. E.g.,
+ *  `projects/myproject/locations/US/reservations/team1-prod`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Reservation.
+ *
+ *  Fail over a reservation to the secondary location. The operation should be
+ *  done in the current secondary location, which will be promoted to the new
+ *  primary location for the reservation. Attempting to failover a reservation
+ *  in the current primary location will fail with the error code
+ *  `google.rpc.Code.FAILED_PRECONDITION`.
+ *
+ *  @param object The @c GTLRBigQueryReservation_FailoverReservationRequest to
+ *    include in the query.
+ *  @param name Required. Resource name of the reservation to failover. E.g.,
+ *    `projects/myproject/locations/US/reservations/team1-prod`
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsFailoverReservation
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_FailoverReservationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns information about the reservation.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.get
@@ -737,6 +1070,66 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May return: * A`NOT_FOUND`
+ *  error if the resource doesn't exist or you don't have the permission to view
+ *  it. * An empty policy if the resource exists but doesn't have a set policy.
+ *  Supported resources are: - Reservations - ReservationAssignments To call
+ *  this method, you must have the following Google IAM permissions: -
+ *  `bigqueryreservation.reservations.getIamPolicy` to get policies on
+ *  reservations.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsGetIamPolicy : GTLRBigQueryReservationQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Policy.
+ *
+ *  Gets the access control policy for a resource. May return: * A`NOT_FOUND`
+ *  error if the resource doesn't exist or you don't have the permission to view
+ *  it. * An empty policy if the resource exists but doesn't have a set policy.
+ *  Supported resources are: - Reservations - ReservationAssignments To call
+ *  this method, you must have the following Google IAM permissions: -
+ *  `bigqueryreservation.reservations.getIamPolicy` to get policies on
+ *  reservations.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -795,10 +1188,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsPatch : GTLRBigQueryReservationQuery
 
 /**
- *  The resource name of the reservation, e.g., `projects/ * /locations/ *
- *  /reservations/team1-prod`. The reservation_id must only contain lower case
- *  alphanumeric characters or dashes. It must start with a letter and must not
- *  end with a dash. Its maximum length is 64 characters.
+ *  Identifier. The resource name of the reservation, e.g., `projects/ *
+ *  /locations/ * /reservations/team1-prod`. The reservation_id must only
+ *  contain lower case alphanumeric characters or dashes. It must start with a
+ *  letter and must not end with a dash. Its maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -816,15 +1209,102 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBigQueryReservation_Reservation to include in the
  *    query.
- *  @param name The resource name of the reservation, e.g., `projects/ *
- *    /locations/ * /reservations/team1-prod`. The reservation_id must only
- *    contain lower case alphanumeric characters or dashes. It must start with a
- *    letter and must not end with a dash. Its maximum length is 64 characters.
+ *  @param name Identifier. The resource name of the reservation, e.g.,
+ *    `projects/ * /locations/ * /reservations/team1-prod`. The reservation_id
+ *    must only contain lower case alphanumeric characters or dashes. It must
+ *    start with a letter and must not end with a dash. Its maximum length is 64
+ *    characters.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsPatch
  */
 + (instancetype)queryWithObject:(GTLRBigQueryReservation_Reservation *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets an access control policy for a resource. Replaces any existing policy.
+ *  Supported resources are: - Reservations To call this method, you must have
+ *  the following Google IAM permissions: -
+ *  `bigqueryreservation.reservations.setIamPolicy` to set policies on
+ *  reservations.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsSetIamPolicy : GTLRBigQueryReservationQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_Policy.
+ *
+ *  Sets an access control policy for a resource. Replaces any existing policy.
+ *  Supported resources are: - Reservations To call this method, you must have
+ *  the following Google IAM permissions: -
+ *  `bigqueryreservation.reservations.setIamPolicy` to set policies on
+ *  reservations.
+ *
+ *  @param object The @c GTLRBigQueryReservation_SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets your permissions on a resource. Returns an empty set of permissions if
+ *  the resource doesn't exist. Supported resources are: - Reservations No
+ *  Google IAM permissions are required to call this method.
+ *
+ *  Method: bigqueryreservation.projects.locations.reservations.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryReservationBigquery
+ *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
+ */
+@interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsTestIamPermissions : GTLRBigQueryReservationQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigQueryReservation_TestIamPermissionsResponse.
+ *
+ *  Gets your permissions on a resource. Returns an empty set of permissions if
+ *  the resource doesn't exist. Supported resources are: - Reservations No
+ *  Google IAM permissions are required to call this method.
+ *
+ *  @param object The @c GTLRBigQueryReservation_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryReservation_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -988,8 +1468,9 @@ GTLR_DEPRECATED
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsUpdateBiReservation : GTLRBigQueryReservationQuery
 
 /**
- *  The resource name of the singleton BI reservation. Reservation names have
- *  the form `projects/{project_id}/locations/{location_id}/biReservation`.
+ *  Identifier. The resource name of the singleton BI reservation. Reservation
+ *  names have the form
+ *  `projects/{project_id}/locations/{location_id}/biReservation`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1010,8 +1491,8 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRBigQueryReservation_BiReservation to include in the
  *    query.
- *  @param name The resource name of the singleton BI reservation. Reservation
- *    names have the form
+ *  @param name Identifier. The resource name of the singleton BI reservation.
+ *    Reservation names have the form
  *    `projects/{project_id}/locations/{location_id}/biReservation`.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsUpdateBiReservation

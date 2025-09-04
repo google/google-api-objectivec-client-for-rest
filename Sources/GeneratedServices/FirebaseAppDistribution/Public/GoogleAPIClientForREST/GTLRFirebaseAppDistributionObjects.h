@@ -687,7 +687,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  Deprecated, use one of explicit hash type fields instead. These two hash
  *  related fields will only be populated on Scotty based media uploads and will
  *  contain the content of the hash group in the NotificationRequest:
- *  http://cs/#google3/uploader/service/proto/upload_listener.proto&q=class:Hash
+ *  http://cs/#google3/blobstore2/api/scotty/service/proto/upload_listener.proto&q=class:Hash
  *  Hex encoded hash value of the uploaded media.
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
@@ -1012,16 +1012,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 @interface GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1DistributeReleaseRequest : GTLRObject
 
 /**
- *  A list of group aliases (IDs) to be given access to this release. A combined
- *  maximum of 999 `testerEmails` and `groupAliases` can be specified in a
- *  single request.
+ *  Optional. A list of group aliases (IDs) to be given access to this release.
+ *  A combined maximum of 999 `testerEmails` and `groupAliases` can be specified
+ *  in a single request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groupAliases;
 
 /**
- *  A list of tester email addresses to be given access to this release. A
- *  combined maximum of 999 `testerEmails` and `groupAliases` can be specified
- *  in a single request.
+ *  Optional. A list of tester email addresses to be given access to this
+ *  release. A combined maximum of 999 `testerEmails` and `groupAliases` can be
+ *  specified in a single request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *testerEmails;
 

@@ -175,7 +175,7 @@
 
 @implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesListingsDelete
 
-@dynamic name;
+@dynamic deleteCommercial, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -425,6 +425,171 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAnalyticsHub_DataExchange class];
   query.loggingName = @"analyticshub.projects.locations.dataExchanges.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesApprove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_ApproveQueryTemplateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:approve";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesApprove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_QueryTemplate class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.queryTemplates.approve";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesCreate
+
+@dynamic parent, queryTemplateId;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_QueryTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/queryTemplates";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAnalyticsHub_QueryTemplate class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.queryTemplates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_Empty class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.queryTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_QueryTemplate class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.queryTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/queryTemplates";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAnalyticsHub_ListQueryTemplatesResponse class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.queryTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_QueryTemplate *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_QueryTemplate class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.queryTemplates.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesSubmit
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsHub_SubmitQueryTemplateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:submit";
+  GTLRAnalyticsHubQuery_ProjectsLocationsDataExchangesQueryTemplatesSubmit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsHub_QueryTemplate class];
+  query.loggingName = @"analyticshub.projects.locations.dataExchanges.queryTemplates.submit";
   return query;
 }
 

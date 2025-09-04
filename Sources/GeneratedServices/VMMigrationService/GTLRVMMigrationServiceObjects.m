@@ -26,6 +26,11 @@ NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Failed = @"FAILE
 NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Pending = @"PENDING";
 NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRVMMigrationService_AwsSourceVmDetails.architecture
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
+
 // GTLRVMMigrationService_AwsSourceVmDetails.firmware
 NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Bios = @"BIOS";
 NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Firmware_Efi = @"EFI";
@@ -61,10 +66,20 @@ NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Failed = @"FAI
 NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_Pending = @"PENDING";
 NSString * const kGTLRVMMigrationService_AzureSourceDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRVMMigrationService_AzureSourceVmDetails.architecture
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
+
 // GTLRVMMigrationService_AzureSourceVmDetails.firmware
 NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Bios = @"BIOS";
 NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_Efi = @"EFI";
 NSString * const kGTLRVMMigrationService_AzureSourceVmDetails_Firmware_FirmwareUnspecified = @"FIRMWARE_UNSPECIFIED";
+
+// GTLRVMMigrationService_AzureVmDetails.architecture
+NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_AzureVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
 
 // GTLRVMMigrationService_AzureVmDetails.bootOption
 NSString * const kGTLRVMMigrationService_AzureVmDetails_BootOption_Bios = @"BIOS";
@@ -83,6 +98,7 @@ NSString * const kGTLRVMMigrationService_AzureVmDetails_PowerState_Unknown = @"U
 
 // GTLRVMMigrationService_BootDiskDefaults.diskType
 NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeBalanced = @"COMPUTE_ENGINE_DISK_TYPE_BALANCED";
+NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced = @"COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED";
 NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeSsd = @"COMPUTE_ENGINE_DISK_TYPE_SSD";
 NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeStandard = @"COMPUTE_ENGINE_DISK_TYPE_STANDARD";
 NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeUnspecified = @"COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED";
@@ -97,6 +113,11 @@ NSString * const kGTLRVMMigrationService_CloneJob_State_Pending = @"PENDING";
 NSString * const kGTLRVMMigrationService_CloneJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRVMMigrationService_CloneJob_State_Succeeded = @"SUCCEEDED";
 
+// GTLRVMMigrationService_ComputeEngineTargetDefaults.bootConversion
+NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootConversion_BiosToEfi = @"BIOS_TO_EFI";
+NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootConversion_BootConversionUnspecified = @"BOOT_CONVERSION_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootConversion_None = @"NONE";
+
 // GTLRVMMigrationService_ComputeEngineTargetDefaults.bootOption
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootOption_ComputeEngineBootOptionBios = @"COMPUTE_ENGINE_BOOT_OPTION_BIOS";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootOption_ComputeEngineBootOptionEfi = @"COMPUTE_ENGINE_BOOT_OPTION_EFI";
@@ -104,6 +125,7 @@ NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootOption_
 
 // GTLRVMMigrationService_ComputeEngineTargetDefaults.diskType
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeBalanced = @"COMPUTE_ENGINE_DISK_TYPE_BALANCED";
+NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced = @"COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeSsd = @"COMPUTE_ENGINE_DISK_TYPE_SSD";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeStandard = @"COMPUTE_ENGINE_DISK_TYPE_STANDARD";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeUnspecified = @"COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED";
@@ -113,6 +135,11 @@ NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_LicenseType
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_LicenseType_ComputeEngineLicenseTypeDefault = @"COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_LicenseType_ComputeEngineLicenseTypePayg = @"COMPUTE_ENGINE_LICENSE_TYPE_PAYG";
 
+// GTLRVMMigrationService_ComputeEngineTargetDetails.bootConversion
+NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_BootConversion_BiosToEfi = @"BIOS_TO_EFI";
+NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_BootConversion_BootConversionUnspecified = @"BOOT_CONVERSION_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_BootConversion_None = @"NONE";
+
 // GTLRVMMigrationService_ComputeEngineTargetDetails.bootOption
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_BootOption_ComputeEngineBootOptionBios = @"COMPUTE_ENGINE_BOOT_OPTION_BIOS";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_BootOption_ComputeEngineBootOptionEfi = @"COMPUTE_ENGINE_BOOT_OPTION_EFI";
@@ -120,6 +147,7 @@ NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_BootOption_C
 
 // GTLRVMMigrationService_ComputeEngineTargetDetails.diskType
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeBalanced = @"COMPUTE_ENGINE_DISK_TYPE_BALANCED";
+NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeHyperdiskBalanced = @"COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeSsd = @"COMPUTE_ENGINE_DISK_TYPE_SSD";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeStandard = @"COMPUTE_ENGINE_DISK_TYPE_STANDARD";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeUnspecified = @"COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED";
@@ -161,12 +189,33 @@ NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTarg
 NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeGce = @"MIGRATION_TARGET_TYPE_GCE";
 NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeUnspecified = @"MIGRATION_TARGET_TYPE_UNSPECIFIED";
 
+// GTLRVMMigrationService_ImageImportJob.state
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Failed = @"FAILED";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Pending = @"PENDING";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Running = @"RUNNING";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_ImageImportJob_State_Succeeded = @"SUCCEEDED";
+
+// GTLRVMMigrationService_ImageImportOsAdaptationParameters.bootConversion
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_BiosToEfi = @"BIOS_TO_EFI";
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_BootConversionUnspecified = @"BOOT_CONVERSION_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_BootConversion_None = @"NONE";
+
+// GTLRVMMigrationService_ImageImportOsAdaptationParameters.licenseType
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeByol = @"COMPUTE_ENGINE_LICENSE_TYPE_BYOL";
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypeDefault = @"COMPUTE_ENGINE_LICENSE_TYPE_DEFAULT";
+NSString * const kGTLRVMMigrationService_ImageImportOsAdaptationParameters_LicenseType_ComputeEngineLicenseTypePayg = @"COMPUTE_ENGINE_LICENSE_TYPE_PAYG";
+
 // GTLRVMMigrationService_MigratingVm.state
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Active = @"ACTIVE";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Cutover = @"CUTOVER";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_CuttingOver = @"CUTTING_OVER";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Error = @"ERROR";
+NSString * const kGTLRVMMigrationService_MigratingVm_State_Expired = @"EXPIRED";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Finalized = @"FINALIZED";
+NSString * const kGTLRVMMigrationService_MigratingVm_State_FinalizedExpired = @"FINALIZED_EXPIRED";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_Finalizing = @"FINALIZING";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_FinalSync = @"FINAL_SYNC";
 NSString * const kGTLRVMMigrationService_MigratingVm_State_FirstSync = @"FIRST_SYNC";
@@ -180,6 +229,7 @@ NSString * const kGTLRVMMigrationService_MigrationError_Code_ApplianceUpgradeErr
 NSString * const kGTLRVMMigrationService_MigrationError_Code_CloneError = @"CLONE_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_CutoverError = @"CUTOVER_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_MigrationError_Code_ImageImportError = @"IMAGE_IMPORT_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_OsAdaptationError = @"OS_ADAPTATION_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_SourceReplicationError = @"SOURCE_REPLICATION_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_SourceValidationError = @"SOURCE_VALIDATION_ERROR";
@@ -191,8 +241,14 @@ NSString * const kGTLRVMMigrationService_MigrationError_Code_UtilizationReportEr
 NSString * const kGTLRVMMigrationService_MigrationWarning_Code_AdaptationWarning = @"ADAPTATION_WARNING";
 NSString * const kGTLRVMMigrationService_MigrationWarning_Code_WarningCodeUnspecified = @"WARNING_CODE_UNSPECIFIED";
 
+// GTLRVMMigrationService_NetworkInterface.networkTier
+NSString * const kGTLRVMMigrationService_NetworkInterface_NetworkTier_ComputeEngineNetworkTierUnspecified = @"COMPUTE_ENGINE_NETWORK_TIER_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_NetworkInterface_NetworkTier_NetworkTierPremium = @"NETWORK_TIER_PREMIUM";
+NSString * const kGTLRVMMigrationService_NetworkInterface_NetworkTier_NetworkTierStandard = @"NETWORK_TIER_STANDARD";
+
 // GTLRVMMigrationService_PersistentDiskDefaults.diskType
 NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeBalanced = @"COMPUTE_ENGINE_DISK_TYPE_BALANCED";
+NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced = @"COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED";
 NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeSsd = @"COMPUTE_ENGINE_DISK_TYPE_SSD";
 NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeStandard = @"COMPUTE_ENGINE_DISK_TYPE_STANDARD";
 NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeUnspecified = @"COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED";
@@ -208,6 +264,11 @@ NSString * const kGTLRVMMigrationService_ReplicationCycle_State_Succeeded = @"SU
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_In = @"IN";
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_NotIn = @"NOT_IN";
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
+
+// GTLRVMMigrationService_ShieldedInstanceConfig.secureBoot
+NSString * const kGTLRVMMigrationService_ShieldedInstanceConfig_SecureBoot_False = @"FALSE";
+NSString * const kGTLRVMMigrationService_ShieldedInstanceConfig_SecureBoot_SecureBootUnspecified = @"SECURE_BOOT_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_ShieldedInstanceConfig_SecureBoot_True = @"TRUE";
 
 // GTLRVMMigrationService_UpgradeStatus.state
 NSString * const kGTLRVMMigrationService_UpgradeStatus_State_Failed = @"FAILED";
@@ -229,13 +290,24 @@ NSString * const kGTLRVMMigrationService_UtilizationReport_TimeFrame_Year = @"YE
 
 // GTLRVMMigrationService_VmCapabilities.osCapabilities
 NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityGvnicNetworkInterface = @"OS_CAPABILITY_GVNIC_NETWORK_INTERFACE";
+NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityIdpfNetworkInterface = @"OS_CAPABILITY_IDPF_NETWORK_INTERFACE";
 NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityNvmeStorageAccess = @"OS_CAPABILITY_NVME_STORAGE_ACCESS";
 NSString * const kGTLRVMMigrationService_VmCapabilities_OsCapabilities_OsCapabilityUnspecified = @"OS_CAPABILITY_UNSPECIFIED";
+
+// GTLRVMMigrationService_VmwareSourceVmDetails.architecture
+NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
 
 // GTLRVMMigrationService_VmwareSourceVmDetails.firmware
 NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Bios = @"BIOS";
 NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_Efi = @"EFI";
 NSString * const kGTLRVMMigrationService_VmwareSourceVmDetails_Firmware_FirmwareUnspecified = @"FIRMWARE_UNSPECIFIED";
+
+// GTLRVMMigrationService_VmwareVmDetails.architecture
+NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
+NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_VmwareVmDetails_Architecture_VmArchitectureX86Family = @"VM_ARCHITECTURE_X86_FAMILY";
 
 // GTLRVMMigrationService_VmwareVmDetails.bootOption
 NSString * const kGTLRVMMigrationService_VmwareVmDetails_BootOption_Bios = @"BIOS";
@@ -372,7 +444,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AwsSourceVmDetails
-@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
+@dynamic architecture, committedStorageBytes, disks, firmware,
+         vmCapabilitiesInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -392,8 +465,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 @implementation GTLRVMMigrationService_AwsVmDetails
 @dynamic architecture, bootOption, committedStorageMb, cpuCount, diskCount,
          displayName, instanceType, memoryMb, osDescription, powerState,
-         securityGroups, sourceDescription, sourceId, tags, virtualizationType,
-         vmId, vpcId, zoneProperty;
+         securityGroups, sourceDescription, sourceId, tags, vcpuCount,
+         virtualizationType, vmId, vpcId, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -482,7 +555,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AzureSourceVmDetails
-@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
+@dynamic architecture, committedStorageBytes, disks, firmware,
+         vmCapabilitiesInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -500,8 +574,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AzureVmDetails
-@dynamic bootOption, committedStorageMb, computerName, cpuCount, diskCount,
-         disks, memoryMb, osDescription, osDisk, powerState, tags, vmId, vmSize;
+@dynamic architecture, bootOption, committedStorageMb, computerName, cpuCount,
+         diskCount, disks, memoryMb, osDescription, osDisk, powerState, tags,
+         vmId, vmSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -570,6 +645,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_CancelCutoverJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_CancelImageImportJobRequest
+//
+
+@implementation GTLRVMMigrationService_CancelImageImportJobRequest
 @end
 
 
@@ -669,10 +753,12 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDefaults
-@dynamic additionalLicenses, appliedLicense, bootOption, computeScheduling,
-         diskType, encryption, hostname, labels, licenseType, machineType,
-         machineTypeSeries, metadata, networkInterfaces, networkTags,
-         secureBoot, serviceAccount, targetProject, vmName, zoneProperty;
+@dynamic additionalLicenses, appliedLicense, bootConversion, bootOption,
+         computeScheduling, diskReplicaZones, diskType,
+         enableIntegrityMonitoring, enableVtpm, encryption, hostname, labels,
+         licenseType, machineType, machineTypeSeries, metadata,
+         networkInterfaces, networkTags, secureBoot, serviceAccount,
+         targetProject, vmName, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -681,6 +767,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalLicenses" : [NSString class],
+    @"diskReplicaZones" : [NSString class],
     @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
     @"networkTags" : [NSString class]
   };
@@ -724,10 +811,12 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDetails
-@dynamic additionalLicenses, appliedLicense, bootOption, computeScheduling,
-         diskType, encryption, hostname, labels, licenseType, machineType,
-         machineTypeSeries, metadata, networkInterfaces, networkTags, project,
-         secureBoot, serviceAccount, vmName, zoneProperty;
+@dynamic additionalLicenses, appliedLicense, bootConversion, bootOption,
+         computeScheduling, diskReplicaZones, diskType,
+         enableIntegrityMonitoring, enableVtpm, encryption, hostname, labels,
+         licenseType, machineType, machineTypeSeries, metadata,
+         networkInterfaces, networkTags, project, secureBoot, serviceAccount,
+         vmName, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -736,6 +825,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"additionalLicenses" : [NSString class],
+    @"diskReplicaZones" : [NSString class],
     @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
     @"networkTags" : [NSString class]
   };
@@ -788,6 +878,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_CreatingImageStep
+//
+
+@implementation GTLRVMMigrationService_CreatingImageStep
 @end
 
 
@@ -857,6 +956,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_DataDiskImageImport
+//
+
+@implementation GTLRVMMigrationService_DataDiskImageImport
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_Disk
 //
 
@@ -872,6 +980,44 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_DiskImageDefaults
 @dynamic sourceImage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DiskImageTargetDetails
+//
+
+@implementation GTLRVMMigrationService_DiskImageTargetDetails
+@dynamic additionalLicenses, dataDiskImageImport, descriptionProperty,
+         encryption, familyName, imageName, labels, osAdaptationParameters,
+         singleRegionStorage, targetProject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalLicenses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DiskImageTargetDetails_Labels
+//
+
+@implementation GTLRVMMigrationService_DiskImageTargetDetails_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -899,9 +1045,10 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_DisksMigrationVmTargetDefaults
-@dynamic additionalLicenses, bootDiskDefaults, computeScheduling, encryption,
-         hostname, labels, machineType, machineTypeSeries, metadata,
-         networkInterfaces, networkTags, secureBoot, serviceAccount, vmName;
+@dynamic additionalLicenses, bootDiskDefaults, computeScheduling,
+         enableIntegrityMonitoring, enableVtpm, encryption, hostname, labels,
+         machineType, machineTypeSeries, metadata, networkInterfaces,
+         networkTags, secureBoot, serviceAccount, vmName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -974,6 +1121,25 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_Expiration
+//
+
+@implementation GTLRVMMigrationService_Expiration
+@dynamic expireTime, extendable, extensionCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ExtendMigrationRequest
+//
+
+@implementation GTLRVMMigrationService_ExtendMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_FetchInventoryResponse
 //
 
@@ -1004,6 +1170,78 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ImageImport
+//
+
+@implementation GTLRVMMigrationService_ImageImport
+@dynamic cloudStorageUri, createTime, diskImageTargetDefaults, encryption,
+         machineImageTargetDefaults, name, recentImageImportJobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recentImageImportJobs" : [GTLRVMMigrationService_ImageImportJob class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ImageImportJob
+//
+
+@implementation GTLRVMMigrationService_ImageImportJob
+@dynamic cloudStorageUri, createdResources, createTime, diskImageTargetDetails,
+         endTime, errors, machineImageTargetDetails, name, state, steps,
+         warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"createdResources" : [NSString class],
+    @"errors" : [GTLRVMMigrationService_Status class],
+    @"steps" : [GTLRVMMigrationService_ImageImportStep class],
+    @"warnings" : [GTLRVMMigrationService_MigrationWarning class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ImageImportOsAdaptationParameters
+//
+
+@implementation GTLRVMMigrationService_ImageImportOsAdaptationParameters
+@dynamic bootConversion, generalize, licenseType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ImageImportStep
+//
+
+@implementation GTLRVMMigrationService_ImageImportStep
+@dynamic adaptingOs, creatingImage, endTime, initializing, loadingSourceFiles,
+         startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_InitializingImageImportStep
+//
+
+@implementation GTLRVMMigrationService_InitializingImageImportStep
 @end
 
 
@@ -1127,6 +1365,52 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 + (NSString *)collectionItemsKey {
   return @"groups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ListImageImportJobsResponse
+//
+
+@implementation GTLRVMMigrationService_ListImageImportJobsResponse
+@dynamic imageImportJobs, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"imageImportJobs" : [GTLRVMMigrationService_ImageImportJob class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"imageImportJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ListImageImportsResponse
+//
+
+@implementation GTLRVMMigrationService_ListImageImportsResponse
+@dynamic imageImports, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"imageImports" : [GTLRVMMigrationService_ImageImport class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"imageImports";
 }
 
 @end
@@ -1293,6 +1577,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_LoadingImageSourceFilesStep
+//
+
+@implementation GTLRVMMigrationService_LoadingImageSourceFilesStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_LocalizedMessage
 //
 
@@ -1341,6 +1634,57 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_MachineImageParametersOverrides
+//
+
+@implementation GTLRVMMigrationService_MachineImageParametersOverrides
+@dynamic machineType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_MachineImageTargetDetails
+//
+
+@implementation GTLRVMMigrationService_MachineImageTargetDetails
+@dynamic additionalLicenses, descriptionProperty, encryption, labels,
+         machineImageName, machineImageParametersOverrides, networkInterfaces,
+         osAdaptationParameters, serviceAccount, shieldedInstanceConfig,
+         singleRegionStorage, skipOsAdaptation, tags, targetProject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalLicenses" : [NSString class],
+    @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_MachineImageTargetDetails_Labels
+//
+
+@implementation GTLRVMMigrationService_MachineImageTargetDetails_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_MigratingVm
 //
 
@@ -1348,9 +1692,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 @dynamic awsSourceVmDetails, azureSourceVmDetails,
          computeEngineDisksTargetDefaults, computeEngineTargetDefaults,
          createTime, currentSyncInfo, cutoverForecast, descriptionProperty,
-         displayName, error, group, labels, lastReplicationCycle, lastSync,
-         name, policy, recentCloneJobs, recentCutoverJobs, sourceVmId, state,
-         stateTime, updateTime, vmwareSourceVmDetails;
+         displayName, error, expiration, group, labels, lastReplicationCycle,
+         lastSync, name, policy, recentCloneJobs, recentCutoverJobs, sourceVmId,
+         state, stateTime, updateTime, vmwareSourceVmDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1423,7 +1767,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_NetworkInterface
-@dynamic externalIp, internalIp, network, subnetwork;
+@dynamic externalIp, internalIp, network, networkTier, subnetwork;
 @end
 
 
@@ -1652,10 +1996,47 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_ServiceAccount
+//
+
+@implementation GTLRVMMigrationService_ServiceAccount
+@dynamic email, scopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ShieldedInstanceConfig
+//
+
+@implementation GTLRVMMigrationService_ShieldedInstanceConfig
+@dynamic enableIntegrityMonitoring, enableVtpm, secureBoot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_ShuttingDownSourceVMStep
 //
 
 @implementation GTLRVMMigrationService_ShuttingDownSourceVMStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_SkipOsAdaptation
+//
+
+@implementation GTLRVMMigrationService_SkipOsAdaptation
 @end
 
 
@@ -1870,7 +2251,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_VmwareSourceVmDetails
-@dynamic committedStorageBytes, disks, firmware, vmCapabilitiesInfo;
+@dynamic architecture, committedStorageBytes, disks, firmware,
+         vmCapabilitiesInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1888,9 +2270,9 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_VmwareVmDetails
-@dynamic bootOption, committedStorageMb, cpuCount, datacenterDescription,
-         datacenterId, diskCount, displayName, guestDescription, memoryMb,
-         powerState, uuid, vmId;
+@dynamic architecture, bootOption, committedStorageMb, cpuCount,
+         datacenterDescription, datacenterId, diskCount, displayName,
+         guestDescription, memoryMb, powerState, uuid, vmId;
 @end
 
 

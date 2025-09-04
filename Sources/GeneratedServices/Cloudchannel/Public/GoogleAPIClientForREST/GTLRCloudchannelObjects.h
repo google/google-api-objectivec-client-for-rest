@@ -25,6 +25,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1DateRange;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent;
+@class GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1Period;
 @class GTLRCloudchannel_GoogleCloudChannelV1alpha1ProvisionedService;
@@ -54,6 +55,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerEvent;
 @class GTLRCloudchannel_GoogleCloudChannelV1CustomerRepricingConfig;
 @class GTLRCloudchannel_GoogleCloudChannelV1DateRange;
+@class GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent;
 @class GTLRCloudchannel_GoogleCloudChannelV1EduData;
 @class GTLRCloudchannel_GoogleCloudChannelV1Entitlement;
 @class GTLRCloudchannel_GoogleCloudChannelV1EntitlementChange;
@@ -478,6 +480,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1O
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_OperationType_TransferEntitlementsToGoogle;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent.eventType
+
+/**
+ *  New opportunity created.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Created;
+/**
+ *  Partner has been detached from the opportunity and can no longer access it.
+ *
+ *  Value: "PARTNER_DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_PartnerDetached;
+/**
+ *  Not used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_TypeUnspecified;
+/**
+ *  Existing opportunity updated.
+ *
+ *  Value: "UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Updated;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1Period.periodType
 
 /**
@@ -637,6 +667,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Channel
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Suspended;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount.customerType
+
+/**
+ *  Not used.
+ *
+ *  Value: "CUSTOMER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_CustomerTypeUnspecified;
+/**
+ *  Domain-owning customer which needs domain verification to use services.
+ *
+ *  Value: "DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Domain;
+/**
+ *  Team customer which needs email verification to use services.
+ *
+ *  Value: "TEAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Team;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo.customerType
 
 /**
@@ -730,6 +782,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Conditi
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ConditionalOverride_RebillingBasis_RebillingBasisUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1Customer.customerAttestationState
+
+/**
+ *  Default value if not set yet
+ *
+ *  Value: "CUSTOMER_ATTESTATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_CustomerAttestationStateUnspecified;
+/**
+ *  Customer is exempt from attesting based on exemption list at
+ *  https://cloud.google.com/terms/direct-tos-exemptions. Contact information of
+ *  customer will be mandatory.
+ *
+ *  Value: "EXEMPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_Exempt;
+/**
+ *  Customer is not exempt and has verified the information provided is correct.
+ *  Contact information of customer will be mandatory.
+ *
+ *  Value: "NON_EXEMPT_AND_INFO_VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_NonExemptAndInfoVerified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
 
 /**
@@ -800,6 +877,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Custome
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent.discountType
+
+/**
+ *  Deal code discount.
+ *
+ *  Value: "DEAL_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DealCode;
+/**
+ *  Not used.
+ *
+ *  Value: "DISCOUNT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DiscountTypeUnspecified;
+/**
+ *  Promotional discount.
+ *
+ *  Value: "PROMOTIONAL_DISCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_PromotionalDiscount;
+/**
+ *  Regional discount.
+ *
+ *  Value: "REGIONAL_DISCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_RegionalDiscount;
+/**
+ *  Reseller margin.
+ *
+ *  Value: "RESELLER_MARGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_ResellerMargin;
+/**
+ *  Sales-provided discount.
+ *
+ *  Value: "SALES_DISCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_SalesDiscount;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudchannel_GoogleCloudChannelV1EduData.instituteSize
@@ -1755,7 +1872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @property(nonatomic, copy, nullable) NSString *channelPartner;
 
 /**
- *  Type of event performed on the Channel Partner.
+ *  Type of event which happened for the channel partner.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1ChannelPartnerEvent_EventType_LinkStateChanged
@@ -1846,7 +1963,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Type of event which happened on the customer.
+ *  Type of event which happened for the customer.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainChanged
@@ -1986,6 +2103,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter *> *parameters;
 
+/**
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
+
 /** Output only. Service provisioning details for the entitlement. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1ProvisionedService *provisionedService;
 
@@ -2052,7 +2176,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *entitlement;
 
 /**
- *  Type of event which happened on the entitlement.
+ *  Type of event which happened for the entitlement.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_Activated
@@ -2151,6 +2275,36 @@ GTLR_DEPRECATED
  *        (Value: "TRANSFER_ENTITLEMENTS_TO_GOOGLE")
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
+
+@end
+
+
+/**
+ *  Represents Pub/Sub message content describing opportunity updates.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent : GTLRObject
+
+/**
+ *  Type of event which happened for the opportunity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Created
+ *        New opportunity created. (Value: "CREATED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_PartnerDetached
+ *        Partner has been detached from the opportunity and can no longer
+ *        access it. (Value: "PARTNER_DETACHED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_TypeUnspecified
+ *        Not used. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent_EventType_Updated
+ *        Existing opportunity updated. (Value: "UPDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/** Resource name of the opportunity. Format: opportunities/{opportunity} */
+@property(nonatomic, copy, nullable) NSString *opportunity;
+
+/** Resource name of the partner. Format: partners/{partner} */
+@property(nonatomic, copy, nullable) NSString *partner;
 
 @end
 
@@ -2465,6 +2619,11 @@ GTLR_DEPRECATED
 /** Entitlement event sent as part of Pub/Sub event to partners. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent *entitlementEvent;
 
+/**
+ *  Opportunity event sent as part of Pub/Sub event to partners/integrators.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1OpportunityEvent *opportunityEvent;
+
 @end
 
 
@@ -2667,6 +2826,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 
+/**
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
+
 /** Optional. Purchase order id provided by the reseller. */
 @property(nonatomic, copy, nullable) NSString *purchaseOrderId;
 
@@ -2686,7 +2852,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Request message for CloudChannelService.ChangeParametersRequest.
+ *  Request message for CloudChannelService.ChangeParameters.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1ChangeParametersRequest : GTLRObject
 
@@ -2831,9 +2997,16 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Domain to fetch for Cloud Identity account customers, including
- *  domained and domainless.
+ *  domain and team customers. For team customers, please use the domain for
+ *  their emails.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Optional. Primary admin email to fetch for Cloud Identity account team
+ *  customer.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryAdminEmail;
 
 @end
 
@@ -2855,6 +3028,12 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount : GTLRObject
 
+/**
+ *  If existing = true, and is 2-tier customer, the channel partner of the
+ *  customer.
+ */
+@property(nonatomic, copy, nullable) NSString *channelPartnerCloudIdentityId;
+
 /** If existing = true, the Cloud Identity ID of the customer. */
 @property(nonatomic, copy, nullable) NSString *customerCloudIdentityId;
 
@@ -2866,6 +3045,21 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customerName;
 
 /**
+ *  If existing = true, the type of the customer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_CustomerTypeUnspecified
+ *        Not used. (Value: "CUSTOMER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Domain
+ *        Domain-owning customer which needs domain verification to use
+ *        services. (Value: "DOMAIN")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityCustomerAccount_CustomerType_Team
+ *        Team customer which needs email verification to use services. (Value:
+ *        "TEAM")
+ */
+@property(nonatomic, copy, nullable) NSString *customerType;
+
+/**
  *  Returns true if a Cloud Identity account exists for a specific domain.
  *
  *  Uses NSNumber of boolValue.
@@ -2874,7 +3068,8 @@ GTLR_DEPRECATED
 
 /**
  *  Returns true if the Cloud Identity account is associated with a customer of
- *  the Channel Services partner.
+ *  the Channel Services partner (with active subscriptions or purchase
+ *  consents).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3138,6 +3333,25 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. Indicate if a customer is attesting about the correctness of
+ *  provided information. Only required if creating a GCP Entitlement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_CustomerAttestationStateUnspecified
+ *        Default value if not set yet (Value:
+ *        "CUSTOMER_ATTESTATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_Exempt
+ *        Customer is exempt from attesting based on exemption list at
+ *        https://cloud.google.com/terms/direct-tos-exemptions. Contact
+ *        information of customer will be mandatory. (Value: "EXEMPT")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Customer_CustomerAttestationState_NonExemptAndInfoVerified
+ *        Customer is not exempt and has verified the information provided is
+ *        correct. Contact information of customer will be mandatory. (Value:
+ *        "NON_EXEMPT_AND_INFO_VERIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *customerAttestationState;
+
+/**
  *  Required. The customer's primary domain. Must match the primary contact
  *  email's domain.
  */
@@ -3205,7 +3419,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Type of event which happened on the customer.
+ *  Type of event which happened for the customer.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_PrimaryDomainChanged
@@ -3282,6 +3496,44 @@ GTLR_DEPRECATED
  *  recommend that clients pass `usage_start_date_time` in Pacific time.
  */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDateTime *usageStartDateTime;
+
+@end
+
+
+/**
+ *  Represents a single component of the total discount applicable on a Price.
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent : GTLRObject
+
+/** Fixed value discount. */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeMoney *discountAbsolute;
+
+/**
+ *  Discount percentage, represented as decimal. For example, a 20% discount
+ *  will be represented as 0.2.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *discountPercentage;
+
+/**
+ *  Type of the discount.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DealCode
+ *        Deal code discount. (Value: "DEAL_CODE")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_DiscountTypeUnspecified
+ *        Not used. (Value: "DISCOUNT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_PromotionalDiscount
+ *        Promotional discount. (Value: "PROMOTIONAL_DISCOUNT")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_RegionalDiscount
+ *        Regional discount. (Value: "REGIONAL_DISCOUNT")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_ResellerMargin
+ *        Reseller margin. (Value: "RESELLER_MARGIN")
+ *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1DiscountComponent_DiscountType_SalesDiscount
+ *        Sales-provided discount. (Value: "SALES_DISCOUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *discountType;
 
 @end
 
@@ -3380,6 +3632,13 @@ GTLR_DEPRECATED
  *  display_name: The display name of the billing subaccount.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
+
+/**
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
 
 /** Output only. Service provisioning details for the entitlement. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1ProvisionedService *provisionedService;
@@ -3602,7 +3861,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *entitlement;
 
 /**
- *  Type of event which happened on the entitlement.
+ *  Type of event which happened for the entitlement.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_Activated
@@ -3755,6 +4014,9 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *overwriteIfExists;
+
+/** Required. Customer's primary admin email. */
+@property(nonatomic, copy, nullable) NSString *primaryAdminEmail;
 
 @end
 
@@ -3932,7 +4194,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of Offers requested.
+ *  The list of Offers requested. The pricing information for each Offer only
+ *  includes the base price. Effective prices and discounts aren't populated.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4062,7 +4325,7 @@ GTLR_DEPRECATED
 
 /**
  *  A token to retrieve the next page of results. Pass to
- *  ListSkuGroupBillableSkus.page_token to obtain that page.
+ *  ListSkuGroupBillableSkusRequest.page_token to obtain that page.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4081,7 +4344,7 @@ GTLR_DEPRECATED
 
 /**
  *  A token to retrieve the next page of results. Pass to
- *  ListSkuGroups.page_token to obtain that page.
+ *  ListSkuGroupsRequest.page_token to obtain that page.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4635,11 +4898,23 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *discount;
 
+/**
+ *  Breakdown of the discount into its components. This will be empty if there
+ *  is no discount present.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1DiscountComponent *> *discountComponents;
+
 /** Effective Price after applying the discounts. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeMoney *effectivePrice;
 
 /** Link to external price list, such as link to Google Voice rate card. */
 @property(nonatomic, copy, nullable) NSString *externalPriceUri;
+
+/**
+ *  The time period with respect to which base and effective prices are defined.
+ *  Example: 1 month, 6 months, 1 year, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Period *pricePeriod;
 
 @end
 
@@ -4831,6 +5106,13 @@ GTLR_DEPRECATED
 /** Offer. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Offer *offer;
 
+/**
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
+
 @end
 
 
@@ -4865,6 +5147,18 @@ GTLR_DEPRECATED
  *  Request Message for RegisterSubscriber.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest : GTLRObject
+
+/**
+ *  Optional. Resource name of the account. Required if integrator is not
+ *  provided. Otherwise, leave this field empty/unset.
+ */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/**
+ *  Optional. Resource name of the integrator. Required if account is not
+ *  provided. Otherwise, leave this field empty/unset.
+ */
+@property(nonatomic, copy, nullable) NSString *integrator;
 
 /**
  *  Required. Service account that provides subscriber access to the registered
@@ -5144,10 +5438,10 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleTypeDate *effectiveInvoiceMonth;
 
 /**
- *  Applies the repricing configuration at the entitlement level. Note: If a
- *  ChannelPartnerRepricingConfig using RepricingConfig.EntitlementGranularity
- *  becomes effective, then no existing or future
- *  RepricingConfig.ChannelPartnerGranularity will apply to the
+ *  Required. Applies the repricing configuration at the entitlement level.
+ *  Note: If a ChannelPartnerRepricingConfig using
+ *  RepricingConfig.EntitlementGranularity becomes effective, then no existing
+ *  or future RepricingConfig.ChannelPartnerGranularity will apply to the
  *  RepricingConfig.EntitlementGranularity.entitlement. This is the recommended
  *  value for both CustomerRepricingConfig and ChannelPartnerRepricingConfig.
  */
@@ -5403,6 +5697,13 @@ GTLR_DEPRECATED
 /** Offer with parameter constraints updated to allow the Transfer. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1Offer *offer;
 
+/**
+ *  Optional. Price reference ID for the offer. Only for offers that require
+ *  additional price information. Used to guarantee that the pricing is
+ *  consistent between quoting the offer and placing the order.
+ */
+@property(nonatomic, copy, nullable) NSString *priceReferenceId;
+
 @end
 
 
@@ -5563,6 +5864,18 @@ GTLR_DEPRECATED
  *  Request Message for UnregisterSubscriber.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest : GTLRObject
+
+/**
+ *  Optional. Resource name of the account. Required if integrator is not
+ *  provided. Otherwise, leave this field empty/unset.
+ */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/**
+ *  Optional. Resource name of the integrator. Required if account is not
+ *  provided. Otherwise, leave this field empty/unset.
+ */
+@property(nonatomic, copy, nullable) NSString *integrator;
 
 /**
  *  Required. Service account to unregister from subscriber access to the topic.
@@ -5948,10 +6261,10 @@ GTLR_DEPRECATED
 
 /**
  *  A representation of a decimal value, such as 2.5. Clients may convert values
- *  into language-native decimal formats, such as Java's BigDecimal or Python's
- *  decimal.Decimal. [BigDecimal]:
- *  https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html
- *  [decimal.Decimal]: https://docs.python.org/3/library/decimal.html
+ *  into language-native decimal formats, such as Java's
+ *  [BigDecimal](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html)
+ *  or Python's
+ *  [decimal.Decimal](https://docs.python.org/3/library/decimal.html).
  */
 @interface GTLRCloudchannel_GoogleTypeDecimal : GTLRObject
 
@@ -6029,48 +6342,48 @@ GTLR_DEPRECATED
 
 
 /**
- *  Represents a postal address, e.g. for postal delivery or payments addresses.
- *  Given a postal address, a postal service can deliver items to a premise,
- *  P.O. Box or similar. It is not intended to model geographical locations
- *  (roads, towns, mountains). In typical usage an address would be created via
- *  user input or from importing existing data, depending on the type of
- *  process. Advice on address input / editing: - Use an
- *  internationalization-ready address widget such as
- *  https://github.com/google/libaddressinput) - Users should not be presented
+ *  Represents a postal address, such as for postal delivery or payments
+ *  addresses. With a postal address, a postal service can deliver items to a
+ *  premise, P.O. box, or similar. A postal address is not intended to model
+ *  geographical locations like roads, towns, or mountains. In typical usage, an
+ *  address would be created by user input or from importing existing data,
+ *  depending on the type of process. Advice on address input or editing: - Use
+ *  an internationalization-ready address widget such as
+ *  https://github.com/google/libaddressinput. - Users should not be presented
  *  with UI elements for input or editing of fields outside countries where that
- *  field is used. For more guidance on how to use this schema, please see:
- *  https://support.google.com/business/answer/6397478
+ *  field is used. For more guidance on how to use this schema, see:
+ *  https://support.google.com/business/answer/6397478.
  */
 @interface GTLRCloudchannel_GoogleTypePostalAddress : GTLRObject
 
 /**
  *  Unstructured address lines describing the lower levels of an address.
- *  Because values in address_lines do not have type information and may
- *  sometimes contain multiple values in a single field (e.g. "Austin, TX"), it
- *  is important that the line order is clear. The order of address lines should
- *  be "envelope order" for the country/region of the address. In places where
- *  this can vary (e.g. Japan), address_language is used to make it explicit
- *  (e.g. "ja" for large-to-small ordering and "ja-Latn" or "en" for
- *  small-to-large). This way, the most specific line of an address can be
- *  selected based on the language. The minimum permitted structural
- *  representation of an address consists of a region_code with all remaining
- *  information placed in the address_lines. It would be possible to format such
- *  an address very approximately without geocoding, but no semantic reasoning
- *  could be made about any of the address components until it was at least
- *  partially resolved. Creating an address only containing a region_code and
- *  address_lines, and then geocoding is the recommended way to handle
- *  completely unstructured addresses (as opposed to guessing which parts of the
- *  address should be localities or administrative areas).
+ *  Because values in `address_lines` do not have type information and may
+ *  sometimes contain multiple values in a single field (for example, "Austin,
+ *  TX"), it is important that the line order is clear. The order of address
+ *  lines should be "envelope order" for the country or region of the address.
+ *  In places where this can vary (for example, Japan), `address_language` is
+ *  used to make it explicit (for example, "ja" for large-to-small ordering and
+ *  "ja-Latn" or "en" for small-to-large). In this way, the most specific line
+ *  of an address can be selected based on the language. The minimum permitted
+ *  structural representation of an address consists of a `region_code` with all
+ *  remaining information placed in the `address_lines`. It would be possible to
+ *  format such an address very approximately without geocoding, but no semantic
+ *  reasoning could be made about any of the address components until it was at
+ *  least partially resolved. Creating an address only containing a
+ *  `region_code` and `address_lines` and then geocoding is the recommended way
+ *  to handle completely unstructured addresses (as opposed to guessing which
+ *  parts of the address should be localities or administrative areas).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addressLines;
 
 /**
  *  Optional. Highest administrative subdivision which is used for postal
  *  addresses of a country or region. For example, this can be a state, a
- *  province, an oblast, or a prefecture. Specifically, for Spain this is the
- *  province and not the autonomous community (e.g. "Barcelona" and not
- *  "Catalonia"). Many countries don't use an administrative area in postal
- *  addresses. E.g. in Switzerland this should be left unpopulated.
+ *  province, an oblast, or a prefecture. For Spain, this is the province and
+ *  not the autonomous community (for example, "Barcelona" and not "Catalonia").
+ *  Many countries don't use an administrative area in postal addresses. For
+ *  example, in Switzerland, this should be left unpopulated.
  */
 @property(nonatomic, copy, nullable) NSString *administrativeArea;
 
@@ -6087,10 +6400,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Optional. Generally refers to the city/town portion of the address.
+ *  Optional. Generally refers to the city or town portion of the address.
  *  Examples: US city, IT comune, UK post town. In regions of the world where
  *  localities are not well defined or do not fit into this structure well,
- *  leave locality empty and use address_lines.
+ *  leave `locality` empty and use `address_lines`.
  */
 @property(nonatomic, copy, nullable) NSString *locality;
 
@@ -6100,8 +6413,8 @@ GTLR_DEPRECATED
 /**
  *  Optional. Postal code of the address. Not all countries use or require
  *  postal codes to be present, but where they are used, they may trigger
- *  additional validation with other parts of the address (e.g. state/zip
- *  validation in the U.S.A.).
+ *  additional validation with other parts of the address (for example, state or
+ *  zip code validation in the United States).
  */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
@@ -6133,15 +6446,15 @@ GTLR_DEPRECATED
 /**
  *  Optional. Additional, country-specific, sorting code. This is not used in
  *  most regions. Where it is used, the value is either a string like "CEDEX",
- *  optionally followed by a number (e.g. "CEDEX 7"), or just a number alone,
- *  representing the "sector code" (Jamaica), "delivery area indicator" (Malawi)
- *  or "post office indicator" (e.g. Côte d'Ivoire).
+ *  optionally followed by a number (for example, "CEDEX 7"), or just a number
+ *  alone, representing the "sector code" (Jamaica), "delivery area indicator"
+ *  (Malawi) or "post office indicator" (Côte d'Ivoire).
  */
 @property(nonatomic, copy, nullable) NSString *sortingCode;
 
 /**
- *  Optional. Sublocality of the address. For example, this can be
- *  neighborhoods, boroughs, districts.
+ *  Optional. Sublocality of the address. For example, this can be a
+ *  neighborhood, borough, or district.
  */
 @property(nonatomic, copy, nullable) NSString *sublocality;
 
@@ -6155,13 +6468,13 @@ GTLR_DEPRECATED
 @interface GTLRCloudchannel_GoogleTypeTimeZone : GTLRObject
 
 /**
- *  IANA Time Zone Database time zone, e.g. "America/New_York".
+ *  IANA Time Zone Database time zone. For example "America/New_York".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end

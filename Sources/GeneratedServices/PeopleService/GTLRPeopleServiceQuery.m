@@ -29,6 +29,7 @@ NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile = @"D
 NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified = @"DIRECTORY_SOURCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRPeopleServiceSourcesReadSourceTypeContact = @"READ_SOURCE_TYPE_CONTACT";
 NSString * const kGTLRPeopleServiceSourcesReadSourceTypeDomainContact = @"READ_SOURCE_TYPE_DOMAIN_CONTACT";
+NSString * const kGTLRPeopleServiceSourcesReadSourceTypeOtherContact = @"READ_SOURCE_TYPE_OTHER_CONTACT";
 NSString * const kGTLRPeopleServiceSourcesReadSourceTypeProfile = @"READ_SOURCE_TYPE_PROFILE";
 NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOURCE_TYPE_UNSPECIFIED";
 

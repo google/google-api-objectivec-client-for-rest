@@ -4,8 +4,9 @@
 // API:
 //   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
-//   Creates short-lived credentials for impersonating IAM service accounts. To
-//   enable this API, you must enable the IAM API (iam.googleapis.com).
+//   Creates short-lived credentials for impersonating IAM service accounts.
+//   Disabling this API also disables the IAM API (iam.googleapis.com). However,
+//   enabling this API doesn't enable the IAM API.
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
@@ -46,7 +47,7 @@
 //
 
 @implementation GTLRIAMCredentials_GenerateIdTokenRequest
-@dynamic audience, delegates, includeEmail;
+@dynamic audience, delegates, includeEmail, organizationNumberIncluded;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -65,6 +66,24 @@
 
 @implementation GTLRIAMCredentials_GenerateIdTokenResponse
 @dynamic token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIAMCredentials_ServiceAccountAllowedLocations
+//
+
+@implementation GTLRIAMCredentials_ServiceAccountAllowedLocations
+@dynamic encodedLocations, locations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -121,4 +140,40 @@
 
 @implementation GTLRIAMCredentials_SignJwtResponse
 @dynamic keyId, signedJwt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIAMCredentials_WorkforcePoolAllowedLocations
+//
+
+@implementation GTLRIAMCredentials_WorkforcePoolAllowedLocations
+@dynamic encodedLocations, locations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations
+//
+
+@implementation GTLRIAMCredentials_WorkloadIdentityPoolAllowedLocations
+@dynamic encodedLocations, locations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
 @end

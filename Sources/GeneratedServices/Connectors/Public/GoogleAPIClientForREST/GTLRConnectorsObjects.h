@@ -17,15 +17,30 @@
 
 @class GTLRConnectors_AccessCredentials;
 @class GTLRConnectors_Action;
+@class GTLRConnectors_Action_Metadata;
+@class GTLRConnectors_Action_Metadata_Metadata;
+@class GTLRConnectors_AuthCodeData;
+@class GTLRConnectors_CheckStatusResponse_Metadata;
+@class GTLRConnectors_CheckStatusResponse_Metadata_Metadata;
 @class GTLRConnectors_DailyCycle;
 @class GTLRConnectors_Date;
 @class GTLRConnectors_DenyMaintenancePeriod;
 @class GTLRConnectors_Entity;
 @class GTLRConnectors_Entity_Fields;
+@class GTLRConnectors_Entity_Metadata;
+@class GTLRConnectors_Entity_Metadata_Metadata;
 @class GTLRConnectors_EntityType;
+@class GTLRConnectors_EntityType_Metadata;
+@class GTLRConnectors_EntityType_Metadata_Metadata;
+@class GTLRConnectors_ExchangeAuthCodeResponse_Metadata;
+@class GTLRConnectors_ExchangeAuthCodeResponse_Metadata_Metadata;
 @class GTLRConnectors_ExecuteActionRequest_Parameters;
+@class GTLRConnectors_ExecuteActionResponse_Metadata;
+@class GTLRConnectors_ExecuteActionResponse_Metadata_Metadata;
 @class GTLRConnectors_ExecuteActionResponse_Results_Item;
 @class GTLRConnectors_ExecuteSqlQueryResponse_Results_Item;
+@class GTLRConnectors_ExecuteToolRequest_Parameters;
+@class GTLRConnectors_ExecuteToolResponse_Result;
 @class GTLRConnectors_Field;
 @class GTLRConnectors_Field_AdditionalDetails;
 @class GTLRConnectors_InputParameter;
@@ -39,6 +54,12 @@
 @class GTLRConnectors_JsonSchema;
 @class GTLRConnectors_JsonSchema_AdditionalDetails;
 @class GTLRConnectors_JsonSchema_Properties;
+@class GTLRConnectors_ListActionsResponse_Metadata;
+@class GTLRConnectors_ListActionsResponse_Metadata_Metadata;
+@class GTLRConnectors_ListEntitiesResponse_Metadata;
+@class GTLRConnectors_ListEntitiesResponse_Metadata_Metadata;
+@class GTLRConnectors_ListEntityTypesResponse_Metadata;
+@class GTLRConnectors_ListEntityTypesResponse_Metadata_Metadata;
 @class GTLRConnectors_MaintenancePolicy;
 @class GTLRConnectors_MaintenancePolicy_Labels;
 @class GTLRConnectors_MaintenanceSchedule;
@@ -53,11 +74,16 @@
 @class GTLRConnectors_Query;
 @class GTLRConnectors_QueryParameter;
 @class GTLRConnectors_Reference;
+@class GTLRConnectors_RefreshAccessTokenResponse_Metadata;
+@class GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata;
 @class GTLRConnectors_ResultMetadata;
 @class GTLRConnectors_Schedule;
 @class GTLRConnectors_SloEligibility;
 @class GTLRConnectors_SloMetadata;
 @class GTLRConnectors_TimeOfDay;
+@class GTLRConnectors_Tool;
+@class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata;
+@class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response;
 @class GTLRConnectors_UpdatePolicy;
 @class GTLRConnectors_WeeklyCycle;
@@ -105,6 +131,46 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_CheckStatusResponse_State_Err
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_CheckStatusResponse_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRConnectors_EntityType.operations
+
+/**
+ *  This operation means entity type supports CREATE method.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Create;
+/**
+ *  This operation means entity type supports DELETE method.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Delete;
+/**
+ *  This operation means entity type supports GET method.
+ *
+ *  Value: "GET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Get;
+/**
+ *  This operation means entity type supports LIST method.
+ *
+ *  Value: "LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_List;
+/**
+ *  Operation unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_OperationUnspecified;
+/**
+ *  This operation means entity type supports UPDATE method.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_EntityType_Operations_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRConnectors_Field.dataType
@@ -1684,6 +1750,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 /** List containing input parameter metadata. */
 @property(nonatomic, strong, nullable) NSArray<GTLRConnectors_InputParameter *> *inputParameters;
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_Action_Metadata *metadata;
+
 /** Name of the action. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1692,6 +1761,61 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 /** List containing the metadata of result fields. */
 @property(nonatomic, strong, nullable) NSArray<GTLRConnectors_ResultMetadata *> *resultMetadata;
+
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_Action_Metadata_Metadata. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRConnectors_Action_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_Action_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_Action_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
+ *  AuthCodeData contains the data the runtime plane will give the connector
+ *  backend in exchange for access and refresh tokens.
+ */
+@interface GTLRConnectors_AuthCodeData : GTLRObject
+
+/** OAuth authorization code. */
+@property(nonatomic, copy, nullable) NSString *authCode;
+
+/**
+ *  OAuth PKCE verifier, needed if PKCE is enabled for this particular
+ *  connection.
+ */
+@property(nonatomic, copy, nullable) NSString *pkceVerifier;
+
+/**
+ *  OAuth redirect URI passed in during the auth code flow, required by some
+ *  OAuth backends.
+ */
+@property(nonatomic, copy, nullable) NSString *redirectUri;
+
+/**
+ *  Scopes the connection will request when the user performs the auth code
+ *  flow.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 @end
 
@@ -1719,6 +1843,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_CheckStatusResponse_Metadata *metadata;
+
 /**
  *  State of the connector.
  *
@@ -1741,6 +1868,31 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_CheckStatusResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_CheckStatusResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_CheckStatusResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_CheckStatusResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -1850,6 +2002,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, strong, nullable) GTLRConnectors_Entity_Fields *fields;
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_Entity_Metadata *metadata;
+
 /**
  *  Output only. Resource name of the Entity. Format:
  *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}
@@ -1873,10 +2028,37 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_Entity_Metadata_Metadata. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRConnectors_Entity_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_Entity_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_Entity_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
  *  EntityType message contains metadata information about a single entity type
  *  present in the external system.
  */
 @interface GTLRConnectors_EntityType : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *defaultSortBy;
 
 /**
  *  List containing metadata information about each field of the entity type.
@@ -1886,16 +2068,54 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 /** JsonSchema representation of this entity's schema */
 @property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *jsonSchema;
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_EntityType_Metadata *metadata;
+
 /** The name of the entity type. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *operations;
 
 @end
 
 
 /**
- *  ExchangeAuthCodeRequest currently includes no fields.
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_EntityType_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_EntityType_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_EntityType_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_EntityType_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
+ *  ExchangeAuthCodeRequest currently includes the auth code data.
  */
 @interface GTLRConnectors_ExchangeAuthCodeRequest : GTLRObject
+
+/**
+ *  Optional. AuthCodeData contains the data the runtime requires to exchange
+ *  for access and refresh tokens. If the data is not provided, the runtime will
+ *  read the data from the secret manager.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_AuthCodeData *authCodeData;
+
 @end
 
 
@@ -1907,6 +2127,34 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 @property(nonatomic, strong, nullable) GTLRConnectors_AccessCredentials *accessCredentials;
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExchangeAuthCodeResponse_Metadata *metadata;
+
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_ExchangeAuthCodeResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_ExchangeAuthCodeResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ExchangeAuthCodeResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ExchangeAuthCodeResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -1942,6 +2190,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_ExecuteActionResponse : GTLRObject
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecuteActionResponse_Metadata *metadata;
+
 /**
  *  In the case of successful invocation of the specified action, the results
  *  Struct contains values based on the response of the action invoked. 1. If
@@ -1956,6 +2207,19 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_ExecuteActionResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_ExecuteActionResponse_Metadata : GTLRObject
+@end
+
+
+/**
  *  GTLRConnectors_ExecuteActionResponse_Results_Item
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1964,6 +2228,18 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_ExecuteActionResponse_Results_Item : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ExecuteActionResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ExecuteActionResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -2009,6 +2285,52 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_ExecuteSqlQueryResponse_Results_Item : GTLRObject
+@end
+
+
+/**
+ *  Request message for ConnectorAgentService.ExecuteTool
+ */
+@interface GTLRConnectors_ExecuteToolRequest : GTLRObject
+
+/** Input parameters for the tool. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolRequest_Parameters *parameters;
+
+@end
+
+
+/**
+ *  Input parameters for the tool.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ExecuteToolRequest_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Response message for ConnectorAgentService.ExecuteTool
+ */
+@interface GTLRConnectors_ExecuteToolResponse : GTLRObject
+
+/** Output from the tool execution. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolResponse_Result *result;
+
+@end
+
+
+/**
+ *  Output from the tool execution.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ExecuteToolResponse_Result : GTLRObject
 @end
 
 
@@ -2351,6 +2673,18 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *  (go/slm-rollout-maintenance-policies#prerequisites).
  */
 @property(nonatomic, copy, nullable) NSString *consumerDefinedName;
+
+/**
+ *  Optional. The consumer_project_number associated with this Apigee instance.
+ *  This field is added specifically to support Apigee integration with SLM
+ *  Rollout and UMM. It represents the numerical project ID of the GCP project
+ *  that consumes this Apigee instance. It is used for SLM rollout notifications
+ *  and UMM integration, enabling proper mapping to customer projects and log
+ *  delivery for Apigee instances. This field complements consumer_project_id
+ *  and may be used for specific Apigee scenarios where the numerical ID is
+ *  required.
+ */
+@property(nonatomic, copy, nullable) NSString *consumerProjectNumber;
 
 /** Output only. Timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -2764,6 +3098,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRConnectors_Action *> *actions;
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ListActionsResponse_Metadata *metadata;
+
 /** Next page token if more actions available. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2773,6 +3110,31 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unsupportedActionNames;
 
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_ListActionsResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_ListActionsResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ListActionsResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ListActionsResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -2794,9 +3156,37 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRConnectors_Entity *> *entities;
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ListEntitiesResponse_Metadata *metadata;
+
 /** Next page token if more records are available. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_ListEntitiesResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_ListEntitiesResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ListEntitiesResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ListEntitiesResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -2809,6 +3199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        enabled).
  */
 @interface GTLRConnectors_ListEntityTypesResponse : GTLRCollectionObject
+
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ListEntityTypesResponse_Metadata *metadata;
 
 /** Next page token if more entity types available. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2831,7 +3224,56 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
- *  LINT.IfChange Defines policies to service maintenance events.
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_ListEntityTypesResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_ListEntityTypesResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ListEntityTypesResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ListEntityTypesResponse_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Response message for ConnectorAgentService.ListTools
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tools" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRConnectors_ListToolsResponse : GTLRCollectionObject
+
+/** Next page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of available tools.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_Tool *> *tools;
+
+@end
+
+
+/**
+ *  Defines policies to service maintenance events.
  */
 @interface GTLRConnectors_MaintenancePolicy : GTLRObject
 
@@ -3271,9 +3713,16 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
- *  RefreshAccessTokenRequest currently includes no fields.
+ *  RefreshAccessTokenRequest includes the refresh token.
  */
 @interface GTLRConnectors_RefreshAccessTokenRequest : GTLRObject
+
+/**
+ *  Optional. Refresh Token String. If the Refresh Token is not provided, the
+ *  runtime will read the data from the secret manager.
+ */
+@property(nonatomic, copy, nullable) NSString *refreshToken;
+
 @end
 
 
@@ -3285,6 +3734,34 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 @property(nonatomic, strong, nullable) GTLRConnectors_AccessCredentials *accessCredentials;
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_RefreshAccessTokenResponse_Metadata *metadata;
+
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_RefreshAccessTokenResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -3392,6 +3869,14 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 @property(nonatomic, copy, nullable) NSString *dataType;
 
 /**
+ *  The following field specifies the default value of the Parameter provided by
+ *  the external system if a value is not provided.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id defaultValue;
+
+/**
  *  A brief description of the metadata field.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -3405,6 +3890,13 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 /** Name of the metadata field. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specifies whether a null value is allowed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nullable;
 
 @end
 
@@ -3502,30 +3994,34 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 @interface GTLRConnectors_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hours;
 
 /**
- *  Minutes of hour of day. Must be from 0 to 59.
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minutes;
 
 /**
- *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3535,13 +4031,53 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  Message representing a single tool.
+ */
+@interface GTLRConnectors_Tool : GTLRObject
+
+/**
+ *  Description of the tool.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** JSON schema for the input parameters of the tool. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *inputSchema;
+
+/** Name of the tool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** JSON schema for the output of the tool. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *outputSchema;
+
+@end
+
+
+/**
  *  Response message for EntityService.UpdateEntitiesWithConditions
  */
 @interface GTLRConnectors_UpdateEntitiesWithConditionsResponse : GTLRObject
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata *metadata;
+
 /** Response returned by the external system. */
 @property(nonatomic, strong, nullable) GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response *response;
 
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata : GTLRObject
 @end
 
 
@@ -3554,6 +4090,18 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata : GTLRObject
 @end
 
 

@@ -662,7 +662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Permanently deletes an empty bucket.
+ *  Deletes an empty bucket. Deletions are permanent unless soft delete is
+ *  enabled on the bucket.
  *
  *  Method: storage.buckets.delete
  *
@@ -697,7 +698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Permanently deletes an empty bucket.
+ *  Deletes an empty bucket. Deletions are permanent unless soft delete is
+ *  enabled on the bucket.
  *
  *  @param bucket Name of a bucket.
  *
@@ -725,6 +727,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
+ *  If present, specifies the generation of the bucket. This is required if
+ *  softDeleted is true.
+ */
+@property(nonatomic, assign) long long generation;
+
+/**
  *  Makes the return of the bucket metadata conditional on whether the bucket's
  *  current metageneration matches the given value.
  */
@@ -745,6 +753,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        properties. (Value: "noAcl")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  If true, return the soft-deleted version of this bucket. The default is
+ *  false. For more information, see [Soft
+ *  Delete](https://cloud.google.com/storage/docs/soft-delete).
+ */
+@property(nonatomic, assign) BOOL softDeleted;
 
 /**
  *  The project to be billed for this request. Required for Requester Pays
@@ -800,6 +815,44 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *  @param bucket Name of a bucket.
  *
  *  @return GTLRStorageQuery_BucketsGetIamPolicy
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Returns the storage layout configuration for the specified bucket. Note that
+ *  this operation requires storage.objects.list permission.
+ *
+ *  Method: storage.buckets.getStorageLayout
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadOnly
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_BucketsGetStorageLayout : GTLRStorageQuery
+
+/** Name of a bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  An optional prefix used for permission check. It is useful when the caller
+ *  only has storage.objects.list permission under a specific prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *prefix;
+
+/**
+ *  Fetches a @c GTLRStorage_BucketStorageLayout.
+ *
+ *  Returns the storage layout configuration for the specified bucket. Note that
+ *  this operation requires storage.objects.list permission.
+ *
+ *  @param bucket Name of a bucket.
+ *
+ *  @return GTLRStorageQuery_BucketsGetStorageLayout
  */
 + (instancetype)queryWithBucket:(NSString *)bucket;
 
@@ -941,6 +994,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        properties. (Value: "noAcl")
  */
 @property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  If true, only soft-deleted bucket versions will be returned. The default is
+ *  false. For more information, see [Soft
+ *  Delete](https://cloud.google.com/storage/docs/soft-delete).
+ */
+@property(nonatomic, assign) BOOL softDeleted;
 
 /** The project to be billed for this request. */
 @property(nonatomic, copy, nullable) NSString *userProject;
@@ -1103,6 +1163,86 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_Bucket *)object
                          bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Initiates a long-running Relocate Bucket operation on the specified bucket.
+ *
+ *  Method: storage.buckets.relocate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_BucketsRelocate : GTLRStorageQuery
+
+/** Name of the bucket to be moved. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Initiates a long-running Relocate Bucket operation on the specified bucket.
+ *
+ *  @param object The @c GTLRStorage_RelocateBucketRequest to include in the
+ *    query.
+ *  @param bucket Name of the bucket to be moved.
+ *
+ *  @return GTLRStorageQuery_BucketsRelocate
+ */
++ (instancetype)queryWithObject:(GTLRStorage_RelocateBucketRequest *)object
+                         bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Restores a soft-deleted bucket.
+ *
+ *  Method: storage.buckets.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_BucketsRestore : GTLRStorageQuery
+
+/** Name of a bucket. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Generation of a bucket. */
+@property(nonatomic, assign) long long generation;
+
+/**
+ *  Set of properties to return. Defaults to full.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageProjectionFull Include all properties. (Value: "full")
+ *    @arg @c kGTLRStorageProjectionNoAcl Omit owner, acl and defaultObjectAcl
+ *        properties. (Value: "noAcl")
+ */
+@property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_Bucket.
+ *
+ *  Restores a soft-deleted bucket.
+ *
+ *  @param bucket Name of a bucket.
+ *  @param generation Generation of a bucket.
+ *
+ *  @return GTLRStorageQuery_BucketsRestore
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                     generation:(long long)generation;
 
 @end
 
@@ -1690,7 +1830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  If true, any parent folder which doesn’t exist will be created
+ *  If true, any parent folder which doesn't exist will be created
  *  automatically.
  */
 @property(nonatomic, assign) BOOL recursive;
@@ -1846,6 +1986,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ManagedFoldersDelete : GTLRStorageQuery
+
+/**
+ *  Allows the deletion of a managed folder even if it is not empty. A managed
+ *  folder is empty if there are no objects or managed folders that it applies
+ *  to. Callers must have storage.managedFolders.setIamPolicy permission.
+ */
+@property(nonatomic, assign) BOOL allowNonEmpty;
 
 /** Name of the bucket containing the managed folder. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -3096,8 +3243,18 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  Restore token used to differentiate soft-deleted objects with the same name
+ *  and generation. Only applicable for hierarchical namespace buckets and if
+ *  softDeleted is set to true. This parameter is optional, and is only required
+ *  in the rare case when there are multiple soft-deleted objects with the same
+ *  name and generation.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreToken;
+
+/**
  *  If true, only soft-deleted object versions will be listed. The default is
- *  false. For more information, see Soft Delete.
+ *  false. For more information, see [Soft
+ *  Delete](https://cloud.google.com/storage/docs/soft-delete).
  */
 @property(nonatomic, assign) BOOL softDeleted;
 
@@ -3355,6 +3512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *endOffset;
 
 /**
+ *  Filter the returned objects. Currently only supported for the contexts
+ *  field. If delimiter is set, the returned prefixes are exempt from this
+ *  filter.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Only applicable if delimiter is set to '/'. If true, will also include
  *  folders and managed folders (besides objects) in the returned prefixes.
  */
@@ -3400,7 +3564,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  If true, only soft-deleted object versions will be listed. The default is
- *  false. For more information, see Soft Delete.
+ *  false. For more information, see [Soft
+ *  Delete](https://cloud.google.com/storage/docs/soft-delete).
  */
 @property(nonatomic, assign) BOOL softDeleted;
 
@@ -3419,7 +3584,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  If true, lists all versions of an object as distinct results. The default is
- *  false. For more information, see Object Versioning.
+ *  false. For more information, see [Object
+ *  Versioning](https://cloud.google.com/storage/docs/object-versioning).
  */
 @property(nonatomic, assign) BOOL versions;
 
@@ -3437,6 +3603,140 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        information.
  */
 + (instancetype)queryWithBucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Moves the source object to the destination object in the same bucket.
+ *
+ *  Method: storage.objects.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_ObjectsMove : GTLRStorageQuery
+
+/** Name of the bucket in which the object resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Name of the destination object. For information about how to URL encode
+ *  object names to be path safe, see [Encoding URI Path
+ *  Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ */
+@property(nonatomic, copy, nullable) NSString *destinationObject;
+
+/**
+ *  Makes the operation conditional on whether the destination object's current
+ *  generation matches the given value. Setting to 0 makes the operation succeed
+ *  only if there are no live versions of the object. `ifGenerationMatch` and
+ *  `ifGenerationNotMatch` conditions are mutually exclusive: it's an error for
+ *  both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifGenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the destination object's current
+ *  generation does not match the given value. If no live object exists, the
+ *  precondition fails. Setting to 0 makes the operation succeed only if there
+ *  is a live version of the object.`ifGenerationMatch` and
+ *  `ifGenerationNotMatch` conditions are mutually exclusive: it's an error for
+ *  both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifGenerationNotMatch;
+
+/**
+ *  Makes the operation conditional on whether the destination object's current
+ *  metageneration matches the given value. `ifMetagenerationMatch` and
+ *  `ifMetagenerationNotMatch` conditions are mutually exclusive: it's an error
+ *  for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the destination object's current
+ *  metageneration does not match the given value. `ifMetagenerationMatch` and
+ *  `ifMetagenerationNotMatch` conditions are mutually exclusive: it's an error
+ *  for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  generation matches the given value. `ifSourceGenerationMatch` and
+ *  `ifSourceGenerationNotMatch` conditions are mutually exclusive: it's an
+ *  error for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifSourceGenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  generation does not match the given value. `ifSourceGenerationMatch` and
+ *  `ifSourceGenerationNotMatch` conditions are mutually exclusive: it's an
+ *  error for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifSourceGenerationNotMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  metageneration matches the given value. `ifSourceMetagenerationMatch` and
+ *  `ifSourceMetagenerationNotMatch` conditions are mutually exclusive: it's an
+ *  error for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifSourceMetagenerationMatch;
+
+/**
+ *  Makes the operation conditional on whether the source object's current
+ *  metageneration does not match the given value. `ifSourceMetagenerationMatch`
+ *  and `ifSourceMetagenerationNotMatch` conditions are mutually exclusive: it's
+ *  an error for both of them to be set in the request.
+ */
+@property(nonatomic, assign) long long ifSourceMetagenerationNotMatch;
+
+/**
+ *  Set of properties to return. Defaults to noAcl.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageProjectionFull Include all properties. (Value: "full")
+ *    @arg @c kGTLRStorageProjectionNoAcl Omit the owner, acl property. (Value:
+ *        "noAcl")
+ */
+@property(nonatomic, copy, nullable) NSString *projection;
+
+/**
+ *  Name of the source object. For information about how to URL encode object
+ *  names to be path safe, see [Encoding URI Path
+ *  Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ */
+@property(nonatomic, copy, nullable) NSString *sourceObject;
+
+/**
+ *  The project to be billed for this request. Required for Requester Pays
+ *  buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *userProject;
+
+/**
+ *  Fetches a @c GTLRStorage_Object.
+ *
+ *  Moves the source object to the destination object in the same bucket.
+ *
+ *  @param bucket Name of the bucket in which the object resides.
+ *  @param sourceObject Name of the source object. For information about how to
+ *    URL encode object names to be path safe, see [Encoding URI Path
+ *    Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ *  @param destinationObject Name of the destination object. For information
+ *    about how to URL encode object names to be path safe, see [Encoding URI
+ *    Path
+ *    Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
+ *
+ *  @return GTLRStorageQuery_ObjectsMove
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                   sourceObject:(NSString *)sourceObject
+              destinationObject:(NSString *)destinationObject;
 
 @end
 
@@ -3607,7 +3907,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  Name of the object. For information about how to URL encode object names to
- *  be path safe, see Encoding URI Path Parts.
+ *  be path safe, see [Encoding URI Path
+ *  Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -3622,6 +3923,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  Restore token used to differentiate sof-deleted objects with the same name
+ *  and generation. Only applicable for hierarchical namespace buckets. This
+ *  parameter is optional, and is only required in the rare case when there are
+ *  multiple soft-deleted objects with the same name and generation.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreToken;
+
+/**
  *  The project to be billed for this request. Required for Requester Pays
  *  buckets.
  */
@@ -3632,17 +3941,16 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *
  *  Restores a soft-deleted object.
  *
- *  @param object The @c GTLRStorage_Object to include in the query.
  *  @param bucket Name of the bucket in which the object resides.
- *  @param object_param Name of the object. For information about how to URL
- *    encode object names to be path safe, see Encoding URI Path Parts.
+ *  @param object Name of the object. For information about how to URL encode
+ *    object names to be path safe, see [Encoding URI Path
+ *    Parts](https://cloud.google.com/storage/docs/request-endpoints#encoding).
  *  @param generation Selects a specific revision of this object.
  *
  *  @return GTLRStorageQuery_ObjectsRestore
  */
-+ (instancetype)queryWithObject:(GTLRStorage_Object *)object
-                         bucket:(NSString *)bucket
-                         object:(NSString *)object_param
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         object:(NSString *)object
                      generation:(long long)generation;
 
 @end
@@ -4153,7 +4461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 
 /**
  *  If true, lists all versions of an object as distinct results. The default is
- *  false. For more information, see Object Versioning.
+ *  false. For more information, see [Object
+ *  Versioning](https://cloud.google.com/storage/docs/object-versioning).
  */
 @property(nonatomic, assign) BOOL versions;
 
@@ -4169,6 +4478,51 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  */
 + (instancetype)queryWithObject:(GTLRStorage_Channel *)object
                          bucket:(NSString *)bucket;
+
+@end
+
+/**
+ *  Starts asynchronous advancement of the relocate bucket operation in the case
+ *  of required write downtime, to allow it to lock the bucket at the source
+ *  location, and proceed with the bucket location swap. The server makes a best
+ *  effort to advance the relocate bucket operation, but success is not
+ *  guaranteed.
+ *
+ *  Method: storage.buckets.operations.advanceRelocateBucket
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_OperationsAdvanceRelocateBucket : GTLRStorageQuery
+
+/** Name of the bucket to advance the relocate for. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** ID of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Starts asynchronous advancement of the relocate bucket operation in the case
+ *  of required write downtime, to allow it to lock the bucket at the source
+ *  location, and proceed with the bucket location swap. The server makes a best
+ *  effort to advance the relocate bucket operation, but success is not
+ *  guaranteed.
+ *
+ *  @param object The @c GTLRStorage_AdvanceRelocateBucketOperationRequest to
+ *    include in the query.
+ *  @param bucket Name of the bucket to advance the relocate for.
+ *  @param operationId ID of the operation resource.
+ *
+ *  @return GTLRStorageQuery_OperationsAdvanceRelocateBucket
+ */
++ (instancetype)queryWithObject:(GTLRStorage_AdvanceRelocateBucketOperationRequest *)object
+                         bucket:(NSString *)bucket
+                    operationId:(NSString *)operationId;
 
 @end
 
@@ -4467,8 +4821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Updates the state of an HMAC key. See the HMAC Key resource descriptor for
- *  valid states.
+ *  Updates the state of an HMAC key. See the [HMAC Key resource
+ *  descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body)
+ *  for valid states.
  *
  *  Method: storage.projects.hmacKeys.update
  *
@@ -4490,8 +4845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_HmacKeyMetadata.
  *
- *  Updates the state of an HMAC key. See the HMAC Key resource descriptor for
- *  valid states.
+ *  Updates the state of an HMAC key. See the [HMAC Key resource
+ *  descriptor](https://cloud.google.com/storage/docs/json_api/v1/projects/hmacKeys/update#request-body)
+ *  for valid states.
  *
  *  @param object The @c GTLRStorage_HmacKeyMetadata to include in the query.
  *  @param projectId Project ID owning the service account of the updated key.

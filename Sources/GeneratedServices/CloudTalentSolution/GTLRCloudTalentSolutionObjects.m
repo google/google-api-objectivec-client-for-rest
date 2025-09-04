@@ -282,11 +282,6 @@ NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_T
 NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteJobsExcluded = @"TELECOMMUTE_JOBS_EXCLUDED";
 NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommutePreferenceUnspecified = @"TELECOMMUTE_PREFERENCE_UNSPECIFIED";
 
-// GTLRCloudTalentSolution_NamespacedDebugInput.testingMode
-NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOff = @"TESTING_MODE_ALL_OFF";
-NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeAllOn = @"TESTING_MODE_ALL_ON";
-NSString * const kGTLRCloudTalentSolution_NamespacedDebugInput_TestingMode_TestingModeUnspecified = @"TESTING_MODE_UNSPECIFIED";
-
 // GTLRCloudTalentSolution_ProcessingOptions.htmlSanitization
 NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled = @"HTML_SANITIZATION_DISABLED";
 NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified = @"HTML_SANITIZATION_UNSPECIFIED";
@@ -313,6 +308,13 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_Key
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchDisabled = @"KEYWORD_MATCH_DISABLED";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchModeUnspecified = @"KEYWORD_MATCH_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchTitleOnly = @"KEYWORD_MATCH_TITLE_ONLY";
+
+// GTLRCloudTalentSolution_SearchJobsRequest.relevanceThreshold
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_High = @"HIGH";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Low = @"LOW";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Lowest = @"LOWEST";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_Medium = @"MEDIUM";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_RelevanceThreshold_RelevanceThresholdUnspecified = @"RELEVANCE_THRESHOLD_UNSPECIFIED";
 
 // GTLRCloudTalentSolution_SearchJobsRequest.searchMode
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_FeaturedJobSearch = @"FEATURED_JOB_SEARCH";
@@ -923,94 +925,11 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_MendelDebugInput
-//
-
-@implementation GTLRCloudTalentSolution_MendelDebugInput
-@dynamic namespacedDebugInput;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput
-//
-
-@implementation GTLRCloudTalentSolution_MendelDebugInput_NamespacedDebugInput
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudTalentSolution_NamespacedDebugInput class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudTalentSolution_Money
 //
 
 @implementation GTLRCloudTalentSolution_Money
 @dynamic currencyCode, nanos, units;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_NamespacedDebugInput
-//
-
-@implementation GTLRCloudTalentSolution_NamespacedDebugInput
-@dynamic absolutelyForcedExpNames, absolutelyForcedExps,
-         absolutelyForcedExpTags, conditionallyForcedExpNames,
-         conditionallyForcedExps, conditionallyForcedExpTags,
-         disableAutomaticEnrollmentSelection, disableExpNames, disableExps,
-         disableExpTags, disableManualEnrollmentSelection,
-         disableOrganicSelection, forcedFlags, forcedRollouts, testingMode;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"absolutelyForcedExpNames" : [NSString class],
-    @"absolutelyForcedExps" : [NSNumber class],
-    @"absolutelyForcedExpTags" : [NSString class],
-    @"conditionallyForcedExpNames" : [NSString class],
-    @"conditionallyForcedExps" : [NSNumber class],
-    @"conditionallyForcedExpTags" : [NSString class],
-    @"disableExpNames" : [NSString class],
-    @"disableExps" : [NSNumber class],
-    @"disableExpTags" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags
-//
-
-@implementation GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts
-//
-
-@implementation GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts
-
-+ (Class)classForAdditionalProperties {
-  return [NSNumber class];
-}
-
 @end
 
 
@@ -1111,7 +1030,7 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 @dynamic customRankingInfo, disableKeywordMatch, diversificationLevel,
          enableBroadening, histogramQueries, jobQuery, jobView,
          keywordMatchMode, maxPageSize, offset, orderBy, pageToken,
-         requestMetadata, searchMode;
+         relevanceThreshold, requestMetadata, searchMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

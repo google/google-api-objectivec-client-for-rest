@@ -35,7 +35,7 @@
 //
 
 @implementation GTLRSubscriptionLinking_Reader
-@dynamic createTime, name;
+@dynamic createTime, name, originatingPublicationId, ppid, publicationId;
 @end
 
 

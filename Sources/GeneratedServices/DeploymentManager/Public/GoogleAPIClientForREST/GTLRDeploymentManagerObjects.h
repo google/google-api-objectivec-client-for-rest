@@ -21,21 +21,30 @@
 @class GTLRDeploymentManager_Binding;
 @class GTLRDeploymentManager_BulkInsertOperationStatus;
 @class GTLRDeploymentManager_ConfigFile;
+@class GTLRDeploymentManager_DebugInfo;
 @class GTLRDeploymentManager_Deployment;
 @class GTLRDeploymentManager_DeploymentLabelEntry;
 @class GTLRDeploymentManager_DeploymentUpdate;
 @class GTLRDeploymentManager_DeploymentUpdateLabelEntry;
+@class GTLRDeploymentManager_ErrorInfo;
+@class GTLRDeploymentManager_ErrorInfo_Metadatas;
 @class GTLRDeploymentManager_Expr;
+@class GTLRDeploymentManager_Help;
+@class GTLRDeploymentManager_HelpLink;
 @class GTLRDeploymentManager_ImportFile;
 @class GTLRDeploymentManager_InstancesBulkInsertOperationMetadata;
 @class GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus;
+@class GTLRDeploymentManager_LocalizedMessage;
 @class GTLRDeploymentManager_Manifest;
 @class GTLRDeploymentManager_Operation;
 @class GTLRDeploymentManager_Operation_Error;
 @class GTLRDeploymentManager_Operation_Error_Errors_Item;
+@class GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item;
 @class GTLRDeploymentManager_Operation_Warnings_Item;
 @class GTLRDeploymentManager_Operation_Warnings_Item_Data_Item;
 @class GTLRDeploymentManager_Policy;
+@class GTLRDeploymentManager_QuotaExceededInfo;
+@class GTLRDeploymentManager_QuotaExceededInfo_Dimensions;
 @class GTLRDeploymentManager_Resource;
 @class GTLRDeploymentManager_Resource_Warnings_Item;
 @class GTLRDeploymentManager_Resource_Warnings_Item_Data_Item;
@@ -43,8 +52,10 @@
 @class GTLRDeploymentManager_ResourceUpdate;
 @class GTLRDeploymentManager_ResourceUpdate_Error;
 @class GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item;
+@class GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item;
+@class GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata_PerLocationOperations;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo;
@@ -206,6 +217,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_MissingTypeDependency;
 /**
+ *  Warning that network endpoint was not detached.
+ *
+ *  Value: "NETWORK_ENDPOINT_NOT_DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NetworkEndpointNotDetached;
+/**
  *  The route's nextHopIp address is not assigned to an instance on the network.
  *
  *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
@@ -257,11 +274,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NotCriticalError;
 /**
+ *  Current page contains less results than requested but a next page token
+ *  exists.
+ *
+ *  Value: "PAGE_MISSING_RESULTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_PageMissingResults;
+/**
  *  Success is reported, but some results may be missing due to errors
  *
  *  Value: "PARTIAL_SUCCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_PartialSuccess;
+/**
+ *  Quota information is not available to client requests (e.g: regions.list).
+ *
+ *  Value: "QUOTA_INFO_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_QuotaInfoUnavailable;
+/**
+ *  Resource can't be retrieved due to api quota exceeded.
+ *
+ *  Value: "RATE_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_RateLimitExceeded;
 /**
  *  The user attempted to use a resource that requires a TOS they have not
  *  accepted.
@@ -269,6 +305,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  *  Value: "REQUIRED_TOS_AGREEMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_RequiredTosAgreement;
+/**
+ *  Reserved entries for quickly adding new warnings without breaking dependent
+ *  clients.
+ *
+ *  Value: "RESERVED_ENTRY_135"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry135;
+/** Value: "RESERVED_ENTRY_136" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry136;
+/** Value: "RESERVED_ENTRY_139" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry139;
+/** Value: "RESERVED_ENTRY_141" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry141;
+/** Value: "RESERVED_ENTRY_142" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry142;
 /**
  *  Warning that a resource is in use.
  *
@@ -282,6 +333,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  *  Value: "RESOURCE_NOT_DELETED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotDeleted;
+/**
+ *  Warning that a resource is not found.
+ *
+ *  Value: "RESOURCE_NOT_FOUND_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotFoundWarning;
+/**
+ *  Indicates that a VM is using global DNS. Can also be used to indicate that a
+ *  resource has attributes that could result in the creation of a VM that uses
+ *  global DNS.
+ *
+ *  Value: "RESOURCE_USES_GLOBAL_DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceUsesGlobalDns;
 /**
  *  When a resource schema validation is ignored.
  *
@@ -297,6 +362,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate;
 /**
+ *  Warning that SSL policy resource in the response does not contain
+ *  information about the list of enabled features.
+ *
+ *  Value: "SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched;
+/**
  *  When undeclared properties in the schema are present
  *
  *  Value: "UNDECLARED_PROPERTIES"
@@ -308,6 +380,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_QuotaExceededInfo.rolloutStatus
+
+/**
+ *  IN_PROGRESS - A rollout is in process which will change the limit value to
+ *  future limit.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_QuotaExceededInfo_RolloutStatus_InProgress;
+/**
+ *  ROLLOUT_STATUS_UNSPECIFIED - Rollout status is not specified. The default
+ *  value.
+ *
+ *  Value: "ROLLOUT_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_QuotaExceededInfo_RolloutStatus_RolloutStatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDeploymentManager_Resource_Warnings_Item.code
@@ -390,6 +480,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_MissingTypeDependency;
 /**
+ *  Warning that network endpoint was not detached.
+ *
+ *  Value: "NETWORK_ENDPOINT_NOT_DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NetworkEndpointNotDetached;
+/**
  *  The route's nextHopIp address is not assigned to an instance on the network.
  *
  *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
@@ -441,11 +537,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NotCriticalError;
 /**
+ *  Current page contains less results than requested but a next page token
+ *  exists.
+ *
+ *  Value: "PAGE_MISSING_RESULTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_PageMissingResults;
+/**
  *  Success is reported, but some results may be missing due to errors
  *
  *  Value: "PARTIAL_SUCCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_PartialSuccess;
+/**
+ *  Quota information is not available to client requests (e.g: regions.list).
+ *
+ *  Value: "QUOTA_INFO_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_QuotaInfoUnavailable;
+/**
+ *  Resource can't be retrieved due to api quota exceeded.
+ *
+ *  Value: "RATE_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_RateLimitExceeded;
 /**
  *  The user attempted to use a resource that requires a TOS they have not
  *  accepted.
@@ -453,6 +568,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  *  Value: "REQUIRED_TOS_AGREEMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_RequiredTosAgreement;
+/**
+ *  Reserved entries for quickly adding new warnings without breaking dependent
+ *  clients.
+ *
+ *  Value: "RESERVED_ENTRY_135"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry135;
+/** Value: "RESERVED_ENTRY_136" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry136;
+/** Value: "RESERVED_ENTRY_139" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry139;
+/** Value: "RESERVED_ENTRY_141" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry141;
+/** Value: "RESERVED_ENTRY_142" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry142;
 /**
  *  Warning that a resource is in use.
  *
@@ -467,6 +597,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotDeleted;
 /**
+ *  Warning that a resource is not found.
+ *
+ *  Value: "RESOURCE_NOT_FOUND_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotFoundWarning;
+/**
+ *  Indicates that a VM is using global DNS. Can also be used to indicate that a
+ *  resource has attributes that could result in the creation of a VM that uses
+ *  global DNS.
+ *
+ *  Value: "RESOURCE_USES_GLOBAL_DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceUsesGlobalDns;
+/**
  *  When a resource schema validation is ignored.
  *
  *  Value: "SCHEMA_VALIDATION_IGNORED"
@@ -480,6 +624,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SingleInstancePropertyTemplate;
+/**
+ *  Warning that SSL policy resource in the response does not contain
+ *  information about the list of enabled features.
+ *
+ *  Value: "SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched;
 /**
  *  When undeclared properties in the schema are present
  *
@@ -648,6 +799,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_MissingTypeDependency;
 /**
+ *  Warning that network endpoint was not detached.
+ *
+ *  Value: "NETWORK_ENDPOINT_NOT_DETACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NetworkEndpointNotDetached;
+/**
  *  The route's nextHopIp address is not assigned to an instance on the network.
  *
  *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
@@ -699,11 +856,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NotCriticalError;
 /**
+ *  Current page contains less results than requested but a next page token
+ *  exists.
+ *
+ *  Value: "PAGE_MISSING_RESULTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PageMissingResults;
+/**
  *  Success is reported, but some results may be missing due to errors
  *
  *  Value: "PARTIAL_SUCCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PartialSuccess;
+/**
+ *  Quota information is not available to client requests (e.g: regions.list).
+ *
+ *  Value: "QUOTA_INFO_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_QuotaInfoUnavailable;
+/**
+ *  Resource can't be retrieved due to api quota exceeded.
+ *
+ *  Value: "RATE_LIMIT_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RateLimitExceeded;
 /**
  *  The user attempted to use a resource that requires a TOS they have not
  *  accepted.
@@ -711,6 +887,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  Value: "REQUIRED_TOS_AGREEMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RequiredTosAgreement;
+/**
+ *  Reserved entries for quickly adding new warnings without breaking dependent
+ *  clients.
+ *
+ *  Value: "RESERVED_ENTRY_135"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry135;
+/** Value: "RESERVED_ENTRY_136" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry136;
+/** Value: "RESERVED_ENTRY_139" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry139;
+/** Value: "RESERVED_ENTRY_141" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry141;
+/** Value: "RESERVED_ENTRY_142" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry142;
 /**
  *  Warning that a resource is in use.
  *
@@ -725,6 +916,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotDeleted;
 /**
+ *  Warning that a resource is not found.
+ *
+ *  Value: "RESOURCE_NOT_FOUND_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotFoundWarning;
+/**
+ *  Indicates that a VM is using global DNS. Can also be used to indicate that a
+ *  resource has attributes that could result in the creation of a VM that uses
+ *  global DNS.
+ *
+ *  Value: "RESOURCE_USES_GLOBAL_DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceUsesGlobalDns;
+/**
  *  When a resource schema validation is ignored.
  *
  *  Value: "SCHEMA_VALIDATION_IGNORED"
@@ -738,6 +943,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SingleInstancePropertyTemplate;
+/**
+ *  Warning that SSL policy resource in the response does not contain
+ *  information about the list of enabled features.
+ *
+ *  Value: "SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched;
 /**
  *  When undeclared properties in the schema are present
  *
@@ -1003,6 +1215,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
+ *  Describes additional debugging info.
+ */
+@interface GTLRDeploymentManager_DebugInfo : GTLRObject
+
+/** Additional debugging information provided by the server. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/** The stack trace entries indicating where the error occurred. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stackEntries;
+
+@end
+
+
+/**
  *  GTLRDeploymentManager_Deployment
  */
 @interface GTLRDeploymentManager_Deployment : GTLRObject
@@ -1230,6 +1456,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
+ *  Describes the cause of the error with structured details. Example of an
+ *  error when contacting the "pubsub.googleapis.com" API when it is not
+ *  enabled: { "reason": "API_DISABLED" "domain": "googleapis.com" "metadata": {
+ *  "resource": "projects/123", "service": "pubsub.googleapis.com" } } This
+ *  response indicates that the pubsub.googleapis.com API is not enabled.
+ *  Example of an error that is returned when attempting to create a Spanner
+ *  instance in a region that is out of stock: { "reason": "STOCKOUT" "domain":
+ *  "spanner.googleapis.com", "metadata": { "availableRegions":
+ *  "us-central1,us-east2" } }
+ */
+@interface GTLRDeploymentManager_ErrorInfo : GTLRObject
+
+/**
+ *  The logical grouping to which the "reason" belongs. The error domain is
+ *  typically the registered service name of the tool or product that generates
+ *  the error. Example: "pubsub.googleapis.com". If the error is generated by
+ *  some common infrastructure, the error domain must be a globally unique value
+ *  that identifies the infrastructure. For Google API infrastructure, the error
+ *  domain is "googleapis.com".
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Additional structured details about this error. Keys must match a regular
+ *  expression of `a-z+` but should ideally be lowerCamelCase. Also, they must
+ *  be limited to 64 characters in length. When identifying the current value of
+ *  an exceeded limit, the units should be contained in the key, not the value.
+ *  For example, rather than `{"instanceLimit": "100/request"}`, should be
+ *  returned as, `{"instanceLimitPerRequest": "100"}`, if the client exceeds the
+ *  number of instances that can be created in a single (batch) request.
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ErrorInfo_Metadatas *metadatas;
+
+/**
+ *  The reason of the error. This is a constant value that identifies the
+ *  proximate cause of the error. Error reasons are unique within a particular
+ *  domain of errors. This should be at most 63 characters and match a regular
+ *  expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Additional structured details about this error. Keys must match a regular
+ *  expression of `a-z+` but should ideally be lowerCamelCase. Also, they must
+ *  be limited to 64 characters in length. When identifying the current value of
+ *  an exceeded limit, the units should be contained in the key, not the value.
+ *  For example, rather than `{"instanceLimit": "100/request"}`, should be
+ *  returned as, `{"instanceLimitPerRequest": "100"}`, if the client exceeds the
+ *  number of instances that can be created in a single (batch) request.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDeploymentManager_ErrorInfo_Metadatas : GTLRObject
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -1305,6 +1594,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Policy *policy;
 
+/**
+ *  updateMask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Provides links to documentation or for performing an out of band action. For
+ *  example, if a quota check failed with an error indicating the calling
+ *  project hasn't enabled the accessed service, this can contain a URL pointing
+ *  directly to the right place in the developer console to flip the bit.
+ */
+@interface GTLRDeploymentManager_Help : GTLRObject
+
+/**
+ *  URL(s) pointing to additional information on handling the current error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_HelpLink *> *links;
+
+@end
+
+
+/**
+ *  Describes a URL link.
+ */
+@interface GTLRDeploymentManager_HelpLink : GTLRObject
+
+/**
+ *  Describes what the link offers.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The URL of the link. */
+@property(nonatomic, copy, nullable) NSString *url;
+
 @end
 
 
@@ -1328,6 +1658,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @interface GTLRDeploymentManager_InstancesBulkInsertOperationMetadata : GTLRObject
 
 /**
+ *  [Output Only] The machine type of the VMs that were created used internally
+ *  only by KCP flex bulk insert.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
  *  Status information per location (location name is key). Example key:
  *  zones/us-central1-a
  */
@@ -1347,6 +1683,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        fetch them all at once.
  */
 @interface GTLRDeploymentManager_InstancesBulkInsertOperationMetadata_PerLocationStatus : GTLRObject
+@end
+
+
+/**
+ *  Provides a localized error message that is safe to return to the user which
+ *  can be attached to an RPC error.
+ */
+@interface GTLRDeploymentManager_LocalizedMessage : GTLRObject
+
+/**
+ *  The locale used following the specification defined at
+ *  https://www.rfc-editor.org/rfc/bcp/bcp47.txt. Examples are: "en-US",
+ *  "fr-CH", "es-MX"
+ */
+@property(nonatomic, copy, nullable) NSString *locale;
+
+/** The localized error message in the above locale. */
+@property(nonatomic, copy, nullable) NSString *message;
+
 @end
 
 
@@ -1550,6 +1905,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
+ *  [Output Only] Server-defined URL for this resource with the resource id.
+ */
+@property(nonatomic, copy, nullable) NSString *selfLinkWithId;
+
+/**
+ *  This field is used internally by the Autoscaler team and should not be
+ *  promoted to "alpha/beta/v1".
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata *setAutoscalerLinkOperationMetadata;
+
+/**
  *  [Output Only] If the operation is for projects.setCommonInstanceMetadata,
  *  this field will contain information on all underlying zonal actions and
  *  their state.
@@ -1589,8 +1955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 /**
  *  [Output Only] The URL of the resource that the operation modifies. For
- *  operations related to creating a snapshot, this points to the persistent
- *  disk that the snapshot was created from.
+ *  operations related to creating a snapshot, this points to the disk that the
+ *  snapshot was created from.
  */
 @property(nonatomic, copy, nullable) NSString *targetLink;
 
@@ -1681,6 +2047,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NetworkEndpointNotDetached
+ *        Warning that network endpoint was not detached. (Value:
+ *        "NETWORK_ENDPOINT_NOT_DETACHED")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopAddressNotAssigned
  *        The route's nextHopIp address is not assigned to an instance on the
  *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
@@ -1707,18 +2076,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NotCriticalError
  *        Error which is not critical. We decided to continue the process
  *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_PageMissingResults
+ *        Current page contains less results than requested but a next page
+ *        token exists. (Value: "PAGE_MISSING_RESULTS")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_PartialSuccess
  *        Success is reported, but some results may be missing due to errors
  *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_QuotaInfoUnavailable
+ *        Quota information is not available to client requests (e.g:
+ *        regions.list). (Value: "QUOTA_INFO_UNAVAILABLE")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_RateLimitExceeded
+ *        Resource can't be retrieved due to api quota exceeded. (Value:
+ *        "RATE_LIMIT_EXCEEDED")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_RequiredTosAgreement
  *        The user attempted to use a resource that requires a TOS they have not
  *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry135
+ *        Reserved entries for quickly adding new warnings without breaking
+ *        dependent clients. (Value: "RESERVED_ENTRY_135")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry136
+ *        Value "RESERVED_ENTRY_136"
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry139
+ *        Value "RESERVED_ENTRY_139"
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry141
+ *        Value "RESERVED_ENTRY_141"
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry142
+ *        Value "RESERVED_ENTRY_142"
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
  *        Warning that a resource is in use. (Value:
  *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotDeleted
  *        One or more of the resources set to auto-delete could not be deleted
  *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotFoundWarning
+ *        Warning that a resource is not found. (Value:
+ *        "RESOURCE_NOT_FOUND_WARNING")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceUsesGlobalDns
+ *        Indicates that a VM is using global DNS. Can also be used to indicate
+ *        that a resource has attributes that could result in the creation of a
+ *        VM that uses global DNS. (Value: "RESOURCE_USES_GLOBAL_DNS")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_SchemaValidationIgnored
  *        When a resource schema validation is ignored. (Value:
  *        "SCHEMA_VALIDATION_IGNORED")
@@ -1727,6 +2123,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        its application does not make a lot of sense, because it allows only
  *        single instance in instance group. (Value:
  *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched
+ *        Warning that SSL policy resource in the response does not contain
+ *        information about the list of enabled features. (Value:
+ *        "SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_UndeclaredProperties
  *        When undeclared properties in the schema are present (Value:
  *        "UNDECLARED_PROPERTIES")
@@ -1752,8 +2152,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  */
 @interface GTLRDeploymentManager_Operation_Error_Errors_Item : GTLRObject
 
+/**
+ *  [Output Only] Optional error details WARNING: DO NOT MAKE VISIBLE This is
+ *  for internal use-only (like componentization) (thus the visibility "none")
+ *  and in case of public exposure it is strongly recommended to follow pattern
+ *  of: https://aip.dev/193 and expose as details field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *arguments;
+
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
+
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_DebugInfo *debugInfo;
+
+/**
+ *  [Output Only] An optional list of messages that contain the error details.
+ *  There is a set of defined message types to use for providing details.The
+ *  syntax depends on the error code. For example, QuotaExceededInfo will have
+ *  details when the error code is QUOTA_EXCEEDED.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item *> *errorDetails;
 
 /**
  *  [Output Only] Indicates the field in the request that caused the error. This
@@ -1785,6 +2203,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item
+ */
+@interface GTLRDeploymentManager_Operation_Error_Errors_Item_ErrorDetails_Item : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ErrorInfo *errorInfo;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_Help *help;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_LocalizedMessage *localizedMessage;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_QuotaExceededInfo *quotaInfo;
 
 @end
 
@@ -1906,6 +2337,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
+ *  Additional details for quota exceeded error for resource quota.
+ */
+@interface GTLRDeploymentManager_QuotaExceededInfo : GTLRObject
+
+/** The map holding related quota dimensions. */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_QuotaExceededInfo_Dimensions *dimensions;
+
+/**
+ *  Future quota limit being rolled out. The limit's unit depends on the quota
+ *  type or metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *futureLimit;
+
+/**
+ *  Current effective quota limit. The limit's unit depends on the quota type or
+ *  metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/** The name of the quota limit. */
+@property(nonatomic, copy, nullable) NSString *limitName;
+
+/** The Compute Engine quota metric name. */
+@property(nonatomic, copy, nullable) NSString *metricName;
+
+/**
+ *  Rollout status of the future quota limit.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_QuotaExceededInfo_RolloutStatus_InProgress
+ *        IN_PROGRESS - A rollout is in process which will change the limit
+ *        value to future limit. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDeploymentManager_QuotaExceededInfo_RolloutStatus_RolloutStatusUnspecified
+ *        ROLLOUT_STATUS_UNSPECIFIED - Rollout status is not specified. The
+ *        default value. (Value: "ROLLOUT_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *rolloutStatus;
+
+@end
+
+
+/**
+ *  The map holding related quota dimensions.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDeploymentManager_QuotaExceededInfo_Dimensions : GTLRObject
+@end
+
+
+/**
  *  GTLRDeploymentManager_Resource
  */
 @interface GTLRDeploymentManager_Resource : GTLRObject
@@ -2021,6 +2510,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NetworkEndpointNotDetached
+ *        Warning that network endpoint was not detached. (Value:
+ *        "NETWORK_ENDPOINT_NOT_DETACHED")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopAddressNotAssigned
  *        The route's nextHopIp address is not assigned to an instance on the
  *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
@@ -2047,18 +2539,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NotCriticalError
  *        Error which is not critical. We decided to continue the process
  *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_PageMissingResults
+ *        Current page contains less results than requested but a next page
+ *        token exists. (Value: "PAGE_MISSING_RESULTS")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_PartialSuccess
  *        Success is reported, but some results may be missing due to errors
  *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_QuotaInfoUnavailable
+ *        Quota information is not available to client requests (e.g:
+ *        regions.list). (Value: "QUOTA_INFO_UNAVAILABLE")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_RateLimitExceeded
+ *        Resource can't be retrieved due to api quota exceeded. (Value:
+ *        "RATE_LIMIT_EXCEEDED")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_RequiredTosAgreement
  *        The user attempted to use a resource that requires a TOS they have not
  *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry135
+ *        Reserved entries for quickly adding new warnings without breaking
+ *        dependent clients. (Value: "RESERVED_ENTRY_135")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry136
+ *        Value "RESERVED_ENTRY_136"
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry139
+ *        Value "RESERVED_ENTRY_139"
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry141
+ *        Value "RESERVED_ENTRY_141"
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry142
+ *        Value "RESERVED_ENTRY_142"
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
  *        Warning that a resource is in use. (Value:
  *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotDeleted
  *        One or more of the resources set to auto-delete could not be deleted
  *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotFoundWarning
+ *        Warning that a resource is not found. (Value:
+ *        "RESOURCE_NOT_FOUND_WARNING")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceUsesGlobalDns
+ *        Indicates that a VM is using global DNS. Can also be used to indicate
+ *        that a resource has attributes that could result in the creation of a
+ *        VM that uses global DNS. (Value: "RESOURCE_USES_GLOBAL_DNS")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_SchemaValidationIgnored
  *        When a resource schema validation is ignored. (Value:
  *        "SCHEMA_VALIDATION_IGNORED")
@@ -2067,6 +2586,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        its application does not make a lot of sense, because it allows only
  *        single instance in instance group. (Value:
  *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched
+ *        Warning that SSL policy resource in the response does not contain
+ *        information about the list of enabled features. (Value:
+ *        "SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_UndeclaredProperties
  *        When undeclared properties in the schema are present (Value:
  *        "UNDECLARED_PROPERTIES")
@@ -2289,6 +2812,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_MissingTypeDependency
  *        A resource depends on a missing type (Value:
  *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NetworkEndpointNotDetached
+ *        Warning that network endpoint was not detached. (Value:
+ *        "NETWORK_ENDPOINT_NOT_DETACHED")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopAddressNotAssigned
  *        The route's nextHopIp address is not assigned to an instance on the
  *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
@@ -2315,18 +2841,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NotCriticalError
  *        Error which is not critical. We decided to continue the process
  *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PageMissingResults
+ *        Current page contains less results than requested but a next page
+ *        token exists. (Value: "PAGE_MISSING_RESULTS")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PartialSuccess
  *        Success is reported, but some results may be missing due to errors
  *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_QuotaInfoUnavailable
+ *        Quota information is not available to client requests (e.g:
+ *        regions.list). (Value: "QUOTA_INFO_UNAVAILABLE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RateLimitExceeded
+ *        Resource can't be retrieved due to api quota exceeded. (Value:
+ *        "RATE_LIMIT_EXCEEDED")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RequiredTosAgreement
  *        The user attempted to use a resource that requires a TOS they have not
  *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry135
+ *        Reserved entries for quickly adding new warnings without breaking
+ *        dependent clients. (Value: "RESERVED_ENTRY_135")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry136
+ *        Value "RESERVED_ENTRY_136"
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry139
+ *        Value "RESERVED_ENTRY_139"
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry141
+ *        Value "RESERVED_ENTRY_141"
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry142
+ *        Value "RESERVED_ENTRY_142"
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
  *        Warning that a resource is in use. (Value:
  *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotDeleted
  *        One or more of the resources set to auto-delete could not be deleted
  *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotFoundWarning
+ *        Warning that a resource is not found. (Value:
+ *        "RESOURCE_NOT_FOUND_WARNING")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceUsesGlobalDns
+ *        Indicates that a VM is using global DNS. Can also be used to indicate
+ *        that a resource has attributes that could result in the creation of a
+ *        VM that uses global DNS. (Value: "RESOURCE_USES_GLOBAL_DNS")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SchemaValidationIgnored
  *        When a resource schema validation is ignored. (Value:
  *        "SCHEMA_VALIDATION_IGNORED")
@@ -2335,6 +2888,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        its application does not make a lot of sense, because it allows only
  *        single instance in instance group. (Value:
  *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched
+ *        Warning that SSL policy resource in the response does not contain
+ *        information about the list of enabled features. (Value:
+ *        "SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UndeclaredProperties
  *        When undeclared properties in the schema are present (Value:
  *        "UNDECLARED_PROPERTIES")
@@ -2360,8 +2917,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  */
 @interface GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item : GTLRObject
 
+/**
+ *  [Output Only] Optional error details WARNING: DO NOT MAKE VISIBLE This is
+ *  for internal use-only (like componentization) (thus the visibility "none")
+ *  and in case of public exposure it is strongly recommended to follow pattern
+ *  of: https://aip.dev/193 and expose as details field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *arguments;
+
 /** [Output Only] The error type identifier for this error. */
 @property(nonatomic, copy, nullable) NSString *code;
+
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_DebugInfo *debugInfo;
+
+/**
+ *  [Output Only] An optional list of messages that contain the error details.
+ *  There is a set of defined message types to use for providing details.The
+ *  syntax depends on the error code. For example, QuotaExceededInfo will have
+ *  details when the error code is QUOTA_EXCEEDED.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item *> *errorDetails;
 
 /**
  *  [Output Only] Indicates the field in the request that caused the error. This
@@ -2393,6 +2968,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item
+ */
+@interface GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item_ErrorDetails_Item : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_ErrorInfo *errorInfo;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_Help *help;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_LocalizedMessage *localizedMessage;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_QuotaExceededInfo *quotaInfo;
+
+@end
+
+
+/**
+ *  GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata
+ */
+@interface GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata : GTLRObject
+
+/**
+ *  List of zonal IGM IDs part of the RMIG.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *zonalIgmIds;
 
 @end
 

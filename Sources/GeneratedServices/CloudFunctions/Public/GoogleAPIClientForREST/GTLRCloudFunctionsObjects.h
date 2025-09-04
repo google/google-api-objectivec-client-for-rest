@@ -26,12 +26,6 @@
 @class GTLRCloudFunctions_Expr;
 @class GTLRCloudFunctions_Function;
 @class GTLRCloudFunctions_Function_Labels;
-@class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource;
-@class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage;
-@class GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage;
-@class GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_RequestResource;
-@class GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage;
-@class GTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_RequestResource;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2Stage;
 @class GTLRCloudFunctions_GoogleCloudFunctionsV2StateMessage;
@@ -189,6 +183,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Deploying;
 /**
+ *  Function detach failed and the function is still serving.
+ *
+ *  Value: "DETACH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_DetachFailed;
+/**
+ *  Function is being detached.
+ *
+ *  Value: "DETACHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Function_State_Detaching;
+/**
  *  Function deployment failed and the function is not serving.
  *
  *  Value: "FAILED"
@@ -229,370 +235,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GenerateUploadUrlRequest_
  *  Value: "GEN_2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GenerateUploadUrlRequest_Environment_Gen2;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata.environments
-
-/**
- *  Unspecified
- *
- *  Value: "ENVIRONMENT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_EnvironmentUnspecified;
-/**
- *  Gen 1
- *
- *  Value: "GEN_1"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen1;
-/**
- *  Gen 2
- *
- *  Value: "GEN_2"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata_Environments_Gen2;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata.operationType
-
-/**
- *  AbortFunctionUpgrade
- *
- *  Value: "ABORT_FUNCTION_UPGRADE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_AbortFunctionUpgrade;
-/**
- *  CommitFunctionUpgrade
- *
- *  Value: "COMMIT_FUNCTION_UPGRADE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CommitFunctionUpgrade;
-/**
- *  CreateFunction
- *
- *  Value: "CREATE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CreateFunction;
-/**
- *  DeleteFunction
- *
- *  Value: "DELETE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_DeleteFunction;
-/**
- *  Unspecified
- *
- *  Value: "OPERATIONTYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_OperationtypeUnspecified;
-/**
- *  RedirectFunctionUpgradeTraffic
- *
- *  Value: "REDIRECT_FUNCTION_UPGRADE_TRAFFIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic;
-/**
- *  RollbackFunctionUpgradeTraffic
- *
- *  Value: "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic;
-/**
- *  SetupFunctionUpgradeConfig
- *
- *  Value: "SETUP_FUNCTION_UPGRADE_CONFIG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_SetupFunctionUpgradeConfig;
-/**
- *  UpdateFunction
- *
- *  Value: "UPDATE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_UpdateFunction;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.name
-
-/**
- *  Artifact Regsitry Stage
- *
- *  Value: "ARTIFACT_REGISTRY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ArtifactRegistry;
-/**
- *  Build Stage
- *
- *  Value: "BUILD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Build;
-/**
- *  Not specified. Invalid name.
- *
- *  Value: "NAME_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_NameUnspecified;
-/**
- *  Service Stage
- *
- *  Value: "SERVICE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Service;
-/**
- *  Service Rollback Stage
- *
- *  Value: "SERVICE_ROLLBACK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ServiceRollback;
-/**
- *  Trigger Stage
- *
- *  Value: "TRIGGER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Trigger;
-/**
- *  Trigger Rollback Stage
- *
- *  Value: "TRIGGER_ROLLBACK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_TriggerRollback;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage.state
-
-/**
- *  Stage has completed.
- *
- *  Value: "COMPLETE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_Complete;
-/**
- *  Stage is in progress.
- *
- *  Value: "IN_PROGRESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_InProgress;
-/**
- *  Stage has not started.
- *
- *  Value: "NOT_STARTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_NotStarted;
-/**
- *  Not specified. Invalid state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage.severity
-
-/**
- *  ERROR-level severity.
- *
- *  Value: "ERROR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Error;
-/**
- *  INFO-level severity.
- *
- *  Value: "INFO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Info;
-/**
- *  Not specified. Invalid severity.
- *
- *  Value: "SEVERITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_SeverityUnspecified;
-/**
- *  WARNING-level severity.
- *
- *  Value: "WARNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Warning;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata.environments
-
-/**
- *  Unspecified
- *
- *  Value: "ENVIRONMENT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_EnvironmentUnspecified;
-/**
- *  Gen 1
- *
- *  Value: "GEN_1"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen1;
-/**
- *  Gen 2
- *
- *  Value: "GEN_2"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata_Environments_Gen2;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata.operationType
-
-/**
- *  AbortFunctionUpgrade
- *
- *  Value: "ABORT_FUNCTION_UPGRADE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_AbortFunctionUpgrade;
-/**
- *  CommitFunctionUpgrade
- *
- *  Value: "COMMIT_FUNCTION_UPGRADE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CommitFunctionUpgrade;
-/**
- *  CreateFunction
- *
- *  Value: "CREATE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CreateFunction;
-/**
- *  DeleteFunction
- *
- *  Value: "DELETE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_DeleteFunction;
-/**
- *  Unspecified
- *
- *  Value: "OPERATIONTYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_OperationtypeUnspecified;
-/**
- *  RedirectFunctionUpgradeTraffic
- *
- *  Value: "REDIRECT_FUNCTION_UPGRADE_TRAFFIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic;
-/**
- *  RollbackFunctionUpgradeTraffic
- *
- *  Value: "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic;
-/**
- *  SetupFunctionUpgradeConfig
- *
- *  Value: "SETUP_FUNCTION_UPGRADE_CONFIG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_SetupFunctionUpgradeConfig;
-/**
- *  UpdateFunction
- *
- *  Value: "UPDATE_FUNCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_UpdateFunction;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage.name
-
-/**
- *  Artifact Regsitry Stage
- *
- *  Value: "ARTIFACT_REGISTRY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_ArtifactRegistry;
-/**
- *  Build Stage
- *
- *  Value: "BUILD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_Build;
-/**
- *  Not specified. Invalid name.
- *
- *  Value: "NAME_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_NameUnspecified;
-/**
- *  Service Stage
- *
- *  Value: "SERVICE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_Service;
-/**
- *  Service Rollback Stage
- *
- *  Value: "SERVICE_ROLLBACK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_ServiceRollback;
-/**
- *  Trigger Stage
- *
- *  Value: "TRIGGER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_Trigger;
-/**
- *  Trigger Rollback Stage
- *
- *  Value: "TRIGGER_ROLLBACK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_TriggerRollback;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage.state
-
-/**
- *  Stage has completed.
- *
- *  Value: "COMPLETE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_State_Complete;
-/**
- *  Stage is in progress.
- *
- *  Value: "IN_PROGRESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_State_InProgress;
-/**
- *  Stage has not started.
- *
- *  Value: "NOT_STARTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_State_NotStarted;
-/**
- *  Not specified. Invalid state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage.severity
-
-/**
- *  ERROR-level severity.
- *
- *  Value: "ERROR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_Error;
-/**
- *  INFO-level severity.
- *
- *  Value: "INFO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_Info;
-/**
- *  Not specified. Invalid severity.
- *
- *  Value: "SEVERITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_SeverityUnspecified;
-/**
- *  WARNING-level severity.
- *
- *  Value: "WARNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_GoogleCloudFunctionsV2LocationMetadata.environments
@@ -644,6 +286,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Ope
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction;
 /**
+ *  DetachFunction
+ *
+ *  Value: "DETACH_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DetachFunction;
+/**
  *  Unspecified
  *
  *  Value: "OPERATIONTYPE_UNSPECIFIED"
@@ -678,7 +326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Ope
 // GTLRCloudFunctions_GoogleCloudFunctionsV2Stage.name
 
 /**
- *  Artifact Regsitry Stage
+ *  Artifact Registry Stage
  *
  *  Value: "ARTIFACT_REGISTRY"
  */
@@ -1199,10 +847,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 /**
  *  Docker Registry to use for this deployment. This configuration is only
  *  applicable to 1st Gen functions, 2nd Gen functions can only use Artifact
- *  Registry. If `docker_repository` field is specified, this field will be
- *  automatically set as `ARTIFACT_REGISTRY`. If unspecified, it currently
- *  defaults to `CONTAINER_REGISTRY`. This field may be overridden by the
- *  backend for eligible deployments.
+ *  Registry. Deprecated: as of March 2025, `CONTAINER_REGISTRY` option is no
+ *  longer available in response to Container Registry's deprecation:
+ *  https://cloud.google.com/artifact-registry/docs/transition/transition-from-gcr
+ *  Please use Artifact Registry instead, which is the default choice. If
+ *  unspecified, it defaults to `ARTIFACT_REGISTRY`. If `docker_repository`
+ *  field is specified, this field should either be left unspecified or set to
+ *  `ARTIFACT_REGISTRY`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFunctions_BuildConfig_DockerRegistry_ArtifactRegistry
@@ -1217,7 +868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *    @arg @c kGTLRCloudFunctions_BuildConfig_DockerRegistry_DockerRegistryUnspecified
  *        Unspecified. (Value: "DOCKER_REGISTRY_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *dockerRegistry;
+@property(nonatomic, copy, nullable) NSString *dockerRegistry GTLR_DEPRECATED;
 
 /**
  *  Repository in Artifact Registry to which the function docker image will be
@@ -1226,8 +877,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  will create and use a repository named 'gcf-artifacts' for every deployed
  *  region. It must match the pattern
  *  `projects/{project}/locations/{location}/repositories/{repository}`.
- *  Cross-project repositories are not supported. Cross-location repositories
- *  are not supported. Repository format must be 'DOCKER'.
+ *  Repository format must be 'DOCKER'.
  */
 @property(nonatomic, copy, nullable) NSString *dockerRepository;
 
@@ -1253,7 +903,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  */
 @property(nonatomic, copy, nullable) NSString *runtime;
 
-/** [Preview] Service account to be used for building the container */
+/**
+ *  Service account to be used for building the container. The format of this
+ *  field is `projects/{projectId}/serviceAccounts/{serviceAccountEmail}`.
+ */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /** The location of the function source code. */
@@ -1340,6 +993,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  */
 @property(nonatomic, strong, nullable) NSNumber *year;
 
+@end
+
+
+/**
+ *  Request for the `DetachFunction` method.
+ */
+@interface GTLRCloudFunctions_DetachFunctionRequest : GTLRObject
 @end
 
 
@@ -1542,7 +1202,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_EventTrigger *eventTrigger;
 
 /**
- *  [Preview] Resource name of a KMS crypto key (managed by the user) used to
+ *  Resource name of a KMS crypto key (managed by the user) used to
  *  encrypt/decrypt function resources. It must match the pattern
  *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
  */
@@ -1556,6 +1216,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  and match pattern `projects/ * /locations/ * /functions/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
 
 /**
  *  Output only. Reserved for future use.
@@ -1580,6 +1247,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        deleted. (Value: "DELETING")
  *    @arg @c kGTLRCloudFunctions_Function_State_Deploying Function is being
  *        created or updated. (Value: "DEPLOYING")
+ *    @arg @c kGTLRCloudFunctions_Function_State_DetachFailed Function detach
+ *        failed and the function is still serving. (Value: "DETACH_FAILED")
+ *    @arg @c kGTLRCloudFunctions_Function_State_Detaching Function is being
+ *        detached. (Value: "DETACHING")
  *    @arg @c kGTLRCloudFunctions_Function_State_Failed Function deployment
  *        failed and the function is not serving. (Value: "FAILED")
  *    @arg @c kGTLRCloudFunctions_Function_State_StateUnspecified Not specified.
@@ -1661,7 +1332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 @property(nonatomic, copy, nullable) NSString *environment;
 
 /**
- *  [Preview] Resource name of a KMS crypto key (managed by the user) used to
+ *  Resource name of a KMS crypto key (managed by the user) used to
  *  encrypt/decrypt function source code objects in intermediate Cloud Storage
  *  buckets. When you generate an upload url and upload your source code, it
  *  gets copied to an intermediate Cloud Storage bucket. The source code is then
@@ -1706,372 +1377,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 /**
  *  Extra GCF specific location information.
  */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaLocationMetadata : GTLRObject
-
-/** The Cloud Function environments this location supports. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
-
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata : GTLRObject
-
-/** API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/**
- *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have
- *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
-
-/** The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  The operation type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_AbortFunctionUpgrade
- *        AbortFunctionUpgrade (Value: "ABORT_FUNCTION_UPGRADE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CommitFunctionUpgrade
- *        CommitFunctionUpgrade (Value: "COMMIT_FUNCTION_UPGRADE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_CreateFunction
- *        CreateFunction (Value: "CREATE_FUNCTION")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_DeleteFunction
- *        DeleteFunction (Value: "DELETE_FUNCTION")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_OperationtypeUnspecified
- *        Unspecified (Value: "OPERATIONTYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic
- *        RedirectFunctionUpgradeTraffic (Value:
- *        "REDIRECT_FUNCTION_UPGRADE_TRAFFIC")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic
- *        RollbackFunctionUpgradeTraffic (Value:
- *        "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_SetupFunctionUpgradeConfig
- *        SetupFunctionUpgradeConfig (Value: "SETUP_FUNCTION_UPGRADE_CONFIG")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_OperationType_UpdateFunction
- *        UpdateFunction (Value: "UPDATE_FUNCTION")
- */
-@property(nonatomic, copy, nullable) NSString *operationType;
-
-/** The original request that started the operation. */
-@property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource *requestResource;
-
-/**
- *  An identifier for Firebase function sources. Disclaimer: This field is only
- *  supported for Firebase function deployments.
- */
-@property(nonatomic, copy, nullable) NSString *sourceToken;
-
-/** Mechanism for reporting in-progress stages */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage *> *stages;
-
-/** Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusDetail;
-
-/** Server-defined resource path for the target of the operation. */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
- *  The original request that started the operation.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaOperationMetadata_RequestResource : GTLRObject
-@end
-
-
-/**
- *  Each Stage of the deployment process
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage : GTLRObject
-
-/** Message describing the Stage */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/**
- *  Name of the Stage. This will be unique for each Stage.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ArtifactRegistry
- *        Artifact Regsitry Stage (Value: "ARTIFACT_REGISTRY")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Build
- *        Build Stage (Value: "BUILD")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_NameUnspecified
- *        Not specified. Invalid name. (Value: "NAME_UNSPECIFIED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Service
- *        Service Stage (Value: "SERVICE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_ServiceRollback
- *        Service Rollback Stage (Value: "SERVICE_ROLLBACK")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_Trigger
- *        Trigger Stage (Value: "TRIGGER")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_Name_TriggerRollback
- *        Trigger Rollback Stage (Value: "TRIGGER_ROLLBACK")
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Resource of the Stage */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/** Link to the current Stage resource */
-@property(nonatomic, copy, nullable) NSString *resourceUri;
-
-/**
- *  Current state of the Stage
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_Complete
- *        Stage has completed. (Value: "COMPLETE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_InProgress
- *        Stage is in progress. (Value: "IN_PROGRESS")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_NotStarted
- *        Stage has not started. (Value: "NOT_STARTED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStage_State_StateUnspecified
- *        Not specified. Invalid state. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** State messages from the current Stage. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage *> *stateMessages;
-
-@end
-
-
-/**
- *  Informational messages about the state of the Cloud Function or Operation.
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage : GTLRObject
-
-/** The message. */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/**
- *  Severity of the state message.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Error
- *        ERROR-level severity. (Value: "ERROR")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Info
- *        INFO-level severity. (Value: "INFO")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_SeverityUnspecified
- *        Not specified. Invalid severity. (Value: "SEVERITY_UNSPECIFIED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2alphaStateMessage_Severity_Warning
- *        WARNING-level severity. (Value: "WARNING")
- */
-@property(nonatomic, copy, nullable) NSString *severity;
-
-/** One-word CamelCase type of the state message. */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Extra GCF specific location information.
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2betaLocationMetadata : GTLRObject
-
-/** The Cloud Function environments this location supports. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
-
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata : GTLRObject
-
-/** API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/**
- *  Identifies whether the user has requested cancellation of the operation.
- *  Operations that have successfully been cancelled have
- *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
-
-/** The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  The operation type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_AbortFunctionUpgrade
- *        AbortFunctionUpgrade (Value: "ABORT_FUNCTION_UPGRADE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CommitFunctionUpgrade
- *        CommitFunctionUpgrade (Value: "COMMIT_FUNCTION_UPGRADE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_CreateFunction
- *        CreateFunction (Value: "CREATE_FUNCTION")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_DeleteFunction
- *        DeleteFunction (Value: "DELETE_FUNCTION")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_OperationtypeUnspecified
- *        Unspecified (Value: "OPERATIONTYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RedirectFunctionUpgradeTraffic
- *        RedirectFunctionUpgradeTraffic (Value:
- *        "REDIRECT_FUNCTION_UPGRADE_TRAFFIC")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_RollbackFunctionUpgradeTraffic
- *        RollbackFunctionUpgradeTraffic (Value:
- *        "ROLLBACK_FUNCTION_UPGRADE_TRAFFIC")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_SetupFunctionUpgradeConfig
- *        SetupFunctionUpgradeConfig (Value: "SETUP_FUNCTION_UPGRADE_CONFIG")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_OperationType_UpdateFunction
- *        UpdateFunction (Value: "UPDATE_FUNCTION")
- */
-@property(nonatomic, copy, nullable) NSString *operationType;
-
-/** The original request that started the operation. */
-@property(nonatomic, strong, nullable) GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_RequestResource *requestResource;
-
-/**
- *  An identifier for Firebase function sources. Disclaimer: This field is only
- *  supported for Firebase function deployments.
- */
-@property(nonatomic, copy, nullable) NSString *sourceToken;
-
-/** Mechanism for reporting in-progress stages */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage *> *stages;
-
-/** Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusDetail;
-
-/** Server-defined resource path for the target of the operation. */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
- *  The original request that started the operation.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2betaOperationMetadata_RequestResource : GTLRObject
-@end
-
-
-/**
- *  Each Stage of the deployment process
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2betaStage : GTLRObject
-
-/** Message describing the Stage */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/**
- *  Name of the Stage. This will be unique for each Stage.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_ArtifactRegistry
- *        Artifact Regsitry Stage (Value: "ARTIFACT_REGISTRY")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_Build
- *        Build Stage (Value: "BUILD")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_NameUnspecified
- *        Not specified. Invalid name. (Value: "NAME_UNSPECIFIED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_Service
- *        Service Stage (Value: "SERVICE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_ServiceRollback
- *        Service Rollback Stage (Value: "SERVICE_ROLLBACK")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_Trigger
- *        Trigger Stage (Value: "TRIGGER")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_Name_TriggerRollback
- *        Trigger Rollback Stage (Value: "TRIGGER_ROLLBACK")
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Resource of the Stage */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/** Link to the current Stage resource */
-@property(nonatomic, copy, nullable) NSString *resourceUri;
-
-/**
- *  Current state of the Stage
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_State_Complete
- *        Stage has completed. (Value: "COMPLETE")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_State_InProgress
- *        Stage is in progress. (Value: "IN_PROGRESS")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_State_NotStarted
- *        Stage has not started. (Value: "NOT_STARTED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStage_State_StateUnspecified
- *        Not specified. Invalid state. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** State messages from the current Stage. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage *> *stateMessages;
-
-@end
-
-
-/**
- *  Informational messages about the state of the Cloud Function or Operation.
- */
-@interface GTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage : GTLRObject
-
-/** The message. */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/**
- *  Severity of the state message.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_Error
- *        ERROR-level severity. (Value: "ERROR")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_Info
- *        INFO-level severity. (Value: "INFO")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_SeverityUnspecified
- *        Not specified. Invalid severity. (Value: "SEVERITY_UNSPECIFIED")
- *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2betaStateMessage_Severity_Warning
- *        WARNING-level severity. (Value: "WARNING")
- */
-@property(nonatomic, copy, nullable) NSString *severity;
-
-/** One-word CamelCase type of the state message. */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Extra GCF specific location information.
- */
 @interface GTLRCloudFunctions_GoogleCloudFunctionsV2LocationMetadata : GTLRObject
 
 /** The Cloud Function environments this location supports. */
@@ -2088,6 +1393,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 /** API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
+/** The build name of the function for create and update operations. */
+@property(nonatomic, copy, nullable) NSString *buildName;
+
 /**
  *  Identifies whether the user has requested cancellation of the operation.
  *  Operations that have successfully been cancelled have
@@ -2100,6 +1408,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 
 /** The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Whether a custom IAM role binding was detected during the
+ *  upgrade.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customIamRoleDetected;
 
 /** The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
@@ -2116,6 +1432,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        CreateFunction (Value: "CREATE_FUNCTION")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction
  *        DeleteFunction (Value: "DELETE_FUNCTION")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DetachFunction
+ *        DetachFunction (Value: "DETACH_FUNCTION")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_OperationtypeUnspecified
  *        Unspecified (Value: "OPERATIONTYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_RedirectFunctionUpgradeTraffic
@@ -2180,7 +1498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_ArtifactRegistry
- *        Artifact Regsitry Stage (Value: "ARTIFACT_REGISTRY")
+ *        Artifact Registry Stage (Value: "ARTIFACT_REGISTRY")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_Build Build
  *        Stage (Value: "BUILD")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2Stage_Name_NameUnspecified
@@ -2901,6 +2219,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 @property(nonatomic, copy, nullable) NSString *availableMemory;
 
 /**
+ *  Optional. The binary authorization policy to be checked when deploying the
+ *  Cloud Run service.
+ */
+@property(nonatomic, copy, nullable) NSString *binaryAuthorizationPolicy;
+
+/**
  *  Environment variables that shall be available during function execution.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_ServiceConfig_EnvironmentVariables *environmentVariables;
@@ -3077,6 +2401,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  Request for the `SetupFunctionUpgradeConfig` method.
  */
 @interface GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest : GTLRObject
+
+/**
+ *  Optional. The trigger's service account. The service account must have
+ *  permission to invoke Cloud Run services, the permission is
+ *  `run.routes.invoke`. If empty, defaults to the Compute Engine default
+ *  service account: `{project_number}-compute\@developer.gserviceaccount.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *triggerServiceAccount;
+
 @end
 
 
@@ -3199,6 +2532,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
+/**
+ *  When the specified storage bucket is a 1st gen function uploard url bucket,
+ *  this field should be set as the generated upload url for 1st gen deployment.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceUploadUrl;
+
 @end
 
 
@@ -3232,7 +2571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 
 /**
  *  Information related to: * A function's eligibility for 1st Gen to 2nd Gen
- *  migration * Current state of migration for function undergoing migration.
+ *  migration. * Current state of migration for function undergoing migration.
  */
 @interface GTLRCloudFunctions_UpgradeInfo : GTLRObject
 

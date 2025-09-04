@@ -121,6 +121,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Accepts a proposal to update a Network Connectivity Center spoke in a hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.acceptSpokeUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsAcceptSpokeUpdate : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the hub to accept spoke update. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Accepts a proposal to update a Network Connectivity Center spoke in a hub.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_AcceptSpokeUpdateRequest to
+ *    include in the query.
+ *  @param name Required. The name of the hub to accept spoke update.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsAcceptSpokeUpdate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AcceptSpokeUpdateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Network Connectivity Center hub in the specified project.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.create
@@ -400,6 +429,66 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Updates the parameters of a Network Connectivity Center group.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.groups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsPatch : GTLRNetworkconnectivityQuery
+
+/**
+ *  Immutable. The name of the group. Group names must be unique. They use the
+ *  following form:
+ *  `projects/{project_number}/locations/global/hubs/{hub}/groups/{group_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server knows to ignore the request
+ *  if it has already been completed. The server guarantees that a request
+ *  doesn't result in creation of duplicate commitments for at least 60 minutes.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check to see whether the original operation was received. If
+ *  it was, the server ignores the second request. This behavior prevents
+ *  clients from mistakenly creating duplicate commitments. The request ID must
+ *  be a valid UUID, with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. In the case of an update to an existing group, field mask is used
+ *  to specify the fields to be overwritten. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not provide a mask, then
+ *  all fields are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a Network Connectivity Center group.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_Group to include in the query.
+ *  @param name Immutable. The name of the group. Group names must be unique.
+ *    They use the following form:
+ *    `projects/{project_number}/locations/global/hubs/{hub}/groups/{group_id}`
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Group *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
@@ -658,6 +747,79 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Query the Private Service Connect propagation status of a Network
+ *  Connectivity Center hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.queryStatus
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsQueryStatus : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. An expression that filters the list of results. The filter can be
+ *  used to filter the results by the following fields: *
+ *  `psc_propagation_status.source_spoke` *
+ *  `psc_propagation_status.source_group` *
+ *  `psc_propagation_status.source_forwarding_rule` *
+ *  `psc_propagation_status.target_spoke` *
+ *  `psc_propagation_status.target_group` * `psc_propagation_status.code` *
+ *  `psc_propagation_status.message`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Aggregate the results by the specified fields. A comma-separated
+ *  list of any of these fields: * `psc_propagation_status.source_spoke` *
+ *  `psc_propagation_status.source_group` *
+ *  `psc_propagation_status.source_forwarding_rule` *
+ *  `psc_propagation_status.target_spoke` *
+ *  `psc_propagation_status.target_group` * `psc_propagation_status.code`
+ */
+@property(nonatomic, copy, nullable) NSString *groupBy;
+
+/** Required. The name of the hub. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Sort the results in ascending order by the specified fields. A
+ *  comma-separated list of any of these fields: *
+ *  `psc_propagation_status.source_spoke` *
+ *  `psc_propagation_status.source_group` *
+ *  `psc_propagation_status.source_forwarding_rule` *
+ *  `psc_propagation_status.target_spoke` *
+ *  `psc_propagation_status.target_group` * `psc_propagation_status.code` If
+ *  `group_by` is set, the value of the `order_by` field must be the same as or
+ *  a subset of the `group_by` field.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The maximum number of results to return per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_QueryHubStatusResponse.
+ *
+ *  Query the Private Service Connect propagation status of a Network
+ *  Connectivity Center hub.
+ *
+ *  @param name Required. The name of the hub.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsQueryStatus
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Rejects a Network Connectivity Center spoke from being attached to a hub. If
  *  the spoke was previously in the `ACTIVE` state, it transitions to the
  *  `INACTIVE` state and is no longer able to connect to other spokes that are
@@ -688,6 +850,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpoke
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectHubSpokeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rejects a proposal to update a Network Connectivity Center spoke in a hub.
+ *
+ *  Method: networkconnectivity.projects.locations.global.hubs.rejectSpokeUpdate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpokeUpdate : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the hub to reject spoke update. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Rejects a proposal to update a Network Connectivity Center spoke in a hub.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_RejectSpokeUpdateRequest to
+ *    include in the query.
+ *  @param name Required. The name of the hub to reject spoke update.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsRejectSpokeUpdate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RejectSpokeUpdateRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -925,19 +1116,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /** Required. The parent resource's name of the PolicyBasedRoute. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. Unique id for the policy-based route to create. */
+/**
+ *  Required. Unique id for the policy-based route to create. Provided by the
+ *  client when the resource is created. The name must comply with
+ *  https://google.aip.dev/122#resource-id-segments. Specifically, the name must
+ *  be 1-63 characters long and match the regular expression
+ *  [a-z]([a-z0-9-]*[a-z0-9])?. The first character must be a lowercase letter,
+ *  and all following characters (except for the last character) must be a dash,
+ *  lowercase letter, or digit. The last character must be a lowercase letter or
+ *  digit.
+ */
 @property(nonatomic, copy, nullable) NSString *policyBasedRouteId;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, ignores
+ *  the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
@@ -974,14 +1174,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes after the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, ignores
+ *  the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
  *  exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
@@ -1320,6 +1520,55 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networkconnectivity.projects.locations.internalRanges.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesGetIamPolicy : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists internal ranges in a given project and location.
  *
  *  Method: networkconnectivity.projects.locations.internalRanges.list
@@ -1372,7 +1621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesPatch : GTLRNetworkconnectivityQuery
 
 /**
- *  Immutable. The name of an internal range. Format:
+ *  Identifier. The name of an internal range. Format:
  *  projects/{project}/locations/{location}/internalRanges/{internal_range} See:
  *  https://google.aip.dev/122#fields-representing-resource-names
  */
@@ -1411,7 +1660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  @param object The @c GTLRNetworkconnectivity_InternalRange to include in the
  *    query.
- *  @param name Immutable. The name of an internal range. Format:
+ *  @param name Identifier. The name of an internal range. Format:
  *    projects/{project}/locations/{location}/internalRanges/{internal_range}
  *    See: https://google.aip.dev/122#fields-representing-resource-names
  *
@@ -1419,6 +1668,90 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_InternalRange *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networkconnectivity.projects.locations.internalRanges.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesSetIamPolicy : GTLRNetworkconnectivityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networkconnectivity.projects.locations.internalRanges.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesTestIamPermissions : GTLRNetworkconnectivityQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -1431,6 +1764,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsList : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -1472,6 +1811,549 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Creates a MulticloudDataTransferConfig in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsCreate : GTLRNetworkconnectivityQuery
+
+/**
+ *  Required. The ID to use for the MulticloudDataTransferConfig, which will
+ *  become the final component of the MulticloudDataTransferConfig's resource
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *multicloudDataTransferConfigId;
+
+/** Required. The parent resource's name */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate MulticloudDataTransferConfigs. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a MulticloudDataTransferConfig in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_MulticloudDataTransferConfig to
+ *    include in the query.
+ *  @param parent Required. The parent resource's name
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_MulticloudDataTransferConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single MulticloudDataTransferConfig.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDelete : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the MulticloudDataTransferConfig resource to delete.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate MulticloudDataTransferConfigs. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single MulticloudDataTransferConfig.
+ *
+ *  @param name Required. The name of the MulticloudDataTransferConfig resource
+ *    to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Destination in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.destinations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsCreate : GTLRNetworkconnectivityQuery
+
+/**
+ *  Required. The ID to use for the Destination, which will become the final
+ *  component of the Destination's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationId;
+
+/** Required. The parent resource's name */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate Destinations. The request ID must be a valid UUID with
+ *  the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a Destination in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_Destination to include in the
+ *    query.
+ *  @param parent Required. The parent resource's name
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Destination *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Destination.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.destinations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsDelete : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the Destination resource to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. The request ID must be a valid UUID with
+ *  the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single Destination.
+ *
+ *  @param name Required. The name of the Destination resource to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Destination.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.destinations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the Destination to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_Destination.
+ *
+ *  Gets details of a single Destination.
+ *
+ *  @param name Required. Name of the Destination to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Destinations in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.destinations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsList : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. A filter expression that filters the results listed in the
+ *  response.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results per page that should be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListDestinationsResponse.
+ *
+ *  Lists Destinations in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Destination in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.destinations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsPatch : GTLRNetworkconnectivityQuery
+
+/**
+ *  Identifier. The name of the Destination resource. Format:
+ *  `projects/{project}/locations/{location}/multicloudDataTransferConfigs/{multicloud_data_transfer_config}/destinations/{destination}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. The request ID must be a valid UUID with
+ *  the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Destination resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Updates a Destination in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_Destination to include in the
+ *    query.
+ *  @param name Identifier. The name of the Destination resource. Format:
+ *    `projects/{project}/locations/{location}/multicloudDataTransferConfigs/{multicloud_data_transfer_config}/destinations/{destination}`.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsDestinationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Destination *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single MulticloudDataTransferConfig.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the MulticloudDataTransferConfig to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_MulticloudDataTransferConfig.
+ *
+ *  Gets details of a single MulticloudDataTransferConfig.
+ *
+ *  @param name Required. Name of the MulticloudDataTransferConfig to get.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists MulticloudDataTransferConfigs in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsList : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. A filter expression that filters the results listed in the
+ *  response.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results per page that should be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, allow partial responses for multi-regional Aggregated
+ *  List requests.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c
+ *  GTLRNetworkconnectivity_ListMulticloudDataTransferConfigsResponse.
+ *
+ *  Lists MulticloudDataTransferConfigs in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a MulticloudDataTransferConfig in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsPatch : GTLRNetworkconnectivityQuery
+
+/**
+ *  Identifier. The name of the MulticloudDataTransferConfig resource. Format:
+ *  `projects/{project}/locations/{location}/multicloudDataTransferConfigs/{multicloud_data_transfer_config}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate MulticloudDataTransferConfigs. The request ID must be a
+ *  valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  MulticloudDataTransferConfig resource by the update. The fields specified in
+ *  the update_mask are relative to the resource, not the full request. A field
+ *  will be overwritten if it is in the mask. If the user does not provide a
+ *  mask then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Updates a MulticloudDataTransferConfig in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_MulticloudDataTransferConfig to
+ *    include in the query.
+ *  @param name Identifier. The name of the MulticloudDataTransferConfig
+ *    resource. Format:
+ *    `projects/{project}/locations/{location}/multicloudDataTransferConfigs/{multicloud_data_transfer_config}`.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_MulticloudDataTransferConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single MulticloudDataTransferSupportedServices.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferSupportedServices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferSupportedServicesGet : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the service. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_MulticloudDataTransferSupportedService.
+ *
+ *  Gets details of a single MulticloudDataTransferSupportedServices.
+ *
+ *  @param name Required. The name of the service.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferSupportedServicesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the supported services for Multicloud Data Transfer. This is a
+ *  passthrough method.
+ *
+ *  Method: networkconnectivity.projects.locations.multicloudDataTransferSupportedServices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferSupportedServicesList : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. The maximum number of results per page that should be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRNetworkconnectivity_ListMulticloudDataTransferSupportedServicesResponse.
+ *
+ *  Lists the supported services for Multicloud Data Transfer. This is a
+ *  passthrough method.
+ *
+ *  @param parent Required. The parent resource's name
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsMulticloudDataTransferSupportedServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -1479,7 +2361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: networkconnectivity.projects.locations.operations.cancel
@@ -1502,7 +2384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c
@@ -1618,6 +2500,172 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new RegionalEndpoint in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.regionalEndpoints.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsCreate : GTLRNetworkconnectivityQuery
+
+/** Required. The parent resource's name of the RegionalEndpoint. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Unique id of the Regional Endpoint to be created. \@pattern:
+ *  ^[-a-z0-9](?:[-a-z0-9]{0,44})[a-z0-9]$
+ */
+@property(nonatomic, copy, nullable) NSString *regionalEndpointId;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new RegionalEndpoint in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_RegionalEndpoint to include in
+ *    the query.
+ *  @param parent Required. The parent resource's name of the RegionalEndpoint.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_RegionalEndpoint *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single RegionalEndpoint.
+ *
+ *  Method: networkconnectivity.projects.locations.regionalEndpoints.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsDelete : GTLRNetworkconnectivityQuery
+
+/** Required. The name of the RegionalEndpoint to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server knows to
+ *  ignore the request if it has already been completed. The server guarantees
+ *  that for at least 60 minutes since the first request. For example, consider
+ *  a situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  the original operation with the same request ID was received, and if so,
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single RegionalEndpoint.
+ *
+ *  @param name Required. The name of the RegionalEndpoint to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single RegionalEndpoint.
+ *
+ *  Method: networkconnectivity.projects.locations.regionalEndpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsGet : GTLRNetworkconnectivityQuery
+
+/**
+ *  Required. Name of the RegionalEndpoint resource to get. Format:
+ *  `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_RegionalEndpoint.
+ *
+ *  Gets details of a single RegionalEndpoint.
+ *
+ *  @param name Required. Name of the RegionalEndpoint resource to get. Format:
+ *    `projects/{project}/locations/{location}/regionalEndpoints/{regional_endpoint}`
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RegionalEndpoints in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.regionalEndpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsList : GTLRNetworkconnectivityQuery
+
+/** A filter expression that filters the results listed in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Server may return fewer items than requested. If
+ *  unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource's name of the RegionalEndpoint. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListRegionalEndpointsResponse.
+ *
+ *  Lists RegionalEndpoints in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name of the RegionalEndpoint.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRegionalEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

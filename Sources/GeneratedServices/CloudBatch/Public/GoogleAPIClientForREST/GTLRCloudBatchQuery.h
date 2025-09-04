@@ -4,7 +4,7 @@
 // API:
 //   Batch API (batch/v1)
 // Description:
-//   An API to manage the running of batch resources on Google Cloud Platform.
+//   An API to manage the running of Batch resources on Google Cloud Platform.
 // Documentation:
 //   https://cloud.google.com/batch/
 
@@ -56,6 +56,35 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudBatchQuery_ProjectsLocationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Cancel a Job.
+ *
+ *  Method: batch.projects.locations.jobs.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBatchCloudPlatform
+ */
+@interface GTLRCloudBatchQuery_ProjectsLocationsJobsCancel : GTLRCloudBatchQuery
+
+/** Required. Job name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBatch_Operation.
+ *
+ *  Cancel a Job.
+ *
+ *  @param object The @c GTLRCloudBatch_CancelJobRequest to include in the
+ *    query.
+ *  @param name Required. Job name.
+ *
+ *  @return GTLRCloudBatchQuery_ProjectsLocationsJobsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudBatch_CancelJobRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -316,6 +345,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudBatchQuery_ProjectsLocationsList : GTLRCloudBatchQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -362,7 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: batch.projects.locations.operations.cancel
@@ -385,7 +420,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudBatch_CancelOperationRequest to include in the

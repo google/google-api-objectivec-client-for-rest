@@ -134,7 +134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_SoftTrashed;
 @interface GTLRBlogger_Blog : GTLRObject
 
 /** The JSON custom meta-data for the Blog. */
-@property(nonatomic, copy, nullable) NSString *customMetaData;
+@property(nonatomic, copy, nullable) NSString *customMetaData GTLR_DEPRECATED;
 
 /**
  *  The description of this blog. This is displayed underneath the title.
@@ -702,7 +702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_SoftTrashed;
 @property(nonatomic, copy, nullable) NSString *content;
 
 /** The JSON meta-data for the Post. */
-@property(nonatomic, copy, nullable) NSString *customMetaData;
+@property(nonatomic, copy, nullable) NSString *customMetaData GTLR_DEPRECATED;
 
 /** Etag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;

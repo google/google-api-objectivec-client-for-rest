@@ -17,83 +17,6 @@
 
 @end
 
-@implementation GTLRDataformQuery_ProjectsLocationsCollectionsGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
-  GTLRDataformQuery_ProjectsLocationsCollectionsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataform_Policy class];
-  query.loggingName = @"dataform.projects.locations.collections.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataformQuery_ProjectsLocationsCollectionsSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataform_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
-  GTLRDataformQuery_ProjectsLocationsCollectionsSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataform_Policy class];
-  query.loggingName = @"dataform.projects.locations.collections.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRDataformQuery_ProjectsLocationsCollectionsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRDataform_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
-  GTLRDataformQuery_ProjectsLocationsCollectionsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRDataform_TestIamPermissionsResponse class];
-  query.loggingName = @"dataform.projects.locations.collections.testIamPermissions";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataformQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -113,9 +36,35 @@
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsGetConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsGetConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Config class];
+  query.loggingName = @"dataform.projects.locations.getConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -152,7 +101,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_CommitRepositoryChangesResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.commit";
   return query;
 }
@@ -207,7 +156,7 @@
 
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -768,7 +717,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_CancelWorkflowInvocationResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workflowInvocations.cancel";
   return query;
 }
@@ -898,7 +847,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_CommitWorkspaceChangesResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.commit";
   return query;
 }
@@ -1197,7 +1146,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_PullGitCommitsResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.pull";
   return query;
 }
@@ -1224,7 +1173,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_PushGitCommitsResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.push";
   return query;
 }
@@ -1289,7 +1238,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.workspace = workspace;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_RemoveDirectoryResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.removeDirectory";
   return query;
 }
@@ -1316,7 +1265,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.workspace = workspace;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_RemoveFileResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.removeFile";
   return query;
 }
@@ -1343,7 +1292,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.expectedObjectClass = [GTLRDataform_ResetWorkspaceChangesResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.reset";
   return query;
 }
@@ -1445,6 +1394,33 @@
   query.workspace = workspace;
   query.expectedObjectClass = [GTLRDataform_WriteFileResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.writeFile";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsUpdateConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDataform_Config *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Config class];
+  query.loggingName = @"dataform.projects.locations.updateConfig";
   return query;
 }
 

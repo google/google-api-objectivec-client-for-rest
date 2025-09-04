@@ -12,8 +12,9 @@
 #import <GoogleAPIClientForREST/GTLRDataform.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeDataformBigquery      = @"https://www.googleapis.com/auth/bigquery";
 NSString * const kGTLRAuthScopeDataformCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

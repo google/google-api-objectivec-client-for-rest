@@ -7,7 +7,7 @@
 //   Builds and manages container-based applications, powered by the open source
 //   Kubernetes technology.
 // Documentation:
-//   https://cloud.google.com/container-engine/
+//   https://cloud.google.com/kubernetes-engine/docs/
 
 #import <GoogleAPIClientForREST/GTLRContainerQuery.h>
 
@@ -130,6 +130,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRContainer_Operation class];
   query.loggingName = @"container.projects.locations.clusters.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerQuery_ProjectsLocationsClustersFetchClusterUpgradeInfo
+
+@dynamic name, version;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchClusterUpgradeInfo";
+  GTLRContainerQuery_ProjectsLocationsClustersFetchClusterUpgradeInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainer_ClusterUpgradeInfo class];
+  query.loggingName = @"container.projects.locations.clusters.fetchClusterUpgradeInfo";
   return query;
 }
 
@@ -272,6 +291,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRContainer_Operation class];
   query.loggingName = @"container.projects.locations.clusters.nodePools.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerQuery_ProjectsLocationsClustersNodePoolsFetchNodePoolUpgradeInfo
+
+@dynamic name, version;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchNodePoolUpgradeInfo";
+  GTLRContainerQuery_ProjectsLocationsClustersNodePoolsFetchNodePoolUpgradeInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainer_NodePoolUpgradeInfo class];
+  query.loggingName = @"container.projects.locations.clusters.nodePools.fetchNodePoolUpgradeInfo";
   return query;
 }
 
@@ -1035,6 +1073,25 @@
 
 @end
 
+@implementation GTLRContainerQuery_ProjectsZonesClustersFetchClusterUpgradeInfo
+
+@dynamic name, version;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchClusterUpgradeInfo";
+  GTLRContainerQuery_ProjectsZonesClustersFetchClusterUpgradeInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainer_ClusterUpgradeInfo class];
+  query.loggingName = @"container.projects.zones.clusters.fetchClusterUpgradeInfo";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerQuery_ProjectsZonesClustersGet
 
 @dynamic clusterId, name, projectId, zoneProperty;
@@ -1378,6 +1435,25 @@
   query.nodePoolId = nodePoolId;
   query.expectedObjectClass = [GTLRContainer_Operation class];
   query.loggingName = @"container.projects.zones.clusters.nodePools.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerQuery_ProjectsZonesClustersNodePoolsFetchNodePoolUpgradeInfo
+
+@dynamic name, version;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchNodePoolUpgradeInfo";
+  GTLRContainerQuery_ProjectsZonesClustersNodePoolsFetchNodePoolUpgradeInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainer_NodePoolUpgradeInfo class];
+  query.loggingName = @"container.projects.zones.clusters.nodePools.fetchNodePoolUpgradeInfo";
   return query;
 }
 

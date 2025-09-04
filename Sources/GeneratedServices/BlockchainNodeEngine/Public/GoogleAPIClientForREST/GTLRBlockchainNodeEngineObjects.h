@@ -101,6 +101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_Stat
  */
 FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_StateUnspecified;
 /**
+ *  The node is syncing, which is the process by which it obtains the latest
+ *  block and current global state.
+ *
+ *  Value: "SYNCING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_BlockchainNode_State_Syncing;
+/**
  *  The node is currently being updated.
  *
  *  Value: "UPDATING"
@@ -176,11 +183,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Net
  */
 FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_NetworkUnspecified;
 /**
- *  The Ethereum Testnet based on Goerli protocol.
+ *  Deprecated: The Ethereum Testnet based on Goerli protocol. Please use
+ *  another test network.
  *
  *  Value: "TESTNET_GOERLI_PRATER"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater;
+FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater GTLR_DEPRECATED;
 /**
  *  The Ethereum Testnet based on Holesky specification. See
  *  https://github.com/eth-clients/holesky.
@@ -297,15 +305,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
 /**
  *  Optional. When true, the node is only accessible via Private Service
  *  Connect; no public endpoints are exposed. Otherwise, the node is only
- *  accessible via public endpoints. Warning: Private Service Connect enabled
- *  nodes may require a manual migration effort to remain compatible with future
- *  versions of the product. If this feature is enabled, you will be notified of
- *  these changes along with any required action to avoid disruption. See
- *  https://cloud.google.com/vpc/docs/private-service-connect.
+ *  accessible via public endpoints. Warning: These nodes are deprecated, please
+ *  use public endpoints instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *privateServiceConnectEnabled;
+@property(nonatomic, strong, nullable) NSNumber *privateServiceConnectEnabled GTLR_DEPRECATED;
 
 /**
  *  Output only. A status representing the state of the node.
@@ -327,6 +332,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *        running and ready for use. (Value: "RUNNING")
  *    @arg @c kGTLRBlockchainNodeEngine_BlockchainNode_State_StateUnspecified
  *        The state has not been specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBlockchainNodeEngine_BlockchainNode_State_Syncing The node is
+ *        syncing, which is the process by which it obtains the latest block and
+ *        current global state. (Value: "SYNCING")
  *    @arg @c kGTLRBlockchainNodeEngine_BlockchainNode_State_Updating The node
  *        is currently being updated. (Value: "UPDATING")
  */
@@ -471,8 +479,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *        The network has not been specified, but should be. (Value:
  *        "NETWORK_UNSPECIFIED")
  *    @arg @c kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetGoerliPrater
- *        The Ethereum Testnet based on Goerli protocol. (Value:
- *        "TESTNET_GOERLI_PRATER")
+ *        Deprecated: The Ethereum Testnet based on Goerli protocol. Please use
+ *        another test network. (Value: "TESTNET_GOERLI_PRATER")
  *    @arg @c kGTLRBlockchainNodeEngine_EthereumDetails_Network_TestnetHolesky
  *        The Ethereum Testnet based on Holesky specification. See
  *        https://github.com/eth-clients/holesky. (Value: "TESTNET_HOLESKY")
@@ -898,7 +906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBlockchainNodeEngine_GethDetails_Garbage
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *managedValidatorClient;
+@property(nonatomic, strong, nullable) NSNumber *managedValidatorClient GTLR_DEPRECATED;
 
 /**
  *  URLs for MEV-relay services to use for block building. When set, a

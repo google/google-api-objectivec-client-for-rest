@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Sheets.
 // Documentation:
-//   https://developers.google.com/sheets/
+//   https://developers.google.com/workspace/sheets/
 
 #import <GoogleAPIClientForREST/GTLRSheetsQuery.h>
 
@@ -156,7 +156,7 @@ NSString * const kGTLRSheetsValueRenderOptionUnformattedValue = @"UNFORMATTED_VA
 
 @implementation GTLRSheetsQuery_SpreadsheetsGet
 
-@dynamic includeGridData, ranges, spreadsheetId;
+@dynamic excludeTablesInBandedRanges, includeGridData, ranges, spreadsheetId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

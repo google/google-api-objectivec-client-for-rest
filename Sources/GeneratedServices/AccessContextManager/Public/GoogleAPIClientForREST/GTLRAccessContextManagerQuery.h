@@ -5,7 +5,15 @@
 //   Access Context Manager API (accesscontextmanager/v1)
 // Description:
 //   An API for setting attribute based access control to requests to Google
-//   Cloud services.
+//   Cloud services. *Warning:* Do not mix *v1alpha* and *v1* API usage in the
+//   same access policy. The v1alpha API supports new Access Context Manager
+//   features, which may have different attributes or behaviors that are not
+//   supported by v1. The practice of mixed API usage within a policy may result
+//   in the inability to update that policy, including any access levels or
+//   service perimeters belonging to it. It is not recommended to use both v1
+//   and v1alpha for modifying policies with critical service perimeters.
+//   Modifications using v1alpha should be limited to policies with
+//   non-production/non-critical service perimeters.
 // Documentation:
 //   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
@@ -263,7 +271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Resource name for the `AccessLevel`. Format:
+ *  Identifier. Resource name for the `AccessLevel`. Format:
  *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
  *  `access_level` component must begin with a letter, followed by alphanumeric
  *  characters or `_`. Its maximum length is 50 characters. After you create an
@@ -288,7 +296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_AccessLevel to include in the
  *    query.
- *  @param name Resource name for the `AccessLevel`. Format:
+ *  @param name Identifier. Resource name for the `AccessLevel`. Format:
  *    `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
  *    `access_level` component must begin with a letter, followed by
  *    alphanumeric characters or `_`. Its maximum length is 50 characters. After
@@ -552,7 +560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAuthorizedOrgsDescsPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Resource name for the `AuthorizedOrgsDesc`. Format:
+ *  Identifier. Resource name for the `AuthorizedOrgsDesc`. Format:
  *  `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
  *  The `authorized_orgs_desc` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
@@ -579,7 +587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_AuthorizedOrgsDesc to include
  *    in the query.
- *  @param name Resource name for the `AuthorizedOrgsDesc`. Format:
+ *  @param name Identifier. Resource name for the `AuthorizedOrgsDesc`. Format:
  *    `accessPolicies/{access_policy}/authorizedOrgsDescs/{authorized_orgs_desc}`.
  *    The `authorized_orgs_desc` component must begin with a letter, followed by
  *    alphanumeric characters or `_`. After you create an `AuthorizedOrgsDesc`,
@@ -775,7 +783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Output only. Resource name of the `AccessPolicy`. Format:
+ *  Output only. Identifier. Resource name of the `AccessPolicy`. Format:
  *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -796,8 +804,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_AccessPolicy to include in the
  *    query.
- *  @param name Output only. Resource name of the `AccessPolicy`. Format:
- *    `accessPolicies/{access_policy}`
+ *  @param name Output only. Identifier. Resource name of the `AccessPolicy`.
+ *    Format: `accessPolicies/{access_policy}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesPatch
  */
@@ -1021,7 +1029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch : GTLRAccessContextManagerQuery
 
 /**
- *  Resource name for the `ServicePerimeter`. Format:
+ *  Identifier. Resource name for the `ServicePerimeter`. Format:
  *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`. The
  *  `service_perimeter` component must begin with a letter, followed by
  *  alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
@@ -1046,7 +1054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  @param object The @c GTLRAccessContextManager_ServicePerimeter to include in
  *    the query.
- *  @param name Resource name for the `ServicePerimeter`. Format:
+ *  @param name Identifier. Resource name for the `ServicePerimeter`. Format:
  *    `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`.
  *    The `service_perimeter` component must begin with a letter, followed by
  *    alphanumeric characters or `_`. After you create a `ServicePerimeter`, you
@@ -1235,7 +1243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: accesscontextmanager.operations.cancel
@@ -1258,7 +1266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRAccessContextManager_CancelOperationRequest to
@@ -1529,6 +1537,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch : GTLRAccessContextManagerQuery
 
 /**
+ *  Optional. This field controls whether or not certain repeated settings in
+ *  the update request overwrite or append to existing settings on the binding.
+ *  If true, then append. Otherwise overwrite. So far, only
+ *  scoped_access_settings with session_settings supports appending. Global
+ *  access_levels, access_levels in scoped_access_settings,
+ *  dry_run_access_levels, and session_settings are not compatible with append
+ *  functionality, and the request will return an error if append=true when
+ *  these settings are in the update_mask. The request will also return an error
+ *  if append=true when "scoped_access_settings" is not set in the update_mask.
+ */
+@property(nonatomic, assign) BOOL append;
+
+/**
  *  Immutable. Assigned by the server during creation. The last segment has an
  *  arbitrary length and has only URI unreserved characters (as defined by [RFC
  *  3986 Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should
@@ -1540,8 +1561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Required. Only the fields specified in this mask are updated. Because name
  *  and group_key cannot be changed, update_mask is required and may only
- *  contain the following fields: `access_levels`, `dry_run_access_levels`.
- *  update_mask { paths: "access_levels" }
+ *  contain the following fields: `access_levels`, `dry_run_access_levels`,
+ *  `session_settings`, `scoped_access_settings`. update_mask { paths:
+ *  "access_levels" }
  *
  *  String format is a comma-separated list of fields.
  */

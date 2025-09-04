@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the settings to lookup. Format:
  *  accounts/{account}/dataSharingSettings Example:
- *  "accounts/1000/dataSharingSettings"
+ *  `accounts/1000/dataSharingSettings`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the settings to lookup. Format:
  *    accounts/{account}/dataSharingSettings Example:
- *    "accounts/1000/dataSharingSettings"
+ *    `accounts/1000/dataSharingSettings`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsGetDataSharingSettings
  */
@@ -149,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns all accounts accessible by the caller. Note that these accounts
- *  might not currently have GA4 properties. Soft-deleted (ie: "trashed")
+ *  might not currently have GA properties. Soft-deleted (ie: "trashed")
  *  accounts are excluded by default. Returns an empty list if no relevant
  *  accounts are found.
  *
@@ -186,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListAccountsResponse.
  *
  *  Returns all accounts accessible by the caller. Note that these accounts
- *  might not currently have GA4 properties. Soft-deleted (ie: "trashed")
+ *  might not currently have GA properties. Soft-deleted (ie: "trashed")
  *  accounts are excluded by default. Returns an empty list if no relevant
  *  accounts are found.
  *
@@ -275,12 +275,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  for a property. Reports may be requested for any property, but dimensions
  *  that aren't related to quota can only be requested on Google Analytics 360
  *  properties. This method is only available to Administrators. These data
- *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
- *  and other products like Firebase & Admob that can retrieve data from Google
+ *  access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+ *  other products like Firebase & Admob that can retrieve data from Google
  *  Analytics through a linkage. These records don't include property
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *  To give your feedback on this API, complete the [Google Analytics Access
+ *  Reports
+ *  feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform)
+ *  form.
  *
  *  Method: analyticsadmin.accounts.runAccessReport
  *
@@ -294,9 +298,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Data Access Report supports requesting at the property level or account
  *  level. If requested at the account level, Data Access Reports include all
  *  access for all properties under that account. To request at the property
- *  level, entity should be for example 'properties/123' if "123" is your GA4
- *  property ID. To request at the account level, entity should be for example
- *  'accounts/1234' if "1234" is your GA4 Account ID.
+ *  level, entity should be for example 'properties/123' if "123" is your Google
+ *  Analytics property ID. To request at the account level, entity should be for
+ *  example 'accounts/1234' if "1234" is your Google Analytics Account ID.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
 
@@ -309,12 +313,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  for a property. Reports may be requested for any property, but dimensions
  *  that aren't related to quota can only be requested on Google Analytics 360
  *  properties. This method is only available to Administrators. These data
- *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
- *  and other products like Firebase & Admob that can retrieve data from Google
+ *  access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+ *  other products like Firebase & Admob that can retrieve data from Google
  *  Analytics through a linkage. These records don't include property
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *  To give your feedback on this API, complete the [Google Analytics Access
+ *  Reports
+ *  feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform)
+ *  form.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
  *    to include in the query.
@@ -322,9 +330,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    level or account level. If requested at the account level, Data Access
  *    Reports include all access for all properties under that account. To
  *    request at the property level, entity should be for example
- *    'properties/123' if "123" is your GA4 property ID. To request at the
- *    account level, entity should be for example 'accounts/1234' if "1234" is
- *    your GA4 Account ID.
+ *    'properties/123' if "123" is your Google Analytics property ID. To request
+ *    at the account level, entity should be for example 'accounts/1234' if
+ *    "1234" is your Google Analytics Account ID.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsRunAccessReport
  */
@@ -335,7 +343,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Searches through all changes to an account or its children given the
- *  specified set of filters.
+ *  specified set of filters. Only returns the subset of changes supported by
+ *  the API. The UI may return additional changes.
  *
  *  Method: analyticsadmin.accounts.searchChangeHistoryEvents
  *
@@ -346,7 +355,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The account resource for which to return change history resources.
- *  Format: accounts/{account} Example: "accounts/100"
+ *  Format: accounts/{account} Example: `accounts/100`
  */
 @property(nonatomic, copy, nullable) NSString *account;
 
@@ -355,13 +364,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsResponse.
  *
  *  Searches through all changes to an account or its children given the
- *  specified set of filters.
+ *  specified set of filters. Only returns the subset of changes supported by
+ *  the API. The UI may return additional changes.
  *
  *  @param object The @c
  *    GTLRGoogleAnalyticsAdmin_V1betaSearchChangeHistoryEventsRequest to include
  *    in the query.
  *  @param account Required. The account resource for which to return change
- *    history resources. Format: accounts/{account} Example: "accounts/100"
+ *    history resources. Format: accounts/{account} Example: `accounts/100`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents
  */
@@ -449,13 +459,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a conversion event with the specified attributes.
+ *  Deprecated: Use `CreateKeyEvent` instead. Creates a conversion event with
+ *  the specified attributes.
  *
  *  Method: analyticsadmin.properties.conversionEvents.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsCreate : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -467,7 +479,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
  *
- *  Creates a conversion event with the specified attributes.
+ *  Deprecated: Use `CreateKeyEvent` instead. Creates a conversion event with
+ *  the specified attributes.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent to
  *    include in the query.
@@ -482,13 +495,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a conversion event in a property.
+ *  Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a
+ *  property.
  *
  *  Method: analyticsadmin.properties.conversionEvents.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsDelete : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -501,7 +516,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
  *
- *  Deletes a conversion event in a property.
+ *  Deprecated: Use `DeleteKeyEvent` instead. Deletes a conversion event in a
+ *  property.
  *
  *  @param name Required. The resource name of the conversion event to delete.
  *    Format: properties/{property}/conversionEvents/{conversion_event} Example:
@@ -514,7 +530,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieve a single conversion event.
+ *  Deprecated: Use `GetKeyEvent` instead. Retrieve a single conversion event.
  *
  *  Method: analyticsadmin.properties.conversionEvents.get
  *
@@ -522,6 +538,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsGet : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -534,7 +551,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
  *
- *  Retrieve a single conversion event.
+ *  Deprecated: Use `GetKeyEvent` instead. Retrieve a single conversion event.
  *
  *  @param name Required. The resource name of the conversion event to retrieve.
  *    Format: properties/{property}/conversionEvents/{conversion_event} Example:
@@ -547,8 +564,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a list of conversion events in the specified parent property.
- *  Returns an empty list if no conversion events are found.
+ *  Deprecated: Use `ListKeyEvents` instead. Returns a list of conversion events
+ *  in the specified parent property. Returns an empty list if no conversion
+ *  events are found.
  *
  *  Method: analyticsadmin.properties.conversionEvents.list
  *
@@ -556,6 +574,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsList : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -582,8 +601,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListConversionEventsResponse.
  *
- *  Returns a list of conversion events in the specified parent property.
- *  Returns an empty list if no conversion events are found.
+ *  Deprecated: Use `ListKeyEvents` instead. Returns a list of conversion events
+ *  in the specified parent property. Returns an empty list if no conversion
+ *  events are found.
  *
  *  @param parent Required. The resource name of the parent property. Example:
  *    'properties/123'
@@ -599,13 +619,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a conversion event with the specified attributes.
+ *  Deprecated: Use `UpdateKeyEvent` instead. Updates a conversion event with
+ *  the specified attributes.
  *
  *  Method: analyticsadmin.properties.conversionEvents.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
+GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
@@ -627,7 +649,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent.
  *
- *  Updates a conversion event with the specified attributes.
+ *  Deprecated: Use `UpdateKeyEvent` instead. Updates a conversion event with
+ *  the specified attributes.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent to
  *    include in the query.
@@ -642,7 +665,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an "GA4" property with the specified location and attributes.
+ *  Creates a Google Analytics property with the specified location and
+ *  attributes.
  *
  *  Method: analyticsadmin.properties.create
  *
@@ -654,7 +678,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProperty.
  *
- *  Creates an "GA4" property with the specified location and attributes.
+ *  Creates a Google Analytics property with the specified location and
+ *  attributes.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaProperty to include in
  *    the query.
@@ -1231,7 +1256,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *  Lookup for a single MeasurementProtocolSecret.
  *
  *  Method: analyticsadmin.properties.dataStreams.measurementProtocolSecrets.get
  *
@@ -1250,7 +1275,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret.
  *
- *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *  Lookup for a single MeasurementProtocolSecret.
  *
  *  @param name Required. The name of the measurement protocol secret to lookup.
  *    Format:
@@ -1410,7 +1435,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  before the expiration time, the Property and all child resources (eg:
  *  GoogleAdsLinks, Streams, AccessBindings) will be permanently purged.
  *  https://support.google.com/analytics/answer/6154772 Returns an error if the
- *  target is not found, or is not a GA4 Property.
+ *  target is not found.
  *
  *  Method: analyticsadmin.properties.delete
  *
@@ -1434,7 +1459,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  before the expiration time, the Property and all child resources (eg:
  *  GoogleAdsLinks, Streams, AccessBindings) will be permanently purged.
  *  https://support.google.com/analytics/answer/6154772 Returns an error if the
- *  target is not found, or is not a GA4 Property.
+ *  target is not found.
  *
  *  @param name Required. The name of the Property to soft-delete. Format:
  *    properties/{property_id} Example: "properties/1000"
@@ -1455,7 +1480,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksCreate : GTLRGoogleAnalyticsAdminQuery
 
-/** Required. Format: properties/{property_id} Example: properties/1234 */
+/** Required. Format: properties/{property_id} Example: `properties/1234` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1466,7 +1491,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaFirebaseLink to include
  *    in the query.
  *  @param parent Required. Format: properties/{property_id} Example:
- *    properties/1234
+ *    `properties/1234`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksCreate
  */
@@ -1487,7 +1512,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Format: properties/{property_id}/firebaseLinks/{firebase_link_id}
- *  Example: properties/1234/firebaseLinks/5678
+ *  Example: `properties/1234/firebaseLinks/5678`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1498,7 +1523,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Format:
  *    properties/{property_id}/firebaseLinks/{firebase_link_id} Example:
- *    properties/1234/firebaseLinks/5678
+ *    `properties/1234/firebaseLinks/5678`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksDelete
  */
@@ -1534,7 +1559,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Format: properties/{property_id} Example: properties/1234 */
+/** Required. Format: properties/{property_id} Example: `properties/1234` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1544,7 +1569,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  FirebaseLink.
  *
  *  @param parent Required. Format: properties/{property_id} Example:
- *    properties/1234
+ *    `properties/1234`
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksList
  *
@@ -1557,7 +1582,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lookup for a single "GA4" Property.
+ *  Lookup for a single GA Property.
  *
  *  Method: analyticsadmin.properties.get
  *
@@ -1576,7 +1601,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaProperty.
  *
- *  Lookup for a single "GA4" Property.
+ *  Lookup for a single GA Property.
  *
  *  @param name Required. The name of the property to lookup. Format:
  *    properties/{property_id} Example: "properties/1000"
@@ -1767,10 +1792,202 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns child Properties under the specified parent Account. Only "GA4"
- *  properties will be returned. Properties will be excluded if the caller does
- *  not have access. Soft-deleted (ie: "trashed") properties are excluded by
- *  default. Returns an empty list if no relevant properties are found.
+ *  Creates a Key Event.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the parent property where this Key Event will
+ *  be created. Format: properties/123
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.
+ *
+ *  Creates a Key Event.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent to include in
+ *    the query.
+ *  @param parent Required. The resource name of the parent property where this
+ *    Key Event will be created. Format: properties/123
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaKeyEvent *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Key Event.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the Key Event to delete. Format:
+ *  properties/{property}/keyEvents/{key_event} Example:
+ *  "properties/123/keyEvents/456"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes a Key Event.
+ *
+ *  @param name Required. The resource name of the Key Event to delete. Format:
+ *    properties/{property}/keyEvents/{key_event} Example:
+ *    "properties/123/keyEvents/456"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve a single Key Event.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the Key Event to retrieve. Format:
+ *  properties/{property}/keyEvents/{key_event} Example:
+ *  "properties/123/keyEvents/456"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.
+ *
+ *  Retrieve a single Key Event.
+ *
+ *  @param name Required. The resource name of the Key Event to retrieve.
+ *    Format: properties/{property}/keyEvents/{key_event} Example:
+ *    "properties/123/keyEvents/456"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of Key Events in the specified parent property. Returns an
+ *  empty list if no Key Events are found.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200; (higher values will be
+ *  coerced to the maximum)
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListKeyEvents` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListKeyEvents` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent property. Example:
+ *  'properties/123'
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListKeyEventsResponse.
+ *
+ *  Returns a list of Key Events in the specified parent property. Returns an
+ *  empty list if no Key Events are found.
+ *
+ *  @param parent Required. The resource name of the parent property. Example:
+ *    'properties/123'
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Key Event.
+ *
+ *  Method: analyticsadmin.properties.keyEvents.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this key event. Format:
+ *  properties/{property}/keyEvents/{key_event}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Field names must be in snake
+ *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent.
+ *
+ *  Updates a Key Event.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaKeyEvent to include in
+ *    the query.
+ *  @param name Output only. Resource name of this key event. Format:
+ *    properties/{property}/keyEvents/{key_event}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1betaKeyEvent *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns child Properties under the specified parent Account. Properties will
+ *  be excluded if the caller does not have access. Soft-deleted (ie: "trashed")
+ *  properties are excluded by default. Returns an empty list if no relevant
+ *  properties are found.
  *
  *  Method: analyticsadmin.properties.list
  *
@@ -1820,10 +2037,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1betaListPropertiesResponse.
  *
- *  Returns child Properties under the specified parent Account. Only "GA4"
- *  properties will be returned. Properties will be excluded if the caller does
- *  not have access. Soft-deleted (ie: "trashed") properties are excluded by
- *  default. Returns an empty list if no relevant properties are found.
+ *  Returns child Properties under the specified parent Account. Properties will
+ *  be excluded if the caller does not have access. Soft-deleted (ie: "trashed")
+ *  properties are excluded by default. Returns an empty list if no relevant
+ *  properties are found.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesList
  *
@@ -1885,12 +2102,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  for a property. Reports may be requested for any property, but dimensions
  *  that aren't related to quota can only be requested on Google Analytics 360
  *  properties. This method is only available to Administrators. These data
- *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
- *  and other products like Firebase & Admob that can retrieve data from Google
+ *  access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+ *  other products like Firebase & Admob that can retrieve data from Google
  *  Analytics through a linkage. These records don't include property
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *  To give your feedback on this API, complete the [Google Analytics Access
+ *  Reports
+ *  feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform)
+ *  form.
  *
  *  Method: analyticsadmin.properties.runAccessReport
  *
@@ -1904,9 +2125,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The Data Access Report supports requesting at the property level or account
  *  level. If requested at the account level, Data Access Reports include all
  *  access for all properties under that account. To request at the property
- *  level, entity should be for example 'properties/123' if "123" is your GA4
- *  property ID. To request at the account level, entity should be for example
- *  'accounts/1234' if "1234" is your GA4 Account ID.
+ *  level, entity should be for example 'properties/123' if "123" is your Google
+ *  Analytics property ID. To request at the account level, entity should be for
+ *  example 'accounts/1234' if "1234" is your Google Analytics Account ID.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
 
@@ -1919,12 +2140,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  for a property. Reports may be requested for any property, but dimensions
  *  that aren't related to quota can only be requested on Google Analytics 360
  *  properties. This method is only available to Administrators. These data
- *  access records include GA4 UI Reporting, GA4 UI Explorations, GA4 Data API,
- *  and other products like Firebase & Admob that can retrieve data from Google
+ *  access records include GA UI Reporting, GA UI Explorations, GA Data API, and
+ *  other products like Firebase & Admob that can retrieve data from Google
  *  Analytics through a linkage. These records don't include property
  *  configuration changes like adding a stream or changing a property's time
  *  zone. For configuration change history, see
  *  [searchChangeHistoryEvents](https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/accounts/searchChangeHistoryEvents).
+ *  To give your feedback on this API, complete the [Google Analytics Access
+ *  Reports
+ *  feedback](https://docs.google.com/forms/d/e/1FAIpQLSdmEBUrMzAEdiEKk5TV5dEHvDUZDRlgWYdQdAeSdtR4hVjEhw/viewform)
+ *  form.
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaRunAccessReportRequest
  *    to include in the query.
@@ -1932,9 +2157,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    level or account level. If requested at the account level, Data Access
  *    Reports include all access for all properties under that account. To
  *    request at the property level, entity should be for example
- *    'properties/123' if "123" is your GA4 property ID. To request at the
- *    account level, entity should be for example 'accounts/1234' if "1234" is
- *    your GA4 Account ID.
+ *    'properties/123' if "123" is your Google Analytics property ID. To request
+ *    at the account level, entity should be for example 'accounts/1234' if
+ *    "1234" is your Google Analytics Account ID.
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesRunAccessReport
  */

@@ -35,6 +35,118 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves a `Announcement` by its resource name.
+ *
+ *  Method: vmwareengine.projects.locations.announcements.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsAnnouncementsGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the announcement to retrieve. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-west1-a/announcements/announcement-uuid`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Announcement.
+ *
+ *  Retrieves a `Announcement` by its resource name.
+ *
+ *  @param name Required. The resource name of the announcement to retrieve.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-west1-a/announcements/announcement-uuid`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsAnnouncementsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `Announcements` for a given region and project
+ *
+ *  Method: vmwareengine.projects.locations.announcements.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsAnnouncementsList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter expression that matches resources returned in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For
+ *  example, if you are filtering a list of announcement runs, you can exclude
+ *  the ones named `example-announcement` by specifying `name !=
+ *  "example-announcement"`. You can also filter nested fields. To filter on
+ *  multiple expressions, provide each separate expression within parentheses.
+ *  For example: ``` (name = "example-announcement") (createTime >
+ *  "2021-04-12T08:15:10.40Z") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (name = "announcement-1") AND (createTime >
+ *  "2021-04-12T08:15:10.40Z") OR (name = "announcement-2") ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sorts list results by a certain order. By default, returned results are
+ *  ordered by `name` in ascending order. You can also sort results in
+ *  descending order based on the `name` value using `orderBy="name desc"`.
+ *  Currently, only ordering by `name` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of announcements to return in one page. The service may
+ *  return fewer than this value. The maximum value is coerced to 1000. The
+ *  default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAnnouncements` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListAnnouncements` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location to be queried for announcements.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-west1-a`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListAnnouncementsResponse.
+ *
+ *  Lists `Announcements` for a given region and project
+ *
+ *  @param parent Required. The resource name of the location to be queried for
+ *    announcements. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example: `projects/my-project/locations/us-west1-a`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsAnnouncementsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Grants the bind permission to the customer provided principal(user / service
  *  account) to bind their DNS zone with the intranet VPC associated with the
  *  project. DnsBindPermission is a global resource and location can only be
@@ -203,6 +315,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
  */
 @interface GTLRVMwareEngineQuery_ProjectsLocationsList : GTLRVMwareEngineQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -499,9 +617,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of the network peering. NetworkPeering is a
- *  global resource and location can only be global. Resource names are
- *  scheme-less URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of the network peering.
+ *  NetworkPeering is a global resource and location can only be global.
+ *  Resource names are scheme-less URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/networkPeerings/my-peering`
  */
@@ -542,9 +660,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRVMwareEngine_NetworkPeering to include in the
  *    query.
- *  @param name Output only. The resource name of the network peering.
- *    NetworkPeering is a global resource and location can only be global.
- *    Resource names are scheme-less URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of the network
+ *    peering. NetworkPeering is a global resource and location can only be
+ *    global. Resource names are scheme-less URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global/networkPeerings/my-peering`
  *
@@ -1221,8 +1339,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this network policy. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this network policy. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1/networkPolicies/my-network-policy`
  */
@@ -1269,8 +1387,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  processing fully completes.
  *
  *  @param object The @c GTLRVMwareEngine_NetworkPolicy to include in the query.
- *  @param name Output only. The resource name of this network policy. Resource
- *    names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this network
+ *    policy. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1/networkPolicies/my-network-policy`
  *
@@ -1846,8 +1964,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this cluster. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this cluster. Resource names
+ *  are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
  */
@@ -1886,8 +2004,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  when the processing fully completes.
  *
  *  @param object The @c GTLRVMwareEngine_Cluster to include in the query.
- *  @param name Output only. The resource name of this cluster. Resource names
- *    are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this cluster.
+ *    Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
  *
@@ -2385,8 +2503,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this external IP address. Resource names
- *  are schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this external IP address.
+ *  Resource names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`
  */
@@ -2429,8 +2547,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRVMwareEngine_ExternalAddress to include in the
  *    query.
- *  @param name Output only. The resource name of this external IP address.
- *    Resource names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this external IP
+ *    address. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/externalAddresses/my-address`
  *
@@ -3577,8 +3695,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this private cloud. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this private cloud. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
  */
@@ -3612,14 +3730,58 @@ NS_ASSUME_NONNULL_BEGIN
  *  processing fully completes.
  *
  *  @param object The @c GTLRVMwareEngine_PrivateCloud to include in the query.
- *  @param name Output only. The resource name of this private cloud. Resource
- *    names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this private
+ *    cloud. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
  *
  *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPatch
  */
 + (instancetype)queryWithObject:(GTLRVMwareEngine_PrivateCloud *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Accelerates the deletion of a private cloud that is currently in soft
+ *  deletion A `PrivateCloud` resource in soft deletion has `PrivateCloud.state`
+ *  set to `SOFT_DELETED` and `PrivateCloud.expireTime` set to the time when
+ *  deletion can no longer be reversed.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.privateCloudDeletionNow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPrivateCloudDeletionNow : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the private cloud in softdeletion. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Accelerates the deletion of a private cloud that is currently in soft
+ *  deletion A `PrivateCloud` resource in soft deletion has `PrivateCloud.state`
+ *  set to `SOFT_DELETED` and `PrivateCloud.expireTime` set to the time when
+ *  deletion can no longer be reversed.
+ *
+ *  @param object The @c GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest
+ *    to include in the query.
+ *  @param name Required. The resource name of the private cloud in
+ *    softdeletion. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPrivateCloudDeletionNow
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_AcceleratePrivateCloudDeletionRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -3922,8 +4084,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsSubnetsPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this subnet. Resource names are schemeless
- *  URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this subnet. Resource names
+ *  are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/subnets/my-subnet`
  */
@@ -3949,8 +4111,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  will only have `done` and `response` fields.
  *
  *  @param object The @c GTLRVMwareEngine_Subnet to include in the query.
- *  @param name Output only. The resource name of this subnet. Resource names
- *    are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this subnet.
+ *    Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/subnets/my-subnet`
  *
@@ -4060,8 +4222,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpdateDnsForwarding : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of this DNS profile. Resource names are
- *  schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of this DNS profile. Resource
+ *  names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
  */
@@ -4100,14 +4262,192 @@ NS_ASSUME_NONNULL_BEGIN
  *  domains. Only fields specified in `update_mask` are applied.
  *
  *  @param object The @c GTLRVMwareEngine_DnsForwarding to include in the query.
- *  @param name Output only. The resource name of this DNS profile. Resource
- *    names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of this DNS profile.
+ *    Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/dnsForwarding`
  *
  *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpdateDnsForwarding
  */
 + (instancetype)queryWithObject:(GTLRVMwareEngine_DnsForwarding *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a private cloud `Upgrade` resource by its resource name.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.upgrades.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The name of the `Upgrade` resource to be retrieved. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-west1-a/privateClouds/my-cloud/upgrades/my-upgrade`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Upgrade.
+ *
+ *  Retrieves a private cloud `Upgrade` resource by its resource name.
+ *
+ *  @param name Required. The name of the `Upgrade` resource to be retrieved.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-west1-a/privateClouds/my-cloud/upgrades/my-upgrade`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists past, ongoing and upcoming `Upgrades` for the given private cloud.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.upgrades.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesList : GTLRVMwareEngineQuery
+
+/**
+ *  A filter expression that matches resources returned in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be `=`, `!=`, `>`, or `<`. For
+ *  example, if you are filtering a list of upgrades, you can exclude the ones
+ *  named `example-upgrade1` by specifying `name != "example-upgrade1"`. You can
+ *  also filter nested fields. To filter on multiple expressions, provide each
+ *  separate expression within parentheses. For example: ``` (name =
+ *  "example-upgrade") (createTime > "2021-04-12T08:15:10.40Z") ``` By default,
+ *  each expression is an `AND` expression. However, you can include `AND` and
+ *  `OR` expressions explicitly. For example: ``` (name = "upgrade-1") AND
+ *  (createTime > "2021-04-12T08:15:10.40Z") OR (name = "upgrade-2") ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sorts list results by a certain order. By default, returned results are
+ *  ordered by `name` in ascending order. You can also sort results in
+ *  descending order based on the `name` value using `orderBy="name desc"`.
+ *  Currently, only ordering by `name` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of `Upgrades` to return in one page. The service may
+ *  return fewer resources than this value. The maximum value is coerced to
+ *  1000. The default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListUpgrades` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListUpgrades` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Query a list of `Upgrades` for the given private cloud resource
+ *  name. Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-west1-a/privateClouds/my-cloud`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListUpgradesResponse.
+ *
+ *  Lists past, ongoing and upcoming `Upgrades` for the given private cloud.
+ *
+ *  @param parent Required. Query a list of `Upgrades` for the given private
+ *    cloud resource name. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example: `projects/my-project/locations/us-west1-a/privateClouds/my-cloud`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update the private cloud `Upgrade` resource. Only `schedule` field can
+ *  updated. The schedule can only be updated when the upgrade has not started
+ *  and schedule edit window is open. Only fields specified in `update_mask` are
+ *  considered.
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.upgrades.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesPatch : GTLRVMwareEngineQuery
+
+/**
+ *  Output only. Identifier. The resource name of the private cloud `Upgrade`.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-west1-a/privateClouds/my-cloud/upgrades/my-upgrade`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server guarantees that a
+ *  request doesn't result in creation of duplicate commitments for at least 60
+ *  minutes. For example, consider a situation where you make an initial request
+ *  and the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same request
+ *  ID was received, and if so, will ignore the second request. This prevents
+ *  clients from accidentally creating duplicate commitments. The request ID
+ *  must be a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  `Upgrade` resource by the update. The fields specified in the `update_mask`
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Update the private cloud `Upgrade` resource. Only `schedule` field can
+ *  updated. The schedule can only be updated when the upgrade has not started
+ *  and schedule edit window is open. Only fields specified in `update_mask` are
+ *  considered.
+ *
+ *  @param object The @c GTLRVMwareEngine_Upgrade to include in the query.
+ *  @param name Output only. Identifier. The resource name of the private cloud
+ *    `Upgrade`. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-west1-a/privateClouds/my-cloud/upgrades/my-upgrade`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsUpgradesPatch
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_Upgrade *)object
                            name:(NSString *)name;
 
 @end
@@ -4728,8 +5068,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsVmwareEngineNetworksPatch : GTLRVMwareEngineQuery
 
 /**
- *  Output only. The resource name of the VMware Engine network. Resource names
- *  are schemeless URIs that follow the conventions in
+ *  Output only. Identifier. The resource name of the VMware Engine network.
+ *  Resource names are schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/global/vmwareEngineNetworks/my-network`
  */
@@ -4769,8 +5109,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  updated: `description`. Only fields specified in `updateMask` are applied.
  *
  *  @param object The @c GTLRVMwareEngine_Network to include in the query.
- *  @param name Output only. The resource name of the VMware Engine network.
- *    Resource names are schemeless URIs that follow the conventions in
+ *  @param name Output only. Identifier. The resource name of the VMware Engine
+ *    network. Resource names are schemeless URIs that follow the conventions in
  *    https://cloud.google.com/apis/design/resource_names. For example:
  *    `projects/my-project/locations/global/vmwareEngineNetworks/my-network`
  *

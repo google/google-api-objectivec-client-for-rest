@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudComposer_AirflowMetadataRetentionPolicyConfig.retentionMode
+NSString * const kGTLRCloudComposer_AirflowMetadataRetentionPolicyConfig_RetentionMode_RetentionModeDisabled = @"RETENTION_MODE_DISABLED";
+NSString * const kGTLRCloudComposer_AirflowMetadataRetentionPolicyConfig_RetentionMode_RetentionModeEnabled = @"RETENTION_MODE_ENABLED";
+NSString * const kGTLRCloudComposer_AirflowMetadataRetentionPolicyConfig_RetentionMode_RetentionModeUnspecified = @"RETENTION_MODE_UNSPECIFIED";
+
 // GTLRCloudComposer_CheckUpgradeResponse.containsPypiModulesConflict
 NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_Conflict = @"CONFLICT";
 NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified = @"CONFLICT_RESULT_UNSPECIFIED";
@@ -67,6 +72,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"C
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_DatabaseFailover = @"DATABASE_FAILOVER";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot = @"LOAD_SNAPSHOT";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Migrate = @"MIGRATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_SaveSnapshot = @"SAVE_SNAPSHOT";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Update = @"UPDATE";
@@ -91,6 +97,16 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_AirflowMetadataRetentionPolicyConfig
+//
+
+@implementation GTLRCloudComposer_AirflowMetadataRetentionPolicyConfig
+@dynamic retentionDays, retentionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_AllowedIpRange
 //
 
@@ -101,6 +117,16 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_CheckUpgradeRequest
+//
+
+@implementation GTLRCloudComposer_CheckUpgradeRequest
+@dynamic imageVersion;
 @end
 
 
@@ -218,7 +244,7 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_DataRetentionConfig
-@dynamic taskLogsRetentionConfig;
+@dynamic airflowMetadataRetentionConfig, taskLogsRetentionConfig;
 @end
 
 
@@ -257,8 +283,8 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_Environment
-@dynamic config, createTime, labels, name, satisfiesPzs, state, storageConfig,
-         updateTime, uuid;
+@dynamic config, createTime, labels, name, satisfiesPzi, satisfiesPzs, state,
+         storageConfig, updateTime, uuid;
 @end
 
 
@@ -697,6 +723,15 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 @implementation GTLRCloudComposer_RecoveryConfig
 @dynamic scheduledSnapshotsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_RestartWebServerRequest
+//
+
+@implementation GTLRCloudComposer_RestartWebServerRequest
 @end
 
 

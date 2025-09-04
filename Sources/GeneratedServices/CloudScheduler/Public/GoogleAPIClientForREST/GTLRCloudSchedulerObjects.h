@@ -25,6 +25,9 @@
 @class GTLRCloudScheduler_Location_Metadata;
 @class GTLRCloudScheduler_OAuthToken;
 @class GTLRCloudScheduler_OidcToken;
+@class GTLRCloudScheduler_Operation;
+@class GTLRCloudScheduler_Operation_Metadata;
+@class GTLRCloudScheduler_Operation_Response;
 @class GTLRCloudScheduler_PubsubMessage_Attributes;
 @class GTLRCloudScheduler_PubsubTarget;
 @class GTLRCloudScheduler_PubsubTarget_Attributes;
@@ -369,6 +372,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRCloudScheduler_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -570,6 +580,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_RetryConfig *retryConfig;
 
 /**
+ *  Output only. Whether or not this Job satisfies the requirements of physical
+ *  zone separation
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Required, except when used with UpdateJob. Describes the schedule on which
  *  the job will be executed. The schedule can be either of the following types:
  *  * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview) * English-like
@@ -693,6 +711,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudScheduler_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudScheduler_Operation *> *operations;
+
+@end
+
+
+/**
  *  A resource that represents a Google Cloud location.
  */
 @interface GTLRCloudScheduler_Location : GTLRObject
@@ -799,6 +841,124 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  permission for the service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRCloudScheduler_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRCloudScheduler_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudScheduler_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudScheduler_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudScheduler_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudScheduler_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRCloudScheduler_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have been cancelled successfully have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusDetail;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
 
 @end
 
@@ -937,10 +1097,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
- *  Settings that determine the retry behavior. By default, if a job does not
- *  complete successfully (meaning that an acknowledgement is not received from
- *  the handler, then it will be retried with exponential backoff according to
- *  the settings in RetryConfig.
+ *  Settings that determine the retry behavior. For more information, see [Retry
+ *  jobs](https://cloud.google.com/scheduler/docs/configuring/retry-jobs). By
+ *  default, if a job does not complete successfully (meaning that an
+ *  acknowledgement is not received from the handler, then it will be retried
+ *  with exponential backoff according to the settings in RetryConfig.
  */
 @interface GTLRCloudScheduler_RetryConfig : GTLRObject
 
@@ -954,24 +1115,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  The time between retries will double `max_doublings` times. A job's retry
  *  interval starts at min_backoff_duration, then doubles `max_doublings` times,
  *  then increases linearly, and finally retries at intervals of
- *  max_backoff_duration up to retry_count times. For example, if
- *  min_backoff_duration is 10s, max_backoff_duration is 300s, and
- *  `max_doublings` is 3, then the job will first be retried in 10s. The retry
- *  interval will double three times, and then increase linearly by 2^3 * 10s.
- *  Finally, the job will retry at intervals of max_backoff_duration until the
- *  job has been attempted retry_count times. Thus, the requests will retry at
- *  10s, 20s, 40s, 80s, 160s, 240s, 300s, 300s, .... The default value of this
- *  field is 5.
+ *  max_backoff_duration up to retry_count times. For examples, see [Retry
+ *  jobs](https://cloud.google.com/scheduler/docs/configuring/retry-jobs#max-doublings).
+ *  The default value of this field is 5.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxDoublings;
 
 /**
- *  The time limit for retrying a failed job, measured from time when an
+ *  The time limit for retrying a failed job, measured from the time when an
  *  execution was first attempted. If specified with retry_count, the job will
  *  be retried until both limits are reached. The default value for
  *  max_retry_duration is zero, which means retry duration is unlimited.
+ *  However, if retry_count is also 0, a job attempt won't be retried if it
+ *  fails.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRetryDuration;
 
@@ -984,14 +1142,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 /**
  *  The number of attempts that the system will make to run a job using the
  *  exponential backoff procedure described by max_doublings. The default value
- *  of retry_count is zero. If retry_count is 0, a job attempt will not be
- *  retried if it fails. Instead the Cloud Scheduler system will wait for the
- *  next scheduled execution time. Setting retry_count to 0 does not prevent
- *  failed jobs from running according to schedule after the failure. If
- *  retry_count is set to a non-zero number then Cloud Scheduler will retry
- *  failed attempts, using exponential backoff, retry_count times, or until the
- *  next scheduled execution time, whichever comes first. Values greater than 5
- *  and negative values are not allowed.
+ *  of retry_count is zero. If retry_count is 0 (and if max_retry_duration is
+ *  also 0), a job attempt won't be retried if it fails. Instead, Cloud
+ *  Scheduler system will wait for the next scheduled execution time. Setting
+ *  retry_count to 0 doesn't prevent failed jobs from running according to
+ *  schedule after the failure. If retry_count is set to a non-zero number,
+ *  Cloud Scheduler will retry the failed job, using exponential backoff, for
+ *  retry_count times until the job succeeds or the number of retries is
+ *  exhausted. Note that the next scheduled execution time might be skipped if
+ *  the retries continue through that time. Values greater than 5 and negative
+ *  values are not allowed.
  *
  *  Uses NSNumber of intValue.
  */

@@ -286,6 +286,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A3;
 /**
+ *  GPU-based machine, skip quota reporting.
+ *
+ *  Value: "A4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A4;
+/**
+ *  GPU-based machine, skip quota reporting.
+ *
+ *  Value: "A4X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A4x;
+/**
  *  COMPUTE_OPTIMIZED
  *
  *  Value: "C2"
@@ -349,8 +361,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu4g;
 /** Value: "A2_ULTRAGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu8g;
+/** Value: "A3_EDGEGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Edgegpu8g;
+/** Value: "A3_HIGHGPU_1G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu1g;
+/** Value: "A3_HIGHGPU_2G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu2g;
+/** Value: "A3_HIGHGPU_4G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu4g;
 /** Value: "A3_HIGHGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu8g;
+/** Value: "A3_MEGAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Megagpu8g;
+/** Value: "A3_ULTRAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Ultragpu8g;
+/** Value: "A4_HIGHGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A4Highgpu8g;
+/** Value: "A4X_HIGHGPU_4G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A4xHighgpu4g;
 /** Value: "C2D_HIGHCPU_112" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu112;
 /** Value: "C2D_HIGHCPU_16" */
@@ -809,8 +837,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_EntityMention_Type_
 
 /** Value: "NVIDIA_A100_80GB" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaA10080gb;
+/** Value: "NVIDIA_B200" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaB200;
+/** Value: "NVIDIA_GB200" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaGb200;
 /** Value: "NVIDIA_H100_80GB" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH10080gb;
+/** Value: "NVIDIA_H100_MEGA_80GB" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH100Mega80gb;
+/** Value: "NVIDIA_H200_141GB" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH200141gb;
 /** Value: "NVIDIA_L4" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaL4;
 /** Value: "NVIDIA_TESLA_A100" */
@@ -849,8 +885,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu4g;
 /** Value: "A2_ULTRAGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu8g;
+/** Value: "A3_EDGEGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Edgegpu8g;
+/** Value: "A3_HIGHGPU_1G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu1g;
+/** Value: "A3_HIGHGPU_2G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu2g;
+/** Value: "A3_HIGHGPU_4G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu4g;
 /** Value: "A3_HIGHGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu8g;
+/** Value: "A3_MEGAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Megagpu8g;
+/** Value: "A3_ULTRAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Ultragpu8g;
+/** Value: "A4_HIGHGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A4Highgpu8g;
+/** Value: "A4X_HIGHGPU_4G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A4xHighgpu4g;
 /** Value: "C2D_HIGHCPU_112" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu112;
 /** Value: "C2D_HIGHCPU_16" */
@@ -1149,6 +1201,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_UnknownMachineSpec;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudNaturalLanguage_ModerateTextRequest.modelVersion
+
+/**
+ *  Use the v1 model, this model is used by default when not provided. The v1
+ *  model only returns probability (confidence) score for each category.
+ *
+ *  Value: "MODEL_VERSION_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersion1;
+/**
+ *  Use the v2 model. The v2 model only returns probability (confidence) score
+ *  for each category, and returns severity score for a subset of the
+ *  categories.
+ *
+ *  Value: "MODEL_VERSION_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersion2;
+/**
+ *  The default model version.
+ *
+ *  Value: "MODEL_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudNaturalLanguage_RamMetric.machineSpec
 
 /** Value: "A2_HIGHGPU_1G" */
@@ -1169,8 +1246,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu4g;
 /** Value: "A2_ULTRAGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu8g;
+/** Value: "A3_EDGEGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Edgegpu8g;
+/** Value: "A3_HIGHGPU_1G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu1g;
+/** Value: "A3_HIGHGPU_2G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu2g;
+/** Value: "A3_HIGHGPU_4G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu4g;
 /** Value: "A3_HIGHGPU_8G" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu8g;
+/** Value: "A3_MEGAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Megagpu8g;
+/** Value: "A3_ULTRAGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Ultragpu8g;
+/** Value: "A4_HIGHGPU_8G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A4Highgpu8g;
+/** Value: "A4X_HIGHGPU_4G" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A4xHighgpu4g;
 /** Value: "C2D_HIGHCPU_112" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu112;
 /** Value: "C2D_HIGHCPU_16" */
@@ -1475,6 +1568,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A2;
 /** Value: "A3" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A3;
+/** Value: "A4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A4;
+/** Value: "A4X" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_A4x;
 /**
  *  COMPUTE_OPTIMIZED
  *
@@ -1689,7 +1786,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSFileSpec_FileFor
 /** Value: "FILE_FORMAT_SSTABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatSstable GTLR_DEPRECATED;
 /**
- *  Internal format for parallel text data used by Google Translate. go/rkvtools
+ *  Internal format for parallel text data used by Google Translate.
  *
  *  Value: "FILE_FORMAT_TRANSLATION_RKV"
  */
@@ -1727,11 +1824,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageClassificat
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaA10080gb;
 /**
+ *  Nvidia B200 GPU.
+ *
+ *  Value: "NVIDIA_B200"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaB200;
+/**
+ *  Nvidia GB200 GPU.
+ *
+ *  Value: "NVIDIA_GB200"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaGb200;
+/**
  *  Nvidia H100 80Gb GPU.
  *
  *  Value: "NVIDIA_H100_80GB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH10080gb;
+/**
+ *  Nvidia H100 80Gb GPU.
+ *
+ *  Value: "NVIDIA_H100_MEGA_80GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH100Mega80gb;
+/**
+ *  Nvidia H200 141Gb GPU.
+ *
+ *  Value: "NVIDIA_H200_141GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH200141gb;
 /**
  *  Nvidia L4 GPU.
  *
@@ -1817,8 +1938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServin
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionCustomStorageCpu;
 /**
- *  To be used by customers with Jellyfish-accelerated ops. See
- *  go/servomatic-jellyfish for details.
+ *  To be used by customers with Jellyfish-accelerated ops.
  *
  *  Value: "PARTITION_JELLYFISH"
  */
@@ -2053,8 +2173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentMod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionCustomStorageCpu;
 /**
- *  To be used by customers with Jellyfish-accelerated ops. See
- *  go/servomatic-jellyfish for details.
+ *  To be used by customers with Jellyfish-accelerated ops.
  *
  *  Value: "PARTITION_JELLYFISH"
  */
@@ -2104,8 +2223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSTextComponentMod
 /**
  *  A composite model represents a set of component models that have to be used
  *  together for prediction. A composite model appears to be a single model to
- *  the model user. It may contain only one component model. Please refer to
- *  go/cnl-composite-models for more information.
+ *  the model user. It may contain only one component model.
  *
  *  Value: "TEXT_MODEL_TYPE_COMPOSITE"
  */
@@ -2369,7 +2487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See Document.language field for more details.
+ *  See Document.language_code field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2430,7 +2548,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See Document.language field for more details.
+ *  See Document.language_code field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2541,14 +2659,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 /**
  *  Entities, along with their semantic information, in the input document.
  *  Populated if the user enables AnnotateTextRequest.Features.extract_entities
- *  or AnnotateTextRequest.Features.extract_entity_sentiment.
+ *  .
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_Entity *> *entities;
 
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See Document.language field for more details.
+ *  See Document.language_code field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2589,6 +2707,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 /** The name of the category representing the document. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. The classifier's severity of the category. This is only present
+ *  when the ModerateTextRequest.ModelVersion is set to MODEL_VERSION_2, and the
+ *  corresponding category has a severity score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *severity;
+
 @end
 
 
@@ -2614,7 +2741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See Document.language field for more details.
+ *  See Document.language_code field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2747,6 +2874,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        skip quota reporting. (Value: "A2")
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A3 GPU-based machine,
  *        skip quota reporting. (Value: "A3")
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A4 GPU-based machine,
+ *        skip quota reporting. (Value: "A4")
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_A4x GPU-based machine,
+ *        skip quota reporting. (Value: "A4X")
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C2 COMPUTE_OPTIMIZED
  *        (Value: "C2")
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C2d Value "C2D"
@@ -2791,8 +2922,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A2Ultragpu8g Value
  *        "A2_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Edgegpu8g Value
+ *        "A3_EDGEGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu1g Value
+ *        "A3_HIGHGPU_1G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu2g Value
+ *        "A3_HIGHGPU_2G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu4g Value
+ *        "A3_HIGHGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Highgpu8g Value
  *        "A3_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Megagpu8g Value
+ *        "A3_MEGAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A3Ultragpu8g Value
+ *        "A3_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A4Highgpu8g Value
+ *        "A4_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_A4xHighgpu4g Value
+ *        "A4X_HIGHGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu112
  *        Value "C2D_HIGHCPU_112"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2dHighcpu16 Value
@@ -3219,10 +3366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  For calls to AnalyzeEntitySentiment or if
- *  AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this
- *  field will contain the aggregate sentiment expressed for this entity in the
- *  provided document.
+ *  For calls to AnalyzeEntitySentiment this field will contain the aggregate
+ *  sentiment expressed for this entity in the provided document.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Sentiment *sentiment;
 
@@ -3306,10 +3451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 @property(nonatomic, strong, nullable) NSNumber *probability;
 
 /**
- *  For calls to AnalyzeEntitySentiment or if
- *  AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this
- *  field will contain the sentiment expressed for this mention of the entity in
- *  the provided document.
+ *  For calls to AnalyzeEntitySentiment this field will contain the sentiment
+ *  expressed for this mention of the entity in the provided document.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Sentiment *sentiment;
 
@@ -3350,8 +3493,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaA10080gb Value
  *        "NVIDIA_A100_80GB"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaB200 Value
+ *        "NVIDIA_B200"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaGb200 Value
+ *        "NVIDIA_GB200"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH10080gb Value
  *        "NVIDIA_H100_80GB"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH100Mega80gb
+ *        Value "NVIDIA_H100_MEGA_80GB"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH200141gb Value
+ *        "NVIDIA_H200_141GB"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaL4 Value
  *        "NVIDIA_L4"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaA100 Value
@@ -3393,8 +3544,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A2Ultragpu8g Value
  *        "A2_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Edgegpu8g Value
+ *        "A3_EDGEGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu1g Value
+ *        "A3_HIGHGPU_1G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu2g Value
+ *        "A3_HIGHGPU_2G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu4g Value
+ *        "A3_HIGHGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Highgpu8g Value
  *        "A3_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Megagpu8g Value
+ *        "A3_MEGAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A3Ultragpu8g Value
+ *        "A3_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A4Highgpu8g Value
+ *        "A4_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_A4xHighgpu4g Value
+ *        "A4X_HIGHGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu112
  *        Value "C2D_HIGHCPU_112"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2dHighcpu16 Value
@@ -3721,7 +3888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 
 
 /**
- *  Infra Usage of billing metrics. Next ID: 6
+ *  LINT: LEGACY_NAMES Infra Usage of billing metrics.
  */
 @interface GTLRCloudNaturalLanguage_InfraUsage : GTLRObject
 
@@ -3751,6 +3918,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 /** Required. Input document. */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Document *document;
 
+/**
+ *  Optional. The model version to use for ModerateText.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersion1
+ *        Use the v1 model, this model is used by default when not provided. The
+ *        v1 model only returns probability (confidence) score for each
+ *        category. (Value: "MODEL_VERSION_1")
+ *    @arg @c kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersion2
+ *        Use the v2 model. The v2 model only returns probability (confidence)
+ *        score for each category, and returns severity score for a subset of
+ *        the categories. (Value: "MODEL_VERSION_2")
+ *    @arg @c kGTLRCloudNaturalLanguage_ModerateTextRequest_ModelVersion_ModelVersionUnspecified
+ *        The default model version. (Value: "MODEL_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *modelVersion;
+
 @end
 
 
@@ -3762,7 +3946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 /**
  *  The language of the text, which will be the same as the language specified
  *  in the request or, if not specified, the automatically-detected language.
- *  See Document.language field for more details.
+ *  See Document.language_code field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -3816,8 +4000,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "A2_ULTRAGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A2Ultragpu8g Value
  *        "A2_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Edgegpu8g Value
+ *        "A3_EDGEGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu1g Value
+ *        "A3_HIGHGPU_1G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu2g Value
+ *        "A3_HIGHGPU_2G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu4g Value
+ *        "A3_HIGHGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Highgpu8g Value
  *        "A3_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Megagpu8g Value
+ *        "A3_MEGAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A3Ultragpu8g Value
+ *        "A3_ULTRAGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A4Highgpu8g Value
+ *        "A4_HIGHGPU_8G"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_A4xHighgpu4g Value
+ *        "A4X_HIGHGPU_4G"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu112
  *        Value "C2D_HIGHCPU_112"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2dHighcpu16 Value
@@ -4130,6 +4330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_A2 Value "A2"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_A3 Value "A3"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_A4 Value "A4"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_A4x Value "A4X"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_C2 COMPUTE_OPTIMIZED
  *        (Value: "C2")
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_C2d Value "C2D"
@@ -4202,7 +4404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 @interface GTLRCloudNaturalLanguage_Sentiment : GTLRObject
 
 /**
- *  A non-negative number in the [0, +inf) range, which represents the absolute
+ *  A non-negative number in the [0, +inf] range, which represents the absolute
  *  magnitude of sentiment regardless of score (positive or negative).
  *
  *  Uses NSNumber of floatValue.
@@ -4623,8 +4825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 
 
 /**
- *  ===========================================================================
- *  # The fields below are used exclusively for Forecasting.
+ *  GTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata
  */
 @interface GTLRCloudNaturalLanguage_XPSColumnSpecForecastingMetadata : GTLRObject
 
@@ -5222,14 +5423,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 @property(nonatomic, strong, nullable) NSNumber *exportFirebaseAuxiliaryInfo;
 
 /**
- *  The Google Contained Registry (GCR) path the exported files to be pushed to.
- *  This location is set if the exported format is DOCKDER.
+ *  The Google Contained Registry path the exported files to be pushed to. This
+ *  location is set if the exported format is DOCKDER.
  */
 @property(nonatomic, copy, nullable) NSString *outputGcrUri;
 
 /**
- *  The Google Cloud Storage (GCS) directory where XPS will output the exported
- *  models and related files. Format: gs://bucket/directory
+ *  The Google Cloud Storage directory where XPS will output the exported models
+ *  and related files. Format: gs://bucket/directory
  */
 @property(nonatomic, copy, nullable) NSString *outputGcsUri;
 
@@ -5241,7 +5442,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 
 
 /**
- *  Spec of input and output files, on external file systems (CNS, GCS, etc).
+ *  Spec of input and output files, on external file systems (for example,
+ *  Colossus Namespace System or Google Cloud Storage).
  */
 @interface GTLRCloudNaturalLanguage_XPSFileSpec : GTLRObject
 
@@ -5263,7 +5465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        Value "FILE_FORMAT_SSTABLE"
  *    @arg @c kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatTranslationRkv
  *        Internal format for parallel text data used by Google Translate.
- *        go/rkvtools (Value: "FILE_FORMAT_TRANSLATION_RKV")
+ *        (Value: "FILE_FORMAT_TRANSLATION_RKV")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSFileSpec_FileFormat_FileFormatUnknown
  *        Value "FILE_FORMAT_UNKNOWN"
  */
@@ -5429,8 +5631,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 
 /**
  *  Contains the model format and internal location of the model files to be
- *  exported/downloaded. Use the GCS bucket name which is provided via
- *  TrainRequest.gcs_bucket_name to store the model files.
+ *  exported/downloaded. Use the Google Cloud Storage bucket name which is
+ *  provided via TrainRequest.gcs_bucket_name to store the model files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_XPSExportModelOutputConfig *> *exportModelOutputConfig;
 
@@ -5449,7 +5651,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 /** The model binary files in different formats for model export. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_XPSModelArtifactItem *> *exportArtifact;
 
-/** GCS uri of decoded labels file for model export 'dict.txt'. */
+/**
+ *  Google Cloud Storage URI of decoded labels file for model export 'dict.txt'.
+ */
 @property(nonatomic, copy, nullable) NSString *labelGcsUri;
 
 /**
@@ -5459,12 +5663,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_XPSModelArtifactItem *servingArtifact;
 
 /**
- *  GCS uri prefix of Tensorflow JavaScript binary files 'groupX-shardXofX.bin'
- *  Deprecated.
+ *  Google Cloud Storage URI prefix of Tensorflow JavaScript binary files
+ *  'groupX-shardXofX.bin'. Deprecated.
  */
 @property(nonatomic, copy, nullable) NSString *tfJsBinaryGcsPrefix;
 
-/** GCS uri of Tensorflow Lite metadata 'tflite_metadata.json'. */
+/**
+ *  Google Cloud Storage URI of Tensorflow Lite metadata 'tflite_metadata.json'.
+ */
 @property(nonatomic, copy, nullable) NSString *tfLiteMetadataGcsUri;
 
 @end
@@ -5506,8 +5712,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaA10080gb
  *        Nvidia A100 80GB GPU. (Value: "NVIDIA_A100_80GB")
+ *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaB200
+ *        Nvidia B200 GPU. (Value: "NVIDIA_B200")
+ *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaGb200
+ *        Nvidia GB200 GPU. (Value: "NVIDIA_GB200")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH10080gb
  *        Nvidia H100 80Gb GPU. (Value: "NVIDIA_H100_80GB")
+ *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH100Mega80gb
+ *        Nvidia H100 80Gb GPU. (Value: "NVIDIA_H100_MEGA_80GB")
+ *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaH200141gb
+ *        Nvidia H200 141Gb GPU. (Value: "NVIDIA_H200_141GB")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaL4
  *        Nvidia L4 GPU. (Value: "NVIDIA_L4")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ComputeEngineAcceleratorType_NvidiaTeslaA100
@@ -5560,8 +5774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        The partition used for loading models from custom storage. (Value:
  *        "PARTITION_CUSTOM_STORAGE_CPU")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionJellyfish
- *        To be used by customers with Jellyfish-accelerated ops. See
- *        go/servomatic-jellyfish for details. (Value: "PARTITION_JELLYFISH")
+ *        To be used by customers with Jellyfish-accelerated ops. (Value:
+ *        "PARTITION_JELLYFISH")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSImageModelServingSpecModelThroughputEstimation_ServomaticPartitionType_PartitionReducedHoming
  *        It has significantly lower replication than partition-0 and is located
  *        in the US only. It also has a larger model size limit and higher
@@ -5879,14 +6093,14 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *artifactFormat;
 
-/** The Google Cloud Storage (GCS) uri that stores the model binary files. */
+/** The Google Cloud Storage URI that stores the model binary files. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 @end
 
 
 /**
- *  Next ID: 8
+ *  GTLRCloudNaturalLanguage_XPSPreprocessResponse
  */
 @interface GTLRCloudNaturalLanguage_XPSPreprocessResponse : GTLRObject
 
@@ -6105,7 +6319,7 @@ GTLR_DEPRECATED
 
 /**
  *  Specification of Model explanation. Feature-based XAI in AutoML Vision ICN
- *  is deprecated, see b/288407203 for context.
+ *  is deprecated.
  */
 GTLR_DEPRECATED
 @interface GTLRCloudNaturalLanguage_XPSResponseExplanationSpec : GTLRObject
@@ -6623,7 +6837,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Metadata for a dataset used for AutoML Tables. Next ID: 6
+ *  Metadata for a dataset used for AutoML Tables.
  */
 @interface GTLRCloudNaturalLanguage_XPSTablesDatasetMetadata : GTLRObject
 
@@ -6959,7 +7173,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Component model. Next ID: 10
+ *  Component model.
  */
 @interface GTLRCloudNaturalLanguage_XPSTextComponentModel : GTLRObject
 
@@ -6981,8 +7195,8 @@ GTLR_DEPRECATED
  *        The partition used for loading models from custom storage. (Value:
  *        "PARTITION_CUSTOM_STORAGE_CPU")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionJellyfish
- *        To be used by customers with Jellyfish-accelerated ops. See
- *        go/servomatic-jellyfish for details. (Value: "PARTITION_JELLYFISH")
+ *        To be used by customers with Jellyfish-accelerated ops. (Value:
+ *        "PARTITION_JELLYFISH")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSTextComponentModel_Partition_PartitionReducedHoming
  *        It has significantly lower replication than partition-0 and is located
  *        in the US only. It also has a larger model size limit and higher
@@ -7033,8 +7247,7 @@ GTLR_DEPRECATED
  *        A composite model represents a set of component models that have to be
  *        used together for prediction. A composite model appears to be a single
  *        model to the model user. It may contain only one component model.
- *        Please refer to go/cnl-composite-models for more information. (Value:
- *        "TEXT_MODEL_TYPE_COMPOSITE")
+ *        (Value: "TEXT_MODEL_TYPE_COMPOSITE")
  *    @arg @c kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeDefault
  *        Value "TEXT_MODEL_TYPE_DEFAULT"
  *    @arg @c kGTLRCloudNaturalLanguage_XPSTextComponentModel_SubmodelType_TextModelTypeEncPalm
@@ -7402,7 +7615,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Next ID: 18
+ *  GTLRCloudNaturalLanguage_XPSTrainResponse
  */
 @interface GTLRCloudNaturalLanguage_XPSTrainResponse : GTLRObject
 
@@ -7704,8 +7917,8 @@ GTLR_DEPRECATED
 
 /**
  *  Contains the model format and internal location of the model files to be
- *  exported/downloaded. Use the GCS bucket name which is provided via
- *  TrainRequest.gcs_bucket_name to store the model files.
+ *  exported/downloaded. Use the Google Cloud Storage bucket name which is
+ *  provided via TrainRequest.gcs_bucket_name to store the model files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_XPSExportModelOutputConfig *> *exportModelOutputConfig;
 

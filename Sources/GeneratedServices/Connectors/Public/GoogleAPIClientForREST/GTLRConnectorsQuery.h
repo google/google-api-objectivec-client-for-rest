@@ -31,6 +31,24 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
+ *  Return basic action schema.
+ *
+ *  Value: "ACTION_SCHEMA_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionSchemaViewBasic;
+/**
+ *  Return enriched action schema.
+ *
+ *  Value: "ACTION_SCHEMA_VIEW_ENRICHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionSchemaViewEnriched;
+/**
+ *  VIEW_UNSPECIFIED. The unset value. Defaults to BASIC View.
+ *
+ *  Value: "ACTION_SCHEMA_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionSchemaViewUnspecified;
+/**
  *  Return only action names.
  *
  *  Value: "ACTION_VIEW_BASIC"
@@ -48,6 +66,24 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionViewFull;
  *  Value: "ACTION_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewActionViewUnspecified;
+/**
+ *  Return basic entity type schema.
+ *
+ *  Value: "ENTITY_TYPE_SCHEMA_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeSchemaViewBasic;
+/**
+ *  Return enriched entity types schema.
+ *
+ *  Value: "ENTITY_TYPE_SCHEMA_VIEW_ENRICHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeSchemaViewEnriched;
+/**
+ *  VIEW_UNSPECIFIED. The unset value. Defaults to BASIC View.
+ *
+ *  Value: "ENTITY_TYPE_SCHEMA_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeSchemaViewUnspecified;
 /**
  *  Return only entity type names.
  *
@@ -133,6 +169,20 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *  projects/{project}/locations/{location}/connections/{connection}/actions/{action}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specified view of the action schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectorsViewActionSchemaViewUnspecified VIEW_UNSPECIFIED.
+ *        The unset value. Defaults to BASIC View. (Value:
+ *        "ACTION_SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRConnectorsViewActionSchemaViewBasic Return basic action
+ *        schema. (Value: "ACTION_SCHEMA_VIEW_BASIC")
+ *    @arg @c kGTLRConnectorsViewActionSchemaViewEnriched Return enriched action
+ *        schema. (Value: "ACTION_SCHEMA_VIEW_ENRICHED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRConnectors_Action.
@@ -454,6 +504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 /** List of 'sort_by' columns to use when returning the results. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sortBy;
 
+/** List of 'sort_order' columns to use when returning the results. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sortOrder;
+
 /**
  *  Fetches a @c GTLRConnectors_ListEntitiesResponse.
  *
@@ -576,10 +629,30 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet : GTLRConnectorsQuery
 
 /**
+ *  Context metadata for request could be used to fetch customization of entity
+ *  type schema.
+ */
+@property(nonatomic, copy, nullable) NSString *contextMetadata;
+
+/**
  *  Required. Resource name of the Entity Type. Format:
  *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{entityType}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Specifies view for entity type schema.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectorsViewEntityTypeSchemaViewUnspecified
+ *        VIEW_UNSPECIFIED. The unset value. Defaults to BASIC View. (Value:
+ *        "ENTITY_TYPE_SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRConnectorsViewEntityTypeSchemaViewBasic Return basic entity
+ *        type schema. (Value: "ENTITY_TYPE_SCHEMA_VIEW_BASIC")
+ *    @arg @c kGTLRConnectorsViewEntityTypeSchemaViewEnriched Return enriched
+ *        entity types schema. (Value: "ENTITY_TYPE_SCHEMA_VIEW_ENRICHED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRConnectors_EntityType.
@@ -747,6 +820,79 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRConnectors_RefreshAccessTokenRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Executes a specific tool.
+ *
+ *  Method: connectors.projects.locations.connections.tools.execute
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsExecute : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Tool. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/tools/{tool}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_ExecuteToolResponse.
+ *
+ *  Executes a specific tool.
+ *
+ *  @param object The @c GTLRConnectors_ExecuteToolRequest to include in the
+ *    query.
+ *  @param name Required. Resource name of the Tool. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/tools/{tool}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsExecute
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_ExecuteToolRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all available tools.
+ *
+ *  Method: connectors.projects.locations.connections.tools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsList : GTLRConnectorsQuery
+
+/** Page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the Connection. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConnectors_ListToolsResponse.
+ *
+ *  Lists all available tools.
+ *
+ *  @param parent Required. Resource name of the Connection. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

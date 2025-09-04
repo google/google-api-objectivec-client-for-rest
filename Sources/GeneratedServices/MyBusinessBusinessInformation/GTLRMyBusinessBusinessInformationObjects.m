@@ -425,7 +425,8 @@ NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod_OpenDay_Wednesday
 @dynamic canDelete, canHaveBusinessCalls, canHaveFoodMenus,
          canModifyServiceList, canOperateHealthData, canOperateLocalPost,
          canOperateLodgingData, duplicateLocation, hasGoogleUpdated,
-         hasPendingEdits, hasVoiceOfMerchant, mapsUri, newReviewUri, placeId;
+         hasPendingEdits, hasVoiceOfMerchant, isParticularlyPersonalPlace,
+         mapsUri, newReviewUri, placeId;
 @end
 
 

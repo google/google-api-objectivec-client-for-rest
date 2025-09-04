@@ -132,6 +132,12 @@ NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingSta
 NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusPending = @"billingStatusPending";
 NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsBillingDetails_BillingStatus_BillingStatusUnspecified = @"billingStatusUnspecified";
 
+// GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails.status
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusActive = @"merchantAffiliateProgramStatusActive";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusEligible = @"merchantAffiliateProgramStatusEligible";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusPaused = @"merchantAffiliateProgramStatusPaused";
+NSString * const kGTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails_Status_MerchantAffiliateProgramStatusUnspecified = @"merchantAffiliateProgramStatusUnspecified";
+
 // GTLRYouTube_CommentSnippet.moderationStatus
 NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_HeldForReview = @"heldForReview";
 NSString * const kGTLRYouTube_CommentSnippet_ModerationStatus_LikelySpam = @"likelySpam";
@@ -364,12 +370,16 @@ NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqCriminalActs
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqDrugs = @"djctqDrugs";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExplicitSex = @"djctqExplicitSex";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqExtremeViolence = @"djctqExtremeViolence";
+NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqFantasyViolence = @"djctqFantasyViolence";
+NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqFear = @"djctqFear";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqIllegalDrugs = @"djctqIllegalDrugs";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqImpactingContent = @"djctqImpactingContent";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqInappropriateLanguage = @"djctqInappropriateLanguage";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqLegalDrugs = @"djctqLegalDrugs";
+NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqMedicalProcedures = @"djctqMedicalProcedures";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqNudity = @"djctqNudity";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqRatingReasonUnspecified = @"djctqRatingReasonUnspecified";
+NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSensitiveTopics = @"djctqSensitiveTopics";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSex = @"djctqSex";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqSexualContent = @"djctqSexualContent";
 NSString * const kGTLRYouTube_ContentRating_DjctqRatingReasons_DjctqViolence = @"djctqViolence";
@@ -1038,6 +1048,10 @@ NSString * const kGTLRYouTube_PlaylistImageSnippet_Type_Hero = @"hero";
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Private = @"private";
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Public = @"public";
 NSString * const kGTLRYouTube_PlaylistItemStatus_PrivacyStatus_Unlisted = @"unlisted";
+
+// GTLRYouTube_PlaylistStatus.podcastStatus
+NSString * const kGTLRYouTube_PlaylistStatus_PodcastStatus_Disabled = @"disabled";
+NSString * const kGTLRYouTube_PlaylistStatus_PodcastStatus_Enabled = @"enabled";
 
 // GTLRYouTube_PlaylistStatus.privacyStatus
 NSString * const kGTLRYouTube_PlaylistStatus_PrivacyStatus_Private = @"private";
@@ -1866,8 +1880,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ChannelStatus
-@dynamic isLinked, longUploadsStatus, madeForKids, privacyStatus,
-         selfDeclaredMadeForKids;
+@dynamic isChannelMonetizationEnabled, isLinked, longUploadsStatus, madeForKids,
+         privacyStatus, selfDeclaredMadeForKids;
 @end
 
 
@@ -1896,7 +1910,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_ChannelToStoreLinkDetails
-@dynamic billingDetails, merchantId, storeName, storeUrl;
+@dynamic billingDetails, merchantAffiliateProgramDetails, merchantId, storeName,
+         storeUrl;
 @end
 
 
@@ -1907,6 +1922,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_ChannelToStoreLinkDetailsBillingDetails
 @dynamic billingStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails
+//
+
+@implementation GTLRYouTube_ChannelToStoreLinkDetailsMerchantAffiliateProgramDetails
+@dynamic status;
 @end
 
 
@@ -1960,8 +1985,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 @implementation GTLRYouTube_CommentSnippet
 @dynamic authorChannelId, authorChannelUrl, authorDisplayName,
          authorProfileImageUrl, canRate, channelId, likeCount, moderationStatus,
-         parentId, publishedAt, textDisplay, textOriginal, updatedAt, videoId,
-         viewerRating;
+         parentId, postId, publishedAt, textDisplay, textOriginal, updatedAt,
+         videoId, viewerRating;
 @end
 
 
@@ -2041,8 +2066,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_CommentThreadSnippet
-@dynamic canReply, channelId, isPublic, topLevelComment, totalReplyCount,
-         videoId;
+@dynamic canReply, channelId, isPublic, postId, topLevelComment,
+         totalReplyCount, videoId;
 @end
 
 
@@ -2535,8 +2560,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveChatMessageListResponse
-@dynamic ETag, eventId, items, kind, nextPageToken, offlineAt, pageInfo,
-         pollingIntervalMillis, tokenPagination, visitorId;
+@dynamic activePollItem, ETag, eventId, items, kind, nextPageToken, offlineAt,
+         pageInfo, pollingIntervalMillis, tokenPagination, visitorId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -3263,7 +3288,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_PlaylistStatus
-@dynamic privacyStatus;
+@dynamic podcastStatus, privacyStatus;
 @end
 
 
@@ -3420,8 +3445,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_SubscriptionSnippet
-@dynamic channelId, channelTitle, descriptionProperty, publishedAt, resourceId,
-         thumbnails, title;
+@dynamic channelId, descriptionProperty, publishedAt, resourceId, thumbnails,
+         title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3515,10 +3540,14 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_TestItem
-@dynamic featuredPart, gaia, identifier, snippet;
+@dynamic ETag, featuredPart, gaia, identifier, snippet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
 }
 
 @end
@@ -3653,9 +3682,10 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_Video
 @dynamic ageGating, contentDetails, ETag, fileDetails, identifier, kind,
-         liveStreamingDetails, localizations, monetizationDetails, player,
-         processingDetails, projectDetails, recordingDetails, snippet,
-         statistics, status, suggestions, topicDetails;
+         liveStreamingDetails, localizations, monetizationDetails,
+         paidProductPlacementDetails, player, processingDetails, projectDetails,
+         recordingDetails, snippet, statistics, status, suggestions,
+         topicDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -3983,6 +4013,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_VideoPaidProductPlacementDetails
+//
+
+@implementation GTLRYouTube_VideoPaidProductPlacementDetails
+@dynamic hasPaidProductPlacement;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_VideoPlayer
 //
 
@@ -4083,9 +4123,9 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_VideoStatus
-@dynamic embeddable, failureReason, license, madeForKids, privacyStatus,
-         publicStatsViewable, publishAt, rejectionReason,
-         selfDeclaredMadeForKids, uploadStatus;
+@dynamic containsSyntheticMedia, embeddable, failureReason, license,
+         madeForKids, privacyStatus, publicStatsViewable, publishAt,
+         rejectionReason, selfDeclaredMadeForKids, uploadStatus;
 @end
 
 
@@ -4143,6 +4183,28 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
     @"relevantTopicIds" : [NSString class],
     @"topicCategories" : [NSString class],
     @"topicIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_VideoTrainability
+//
+
+@implementation GTLRYouTube_VideoTrainability
+@dynamic ETag, kind, permitted, videoId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permitted" : [NSString class]
   };
   return map;
 }

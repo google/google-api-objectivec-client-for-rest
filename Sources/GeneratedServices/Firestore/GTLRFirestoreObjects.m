@@ -36,11 +36,37 @@ NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime = @"REQUEST_TIME";
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified = @"SERVER_VALUE_UNSPECIFIED";
 
+// GTLRFirestore_FindNearest.distanceMeasure
+NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Cosine = @"COSINE";
+NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DistanceMeasureUnspecified = @"DISTANCE_MEASURE_UNSPECIFIED";
+NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_DotProduct = @"DOT_PRODUCT";
+NSString * const kGTLRFirestore_FindNearest_DistanceMeasure_Euclidean = @"EUCLIDEAN";
+
 // GTLRFirestore_GoogleFirestoreAdminV1Backup.state
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Creating = @"CREATING";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_NotAvailable = @"NOT_AVAILABLE";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_Ready = @"READY";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata.operationState
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Cancelling = @"CANCELLING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Failed = @"FAILED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Finalizing = @"FINALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Initializing = @"INITIALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Processing = @"PROCESSING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata_OperationState_Successful = @"SUCCESSFUL";
+
+// GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata.operationState
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelled = @"CANCELLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Cancelling = @"CANCELLING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Failed = @"FAILED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Finalizing = @"FINALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Initializing = @"INITIALIZING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Processing = @"PROCESSING";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata_OperationState_Successful = @"SUCCESSFUL";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Database.appEngineIntegrationMode
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_AppEngineIntegrationMode_AppEngineIntegrationModeUnspecified = @"APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED";
@@ -52,6 +78,11 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_C
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups = @"OPTIMISTIC_WITH_ENTITY_GROUPS";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
+
+// GTLRFirestore_GoogleFirestoreAdminV1Database.databaseEdition
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_DatabaseEditionUnspecified = @"DATABASE_EDITION_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DatabaseEdition_Standard = @"STANDARD";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Database.deleteProtectionState
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionDisabled = @"DELETE_PROTECTION_DISABLED";
@@ -101,6 +132,13 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata_Op
 // GTLRFirestore_GoogleFirestoreAdminV1Index.apiScope
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_AnyApi = @"ANY_API";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_DatastoreModeApi = @"DATASTORE_MODE_API";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_ApiScope_MongodbCompatibleApi = @"MONGODB_COMPATIBLE_API";
+
+// GTLRFirestore_GoogleFirestoreAdminV1Index.density
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_Dense = @"DENSE";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_DensityUnspecified = @"DENSITY_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAll = @"SPARSE_ALL";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Density_SparseAny = @"SPARSE_ANY";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Index.queryScope
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection = @"COLLECTION";
@@ -158,6 +196,11 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_StateUnspe
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Add = @"ADD";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta_ChangeType_Remove = @"REMOVE";
+
+// GTLRFirestore_GoogleFirestoreAdminV1UserCreds.state
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Disabled = @"DISABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_Enabled = @"ENABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1UserCreds_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence.day
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -608,11 +651,45 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_ExecutionStats
+//
+
+@implementation GTLRFirestore_ExecutionStats
+@dynamic debugStats, executionDuration, readOperations, resultsReturned;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_ExecutionStats_DebugStats
+//
+
+@implementation GTLRFirestore_ExecutionStats_DebugStats
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_ExistenceFilter
 //
 
 @implementation GTLRFirestore_ExistenceFilter
 @dynamic count, targetId, unchangedNames;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_ExplainMetrics
+//
+
+@implementation GTLRFirestore_ExplainMetrics
+@dynamic executionStats, planSummary;
 @end
 
 
@@ -669,6 +746,17 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_FindNearest
+//
+
+@implementation GTLRFirestore_FindNearest
+@dynamic distanceMeasure, distanceResultField, distanceThreshold, limit,
+         queryVector, vectorField;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1Backup
 //
 
@@ -685,6 +773,90 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 @implementation GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule
 @dynamic createTime, dailyRecurrence, name, retention, updateTime,
          weeklyRecurrence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1BackupSource
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1BackupSource
+@dynamic backup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsMetadata
+@dynamic collectionIds, endTime, namespaceIds, operationState, progressBytes,
+         progressDocuments, snapshotTime, startTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"collectionIds" : [NSString class],
+    @"namespaceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1BulkDeleteDocumentsRequest
+@dynamic collectionIds, namespaceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"collectionIds" : [NSString class],
+    @"namespaceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseMetadata
+@dynamic database, endTime, operationState, pitrSnapshot, progressPercentage,
+         startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest
+@dynamic databaseId, encryptionConfig, pitrSnapshot, tags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1CloneDatabaseRequest_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -717,6 +889,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1CustomerManagedEncryptionOptions
+@dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1DailyRecurrence
 //
 
@@ -731,9 +913,10 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Database
 @dynamic appEngineIntegrationMode, cmekConfig, concurrencyMode, createTime,
-         deleteProtectionState, earliestVersionTime, ETag, keyPrefix,
-         locationId, name, pointInTimeRecoveryEnablement, type, uid, updateTime,
-         versionRetentionPeriod;
+         databaseEdition, deleteProtectionState, deleteTime,
+         earliestVersionTime, ETag, freeTier, keyPrefix, locationId, name,
+         pointInTimeRecoveryEnablement, previousId, sourceInfo, tags, type, uid,
+         updateTime, versionRetentionPeriod;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -744,11 +927,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot
+//   GTLRFirestore_GoogleFirestoreAdminV1Database_Tags
 //
 
-@implementation GTLRFirestore_GoogleFirestoreAdminV1DatabaseSnapshot
-@dynamic database, snapshotTime;
+@implementation GTLRFirestore_GoogleFirestoreAdminV1Database_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -758,6 +945,35 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1DeleteDatabaseMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1DisableUserCredsRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1EnableUserCredsRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig
+@dynamic customerManagedEncryption, googleDefaultEncryption,
+         useSourceEncryption;
 @end
 
 
@@ -850,6 +1066,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1GoogleDefaultEncryptionOptions
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsMetadata
 //
 
@@ -893,7 +1118,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Index
-@dynamic apiScope, fields, name, queryScope, state;
+@dynamic apiScope, density, fields, multikey, name, queryScope, shardCount,
+         state, unique;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1055,10 +1281,38 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1ListUserCredsResponse
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1ListUserCredsResponse
+@dynamic userCreds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userCreds" : [GTLRFirestore_GoogleFirestoreAdminV1UserCreds class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1LocationMetadata
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1LocationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1PitrSnapshot
+@dynamic database, databaseUid, snapshotTime;
 @end
 
 
@@ -1069,6 +1323,25 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Progress
 @dynamic completedWork, estimatedWork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1ResetUserPasswordRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity
+@dynamic principal;
 @end
 
 
@@ -1089,7 +1362,40 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest
-@dynamic backup, databaseId, databaseSnapshot;
+@dynamic backup, databaseId, encryptionConfig, tags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1SourceInfo
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SourceInfo
+@dynamic backup, operation;
 @end
 
 
@@ -1129,6 +1435,16 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1UserCreds
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1UserCreds
+@dynamic createTime, name, resourceIdentity, securePassword, state, updateTime;
 @end
 
 
@@ -1443,6 +1759,38 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_PlanSummary
+//
+
+@implementation GTLRFirestore_PlanSummary
+@dynamic indexesUsed;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexesUsed" : [GTLRFirestore_PlanSummary_IndexesUsed_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_PlanSummary_IndexesUsed_Item
+//
+
+@implementation GTLRFirestore_PlanSummary_IndexesUsed_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_Precondition
 //
 
@@ -1526,7 +1874,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunAggregationQueryResponse
-@dynamic readTime, result, transaction;
+@dynamic explainMetrics, readTime, result, transaction;
 @end
 
 
@@ -1546,7 +1894,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_RunQueryResponse
-@dynamic document, done, readTime, skippedResults, transaction;
+@dynamic document, done, explainMetrics, readTime, skippedResults, transaction;
 @end
 
 
@@ -1606,7 +1954,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_StructuredQuery
-@dynamic endAt, from, limit, offset, orderBy, select, startAt, where;
+@dynamic endAt, findNearest, from, limit, offset, orderBy, select, startAt,
+         where;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

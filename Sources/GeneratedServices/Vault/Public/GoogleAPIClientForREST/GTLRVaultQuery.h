@@ -12,7 +12,7 @@
 //   privilege. For example, to download an export, an account needs the
 //   **Manage Exports** privilege and the matter shared with them.
 // Documentation:
-//   https://developers.google.com/vault
+//   https://developers.google.com/workspace/vault
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -77,7 +77,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewBasic;
 FOUNDATION_EXTERN NSString * const kGTLRVaultViewBasicHold;
 /**
  *  Returns the basic details and a list of matter owners and collaborators (see
- *  [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
+ *  [MatterPermissions](https://developers.google.com/workspace/vault/reference/rest/v1/matters#matterpermission)).
  *
  *  Value: "FULL"
  */
@@ -407,7 +407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *        state. Default choice. (Value: "BASIC")
  *    @arg @c kGTLRVaultViewFull Returns the basic details and a list of matter
  *        owners and collaborators (see
- *        [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
+ *        [MatterPermissions](https://developers.google.com/workspace/vault/reference/rest/v1/matters#matterpermission)).
  *        (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
@@ -860,7 +860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *        state. Default choice. (Value: "BASIC")
  *    @arg @c kGTLRVaultViewFull Returns the basic details and a list of matter
  *        owners and collaborators (see
- *        [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
+ *        [MatterPermissions](https://developers.google.com/workspace/vault/reference/rest/v1/matters#matterpermission)).
  *        (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
@@ -1137,10 +1137,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: vault.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_OperationsCancel : GTLRVaultQuery
 
@@ -1157,7 +1160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRVault_CancelOperationRequest to include in the
@@ -1178,6 +1181,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  `google.rpc.Code.UNIMPLEMENTED`.
  *
  *  Method: vault.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_OperationsDelete : GTLRVaultQuery
 
@@ -1236,6 +1242,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  server doesn't support this method, it returns `UNIMPLEMENTED`.
  *
  *  Method: vault.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_OperationsList : GTLRVaultQuery
 

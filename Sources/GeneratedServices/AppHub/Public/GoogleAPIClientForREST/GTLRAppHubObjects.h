@@ -206,6 +206,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_ReconciliationOperationMetadata_E
 // GTLRAppHub_Scope.type
 
 /**
+ *  Global type.
+ *
+ *  Value: "GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_Scope_Type_Global;
+/**
  *  Regional type.
  *
  *  Value: "REGIONAL"
@@ -316,7 +322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_Detached;
 FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
- *  Application defines the governance boundary for App Hub Entities that
+ *  Application defines the governance boundary for App Hub entities that
  *  perform a logical end-to-end business function. App Hub supports application
  *  level IAM permission to align with governance requirements.
  */
@@ -344,7 +350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Identifier. The resource name of an Application. Format:
- *  "projects/{host-project-id}/locations/{location}/applications/{application-id}"
+ *  `"projects/{host-project-id}/locations/{location}/applications/{application-id}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -618,15 +624,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
- *  DiscoveredService is a network/api interface that exposes some functionality
- *  to clients for consumption over the network. A discovered service can be
- *  registered to a App Hub service.
+ *  DiscoveredService is a network or API interface that exposes some
+ *  functionality to clients for consumption over the network. A discovered
+ *  service can be registered to a App Hub service.
  */
 @interface GTLRAppHub_DiscoveredService : GTLRObject
 
 /**
  *  Identifier. The resource name of the discovered service. Format:
- *  "projects/{host-project-id}/locations/{location}/discoveredServices/{uuid}""
+ *  `"projects/{host-project-id}/locations/{location}/discoveredServices/{uuid}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -655,7 +661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Identifier. The resource name of the discovered workload. Format:
- *  "projects/{host-project-id}/locations/{location}/discoveredWorkloads/{uuid}"
+ *  `"projects/{host-project-id}/locations/{location}/discoveredWorkloads/{uuid}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -796,7 +802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 @interface GTLRAppHub_ListDiscoveredServicesResponse : GTLRCollectionObject
 
 /**
- *  List of discovered services.
+ *  List of Discovered Services.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -823,7 +829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 @interface GTLRAppHub_ListDiscoveredWorkloadsResponse : GTLRCollectionObject
 
 /**
- *  List of discovered workloads.
+ *  List of Discovered Workloads.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1030,6 +1036,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
+ *  Response for LookupDiscoveredService.
+ */
+@interface GTLRAppHub_LookupDiscoveredServiceResponse : GTLRObject
+
+/** Discovered Service if exists, empty otherwise. */
+@property(nonatomic, strong, nullable) GTLRAppHub_DiscoveredService *discoveredService;
+
+@end
+
+
+/**
+ *  Response for LookupDiscoveredWorkload.
+ */
+@interface GTLRAppHub_LookupDiscoveredWorkloadResponse : GTLRObject
+
+/** Discovered Workload if exists, empty otherwise. */
+@property(nonatomic, strong, nullable) GTLRAppHub_DiscoveredWorkload *discoveredWorkload;
+
+@end
+
+
+/**
  *  Response for LookupServiceProjectAttachment.
  */
 @interface GTLRAppHub_LookupServiceProjectAttachmentResponse : GTLRObject
@@ -1137,8 +1165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1291,6 +1319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *  Required. Scope Type.
  *
  *  Likely values:
+ *    @arg @c kGTLRAppHub_Scope_Type_Global Global type. (Value: "GLOBAL")
  *    @arg @c kGTLRAppHub_Scope_Type_Regional Regional type. (Value: "REGIONAL")
  *    @arg @c kGTLRAppHub_Scope_Type_TypeUnspecified Unspecified type. (Value:
  *        "TYPE_UNSPECIFIED")
@@ -1302,7 +1331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Service is an App Hub data model that contains a discovered service, which
- *  represents a network/api interface that exposes some functionality to
+ *  represents a network or API interface that exposes some functionality to
  *  clients for consumption over the network.
  */
 @interface GTLRAppHub_Service : GTLRObject
@@ -1334,7 +1363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Identifier. The resource name of a Service. Format:
- *  "projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}"
+ *  `"projects/{host-project-id}/locations/{location}/applications/{application-id}/services/{service-id}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1393,14 +1422,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Identifier. The resource name of a ServiceProjectAttachment. Format:
- *  "projects/{host-project-id}/locations/global/serviceProjectAttachments/{service-project-id}."
+ *  `"projects/{host-project-id}/locations/global/serviceProjectAttachments/{service-project-id}."`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Immutable. Service project name in the format: "projects/abc" or
- *  "projects/123". As input, project name with either project id or number are
- *  accepted. As output, this field will contain project number.
+ *  Required. Immutable. Service project name in the format: `"projects/abc"` or
+ *  `"projects/123"`. As input, project name with either project id or number
+ *  are accepted. As output, this field will contain project number.
  */
 @property(nonatomic, copy, nullable) NSString *serviceProject;
 
@@ -1464,8 +1493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 @interface GTLRAppHub_ServiceReference : GTLRObject
 
 /**
- *  Output only. The underlying resource URI (For example, URI of Forwarding
- *  Rule, URL Map, and Backend Service).
+ *  Output only. The underlying resource URI. For example, URI of Forwarding
+ *  Rule, URL Map, and Backend Service.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1604,7 +1633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Identifier. The resource name of the Workload. Format:
- *  "projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"
+ *  `"projects/{host-project-id}/locations/{location}/applications/{application-id}/workloads/{workload-id}"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1656,19 +1685,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Output only. The service project identifier that the underlying cloud
- *  resource resides in. Empty for non cloud resources.
+ *  resource resides in. Empty for non-cloud resources.
  */
 @property(nonatomic, copy, nullable) NSString *gcpProject;
 
 /**
  *  Output only. The location that the underlying compute resource resides in
- *  (e.g us-west1).
+ *  (for example, us-west1).
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Output only. The location that the underlying compute resource resides in if
- *  it is zonal (e.g us-west1-a).
+ *  it is zonal (for example, us-west1-a).
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */

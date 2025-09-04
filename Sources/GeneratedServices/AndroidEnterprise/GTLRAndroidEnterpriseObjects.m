@@ -75,6 +75,30 @@ NSString * const kGTLRAndroidEnterprise_Device_ManagementType_UnmanagedProfile =
 NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Disabled = @"disabled";
 NSString * const kGTLRAndroidEnterprise_DeviceState_AccountState_Enabled = @"enabled";
 
+// GTLRAndroidEnterprise_EnrollmentToken.enrollmentTokenType
+NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_EnrollmentTokenTypeUnspecified = @"enrollmentTokenTypeUnspecified";
+NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserDevice = @"userDevice";
+NSString * const kGTLRAndroidEnterprise_EnrollmentToken_EnrollmentTokenType_UserlessDevice = @"userlessDevice";
+
+// GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions.authenticationRequirement
+NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_AuthenticationRequirementUnspecified = @"authenticationRequirementUnspecified";
+NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_Optional = @"optional";
+NSString * const kGTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions_AuthenticationRequirement_Required = @"required";
+
+// GTLRAndroidEnterprise_Enterprise.enterpriseType
+NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_EnterpriseTypeUnspecified = @"enterpriseTypeUnspecified";
+NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGoogleDomain = @"managedGoogleDomain";
+NSString * const kGTLRAndroidEnterprise_Enterprise_EnterpriseType_ManagedGooglePlayAccountsEnterprise = @"managedGooglePlayAccountsEnterprise";
+
+// GTLRAndroidEnterprise_Enterprise.managedGoogleDomainType
+NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_ManagedGoogleDomainTypeUnspecified = @"managedGoogleDomainTypeUnspecified";
+NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeDomain = @"typeDomain";
+NSString * const kGTLRAndroidEnterprise_Enterprise_ManagedGoogleDomainType_TypeTeam = @"typeTeam";
+
+// GTLRAndroidEnterprise_EnterpriseUpgradeEvent.upgradeState
+NSString * const kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateSucceeded = @"upgradeStateSucceeded";
+NSString * const kGTLRAndroidEnterprise_EnterpriseUpgradeEvent_UpgradeState_UpgradeStateUnspecified = @"upgradeStateUnspecified";
+
 // GTLRAndroidEnterprise_Entitlement.reason
 NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_Free = @"free";
 NSString * const kGTLRAndroidEnterprise_Entitlement_Reason_GroupLicense = @"groupLicense";
@@ -124,6 +148,7 @@ NSString * const kGTLRAndroidEnterprise_NewDeviceEvent_ManagementType_ManagedPro
 NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppRestricionsSchemaChange = @"appRestricionsSchemaChange";
 NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_AppUpdate = @"appUpdate";
 NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_DeviceReportUpdate = @"deviceReportUpdate";
+NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_EnterpriseUpgrade = @"enterpriseUpgrade";
 NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_InstallFailure = @"installFailure";
 NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewDevice = @"newDevice";
 NSString * const kGTLRAndroidEnterprise_Notification_NotificationType_NewPermissions = @"newPermissions";
@@ -242,6 +267,10 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_DisplayModeUnspecifie
 NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_FullScreen = @"fullScreen";
 NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_MinimalUi = @"minimalUi";
 NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standalone";
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
@@ -536,16 +565,6 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidEnterprise_CreateEnrollmentTokenResponse
-//
-
-@implementation GTLRAndroidEnterprise_CreateEnrollmentTokenResponse
-@dynamic enrollmentToken;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidEnterprise_Device
 //
 
@@ -613,12 +632,32 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_EnrollmentToken
+//
+
+@implementation GTLRAndroidEnterprise_EnrollmentToken
+@dynamic duration, enrollmentTokenType, googleAuthenticationOptions, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions
+//
+
+@implementation GTLRAndroidEnterprise_EnrollmentTokenGoogleAuthenticationOptions
+@dynamic authenticationRequirement, requiredAccountEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_Enterprise
 //
 
 @implementation GTLRAndroidEnterprise_Enterprise
-@dynamic administrator, googleAuthenticationSettings, identifier, name,
-         primaryDomain;
+@dynamic administrator, enterpriseType, googleAuthenticationSettings,
+         identifier, managedGoogleDomainType, name, primaryDomain;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -684,6 +723,16 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidEnterprise_EnterpriseUpgradeEvent
+//
+
+@implementation GTLRAndroidEnterprise_EnterpriseUpgradeEvent
+@dynamic upgradeState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidEnterprise_Entitlement
 //
 
@@ -707,6 +756,16 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_GenerateEnterpriseUpgradeUrlResponse
+//
+
+@implementation GTLRAndroidEnterprise_GenerateEnterpriseUpgradeUrlResponse
+@dynamic url;
 @end
 
 
@@ -997,9 +1056,10 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 @implementation GTLRAndroidEnterprise_Notification
 @dynamic appRestrictionsSchemaChangeEvent, appUpdateEvent,
-         deviceReportUpdateEvent, enterpriseId, installFailureEvent,
-         newDeviceEvent, newPermissionsEvent, notificationType,
-         productApprovalEvent, productAvailabilityChangeEvent, timestampMillis;
+         deviceReportUpdateEvent, enterpriseId, enterpriseUpgradeEvent,
+         installFailureEvent, newDeviceEvent, newPermissionsEvent,
+         notificationType, productApprovalEvent, productAvailabilityChangeEvent,
+         timestampMillis;
 @end
 
 
@@ -1052,7 +1112,7 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_Policy
-@dynamic autoUpdatePolicy, deviceReportPolicy, maintenanceWindow,
+@dynamic autoUpdatePolicy, deviceReportPolicy, maintenanceWindow, policyId,
          productAvailabilityPolicy, productPolicy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1516,3 +1576,5 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 }
 
 @end
+
+#pragma clang diagnostic pop

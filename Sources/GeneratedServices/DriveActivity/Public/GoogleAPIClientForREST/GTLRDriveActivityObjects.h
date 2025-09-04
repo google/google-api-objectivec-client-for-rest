@@ -6,7 +6,7 @@
 // Description:
 //   Provides a historical view of activity in Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/activity/
+//   https://developers.google.com/workspace/drive/activity/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -444,18 +444,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FileOrganizerCanShareFolders;
 /**
- *  When restricted, this prevents actions like copy, download, and print that
- *  might result in uncontrolled duplicates of items.
+ *  Deprecated: Use READERS_CAN_DOWNLOAD instead.
  *
  *  Value: "ITEM_DUPLICATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication;
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication GTLR_DEPRECATED;
+/**
+ *  When restricted, this prevents actions like copy, download, and print for
+ *  readers. Replaces ITEM_DUPLICATION.
+ *
+ *  Value: "READERS_CAN_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ReadersCanDownload;
 /**
  *  When restricted, this prevents items from being shared outside the domain.
  *
  *  Value: "SHARING_OUTSIDE_DOMAIN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain;
+/**
+ *  When restricted, this prevents actions like copy, download, and print for
+ *  writers.
+ *
+ *  Value: "WRITERS_CAN_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_WritersCanDownload;
 
 // ----------------------------------------------------------------------------
 // GTLRDriveActivity_RestrictionChange.newRestriction
@@ -1039,7 +1052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The MIME type of the Drive item. See
- *  https://developers.google.com/drive/v3/web/mime-types.
+ *  https://developers.google.com/workspace/drive/v3/web/mime-types.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -1182,7 +1195,7 @@ GTLR_DEPRECATED
 /**
  *  The comment in the discussion thread. This identifier is an opaque string
  *  compatible with the Drive API; see
- *  https://developers.google.com/drive/v3/reference/comments/get
+ *  https://developers.google.com/workspace/drive/v3/reference/comments/get
  */
 @property(nonatomic, copy, nullable) NSString *legacyCommentId;
 
@@ -1190,7 +1203,7 @@ GTLR_DEPRECATED
  *  The discussion thread to which the comment was added. This identifier is an
  *  opaque string compatible with the Drive API and references the first comment
  *  in a discussion; see
- *  https://developers.google.com/drive/v3/reference/comments/get
+ *  https://developers.google.com/workspace/drive/v3/reference/comments/get
  */
 @property(nonatomic, copy, nullable) NSString *legacyDiscussionId;
 
@@ -1380,8 +1393,8 @@ GTLR_DEPRECATED
 
 /**
  *  Indicates the [Google Drive permissions
- *  role](https://developers.google.com/drive/web/manage-sharing#roles). The
- *  role determines a user's ability to read, write, and comment on items.
+ *  role](https://developers.google.com/workspace/drive/web/manage-sharing#roles).
+ *  The role determines a user's ability to read, write, and comment on items.
  *
  *  Likely values:
  *    @arg @c kGTLRDriveActivity_Permission_Role_Commenter A role granting the
@@ -1596,13 +1609,19 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_FileOrganizerCanShareFolders
  *        When restricted, this limits sharing of folders to managers only.
  *        (Value: "FILE_ORGANIZER_CAN_SHARE_FOLDERS")
- *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication When
- *        restricted, this prevents actions like copy, download, and print that
- *        might result in uncontrolled duplicates of items. (Value:
+ *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication
+ *        Deprecated: Use READERS_CAN_DOWNLOAD instead. (Value:
  *        "ITEM_DUPLICATION")
+ *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ReadersCanDownload
+ *        When restricted, this prevents actions like copy, download, and print
+ *        for readers. Replaces ITEM_DUPLICATION. (Value:
+ *        "READERS_CAN_DOWNLOAD")
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain
  *        When restricted, this prevents items from being shared outside the
  *        domain. (Value: "SHARING_OUTSIDE_DOMAIN")
+ *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_WritersCanDownload
+ *        When restricted, this prevents actions like copy, download, and print
+ *        for writers. (Value: "WRITERS_CAN_DOWNLOAD")
  */
 @property(nonatomic, copy, nullable) NSString *feature;
 
@@ -1730,7 +1749,7 @@ GTLR_DEPRECATED
 /**
  *  Information about the target of activity. For more information on how
  *  activity history is shared with users, see [Activity history
- *  visibility](https://developers.google.com/drive/activity/v2#activityhistory).
+ *  visibility](https://developers.google.com/workspace/drive/activity/v2#activityhistory).
  */
 @interface GTLRDriveActivity_Target : GTLRObject
 

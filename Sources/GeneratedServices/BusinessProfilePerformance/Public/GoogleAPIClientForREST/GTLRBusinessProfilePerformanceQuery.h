@@ -503,20 +503,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailySubEntity
 @property(nonatomic, copy, nullable) NSString *dailySubEntityTypeDayOfWeek;
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
- *  allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
  */
 @property(nonatomic, assign) NSInteger dailySubEntityTypeTimeOfDayHours;
 
-/** Minutes of hour of day. Must be from 0 to 59. */
+/**
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
+ */
 @property(nonatomic, assign) NSInteger dailySubEntityTypeTimeOfDayMinutes;
 
-/** Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. */
+/**
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
+ */
 @property(nonatomic, assign) NSInteger dailySubEntityTypeTimeOfDayNanos;
 
 /**
- *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
- *  allow the value 60 if it allows leap-seconds.
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
  */
 @property(nonatomic, assign) NSInteger dailySubEntityTypeTimeOfDaySeconds;
 

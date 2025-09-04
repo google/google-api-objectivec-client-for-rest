@@ -40,6 +40,66 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.folders.locations.accessPolicySimulations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_FoldersLocationsAccessPolicySimulationsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_FoldersLocationsAccessPolicySimulationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.folders.locations.orgPolicyViolationsPreviews.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_FoldersLocationsOrgPolicyViolationsPreviewsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_FoldersLocationsOrgPolicyViolationsPreviewsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates and starts a Replay using the given ReplayConfig.
  *
  *  Method: policysimulator.folders.locations.replays.create
@@ -308,6 +368,252 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.organizations.locations.accessPolicySimulations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_OrganizationsLocationsAccessPolicySimulationsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_OrganizationsLocationsAccessPolicySimulationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  CreateOrgPolicyViolationsPreview creates an OrgPolicyViolationsPreview for
+ *  the proposed changes in the provided
+ *  OrgPolicyViolationsPreview.OrgPolicyOverlay. The changes to OrgPolicy are
+ *  specified by this `OrgPolicyOverlay`. The resources to scan are inferred
+ *  from these specified changes.
+ *
+ *  Method: policysimulator.organizations.locations.orgPolicyViolationsPreviews.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsCreate : GTLRPolicySimulatorQuery
+
+/**
+ *  Optional. An optional user-specified ID for the OrgPolicyViolationsPreview.
+ *  If not provided, a random ID will be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *orgPolicyViolationsPreviewId;
+
+/**
+ *  Required. The organization under which this OrgPolicyViolationsPreview will
+ *  be created. Example: `organizations/my-example-org/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  CreateOrgPolicyViolationsPreview creates an OrgPolicyViolationsPreview for
+ *  the proposed changes in the provided
+ *  OrgPolicyViolationsPreview.OrgPolicyOverlay. The changes to OrgPolicy are
+ *  specified by this `OrgPolicyOverlay`. The resources to scan are inferred
+ *  from these specified changes.
+ *
+ *  @param object The @c
+ *    GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview
+ *    to include in the query.
+ *  @param parent Required. The organization under which this
+ *    OrgPolicyViolationsPreview will be created. Example:
+ *    `organizations/my-example-org/locations/global`
+ *
+ *  @return GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  GetOrgPolicyViolationsPreview gets the specified OrgPolicyViolationsPreview.
+ *  Each OrgPolicyViolationsPreview is available for at least 7 days.
+ *
+ *  Method: policysimulator.organizations.locations.orgPolicyViolationsPreviews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsGet : GTLRPolicySimulatorQuery
+
+/** Required. The name of the OrgPolicyViolationsPreview to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRPolicySimulator_GoogleCloudPolicysimulatorV1OrgPolicyViolationsPreview.
+ *
+ *  GetOrgPolicyViolationsPreview gets the specified OrgPolicyViolationsPreview.
+ *  Each OrgPolicyViolationsPreview is available for at least 7 days.
+ *
+ *  @param name Required. The name of the OrgPolicyViolationsPreview to get.
+ *
+ *  @return GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  ListOrgPolicyViolationsPreviews lists each OrgPolicyViolationsPreview in an
+ *  organization. Each OrgPolicyViolationsPreview is available for at least 7
+ *  days.
+ *
+ *  Method: policysimulator.organizations.locations.orgPolicyViolationsPreviews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsList : GTLRPolicySimulatorQuery
+
+/**
+ *  Optional. The maximum number of items to return. The service may return
+ *  fewer than this value. If unspecified, at most 5 items will be returned. The
+ *  maximum value is 10; values above 10 will be coerced to 10.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent the violations are scoped to. Format:
+ *  `organizations/{organization}/locations/{location}` Example:
+ *  `organizations/my-example-org/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListOrgPolicyViolationsPreviewsResponse.
+ *
+ *  ListOrgPolicyViolationsPreviews lists each OrgPolicyViolationsPreview in an
+ *  organization. Each OrgPolicyViolationsPreview is available for at least 7
+ *  days.
+ *
+ *  @param parent Required. The parent the violations are scoped to. Format:
+ *    `organizations/{organization}/locations/{location}` Example:
+ *    `organizations/my-example-org/locations/global`
+ *
+ *  @return GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.organizations.locations.orgPolicyViolationsPreviews.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  ListOrgPolicyViolations lists the OrgPolicyViolations that are present in an
+ *  OrgPolicyViolationsPreview.
+ *
+ *  Method: policysimulator.organizations.locations.orgPolicyViolationsPreviews.orgPolicyViolations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsOrgPolicyViolationsList : GTLRPolicySimulatorQuery
+
+/**
+ *  Optional. The maximum number of items to return. The service may return
+ *  fewer than this value. If unspecified, at most 1000 items will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The OrgPolicyViolationsPreview to get OrgPolicyViolations from.
+ *  Format:
+ *  organizations/{organization}/locations/{location}/orgPolicyViolationsPreviews/{orgPolicyViolationsPreview}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListOrgPolicyViolationsResponse.
+ *
+ *  ListOrgPolicyViolations lists the OrgPolicyViolations that are present in an
+ *  OrgPolicyViolationsPreview.
+ *
+ *  @param parent Required. The OrgPolicyViolationsPreview to get
+ *    OrgPolicyViolations from. Format:
+ *    organizations/{organization}/locations/{location}/orgPolicyViolationsPreviews/{orgPolicyViolationsPreview}
+ *
+ *  @return GTLRPolicySimulatorQuery_OrganizationsLocationsOrgPolicyViolationsPreviewsOrgPolicyViolationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates and starts a Replay using the given ReplayConfig.
  *
  *  Method: policysimulator.organizations.locations.replays.create
@@ -501,6 +807,66 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.projects.locations.accessPolicySimulations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_ProjectsLocationsAccessPolicySimulationsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_ProjectsLocationsAccessPolicySimulationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: policysimulator.projects.locations.orgPolicyViolationsPreviews.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePolicySimulatorCloudPlatform
+ */
+@interface GTLRPolicySimulatorQuery_ProjectsLocationsOrgPolicyViolationsPreviewsOperationsGet : GTLRPolicySimulatorQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPolicySimulator_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRPolicySimulatorQuery_ProjectsLocationsOrgPolicyViolationsPreviewsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

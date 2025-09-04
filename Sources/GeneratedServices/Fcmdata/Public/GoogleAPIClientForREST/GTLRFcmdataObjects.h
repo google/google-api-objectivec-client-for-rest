@@ -20,6 +20,7 @@
 @class GTLRFcmdata_GoogleFirebaseFcmDataV1beta1DeliveryPerformancePercents;
 @class GTLRFcmdata_GoogleFirebaseFcmDataV1beta1MessageInsightPercents;
 @class GTLRFcmdata_GoogleFirebaseFcmDataV1beta1MessageOutcomePercents;
+@class GTLRFcmdata_GoogleFirebaseFcmDataV1beta1ProxyNotificationInsightPercents;
 @class GTLRFcmdata_GoogleTypeDate;
 
 // Generated comments include content from the discovery document; avoid them
@@ -59,13 +60,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFcmdata_GoogleFirebaseFcmDataV1beta1Data : GTLRObject
 
 /**
- *  Count of messages accepted by FCM intended to Android devices. The targeted
+ *  Count of messages accepted by FCM intended for Android devices. The targeted
  *  device must have opted in to the collection of usage and diagnostic
  *  information.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *countMessagesAccepted;
+
+/**
+ *  Count of notifications accepted by FCM intended for Android devices. The
+ *  targeted device must have opted in to the collection of usage and diagnostic
+ *  information.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *countNotificationsAccepted;
 
 /**
  *  Additional information about delivery performance for messages that were
@@ -78,6 +88,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Mutually exclusive breakdown of message delivery outcomes. */
 @property(nonatomic, strong, nullable) GTLRFcmdata_GoogleFirebaseFcmDataV1beta1MessageOutcomePercents *messageOutcomePercents;
+
+/** Additional insights about proxy notification delivery. */
+@property(nonatomic, strong, nullable) GTLRFcmdata_GoogleFirebaseFcmDataV1beta1ProxyNotificationInsightPercents *proxyNotificationInsightPercents;
 
 @end
 
@@ -197,6 +210,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFcmdata_GoogleFirebaseFcmDataV1beta1MessageOutcomePercents : GTLRObject
 
 /**
+ *  The percentage of accepted messages that were
+ *  [collapsed](https://firebase.google.com/docs/cloud-messaging/concept-options#collapsible_and_non-collapsible_messages)
+ *  by another message.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *collapsed;
+
+/**
  *  The percentage of all accepted messages that were successfully delivered to
  *  the device.
  *
@@ -240,6 +262,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *droppedTooManyPendingMessages;
 
 /**
+ *  The percentage of accepted messages that expired because [Time To Live
+ *  (TTL)](https://firebase.google.com/docs/cloud-messaging/concept-options#ttl)
+ *  elapsed before the target device reconnected.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *droppedTtlExpired;
+
+/**
  *  The percentage of messages accepted on this day that were not dropped and
  *  not delivered, due to the device being disconnected (as of the end of the
  *  America/Los_Angeles day when the message was sent to FCM). A portion of
@@ -249,6 +280,67 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pending;
+
+@end
+
+
+/**
+ *  Additional information about [proxy
+ *  notification](https://firebase.google.com/docs/cloud-messaging/android/message-priority#proxy)
+ *  delivery. All percentages are calculated with countNotificationsAccepted as
+ *  the denominator.
+ */
+@interface GTLRFcmdata_GoogleFirebaseFcmDataV1beta1ProxyNotificationInsightPercents : GTLRObject
+
+/**
+ *  The percentage of accepted notifications that failed to be proxied. This is
+ *  usually caused by exceptions that occurred while calling
+ *  [notifyAsPackage](https://developer.android.com/reference/android/app/NotificationManager#notifyAsPackage%28java.lang.String,%20java.lang.String,%20int,%20android.app.Notification%29).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failed;
+
+/**
+ *  The percentage of accepted notifications that were successfully proxied by
+ *  [Google Play
+ *  services](https://developers.google.com/android/guides/overview).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proxied;
+
+/**
+ *  The percentage of accepted notifications that were skipped because the
+ *  messages were not throttled.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skippedNotThrottled;
+
+/**
+ *  The percentage of accepted notifications that were skipped because the app
+ *  disallowed these messages to be proxied.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skippedOptedOut;
+
+/**
+ *  The percentage of accepted notifications that were skipped because
+ *  configurations required for notifications to be proxied were missing.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skippedUnconfigured;
+
+/**
+ *  The percentage of accepted notifications that were skipped because proxy
+ *  notification is unsupported for the recipient.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skippedUnsupported;
 
 @end
 

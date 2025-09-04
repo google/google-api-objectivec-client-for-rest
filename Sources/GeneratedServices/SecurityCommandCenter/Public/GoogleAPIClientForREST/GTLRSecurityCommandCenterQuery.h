@@ -48,8 +48,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the parent to group the assets by. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -62,8 +62,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_GroupAssetsRequest to include
  *    in the query.
  *  @param parent Required. The name of the parent to group the assets by. Its
- *    format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersAssetsGroup
  */
@@ -184,8 +184,8 @@ GTLR_DEPRECATED
  *  Required. The name of the parent resource that contains the assets. The
  *  value that you can specify on parent depends on the method in which you
  *  specify parent. You can specify one of the following values:
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -205,8 +205,8 @@ GTLR_DEPRECATED
  *  @param parent Required. The name of the parent resource that contains the
  *    assets. The value that you can specify on parent depends on the method in
  *    which you specify parent. You can specify one of the following values:
- *    "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersAssetsList
  *
@@ -293,8 +293,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the parent resource of the new BigQuery export. Its
- *  format is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -308,8 +308,8 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport to
  *    include in the query.
  *  @param parent Required. The name of the parent resource of the new BigQuery
- *    export. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *    export. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsCreate
  */
@@ -330,9 +330,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the BigQuery export to delete. Its format is
- *  organizations/{organization}/bigQueryExports/{export_id},
- *  folders/{folder}/bigQueryExports/{export_id}, or
- *  projects/{project}/bigQueryExports/{export_id}
+ *  `organizations/{organization}/bigQueryExports/{export_id}`,
+ *  `folders/{folder}/bigQueryExports/{export_id}`, or
+ *  `projects/{project}/bigQueryExports/{export_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -342,9 +342,9 @@ GTLR_DEPRECATED
  *  Deletes an existing BigQuery export.
  *
  *  @param name Required. The name of the BigQuery export to delete. Its format
- *    is organizations/{organization}/bigQueryExports/{export_id},
- *    folders/{folder}/bigQueryExports/{export_id}, or
- *    projects/{project}/bigQueryExports/{export_id}
+ *    is `organizations/{organization}/bigQueryExports/{export_id}`,
+ *    `folders/{folder}/bigQueryExports/{export_id}`, or
+ *    `projects/{project}/bigQueryExports/{export_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsDelete
  */
@@ -364,9 +364,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the BigQuery export to retrieve. Its format is
- *  organizations/{organization}/bigQueryExports/{export_id},
- *  folders/{folder}/bigQueryExports/{export_id}, or
- *  projects/{project}/bigQueryExports/{export_id}
+ *  `organizations/{organization}/bigQueryExports/{export_id}`,
+ *  `folders/{folder}/bigQueryExports/{export_id}`, or
+ *  `projects/{project}/bigQueryExports/{export_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -377,9 +377,9 @@ GTLR_DEPRECATED
  *  Gets a BigQuery export.
  *
  *  @param name Required. Name of the BigQuery export to retrieve. Its format is
- *    organizations/{organization}/bigQueryExports/{export_id},
- *    folders/{folder}/bigQueryExports/{export_id}, or
- *    projects/{project}/bigQueryExports/{export_id}
+ *    `organizations/{organization}/bigQueryExports/{export_id}`,
+ *    `folders/{folder}/bigQueryExports/{export_id}`, or
+ *    `projects/{project}/bigQueryExports/{export_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsGet
  */
@@ -418,8 +418,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, which owns the collection of BigQuery exports. Its
- *  format is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  format is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -433,8 +433,8 @@ GTLR_DEPRECATED
  *  the folder are returned.
  *
  *  @param parent Required. The parent, which owns the collection of BigQuery
- *    exports. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    exports. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersBigQueryExportsList
  *
@@ -513,9 +513,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The new custom module's parent. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -530,9 +530,9 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
  *    the query.
  *  @param parent Required. The new custom module's parent. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings". *
- *    "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    `organizations/{organization}/eventThreatDetectionSettings`. *
+ *    `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesCreate
  */
@@ -555,9 +555,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to delete. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -569,10 +569,10 @@ GTLR_DEPRECATED
  *  for resident custom modules.
  *
  *  @param name Required. Name of the custom module to delete. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesDelete
  */
@@ -592,9 +592,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to get. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -604,10 +604,10 @@ GTLR_DEPRECATED
  *  Gets an Event Threat Detection custom module.
  *
  *  @param name Required. Name of the custom module to get. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesGet
  */
@@ -645,9 +645,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules under. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -660,9 +660,9 @@ GTLR_DEPRECATED
  *  parent along with modules inherited from ancestors.
  *
  *  @param parent Required. Name of the parent to list custom modules under. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesList
  *
@@ -703,9 +703,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules under. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -717,9 +717,9 @@ GTLR_DEPRECATED
  *  Resource Manager parent and its descendants.
  *
  *  @param parent Required. Name of the parent to list custom modules under. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesListDescendant
  *
@@ -749,9 +749,9 @@ GTLR_DEPRECATED
 /**
  *  Immutable. The resource name of the Event Threat Detection custom module.
  *  Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -778,10 +778,10 @@ GTLR_DEPRECATED
  *    the query.
  *  @param name Immutable. The resource name of the Event Threat Detection
  *    custom module. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsCustomModulesPatch
  */
@@ -803,11 +803,11 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the effective Event Threat Detection custom
  *  module. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *  *
- *  "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *  *
- *  "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -819,11 +819,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. The resource name of the effective Event Threat
  *    Detection custom module. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *    *
- *    "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsEffectiveCustomModulesGet
  */
@@ -861,9 +861,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules for. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -876,9 +876,9 @@ GTLR_DEPRECATED
  *  along with modules inherited from its ancestors.
  *
  *  @param parent Required. Name of the parent to list custom modules for. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsEffectiveCustomModulesList
  *
@@ -903,9 +903,9 @@ GTLR_DEPRECATED
 /**
  *  Required. Resource name of the parent to validate the Custom Module under.
  *  Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -920,9 +920,9 @@ GTLR_DEPRECATED
  *    to include in the query.
  *  @param parent Required. Resource name of the parent to validate the Custom
  *    Module under. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings". *
- *    "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    `organizations/{organization}/eventThreatDetectionSettings`. *
+ *    `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersEventThreatDetectionSettingsValidateCustomModule
  */
@@ -945,8 +945,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, at which bulk action needs to be applied. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -960,8 +960,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_BulkMuteFindingsRequest to
  *    include in the query.
  *  @param parent Required. The parent, at which bulk action needs to be
- *    applied. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    applied. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersFindingsBulkMute
  */
@@ -982,12 +982,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to delete. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -997,12 +997,12 @@ GTLR_DEPRECATED
  *  Deletes an existing mute config.
  *
  *  @param name Required. Name of the mute config to delete. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsDelete
  */
@@ -1022,12 +1022,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to retrieve. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1038,12 +1038,12 @@ GTLR_DEPRECATED
  *  Gets a mute config.
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsGet
  */
@@ -1063,12 +1063,12 @@ GTLR_DEPRECATED
 
 /**
  *  This field will be ignored if provided on config creation. Format
- *  "organizations/{organization}/muteConfigs/{mute_config}"
- *  "folders/{folder}/muteConfigs/{mute_config}"
- *  "projects/{project}/muteConfigs/{mute_config}"
- *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *  `organizations/{organization}/muteConfigs/{mute_config}`
+ *  `folders/{folder}/muteConfigs/{mute_config}`
+ *  `projects/{project}/muteConfigs/{mute_config}`
+ *  `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *  `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *  `projects/{project}/locations/global/muteConfigs/{mute_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1090,12 +1090,12 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param name This field will be ignored if provided on config creation.
- *    Format "organizations/{organization}/muteConfigs/{mute_config}"
- *    "folders/{folder}/muteConfigs/{mute_config}"
- *    "projects/{project}/muteConfigs/{mute_config}"
- *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *    Format `organizations/{organization}/muteConfigs/{mute_config}`
+ *    `folders/{folder}/muteConfigs/{mute_config}`
+ *    `projects/{project}/muteConfigs/{mute_config}`
+ *    `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *    `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *    `projects/{project}/locations/global/muteConfigs/{mute_config}`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersLocationsMuteConfigsPatch
  */
@@ -1124,8 +1124,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new mute configs's parent. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1139,8 +1139,8 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param parent Required. Resource name of the new mute configs's parent. Its
- *    format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersMuteConfigsCreate
  */
@@ -1161,12 +1161,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to delete. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1176,12 +1176,12 @@ GTLR_DEPRECATED
  *  Deletes an existing mute config.
  *
  *  @param name Required. Name of the mute config to delete. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersMuteConfigsDelete
  */
@@ -1201,12 +1201,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to retrieve. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1217,12 +1217,12 @@ GTLR_DEPRECATED
  *  Gets a mute config.
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersMuteConfigsGet
  */
@@ -1257,8 +1257,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, which owns the collection of mute configs. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1268,8 +1268,8 @@ GTLR_DEPRECATED
  *  Lists mute configs.
  *
  *  @param parent Required. The parent, which owns the collection of mute
- *    configs. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    configs. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersMuteConfigsList
  *
@@ -1293,12 +1293,12 @@ GTLR_DEPRECATED
 
 /**
  *  This field will be ignored if provided on config creation. Format
- *  "organizations/{organization}/muteConfigs/{mute_config}"
- *  "folders/{folder}/muteConfigs/{mute_config}"
- *  "projects/{project}/muteConfigs/{mute_config}"
- *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *  `organizations/{organization}/muteConfigs/{mute_config}`
+ *  `folders/{folder}/muteConfigs/{mute_config}`
+ *  `projects/{project}/muteConfigs/{mute_config}`
+ *  `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *  `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *  `projects/{project}/locations/global/muteConfigs/{mute_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1320,12 +1320,12 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param name This field will be ignored if provided on config creation.
- *    Format "organizations/{organization}/muteConfigs/{mute_config}"
- *    "folders/{folder}/muteConfigs/{mute_config}"
- *    "projects/{project}/muteConfigs/{mute_config}"
- *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *    Format `organizations/{organization}/muteConfigs/{mute_config}`
+ *    `folders/{folder}/muteConfigs/{mute_config}`
+ *    `projects/{project}/muteConfigs/{mute_config}`
+ *    `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *    `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *    `projects/{project}/locations/global/muteConfigs/{mute_config}`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersMuteConfigsPatch
  */
@@ -1353,8 +1353,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new notification config's parent. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1366,8 +1366,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
  *    in the query.
  *  @param parent Required. Resource name of the new notification config's
- *    parent. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *    parent. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsCreate
  */
@@ -1388,9 +1388,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the notification config to delete. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]",
- *  "folders/[folder_id]/notificationConfigs/[config_id]", or
- *  "projects/[project_id]/notificationConfigs/[config_id]".
+ *  `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *  `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *  `projects/[project_id]/notificationConfigs/[config_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1400,9 +1400,9 @@ GTLR_DEPRECATED
  *  Deletes a notification config.
  *
  *  @param name Required. Name of the notification config to delete. Its format
- *    is "organizations/[organization_id]/notificationConfigs/[config_id]",
- *    "folders/[folder_id]/notificationConfigs/[config_id]", or
- *    "projects/[project_id]/notificationConfigs/[config_id]".
+ *    is `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *    `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *    `projects/[project_id]/notificationConfigs/[config_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsDelete
  */
@@ -1422,9 +1422,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the notification config to get. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]",
- *  "folders/[folder_id]/notificationConfigs/[config_id]", or
- *  "projects/[project_id]/notificationConfigs/[config_id]".
+ *  `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *  `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *  `projects/[project_id]/notificationConfigs/[config_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1434,9 +1434,9 @@ GTLR_DEPRECATED
  *  Gets a notification config.
  *
  *  @param name Required. Name of the notification config to get. Its format is
- *    "organizations/[organization_id]/notificationConfigs/[config_id]",
- *    "folders/[folder_id]/notificationConfigs/[config_id]", or
- *    "projects/[project_id]/notificationConfigs/[config_id]".
+ *    `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *    `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *    `projects/[project_id]/notificationConfigs/[config_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersNotificationConfigsGet
  */
@@ -1560,9 +1560,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new custom module's parent. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1579,9 +1579,9 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
  *    to include in the query.
  *  @param parent Required. Resource name of the new custom module's parent. Its
- *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    format is `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesCreate
  */
@@ -1604,10 +1604,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to delete. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1619,10 +1619,10 @@ GTLR_DEPRECATED
  *  custom modules.
  *
  *  @param name Required. Name of the custom module to delete. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesDelete
  */
@@ -1642,10 +1642,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to get. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1656,10 +1656,10 @@ GTLR_DEPRECATED
  *  Retrieves a SecurityHealthAnalyticsCustomModule.
  *
  *  @param name Required. Name of the custom module to get. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesGet
  */
@@ -1690,9 +1690,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1705,9 +1705,9 @@ GTLR_DEPRECATED
  *  and inherited modules, inherited from CRM ancestors.
  *
  *  @param parent Required. Name of parent to list custom modules. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesList
  *
@@ -1741,9 +1741,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list descendant custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1756,9 +1756,9 @@ GTLR_DEPRECATED
  *
  *  @param parent Required. Name of parent to list descendant custom modules.
  *    Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsCustomModulesListDescendant
  *
@@ -1887,10 +1887,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the effective custom module to get. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1902,10 +1902,10 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the effective custom module to get. Its format
  *    is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
  */
@@ -1936,9 +1936,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list effective custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1951,9 +1951,9 @@ GTLR_DEPRECATED
  *  parent, and inherited modules, inherited from CRM ancestors.
  *
  *  @param parent Required. Name of parent to list effective custom modules. Its
- *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    format is `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
  *
@@ -2028,12 +2028,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the source to groupBy. Its format is
- *  "organizations/[organization_id]/sources/[source_id]",
- *  folders/[folder_id]/sources/[source_id], or
- *  projects/[project_id]/sources/[source_id]. To groupBy across all sources
+ *  `organizations/[organization_id]/sources/[source_id]`,
+ *  `folders/[folder_id]/sources/[source_id]`, or
+ *  `projects/[project_id]/sources/[source_id]`. To groupBy across all sources
  *  provide a source_id of `-`. For example:
- *  organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-, or
- *  projects/{project_id}/sources/-
+ *  `organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-`,
+ *  or `projects/{project_id}/sources/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2049,12 +2049,12 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_GroupFindingsRequest to
  *    include in the query.
  *  @param parent Required. Name of the source to groupBy. Its format is
- *    "organizations/[organization_id]/sources/[source_id]",
- *    folders/[folder_id]/sources/[source_id], or
- *    projects/[project_id]/sources/[source_id]. To groupBy across all sources
+ *    `organizations/[organization_id]/sources/[source_id]`,
+ *    `folders/[folder_id]/sources/[source_id]`, or
+ *    `projects/[project_id]/sources/[source_id]`. To groupBy across all sources
  *    provide a source_id of `-`. For example:
- *    organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-,
- *    or projects/{project_id}/sources/-
+ *    `organizations/{organization_id}/sources/-,
+ *    folders/{folder_id}/sources/-`, or `projects/{project_id}/sources/-`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsGroup
  */
@@ -2098,7 +2098,7 @@ GTLR_DEPRECATED
  *  possible state_change is "UNUSED", which will be the state_change set for
  *  all findings present at read_time.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *compareDuration GTLR_DEPRECATED;
 
 /**
  *  A field mask to specify the Finding fields to be listed in the response. An
@@ -2167,12 +2167,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the source the findings belong to. Its format is
- *  "organizations/[organization_id]/sources/[source_id],
- *  folders/[folder_id]/sources/[source_id], or
- *  projects/[project_id]/sources/[source_id]". To list across all sources
+ *  `organizations/[organization_id]/sources/[source_id]`,
+ *  `folders/[folder_id]/sources/[source_id]`, or
+ *  `projects/[project_id]/sources/[source_id]`. To list across all sources
  *  provide a source_id of `-`. For example:
- *  organizations/{organization_id}/sources/-, folders/{folder_id}/sources/- or
- *  projects/{projects_id}/sources/-
+ *  `organizations/{organization_id}/sources/-`, `folders/{folder_id}/sources/-`
+ *  or `projects/{projects_id}/sources/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2182,7 +2182,7 @@ GTLR_DEPRECATED
  *  at that specific time. Absence of this field will default to the API's
  *  version of NOW.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_ListFindingsResponse.
@@ -2192,12 +2192,12 @@ GTLR_DEPRECATED
  *  /v1/organizations/{organization_id}/sources/-/findings
  *
  *  @param parent Required. Name of the source the findings belong to. Its
- *    format is "organizations/[organization_id]/sources/[source_id],
- *    folders/[folder_id]/sources/[source_id], or
- *    projects/[project_id]/sources/[source_id]". To list across all sources
+ *    format is `organizations/[organization_id]/sources/[source_id]`,
+ *    `folders/[folder_id]/sources/[source_id]`, or
+ *    `projects/[project_id]/sources/[source_id]`. To list across all sources
  *    provide a source_id of `-`. For example:
- *    organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-
- *    or projects/{projects_id}/sources/-
+ *    `organizations/{organization_id}/sources/-`,
+ *    `folders/{folder_id}/sources/-` or `projects/{projects_id}/sources/-`
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsList
  *
@@ -2277,9 +2277,9 @@ GTLR_DEPRECATED
  *  Required. The [relative resource
  *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *  of the finding. Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2293,9 +2293,9 @@ GTLR_DEPRECATED
  *  @param name Required. The [relative resource
  *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *    of the finding. Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *    `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetMute
  */
@@ -2318,9 +2318,9 @@ GTLR_DEPRECATED
  *  Required. The [relative resource
  *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *  of the finding. Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2334,9 +2334,9 @@ GTLR_DEPRECATED
  *  @param name Required. The [relative resource
  *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *    of the finding. Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *    `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetState
  */
@@ -2425,8 +2425,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  be `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2436,8 +2436,8 @@ GTLR_DEPRECATED
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id]", "folders/[folder_id]",
- *    or "projects/[project_id]".
+ *    format should be `organizations/[organization_id]`, `folders/[folder_id]`,
+ *    or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_FoldersSourcesList
  *
@@ -2463,8 +2463,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the parent to group the assets by. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2477,8 +2477,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_GroupAssetsRequest to include
  *    in the query.
  *  @param parent Required. The name of the parent to group the assets by. Its
- *    format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsGroup
  */
@@ -2599,8 +2599,8 @@ GTLR_DEPRECATED
  *  Required. The name of the parent resource that contains the assets. The
  *  value that you can specify on parent depends on the method in which you
  *  specify parent. You can specify one of the following values:
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2620,8 +2620,8 @@ GTLR_DEPRECATED
  *  @param parent Required. The name of the parent resource that contains the
  *    assets. The value that you can specify on parent depends on the method in
  *    which you specify parent. You can specify one of the following values:
- *    "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsList
  *
@@ -2649,7 +2649,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the organization to run asset discovery for. Its format is
- *  "organizations/[organization_id]".
+ *  `organizations/[organization_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2664,7 +2664,7 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_RunAssetDiscoveryRequest to
  *    include in the query.
  *  @param parent Required. Name of the organization to run asset discovery for.
- *    Its format is "organizations/[organization_id]".
+ *    Its format is `organizations/[organization_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsRunDiscovery
  */
@@ -2729,6 +2729,67 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  Method: securitycenter.organizations.attackPaths.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsAttackPathsList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The filter expression that filters the attack path in the response.
+ *  Supported fields: * `valued_resources` supports =
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAttackPathsResponse`; indicates that
+ *  this is a continuation of a prior `ListAttackPaths` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list attack paths. Valid formats:
+ *  `organizations/{organization}`,
+ *  `organizations/{organization}/simulations/{simulation}`
+ *  `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *  `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListAttackPathsResponse.
+ *
+ *  Lists the attack paths for a set of simulation results or valued resources
+ *  and filter.
+ *
+ *  @param parent Required. Name of parent to list attack paths. Valid formats:
+ *    `organizations/{organization}`,
+ *    `organizations/{organization}/simulations/{simulation}`
+ *    `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *    `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsAttackPathsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a BigQuery export.
  *
  *  Method: securitycenter.organizations.bigQueryExports.create
@@ -2748,8 +2809,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the parent resource of the new BigQuery export. Its
- *  format is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2763,8 +2824,8 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport to
  *    include in the query.
  *  @param parent Required. The name of the parent resource of the new BigQuery
- *    export. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *    export. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsCreate
  */
@@ -2785,9 +2846,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the BigQuery export to delete. Its format is
- *  organizations/{organization}/bigQueryExports/{export_id},
- *  folders/{folder}/bigQueryExports/{export_id}, or
- *  projects/{project}/bigQueryExports/{export_id}
+ *  `organizations/{organization}/bigQueryExports/{export_id}`,
+ *  `folders/{folder}/bigQueryExports/{export_id}`, or
+ *  `projects/{project}/bigQueryExports/{export_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2797,9 +2858,9 @@ GTLR_DEPRECATED
  *  Deletes an existing BigQuery export.
  *
  *  @param name Required. The name of the BigQuery export to delete. Its format
- *    is organizations/{organization}/bigQueryExports/{export_id},
- *    folders/{folder}/bigQueryExports/{export_id}, or
- *    projects/{project}/bigQueryExports/{export_id}
+ *    is `organizations/{organization}/bigQueryExports/{export_id}`,
+ *    `folders/{folder}/bigQueryExports/{export_id}`, or
+ *    `projects/{project}/bigQueryExports/{export_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsDelete
  */
@@ -2819,9 +2880,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the BigQuery export to retrieve. Its format is
- *  organizations/{organization}/bigQueryExports/{export_id},
- *  folders/{folder}/bigQueryExports/{export_id}, or
- *  projects/{project}/bigQueryExports/{export_id}
+ *  `organizations/{organization}/bigQueryExports/{export_id}`,
+ *  `folders/{folder}/bigQueryExports/{export_id}`, or
+ *  `projects/{project}/bigQueryExports/{export_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2832,9 +2893,9 @@ GTLR_DEPRECATED
  *  Gets a BigQuery export.
  *
  *  @param name Required. Name of the BigQuery export to retrieve. Its format is
- *    organizations/{organization}/bigQueryExports/{export_id},
- *    folders/{folder}/bigQueryExports/{export_id}, or
- *    projects/{project}/bigQueryExports/{export_id}
+ *    `organizations/{organization}/bigQueryExports/{export_id}`,
+ *    `folders/{folder}/bigQueryExports/{export_id}`, or
+ *    `projects/{project}/bigQueryExports/{export_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsGet
  */
@@ -2873,8 +2934,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, which owns the collection of BigQuery exports. Its
- *  format is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  format is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2888,8 +2949,8 @@ GTLR_DEPRECATED
  *  the folder are returned.
  *
  *  @param parent Required. The parent, which owns the collection of BigQuery
- *    exports. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    exports. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsBigQueryExportsList
  *
@@ -2968,9 +3029,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The new custom module's parent. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2985,9 +3046,9 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
  *    the query.
  *  @param parent Required. The new custom module's parent. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings". *
- *    "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    `organizations/{organization}/eventThreatDetectionSettings`. *
+ *    `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesCreate
  */
@@ -3010,9 +3071,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to delete. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3024,10 +3085,10 @@ GTLR_DEPRECATED
  *  for resident custom modules.
  *
  *  @param name Required. Name of the custom module to delete. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesDelete
  */
@@ -3047,9 +3108,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to get. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3059,10 +3120,10 @@ GTLR_DEPRECATED
  *  Gets an Event Threat Detection custom module.
  *
  *  @param name Required. Name of the custom module to get. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesGet
  */
@@ -3100,9 +3161,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules under. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3115,9 +3176,9 @@ GTLR_DEPRECATED
  *  parent along with modules inherited from ancestors.
  *
  *  @param parent Required. Name of the parent to list custom modules under. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesList
  *
@@ -3158,9 +3219,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules under. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3172,9 +3233,9 @@ GTLR_DEPRECATED
  *  Resource Manager parent and its descendants.
  *
  *  @param parent Required. Name of the parent to list custom modules under. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesListDescendant
  *
@@ -3204,9 +3265,9 @@ GTLR_DEPRECATED
 /**
  *  Immutable. The resource name of the Event Threat Detection custom module.
  *  Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3233,10 +3294,10 @@ GTLR_DEPRECATED
  *    the query.
  *  @param name Immutable. The resource name of the Event Threat Detection
  *    custom module. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsCustomModulesPatch
  */
@@ -3258,11 +3319,11 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the effective Event Threat Detection custom
  *  module. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *  *
- *  "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *  *
- *  "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3274,11 +3335,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. The resource name of the effective Event Threat
  *    Detection custom module. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *    *
- *    "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsEffectiveCustomModulesGet
  */
@@ -3316,9 +3377,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules for. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3331,9 +3392,9 @@ GTLR_DEPRECATED
  *  along with modules inherited from its ancestors.
  *
  *  @param parent Required. Name of the parent to list custom modules for. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsEffectiveCustomModulesList
  *
@@ -3358,9 +3419,9 @@ GTLR_DEPRECATED
 /**
  *  Required. Resource name of the parent to validate the Custom Module under.
  *  Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3375,9 +3436,9 @@ GTLR_DEPRECATED
  *    to include in the query.
  *  @param parent Required. Resource name of the parent to validate the Custom
  *    Module under. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings". *
- *    "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    `organizations/{organization}/eventThreatDetectionSettings`. *
+ *    `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsEventThreatDetectionSettingsValidateCustomModule
  */
@@ -3400,8 +3461,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, at which bulk action needs to be applied. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3415,8 +3476,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_BulkMuteFindingsRequest to
  *    include in the query.
  *  @param parent Required. The parent, at which bulk action needs to be
- *    applied. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    applied. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsFindingsBulkMute
  */
@@ -3437,7 +3498,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the organization to get organization settings for. Its
- *  format is "organizations/[organization_id]/organizationSettings".
+ *  format is `organizations/[organization_id]/organizationSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3447,7 +3508,7 @@ GTLR_DEPRECATED
  *  Gets the settings for an organization.
  *
  *  @param name Required. Name of the organization to get organization settings
- *    for. Its format is "organizations/[organization_id]/organizationSettings".
+ *    for. Its format is `organizations/[organization_id]/organizationSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsGetOrganizationSettings
  */
@@ -3467,12 +3528,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to delete. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3482,12 +3543,12 @@ GTLR_DEPRECATED
  *  Deletes an existing mute config.
  *
  *  @param name Required. Name of the mute config to delete. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsDelete
  */
@@ -3507,12 +3568,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to retrieve. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3523,12 +3584,12 @@ GTLR_DEPRECATED
  *  Gets a mute config.
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsGet
  */
@@ -3548,12 +3609,12 @@ GTLR_DEPRECATED
 
 /**
  *  This field will be ignored if provided on config creation. Format
- *  "organizations/{organization}/muteConfigs/{mute_config}"
- *  "folders/{folder}/muteConfigs/{mute_config}"
- *  "projects/{project}/muteConfigs/{mute_config}"
- *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *  `organizations/{organization}/muteConfigs/{mute_config}`
+ *  `folders/{folder}/muteConfigs/{mute_config}`
+ *  `projects/{project}/muteConfigs/{mute_config}`
+ *  `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *  `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *  `projects/{project}/locations/global/muteConfigs/{mute_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3575,12 +3636,12 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param name This field will be ignored if provided on config creation.
- *    Format "organizations/{organization}/muteConfigs/{mute_config}"
- *    "folders/{folder}/muteConfigs/{mute_config}"
- *    "projects/{project}/muteConfigs/{mute_config}"
- *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *    Format `organizations/{organization}/muteConfigs/{mute_config}`
+ *    `folders/{folder}/muteConfigs/{mute_config}`
+ *    `projects/{project}/muteConfigs/{mute_config}`
+ *    `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *    `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *    `projects/{project}/locations/global/muteConfigs/{mute_config}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsLocationsMuteConfigsPatch
  */
@@ -3609,8 +3670,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new mute configs's parent. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3624,8 +3685,8 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param parent Required. Resource name of the new mute configs's parent. Its
- *    format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsCreate
  */
@@ -3646,12 +3707,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to delete. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3661,12 +3722,12 @@ GTLR_DEPRECATED
  *  Deletes an existing mute config.
  *
  *  @param name Required. Name of the mute config to delete. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsDelete
  */
@@ -3686,12 +3747,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to retrieve. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3702,12 +3763,12 @@ GTLR_DEPRECATED
  *  Gets a mute config.
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsGet
  */
@@ -3742,8 +3803,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, which owns the collection of mute configs. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3753,8 +3814,8 @@ GTLR_DEPRECATED
  *  Lists mute configs.
  *
  *  @param parent Required. The parent, which owns the collection of mute
- *    configs. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    configs. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsList
  *
@@ -3778,12 +3839,12 @@ GTLR_DEPRECATED
 
 /**
  *  This field will be ignored if provided on config creation. Format
- *  "organizations/{organization}/muteConfigs/{mute_config}"
- *  "folders/{folder}/muteConfigs/{mute_config}"
- *  "projects/{project}/muteConfigs/{mute_config}"
- *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *  `organizations/{organization}/muteConfigs/{mute_config}`
+ *  `folders/{folder}/muteConfigs/{mute_config}`
+ *  `projects/{project}/muteConfigs/{mute_config}`
+ *  `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *  `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *  `projects/{project}/locations/global/muteConfigs/{mute_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3805,12 +3866,12 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param name This field will be ignored if provided on config creation.
- *    Format "organizations/{organization}/muteConfigs/{mute_config}"
- *    "folders/{folder}/muteConfigs/{mute_config}"
- *    "projects/{project}/muteConfigs/{mute_config}"
- *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *    Format `organizations/{organization}/muteConfigs/{mute_config}`
+ *    `folders/{folder}/muteConfigs/{mute_config}`
+ *    `projects/{project}/muteConfigs/{mute_config}`
+ *    `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *    `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *    `projects/{project}/locations/global/muteConfigs/{mute_config}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsPatch
  */
@@ -3838,8 +3899,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new notification config's parent. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3851,8 +3912,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
  *    in the query.
  *  @param parent Required. Resource name of the new notification config's
- *    parent. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *    parent. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate
  */
@@ -3873,9 +3934,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the notification config to delete. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]",
- *  "folders/[folder_id]/notificationConfigs/[config_id]", or
- *  "projects/[project_id]/notificationConfigs/[config_id]".
+ *  `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *  `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *  `projects/[project_id]/notificationConfigs/[config_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3885,9 +3946,9 @@ GTLR_DEPRECATED
  *  Deletes a notification config.
  *
  *  @param name Required. Name of the notification config to delete. Its format
- *    is "organizations/[organization_id]/notificationConfigs/[config_id]",
- *    "folders/[folder_id]/notificationConfigs/[config_id]", or
- *    "projects/[project_id]/notificationConfigs/[config_id]".
+ *    is `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *    `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *    `projects/[project_id]/notificationConfigs/[config_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete
  */
@@ -3907,9 +3968,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the notification config to get. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]",
- *  "folders/[folder_id]/notificationConfigs/[config_id]", or
- *  "projects/[project_id]/notificationConfigs/[config_id]".
+ *  `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *  `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *  `projects/[project_id]/notificationConfigs/[config_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3919,9 +3980,9 @@ GTLR_DEPRECATED
  *  Gets a notification config.
  *
  *  @param name Required. Name of the notification config to get. Its format is
- *    "organizations/[organization_id]/notificationConfigs/[config_id]",
- *    "folders/[folder_id]/notificationConfigs/[config_id]", or
- *    "projects/[project_id]/notificationConfigs/[config_id]".
+ *    `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *    `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *    `projects/[project_id]/notificationConfigs/[config_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsGet
  */
@@ -4038,7 +4099,7 @@ GTLR_DEPRECATED
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: securitycenter.organizations.operations.cancel
@@ -4061,7 +4122,7 @@ GTLR_DEPRECATED
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
@@ -4252,7 +4313,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the resource value config to retrieve. Its format is
- *  organizations/{organization}/resourceValueConfigs/{config_id}.
+ *  `organizations/{organization}/resourceValueConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4263,7 +4324,7 @@ GTLR_DEPRECATED
  *  Gets a ResourceValueConfig.
  *
  *  @param name Required. Name of the resource value config to retrieve. Its
- *    format is organizations/{organization}/resourceValueConfigs/{config_id}.
+ *    format is `organizations/{organization}/resourceValueConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsGet
  */
@@ -4299,7 +4360,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, which owns the collection of resource value configs.
- *  Its format is "organizations/[organization_id]"
+ *  Its format is `organizations/[organization_id]`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4309,7 +4370,7 @@ GTLR_DEPRECATED
  *  Lists all ResourceValueConfigs.
  *
  *  @param parent Required. The parent, which owns the collection of resource
- *    value configs. Its format is "organizations/[organization_id]"
+ *    value configs. Its format is `organizations/[organization_id]`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsList
  *
@@ -4331,7 +4392,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch : GTLRSecurityCommandCenterQuery
 
-/** Name for the resource value config */
+/** Name for the resource value configuration */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4351,7 +4412,7 @@ GTLR_DEPRECATED
  *  @param object The @c
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig
  *    to include in the query.
- *  @param name Name for the resource value config
+ *  @param name Name for the resource value configuration
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsResourceValueConfigsPatch
  */
@@ -4375,9 +4436,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new custom module's parent. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4394,9 +4455,9 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
  *    to include in the query.
  *  @param parent Required. Resource name of the new custom module's parent. Its
- *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    format is `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesCreate
  */
@@ -4419,10 +4480,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to delete. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4434,10 +4495,10 @@ GTLR_DEPRECATED
  *  custom modules.
  *
  *  @param name Required. Name of the custom module to delete. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesDelete
  */
@@ -4457,10 +4518,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to get. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4471,10 +4532,10 @@ GTLR_DEPRECATED
  *  Retrieves a SecurityHealthAnalyticsCustomModule.
  *
  *  @param name Required. Name of the custom module to get. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesGet
  */
@@ -4505,9 +4566,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4520,9 +4581,9 @@ GTLR_DEPRECATED
  *  and inherited modules, inherited from CRM ancestors.
  *
  *  @param parent Required. Name of parent to list custom modules. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesList
  *
@@ -4556,9 +4617,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list descendant custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4571,9 +4632,9 @@ GTLR_DEPRECATED
  *
  *  @param parent Required. Name of parent to list descendant custom modules.
  *    Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsCustomModulesListDescendant
  *
@@ -4702,10 +4763,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the effective custom module to get. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4717,10 +4778,10 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the effective custom module to get. Its format
  *    is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
  */
@@ -4751,9 +4812,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list effective custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4766,9 +4827,9 @@ GTLR_DEPRECATED
  *  parent, and inherited modules, inherited from CRM ancestors.
  *
  *  @param parent Required. Name of parent to list effective custom modules. Its
- *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    format is `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
  *
@@ -4812,10 +4873,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list attack paths. Valid formats:
- *  "organizations/{organization}",
- *  "organizations/{organization}/simulations/{simulation}"
- *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
- *  "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *  `organizations/{organization}`,
+ *  `organizations/{organization}/simulations/{simulation}`
+ *  `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *  `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4826,10 +4887,10 @@ GTLR_DEPRECATED
  *  and filter.
  *
  *  @param parent Required. Name of parent to list attack paths. Valid formats:
- *    "organizations/{organization}",
- *    "organizations/{organization}/simulations/{simulation}"
- *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
- *    "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *    `organizations/{organization}`,
+ *    `organizations/{organization}/simulations/{simulation}`
+ *    `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *    `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsAttackPathsList
  *
@@ -4863,7 +4924,7 @@ GTLR_DEPRECATED
  *  `resource` * `display_name` Values should be a comma separated list of
  *  fields. For example: `exposed_score,resource_value`. The default sorting
  *  order is descending. To specify ascending or descending order for a field,
- *  append a " ASC" or a " DESC" suffix, respectively; for example:
+ *  append a ` ASC` or a ` DESC` suffix, respectively; for example:
  *  `exposed_score DESC`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -4883,9 +4944,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list valued resources. Valid formats:
- *  "organizations/{organization}",
- *  "organizations/{organization}/simulations/{simulation}"
- *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *  `organizations/{organization}`,
+ *  `organizations/{organization}/simulations/{simulation}`
+ *  `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4895,9 +4956,9 @@ GTLR_DEPRECATED
  *  Lists the valued resources for a set of simulation results and filter.
  *
  *  @param parent Required. Name of parent to list valued resources. Valid
- *    formats: "organizations/{organization}",
- *    "organizations/{organization}/simulations/{simulation}"
- *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *    formats: `organizations/{organization}`,
+ *    `organizations/{organization}/simulations/{simulation}`
+ *    `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackExposureResultsValuedResourcesList
  *
@@ -4941,10 +5002,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list attack paths. Valid formats:
- *  "organizations/{organization}",
- *  "organizations/{organization}/simulations/{simulation}"
- *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
- *  "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *  `organizations/{organization}`,
+ *  `organizations/{organization}/simulations/{simulation}`
+ *  `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *  `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4955,10 +5016,10 @@ GTLR_DEPRECATED
  *  and filter.
  *
  *  @param parent Required. Name of parent to list attack paths. Valid formats:
- *    "organizations/{organization}",
- *    "organizations/{organization}/simulations/{simulation}"
- *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
- *    "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *    `organizations/{organization}`,
+ *    `organizations/{organization}/simulations/{simulation}`
+ *    `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *    `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsAttackPathsList
  *
@@ -4983,8 +5044,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The organization name or simulation name of this simulation Valid
- *  format: "organizations/{organization}/simulations/latest"
- *  "organizations/{organization}/simulations/{simulation}"
+ *  format: `organizations/{organization}/simulations/latest`
+ *  `organizations/{organization}/simulations/{simulation}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4995,8 +5056,8 @@ GTLR_DEPRECATED
  *  organization.
  *
  *  @param name Required. The organization name or simulation name of this
- *    simulation Valid format: "organizations/{organization}/simulations/latest"
- *    "organizations/{organization}/simulations/{simulation}"
+ *    simulation Valid format: `organizations/{organization}/simulations/latest`
+ *    `organizations/{organization}/simulations/{simulation}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsGet
  */
@@ -5036,10 +5097,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list attack paths. Valid formats:
- *  "organizations/{organization}",
- *  "organizations/{organization}/simulations/{simulation}"
- *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
- *  "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *  `organizations/{organization}`,
+ *  `organizations/{organization}/simulations/{simulation}`
+ *  `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *  `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5050,10 +5111,10 @@ GTLR_DEPRECATED
  *  and filter.
  *
  *  @param parent Required. Name of parent to list attack paths. Valid formats:
- *    "organizations/{organization}",
- *    "organizations/{organization}/simulations/{simulation}"
- *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
- *    "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *    `organizations/{organization}`,
+ *    `organizations/{organization}/simulations/{simulation}`
+ *    `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *    `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesAttackPathsList
  *
@@ -5077,7 +5138,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of this valued resource Valid format:
- *  "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *  `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5087,7 +5148,7 @@ GTLR_DEPRECATED
  *  Get the valued resource by name
  *
  *  @param name Required. The name of this valued resource Valid format:
- *    "organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}"
+ *    `organizations/{organization}/simulations/{simulation}/valuedResources/{valued_resource}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesGet
  */
@@ -5117,7 +5178,7 @@ GTLR_DEPRECATED
  *  `resource` * `display_name` Values should be a comma separated list of
  *  fields. For example: `exposed_score,resource_value`. The default sorting
  *  order is descending. To specify ascending or descending order for a field,
- *  append a " ASC" or a " DESC" suffix, respectively; for example:
+ *  append a ` ASC` or a ` DESC` suffix, respectively; for example:
  *  `exposed_score DESC`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -5137,9 +5198,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list valued resources. Valid formats:
- *  "organizations/{organization}",
- *  "organizations/{organization}/simulations/{simulation}"
- *  "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *  `organizations/{organization}`,
+ *  `organizations/{organization}/simulations/{simulation}`
+ *  `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5149,9 +5210,9 @@ GTLR_DEPRECATED
  *  Lists the valued resources for a set of simulation results and filter.
  *
  *  @param parent Required. Name of parent to list valued resources. Valid
- *    formats: "organizations/{organization}",
- *    "organizations/{organization}/simulations/{simulation}"
- *    "organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}"
+ *    formats: `organizations/{organization}`,
+ *    `organizations/{organization}/simulations/{simulation}`
+ *    `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSimulationsValuedResourcesList
  *
@@ -5175,7 +5236,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new source's parent. Its format should be
- *  "organizations/[organization_id]".
+ *  `organizations/[organization_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5187,7 +5248,7 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_Source to include in the
  *    query.
  *  @param parent Required. Resource name of the new source's parent. Its format
- *    should be "organizations/[organization_id]".
+ *    should be `organizations/[organization_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesCreate
  */
@@ -5216,7 +5277,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new finding's parent. Its format should be
- *  "organizations/[organization_id]/sources/[source_id]".
+ *  `organizations/[organization_id]/sources/[source_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5229,7 +5290,7 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_Finding to include in the
  *    query.
  *  @param parent Required. Resource name of the new finding's parent. Its
- *    format should be "organizations/[organization_id]/sources/[source_id]".
+ *    format should be `organizations/[organization_id]/sources/[source_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsCreate
  */
@@ -5301,12 +5362,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the source to groupBy. Its format is
- *  "organizations/[organization_id]/sources/[source_id]",
- *  folders/[folder_id]/sources/[source_id], or
- *  projects/[project_id]/sources/[source_id]. To groupBy across all sources
+ *  `organizations/[organization_id]/sources/[source_id]`,
+ *  `folders/[folder_id]/sources/[source_id]`, or
+ *  `projects/[project_id]/sources/[source_id]`. To groupBy across all sources
  *  provide a source_id of `-`. For example:
- *  organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-, or
- *  projects/{project_id}/sources/-
+ *  `organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-`,
+ *  or `projects/{project_id}/sources/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5322,12 +5383,12 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_GroupFindingsRequest to
  *    include in the query.
  *  @param parent Required. Name of the source to groupBy. Its format is
- *    "organizations/[organization_id]/sources/[source_id]",
- *    folders/[folder_id]/sources/[source_id], or
- *    projects/[project_id]/sources/[source_id]. To groupBy across all sources
+ *    `organizations/[organization_id]/sources/[source_id]`,
+ *    `folders/[folder_id]/sources/[source_id]`, or
+ *    `projects/[project_id]/sources/[source_id]`. To groupBy across all sources
  *    provide a source_id of `-`. For example:
- *    organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-,
- *    or projects/{project_id}/sources/-
+ *    `organizations/{organization_id}/sources/-,
+ *    folders/{folder_id}/sources/-`, or `projects/{project_id}/sources/-`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsGroup
  */
@@ -5371,7 +5432,7 @@ GTLR_DEPRECATED
  *  possible state_change is "UNUSED", which will be the state_change set for
  *  all findings present at read_time.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *compareDuration GTLR_DEPRECATED;
 
 /**
  *  A field mask to specify the Finding fields to be listed in the response. An
@@ -5440,12 +5501,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the source the findings belong to. Its format is
- *  "organizations/[organization_id]/sources/[source_id],
- *  folders/[folder_id]/sources/[source_id], or
- *  projects/[project_id]/sources/[source_id]". To list across all sources
+ *  `organizations/[organization_id]/sources/[source_id]`,
+ *  `folders/[folder_id]/sources/[source_id]`, or
+ *  `projects/[project_id]/sources/[source_id]`. To list across all sources
  *  provide a source_id of `-`. For example:
- *  organizations/{organization_id}/sources/-, folders/{folder_id}/sources/- or
- *  projects/{projects_id}/sources/-
+ *  `organizations/{organization_id}/sources/-`, `folders/{folder_id}/sources/-`
+ *  or `projects/{projects_id}/sources/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5455,7 +5516,7 @@ GTLR_DEPRECATED
  *  at that specific time. Absence of this field will default to the API's
  *  version of NOW.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_ListFindingsResponse.
@@ -5465,12 +5526,12 @@ GTLR_DEPRECATED
  *  /v1/organizations/{organization_id}/sources/-/findings
  *
  *  @param parent Required. Name of the source the findings belong to. Its
- *    format is "organizations/[organization_id]/sources/[source_id],
- *    folders/[folder_id]/sources/[source_id], or
- *    projects/[project_id]/sources/[source_id]". To list across all sources
+ *    format is `organizations/[organization_id]/sources/[source_id]`,
+ *    `folders/[folder_id]/sources/[source_id]`, or
+ *    `projects/[project_id]/sources/[source_id]`. To list across all sources
  *    provide a source_id of `-`. For example:
- *    organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-
- *    or projects/{projects_id}/sources/-
+ *    `organizations/{organization_id}/sources/-`,
+ *    `folders/{folder_id}/sources/-` or `projects/{projects_id}/sources/-`
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsList
  *
@@ -5550,9 +5611,9 @@ GTLR_DEPRECATED
  *  Required. The [relative resource
  *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *  of the finding. Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5566,9 +5627,9 @@ GTLR_DEPRECATED
  *  @param name Required. The [relative resource
  *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *    of the finding. Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *    `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetMute
  */
@@ -5591,9 +5652,9 @@ GTLR_DEPRECATED
  *  Required. The [relative resource
  *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *  of the finding. Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5607,9 +5668,9 @@ GTLR_DEPRECATED
  *  @param name Required. The [relative resource
  *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *    of the finding. Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *    `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetState
  */
@@ -5685,7 +5746,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Relative resource name of the source. Its format is
- *  "organizations/[organization_id]/source/[source_id]".
+ *  `organizations/[organization_id]/source/[source_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5695,7 +5756,7 @@ GTLR_DEPRECATED
  *  Gets a source.
  *
  *  @param name Required. Relative resource name of the source. Its format is
- *    "organizations/[organization_id]/source/[source_id]".
+ *    `organizations/[organization_id]/source/[source_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesGet
  */
@@ -5764,8 +5825,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  be `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5775,8 +5836,8 @@ GTLR_DEPRECATED
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id]", "folders/[folder_id]",
- *    or "projects/[project_id]".
+ *    format should be `organizations/[organization_id]`, `folders/[folder_id]`,
+ *    or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesList
  *
@@ -5947,6 +6008,74 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Lists the valued resources for a set of simulation results and filter.
+ *
+ *  Method: securitycenter.organizations.valuedResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
+ */
+@interface GTLRSecurityCommandCenterQuery_OrganizationsValuedResourcesList : GTLRSecurityCommandCenterQuery
+
+/**
+ *  The filter expression that filters the valued resources in the response.
+ *  Supported fields: * `resource_value` supports = * `resource_type` supports =
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The fields by which to order the valued resources response.
+ *  Supported fields: * `exposed_score` * `resource_value` * `resource_type` *
+ *  `resource` * `display_name` Values should be a comma separated list of
+ *  fields. For example: `exposed_score,resource_value`. The default sorting
+ *  order is descending. To specify ascending or descending order for a field,
+ *  append a ` ASC` or a ` DESC` suffix, respectively; for example:
+ *  `exposed_score DESC`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListValuedResourcesResponse`; indicates that
+ *  this is a continuation of a prior `ListValuedResources` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of parent to list valued resources. Valid formats:
+ *  `organizations/{organization}`,
+ *  `organizations/{organization}/simulations/{simulation}`
+ *  `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSecurityCommandCenter_ListValuedResourcesResponse.
+ *
+ *  Lists the valued resources for a set of simulation results and filter.
+ *
+ *  @param parent Required. Name of parent to list valued resources. Valid
+ *    formats: `organizations/{organization}`,
+ *    `organizations/{organization}/simulations/{simulation}`
+ *    `organizations/{organization}/simulations/{simulation}/attackExposureResults/{attack_exposure_result_v2}`
+ *
+ *  @return GTLRSecurityCommandCenterQuery_OrganizationsValuedResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Filters an organization's assets and groups them by their specified
  *  properties.
  *
@@ -5960,8 +6089,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the parent to group the assets by. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5974,8 +6103,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_GroupAssetsRequest to include
  *    in the query.
  *  @param parent Required. The name of the parent to group the assets by. Its
- *    format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsAssetsGroup
  */
@@ -6096,8 +6225,8 @@ GTLR_DEPRECATED
  *  Required. The name of the parent resource that contains the assets. The
  *  value that you can specify on parent depends on the method in which you
  *  specify parent. You can specify one of the following values:
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6117,8 +6246,8 @@ GTLR_DEPRECATED
  *  @param parent Required. The name of the parent resource that contains the
  *    assets. The value that you can specify on parent depends on the method in
  *    which you specify parent. You can specify one of the following values:
- *    "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsAssetsList
  *
@@ -6205,8 +6334,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the parent resource of the new BigQuery export. Its
- *  format is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6220,8 +6349,8 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport to
  *    include in the query.
  *  @param parent Required. The name of the parent resource of the new BigQuery
- *    export. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *    export. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsCreate
  */
@@ -6242,9 +6371,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The name of the BigQuery export to delete. Its format is
- *  organizations/{organization}/bigQueryExports/{export_id},
- *  folders/{folder}/bigQueryExports/{export_id}, or
- *  projects/{project}/bigQueryExports/{export_id}
+ *  `organizations/{organization}/bigQueryExports/{export_id}`,
+ *  `folders/{folder}/bigQueryExports/{export_id}`, or
+ *  `projects/{project}/bigQueryExports/{export_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6254,9 +6383,9 @@ GTLR_DEPRECATED
  *  Deletes an existing BigQuery export.
  *
  *  @param name Required. The name of the BigQuery export to delete. Its format
- *    is organizations/{organization}/bigQueryExports/{export_id},
- *    folders/{folder}/bigQueryExports/{export_id}, or
- *    projects/{project}/bigQueryExports/{export_id}
+ *    is `organizations/{organization}/bigQueryExports/{export_id}`,
+ *    `folders/{folder}/bigQueryExports/{export_id}`, or
+ *    `projects/{project}/bigQueryExports/{export_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsDelete
  */
@@ -6276,9 +6405,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the BigQuery export to retrieve. Its format is
- *  organizations/{organization}/bigQueryExports/{export_id},
- *  folders/{folder}/bigQueryExports/{export_id}, or
- *  projects/{project}/bigQueryExports/{export_id}
+ *  `organizations/{organization}/bigQueryExports/{export_id}`,
+ *  `folders/{folder}/bigQueryExports/{export_id}`, or
+ *  `projects/{project}/bigQueryExports/{export_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6289,9 +6418,9 @@ GTLR_DEPRECATED
  *  Gets a BigQuery export.
  *
  *  @param name Required. Name of the BigQuery export to retrieve. Its format is
- *    organizations/{organization}/bigQueryExports/{export_id},
- *    folders/{folder}/bigQueryExports/{export_id}, or
- *    projects/{project}/bigQueryExports/{export_id}
+ *    `organizations/{organization}/bigQueryExports/{export_id}`,
+ *    `folders/{folder}/bigQueryExports/{export_id}`, or
+ *    `projects/{project}/bigQueryExports/{export_id}`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsGet
  */
@@ -6330,8 +6459,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, which owns the collection of BigQuery exports. Its
- *  format is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  format is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6345,8 +6474,8 @@ GTLR_DEPRECATED
  *  the folder are returned.
  *
  *  @param parent Required. The parent, which owns the collection of BigQuery
- *    exports. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    exports. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsBigQueryExportsList
  *
@@ -6425,9 +6554,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The new custom module's parent. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6442,9 +6571,9 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_EventThreatDetectionCustomModule to include in
  *    the query.
  *  @param parent Required. The new custom module's parent. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings". *
- *    "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    `organizations/{organization}/eventThreatDetectionSettings`. *
+ *    `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesCreate
  */
@@ -6467,9 +6596,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to delete. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6481,10 +6610,10 @@ GTLR_DEPRECATED
  *  for resident custom modules.
  *
  *  @param name Required. Name of the custom module to delete. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesDelete
  */
@@ -6504,9 +6633,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to get. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6516,10 +6645,10 @@ GTLR_DEPRECATED
  *  Gets an Event Threat Detection custom module.
  *
  *  @param name Required. Name of the custom module to get. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesGet
  */
@@ -6557,9 +6686,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules under. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6572,9 +6701,9 @@ GTLR_DEPRECATED
  *  parent along with modules inherited from ancestors.
  *
  *  @param parent Required. Name of the parent to list custom modules under. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesList
  *
@@ -6615,9 +6744,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules under. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6629,9 +6758,9 @@ GTLR_DEPRECATED
  *  Resource Manager parent and its descendants.
  *
  *  @param parent Required. Name of the parent to list custom modules under. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesListDescendant
  *
@@ -6661,9 +6790,9 @@ GTLR_DEPRECATED
 /**
  *  Immutable. The resource name of the Event Threat Detection custom module.
  *  Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *  * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}". *
- *  "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *  * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`. *
+ *  `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6690,10 +6819,10 @@ GTLR_DEPRECATED
  *    the query.
  *  @param name Immutable. The resource name of the Event Threat Detection
  *    custom module. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/customModules/{module}".
- *    * "folders/{folder}/eventThreatDetectionSettings/customModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/customModules/{module}`.
+ *    * `folders/{folder}/eventThreatDetectionSettings/customModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/customModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/customModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsCustomModulesPatch
  */
@@ -6715,11 +6844,11 @@ GTLR_DEPRECATED
 /**
  *  Required. The resource name of the effective Event Threat Detection custom
  *  module. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *  *
- *  "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *  *
- *  "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *  `projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6731,11 +6860,11 @@ GTLR_DEPRECATED
  *
  *  @param name Required. The resource name of the effective Event Threat
  *    Detection custom module. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `organizations/{organization}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *    *
- *    "folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `folders/{folder}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *    *
- *    "projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}".
+ *    `projects/{project}/eventThreatDetectionSettings/effectiveCustomModules/{module}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsEffectiveCustomModulesGet
  */
@@ -6773,9 +6902,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the parent to list custom modules for. Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6788,9 +6917,9 @@ GTLR_DEPRECATED
  *  along with modules inherited from its ancestors.
  *
  *  @param parent Required. Name of the parent to list custom modules for. Its
- *    format is: * "organizations/{organization}/eventThreatDetectionSettings".
- *    * "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    format is: * `organizations/{organization}/eventThreatDetectionSettings`.
+ *    * `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsEffectiveCustomModulesList
  *
@@ -6815,9 +6944,9 @@ GTLR_DEPRECATED
 /**
  *  Required. Resource name of the parent to validate the Custom Module under.
  *  Its format is: *
- *  "organizations/{organization}/eventThreatDetectionSettings". *
- *  "folders/{folder}/eventThreatDetectionSettings". *
- *  "projects/{project}/eventThreatDetectionSettings".
+ *  `organizations/{organization}/eventThreatDetectionSettings`. *
+ *  `folders/{folder}/eventThreatDetectionSettings`. *
+ *  `projects/{project}/eventThreatDetectionSettings`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6832,9 +6961,9 @@ GTLR_DEPRECATED
  *    to include in the query.
  *  @param parent Required. Resource name of the parent to validate the Custom
  *    Module under. Its format is: *
- *    "organizations/{organization}/eventThreatDetectionSettings". *
- *    "folders/{folder}/eventThreatDetectionSettings". *
- *    "projects/{project}/eventThreatDetectionSettings".
+ *    `organizations/{organization}/eventThreatDetectionSettings`. *
+ *    `folders/{folder}/eventThreatDetectionSettings`. *
+ *    `projects/{project}/eventThreatDetectionSettings`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsEventThreatDetectionSettingsValidateCustomModule
  */
@@ -6857,8 +6986,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, at which bulk action needs to be applied. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6872,8 +7001,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_BulkMuteFindingsRequest to
  *    include in the query.
  *  @param parent Required. The parent, at which bulk action needs to be
- *    applied. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    applied. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsFindingsBulkMute
  */
@@ -6894,12 +7023,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to delete. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6909,12 +7038,12 @@ GTLR_DEPRECATED
  *  Deletes an existing mute config.
  *
  *  @param name Required. Name of the mute config to delete. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsDelete
  */
@@ -6934,12 +7063,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to retrieve. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6950,12 +7079,12 @@ GTLR_DEPRECATED
  *  Gets a mute config.
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsGet
  */
@@ -6975,12 +7104,12 @@ GTLR_DEPRECATED
 
 /**
  *  This field will be ignored if provided on config creation. Format
- *  "organizations/{organization}/muteConfigs/{mute_config}"
- *  "folders/{folder}/muteConfigs/{mute_config}"
- *  "projects/{project}/muteConfigs/{mute_config}"
- *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *  `organizations/{organization}/muteConfigs/{mute_config}`
+ *  `folders/{folder}/muteConfigs/{mute_config}`
+ *  `projects/{project}/muteConfigs/{mute_config}`
+ *  `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *  `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *  `projects/{project}/locations/global/muteConfigs/{mute_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7002,12 +7131,12 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param name This field will be ignored if provided on config creation.
- *    Format "organizations/{organization}/muteConfigs/{mute_config}"
- *    "folders/{folder}/muteConfigs/{mute_config}"
- *    "projects/{project}/muteConfigs/{mute_config}"
- *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *    Format `organizations/{organization}/muteConfigs/{mute_config}`
+ *    `folders/{folder}/muteConfigs/{mute_config}`
+ *    `projects/{project}/muteConfigs/{mute_config}`
+ *    `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *    `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *    `projects/{project}/locations/global/muteConfigs/{mute_config}`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsLocationsMuteConfigsPatch
  */
@@ -7036,8 +7165,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new mute configs's parent. Its format is
- *  "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7051,8 +7180,8 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param parent Required. Resource name of the new mute configs's parent. Its
- *    format is "organizations/[organization_id]", "folders/[folder_id]", or
- *    "projects/[project_id]".
+ *    format is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *    `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsCreate
  */
@@ -7073,12 +7202,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to delete. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7088,12 +7217,12 @@ GTLR_DEPRECATED
  *  Deletes an existing mute config.
  *
  *  @param name Required. Name of the mute config to delete. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsDelete
  */
@@ -7113,12 +7242,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the mute config to retrieve. Its format is
- *  organizations/{organization}/muteConfigs/{config_id},
- *  folders/{folder}/muteConfigs/{config_id},
- *  projects/{project}/muteConfigs/{config_id},
- *  organizations/{organization}/locations/global/muteConfigs/{config_id},
- *  folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *  projects/{project}/locations/global/muteConfigs/{config_id}.
+ *  `organizations/{organization}/muteConfigs/{config_id}`,
+ *  `folders/{folder}/muteConfigs/{config_id}`,
+ *  `projects/{project}/muteConfigs/{config_id}`,
+ *  `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *  `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *  `projects/{project}/locations/global/muteConfigs/{config_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7129,12 +7258,12 @@ GTLR_DEPRECATED
  *  Gets a mute config.
  *
  *  @param name Required. Name of the mute config to retrieve. Its format is
- *    organizations/{organization}/muteConfigs/{config_id},
- *    folders/{folder}/muteConfigs/{config_id},
- *    projects/{project}/muteConfigs/{config_id},
- *    organizations/{organization}/locations/global/muteConfigs/{config_id},
- *    folders/{folder}/locations/global/muteConfigs/{config_id}, or
- *    projects/{project}/locations/global/muteConfigs/{config_id}.
+ *    `organizations/{organization}/muteConfigs/{config_id}`,
+ *    `folders/{folder}/muteConfigs/{config_id}`,
+ *    `projects/{project}/muteConfigs/{config_id}`,
+ *    `organizations/{organization}/locations/global/muteConfigs/{config_id}`,
+ *    `folders/{folder}/locations/global/muteConfigs/{config_id}`, or
+ *    `projects/{project}/locations/global/muteConfigs/{config_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsGet
  */
@@ -7169,8 +7298,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The parent, which owns the collection of mute configs. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]",
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`,
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7180,8 +7309,8 @@ GTLR_DEPRECATED
  *  Lists mute configs.
  *
  *  @param parent Required. The parent, which owns the collection of mute
- *    configs. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", "projects/[project_id]".
+ *    configs. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsList
  *
@@ -7205,12 +7334,12 @@ GTLR_DEPRECATED
 
 /**
  *  This field will be ignored if provided on config creation. Format
- *  "organizations/{organization}/muteConfigs/{mute_config}"
- *  "folders/{folder}/muteConfigs/{mute_config}"
- *  "projects/{project}/muteConfigs/{mute_config}"
- *  "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *  "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *  "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *  `organizations/{organization}/muteConfigs/{mute_config}`
+ *  `folders/{folder}/muteConfigs/{mute_config}`
+ *  `projects/{project}/muteConfigs/{mute_config}`
+ *  `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *  `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *  `projects/{project}/locations/global/muteConfigs/{mute_config}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7232,12 +7361,12 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig to include
  *    in the query.
  *  @param name This field will be ignored if provided on config creation.
- *    Format "organizations/{organization}/muteConfigs/{mute_config}"
- *    "folders/{folder}/muteConfigs/{mute_config}"
- *    "projects/{project}/muteConfigs/{mute_config}"
- *    "organizations/{organization}/locations/global/muteConfigs/{mute_config}"
- *    "folders/{folder}/locations/global/muteConfigs/{mute_config}"
- *    "projects/{project}/locations/global/muteConfigs/{mute_config}"
+ *    Format `organizations/{organization}/muteConfigs/{mute_config}`
+ *    `folders/{folder}/muteConfigs/{mute_config}`
+ *    `projects/{project}/muteConfigs/{mute_config}`
+ *    `organizations/{organization}/locations/global/muteConfigs/{mute_config}`
+ *    `folders/{folder}/locations/global/muteConfigs/{mute_config}`
+ *    `projects/{project}/locations/global/muteConfigs/{mute_config}`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsPatch
  */
@@ -7265,8 +7394,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new notification config's parent. Its format
- *  is "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  is `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7278,8 +7407,8 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
  *    in the query.
  *  @param parent Required. Resource name of the new notification config's
- *    parent. Its format is "organizations/[organization_id]",
- *    "folders/[folder_id]", or "projects/[project_id]".
+ *    parent. Its format is `organizations/[organization_id]`,
+ *    `folders/[folder_id]`, or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsCreate
  */
@@ -7300,9 +7429,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the notification config to delete. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]",
- *  "folders/[folder_id]/notificationConfigs/[config_id]", or
- *  "projects/[project_id]/notificationConfigs/[config_id]".
+ *  `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *  `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *  `projects/[project_id]/notificationConfigs/[config_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7312,9 +7441,9 @@ GTLR_DEPRECATED
  *  Deletes a notification config.
  *
  *  @param name Required. Name of the notification config to delete. Its format
- *    is "organizations/[organization_id]/notificationConfigs/[config_id]",
- *    "folders/[folder_id]/notificationConfigs/[config_id]", or
- *    "projects/[project_id]/notificationConfigs/[config_id]".
+ *    is `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *    `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *    `projects/[project_id]/notificationConfigs/[config_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsDelete
  */
@@ -7334,9 +7463,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the notification config to get. Its format is
- *  "organizations/[organization_id]/notificationConfigs/[config_id]",
- *  "folders/[folder_id]/notificationConfigs/[config_id]", or
- *  "projects/[project_id]/notificationConfigs/[config_id]".
+ *  `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *  `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *  `projects/[project_id]/notificationConfigs/[config_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7346,9 +7475,9 @@ GTLR_DEPRECATED
  *  Gets a notification config.
  *
  *  @param name Required. Name of the notification config to get. Its format is
- *    "organizations/[organization_id]/notificationConfigs/[config_id]",
- *    "folders/[folder_id]/notificationConfigs/[config_id]", or
- *    "projects/[project_id]/notificationConfigs/[config_id]".
+ *    `organizations/[organization_id]/notificationConfigs/[config_id]`,
+ *    `folders/[folder_id]/notificationConfigs/[config_id]`, or
+ *    `projects/[project_id]/notificationConfigs/[config_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsNotificationConfigsGet
  */
@@ -7472,9 +7601,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the new custom module's parent. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7491,9 +7620,9 @@ GTLR_DEPRECATED
  *    GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SecurityHealthAnalyticsCustomModule
  *    to include in the query.
  *  @param parent Required. Resource name of the new custom module's parent. Its
- *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    format is `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesCreate
  */
@@ -7516,10 +7645,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to delete. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7531,10 +7660,10 @@ GTLR_DEPRECATED
  *  custom modules.
  *
  *  @param name Required. Name of the custom module to delete. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesDelete
  */
@@ -7554,10 +7683,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the custom module to get. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7568,10 +7697,10 @@ GTLR_DEPRECATED
  *  Retrieves a SecurityHealthAnalyticsCustomModule.
  *
  *  @param name Required. Name of the custom module to get. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/customModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/customModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/customModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesGet
  */
@@ -7602,9 +7731,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7617,9 +7746,9 @@ GTLR_DEPRECATED
  *  and inherited modules, inherited from CRM ancestors.
  *
  *  @param parent Required. Name of parent to list custom modules. Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesList
  *
@@ -7653,9 +7782,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list descendant custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7668,9 +7797,9 @@ GTLR_DEPRECATED
  *
  *  @param parent Required. Name of parent to list descendant custom modules.
  *    Its format is
- *    "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsCustomModulesListDescendant
  *
@@ -7799,10 +7928,10 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the effective custom module to get. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
- *  "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *  `organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
  *  or
- *  "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *  `projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7814,10 +7943,10 @@ GTLR_DEPRECATED
  *
  *  @param name Required. Name of the effective custom module to get. Its format
  *    is
- *    "organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
- *    "folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}",
+ *    `organizations/{organization}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`,
  *    or
- *    "projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}"
+ *    `projects/{project}/securityHealthAnalyticsSettings/effectiveCustomModules/{customModule}`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesGet
  */
@@ -7848,9 +7977,9 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of parent to list effective custom modules. Its format is
- *  "organizations/{organization}/securityHealthAnalyticsSettings",
- *  "folders/{folder}/securityHealthAnalyticsSettings", or
- *  "projects/{project}/securityHealthAnalyticsSettings"
+ *  `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *  `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *  `projects/{project}/securityHealthAnalyticsSettings`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7863,9 +7992,9 @@ GTLR_DEPRECATED
  *  parent, and inherited modules, inherited from CRM ancestors.
  *
  *  @param parent Required. Name of parent to list effective custom modules. Its
- *    format is "organizations/{organization}/securityHealthAnalyticsSettings",
- *    "folders/{folder}/securityHealthAnalyticsSettings", or
- *    "projects/{project}/securityHealthAnalyticsSettings"
+ *    format is `organizations/{organization}/securityHealthAnalyticsSettings`,
+ *    `folders/{folder}/securityHealthAnalyticsSettings`, or
+ *    `projects/{project}/securityHealthAnalyticsSettings`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSecurityHealthAnalyticsSettingsEffectiveCustomModulesList
  *
@@ -7940,12 +8069,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the source to groupBy. Its format is
- *  "organizations/[organization_id]/sources/[source_id]",
- *  folders/[folder_id]/sources/[source_id], or
- *  projects/[project_id]/sources/[source_id]. To groupBy across all sources
+ *  `organizations/[organization_id]/sources/[source_id]`,
+ *  `folders/[folder_id]/sources/[source_id]`, or
+ *  `projects/[project_id]/sources/[source_id]`. To groupBy across all sources
  *  provide a source_id of `-`. For example:
- *  organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-, or
- *  projects/{project_id}/sources/-
+ *  `organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-`,
+ *  or `projects/{project_id}/sources/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7961,12 +8090,12 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRSecurityCommandCenter_GroupFindingsRequest to
  *    include in the query.
  *  @param parent Required. Name of the source to groupBy. Its format is
- *    "organizations/[organization_id]/sources/[source_id]",
- *    folders/[folder_id]/sources/[source_id], or
- *    projects/[project_id]/sources/[source_id]. To groupBy across all sources
+ *    `organizations/[organization_id]/sources/[source_id]`,
+ *    `folders/[folder_id]/sources/[source_id]`, or
+ *    `projects/[project_id]/sources/[source_id]`. To groupBy across all sources
  *    provide a source_id of `-`. For example:
- *    organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-,
- *    or projects/{project_id}/sources/-
+ *    `organizations/{organization_id}/sources/-,
+ *    folders/{folder_id}/sources/-`, or `projects/{project_id}/sources/-`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsGroup
  */
@@ -8010,7 +8139,7 @@ GTLR_DEPRECATED
  *  possible state_change is "UNUSED", which will be the state_change set for
  *  all findings present at read_time.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *compareDuration GTLR_DEPRECATED;
 
 /**
  *  A field mask to specify the Finding fields to be listed in the response. An
@@ -8079,12 +8208,12 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Name of the source the findings belong to. Its format is
- *  "organizations/[organization_id]/sources/[source_id],
- *  folders/[folder_id]/sources/[source_id], or
- *  projects/[project_id]/sources/[source_id]". To list across all sources
+ *  `organizations/[organization_id]/sources/[source_id]`,
+ *  `folders/[folder_id]/sources/[source_id]`, or
+ *  `projects/[project_id]/sources/[source_id]`. To list across all sources
  *  provide a source_id of `-`. For example:
- *  organizations/{organization_id}/sources/-, folders/{folder_id}/sources/- or
- *  projects/{projects_id}/sources/-
+ *  `organizations/{organization_id}/sources/-`, `folders/{folder_id}/sources/-`
+ *  or `projects/{projects_id}/sources/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -8094,7 +8223,7 @@ GTLR_DEPRECATED
  *  at that specific time. Absence of this field will default to the API's
  *  version of NOW.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime GTLR_DEPRECATED;
 
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_ListFindingsResponse.
@@ -8104,12 +8233,12 @@ GTLR_DEPRECATED
  *  /v1/organizations/{organization_id}/sources/-/findings
  *
  *  @param parent Required. Name of the source the findings belong to. Its
- *    format is "organizations/[organization_id]/sources/[source_id],
- *    folders/[folder_id]/sources/[source_id], or
- *    projects/[project_id]/sources/[source_id]". To list across all sources
+ *    format is `organizations/[organization_id]/sources/[source_id]`,
+ *    `folders/[folder_id]/sources/[source_id]`, or
+ *    `projects/[project_id]/sources/[source_id]`. To list across all sources
  *    provide a source_id of `-`. For example:
- *    organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-
- *    or projects/{projects_id}/sources/-
+ *    `organizations/{organization_id}/sources/-`,
+ *    `folders/{folder_id}/sources/-` or `projects/{projects_id}/sources/-`
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsList
  *
@@ -8189,9 +8318,9 @@ GTLR_DEPRECATED
  *  Required. The [relative resource
  *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *  of the finding. Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8205,9 +8334,9 @@ GTLR_DEPRECATED
  *  @param name Required. The [relative resource
  *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *    of the finding. Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *    `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetMute
  */
@@ -8230,9 +8359,9 @@ GTLR_DEPRECATED
  *  Required. The [relative resource
  *  name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *  of the finding. Example:
- *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *  "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *  `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8246,9 +8375,9 @@ GTLR_DEPRECATED
  *  @param name Required. The [relative resource
  *    name](https://cloud.google.com/apis/design/resource_names#relative_resource_name)
  *    of the finding. Example:
- *    "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
- *    "folders/{folder_id}/sources/{source_id}/findings/{finding_id}",
- *    "projects/{project_id}/sources/{source_id}/findings/{finding_id}".
+ *    `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `folders/{folder_id}/sources/{source_id}/findings/{finding_id}`,
+ *    `projects/{project_id}/sources/{source_id}/findings/{finding_id}`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetState
  */
@@ -8337,8 +8466,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be "organizations/[organization_id]", "folders/[folder_id]", or
- *  "projects/[project_id]".
+ *  be `organizations/[organization_id]`, `folders/[folder_id]`, or
+ *  `projects/[project_id]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -8348,8 +8477,8 @@ GTLR_DEPRECATED
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be "organizations/[organization_id]", "folders/[folder_id]",
- *    or "projects/[project_id]".
+ *    format should be `organizations/[organization_id]`, `folders/[folder_id]`,
+ *    or `projects/[project_id]`.
  *
  *  @return GTLRSecurityCommandCenterQuery_ProjectsSourcesList
  *

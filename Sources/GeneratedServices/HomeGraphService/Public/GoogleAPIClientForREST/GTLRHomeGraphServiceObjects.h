@@ -209,7 +209,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *defaultNames;
 
-/** Primary name of the device, generally provided by the user. */
+/**
+ *  Primary name of the device, generally provided by the user. Names will be
+ *  truncated if over the 60 Unicode code point (character) limit and no errors
+ *  will be thrown. Developers are responsible for handling long names.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Additional names provided by the user for the device. */
@@ -390,7 +394,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the following example). Example: ```json { "requestId":
  *  "ff36a3cc-ec34-11e6-b1a0-64510650abcf", "agentUserId": "1234", "payload": {
  *  "devices": { "states": { "123": { "on": true }, "456": { "on": true,
- *  "brightness": 10 } }, } } } ```
+ *  "brightness": 10 }, }, } } } ```
  */
 @interface GTLRHomeGraphService_ReportStateAndNotificationRequest : GTLRObject
 

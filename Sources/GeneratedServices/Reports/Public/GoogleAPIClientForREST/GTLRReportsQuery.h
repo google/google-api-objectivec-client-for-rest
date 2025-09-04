@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/
+//   https://developers.google.com/workspace/admin/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -67,6 +67,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChat;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChrome;
 /**
+ *  The Classroom activity reports return information about different types of
+ *  [Classroom activity
+ *  events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *
+ *  Value: "classroom"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameClassroom;
+/**
  *  The Context-aware access activity reports return information about users'
  *  access denied events due to Context-aware access rules.
  *
@@ -89,6 +97,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDrive;
  *  Value: "gcp"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGcp;
+/**
+ *  The Gemini for Workspace activity reports return information about various
+ *  types of Gemini activity events performed by users within a Workspace
+ *  application.
+ *
+ *  Value: "gemini_in_workspace_apps"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGeminiInWorkspaceApps;
 /**
  *  The Google+ application's activity reports return information about various
  *  Google+ activity events.
@@ -304,6 +320,15 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameVault The Vault activity reports return
  *        information about various types of Vault activity events. (Value:
  *        "vault")
+ *    @arg @c kGTLRReportsApplicationNameGeminiInWorkspaceApps The Gemini for
+ *        Workspace activity reports return information about various types of
+ *        Gemini activity events performed by users within a Workspace
+ *        application. (Value: "gemini_in_workspace_apps")
+ *    @arg @c kGTLRReportsApplicationNameClassroom The Classroom activity
+ *        reports return information about different types of [Classroom
+ *        activity
+ *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *        (Value: "classroom")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -377,7 +402,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Comma separated group ids (obfuscated) on which user activities are
  *  filtered, i.e. the response will contain activities for only those users
  *  that are a part of at least one of the group ids mentioned here. Format:
- *  "id:abc123,id:xyz456"
+ *  "id:abc123,id:xyz456" *Important:* To filter by groups, you must explicitly
+ *  add the groups to your filtering groups allowlist. For more information
+ *  about adding groups to filtering groups allowlist, see [Filter results by
+ *  Google Group](https://support.google.com/a/answer/11482175)
  */
 @property(nonatomic, copy, nullable) NSString *groupIdFilter;
 
@@ -515,6 +543,15 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameVault The Vault activity reports return
  *        information about various types of Vault activity events. (Value:
  *        "vault")
+ *    @arg @c kGTLRReportsApplicationNameGeminiInWorkspaceApps The Gemini for
+ *        Workspace activity reports return information about various types of
+ *        Gemini activity events performed by users within a Workspace
+ *        application. (Value: "gemini_in_workspace_apps")
+ *    @arg @c kGTLRReportsApplicationNameClassroom The Classroom activity
+ *        reports return information about different types of [Classroom
+ *        activity
+ *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *        (Value: "classroom")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *
@@ -620,6 +657,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return information about various Google Keep activity events.
  *        The Keep activity report is only available for Google Workspace
  *        Business and Enterprise customers. (Value: "keep")
+ *    @arg @c kGTLRReportsApplicationNameClassroom The Classroom activity
+ *        reports return information about different types of [Classroom
+ *        activity
+ *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *        (Value: "classroom")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -690,12 +732,16 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, copy, nullable) NSString *filters;
 
 /**
- *  Comma separated group ids (obfuscated) on which user activities are
- *  filtered, i.e. the response will contain activities for only those users
- *  that are a part of at least one of the group ids mentioned here. Format:
- *  "id:abc123,id:xyz456"
+ *  `Deprecated`. This field is deprecated and is no longer supported. Comma
+ *  separated group ids (obfuscated) on which user activities are filtered, i.e.
+ *  the response will contain activities for only those users that are a part of
+ *  at least one of the group ids mentioned here. Format: "id:abc123,id:xyz456"
+ *  *Important:* To filter by groups, you must explicitly add the groups to your
+ *  filtering groups allowlist. For more information about adding groups to
+ *  filtering groups allowlist, see [Filter results by Google
+ *  Group](https://support.google.com/a/answer/11482175)
  */
-@property(nonatomic, copy, nullable) NSString *groupIdFilter;
+@property(nonatomic, copy, nullable) NSString *groupIdFilter GTLR_DEPRECATED;
 
 /**
  *  Determines how many activity records are shown on each response page. For
@@ -710,11 +756,12 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  ID of the organizational unit to report on. Activity records will be shown
- *  only for users who belong to the specified organizational unit. Data before
- *  Dec 17, 2018 doesn't appear in the filtered results.
+ *  `Deprecated`. This field is deprecated and is no longer supported. ID of the
+ *  organizational unit to report on. Activity records will be shown only for
+ *  users who belong to the specified organizational unit. Data before Dec 17,
+ *  2018 doesn't appear in the filtered results.
  */
-@property(nonatomic, copy, nullable) NSString *orgUnitID;
+@property(nonatomic, copy, nullable) NSString *orgUnitID GTLR_DEPRECATED;
 
 /**
  *  The token to specify next page. A report with multiple pages has a
@@ -827,6 +874,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return information about various Google Keep activity events.
  *        The Keep activity report is only available for Google Workspace
  *        Business and Enterprise customers. (Value: "keep")
+ *    @arg @c kGTLRReportsApplicationNameClassroom The Classroom activity
+ *        reports return information about different types of [Classroom
+ *        activity
+ *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
+ *        (Value: "classroom")
  *
  *  @return GTLRReportsQuery_ActivitiesWatch
  */
@@ -895,9 +947,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  The `parameters` query string is a comma-separated list of event parameters
  *  that refine a report's results. The parameter is associated with a specific
  *  application. The application values for the Customers usage report include
- *  `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`, `cros`,
- *  `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A
- *  `parameters` query string is in the CSV form of `app_name1:param_name1,
+ *  `accounts`, `app_maker`, `apps_scripts`, `calendar`, `chat`, `classroom`,
+ *  `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`.
+ *  A `parameters` query string is in the CSV form of `app_name1:param_name1,
  *  app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a
  *  parameter. If a particular parameter is supplied more than once in the API
  *  request, the API only accepts the last value of that request parameter. In
@@ -1082,8 +1134,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  event parameters where the parameter's value is manipulated by a relational
  *  operator. The `filters` query string includes the name of the application
  *  whose usage is returned in the report. The application values for the Users
- *  Usage Report include `accounts`, `docs`, and `gmail`. Filters are in the
- *  form `[application name]:parameter name[parameter value],...`. In this
+ *  Usage Report include `accounts`, `chat`, `docs`, and `gmail`. Filters are in
+ *  the form `[application name]:parameter name[parameter value],...`. In this
  *  example, the `<>` 'not equal to' operator is URL-encoded in the request's
  *  query string (%3C%3E): GET
  *  https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
@@ -1136,9 +1188,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  The `parameters` query string is a comma-separated list of event parameters
  *  that refine a report's results. The parameter is associated with a specific
  *  application. The application values for the Customers Usage report include
- *  `accounts`, `app_maker`, `apps_scripts`, `calendar`, `classroom`, `cros`,
- *  `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`. A
- *  `parameters` query string is in the CSV form of `app_name1:param_name1,
+ *  `accounts`, `app_maker`, `apps_scripts`, `calendar`, `chat`, `classroom`,
+ *  `cros`, `docs`, `gmail`, `gplus`, `device_management`, `meet`, and `sites`.
+ *  A `parameters` query string is in the CSV form of `app_name1:param_name1,
  *  app_name2:param_name2`. *Note:* The API doesn't accept multiple values of a
  *  parameter. If a particular parameter is supplied more than once in the API
  *  request, the API only accepts the last value of that request parameter. In

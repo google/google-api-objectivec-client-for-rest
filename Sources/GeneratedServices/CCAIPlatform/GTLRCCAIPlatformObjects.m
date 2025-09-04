@@ -12,34 +12,92 @@
 // Constants
 
 // GTLRCCAIPlatform_ContactCenter.state
+NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDegraded = @"STATE_DEGRADED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeployed = @"STATE_DEPLOYED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeploying = @"STATE_DEPLOYING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailed = @"STATE_FAILED";
+NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailingOver = @"STATE_FAILING_OVER";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateInGracePeriod = @"STATE_IN_GRACE_PERIOD";
+NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateRepairing = @"STATE_REPAIRING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminated = @"STATE_TERMINATED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminating = @"STATE_TERMINATING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateTerminatingFailed = @"STATE_TERMINATING_FAILED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCCAIPlatform_InstanceConfig.instanceSize
-NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall = @"DEV_XSMALL";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevSmall = @"DEV_SMALL";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion2xlarge = @"MULTIREGION_2XLARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion3xlarge = @"MULTIREGION_3XLARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionLarge = @"MULTIREGION_LARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionMedium = @"MULTIREGION_MEDIUM";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionSmall = @"MULTIREGION_SMALL";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionXlarge = @"MULTIREGION_XLARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_SandboxSmall = @"SANDBOX_SMALL";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge = @"STANDARD_2XLARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge = @"STANDARD_3XLARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardLarge = @"STANDARD_LARGE";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardMedium = @"STANDARD_MEDIUM";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardSmall = @"STANDARD_SMALL";
 NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge = @"STANDARD_XLARGE";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TimeLimitedTrialSmall = @"TIME_LIMITED_TRIAL_SMALL";
+NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TrialSmall = @"TRIAL_SMALL";
 
 // GTLRCCAIPlatform_Quota.contactCenterInstanceSize
-NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall = @"DEV_XSMALL";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevSmall = @"DEV_SMALL";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion2xlarge = @"MULTIREGION_2XLARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion3xlarge = @"MULTIREGION_3XLARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionLarge = @"MULTIREGION_LARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionMedium = @"MULTIREGION_MEDIUM";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionSmall = @"MULTIREGION_SMALL";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionXlarge = @"MULTIREGION_XLARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_SandboxSmall = @"SANDBOX_SMALL";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge = @"STANDARD_2XLARGE";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge = @"STANDARD_3XLARGE";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardLarge = @"STANDARD_LARGE";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardMedium = @"STANDARD_MEDIUM";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardSmall = @"STANDARD_SMALL";
 NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge = @"STANDARD_XLARGE";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TimeLimitedTrialSmall = @"TIME_LIMITED_TRIAL_SMALL";
+NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TrialSmall = @"TRIAL_SMALL";
+
+// GTLRCCAIPlatform_SAMLParams.authenticationContexts
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_AuthenticationContextUnspecified = @"AUTHENTICATION_CONTEXT_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_InternetProtocol = @"INTERNET_PROTOCOL";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_InternetProtocolPassword = @"INTERNET_PROTOCOL_PASSWORD";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Kerberos = @"KERBEROS";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileOneFactorContract = @"MOBILE_ONE_FACTOR_CONTRACT";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileOneFactorUnregistered = @"MOBILE_ONE_FACTOR_UNREGISTERED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileTwoFactorContract = @"MOBILE_TWO_FACTOR_CONTRACT";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileTwoFactorUnregistered = @"MOBILE_TWO_FACTOR_UNREGISTERED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Password = @"PASSWORD";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PasswordProtectedTransport = @"PASSWORD_PROTECTED_TRANSPORT";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PreviousSession = @"PREVIOUS_SESSION";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyPgp = @"PUBLIC_KEY_PGP";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeySpki = @"PUBLIC_KEY_SPKI";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyX509 = @"PUBLIC_KEY_X509";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyXmlDigitalSignature = @"PUBLIC_KEY_XML_DIGITAL_SIGNATURE";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SecureRemotePassword = @"SECURE_REMOTE_PASSWORD";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Smartcard = @"SMARTCARD";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SmartcardPki = @"SMARTCARD_PKI";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SoftwarePki = @"SOFTWARE_PKI";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SslTlsCertificateBased = @"SSL_TLS_CERTIFICATE_BASED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Telephony = @"TELEPHONY";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyAuthenticated = @"TELEPHONY_AUTHENTICATED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyNomadic = @"TELEPHONY_NOMADIC";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyPersonalized = @"TELEPHONY_PERSONALIZED";
+NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TimeSyncToken = @"TIME_SYNC_TOKEN";
+
+// GTLRCCAIPlatform_WeeklySchedule.days
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Friday  = @"FRIDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Monday  = @"MONDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Saturday = @"SATURDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Sunday  = @"SUNDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Thursday = @"THURSDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Tuesday = @"TUESDAY";
+NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 
 // ----------------------------------------------------------------------------
 //
@@ -62,13 +120,32 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_Component
+//
+
+@implementation GTLRCCAIPlatform_Component
+@dynamic name, serviceAttachmentNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceAttachmentNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_ContactCenter
 //
 
 @implementation GTLRCCAIPlatform_ContactCenter
-@dynamic adminUser, ccaipManagedUsers, createTime, customerDomainPrefix,
-         displayName, instanceConfig, kmsKey, labels, name, privateComponents,
-         samlParams, state, updateTime, uris, userEmail;
+@dynamic adminUser, advancedReportingEnabled, ccaipManagedUsers, createTime,
+         critical, customerDomainPrefix, displayName, early, instanceConfig,
+         kmsKey, labels, name, normal, privateAccess, privateComponents,
+         releaseVersion, samlParams, state, updateTime, uris, userEmail;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -109,6 +186,33 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_Critical
+//
+
+@implementation GTLRCCAIPlatform_Critical
+@dynamic peakHours;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"peakHours" : [GTLRCCAIPlatform_WeeklySchedule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_Early
+//
+
+@implementation GTLRCCAIPlatform_Early
 @end
 
 
@@ -249,6 +353,15 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_Normal
+//
+
+@implementation GTLRCCAIPlatform_Normal
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_Operation
 //
 
@@ -298,6 +411,44 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_PrivateAccess
+//
+
+@implementation GTLRCCAIPlatform_PrivateAccess
+@dynamic egressSettings, ingressSettings, pscSetting;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"egressSettings" : [GTLRCCAIPlatform_Component class],
+    @"ingressSettings" : [GTLRCCAIPlatform_Component class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_PscSetting
+//
+
+@implementation GTLRCCAIPlatform_PscSetting
+@dynamic allowedConsumerProjectIds, producerProjectIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedConsumerProjectIds" : [NSString class],
+    @"producerProjectIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_Quota
 //
 
@@ -313,7 +464,16 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 //
 
 @implementation GTLRCCAIPlatform_SAMLParams
-@dynamic certificate, emailMapping, entityId, ssoUri, userEmail;
+@dynamic authenticationContexts, certificate, emailMapping, entityId, ssoUri,
+         userEmail;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authenticationContexts" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -351,9 +511,37 @@ NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarg
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_TimeOfDay
+//
+
+@implementation GTLRCCAIPlatform_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_URIs
 //
 
 @implementation GTLRCCAIPlatform_URIs
 @dynamic chatBotUri, mediaUri, rootUri, virtualAgentStreamingServiceUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_WeeklySchedule
+//
+
+@implementation GTLRCCAIPlatform_WeeklySchedule
+@dynamic days, duration, endTime, startTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"days" : [NSString class]
+  };
+  return map;
+}
+
 @end

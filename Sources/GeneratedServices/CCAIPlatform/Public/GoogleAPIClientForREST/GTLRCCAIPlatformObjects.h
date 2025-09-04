@@ -13,20 +13,28 @@
 #endif
 
 @class GTLRCCAIPlatform_AdminUser;
+@class GTLRCCAIPlatform_Component;
 @class GTLRCCAIPlatform_ContactCenter;
 @class GTLRCCAIPlatform_ContactCenter_Labels;
+@class GTLRCCAIPlatform_Critical;
+@class GTLRCCAIPlatform_Early;
 @class GTLRCCAIPlatform_InstanceConfig;
 @class GTLRCCAIPlatform_Location;
 @class GTLRCCAIPlatform_Location_Labels;
 @class GTLRCCAIPlatform_Location_Metadata;
+@class GTLRCCAIPlatform_Normal;
 @class GTLRCCAIPlatform_Operation;
 @class GTLRCCAIPlatform_Operation_Metadata;
 @class GTLRCCAIPlatform_Operation_Response;
+@class GTLRCCAIPlatform_PrivateAccess;
+@class GTLRCCAIPlatform_PscSetting;
 @class GTLRCCAIPlatform_Quota;
 @class GTLRCCAIPlatform_SAMLParams;
 @class GTLRCCAIPlatform_Status;
 @class GTLRCCAIPlatform_Status_Details_Item;
+@class GTLRCCAIPlatform_TimeOfDay;
 @class GTLRCCAIPlatform_URIs;
+@class GTLRCCAIPlatform_WeeklySchedule;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -41,6 +49,14 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRCCAIPlatform_ContactCenter.state
 
+/**
+ *  State DEGRADED. This State must ONLY be used by Multiregional Instances
+ *  after a failover was executed successfully. Customers are not able to update
+ *  instances in this state.
+ *
+ *  Value: "STATE_DEGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDegraded;
 /**
  *  State DEPLOYED
  *
@@ -60,11 +76,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDe
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailed;
 /**
+ *  State in STATE_FAILING_OVER. This State must ONLY be used by Multiregional
+ *  Instances when a failover was triggered. Customers are not able to update
+ *  instances in this state.
+ *
+ *  Value: "STATE_FAILING_OVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailingOver;
+/**
  *  State IN_GRACE_PERIOD
  *
  *  Value: "STATE_IN_GRACE_PERIOD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateInGracePeriod;
+/**
+ *  State REPAIRING. This State must ONLY be used by Multiregional Instances
+ *  after a fallback was triggered. Customers are not able to update instancs in
+ *  this state.
+ *
+ *  Value: "STATE_REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateRepairing;
 /**
  *  State TERMINATED
  *
@@ -94,17 +126,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateUn
 // GTLRCCAIPlatform_InstanceConfig.instanceSize
 
 /**
- *  Instance Size DEV_EXTRA_SMALL.
+ *  Instance Size DEV_SMALL
  *
- *  Value: "DEV_XSMALL"
+ *  Value: "DEV_SMALL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall;
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevSmall;
 /**
  *  The default value. This value is used if the state is omitted.
  *
  *  Value: "INSTANCE_SIZE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified;
+/**
+ *  Instance Size MULTIREGION_2XLARGE.
+ *
+ *  Value: "MULTIREGION_2XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion2xlarge;
+/**
+ *  Instance Size MULTIREGION_3XLARGE.
+ *
+ *  Value: "MULTIREGION_3XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion3xlarge;
+/**
+ *  Instance Size MULTIREGION_LARGE
+ *
+ *  Value: "MULTIREGION_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionLarge;
+/**
+ *  Instance Size MULTIREGION_MEDIUM
+ *
+ *  Value: "MULTIREGION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionMedium;
+/**
+ *  Instance Size MULTIREGION_SMALL
+ *
+ *  Value: "MULTIREGION_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionSmall;
+/**
+ *  Instance Size MULTIREGION_XLARGE
+ *
+ *  Value: "MULTIREGION_XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionXlarge;
+/**
+ *  Instance Size SANDBOX_SMALL
+ *
+ *  Value: "SANDBOX_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_SandboxSmall;
 /**
  *  Instance Size STANDARD_2XLARGE.
  *
@@ -141,22 +215,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize
  *  Value: "STANDARD_XLARGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge;
+/**
+ *  Instance Size TIME_LIMITED_TRIAL_SMALL
+ *
+ *  Value: "TIME_LIMITED_TRIAL_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TimeLimitedTrialSmall;
+/**
+ *  Instance Size TRIAL_SMALL
+ *
+ *  Value: "TRIAL_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TrialSmall;
 
 // ----------------------------------------------------------------------------
 // GTLRCCAIPlatform_Quota.contactCenterInstanceSize
 
 /**
- *  Instance Size DEV_EXTRA_SMALL.
+ *  Instance Size DEV_SMALL
  *
- *  Value: "DEV_XSMALL"
+ *  Value: "DEV_SMALL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall;
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevSmall;
 /**
  *  The default value. This value is used if the state is omitted.
  *
  *  Value: "INSTANCE_SIZE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified;
+/**
+ *  Instance Size MULTIREGION_2XLARGE.
+ *
+ *  Value: "MULTIREGION_2XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion2xlarge;
+/**
+ *  Instance Size MULTIREGION_3XLARGE.
+ *
+ *  Value: "MULTIREGION_3XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion3xlarge;
+/**
+ *  Instance Size MULTIREGION_LARGE
+ *
+ *  Value: "MULTIREGION_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionLarge;
+/**
+ *  Instance Size MULTIREGION_MEDIUM
+ *
+ *  Value: "MULTIREGION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionMedium;
+/**
+ *  Instance Size MULTIREGION_SMALL
+ *
+ *  Value: "MULTIREGION_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionSmall;
+/**
+ *  Instance Size MULTIREGION_XLARGE
+ *
+ *  Value: "MULTIREGION_XLARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionXlarge;
+/**
+ *  Instance Size SANDBOX_SMALL
+ *
+ *  Value: "SANDBOX_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_SandboxSmall;
 /**
  *  Instance Size STANDARD_2XLARGE.
  *
@@ -193,6 +321,274 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  Value: "STANDARD_XLARGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge;
+/**
+ *  Instance Size TIME_LIMITED_TRIAL_SMALL
+ *
+ *  Value: "TIME_LIMITED_TRIAL_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TimeLimitedTrialSmall;
+/**
+ *  Instance Size TRIAL_SMALL
+ *
+ *  Value: "TRIAL_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TrialSmall;
+
+// ----------------------------------------------------------------------------
+// GTLRCCAIPlatform_SAMLParams.authenticationContexts
+
+/**
+ *  The Unspecified class indicates that the authentication was performed by
+ *  unspecified means.
+ *
+ *  Value: "AUTHENTICATION_CONTEXT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_AuthenticationContextUnspecified;
+/**
+ *  The Internet Protocol class is applicable when a principal is authenticated
+ *  through the use of a provided IP address.
+ *
+ *  Value: "INTERNET_PROTOCOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_InternetProtocol;
+/**
+ *  The Internet Protocol Password class is applicable when a principal is
+ *  authenticated through the use of a provided IP address, in addition to a
+ *  username/password.
+ *
+ *  Value: "INTERNET_PROTOCOL_PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_InternetProtocolPassword;
+/**
+ *  This class is applicable when the principal has authenticated using a
+ *  password to a local authentication authority, in order to acquire a Kerberos
+ *  ticket. That Kerberos ticket is then used for subsequent network
+ *  authentication.
+ *
+ *  Value: "KERBEROS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Kerberos;
+/**
+ *  Reflects mobile contract customer registration procedures and a single
+ *  factor authentication. For example, a digital signing device with tamper
+ *  resistant memory for key storage, such as the mobile MSISDN, but no required
+ *  PIN or biometric for real-time user authentication.
+ *
+ *  Value: "MOBILE_ONE_FACTOR_CONTRACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileOneFactorContract;
+/**
+ *  Reflects no mobile customer registration procedures and an authentication of
+ *  the mobile device without requiring explicit end-user interaction. This
+ *  context class authenticates only the device and never the user; it is useful
+ *  when services other than the mobile operator want to add a secure device
+ *  authentication to their authentication process.
+ *
+ *  Value: "MOBILE_ONE_FACTOR_UNREGISTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileOneFactorUnregistered;
+/**
+ *  Reflects mobile contract customer registration procedures and a two-factor
+ *  based authentication. For example, a digital signing device with tamper
+ *  resistant memory for key storage, such as a GSM SIM, that requires explicit
+ *  proof of user identity and intent, such as a PIN or biometric.
+ *
+ *  Value: "MOBILE_TWO_FACTOR_CONTRACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileTwoFactorContract;
+/**
+ *  Reflects no mobile customer registration procedures and a two-factor based
+ *  authentication, such as secure device and user PIN. This context class is
+ *  useful when a service other than the mobile operator wants to link their
+ *  customer ID to a mobile supplied two-factor authentication service by
+ *  capturing mobile phone data at enrollment.
+ *
+ *  Value: "MOBILE_TWO_FACTOR_UNREGISTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_MobileTwoFactorUnregistered;
+/**
+ *  The Password class is applicable when a principal authenticates to an
+ *  authentication authority through the presentation of a password over an
+ *  unprotected HTTP session.
+ *
+ *  Value: "PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Password;
+/**
+ *  The PasswordProtectedTransport class is applicable when a principal
+ *  authenticates to an authentication authority through the presentation of a
+ *  password over a protected session.
+ *
+ *  Value: "PASSWORD_PROTECTED_TRANSPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PasswordProtectedTransport;
+/**
+ *  The PreviousSession class is applicable when a principal had authenticated
+ *  to an authentication authority at some point in the past using any
+ *  authentication context supported by that authentication authority
+ *
+ *  Value: "PREVIOUS_SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PreviousSession;
+/**
+ *  The PGP context class indicates that the principal authenticated by means of
+ *  a digital signature where the key was validated as part of a PGP Public Key
+ *  Infrastructure.
+ *
+ *  Value: "PUBLIC_KEY_PGP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyPgp;
+/**
+ *  The SPKI context class indicates that the principal authenticated by means
+ *  of a digital signature where the key was validated via an SPKI
+ *  Infrastructure.
+ *
+ *  Value: "PUBLIC_KEY_SPKI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeySpki;
+/**
+ *  The X509 context class indicates that the principal authenticated by means
+ *  of a digital signature where the key was validated as part of an X.509
+ *  Public Key Infrastructure.
+ *
+ *  Value: "PUBLIC_KEY_X509"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyX509;
+/**
+ *  This context class indicates that the principal authenticated by means of a
+ *  digital signature according to the processing rules specified in the XML
+ *  Digital Signature specification [XMLSig].
+ *
+ *  Value: "PUBLIC_KEY_XML_DIGITAL_SIGNATURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_PublicKeyXmlDigitalSignature;
+/**
+ *  The Secure Remote Password class is applicable when the authentication was
+ *  performed by means of Secure Remote Password as specified in [RFC 2945].
+ *
+ *  Value: "SECURE_REMOTE_PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SecureRemotePassword;
+/**
+ *  The Smartcard class is identified when a principal authenticates to an
+ *  authentication authority using a smartcard.
+ *
+ *  Value: "SMARTCARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Smartcard;
+/**
+ *  The SmartcardPKI class is applicable when a principal authenticates to an
+ *  authentication authority through a two-factor authentication mechanism using
+ *  a smartcard with enclosed private key and a PIN.
+ *
+ *  Value: "SMARTCARD_PKI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SmartcardPki;
+/**
+ *  The Software-PKI class is applicable when a principal uses an X.509
+ *  certificate stored in software to authenticate to the authentication
+ *  authority.
+ *
+ *  Value: "SOFTWARE_PKI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SoftwarePki;
+/**
+ *  This class indicates that the principal authenticated by means of a client
+ *  certificate, secured with the SSL/TLS transport.
+ *
+ *  Value: "SSL_TLS_CERTIFICATE_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_SslTlsCertificateBased;
+/**
+ *  This class is used to indicate that the principal authenticated via the
+ *  provision of a fixed-line telephone number, transported via a telephony
+ *  protocol such as ADSL.
+ *
+ *  Value: "TELEPHONY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_Telephony;
+/**
+ *  Indicates that the principal authenticated via the means of the line number,
+ *  a user suffix, and a password element.
+ *
+ *  Value: "TELEPHONY_AUTHENTICATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyAuthenticated;
+/**
+ *  Indicates that the principal is "roaming" (perhaps using a phone card) and
+ *  authenticates via the means of the line number, a user suffix, and a
+ *  password element.
+ *
+ *  Value: "TELEPHONY_NOMADIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyNomadic;
+/**
+ *  This class is used to indicate that the principal authenticated via the
+ *  provision of a fixed-line telephone number and a user suffix, transported
+ *  via a telephony protocol such as ADSL.
+ *
+ *  Value: "TELEPHONY_PERSONALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyPersonalized;
+/**
+ *  The TimeSyncToken class is applicable when a principal authenticates through
+ *  a time synchronization token.
+ *
+ *  Value: "TIME_SYNC_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TimeSyncToken;
+
+// ----------------------------------------------------------------------------
+// GTLRCCAIPlatform_WeeklySchedule.days
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday;
 
 /**
  *  Message storing info about the first admin user. Next ID: 3
@@ -216,7 +612,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
- *  Message describing ContactCenter object Next ID: 20
+ *  Defines a logical CCAIP component that e.g. “EMAIL”, "CRM". For more
+ *  information see go/ccaip-private-path-v2. Each logical component is
+ *  associated with a list of service attachments.
+ */
+@interface GTLRCCAIPlatform_Component : GTLRObject
+
+/** Name of the component. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Associated service attachments. The service attachment names that will be
+ *  used for sending private traffic to the CCAIP tenant project. Example
+ *  service attachment name:
+ *  "projects/${TENANT_PROJECT_ID}/regions/${REGION}/serviceAttachments/ingress-default".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAttachmentNames;
+
+@end
+
+
+/**
+ *  Message describing ContactCenter object
  */
 @interface GTLRCCAIPlatform_ContactCenter : GTLRObject
 
@@ -225,6 +642,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  name.
  */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_AdminUser *adminUser;
+
+/**
+ *  Optional. Whether the advanced reporting feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advancedReportingEnabled;
 
 /**
  *  Optional. Whether to enable users to be created in the CCAIP-instance
@@ -237,6 +661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 /** Output only. [Output only] Create time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Optional. Critical release channel. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_Critical *critical;
+
 /**
  *  Required. Immutable. At least 2 and max 16 char long, must conform to [RFC
  *  1035](https://www.ietf.org/rfc/rfc1035.txt).
@@ -245,6 +672,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 /** Required. A user friendly name for the ContactCenter. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. Early release channel. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_Early *early;
 
 /**
  *  The configuration of this instance, it is currently immutable once created.
@@ -262,15 +692,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 /** name of resource */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Output only. A list of UJET components that should be privately accessed.
- *  This field is set by reading settings from the data plane. For more
- *  information about the format of the component please refer to
- *  go/ccaip-vpc-sc-org-policy. This field is must be fully populated only for
- *  Create/Update resource operations. The main use case for this field is
- *  OrgPolicy checks via CPE.
- */
+/** Optional. Normal release channel. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_Normal *normal;
+
+/** Optional. VPC-SC related networking configuration. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_PrivateAccess *privateAccess;
+
+/** Output only. TODO(b/283407860) Deprecate this field. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *privateComponents;
+
+/** Output only. UJET release version, unique for each new release. */
+@property(nonatomic, copy, nullable) NSString *releaseVersion;
 
 /** Optional. Params that sets up Google as IdP. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_SAMLParams *samlParams;
@@ -279,14 +711,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  Output only. The state of this contact center.
  *
  *  Likely values:
+ *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateDegraded State
+ *        DEGRADED. This State must ONLY be used by Multiregional Instances
+ *        after a failover was executed successfully. Customers are not able to
+ *        update instances in this state. (Value: "STATE_DEGRADED")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateDeployed State DEPLOYED
  *        (Value: "STATE_DEPLOYED")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateDeploying State
  *        DEPLOYING (Value: "STATE_DEPLOYING")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateFailed State FAILED
  *        (Value: "STATE_FAILED")
+ *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateFailingOver State in
+ *        STATE_FAILING_OVER. This State must ONLY be used by Multiregional
+ *        Instances when a failover was triggered. Customers are not able to
+ *        update instances in this state. (Value: "STATE_FAILING_OVER")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateInGracePeriod State
  *        IN_GRACE_PERIOD (Value: "STATE_IN_GRACE_PERIOD")
+ *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateRepairing State
+ *        REPAIRING. This State must ONLY be used by Multiregional Instances
+ *        after a fallback was triggered. Customers are not able to update
+ *        instancs in this state. (Value: "STATE_REPAIRING")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateTerminated State
  *        TERMINATED (Value: "STATE_TERMINATED")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateTerminating State
@@ -351,6 +795,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
+ *  Instances in this Channel will receive updates after all instances in
+ *  `Normal` were updated. They also will only be updated outside of their peak
+ *  hours.
+ */
+@interface GTLRCCAIPlatform_Critical : GTLRObject
+
+/** Required. Hours during which the instance should not be updated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_WeeklySchedule *> *peakHours;
+
+@end
+
+
+/**
+ *  LINT.IfChange First Channel to receive the updates. Meant to dev/test
+ *  instances
+ */
+@interface GTLRCCAIPlatform_Early : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -371,8 +836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -407,11 +872,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  The instance size of this the instance configuration.
  *
  *  Likely values:
- *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevXsmall Instance
- *        Size DEV_EXTRA_SMALL. (Value: "DEV_XSMALL")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_DevSmall Instance
+ *        Size DEV_SMALL (Value: "DEV_SMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion2xlarge
+ *        Instance Size MULTIREGION_2XLARGE. (Value: "MULTIREGION_2XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Multiregion3xlarge
+ *        Instance Size MULTIREGION_3XLARGE. (Value: "MULTIREGION_3XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionLarge
+ *        Instance Size MULTIREGION_LARGE (Value: "MULTIREGION_LARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionMedium
+ *        Instance Size MULTIREGION_MEDIUM (Value: "MULTIREGION_MEDIUM")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionSmall
+ *        Instance Size MULTIREGION_SMALL (Value: "MULTIREGION_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_MultiregionXlarge
+ *        Instance Size MULTIREGION_XLARGE (Value: "MULTIREGION_XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_SandboxSmall
+ *        Instance Size SANDBOX_SMALL (Value: "SANDBOX_SMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard2xlarge
  *        Instance Size STANDARD_2XLARGE. (Value: "STANDARD_2XLARGE")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_Standard3xlarge
@@ -424,6 +903,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *        Instance Size STANDARD_SMALL. (Value: "STANDARD_SMALL")
  *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_StandardXlarge
  *        Instance Size STANDARD_XLARGE. (Value: "STANDARD_XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TimeLimitedTrialSmall
+ *        Instance Size TIME_LIMITED_TRIAL_SMALL (Value:
+ *        "TIME_LIMITED_TRIAL_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_InstanceConfig_InstanceSize_TrialSmall Instance
+ *        Size TRIAL_SMALL (Value: "TRIAL_SMALL")
  */
 @property(nonatomic, copy, nullable) NSString *instanceSize;
 
@@ -567,6 +1051,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
+ *  Instances in this Channel will receive updates after all instances in
+ *  `Early` were updated + 2 days.
+ */
+@interface GTLRCCAIPlatform_Normal : GTLRObject
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -688,6 +1180,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
+ *  Defines ingress and egress private traffic settings for CCAIP instances.
+ */
+@interface GTLRCCAIPlatform_PrivateAccess : GTLRObject
+
+/**
+ *  List of egress components that should not be accessed via the Internet. For
+ *  more information see go/ccaip-private-path-v2.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_Component *> *egressSettings;
+
+/**
+ *  List of ingress components that should not be accessed via the Internet. For
+ *  more information see go/ccaip-private-path-v2.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_Component *> *ingressSettings;
+
+/** Private service connect settings. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_PscSetting *pscSetting;
+
+@end
+
+
+/**
+ *  Private service connect settings.
+ */
+@interface GTLRCCAIPlatform_PscSetting : GTLRObject
+
+/**
+ *  The list of project ids that are allowed to send traffic to the service
+ *  attachment. This field should be filled only for the ingress components.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedConsumerProjectIds;
+
+/** Output only. The CCAIP tenant project ids. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *producerProjectIds;
+
+@end
+
+
+/**
  *  Quota details.
  */
 @interface GTLRCCAIPlatform_Quota : GTLRObject
@@ -710,11 +1242,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  Contact center instance type.
  *
  *  Likely values:
- *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevXsmall
- *        Instance Size DEV_EXTRA_SMALL. (Value: "DEV_XSMALL")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_DevSmall
+ *        Instance Size DEV_SMALL (Value: "DEV_SMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_InstanceSizeUnspecified
  *        The default value. This value is used if the state is omitted. (Value:
  *        "INSTANCE_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion2xlarge
+ *        Instance Size MULTIREGION_2XLARGE. (Value: "MULTIREGION_2XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Multiregion3xlarge
+ *        Instance Size MULTIREGION_3XLARGE. (Value: "MULTIREGION_3XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionLarge
+ *        Instance Size MULTIREGION_LARGE (Value: "MULTIREGION_LARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionMedium
+ *        Instance Size MULTIREGION_MEDIUM (Value: "MULTIREGION_MEDIUM")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionSmall
+ *        Instance Size MULTIREGION_SMALL (Value: "MULTIREGION_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_MultiregionXlarge
+ *        Instance Size MULTIREGION_XLARGE (Value: "MULTIREGION_XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_SandboxSmall
+ *        Instance Size SANDBOX_SMALL (Value: "SANDBOX_SMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard2xlarge
  *        Instance Size STANDARD_2XLARGE. (Value: "STANDARD_2XLARGE")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_Standard3xlarge
@@ -727,6 +1273,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *        Instance Size STANDARD_SMALL. (Value: "STANDARD_SMALL")
  *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_StandardXlarge
  *        Instance Size STANDARD_XLARGE. (Value: "STANDARD_XLARGE")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TimeLimitedTrialSmall
+ *        Instance Size TIME_LIMITED_TRIAL_SMALL (Value:
+ *        "TIME_LIMITED_TRIAL_SMALL")
+ *    @arg @c kGTLRCCAIPlatform_Quota_ContactCenterInstanceSize_TrialSmall
+ *        Instance Size TRIAL_SMALL (Value: "TRIAL_SMALL")
  */
 @property(nonatomic, copy, nullable) NSString *contactCenterInstanceSize;
 
@@ -737,6 +1288,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
  *  Message storing SAML params to enable Google as IDP.
  */
 @interface GTLRCCAIPlatform_SAMLParams : GTLRObject
+
+/** Additional contexts used for authentication. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *authenticationContexts;
 
 /** SAML certificate */
 @property(nonatomic, copy, nullable) NSString *certificate;
@@ -802,6 +1356,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 
 /**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRCCAIPlatform_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
  *  Message storing the URIs of the ContactCenter.
  */
 @interface GTLRCCAIPlatform_URIs : GTLRObject
@@ -817,6 +1415,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_Quota_ContactCenterInstance
 
 /** Virtual Agent Streaming Service Uri of the ContactCenter. */
 @property(nonatomic, copy, nullable) NSString *virtualAgentStreamingServiceUri;
+
+@end
+
+
+/**
+ *  Message representing a weekly schedule.
+ */
+@interface GTLRCCAIPlatform_WeeklySchedule : GTLRObject
+
+/** Required. Days of the week this schedule applies to. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *days;
+
+/** Optional. Duration of the schedule. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  Optional. Daily end time of the schedule. If `end_time` is before
+ *  `start_time`, the schedule will be considered as ending on the next day.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_TimeOfDay *endTime;
+
+/** Required. Daily start time of the schedule. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_TimeOfDay *startTime;
 
 @end
 

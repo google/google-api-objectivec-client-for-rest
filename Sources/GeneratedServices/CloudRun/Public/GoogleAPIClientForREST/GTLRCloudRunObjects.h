@@ -18,11 +18,17 @@
 #endif
 
 @class GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization;
+@class GTLRCloudRun_GoogleCloudRunV2BuildConfig;
+@class GTLRCloudRun_GoogleCloudRunV2BuildConfig_EnvironmentVariables;
+@class GTLRCloudRun_GoogleCloudRunV2BuildInfo;
+@class GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild;
+@class GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild_EnvironmentVariables;
 @class GTLRCloudRun_GoogleCloudRunV2CloudSqlInstance;
 @class GTLRCloudRun_GoogleCloudRunV2Condition;
 @class GTLRCloudRun_GoogleCloudRunV2Container;
 @class GTLRCloudRun_GoogleCloudRunV2ContainerOverride;
 @class GTLRCloudRun_GoogleCloudRunV2ContainerPort;
+@class GTLRCloudRun_GoogleCloudRunV2DockerBuild;
 @class GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVar;
 @class GTLRCloudRun_GoogleCloudRunV2EnvVarSource;
@@ -37,11 +43,16 @@
 @class GTLRCloudRun_GoogleCloudRunV2GRPCAction;
 @class GTLRCloudRun_GoogleCloudRunV2HTTPGetAction;
 @class GTLRCloudRun_GoogleCloudRunV2HTTPHeader;
+@class GTLRCloudRun_GoogleCloudRunV2ImageExportStatus;
+@class GTLRCloudRun_GoogleCloudRunV2InstanceSplit;
+@class GTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus;
 @class GTLRCloudRun_GoogleCloudRunV2Job;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Job_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings;
 @class GTLRCloudRun_GoogleCloudRunV2NetworkInterface;
 @class GTLRCloudRun_GoogleCloudRunV2NFSVolumeSource;
+@class GTLRCloudRun_GoogleCloudRunV2NodeSelector;
 @class GTLRCloudRun_GoogleCloudRunV2Overrides;
 @class GTLRCloudRun_GoogleCloudRunV2Probe;
 @class GTLRCloudRun_GoogleCloudRunV2ResourceRequirements;
@@ -59,7 +70,9 @@
 @class GTLRCloudRun_GoogleCloudRunV2Service;
 @class GTLRCloudRun_GoogleCloudRunV2Service_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Service_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2ServiceMesh;
 @class GTLRCloudRun_GoogleCloudRunV2ServiceScaling;
+@class GTLRCloudRun_GoogleCloudRunV2StorageSource;
 @class GTLRCloudRun_GoogleCloudRunV2Task;
 @class GTLRCloudRun_GoogleCloudRunV2Task_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Task_Labels;
@@ -72,6 +85,61 @@
 @class GTLRCloudRun_GoogleCloudRunV2Volume;
 @class GTLRCloudRun_GoogleCloudRunV2VolumeMount;
 @class GTLRCloudRun_GoogleCloudRunV2VpcAccess;
+@class GTLRCloudRun_GoogleCloudRunV2WorkerPool;
+@class GTLRCloudRun_GoogleCloudRunV2WorkerPool_Annotations;
+@class GTLRCloudRun_GoogleCloudRunV2WorkerPool_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate;
+@class GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Annotations;
+@class GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Labels;
+@class GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalConfig;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ArtifactObjects;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Artifacts;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Substitutions;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Timing;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ConnectedRepository;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Dependency;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceDependency;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceRepository;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GoModule;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret_EnvMap;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1MavenArtifact;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1NpmPackage;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1PoolOption;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1PythonPackage;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource_Substitutions;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Results;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret_SecretEnv;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1SecretManagerSecret;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secrets;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Source;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1SourceProvenance;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1SourceProvenance_FileHashes;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSourceManifest;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedNpmPackage;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedPythonPackage;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Volume;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning;
 @class GTLRCloudRun_GoogleIamV1AuditConfig;
 @class GTLRCloudRun_GoogleIamV1AuditLogConfig;
 @class GTLRCloudRun_GoogleIamV1Binding;
@@ -82,11 +150,14 @@
 @class GTLRCloudRun_GoogleRpcStatus;
 @class GTLRCloudRun_GoogleRpcStatus_Details_Item;
 @class GTLRCloudRun_GoogleTypeExpr;
+@class GTLRCloudRun_Proto2BridgeMessageSet;
+@class GTLRCloudRun_UtilStatusProto;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -221,6 +292,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reaso
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Unknown;
+/**
+ *  User-provided VPC network was not found.
+ *
+ *  Value: "VPC_NETWORK_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_VpcNetworkNotFound;
 /**
  *  Waiting for operation to complete.
  *
@@ -468,6 +545,134 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_Launc
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Execution_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2ExecutionReference.completionStatus
+
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "COMPLETION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_CompletionStatusUnspecified;
+/**
+ *  Job execution has been cancelled by the user.
+ *
+ *  Value: "EXECUTION_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionCancelled;
+/**
+ *  Job execution has failed.
+ *
+ *  Value: "EXECUTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionFailed;
+/**
+ *  Waiting for backing resources to be provisioned.
+ *
+ *  Value: "EXECUTION_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionPending;
+/**
+ *  Job execution is running normally.
+ *
+ *  Value: "EXECUTION_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionRunning;
+/**
+ *  Job execution has succeeded.
+ *
+ *  Value: "EXECUTION_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionSucceeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2ExportStatusResponse.operationState
+
+/**
+ *  Operation finished.
+ *
+ *  Value: "FINISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExportStatusResponse_OperationState_Finished;
+/**
+ *  Operation still in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExportStatusResponse_OperationState_InProgress;
+/**
+ *  State unspecified.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ExportStatusResponse_OperationState_OperationStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2ImageExportStatus.exportJobState
+
+/**
+ *  State unspecified.
+ *
+ *  Value: "EXPORT_JOB_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_ExportJobStateUnspecified;
+/**
+ *  Job finished.
+ *
+ *  Value: "FINISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_Finished;
+/**
+ *  Job still in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_InProgress;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2InstanceSplit.type
+
+/**
+ *  Allocates instances to the Service's latest ready Revision.
+ *
+ *  Value: "INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeLatest;
+/**
+ *  Allocates instances to a Revision by name.
+ *
+ *  Value: "INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeRevision;
+/**
+ *  Unspecified instance allocation type.
+ *
+ *  Value: "INSTANCE_SPLIT_ALLOCATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus.type
+
+/**
+ *  Allocates instances to the Service's latest ready Revision.
+ *
+ *  Value: "INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeLatest;
+/**
+ *  Allocates instances to a Revision by name.
+ *
+ *  Value: "INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeRevision;
+/**
+ *  Unspecified instance allocation type.
+ *
+ *  Value: "INSTANCE_SPLIT_ALLOCATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Job.launchStage
 
 /**
@@ -656,6 +861,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_Launch
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Revision_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2RevisionTemplate.encryptionKeyRevocationAction
+
+/**
+ *  Unspecified
+ *
+ *  Value: "ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified;
+/**
+ *  Prevents the creation of new instances.
+ *
+ *  Value: "PREVENT_NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_PreventNew;
+/**
+ *  Shuts down existing instances, and prevents creation of new ones.
+ *
+ *  Value: "SHUTDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_Shutdown;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2RevisionTemplate.executionEnvironment
 
 /**
@@ -698,6 +925,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_Ingress
  *  Value: "INGRESS_TRAFFIC_INTERNAL_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficInternalOnly;
+/**
+ *  No ingress traffic is allowed.
+ *
+ *  Value: "INGRESS_TRAFFIC_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficNone;
 /**
  *  Unspecified
  *
@@ -776,6 +1009,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchS
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Service_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2ServiceScaling.scalingMode
+
+/**
+ *  Scale based on traffic between min and max instances.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Automatic;
+/**
+ *  Scale to exactly min instances and ignore max instances.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Manual;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SCALING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_ScalingModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Task.executionEnvironment
@@ -888,6 +1143,612 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egres
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2VpcAccess_Egress_VpcEgressUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2WorkerPool.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the "Deprecation Policy" section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate.encryptionKeyRevocationAction
+
+/**
+ *  Unspecified
+ *
+ *  Value: "ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified;
+/**
+ *  Prevents the creation of new instances.
+ *
+ *  Value: "PREVENT_NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_PreventNew;
+/**
+ *  Shuts down existing instances, and prevents creation of new ones.
+ *
+ *  Value: "SHUTDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_Shutdown;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult.decision
+
+/**
+ *  Build is approved.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_Approved;
+/**
+ *  Default enum type. This should not be used.
+ *
+ *  Value: "DECISION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_DecisionUnspecified;
+/**
+ *  Build is rejected.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_Rejected;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build.status
+
+/**
+ *  Build or step was canceled by a user.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Cancelled;
+/**
+ *  Build was enqueued for longer than the value of `queue_ttl`.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Expired;
+/**
+ *  Build or step failed to complete successfully.
+ *
+ *  Value: "FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Failure;
+/**
+ *  Build or step failed due to an internal cause.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_InternalError;
+/**
+ *  Build has been created and is pending execution and queuing. It has not been
+ *  queued.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Pending;
+/**
+ *  Build or step is queued; work has not yet begun.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Queued;
+/**
+ *  Status of the build is unknown.
+ *
+ *  Value: "STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_StatusUnknown;
+/**
+ *  Build or step finished successfully.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Success;
+/**
+ *  Build or step took longer than was allowed.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Timeout;
+/**
+ *  Build or step is being executed.
+ *
+ *  Value: "WORKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Working;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval.state
+
+/**
+ *  Build approval has been approved.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Approved;
+/**
+ *  Build was cancelled while it was still pending approval.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Cancelled;
+/**
+ *  Build approval is pending.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Pending;
+/**
+ *  Build approval has been rejected.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Rejected;
+/**
+ *  Default enum type. This should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.defaultLogsBucketBehavior
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified;
+/**
+ *  Bucket is located in a Google-owned project and is not regionalized.
+ *
+ *  Value: "LEGACY_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket;
+/**
+ *  Bucket is located in user-owned project in the same region as the build. The
+ *  builder service account must have access to create and write to Cloud
+ *  Storage buckets in the build project.
+ *
+ *  Value: "REGIONAL_USER_OWNED_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.logging
+
+/**
+ *  Build logs are stored in Cloud Logging. Selecting this option will not allow
+ *  [logs streaming](https://cloud.google.com/sdk/gcloud/reference/builds/log).
+ *
+ *  Value: "CLOUD_LOGGING_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_CloudLoggingOnly;
+/**
+ *  Build logs are stored in Cloud Storage.
+ *
+ *  Value: "GCS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_GcsOnly;
+/**
+ *  Build logs are stored in Cloud Logging and Cloud Storage.
+ *
+ *  Value: "LEGACY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_Legacy;
+/**
+ *  The service determines the logging mode. The default is `LEGACY`. Do not
+ *  rely on the default logging behavior as it may change in the future.
+ *
+ *  Value: "LOGGING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_LoggingUnspecified;
+/**
+ *  Turn off all logging. No build logs will be captured.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_None;
+/**
+ *  This option is the same as CLOUD_LOGGING_ONLY.
+ *
+ *  Value: "STACKDRIVER_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_StackdriverOnly GTLR_DEPRECATED;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.logStreamingOption
+
+/**
+ *  Service may automatically determine build log streaming behavior.
+ *
+ *  Value: "STREAM_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamDefault;
+/**
+ *  Build logs should not be streamed to Cloud Storage; they will be written
+ *  when the build is completed.
+ *
+ *  Value: "STREAM_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamOff;
+/**
+ *  Build logs should be streamed to Cloud Storage.
+ *
+ *  Value: "STREAM_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamOn;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.machineType
+
+/**
+ *  Highcpu e2 machine with 32 CPUs.
+ *
+ *  Value: "E2_HIGHCPU_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu32;
+/**
+ *  Highcpu e2 machine with 8 CPUs.
+ *
+ *  Value: "E2_HIGHCPU_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu8;
+/**
+ *  E2 machine with 1 CPU.
+ *
+ *  Value: "E2_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium;
+/**
+ *  Highcpu machine with 32 CPUs.
+ *
+ *  Value: "N1_HIGHCPU_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32 GTLR_DEPRECATED;
+/**
+ *  Highcpu machine with 8 CPUs.
+ *
+ *  Value: "N1_HIGHCPU_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8 GTLR_DEPRECATED;
+/**
+ *  Standard machine type.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.requestedVerifyOption
+
+/**
+ *  Not a verifiable build (the default).
+ *
+ *  Value: "NOT_VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_NotVerified;
+/**
+ *  Build must be verified.
+ *
+ *  Value: "VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
+
+/**
+ *  Dirhash of a Go module's source code which is then hex-encoded.
+ *
+ *  Value: "GO_MODULE_H1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_GoModuleH1;
+/**
+ *  Use a md5 hash.
+ *
+ *  Value: "MD5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Md5;
+/**
+ *  No hash requested.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_None;
+/**
+ *  Use a sha256 hash.
+ *
+ *  Value: "SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Sha256;
+/**
+ *  Use a sha512 hash.
+ *
+ *  Value: "SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Sha512;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.substitutionOption
+
+/**
+ *  Do not fail the build if error in substitutions checks.
+ *
+ *  Value: "ALLOW_LOOSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SubstitutionOption_AllowLoose;
+/**
+ *  Fails the build if error in substitutions checks, like missing a
+ *  substitution in the template or in the map.
+ *
+ *  Value: "MUST_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SubstitutionOption_MustMatch;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep.status
+
+/**
+ *  Build or step was canceled by a user.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Cancelled;
+/**
+ *  Build was enqueued for longer than the value of `queue_ttl`.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Expired;
+/**
+ *  Build or step failed to complete successfully.
+ *
+ *  Value: "FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Failure;
+/**
+ *  Build or step failed due to an internal cause.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_InternalError;
+/**
+ *  Build has been created and is pending execution and queuing. It has not been
+ *  queued.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Pending;
+/**
+ *  Build or step is queued; work has not yet begun.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Queued;
+/**
+ *  Status of the build is unknown.
+ *
+ *  Value: "STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_StatusUnknown;
+/**
+ *  Build or step finished successfully.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Success;
+/**
+ *  Build or step took longer than was allowed.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Timeout;
+/**
+ *  Build or step is being executed.
+ *
+ *  Value: "WORKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Working;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo.type
+
+/**
+ *  Type unspecified
+ *
+ *  Value: "FAILURE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_FailureTypeUnspecified;
+/**
+ *  The source fetching has failed.
+ *
+ *  Value: "FETCH_SOURCE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_FetchSourceFailed;
+/**
+ *  Backend logging failures. Should retry.
+ *
+ *  Value: "LOGGING_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_LoggingFailure;
+/**
+ *  Unable to push the image to the repository.
+ *
+ *  Value: "PUSH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_PushFailed;
+/**
+ *  Final image not found.
+ *
+ *  Value: "PUSH_IMAGE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_PushImageNotFound;
+/**
+ *  Unauthorized push of the final image.
+ *
+ *  Value: "PUSH_NOT_AUTHORIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_PushNotAuthorized;
+/**
+ *  A build step has failed.
+ *
+ *  Value: "USER_BUILD_STEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_UserBuildStep;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash.type
+
+/**
+ *  Dirhash of a Go module's source code which is then hex-encoded.
+ *
+ *  Value: "GO_MODULE_H1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1;
+/**
+ *  Use a md5 hash.
+ *
+ *  Value: "MD5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Md5;
+/**
+ *  No hash requested.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_None;
+/**
+ *  Use a sha256 hash.
+ *
+ *  Value: "SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Sha256;
+/**
+ *  Use a sha512 hash.
+ *
+ *  Value: "SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Sha512;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource.sourceFetcher
+
+/**
+ *  Use the Cloud Storage Fetcher tool to download the source file.
+ *
+ *  Value: "GCS_FETCHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_GcsFetcher;
+/**
+ *  Use the "gsutil" tool to download the source file.
+ *
+ *  Value: "GSUTIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_Gsutil;
+/**
+ *  Unspecified defaults to GSUTIL.
+ *
+ *  Value: "SOURCE_FETCHER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_SourceFetcherUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning.priority
+
+/**
+ *  e.g. alerts that a feature used in the build is pending removal
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning_Priority_Alert;
+/**
+ *  e.g. deprecation warnings and alternative feature highlights.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning_Priority_Info;
+/**
+ *  Should not be used.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning_Priority_PriorityUnspecified;
+/**
+ *  e.g. automated detection of possible issues with the build.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning_Priority_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleIamV1AuditLogConfig.logType
 
 /**
@@ -921,21 +1782,177 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization : GTLRObject
 
 /**
- *  If present, indicates to use Breakglass using this justification. If
- *  use_default is False, then it must be empty. For more information on
+ *  Optional. If present, indicates to use Breakglass using this justification.
+ *  If use_default is False, then it must be empty. For more information on
  *  breakglass, see
  *  https://cloud.google.com/binary-authorization/docs/using-breakglass
  */
 @property(nonatomic, copy, nullable) NSString *breakglassJustification;
 
 /**
- *  If True, indicates to use the default project's binary authorization policy.
- *  If False, binary authorization will be disabled.
+ *  Optional. The path to a binary authorization policy. Format:
+ *  `projects/{project}/platforms/cloudRun/{policy-name}`
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  Optional. If True, indicates to use the default project's binary
+ *  authorization policy. If False, binary authorization will be disabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useDefault;
 
+@end
+
+
+/**
+ *  Describes the Build step of the function that builds a container from the
+ *  given source.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2BuildConfig : GTLRObject
+
+/** Optional. The base image used to build the function. */
+@property(nonatomic, copy, nullable) NSString *baseImage;
+
+/**
+ *  Optional. Sets whether the function will receive automatic base image
+ *  updates.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAutomaticUpdates;
+
+/**
+ *  Optional. User-provided build-time environment variables for the function
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BuildConfig_EnvironmentVariables *environmentVariables;
+
+/**
+ *  Optional. The name of the function (as defined in source code) that will be
+ *  executed. Defaults to the resource name suffix, if not specified. For
+ *  backward compatibility, if function with given name is not found, then the
+ *  system will try to use function named "function".
+ */
+@property(nonatomic, copy, nullable) NSString *functionTarget;
+
+/** Optional. Artifact Registry URI to store the built image. */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/**
+ *  Output only. The Cloud Build name of the latest successful deployment of the
+ *  function.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Service account to be used for building the container. The format
+ *  of this field is
+ *  `projects/{projectId}/serviceAccounts/{serviceAccountEmail}`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** The Cloud Storage bucket URI where the function source code is located. */
+@property(nonatomic, copy, nullable) NSString *sourceLocation;
+
+/**
+ *  Optional. Name of the Cloud Build Custom Worker Pool that should be used to
+ *  build the Cloud Run function. The format of this field is
+ *  `projects/{project}/locations/{region}/workerPools/{workerPool}` where
+ *  `{project}` and `{region}` are the project id and region respectively where
+ *  the worker pool is defined and `{workerPool}` is the short name of the
+ *  worker pool.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
+
+@end
+
+
+/**
+ *  Optional. User-provided build-time environment variables for the function
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2BuildConfig_EnvironmentVariables : GTLRObject
+@end
+
+
+/**
+ *  Build information of the image.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2BuildInfo : GTLRObject
+
+/**
+ *  Output only. Entry point of the function when the image is a Cloud Run
+ *  function.
+ */
+@property(nonatomic, copy, nullable) NSString *functionTarget;
+
+/** Output only. Source code location of the image. */
+@property(nonatomic, copy, nullable) NSString *sourceLocation;
+
+@end
+
+
+/**
+ *  Build the source using Buildpacks.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild : GTLRObject
+
+/** Optional. The base image to use for the build. */
+@property(nonatomic, copy, nullable) NSString *baseImage;
+
+/**
+ *  Optional. cache_image_uri is the GCR/AR URL where the cache image will be
+ *  stored. cache_image_uri is optional and omitting it will disable caching.
+ *  This URL must be stable across builds. It is used to derive a build-specific
+ *  temporary URL by substituting the tag with the build ID. The build will
+ *  clean up the temporary image on a best-effort basis.
+ */
+@property(nonatomic, copy, nullable) NSString *cacheImageUri;
+
+/**
+ *  Optional. Whether or not the application container will be enrolled in
+ *  automatic base image updates. When true, the application will be built on a
+ *  scratch base image, so the base layers can be appended at run time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAutomaticUpdates;
+
+/** Optional. User-provided build-time environment variables. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild_EnvironmentVariables *environmentVariables;
+
+/**
+ *  Optional. Name of the function target if the source is a function source.
+ *  Required for function builds.
+ */
+@property(nonatomic, copy, nullable) NSString *functionTarget;
+
+/**
+ *  Optional. project_descriptor stores the path to the project descriptor file.
+ *  When empty, it means that there is no project descriptor file in the source.
+ */
+@property(nonatomic, copy, nullable) NSString *projectDescriptor;
+
+/** The runtime name, e.g. 'go113'. Leave blank for generic builds. */
+@property(nonatomic, copy, nullable) NSString *runtime GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  Optional. User-provided build-time environment variables.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild_EnvironmentVariables : GTLRObject
 @end
 
 
@@ -987,7 +2004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2Condition : GTLRObject
 
 /**
- *  A reason for the execution condition.
+ *  Output only. A reason for the execution condition.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled
@@ -1016,7 +2033,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *message;
 
 /**
- *  A common (service-level) reason for this condition.
+ *  Output only. A common (service-level) reason for this condition.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_CommonReasonUndefined
@@ -1056,13 +2073,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        "SECRETS_ACCESS_CHECK_FAILED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_Unknown Reason
  *        unknown. Further details will be in message. (Value: "UNKNOWN")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_VpcNetworkNotFound
+ *        User-provided VPC network was not found. (Value:
+ *        "VPC_NETWORK_NOT_FOUND")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_Reason_WaitingForOperation
  *        Waiting for operation to complete. (Value: "WAITING_FOR_OPERATION")
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
- *  A reason for the revision condition.
+ *  Output only. A reason for the revision condition.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_RevisionReason_ActiveRevisionLimitReached
@@ -1169,6 +2189,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  provided.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Base image for this container. Only supported for services. If set, it
+ *  indicates that the service is enrolled into automatic base image update.
+ */
+@property(nonatomic, copy, nullable) NSString *baseImageUri;
+
+/** Output only. The build info of the container image. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BuildInfo *buildInfo;
 
 /**
  *  Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT
@@ -1282,6 +2311,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Build the source using Docker. This means the source has a Dockerfile.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2DockerBuild : GTLRObject
+@end
+
+
+/**
  *  In memory (tmpfs) ephemeral storage. It is ephemeral in the sense that when
  *  the sandbox is taken down, the data is destroyed with it (it does not
  *  persist across sandbox runs).
@@ -1331,13 +2367,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Variable references $(VAR_NAME) are expanded using the previous defined
- *  environment variables in the container and any route environment variables.
- *  If a variable cannot be resolved, the reference in the input string will be
- *  unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie:
- *  $$(VAR_NAME). Escaped references will never be expanded, regardless of
- *  whether the variable exists or not. Defaults to "", and the maximum length
- *  is 32768 bytes.
+ *  Literal value of the environment variable. Defaults to "", and the maximum
+ *  length is 32768 bytes. Variable references are not supported in Cloud Run.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -1398,6 +2429,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  across separate operations.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Email address of the authenticated creator. */
+@property(nonatomic, copy, nullable) NSString *creator;
 
 /**
  *  Output only. For a deleted resource, the deletion time. It is only populated
@@ -1635,11 +2669,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleCloudRunV2ExecutionReference : GTLRObject
 
+/**
+ *  Status for the execution completion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_CompletionStatusUnspecified
+ *        The default value. This value is used if the state is omitted. (Value:
+ *        "COMPLETION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionCancelled
+ *        Job execution has been cancelled by the user. (Value:
+ *        "EXECUTION_CANCELLED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionFailed
+ *        Job execution has failed. (Value: "EXECUTION_FAILED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionPending
+ *        Waiting for backing resources to be provisioned. (Value:
+ *        "EXECUTION_PENDING")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionRunning
+ *        Job execution is running normally. (Value: "EXECUTION_RUNNING")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExecutionReference_CompletionStatus_ExecutionSucceeded
+ *        Job execution has succeeded. (Value: "EXECUTION_SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *completionStatus;
+
 /** Creation timestamp of the execution. */
 @property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
 
 /** Creation timestamp of the execution. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The deletion time of the execution. It is only populated as a response to a
+ *  Delete request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /** Name of the execution. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1679,12 +2741,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ExecutionTemplate_Labels *labels;
 
 /**
- *  Specifies the maximum desired number of tasks the execution should run at
- *  given time. Must be <= task_count. When the job is run, if this field is 0
- *  or unset, the maximum possible value will be used for that execution. The
- *  actual number of tasks running in steady state will be less than this number
- *  when there are fewer tasks waiting to be completed remaining, i.e. when the
- *  work left to do is less than max parallelism.
+ *  Optional. Specifies the maximum desired number of tasks the execution should
+ *  run at given time. When the job is run, if this field is 0 or unset, the
+ *  maximum possible value will be used for that execution. The actual number of
+ *  tasks running in steady state will be less than this number when there are
+ *  fewer tasks waiting to be completed remaining, i.e. when the work left to do
+ *  is less than max parallelism.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1750,15 +2812,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Represents a GCS Bucket mounted as a volume.
+ *  Request message for exporting Cloud Run image.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ExportImageRequest : GTLRObject
+
+/** Required. The export destination url (the Artifact Registry repo). */
+@property(nonatomic, copy, nullable) NSString *destinationRepo;
+
+@end
+
+
+/**
+ *  ExportImageResponse contains an operation Id to track the image export
+ *  operation.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ExportImageResponse : GTLRObject
+
+/**
+ *  An operation ID used to track the status of image exports tied to the
+ *  original pod ID in the request.
+ */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
+ *  ExportStatusResponse contains the status of image export operation, with the
+ *  status of each image export job.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ExportStatusResponse : GTLRObject
+
+/** The status of each image export job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2ImageExportStatus *> *imageExportStatuses;
+
+/** The operation id. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Output only. The state of the overall export operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExportStatusResponse_OperationState_Finished
+ *        Operation finished. (Value: "FINISHED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExportStatusResponse_OperationState_InProgress
+ *        Operation still in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ExportStatusResponse_OperationState_OperationStateUnspecified
+ *        State unspecified. (Value: "OPERATION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationState;
+
+@end
+
+
+/**
+ *  Represents a volume backed by a Cloud Storage bucket using Cloud Storage
+ *  FUSE.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2GCSVolumeSource : GTLRObject
 
-/** GCS Bucket name */
+/** Cloud Storage Bucket name. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
 /**
- *  If true, mount the GCS bucket as read-only
+ *  A list of additional flags to pass to the gcsfuse CLI. Options should be
+ *  specified without the leading "--".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mountOptions;
+
+/**
+ *  If true, the volume will be mounted as read only for all mounts.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1773,18 +2896,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2GRPCAction : GTLRObject
 
 /**
- *  Port number of the gRPC service. Number must be in the range 1 to 65535. If
- *  not specified, defaults to the exposed port of the container, which is the
- *  value of container.ports[0].containerPort.
+ *  Optional. Port number of the gRPC service. Number must be in the range 1 to
+ *  65535. If not specified, defaults to the exposed port of the container,
+ *  which is the value of container.ports[0].containerPort.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
- *  Service is the name of the service to place in the gRPC HealthCheckRequest
- *  (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md ). If
- *  this is not specified, the default behavior is defined by gRPC.
+ *  Optional. Service is the name of the service to place in the gRPC
+ *  HealthCheckRequest (see
+ *  https://github.com/grpc/grpc/blob/master/doc/health-checking.md ). If this
+ *  is not specified, the default behavior is defined by gRPC.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -1796,16 +2920,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleCloudRunV2HTTPGetAction : GTLRObject
 
-/** Custom headers to set in the request. HTTP allows repeated headers. */
+/**
+ *  Optional. Custom headers to set in the request. HTTP allows repeated
+ *  headers.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2HTTPHeader *> *httpHeaders;
 
-/** Path to access on the HTTP server. Defaults to '/'. */
+/** Optional. Path to access on the HTTP server. Defaults to '/'. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Port number to access on the container. Must be in the range 1 to 65535. If
- *  not specified, defaults to the exposed port of the container, which is the
- *  value of container.ports[0].containerPort.
+ *  Optional. Port number to access on the container. Must be in the range 1 to
+ *  65535. If not specified, defaults to the exposed port of the container,
+ *  which is the value of container.ports[0].containerPort.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1822,8 +2949,112 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Required. The header field name */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The header field value */
+/** Optional. The header field value */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The status of an image export job.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ImageExportStatus : GTLRObject
+
+/** The exported image ID as it will appear in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *exportedImageDigest;
+
+/**
+ *  Output only. Has the image export job finished (regardless of successful or
+ *  failure).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_ExportJobStateUnspecified
+ *        State unspecified. (Value: "EXPORT_JOB_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_Finished
+ *        Job finished. (Value: "FINISHED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ImageExportStatus_ExportJobState_InProgress
+ *        Job still in progress. (Value: "IN_PROGRESS")
+ */
+@property(nonatomic, copy, nullable) NSString *exportJobState;
+
+/** The status of the export task if done. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_UtilStatusProto *status;
+
+/** The image tag as it will appear in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Holds a single instance split entry for the Worker. Allocations can be done
+ *  to a specific Revision name, or pointing to the latest Ready Revision.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2InstanceSplit : GTLRObject
+
+/**
+ *  Specifies percent of the instance split to this Revision. This defaults to
+ *  zero if unspecified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percent;
+
+/**
+ *  Revision to which to assign this portion of instances, if split allocation
+ *  is by revision.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
+ *  The allocation type for this instance split.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeLatest
+ *        Allocates instances to the Service's latest ready Revision. (Value:
+ *        "INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeRevision
+ *        Allocates instances to a Revision by name. (Value:
+ *        "INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2InstanceSplit_Type_InstanceSplitAllocationTypeUnspecified
+ *        Unspecified instance allocation type. (Value:
+ *        "INSTANCE_SPLIT_ALLOCATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents the observed state of a single `InstanceSplit` entry.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus : GTLRObject
+
+/**
+ *  Specifies percent of the instance split to this Revision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percent;
+
+/** Revision to which this instance split is assigned. */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
+ *  The allocation type for this instance split.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeLatest
+ *        Allocates instances to the Service's latest ready Revision. (Value:
+ *        "INSTANCE_SPLIT_ALLOCATION_TYPE_LATEST")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeRevision
+ *        Allocates instances to a Revision by name. (Value:
+ *        "INSTANCE_SPLIT_ALLOCATION_TYPE_REVISION")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus_Type_InstanceSplitAllocationTypeUnspecified
+ *        Unspecified instance allocation type. (Value:
+ *        "INSTANCE_SPLIT_ALLOCATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1869,12 +3100,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Output only. Email address of the authenticated creator. */
 @property(nonatomic, copy, nullable) NSString *creator;
 
-/** Output only. The deletion time. */
+/**
+ *  Output only. The deletion time. It is only populated as a response to a
+ *  Delete request.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
- *  Output only. A system-generated fingerprint for this version of the
- *  resource. May be used to detect modification conflict during updates.
+ *  Optional. A system-generated fingerprint for this version of the resource.
+ *  May be used to detect modification conflict during updates.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -2009,11 +3243,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 /**
+ *  A unique string used as a suffix for creating a new execution. The Job will
+ *  become ready when the execution is successfully completed. The sum of job
+ *  name and token length must be fewer than 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *runExecutionToken;
+
+/**
  *  Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
+ *  A unique string used as a suffix creating a new execution. The Job will
+ *  become ready when the execution is successfully started. The sum of job name
+ *  and token length must be fewer than 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *startExecutionToken;
 
 /**
  *  Required. The template used to create executions for this Job.
@@ -2217,29 +3465,84 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Response message containing a list of WorkerPools.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "workerPools" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ListWorkerPoolsResponse : GTLRCollectionObject
+
+/**
+ *  A token indicating there are more items than page_size. Use it in the next
+ *  ListWorkerPools request to continue.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting list of WorkerPools.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2WorkerPool *> *workerPools;
+
+@end
+
+
+/**
+ *  Metadata represents the JSON encoded generated customer metadata.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2Metadata : GTLRObject
+
+/**
+ *  JSON encoded Google-generated Customer Metadata for a given
+ *  resource/project.
+ */
+@property(nonatomic, copy, nullable) NSString *metadata;
+
+@end
+
+
+/**
+ *  Settings for multi-region deployment.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings : GTLRObject
+
+/** Optional. System-generated unique id for the multi-region Service. */
+@property(nonatomic, copy, nullable) NSString *multiRegionId;
+
+/** Required. List of regions to deploy to, including primary region. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+@end
+
+
+/**
  *  Direct VPC egress settings.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2NetworkInterface : GTLRObject
 
 /**
- *  The VPC network that the Cloud Run resource will be able to send traffic to.
- *  At least one of network or subnetwork must be specified. If both network and
- *  subnetwork are specified, the given VPC subnetwork must belong to the given
- *  VPC network. If network is not specified, it will be looked up from the
- *  subnetwork.
+ *  Optional. The VPC network that the Cloud Run resource will be able to send
+ *  traffic to. At least one of network or subnetwork must be specified. If both
+ *  network and subnetwork are specified, the given VPC subnetwork must belong
+ *  to the given VPC network. If network is not specified, it will be looked up
+ *  from the subnetwork.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  The VPC subnetwork that the Cloud Run resource will get IPs from. At least
- *  one of network or subnetwork must be specified. If both network and
+ *  Optional. The VPC subnetwork that the Cloud Run resource will get IPs from.
+ *  At least one of network or subnetwork must be specified. If both network and
  *  subnetwork are specified, the given VPC subnetwork must belong to the given
  *  VPC network. If subnetwork is not specified, the subnetwork with the same
  *  name with the network will be used.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
-/** Network tags applied to this Cloud Run resource. */
+/** Optional. Network tags applied to this Cloud Run resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 @end
@@ -2254,7 +3557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  If true, mount the NFS volume as read only
+ *  If true, the volume will be mounted as read only for all mounts.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2262,6 +3565,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Hostname or IP address of the NFS server */
 @property(nonatomic, copy, nullable) NSString *server;
+
+@end
+
+
+/**
+ *  Hardware constraints configuration.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2NodeSelector : GTLRObject
+
+/** Required. GPU accelerator type to attach to an instance. */
+@property(nonatomic, copy, nullable) NSString *accelerator;
 
 @end
 
@@ -2299,28 +3613,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2Probe : GTLRObject
 
 /**
- *  Minimum consecutive failures for the probe to be considered failed after
- *  having succeeded. Defaults to 3. Minimum value is 1.
+ *  Optional. Minimum consecutive failures for the probe to be considered failed
+ *  after having succeeded. Defaults to 3. Minimum value is 1.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *failureThreshold;
 
 /**
- *  GRPC specifies an action involving a gRPC port. Exactly one of httpGet,
- *  tcpSocket, or grpc must be specified.
+ *  Optional. GRPC specifies an action involving a gRPC port. Exactly one of
+ *  httpGet, tcpSocket, or grpc must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2GRPCAction *grpc;
 
 /**
- *  HTTPGet specifies the http request to perform. Exactly one of httpGet,
- *  tcpSocket, or grpc must be specified.
+ *  Optional. HTTPGet specifies the http request to perform. Exactly one of
+ *  httpGet, tcpSocket, or grpc must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2HTTPGetAction *httpGet;
 
 /**
- *  Number of seconds after the container has started before the probe is
- *  initiated. Defaults to 0 seconds. Minimum value is 0. Maximum value for
+ *  Optional. Number of seconds after the container has started before the probe
+ *  is initiated. Defaults to 0 seconds. Minimum value is 0. Maximum value for
  *  liveness probe is 3600. Maximum value for startup probe is 240.
  *
  *  Uses NSNumber of intValue.
@@ -2328,23 +3642,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *initialDelaySeconds;
 
 /**
- *  How often (in seconds) to perform the probe. Default to 10 seconds. Minimum
- *  value is 1. Maximum value for liveness probe is 3600. Maximum value for
- *  startup probe is 240. Must be greater or equal than timeout_seconds.
+ *  Optional. How often (in seconds) to perform the probe. Default to 10
+ *  seconds. Minimum value is 1. Maximum value for liveness probe is 3600.
+ *  Maximum value for startup probe is 240. Must be greater or equal than
+ *  timeout_seconds.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *periodSeconds;
 
 /**
- *  TCPSocket specifies an action involving a TCP port. Exactly one of httpGet,
- *  tcpSocket, or grpc must be specified.
+ *  Optional. TCPSocket specifies an action involving a TCP port. Exactly one of
+ *  httpGet, tcpSocket, or grpc must be specified.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2TCPSocketAction *tcpSocket;
 
 /**
- *  Number of seconds after which the probe times out. Defaults to 1 second.
- *  Minimum value is 1. Maximum value is 3600. Must be smaller than
+ *  Optional. Number of seconds after which the probe times out. Defaults to 1
+ *  second. Minimum value is 1. Maximum value is 3600. Must be smaller than
  *  period_seconds.
  *
  *  Uses NSNumber of intValue.
@@ -2437,6 +3752,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Output only. The creation time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Output only. Email address of the authenticated creator. */
+@property(nonatomic, copy, nullable) NSString *creator;
+
 /**
  *  Output only. For a deleted resource, the deletion time. It is only populated
  *  as a response to a Delete request.
@@ -2504,6 +3822,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Optional. Output only. True if GPU zonal redundancy is disabled on this
+ *  revision.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
 
 /**
  *  Output only. Unstructured key value map that can be used to organize and
@@ -2581,6 +3907,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Output only. The unique name of this Revision. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The node selector for the revision. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2NodeSelector *nodeSelector;
+
 /**
  *  Output only. The generation of this Revision currently serving traffic. See
  *  comments in `reconciling` for additional information on reconciliation
@@ -2621,6 +3950,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  revision, and determines what permissions the revision has.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Enables service mesh connectivity. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ServiceMesh *serviceMesh;
 
 /**
  *  Enable session affinity.
@@ -2691,14 +4023,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2RevisionScaling : GTLRObject
 
 /**
- *  Maximum number of serving instances that this resource should have.
+ *  Optional. Maximum number of serving instances that this resource should
+ *  have. When unspecified, the field is set to the server default value of 100.
+ *  For more information see
+ *  https://cloud.google.com/run/docs/configuring/max-instances
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
 
 /**
- *  Minimum number of serving instances that this resource should have.
+ *  Optional. Minimum number of serving instances that this resource should
+ *  have.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2729,9 +4065,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2RevisionTemplate : GTLRObject
 
 /**
- *  Unstructured key value map that may be set by external tools to store and
- *  arbitrary metadata. They are not queryable and should be preserved when
- *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
  *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
  *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
  *  annotations in v1 now have a corresponding field in v2 RevisionTemplate.
@@ -2753,7 +4089,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *encryptionKey;
 
 /**
- *  The sandbox environment to host this Revision.
+ *  Optional. The action to take if the encryption key is revoked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified
+ *        Unspecified (Value: "ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_PreventNew
+ *        Prevents the creation of new instances. (Value: "PREVENT_NEW")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_EncryptionKeyRevocationAction_Shutdown
+ *        Shuts down existing instances, and prevents creation of new ones.
+ *        (Value: "SHUTDOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionKeyRevocationAction;
+
+/**
+ *  Optional. If encryption_key_revocation_action is SHUTDOWN, the duration
+ *  before shutting down all instances. The minimum increment is 1 hour.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *encryptionKeyShutdownDuration;
+
+/**
+ *  Optional. The sandbox environment to host this Revision.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1
@@ -2768,6 +4124,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *executionEnvironment;
 
 /**
+ *  Optional. True if GPU zonal redundancy is disabled on this revision.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
+
+/**
  *  Optional. Disables health checking containers during deployment.
  *
  *  Uses NSNumber of boolValue.
@@ -2775,10 +4138,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *healthCheckDisabled;
 
 /**
- *  Unstructured key value map that can be used to organize and categorize
- *  objects. User-provided labels are shared with Google's billing system, so
- *  they can be used to filter, or break down billing charges by team,
- *  component, environment, state, etc. For more information, visit
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
@@ -2789,28 +4152,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionTemplate_Labels *labels;
 
 /**
- *  Sets the maximum number of requests that each serving instance can receive.
+ *  Optional. Sets the maximum number of requests that each serving instance can
+ *  receive. If not specified or 0, concurrency defaults to 80 when requested
+ *  `CPU >= 1` and defaults to 1 when requested `CPU < 1`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxInstanceRequestConcurrency;
 
+/** Optional. The node selector for the revision template. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2NodeSelector *nodeSelector;
+
 /**
- *  The unique name for the revision. If this field is omitted, it will be
- *  automatically generated based on the Service name.
+ *  Optional. The unique name for the revision. If this field is omitted, it
+ *  will be automatically generated based on the Service name.
  */
 @property(nonatomic, copy, nullable) NSString *revision;
 
-/** Scaling settings for this Revision. */
+/** Optional. Scaling settings for this Revision. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2RevisionScaling *scaling;
 
 /**
- *  Email address of the IAM service account associated with the revision of the
- *  service. The service account represents the identity of the running
- *  revision, and determines what permissions the revision has. If not provided,
- *  the revision will use the project's default service account.
+ *  Optional. Email address of the IAM service account associated with the
+ *  revision of the service. The service account represents the identity of the
+ *  running revision, and determines what permissions the revision has. If not
+ *  provided, the revision will use the project's default service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Optional. Enables service mesh connectivity. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ServiceMesh *serviceMesh;
 
 /**
  *  Optional. Enable session affinity.
@@ -2819,15 +4190,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSNumber *sessionAffinity;
 
-/** Max allowed time for an instance to respond to a request. */
+/** Optional. Max allowed time for an instance to respond to a request. */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
-/** A list of Volumes to make available to containers. */
+/** Optional. A list of Volumes to make available to containers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Volume *> *volumes;
 
 /**
- *  VPC Access configuration to use for this Revision. For more information,
- *  visit https://cloud.google.com/run/docs/configuring/connecting-vpc.
+ *  Optional. VPC Access configuration to use for this Revision. For more
+ *  information, visit
+ *  https://cloud.google.com/run/docs/configuring/connecting-vpc.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
 
@@ -2835,9 +4207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Unstructured key value map that may be set by external tools to store and
- *  arbitrary metadata. They are not queryable and should be preserved when
- *  modifying objects. Cloud Run API v2 does not support annotations with
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
  *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
  *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
  *  annotations in v1 now have a corresponding field in v2 RevisionTemplate.
@@ -2853,10 +4225,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
- *  Unstructured key value map that can be used to organize and categorize
- *  objects. User-provided labels are shared with Google's billing system, so
- *  they can be used to filter, or break down billing charges by team,
- *  component, environment, state, etc. For more information, visit
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
  *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
  *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
  *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
@@ -2940,11 +4312,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  umask of 0222 will be applied to any non-zero value. * This is an integer
  *  representation of the mode bits. So, the octal integer value should look
  *  exactly as the chmod numeric notation with a leading zero. Some examples:
- *  for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For chmod 640
- *  (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755
- *  (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in
- *  conflict with other options that affect the file mode, like fsGroup, and the
- *  result can be other mode bits set. This might be in conflict with other
+ *  for chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod
+ *  755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be
+ *  in conflict with other options that affect the file mode, like fsGroup, and
+ *  the result can be other mode bits set. This might be in conflict with other
  *  options that affect the file mode, like fsGroup, and as a result, other mode
  *  bits could be set.
  *
@@ -2995,8 +4366,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Service_Annotations *annotations;
 
-/** Settings for the Binary Authorization feature. */
+/** Optional. Settings for the Binary Authorization feature. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization *binaryAuthorization;
+
+/** Optional. Configuration for building a Cloud Run function. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BuildConfig *buildConfig;
 
 /** Arbitrary identifier for the API client. */
 @property(nonatomic, copy, nullable) NSString *client;
@@ -3034,7 +4408,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSNumber *defaultUriDisabled;
 
-/** Output only. The deletion time. */
+/**
+ *  Output only. The deletion time. It is only populated as a response to a
+ *  Delete request.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
@@ -3046,14 +4423,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. A system-generated fingerprint for this version of the
- *  resource. May be used to detect modification conflict during updates.
+ *  Optional. A system-generated fingerprint for this version of the resource.
+ *  May be used to detect modification conflict during updates.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. For a deleted resource, the time after which it will be
- *  permamently deleted.
+ *  permanently deleted.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
@@ -3068,9 +4445,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Provides the ingress settings for this Service. On output, returns the
- *  currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if no
- *  revision is active.
+ *  Optional. IAP settings on the Service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *iapEnabled;
+
+/**
+ *  Optional. Provides the ingress settings for this Service. On output, returns
+ *  the currently observed ingress settings, or INGRESS_TRAFFIC_UNSPECIFIED if
+ *  no revision is active.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficAll
@@ -3081,10 +4465,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficInternalOnly
  *        Only internal traffic is allowed. (Value:
  *        "INGRESS_TRAFFIC_INTERNAL_ONLY")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficNone
+ *        No ingress traffic is allowed. (Value: "INGRESS_TRAFFIC_NONE")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Service_Ingress_IngressTrafficUnspecified
  *        Unspecified (Value: "INGRESS_TRAFFIC_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *ingress;
+
+/**
+ *  Optional. Disables IAM permission check for run.routes.invoke for callers of
+ *  this service. For more information, visit
+ *  https://cloud.google.com/run/docs/securing/managing-access#invoker_check.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invokerIamDisabled;
 
 /**
  *  Optional. Unstructured key value map that can be used to organize and
@@ -3118,7 +4513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *latestReadyRevision;
 
 /**
- *  The launch stage as defined by [Google Cloud Platform Launch
+ *  Optional. The launch stage as defined by [Google Cloud Platform Launch
  *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
  *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. Set the
  *  launch stage to a preview stage on input to allow use of preview features in
@@ -3170,6 +4565,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, copy, nullable) NSString *launchStage;
 
+/** Optional. Settings for multi-region deployment. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings *multiRegionSettings;
+
 /**
  *  The fully qualified name of this Service. In CreateServiceRequest, this
  *  field is ignored, and instead composed from CreateServiceRequest.parent and
@@ -3195,7 +4593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  created, or an existing one is updated, Cloud Run will asynchronously
  *  perform all necessary steps to bring the Service to the desired serving
  *  state. This process is called reconciliation. While reconciliation is in
- *  process, `observed_generation`, `latest_ready_revison`, `traffic_statuses`,
+ *  process, `observed_generation`, `latest_ready_revision`, `traffic_statuses`,
  *  and `uri` will have transient values that might mismatch the intended state:
  *  Once reconciliation is over (and this field is false), there are two
  *  possible outcomes: reconciliation succeeded and the serving state matches
@@ -3239,9 +4637,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Condition *terminalCondition;
 
 /**
- *  Specifies how to distribute traffic over a collection of Revisions belonging
- *  to the Service. If traffic is empty or not provided, defaults to 100%
- *  traffic to the latest `Ready` Revision.
+ *  Output only. True if Cloud Run Threat Detection monitoring is enabled for
+ *  the parent project of this Service.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threatDetectionEnabled;
+
+/**
+ *  Optional. Specifies how to distribute traffic over a collection of Revisions
+ *  belonging to the Service. If traffic is empty or not provided, defaults to
+ *  100% traffic to the latest `Ready` Revision.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2TrafficTarget *> *traffic;
 
@@ -3264,6 +4670,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Output only. The main URI in which this Service is serving traffic. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+/** Output only. All URLs serving traffic for this Service. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
 
 @end
 
@@ -3309,19 +4718,163 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Settings for Cloud Service Mesh. For more information see
+ *  https://cloud.google.com/service-mesh/docs/overview.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2ServiceMesh : GTLRObject
+
+/**
+ *  The Mesh resource name. Format:
+ *  `projects/{project}/locations/global/meshes/{mesh}`, where `{project}` can
+ *  be project id or number.
+ */
+@property(nonatomic, copy, nullable) NSString *mesh;
+
+@end
+
+
+/**
  *  Scaling settings applied at the service level rather than at the revision
  *  level.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2ServiceScaling : GTLRObject
 
 /**
- *  total min instances for the service. This number of instances is divided
- *  among all revisions with specified traffic based on the percent of traffic
- *  they are receiving. (ALPHA)
+ *  Optional. total instance count for the service in manual scaling mode. This
+ *  number of instances is divided among all revisions with specified traffic
+ *  based on the percent of traffic they are receiving.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manualInstanceCount;
+
+/**
+ *  Optional. total max instances for the service. This number of instances is
+ *  divided among all revisions with specified traffic based on the percent of
+ *  traffic they are receiving.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
+
+/**
+ *  Optional. total min instances for the service. This number of instances is
+ *  divided among all revisions with specified traffic based on the percent of
+ *  traffic they are receiving.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minInstanceCount;
+
+/**
+ *  Optional. The scaling mode for the service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Automatic
+ *        Scale based on traffic between min and max instances. (Value:
+ *        "AUTOMATIC")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Manual
+ *        Scale to exactly min instances and ignore max instances. (Value:
+ *        "MANUAL")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_ScalingModeUnspecified
+ *        Unspecified. (Value: "SCALING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scalingMode;
+
+@end
+
+
+/**
+ *  Location of the source in an archive file in Google Cloud Storage.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2StorageSource : GTLRObject
+
+/**
+ *  Required. Google Cloud Storage bucket containing the source (see [Bucket
+ *  Name
+ *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Optional. Google Cloud Storage generation for the object. If the generation
+ *  is omitted, the latest generation will be used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Required. Google Cloud Storage object containing the source. This object
+ *  must be a gzipped archive file (`.tar.gz`) containing source to build.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
+ *  Request message for submitting a Build.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest : GTLRObject
+
+/** Build the source using Buildpacks. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild *buildpackBuild;
+
+/** Build the source using Docker. This means the source has a Dockerfile. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2DockerBuild *dockerBuild;
+
+/** Required. Artifact Registry URI to store the built image. */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/**
+ *  Optional. The machine type from default pool to use for the build. If left
+ *  blank, cloudbuild will use a sensible default. Currently only E2_HIGHCPU_8
+ *  is supported. If worker_pool is set, this field will be ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Optional. The service account to use for the build. If not set, the default
+ *  Cloud Build service account for the project will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Required. Source for the build. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2StorageSource *storageSource;
+
+/** Optional. Additional tags to annotate the build. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/**
+ *  Optional. Name of the Cloud Build Custom Worker Pool that should be used to
+ *  build the function. The format of this field is
+ *  `projects/{project}/locations/{region}/workerPools/{workerPool}` where
+ *  `{project}` and `{region}` are the project id and region respectively where
+ *  the worker pool is defined and `{workerPool}` is the short name of the
+ *  worker pool.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
+
+@end
+
+
+/**
+ *  Response message for submitting a Build.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2SubmitBuildResponse : GTLRObject
+
+/**
+ *  URI of the base builder image in Artifact Registry being used in the build.
+ *  Used to opt into automatic base image updates.
+ */
+@property(nonatomic, copy, nullable) NSString *baseImageUri;
+
+/** Warning message for the base image. */
+@property(nonatomic, copy, nullable) NSString *baseImageWarning;
+
+/** Cloud Build operation to be polled via CloudBuild API. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleLongrunningOperation *buildOperation;
 
 @end
 
@@ -3413,6 +4966,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
+ *  Optional. Output only. True if GPU zonal redundancy is disabled on this
+ *  task.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
+
+/**
  *  Output only. Index of the Task, unique per execution, and beginning at 0.
  *
  *  Uses NSNumber of intValue.
@@ -3450,6 +5011,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Output only. The unique name of this Task. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The node selector for the task. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2NodeSelector *nodeSelector;
 
 /**
  *  Output only. The generation of this Task. See comments in `Job.reconciling`
@@ -3573,7 +5137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Output only. The exit code of this attempt. This may be unset if the
  *  container was unable to exit cleanly with a code due to some other failure.
- *  See status field for possible failure details.
+ *  See status field for possible failure details. At most one of exit_code or
+ *  term_signal will be set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3584,6 +5149,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  attempt succeeded.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleRpcStatus *status;
+
+/**
+ *  Output only. Termination signal of the container. This is set to non-zero if
+ *  the container is terminated by the system. At most one of exit_code or
+ *  term_signal will be set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *termSignal;
 
 @end
 
@@ -3607,7 +5181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *encryptionKey;
 
 /**
- *  The execution environment being used to host this Task.
+ *  Optional. The execution environment being used to host this Task.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2TaskTemplate_ExecutionEnvironment_ExecutionEnvironmentGen1
@@ -3622,6 +5196,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *executionEnvironment;
 
 /**
+ *  Optional. True if GPU zonal redundancy is disabled on this task template.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
+
+/**
  *  Number of retries allowed per Task, before marking this Task failed.
  *  Defaults to 3.
  *
@@ -3629,27 +5210,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSNumber *maxRetries;
 
+/** Optional. The node selector for the task template. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2NodeSelector *nodeSelector;
+
 /**
- *  Email address of the IAM service account associated with the Task of a Job.
- *  The service account represents the identity of the running task, and
- *  determines what permissions the task has. If not provided, the task will use
- *  the project's default service account.
+ *  Optional. Email address of the IAM service account associated with the Task
+ *  of a Job. The service account represents the identity of the running task,
+ *  and determines what permissions the task has. If not provided, the task will
+ *  use the project's default service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
- *  Max allowed time duration the Task may be active before the system will
- *  actively try to mark it failed and kill associated containers. This applies
- *  per attempt of a task, meaning each retry can run for the full timeout.
- *  Defaults to 600 seconds.
+ *  Optional. Max allowed time duration the Task may be active before the system
+ *  will actively try to mark it failed and kill associated containers. This
+ *  applies per attempt of a task, meaning each retry can run for the full
+ *  timeout. Defaults to 600 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
-/** A list of Volumes to make available to containers. */
+/** Optional. A list of Volumes to make available to containers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Volume *> *volumes;
 
 /**
- *  VPC Access configuration to use for this Task. For more information, visit
+ *  Optional. VPC Access configuration to use for this Task. For more
+ *  information, visit
  *  https://cloud.google.com/run/docs/configuring/connecting-vpc.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
@@ -3663,9 +5248,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2TCPSocketAction : GTLRObject
 
 /**
- *  Port number to access on the container. Must be in the range 1 to 65535. If
- *  not specified, defaults to the exposed port of the container, which is the
- *  value of container.ports[0].containerPort.
+ *  Optional. Port number to access on the container. Must be in the range 1 to
+ *  65535. If not specified, defaults to the exposed port of the container,
+ *  which is the value of container.ports[0].containerPort.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3773,11 +5358,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  * Internally, a umask of 0222 will be applied to any non-zero value. * This
  *  is an integer representation of the mode bits. So, the octal integer value
  *  should look exactly as the chmod numeric notation with a leading zero. Some
- *  examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For
- *  chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755
- *  (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in
- *  conflict with other options that affect the file mode, like fsGroup, and the
- *  result can be other mode bits set.
+ *  examples: for chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10).
+ *  For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). *
+ *  This might be in conflict with other options that affect the file mode, like
+ *  fsGroup, and the result can be other mode bits set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3842,6 +5426,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Required. This must match the Name of a Volume. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. Path within the volume from which the container's volume should be
+ *  mounted. Defaults to "" (volume's root).
+ */
+@property(nonatomic, copy, nullable) NSString *subPath;
+
 @end
 
 
@@ -3853,15 +5443,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  VPC Access connector name. Format:
- *  projects/{project}/locations/{location}/connectors/{connector}, where
- *  {project} can be project id or number. For more information on sending
+ *  `projects/{project}/locations/{location}/connectors/{connector}`, where
+ *  `{project}` can be project id or number. For more information on sending
  *  traffic to a VPC network via a connector, visit
  *  https://cloud.google.com/run/docs/configuring/vpc-connectors.
  */
 @property(nonatomic, copy, nullable) NSString *connector;
 
 /**
- *  Traffic VPC egress settings. If not provided, it defaults to
+ *  Optional. Traffic VPC egress settings. If not provided, it defaults to
  *  PRIVATE_RANGES_ONLY.
  *
  *  Likely values:
@@ -3877,10 +5467,2270 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, copy, nullable) NSString *egress;
 
 /**
- *  Direct VPC egress settings. Currently only single network interface is
- *  supported.
+ *  Optional. Direct VPC egress settings. Currently only single network
+ *  interface is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2NetworkInterface *> *networkInterfaces;
+
+@end
+
+
+/**
+ *  WorkerPool acts as a top-level container that manages a set of
+ *  configurations and revision templates which implement a pull-based workload.
+ *  WorkerPool exists to provide a singular abstraction which can be access
+ *  controlled, reasoned about, and which encapsulates software lifecycle
+ *  decisions such as rollout policy and team resource ownership.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2WorkerPool : GTLRObject
+
+/**
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected in new
+ *  resources. All system annotations in v1 now have a corresponding field in v2
+ *  WorkerPool. This field follows Kubernetes annotations' namespacing, limits,
+ *  and rules.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkerPool_Annotations *annotations;
+
+/** Optional. Settings for the Binary Authorization feature. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BinaryAuthorization *binaryAuthorization;
+
+/** Arbitrary identifier for the API client. */
+@property(nonatomic, copy, nullable) NSString *client;
+
+/** Arbitrary version identifier for the API client. */
+@property(nonatomic, copy, nullable) NSString *clientVersion;
+
+/**
+ *  Output only. The Conditions of all other associated sub-resources. They
+ *  contain additional diagnostics information in case the WorkerPool does not
+ *  reach its Serving state. See comments in `reconciling` for additional
+ *  information on reconciliation process in Cloud Run.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Condition *> *conditions;
+
+/** Output only. The creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Email address of the authenticated creator. */
+@property(nonatomic, copy, nullable) NSString *creator;
+
+/**
+ *  One or more custom audiences that you want this worker pool to support.
+ *  Specify each custom audience as the full URL in a string. The custom
+ *  audiences are encoded in the token and used to authenticate requests. For
+ *  more information, see
+ *  https://cloud.google.com/run/docs/configuring/custom-audiences.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customAudiences;
+
+/**
+ *  Output only. The deletion time. It is only populated as a response to a
+ *  Delete request.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  User-provided description of the WorkerPool. This field currently has a
+ *  512-character limit.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. A system-generated fingerprint for this version of the resource.
+ *  May be used to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. For a deleted resource, the time after which it will be
+ *  permamently deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. A number that monotonically increases every time the user
+ *  modifies the desired state. Please note that unlike v1, this is an int64
+ *  value. As with most Google APIs, its JSON representation will be a `string`
+ *  instead of an `integer`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Optional. Specifies how to distribute instances over a collection of
+ *  Revisions belonging to the WorkerPool. If instance split is empty or not
+ *  provided, defaults to 100% instances assigned to the latest `Ready`
+ *  Revision.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2InstanceSplit *> *instanceSplits;
+
+/**
+ *  Output only. Detailed status information for corresponding instance splits.
+ *  See comments in `reconciling` for additional information on reconciliation
+ *  process in Cloud Run.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2InstanceSplitStatus *> *instanceSplitStatuses;
+
+/**
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
+ *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
+ *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
+ *  will be rejected. All system labels in v1 now have a corresponding field in
+ *  v2 WorkerPool.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkerPool_Labels *labels;
+
+/** Output only. Email address of the last authenticated modifier. */
+@property(nonatomic, copy, nullable) NSString *lastModifier;
+
+/**
+ *  Output only. Name of the last created revision. See comments in
+ *  `reconciling` for additional information on reconciliation process in Cloud
+ *  Run.
+ */
+@property(nonatomic, copy, nullable) NSString *latestCreatedRevision;
+
+/**
+ *  Output only. Name of the latest revision that is serving workloads. See
+ *  comments in `reconciling` for additional information on reconciliation
+ *  process in Cloud Run.
+ */
+@property(nonatomic, copy, nullable) NSString *latestReadyRevision;
+
+/**
+ *  Optional. The launch stage as defined by [Google Cloud Platform Launch
+ *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
+ *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed. Set the
+ *  launch stage to a preview stage on input to allow use of preview features in
+ *  that stage. On read (or output), describes whether the resource uses preview
+ *  features. For example, if ALPHA is provided as input, but only BETA and
+ *  GA-level features are used, this field will be BETA on output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Alpha Alpha
+ *        is a limited availability test for releases before they are cleared
+ *        for widespread use. By Alpha, all significant design issues are
+ *        resolved and we are in the process of verifying functionality. Alpha
+ *        customers need to apply for access, agree to applicable terms, and
+ *        have their projects allowlisted. Alpha releases don't have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Beta Beta is
+ *        the point at which we are ready to open a release for any customer to
+ *        use. There are no SLA or technical support obligations in a Beta
+ *        release. Products will be complete from a feature perspective, but may
+ *        have some open outstanding issues. Beta releases are suitable for
+ *        limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the "Deprecation Policy" section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Ga GA
+ *        features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPool_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
+ *  The fully qualified name of this WorkerPool. In CreateWorkerPoolRequest,
+ *  this field is ignored, and instead composed from
+ *  CreateWorkerPoolRequest.parent and CreateWorkerPoolRequest.worker_id.
+ *  Format: `projects/{project}/locations/{location}/workerPools/{worker_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The generation of this WorkerPool currently serving workloads.
+ *  See comments in `reconciling` for additional information on reconciliation
+ *  process in Cloud Run. Please note that unlike v1, this is an int64 value. As
+ *  with most Google APIs, its JSON representation will be a `string` instead of
+ *  an `integer`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *observedGeneration;
+
+/**
+ *  Output only. Returns true if the WorkerPool is currently being acted upon by
+ *  the system to bring it into the desired state. When a new WorkerPool is
+ *  created, or an existing one is updated, Cloud Run will asynchronously
+ *  perform all necessary steps to bring the WorkerPool to the desired serving
+ *  state. This process is called reconciliation. While reconciliation is in
+ *  process, `observed_generation`, `latest_ready_revison`,
+ *  `instance_split_statuses`, and `uri` will have transient values that might
+ *  mismatch the intended state: Once reconciliation is over (and this field is
+ *  false), there are two possible outcomes: reconciliation succeeded and the
+ *  serving state matches the WorkerPool, or there was an error, and
+ *  reconciliation failed. This state can be found in
+ *  `terminal_condition.state`. If reconciliation succeeded, the following
+ *  fields will match: `instance_splits` and `instance_split_statuses`,
+ *  `observed_generation` and `generation`, `latest_ready_revision` and
+ *  `latest_created_revision`. If reconciliation failed,
+ *  `instance_split_statuses`, `observed_generation`, and
+ *  `latest_ready_revision` will have the state of the last serving revision, or
+ *  empty for newly created WorkerPools. Additional information on the failure
+ *  can be found in `terminal_condition` and `conditions`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/** Optional. Specifies worker-pool-level scaling settings */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling *scaling;
+
+/**
+ *  Required. The template used to create revisions for this WorkerPool.
+ *
+ *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate *templateProperty;
+
+/**
+ *  Output only. The Condition of this WorkerPool, containing its readiness
+ *  status, and detailed error information in case it did not reach a serving
+ *  state. See comments in `reconciling` for additional information on
+ *  reconciliation process in Cloud Run.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Condition *terminalCondition;
+
+/**
+ *  Output only. Server assigned unique identifier for the trigger. The value is
+ *  a UUID4 string and guaranteed to remain unchanged until the resource is
+ *  deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected in new
+ *  resources. All system annotations in v1 now have a corresponding field in v2
+ *  WorkerPool. This field follows Kubernetes annotations' namespacing, limits,
+ *  and rules.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2WorkerPool_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
+ *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
+ *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
+ *  will be rejected. All system labels in v1 now have a corresponding field in
+ *  v2 WorkerPool.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2WorkerPool_Labels : GTLRObject
+@end
+
+
+/**
+ *  WorkerPoolRevisionTemplate describes the data a worker pool revision should
+ *  have when created from a template.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate : GTLRObject
+
+/**
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
+ *  annotations in v1 now have a corresponding field in v2
+ *  WorkerPoolRevisionTemplate. This field follows Kubernetes annotations'
+ *  namespacing, limits, and rules.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Annotations *annotations;
+
+/**
+ *  Holds list of the containers that defines the unit of execution for this
+ *  Revision.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Container *> *containers;
+
+/**
+ *  A reference to a customer managed encryption key (CMEK) to use to encrypt
+ *  this container image. For more information, go to
+ *  https://cloud.google.com/run/docs/securing/using-cmek
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionKey;
+
+/**
+ *  Optional. The action to take if the encryption key is revoked.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_EncryptionKeyRevocationActionUnspecified
+ *        Unspecified (Value: "ENCRYPTION_KEY_REVOCATION_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_PreventNew
+ *        Prevents the creation of new instances. (Value: "PREVENT_NEW")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_EncryptionKeyRevocationAction_Shutdown
+ *        Shuts down existing instances, and prevents creation of new ones.
+ *        (Value: "SHUTDOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionKeyRevocationAction;
+
+/**
+ *  Optional. If encryption_key_revocation_action is SHUTDOWN, the duration
+ *  before shutting down all instances. The minimum increment is 1 hour.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *encryptionKeyShutdownDuration;
+
+/**
+ *  Optional. True if GPU zonal redundancy is disabled on this worker pool.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gpuZonalRedundancyDisabled;
+
+/**
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
+ *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
+ *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
+ *  will be rejected. All system labels in v1 now have a corresponding field in
+ *  v2 WorkerPoolRevisionTemplate.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Labels *labels;
+
+/** Optional. The node selector for the revision template. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2NodeSelector *nodeSelector;
+
+/**
+ *  Optional. The unique name for the revision. If this field is omitted, it
+ *  will be automatically generated based on the WorkerPool name.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
+ *  Optional. Email address of the IAM service account associated with the
+ *  revision of the service. The service account represents the identity of the
+ *  running revision, and determines what permissions the revision has. If not
+ *  provided, the revision will use the project's default service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Optional. Enables service mesh connectivity. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ServiceMesh *serviceMesh;
+
+/** Optional. A list of Volumes to make available to containers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Volume *> *volumes;
+
+/**
+ *  Optional. VPC Access configuration to use for this Revision. For more
+ *  information, visit
+ *  https://cloud.google.com/run/docs/configuring/connecting-vpc.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2VpcAccess *vpcAccess;
+
+@end
+
+
+/**
+ *  Optional. Unstructured key value map that may be set by external tools to
+ *  store and arbitrary metadata. They are not queryable and should be preserved
+ *  when modifying objects. Cloud Run API v2 does not support annotations with
+ *  `run.googleapis.com`, `cloud.googleapis.com`, `serving.knative.dev`, or
+ *  `autoscaling.knative.dev` namespaces, and they will be rejected. All system
+ *  annotations in v1 now have a corresponding field in v2
+ *  WorkerPoolRevisionTemplate. This field follows Kubernetes annotations'
+ *  namespacing, limits, and rules.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. Unstructured key value map that can be used to organize and
+ *  categorize objects. User-provided labels are shared with Google's billing
+ *  system, so they can be used to filter, or break down billing charges by
+ *  team, component, environment, state, etc. For more information, visit
+ *  https://cloud.google.com/resource-manager/docs/creating-managing-labels or
+ *  https://cloud.google.com/run/docs/configuring/labels. Cloud Run API v2 does
+ *  not support labels with `run.googleapis.com`, `cloud.googleapis.com`,
+ *  `serving.knative.dev`, or `autoscaling.knative.dev` namespaces, and they
+ *  will be rejected. All system labels in v1 now have a corresponding field in
+ *  v2 WorkerPoolRevisionTemplate.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2WorkerPoolRevisionTemplate_Labels : GTLRObject
+@end
+
+
+/**
+ *  Worker pool scaling settings.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2WorkerPoolScaling : GTLRObject
+
+/**
+ *  Optional. The total number of instances in manual scaling mode.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manualInstanceCount;
+
+@end
+
+
+/**
+ *  ApprovalConfig describes configuration for manual approval of a build.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalConfig : GTLRObject
+
+/**
+ *  Whether or not approval is needed. If this is set on a build, it will become
+ *  pending when created, and will need to be explicitly approved to start.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *approvalRequired;
+
+@end
+
+
+/**
+ *  ApprovalResult describes the decision and associated metadata of a manual
+ *  approval of a build.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult : GTLRObject
+
+/** Output only. The time when the approval decision was made. */
+@property(nonatomic, strong, nullable) GTLRDateTime *approvalTime;
+
+/**
+ *  Output only. Email of the user that called the ApproveBuild API to approve
+ *  or reject a build at the time that the API was called.
+ */
+@property(nonatomic, copy, nullable) NSString *approverAccount;
+
+/** Optional. An optional comment for this manual approval result. */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/**
+ *  Required. The decision of this manual approval.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_Approved
+ *        Build is approved. (Value: "APPROVED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_DecisionUnspecified
+ *        Default enum type. This should not be used. (Value:
+ *        "DECISION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_Rejected
+ *        Build is rejected. (Value: "REJECTED")
+ */
+@property(nonatomic, copy, nullable) NSString *decision;
+
+/**
+ *  Optional. An optional URL tied to this manual approval result. This field is
+ *  essentially the same as comment, except that it will be rendered by the UI
+ *  differently. An example use case is a link to an external job that approved
+ *  this Build.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Files in the workspace to upload to Cloud Storage upon successful completion
+ *  of all build steps.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1ArtifactObjects : GTLRObject
+
+/**
+ *  Cloud Storage bucket and optional object path, in the form
+ *  "gs://bucket/path/to/somewhere/". (see [Bucket Name
+ *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
+ *  Files in the workspace matching any path pattern will be uploaded to Cloud
+ *  Storage with this location as a prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Path globs used to match files in the build's workspace. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/**
+ *  Output only. Stores timing information for pushing all artifact objects.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *timing;
+
+@end
+
+
+/**
+ *  Artifacts produced by a build that should be uploaded upon successful
+ *  completion of all build steps.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Artifacts : GTLRObject
+
+/**
+ *  Optional. A list of Go modules to be uploaded to Artifact Registry upon
+ *  successful completion of all build steps. If any objects fail to be pushed,
+ *  the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1GoModule *> *goModules;
+
+/**
+ *  A list of images to be pushed upon the successful completion of all build
+ *  steps. The images will be pushed using the builder service account's
+ *  credentials. The digests of the pushed images will be stored in the Build
+ *  resource's results field. If any of the images fail to be pushed, the build
+ *  is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *images;
+
+/**
+ *  A list of Maven artifacts to be uploaded to Artifact Registry upon
+ *  successful completion of all build steps. Artifacts in the workspace
+ *  matching specified paths globs will be uploaded to the specified Artifact
+ *  Registry repository using the builder service account's credentials. If any
+ *  artifacts fail to be pushed, the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1MavenArtifact *> *mavenArtifacts;
+
+/**
+ *  A list of npm packages to be uploaded to Artifact Registry upon successful
+ *  completion of all build steps. Npm packages in the specified paths will be
+ *  uploaded to the specified Artifact Registry repository using the builder
+ *  service account's credentials. If any packages fail to be pushed, the build
+ *  is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1NpmPackage *> *npmPackages;
+
+/**
+ *  A list of objects to be uploaded to Cloud Storage upon successful completion
+ *  of all build steps. Files in the workspace matching specified paths globs
+ *  will be uploaded to the specified Cloud Storage location using the builder
+ *  service account's credentials. The location and generation of the uploaded
+ *  objects will be stored in the Build resource's results field. If any objects
+ *  fail to be pushed, the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1ArtifactObjects *objects;
+
+/**
+ *  A list of Python packages to be uploaded to Artifact Registry upon
+ *  successful completion of all build steps. The build service account
+ *  credentials will be used to perform the upload. If any objects fail to be
+ *  pushed, the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1PythonPackage *> *pythonPackages;
+
+@end
+
+
+/**
+ *  A build resource in the Cloud Build API. At a high level, a `Build`
+ *  describes where to find source code, how to build it (for example, the
+ *  builder image to run on the source), and where to store the built artifacts.
+ *  Fields can include the following variables, which will be expanded when the
+ *  build is created: - $PROJECT_ID: the project ID of the build. -
+ *  $PROJECT_NUMBER: the project number of the build. - $LOCATION: the
+ *  location/region of the build. - $BUILD_ID: the autogenerated ID of the
+ *  build. - $REPO_NAME: the source repository name specified by RepoSource. -
+ *  $BRANCH_NAME: the branch name specified by RepoSource. - $TAG_NAME: the tag
+ *  name specified by RepoSource. - $REVISION_ID or $COMMIT_SHA: the commit SHA
+ *  specified by RepoSource or resolved from the specified branch or tag. -
+ *  $SHORT_SHA: first 7 characters of $REVISION_ID or $COMMIT_SHA.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build : GTLRObject
+
+/**
+ *  Output only. Describes this build's approval configuration, status, and
+ *  result.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval *approval;
+
+/**
+ *  Artifacts produced by the build that should be uploaded upon successful
+ *  completion of all build steps.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Artifacts *artifacts;
+
+/** Secrets and secret environment variables. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secrets *availableSecrets;
+
+/**
+ *  Output only. The ID of the `BuildTrigger` that triggered this build, if it
+ *  was triggered automatically.
+ */
+@property(nonatomic, copy, nullable) NSString *buildTriggerId;
+
+/**
+ *  Output only. Time at which the request to create the build was received.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Dependencies that the Cloud Build worker will fetch before
+ *  executing user steps.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Dependency *> *dependencies;
+
+/** Output only. Contains information about the build when status=FAILURE. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo *failureInfo;
+
+/**
+ *  Output only. Time at which execution of the build was finished. The
+ *  difference between finish_time and start_time is the duration of the build's
+ *  execution.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
+
+/** Optional. Configuration for git operations. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig *gitConfig;
+
+/**
+ *  Output only. Unique identifier of the build.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A list of images to be pushed upon the successful completion of all build
+ *  steps. The images are pushed using the builder service account's
+ *  credentials. The digests of the pushed images will be stored in the `Build`
+ *  resource's results field. If any of the images fail to be pushed, the build
+ *  status is marked `FAILURE`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *images;
+
+/**
+ *  Cloud Storage bucket where logs should be written (see [Bucket Name
+ *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
+ *  Logs file names will be of the format `${logs_bucket}/log-${build_id}.txt`.
+ */
+@property(nonatomic, copy, nullable) NSString *logsBucket;
+
+/** Output only. URL to logs for this build in Google Cloud Console. */
+@property(nonatomic, copy, nullable) NSString *logUrl;
+
+/**
+ *  Output only. The 'Build' name with format:
+ *  `projects/{project}/locations/{location}/builds/{build}`, where {build} is a
+ *  unique identifier generated by the service.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Special options for this build. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions *options;
+
+/** Output only. ID of the project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  TTL in queue for this build. If provided and the build is enqueued longer
+ *  than this value, the build will expire and the build status will be
+ *  `EXPIRED`. The TTL starts ticking from create_time.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *queueTtl;
+
+/** Output only. Results of the build. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Results *results;
+
+/**
+ *  Secrets to decrypt using Cloud Key Management Service. Note: Secret Manager
+ *  is the recommended technique for managing sensitive data with Cloud Build.
+ *  Use `available_secrets` to configure builds to access secrets from Secret
+ *  Manager. For instructions, see:
+ *  https://cloud.google.com/cloud-build/docs/securing-builds/use-secrets
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret *> *secrets;
+
+/**
+ *  IAM service account whose credentials will be used at build runtime. Must be
+ *  of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. ACCOUNT can
+ *  be email address or uniqueId of the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Optional. The location of the source files to build. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Source *source;
+
+/** Output only. A permanent fixed identifier for source. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1SourceProvenance *sourceProvenance;
+
+/** Output only. Time at which execution of the build was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. Status of the build.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Cancelled
+ *        Build or step was canceled by a user. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Expired Build
+ *        was enqueued for longer than the value of `queue_ttl`. (Value:
+ *        "EXPIRED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Failure Build
+ *        or step failed to complete successfully. (Value: "FAILURE")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_InternalError
+ *        Build or step failed due to an internal cause. (Value:
+ *        "INTERNAL_ERROR")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Pending Build
+ *        has been created and is pending execution and queuing. It has not been
+ *        queued. (Value: "PENDING")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Queued Build
+ *        or step is queued; work has not yet begun. (Value: "QUEUED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_StatusUnknown
+ *        Status of the build is unknown. (Value: "STATUS_UNKNOWN")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Success Build
+ *        or step finished successfully. (Value: "SUCCESS")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Timeout Build
+ *        or step took longer than was allowed. (Value: "TIMEOUT")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Status_Working Build
+ *        or step is being executed. (Value: "WORKING")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Output only. Customer-readable message about the current status. */
+@property(nonatomic, copy, nullable) NSString *statusDetail;
+
+/** Required. The operations to be performed on the workspace. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep *> *steps;
+
+/** Substitutions data for `Build` resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Substitutions *substitutions;
+
+/** Tags for annotation of a `Build`. These are not docker tags. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/**
+ *  Amount of time that this build should be allowed to run, to second
+ *  granularity. If this amount of time elapses, work on the build will cease
+ *  and the build status will be `TIMEOUT`. `timeout` starts ticking from
+ *  `startTime`. Default time is 60 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Output only. Stores timing information for phases of the build. Valid keys
+ *  are: * BUILD: time to execute all build steps. * PUSH: time to push all
+ *  artifacts including docker images and non docker artifacts. * FETCHSOURCE:
+ *  time to fetch source. * SETUPBUILD: time to set up build. If the build does
+ *  not specify source or images, these keys will not be included.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Timing *timing;
+
+/**
+ *  Output only. Non-fatal problems encountered during the execution of the
+ *  build.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning *> *warnings;
+
+@end
+
+
+/**
+ *  Substitutions data for `Build` resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Substitutions : GTLRObject
+@end
+
+
+/**
+ *  Output only. Stores timing information for phases of the build. Valid keys
+ *  are: * BUILD: time to execute all build steps. * PUSH: time to push all
+ *  artifacts including docker images and non docker artifacts. * FETCHSOURCE:
+ *  time to fetch source. * SETUPBUILD: time to set up build. If the build does
+ *  not specify source or images, these keys will not be included.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build_Timing : GTLRObject
+@end
+
+
+/**
+ *  BuildApproval describes a build's approval configuration, state, and result.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval : GTLRObject
+
+/** Output only. Configuration for manual approval of this build. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalConfig *config;
+
+/** Output only. Result of manual approval for this Build. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1ApprovalResult *result;
+
+/**
+ *  Output only. The state of this build's approval.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Approved
+ *        Build approval has been approved. (Value: "APPROVED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Cancelled
+ *        Build was cancelled while it was still pending approval. (Value:
+ *        "CANCELLED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Pending
+ *        Build approval is pending. (Value: "PENDING")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_Rejected
+ *        Build approval has been rejected. (Value: "REJECTED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval_State_StateUnspecified
+ *        Default enum type. This should not be used. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Metadata for build operations.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOperationMetadata : GTLRObject
+
+/** The build that the operation is tracking. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Build *build;
+
+@end
+
+
+/**
+ *  Optional arguments to enable specific features of builds.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions : GTLRObject
+
+/**
+ *  Option to include built-in and custom substitutions as env variables for all
+ *  build steps.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automapSubstitutions;
+
+/**
+ *  Optional. Option to specify how default logs buckets are setup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_DefaultLogsBucketBehaviorUnspecified
+ *        Unspecified. (Value: "DEFAULT_LOGS_BUCKET_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_LegacyBucket
+ *        Bucket is located in a Google-owned project and is not regionalized.
+ *        (Value: "LEGACY_BUCKET")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_DefaultLogsBucketBehavior_RegionalUserOwnedBucket
+ *        Bucket is located in user-owned project in the same region as the
+ *        build. The builder service account must have access to create and
+ *        write to Cloud Storage buckets in the build project. (Value:
+ *        "REGIONAL_USER_OWNED_BUCKET")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultLogsBucketBehavior;
+
+/**
+ *  Requested disk size for the VM that runs the build. Note that this is *NOT*
+ *  "disk free"; some of the space will be used by the operating system and
+ *  build utilities. Also note that this is the minimum disk size that will be
+ *  allocated for the build -- the build may run with a larger disk than
+ *  requested. At present, the maximum disk size is 4000GB; builds that request
+ *  more than the maximum are rejected with an error.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Option to specify whether or not to apply bash style string operations to
+ *  the substitutions. NOTE: this is always enabled for triggered builds and
+ *  cannot be overridden in the build configuration file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicSubstitutions;
+
+/**
+ *  Optional. Option to specify whether structured logging is enabled. If true,
+ *  JSON-formatted logs are parsed as structured logs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableStructuredLogging;
+
+/**
+ *  A list of global environment variable definitions that will exist for all
+ *  build steps in this build. If a variable is defined in both globally and in
+ *  a build step, the variable will use the build step value. The elements are
+ *  of the form "KEY=VALUE" for the environment variable "KEY" being given the
+ *  value "VALUE".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *env;
+
+/**
+ *  Option to specify the logging mode, which determines if and where build logs
+ *  are stored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_CloudLoggingOnly
+ *        Build logs are stored in Cloud Logging. Selecting this option will not
+ *        allow [logs
+ *        streaming](https://cloud.google.com/sdk/gcloud/reference/builds/log).
+ *        (Value: "CLOUD_LOGGING_ONLY")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_GcsOnly
+ *        Build logs are stored in Cloud Storage. (Value: "GCS_ONLY")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_Legacy
+ *        Build logs are stored in Cloud Logging and Cloud Storage. (Value:
+ *        "LEGACY")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_LoggingUnspecified
+ *        The service determines the logging mode. The default is `LEGACY`. Do
+ *        not rely on the default logging behavior as it may change in the
+ *        future. (Value: "LOGGING_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_None
+ *        Turn off all logging. No build logs will be captured. (Value: "NONE")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_StackdriverOnly
+ *        This option is the same as CLOUD_LOGGING_ONLY. (Value:
+ *        "STACKDRIVER_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *logging;
+
+/**
+ *  Option to define build log streaming behavior to Cloud Storage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamDefault
+ *        Service may automatically determine build log streaming behavior.
+ *        (Value: "STREAM_DEFAULT")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamOff
+ *        Build logs should not be streamed to Cloud Storage; they will be
+ *        written when the build is completed. (Value: "STREAM_OFF")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamOn
+ *        Build logs should be streamed to Cloud Storage. (Value: "STREAM_ON")
+ */
+@property(nonatomic, copy, nullable) NSString *logStreamingOption;
+
+/**
+ *  Compute Engine machine type on which to run the build.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu32
+ *        Highcpu e2 machine with 32 CPUs. (Value: "E2_HIGHCPU_32")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu8
+ *        Highcpu e2 machine with 8 CPUs. (Value: "E2_HIGHCPU_8")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Medium
+ *        E2 machine with 1 CPU. (Value: "E2_MEDIUM")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32
+ *        Highcpu machine with 32 CPUs. (Value: "N1_HIGHCPU_32")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8
+ *        Highcpu machine with 8 CPUs. (Value: "N1_HIGHCPU_8")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_Unspecified
+ *        Standard machine type. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Optional. Specification for execution on a `WorkerPool`. See [running builds
+ *  in a private
+ *  pool](https://cloud.google.com/build/docs/private-pools/run-builds-in-private-pool)
+ *  for more information.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1PoolOption *pool;
+
+/**
+ *  Optional. Option to specify the Pub/Sub topic to receive build status
+ *  updates.
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
+
+/**
+ *  Requested verifiability options.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_NotVerified
+ *        Not a verifiable build (the default). (Value: "NOT_VERIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified
+ *        Build must be verified. (Value: "VERIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *requestedVerifyOption;
+
+/**
+ *  A list of global environment variables, which are encrypted using a Cloud
+ *  Key Management Service crypto key. These values must be specified in the
+ *  build's `Secret`. These variables will be available to all build steps in
+ *  this build.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
+
+/** Requested hash for SourceProvenance. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceProvenanceHash;
+
+/**
+ *  Option to specify behavior when there is an error in the substitution
+ *  checks. NOTE: this is always set to ALLOW_LOOSE for triggered builds and
+ *  cannot be overridden in the build configuration file.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SubstitutionOption_AllowLoose
+ *        Do not fail the build if error in substitutions checks. (Value:
+ *        "ALLOW_LOOSE")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SubstitutionOption_MustMatch
+ *        Fails the build if error in substitutions checks, like missing a
+ *        substitution in the template or in the map. (Value: "MUST_MATCH")
+ */
+@property(nonatomic, copy, nullable) NSString *substitutionOption;
+
+/**
+ *  Global list of volumes to mount for ALL build steps Each volume is created
+ *  as an empty volume prior to starting the build process. Upon completion of
+ *  the build, volumes and their contents are discarded. Global volume names and
+ *  paths cannot conflict with the volumes defined a build step. Using a global
+ *  volume in a build with only one step is not valid as it is indicative of a
+ *  build request with an incorrect configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Volume *> *volumes;
+
+/** This field deprecated; please use `pool.name` instead. */
+@property(nonatomic, copy, nullable) NSString *workerPool GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  A step in the build pipeline.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep : GTLRObject
+
+/**
+ *  Allow this build step to fail without failing the entire build if and only
+ *  if the exit code is one of the specified codes. If allow_failure is also
+ *  specified, this field will take precedence.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *allowExitCodes;
+
+/**
+ *  Allow this build step to fail without failing the entire build. If false,
+ *  the entire build will fail if this step fails. Otherwise, the build will
+ *  succeed, but this step will still have a failure status. Error information
+ *  will be reported in the failure_detail field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowFailure;
+
+/**
+ *  A list of arguments that will be presented to the step when it is started.
+ *  If the image used to run the step's container has an entrypoint, the `args`
+ *  are used as arguments to that entrypoint. If the image does not define an
+ *  entrypoint, the first element in args is used as the entrypoint, and the
+ *  remainder will be used as arguments.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Option to include built-in and custom substitutions as env variables for
+ *  this build step. This option will override the global option in BuildOption.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automapSubstitutions;
+
+/**
+ *  Working directory to use when running this step's container. If this value
+ *  is a relative path, it is relative to the build's working directory. If this
+ *  value is absolute, it may be outside the build's working directory, in which
+ *  case the contents of the path may not be persisted across build step
+ *  executions, unless a `volume` for that path is specified. If the build
+ *  specifies a `RepoSource` with `dir` and a step with a `dir`, which specifies
+ *  an absolute path, the `RepoSource` `dir` is ignored for the step's
+ *  execution.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Entrypoint to be used instead of the build step image's default entrypoint.
+ *  If unset, the image's default entrypoint is used.
+ */
+@property(nonatomic, copy, nullable) NSString *entrypoint;
+
+/**
+ *  A list of environment variable definitions to be used when running a step.
+ *  The elements are of the form "KEY=VALUE" for the environment variable "KEY"
+ *  being given the value "VALUE".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *env;
+
+/**
+ *  Output only. Return code from running the step.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exitCode;
+
+/**
+ *  Unique identifier for this build step, used in `wait_for` to reference this
+ *  build step as a dependency.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Required. The name of the container image that will run this particular
+ *  build step. If the image is available in the host's Docker daemon's cache,
+ *  it will be run directly. If not, the host will attempt to pull the image
+ *  first, using the builder service account's credentials if necessary. The
+ *  Docker daemon's cache will already have the latest versions of all of the
+ *  officially supported build steps
+ *  ([https://github.com/GoogleCloudPlatform/cloud-builders](https://github.com/GoogleCloudPlatform/cloud-builders)).
+ *  The Docker daemon will also have cached many of the layers for some popular
+ *  images, like "ubuntu", "debian", but they will be refreshed at the time you
+ *  attempt to use them. If you built an image in a previous build step, it will
+ *  be stored in the host's Docker daemon's cache and is available to use as the
+ *  name for a later build step.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Stores timing information for pulling this build step's builder
+ *  image only.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pullTiming;
+
+/**
+ *  A shell script to be executed in the step. When script is provided, the user
+ *  cannot specify the entrypoint or args.
+ */
+@property(nonatomic, copy, nullable) NSString *script;
+
+/**
+ *  A list of environment variables which are encrypted using a Cloud Key
+ *  Management Service crypto key. These values must be specified in the build's
+ *  `Secret`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
+
+/**
+ *  Output only. Status of the build step. At this time, build step status is
+ *  only updated on build completion; step status is not updated in real-time as
+ *  the build progresses.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Cancelled
+ *        Build or step was canceled by a user. (Value: "CANCELLED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Expired
+ *        Build was enqueued for longer than the value of `queue_ttl`. (Value:
+ *        "EXPIRED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Failure
+ *        Build or step failed to complete successfully. (Value: "FAILURE")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_InternalError
+ *        Build or step failed due to an internal cause. (Value:
+ *        "INTERNAL_ERROR")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Pending
+ *        Build has been created and is pending execution and queuing. It has
+ *        not been queued. (Value: "PENDING")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Queued
+ *        Build or step is queued; work has not yet begun. (Value: "QUEUED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_StatusUnknown
+ *        Status of the build is unknown. (Value: "STATUS_UNKNOWN")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Success
+ *        Build or step finished successfully. (Value: "SUCCESS")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Timeout
+ *        Build or step took longer than was allowed. (Value: "TIMEOUT")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Working
+ *        Build or step is being executed. (Value: "WORKING")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Time limit for executing this build step. If not defined, the step has no
+ *  time limit and will be allowed to continue to run until either it completes
+ *  or the build itself times out.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/** Output only. Stores timing information for executing this build step. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *timing;
+
+/**
+ *  List of volumes to mount into the build step. Each volume is created as an
+ *  empty volume prior to execution of the build step. Upon completion of the
+ *  build, volumes and their contents are discarded. Using a named volume in
+ *  only one step is not valid as it is indicative of a build request with an
+ *  incorrect configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Volume *> *volumes;
+
+/**
+ *  The ID(s) of the step(s) that this build step depends on. This build step
+ *  will not start until all the build steps in `wait_for` have completed
+ *  successfully. If `wait_for` is empty, this build step will start when all
+ *  previous build steps in the `Build.Steps` list have completed successfully.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *waitFor;
+
+@end
+
+
+/**
+ *  An image built by the pipeline.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage : GTLRObject
+
+/** Docker Registry 2.0 digest. */
+@property(nonatomic, copy, nullable) NSString *digest;
+
+/**
+ *  Name used to push the container image to Google Container Registry, as
+ *  presented to `docker push`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Stores timing information for pushing the specified image. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+@end
+
+
+/**
+ *  Location of the source in a 2nd-gen Google Cloud Build repository resource.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1ConnectedRepository : GTLRObject
+
+/**
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Required. Name of the Google Cloud Build repository, formatted as `projects/
+ *  * /locations/ * /connections/ * /repositories/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Required. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  A dependency that the Cloud Build worker will fetch before executing user
+ *  steps.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Dependency : GTLRObject
+
+/**
+ *  If set to true disable all dependency fetching (ignoring the default source
+ *  as well).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *empty;
+
+/** Represents a git repository as a build dependency. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceDependency *gitSource;
+
+@end
+
+
+/**
+ *  This config defines the location of a source through Developer Connect.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig : GTLRObject
+
+/**
+ *  Required. Directory, relative to the source root, in which to run the build.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Required. The Developer Connect Git repository link, formatted as `projects/
+ *  * /locations/ * /connections/ * /gitRepositoryLink/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitRepositoryLink;
+
+/**
+ *  Required. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  A fatal problem encountered during the execution of the build.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo : GTLRObject
+
+/** Explains the failure issue in more detail using hard-coded text. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  The name of the failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_FailureTypeUnspecified
+ *        Type unspecified (Value: "FAILURE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_FetchSourceFailed
+ *        The source fetching has failed. (Value: "FETCH_SOURCE_FAILED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_LoggingFailure
+ *        Backend logging failures. Should retry. (Value: "LOGGING_FAILURE")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_PushFailed
+ *        Unable to push the image to the repository. (Value: "PUSH_FAILED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_PushImageNotFound
+ *        Final image not found. (Value: "PUSH_IMAGE_NOT_FOUND")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_PushNotAuthorized
+ *        Unauthorized push of the final image. (Value: "PUSH_NOT_AUTHORIZED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_UserBuildStep
+ *        A build step has failed. (Value: "USER_BUILD_STEP")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Container message for hashes of byte content of files, used in
+ *  SourceProvenance messages to verify integrity of source input to the build.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes : GTLRObject
+
+/** Collection of file hashes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash *> *fileHash;
+
+@end
+
+
+/**
+ *  GitConfig is a configuration for git operations.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig : GTLRObject
+
+/** Configuration for HTTP related git operations. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig *http;
+
+@end
+
+
+/**
+ *  Location of the source in any accessible Git repository.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource : GTLRObject
+
+/**
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ *  This must be a relative path. If a step's `dir` is specified and is an
+ *  absolute path, this value is ignored for that step's execution.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Optional. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref. Cloud Build uses `git fetch` to fetch the
+ *  revision from the Git repository; therefore make sure that the string you
+ *  provide for `revision` is parsable by the command. For information on string
+ *  values accepted by `git fetch`, see
+ *  https://git-scm.com/docs/gitrevisions#_specifying_revisions. For information
+ *  on `git fetch`, see https://git-scm.com/docs/git-fetch.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
+ *  Required. Location of the Git repo to build. This will be used as a `git
+ *  remote`, see https://git-scm.com/docs/git-remote.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Represents a git repository as a build dependency.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceDependency : GTLRObject
+
+/**
+ *  Optional. How much history should be fetched for the build (default 1, -1
+ *  for all history).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *depth;
+
+/** Required. Where should the files be placed on the worker. */
+@property(nonatomic, copy, nullable) NSString *destPath;
+
+/**
+ *  Optional. True if submodules should be fetched too (default false).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recurseSubmodules;
+
+/** Required. The kind of repo (url or dev connect). */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceRepository *repository;
+
+/** Required. The revision that we will fetch the repo at. */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  A repository for a git source.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceRepository : GTLRObject
+
+/**
+ *  The Developer Connect Git repository link formatted as `projects/ *
+ *  /locations/ * /connections/ * /gitRepositoryLink/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *developerConnect;
+
+/** Location of the Git repository. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Go module to upload to Artifact Registry upon successful completion of all
+ *  build steps. A module refers to all dependencies in a go.mod file.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GoModule : GTLRObject
+
+/** Optional. The Go module's "module path". e.g. example.com/foo/v2 */
+@property(nonatomic, copy, nullable) NSString *modulePath;
+
+/**
+ *  Optional. The Go module's semantic version in the form vX.Y.Z. e.g. v0.1.1
+ *  Pre-release identifiers can also be added by appending a dash and dot
+ *  separated ASCII alphanumeric characters and hyphens. e.g.
+ *  v0.2.3-alpha.x.12m.5
+ */
+@property(nonatomic, copy, nullable) NSString *moduleVersion;
+
+/**
+ *  Optional. Location of the Artifact Registry repository. i.e. us-east1
+ *  Defaults to the build’s location.
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryLocation;
+
+/**
+ *  Optional. Artifact Registry repository name. Specified Go modules will be
+ *  zipped and uploaded to Artifact Registry with this location as a prefix.
+ *  e.g. my-go-repo
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryName;
+
+/**
+ *  Optional. Project ID of the Artifact Registry repository. Defaults to the
+ *  build project.
+ */
+@property(nonatomic, copy, nullable) NSString *repositoryProjectId;
+
+/**
+ *  Optional. Source path of the go.mod file in the build's workspace. If not
+ *  specified, this will default to the current directory. e.g.
+ *  ~/code/go/mypackage
+ */
+@property(nonatomic, copy, nullable) NSString *sourcePath;
+
+@end
+
+
+/**
+ *  Container message for hash values.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash : GTLRObject
+
+/**
+ *  The type of hash that was performed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1
+ *        Dirhash of a Go module's source code which is then hex-encoded.
+ *        (Value: "GO_MODULE_H1")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Md5 Use a md5
+ *        hash. (Value: "MD5")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_None No hash
+ *        requested. (Value: "NONE")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Sha256 Use a
+ *        sha256 hash. (Value: "SHA256")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Sha512 Use a
+ *        sha512 hash. (Value: "SHA512")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The hash value.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  HttpConfig is a configuration for HTTP related git operations.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1HttpConfig : GTLRObject
+
+/**
+ *  SecretVersion resource of the HTTP proxy URL. The Service Account used in
+ *  the build (either the default Service Account or user-specified Service
+ *  Account) should have `secretmanager.versions.access` permissions on this
+ *  secret. The proxy URL should be in format `protocol://\@]proxyhost[:port]`.
+ */
+@property(nonatomic, copy, nullable) NSString *proxySecretVersionName;
+
+@end
+
+
+/**
+ *  Pairs a set of secret environment variables mapped to encrypted values with
+ *  the Cloud KMS key to use to decrypt the value.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret : GTLRObject
+
+/**
+ *  Map of environment variable name to its encrypted value. Secret environment
+ *  variables must be unique across all of a build's secrets, and must be used
+ *  by at least one build step. Values can be at most 64 KB in size. There can
+ *  be at most 100 secret values across all of a build's secrets.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret_EnvMap *envMap;
+
+/**
+ *  Resource name of Cloud KMS crypto key to decrypt the encrypted value. In
+ *  format: projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Map of environment variable name to its encrypted value. Secret environment
+ *  variables must be unique across all of a build's secrets, and must be used
+ *  by at least one build step. Values can be at most 64 KB in size. There can
+ *  be at most 100 secret values across all of a build's secrets.
+ *
+ *  @note This class is documented as having more properties of NSString
+ *        (Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *        web-safe format).). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret_EnvMap : GTLRObject
+@end
+
+
+/**
+ *  A Maven artifact to upload to Artifact Registry upon successful completion
+ *  of all build steps.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1MavenArtifact : GTLRObject
+
+/**
+ *  Maven `artifactId` value used when uploading the artifact to Artifact
+ *  Registry.
+ */
+@property(nonatomic, copy, nullable) NSString *artifactId;
+
+/**
+ *  Maven `groupId` value used when uploading the artifact to Artifact Registry.
+ */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/**
+ *  Optional. Path to an artifact in the build's workspace to be uploaded to
+ *  Artifact Registry. This can be either an absolute path, e.g.
+ *  /workspace/my-app/target/my-app-1.0.SNAPSHOT.jar or a relative path from
+ *  /workspace, e.g. my-app/target/my-app-1.0.SNAPSHOT.jar.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Artifact Registry repository, in the form
+ *  "https://$REGION-maven.pkg.dev/$PROJECT/$REPOSITORY" Artifact in the
+ *  workspace specified by path will be uploaded to Artifact Registry with this
+ *  location as a prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Maven `version` value used when uploading the artifact to Artifact Registry.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Npm package to upload to Artifact Registry upon successful completion of all
+ *  build steps.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1NpmPackage : GTLRObject
+
+/** Path to the package.json. e.g. workspace/path/to/package */
+@property(nonatomic, copy, nullable) NSString *packagePath;
+
+/**
+ *  Artifact Registry repository, in the form
+ *  "https://$REGION-npm.pkg.dev/$PROJECT/$REPOSITORY" Npm package in the
+ *  workspace specified by path will be zipped and uploaded to Artifact Registry
+ *  with this location as a prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
+ *  Details about how a build should be executed on a `WorkerPool`. See [running
+ *  builds in a private
+ *  pool](https://cloud.google.com/build/docs/private-pools/run-builds-in-private-pool)
+ *  for more information.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1PoolOption : GTLRObject
+
+/**
+ *  The `WorkerPool` resource to execute the build on. You must have
+ *  `cloudbuild.workerpools.use` on the project hosting the WorkerPool. Format
+ *  projects/{project}/locations/{location}/workerPools/{workerPoolId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Python package to upload to Artifact Registry upon successful completion of
+ *  all build steps. A package can encapsulate multiple objects to be uploaded
+ *  to a single repository.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1PythonPackage : GTLRObject
+
+/**
+ *  Path globs used to match files in the build's workspace. For Python/ Twine,
+ *  this is usually `dist/ *`, and sometimes additionally an `.asc` file.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/**
+ *  Artifact Registry repository, in the form
+ *  "https://$REGION-python.pkg.dev/$PROJECT/$REPOSITORY" Files in the workspace
+ *  matching any path pattern will be uploaded to Artifact Registry with this
+ *  location as a prefix.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+@end
+
+
+/**
+ *  Location of the source in a Google Cloud Source Repository.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource : GTLRObject
+
+/**
+ *  Regex matching branches to build. The syntax of the regular expressions
+ *  accepted is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
+ */
+@property(nonatomic, copy, nullable) NSString *branchName;
+
+/** Explicit commit SHA to build. */
+@property(nonatomic, copy, nullable) NSString *commitSha;
+
+/**
+ *  Optional. Directory, relative to the source root, in which to run the build.
+ *  This must be a relative path. If a step's `dir` is specified and is an
+ *  absolute path, this value is ignored for that step's execution.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Optional. Only trigger a build if the revision regex does NOT match the
+ *  revision regex.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *invertRegex;
+
+/**
+ *  Optional. ID of the project that owns the Cloud Source Repository. If
+ *  omitted, the project ID requesting the build is assumed.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Name of the Cloud Source Repository. */
+@property(nonatomic, copy, nullable) NSString *repoName;
+
+/**
+ *  Optional. Substitutions to use in a triggered build. Should only be used
+ *  with RunBuildTrigger
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource_Substitutions *substitutions;
+
+/**
+ *  Regex matching tags to build. The syntax of the regular expressions accepted
+ *  is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
+ */
+@property(nonatomic, copy, nullable) NSString *tagName;
+
+@end
+
+
+/**
+ *  Optional. Substitutions to use in a triggered build. Should only be used
+ *  with RunBuildTrigger
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource_Substitutions : GTLRObject
+@end
+
+
+/**
+ *  Artifacts created by the build pipeline.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Results : GTLRObject
+
+/**
+ *  Path to the artifact manifest for non-container artifacts uploaded to Cloud
+ *  Storage. Only populated when artifacts are uploaded to Cloud Storage.
+ */
+@property(nonatomic, copy, nullable) NSString *artifactManifest;
+
+/** Time to push all non-container artifacts to Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *artifactTiming;
+
+/**
+ *  List of build step digests, in the order corresponding to build step
+ *  indices.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepImages;
+
+/**
+ *  List of build step outputs, produced by builder images, in the order
+ *  corresponding to build step indices. [Cloud
+ *  Builders](https://cloud.google.com/cloud-build/docs/cloud-builders) can
+ *  produce this output by writing to `$BUILDER_OUTPUT/output`. Only the first
+ *  50KB of data is stored. Note that the `$BUILDER_OUTPUT` variable is
+ *  read-only and can't be substituted.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepOutputs;
+
+/**
+ *  Optional. Go module artifacts uploaded to Artifact Registry at the end of
+ *  the build.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule *> *goModules;
+
+/** Container images that were built as a part of the build. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage *> *images;
+
+/** Maven artifacts uploaded to Artifact Registry at the end of the build. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact *> *mavenArtifacts;
+
+/** Npm packages uploaded to Artifact Registry at the end of the build. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedNpmPackage *> *npmPackages;
+
+/**
+ *  Number of non-container artifacts uploaded to Cloud Storage. Only populated
+ *  when artifacts are uploaded to Cloud Storage.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numArtifacts;
+
+/** Python artifacts uploaded to Artifact Registry at the end of the build. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedPythonPackage *> *pythonPackages;
+
+@end
+
+
+/**
+ *  Pairs a set of secret environment variables containing encrypted values with
+ *  the Cloud KMS key to use to decrypt the value. Note: Use `kmsKeyName` with
+ *  `available_secrets` instead of using `kmsKeyName` with `secret`. For
+ *  instructions see:
+ *  https://cloud.google.com/cloud-build/docs/securing-builds/use-encrypted-credentials.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret : GTLRObject
+
+/** Cloud KMS key name to use to decrypt these envs. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Map of environment variable name to its encrypted value. Secret environment
+ *  variables must be unique across all of a build's secrets, and must be used
+ *  by at least one build step. Values can be at most 64 KB in size. There can
+ *  be at most 100 secret values across all of a build's secrets.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret_SecretEnv *secretEnv;
+
+@end
+
+
+/**
+ *  Map of environment variable name to its encrypted value. Secret environment
+ *  variables must be unique across all of a build's secrets, and must be used
+ *  by at least one build step. Values can be at most 64 KB in size. There can
+ *  be at most 100 secret values across all of a build's secrets.
+ *
+ *  @note This class is documented as having more properties of NSString
+ *        (Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *        web-safe format).). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret_SecretEnv : GTLRObject
+@end
+
+
+/**
+ *  Pairs a secret environment variable with a SecretVersion in Secret Manager.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1SecretManagerSecret : GTLRObject
+
+/**
+ *  Environment variable name to associate with the secret. Secret environment
+ *  variables must be unique across all of a build's secrets, and must be used
+ *  by at least one build step.
+ */
+@property(nonatomic, copy, nullable) NSString *env;
+
+/**
+ *  Resource name of the SecretVersion. In format: projects/ * /secrets/ *
+ *  /versions/ *
+ */
+@property(nonatomic, copy, nullable) NSString *versionName;
+
+@end
+
+
+/**
+ *  Secrets and secret environment variables.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secrets : GTLRObject
+
+/**
+ *  Secrets encrypted with KMS key and the associated secret environment
+ *  variable.
+ *
+ *  Remapped to 'inlineProperty' to avoid language reserved word 'inline'.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret *> *inlineProperty;
+
+/** Secrets in Secret Manager and associated secret environment variable. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1SecretManagerSecret *> *secretManager;
+
+@end
+
+
+/**
+ *  Location of the source in a supported storage service.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Source : GTLRObject
+
+/**
+ *  Optional. If provided, get the source from this 2nd-gen Google Cloud Build
+ *  repository resource.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1ConnectedRepository *connectedRepository;
+
+/** If provided, get the source from this Developer Connect config. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig *developerConnectConfig;
+
+/** If provided, get the source from this Git repository. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource *gitSource;
+
+/**
+ *  If provided, get the source from this location in a Cloud Source Repository.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource *repoSource;
+
+/** If provided, get the source from this location in Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource *storageSource;
+
+/**
+ *  If provided, get the source from this manifest in Cloud Storage. This
+ *  feature is in Preview; see description
+ *  [here](https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSourceManifest *storageSourceManifest;
+
+@end
+
+
+/**
+ *  Provenance of the source. Ways to find the original source, or verify that
+ *  some source was used for this build.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1SourceProvenance : GTLRObject
+
+/**
+ *  Output only. Hash(es) of the build source, which can be used to verify that
+ *  the original source integrity was maintained in the build. Note that
+ *  `FileHashes` will only be populated if `BuildOptions` has requested a
+ *  `SourceProvenanceHash`. The keys to this map are file paths used as build
+ *  source and the values contain the hash values for those files. If the build
+ *  source came in a single package such as a gzipped tarfile (`.tar.gz`), the
+ *  `FileHash` will be for the single path to that file.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1SourceProvenance_FileHashes *fileHashes;
+
+/**
+ *  Output only. A copy of the build's `source.connected_repository`, if exists,
+ *  with any revisions resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1ConnectedRepository *resolvedConnectedRepository;
+
+/**
+ *  Output only. A copy of the build's `source.git_source`, if exists, with any
+ *  revisions resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource *resolvedGitSource;
+
+/**
+ *  A copy of the build's `source.repo_source`, if exists, with any revisions
+ *  resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource *resolvedRepoSource;
+
+/**
+ *  A copy of the build's `source.storage_source`, if exists, with any
+ *  generations resolved.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource *resolvedStorageSource;
+
+/**
+ *  A copy of the build's `source.storage_source_manifest`, if exists, with any
+ *  revisions resolved. This feature is in Preview.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSourceManifest *resolvedStorageSourceManifest;
+
+@end
+
+
+/**
+ *  Output only. Hash(es) of the build source, which can be used to verify that
+ *  the original source integrity was maintained in the build. Note that
+ *  `FileHashes` will only be populated if `BuildOptions` has requested a
+ *  `SourceProvenanceHash`. The keys to this map are file paths used as build
+ *  source and the values contain the hash values for those files. If the build
+ *  source came in a single package such as a gzipped tarfile (`.tar.gz`), the
+ *  `FileHash` will be for the single path to that file.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1SourceProvenance_FileHashes : GTLRObject
+@end
+
+
+/**
+ *  Location of the source in an archive file in Cloud Storage.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource : GTLRObject
+
+/**
+ *  Cloud Storage bucket containing the source (see [Bucket Name
+ *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Optional. Cloud Storage generation for the object. If the generation is
+ *  omitted, the latest generation will be used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Required. Cloud Storage object containing the source. This object must be a
+ *  zipped (`.zip`) or gzipped archive file (`.tar.gz`) containing source to
+ *  build.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  Optional. Option to specify the tool to fetch the source file for the build.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_GcsFetcher
+ *        Use the Cloud Storage Fetcher tool to download the source file.
+ *        (Value: "GCS_FETCHER")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_Gsutil
+ *        Use the "gsutil" tool to download the source file. (Value: "GSUTIL")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_SourceFetcherUnspecified
+ *        Unspecified defaults to GSUTIL. (Value: "SOURCE_FETCHER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceFetcher;
+
+@end
+
+
+/**
+ *  Location of the source manifest in Cloud Storage. This feature is in
+ *  Preview; see description
+ *  [here](https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher).
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSourceManifest : GTLRObject
+
+/**
+ *  Required. Cloud Storage bucket containing the source manifest (see [Bucket
+ *  Name
+ *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Cloud Storage generation for the object. If the generation is omitted, the
+ *  latest generation will be used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Required. Cloud Storage object containing the source manifest. This object
+ *  must be a JSON file.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
+ *  Start and end times for a build execution phase.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan : GTLRObject
+
+/** End of time span. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Start of time span. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  A Go module artifact uploaded to Artifact Registry using the GoModule
+ *  directive.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule : GTLRObject
+
+/** Hash types and values of the Go Module Artifact. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+/** URI of the uploaded artifact. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A Maven artifact uploaded using the MavenArtifact directive.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact : GTLRObject
+
+/** Hash types and values of the Maven Artifact. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+/** URI of the uploaded artifact. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  An npm package uploaded to Artifact Registry using the NpmPackage directive.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedNpmPackage : GTLRObject
+
+/** Hash types and values of the npm package. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+/** URI of the uploaded npm package. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Artifact uploaded using the PythonPackage directive.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedPythonPackage : GTLRObject
+
+/** Hash types and values of the Python Artifact. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+/** URI of the uploaded artifact. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Volume describes a Docker container volume which is mounted into build steps
+ *  in order to persist files across build step execution.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Volume : GTLRObject
+
+/**
+ *  Name of the volume to mount. Volume names must be unique per build step and
+ *  must be valid names for Docker volumes. Each named volume must be used by at
+ *  least two build steps.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Path at which to mount the volume. Paths must be absolute and cannot
+ *  conflict with other volume paths on the same build step or with certain
+ *  reserved volume paths.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  A non-fatal problem encountered during the execution of the build.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning : GTLRObject
+
+/**
+ *  The priority for this warning.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning_Priority_Alert
+ *        e.g. alerts that a feature used in the build is pending removal
+ *        (Value: "ALERT")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning_Priority_Info e.g.
+ *        deprecation warnings and alternative feature highlights. (Value:
+ *        "INFO")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning_Priority_PriorityUnspecified
+ *        Should not be used. (Value: "PRIORITY_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Warning_Priority_Warning
+ *        e.g. automated detection of possible issues with the build. (Value:
+ *        "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
+
+/** Explanation of the warning generated. */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -4399,6 +8249,68 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  This is proto2's version of MessageSet. DEPRECATED: DO NOT USE FOR NEW
+ *  FIELDS. If you are using editions or proto2, please make your own extendable
+ *  messages for your use case. If you are using proto3, please use `Any`
+ *  instead. MessageSet was the implementation of extensions for proto1. When
+ *  proto2 was introduced, extensions were implemented as a first-class feature.
+ *  This schema for MessageSet was meant to be a "bridge" solution to migrate
+ *  MessageSet-bearing messages from proto1 to proto2. This schema has been
+ *  open-sourced only to facilitate the migration of Google products with
+ *  MessageSet-bearing messages to open-source environments.
+ */
+GTLR_DEPRECATED
+@interface GTLRCloudRun_Proto2BridgeMessageSet : GTLRObject
+@end
+
+
+/**
+ *  Wire-format for a Status object
+ */
+@interface GTLRCloudRun_UtilStatusProto : GTLRObject
+
+/**
+ *  copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+ *  int32 canonical_code = 6;
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canonicalCode;
+
+/**
+ *  Numeric code drawn from the space specified below. Often, this is the
+ *  canonical error space, and code is drawn from google3/util/task/codes.proto
+ *  copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+ *  int32 code = 1;
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  Detail message copybara:strip_begin(b/383363683)
+ *  copybara:strip_end_and_replace optional string message = 3;
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  message_set associates an arbitrary proto message with the status.
+ *  copybara:strip_begin(b/383363683) copybara:strip_end_and_replace optional
+ *  proto2.bridge.MessageSet message_set = 5;
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_Proto2BridgeMessageSet *messageSet;
+
+/**
+ *  copybara:strip_begin(b/383363683) Space to which this status belongs
+ *  copybara:strip_end_and_replace optional string space = 2; // Space to which
+ *  this status belongs
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 @end
 

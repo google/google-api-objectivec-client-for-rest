@@ -7,7 +7,7 @@
 //   Builds and manages container-based applications, powered by the open source
 //   Kubernetes technology.
 // Documentation:
-//   https://cloud.google.com/container-engine/
+//   https://cloud.google.com/kubernetes-engine/docs/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -16,15 +16,20 @@
 #endif
 
 @class GTLRContainer_AcceleratorConfig;
+@class GTLRContainer_AdditionalIPRangesConfig;
 @class GTLRContainer_AdditionalNodeNetworkConfig;
 @class GTLRContainer_AdditionalPodNetworkConfig;
 @class GTLRContainer_AdditionalPodRangesConfig;
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AdvancedDatapathObservabilityConfig;
 @class GTLRContainer_AdvancedMachineFeatures;
+@class GTLRContainer_AnonymousAuthenticationConfig;
 @class GTLRContainer_AuthenticatorGroupsConfig;
+@class GTLRContainer_AutoIpamConfig;
+@class GTLRContainer_AutoMonitoringConfig;
 @class GTLRContainer_Autopilot;
 @class GTLRContainer_AutopilotCompatibilityIssue;
+@class GTLRContainer_AutopilotConfig;
 @class GTLRContainer_AutoprovisioningNodePoolDefaults;
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_BestEffortProvisioning;
@@ -32,6 +37,8 @@
 @class GTLRContainer_BinaryAuthorization;
 @class GTLRContainer_BlueGreenInfo;
 @class GTLRContainer_BlueGreenSettings;
+@class GTLRContainer_BootDisk;
+@class GTLRContainer_CertificateAuthorityDomainConfig;
 @class GTLRContainer_CidrBlock;
 @class GTLRContainer_ClientCertificateConfig;
 @class GTLRContainer_CloudRunConfig;
@@ -40,17 +47,28 @@
 @class GTLRContainer_ClusterAutoscaling;
 @class GTLRContainer_ClusterNetworkPerformanceConfig;
 @class GTLRContainer_ClusterUpdate;
+@class GTLRContainer_CompliancePostureConfig;
+@class GTLRContainer_ComplianceStandard;
 @class GTLRContainer_ConfidentialNodes;
 @class GTLRContainer_ConfigConnectorConfig;
 @class GTLRContainer_ConsumptionMeteringConfig;
+@class GTLRContainer_ControlPlaneEndpointsConfig;
 @class GTLRContainer_CostManagementConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
+@class GTLRContainer_DConfig;
+@class GTLRContainer_DefaultComputeClassConfig;
 @class GTLRContainer_DefaultSnatStatus;
+@class GTLRContainer_DesiredAdditionalIPRangesConfig;
+@class GTLRContainer_DesiredEnterpriseConfig;
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
+@class GTLRContainer_DNSEndpointConfig;
 @class GTLRContainer_EnterpriseConfig;
 @class GTLRContainer_EphemeralStorageLocalSsdConfig;
+@class GTLRContainer_EvictionGracePeriod;
+@class GTLRContainer_EvictionMinimumReclaim;
+@class GTLRContainer_EvictionSignals;
 @class GTLRContainer_FastSocket;
 @class GTLRContainer_Filter;
 @class GTLRContainer_Fleet;
@@ -58,17 +76,22 @@
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
+@class GTLRContainer_GCPSecretManagerCertificateConfig;
 @class GTLRContainer_GcsFuseCsiDriverConfig;
+@class GTLRContainer_GkeAutoUpgradeConfig;
 @class GTLRContainer_GkeBackupAgentConfig;
 @class GTLRContainer_GPUDriverInstallationConfig;
 @class GTLRContainer_GPUSharingConfig;
+@class GTLRContainer_HighScaleCheckpointingConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
+@class GTLRContainer_HugepagesConfig;
 @class GTLRContainer_IdentityServiceConfig;
 @class GTLRContainer_ILBSubsettingConfig;
 @class GTLRContainer_IntraNodeVisibilityConfig;
 @class GTLRContainer_IPAllocationPolicy;
+@class GTLRContainer_IPEndpointsConfig;
 @class GTLRContainer_Jwk;
 @class GTLRContainer_K8sBetaAPIConfig;
 @class GTLRContainer_KubernetesDashboard;
@@ -79,6 +102,7 @@
 @class GTLRContainer_LoggingComponentConfig;
 @class GTLRContainer_LoggingConfig;
 @class GTLRContainer_LoggingVariantConfig;
+@class GTLRContainer_LustreCsiDriverConfig;
 @class GTLRContainer_MaintenanceExclusionOptions;
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
@@ -87,6 +111,7 @@
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
 @class GTLRContainer_MaxPodsConstraint;
+@class GTLRContainer_MemoryManager;
 @class GTLRContainer_MeshCertificates;
 @class GTLRContainer_Metric;
 @class GTLRContainer_MonitoringComponentConfig;
@@ -116,16 +141,25 @@
 @class GTLRContainer_NodeTaints;
 @class GTLRContainer_NotificationConfig;
 @class GTLRContainer_Operation;
+@class GTLRContainer_OperationError;
 @class GTLRContainer_OperationProgress;
+@class GTLRContainer_ParallelstoreCsiDriverConfig;
 @class GTLRContainer_ParentProductConfig;
 @class GTLRContainer_ParentProductConfig_Labels;
 @class GTLRContainer_PlacementPolicy;
+@class GTLRContainer_PodAutoscaling;
 @class GTLRContainer_PodCIDROverprovisionConfig;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
+@class GTLRContainer_PrivateRegistryAccessConfig;
+@class GTLRContainer_PrivilegedAdmissionConfig;
 @class GTLRContainer_PubSub;
 @class GTLRContainer_QueuedProvisioning;
 @class GTLRContainer_RangeInfo;
+@class GTLRContainer_RayClusterLoggingConfig;
+@class GTLRContainer_RayClusterMonitoringConfig;
+@class GTLRContainer_RayOperatorConfig;
+@class GTLRContainer_RBACBindingConfig;
 @class GTLRContainer_RecurringTimeWindow;
 @class GTLRContainer_ReleaseChannel;
 @class GTLRContainer_ReleaseChannelConfig;
@@ -136,7 +170,11 @@
 @class GTLRContainer_ResourceManagerTags;
 @class GTLRContainer_ResourceManagerTags_Tags;
 @class GTLRContainer_ResourceUsageExportConfig;
+@class GTLRContainer_RotationConfig;
 @class GTLRContainer_SandboxConfig;
+@class GTLRContainer_SecondaryBootDisk;
+@class GTLRContainer_SecondaryBootDiskUpdateStrategy;
+@class GTLRContainer_SecretManagerConfig;
 @class GTLRContainer_SecurityPostureConfig;
 @class GTLRContainer_ServiceExternalIPsConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
@@ -149,10 +187,13 @@
 @class GTLRContainer_Status_Details_Item;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_TimeWindow;
+@class GTLRContainer_TopologyManager;
 @class GTLRContainer_UpdateInfo;
+@class GTLRContainer_UpgradeDetails;
 @class GTLRContainer_UpgradeSettings;
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
+@class GTLRContainer_UserManagedKeysConfig;
 @class GTLRContainer_VerticalPodAutoscaling;
 @class GTLRContainer_VirtualNIC;
 @class GTLRContainer_WindowsNodeConfig;
@@ -197,6 +238,78 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedDatapathObservabilityC
  *  Value: "RELAY_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_RelayModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_AdvancedMachineFeatures.performanceMonitoringUnit
+
+/**
+ *  Architecturally defined non-LLC events.
+ *
+ *  Value: "ARCHITECTURAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Architectural;
+/**
+ *  Most documented core/L2 and LLC events.
+ *
+ *  Value: "ENHANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Enhanced;
+/**
+ *  PMU not enabled.
+ *
+ *  Value: "PERFORMANCE_MONITORING_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_PerformanceMonitoringUnitUnspecified;
+/**
+ *  Most documented core/L2 events.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_AnonymousAuthenticationConfig.mode
+
+/**
+ *  Anonymous authentication is allowed for all endpoints.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AnonymousAuthenticationConfig_Mode_Enabled;
+/**
+ *  Anonymous authentication is allowed for only health check endpoints.
+ *
+ *  Value: "LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AnonymousAuthenticationConfig_Mode_Limited;
+/**
+ *  Default value not specified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AnonymousAuthenticationConfig_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_AutoMonitoringConfig.scope
+
+/**
+ *  Auto-Monitoring is enabled for all supported applications.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutoMonitoringConfig_Scope_All;
+/**
+ *  Disable Auto-Monitoring.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutoMonitoringConfig_Scope_None;
+/**
+ *  Not set.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AutoMonitoringConfig_Scope_ScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_AutopilotCompatibilityIssue.incompatibilityType
@@ -423,7 +536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterNetworkPerformanceConfi
 /**
  *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
  *  Dataplane V2
- *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  documentation](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/dataplane-v2)
  *  for more.
  *
  *  Value: "ADVANCED_DATAPATH"
@@ -516,6 +629,184 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredStackType_StackTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpgradeInfo.autoUpgradeStatus
+
+/**
+ *  ACTIVE indicates an active status.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_Active;
+/**
+ *  MINOR_UPGRADE_PAUSED indicates the minor version upgrade is paused.
+ *
+ *  Value: "MINOR_UPGRADE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_MinorUpgradePaused;
+/**
+ *  UNKNOWN indicates an unknown status.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_Unknown;
+/**
+ *  UPGRADE_PAUSED indicates the upgrade is paused.
+ *
+ *  Value: "UPGRADE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_AutoUpgradeStatus_UpgradePaused;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpgradeInfo.pausedReason
+
+/**
+ *  AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED indicates an unspecified reason.
+ *
+ *  Value: "AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_AutoUpgradePausedReasonUnspecified;
+/**
+ *  CLUSTER_DISRUPTION_BUDGET indicates the cluster is outside the cluster
+ *  disruption budget.
+ *
+ *  Value: "CLUSTER_DISRUPTION_BUDGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_ClusterDisruptionBudget;
+/**
+ *  CLUSTER_DISRUPTION_BUDGET_MINOR_UPGRADE indicates the cluster is outside the
+ *  cluster disruption budget for minor version upgrade.
+ *
+ *  Value: "CLUSTER_DISRUPTION_BUDGET_MINOR_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_ClusterDisruptionBudgetMinorUpgrade;
+/**
+ *  MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES indicates the cluster is in a
+ *  maintenance exclusion with scope NO_MINOR_UPGRADES.
+ *
+ *  Value: "MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceExclusionNoMinorUpgrades;
+/**
+ *  MAINTENANCE_EXCLUSION_NO_UPGRADES indicates the cluster is in a maintenance
+ *  exclusion with scope NO_UPGRADES.
+ *
+ *  Value: "MAINTENANCE_EXCLUSION_NO_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceExclusionNoUpgrades;
+/**
+ *  MAINTENANCE_WINDOW indicates the cluster is outside customer maintenance
+ *  window.
+ *
+ *  Value: "MAINTENANCE_WINDOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_MaintenanceWindow;
+/**
+ *  SYSTEM_CONFIG indicates the cluster upgrade is paused by system config.
+ *
+ *  Value: "SYSTEM_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpgradeInfo_PausedReason_SystemConfig;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_CompliancePostureConfig.mode
+
+/**
+ *  Disables Compliance Posture features on the cluster.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Disabled;
+/**
+ *  Enables Compliance Posture features on the cluster.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CompliancePostureConfig_Mode_Enabled;
+/**
+ *  Default value not specified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CompliancePostureConfig_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ConfidentialNodes.confidentialInstanceType
+
+/**
+ *  No type specified. Do not use this value.
+ *
+ *  Value: "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified;
+/**
+ *  AMD Secure Encrypted Virtualization.
+ *
+ *  Value: "SEV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Sev;
+/**
+ *  AMD Secure Encrypted Virtualization - Secure Nested Paging.
+ *
+ *  Value: "SEV_SNP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_SevSnp;
+/**
+ *  Intel Trust Domain eXtension.
+ *
+ *  Value: "TDX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Tdx;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_DatabaseEncryption.currentState
+
+/**
+ *  Secrets in etcd are stored in plain text (at etcd level) - this is unrelated
+ *  to Compute Engine level full disk encryption.
+ *
+ *  Value: "CURRENT_STATE_DECRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecrypted;
+/**
+ *  De-crypting Secrets to plain text in etcd encountered an error.
+ *
+ *  Value: "CURRENT_STATE_DECRYPTION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionError;
+/**
+ *  De-crypting Secrets to plain text in etcd is in progress.
+ *
+ *  Value: "CURRENT_STATE_DECRYPTION_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionPending;
+/**
+ *  Secrets in etcd are encrypted.
+ *
+ *  Value: "CURRENT_STATE_ENCRYPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncrypted;
+/**
+ *  Encryption (or re-encryption with a different CloudKMS key) of Secrets in
+ *  etcd encountered an error.
+ *
+ *  Value: "CURRENT_STATE_ENCRYPTION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncryptionError;
+/**
+ *  Encryption (or re-encryption with a different CloudKMS key) of Secrets is in
+ *  progress.
+ *
+ *  Value: "CURRENT_STATE_ENCRYPTION_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncryptionPending;
+/**
+ *  Should never be set
+ *
+ *  Value: "CURRENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.state
 
 /**
@@ -537,6 +828,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encry
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_DesiredEnterpriseConfig.desiredTier
+
+/**
+ *  CLUSTER_TIER_UNSPECIFIED is when cluster_tier is not set.
+ *
+ *  Value: "CLUSTER_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DesiredEnterpriseConfig_DesiredTier_ClusterTierUnspecified;
+/**
+ *  ENTERPRISE indicates a GKE Enterprise cluster.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DesiredEnterpriseConfig_DesiredTier_Enterprise;
+/**
+ *  STANDARD indicates a standard GKE cluster.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DesiredEnterpriseConfig_DesiredTier_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_DNSConfig.clusterDns
@@ -611,6 +924,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_EnterpriseConfig_ClusterTier_E
 FOUNDATION_EXTERN NSString * const kGTLRContainer_EnterpriseConfig_ClusterTier_Standard;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_EnterpriseConfig.desiredTier
+
+/**
+ *  CLUSTER_TIER_UNSPECIFIED is when cluster_tier is not set.
+ *
+ *  Value: "CLUSTER_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_EnterpriseConfig_DesiredTier_ClusterTierUnspecified;
+/**
+ *  ENTERPRISE indicates a GKE Enterprise cluster.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_EnterpriseConfig_DesiredTier_Enterprise;
+/**
+ *  STANDARD indicates a standard GKE cluster.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_EnterpriseConfig_DesiredTier_Standard;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_Filter.eventType
 
 /**
@@ -637,6 +972,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeAvaila
  *  Value: "UPGRADE_EVENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent;
+/**
+ *  Corresponds with UpgradeInfoEvent.
+ *
+ *  Value: "UPGRADE_INFO_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeInfoEvent;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_Fleet.membershipType
+
+/**
+ *  The membership supports only lightweight compatible features.
+ *
+ *  Value: "LIGHTWEIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Fleet_MembershipType_Lightweight;
+/**
+ *  The MembershipType is not set.
+ *
+ *  Value: "MEMBERSHIP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Fleet_MembershipType_MembershipTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_GatewayAPIConfig.channel
@@ -648,11 +1005,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelDisabled;
 /**
- *  Gateway API support is enabled, experimental CRDs are installed
+ *  Deprecated: use CHANNEL_STANDARD instead. Gateway API support is enabled,
+ *  experimental CRDs are installed
  *
  *  Value: "CHANNEL_EXPERIMENTAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental GTLR_DEPRECATED;
 /**
  *  Gateway API support is enabled, standard CRDs are installed
  *
@@ -665,6 +1023,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_Chann
  *  Value: "CHANNEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_GkeAutoUpgradeConfig.patchMode
+
+/**
+ *  ACCELERATED denotes that the latest patch build in the channel should be
+ *  used as the upgrade target for the version.
+ *
+ *  Value: "ACCELERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GkeAutoUpgradeConfig_PatchMode_Accelerated;
+/**
+ *  PATCH_MODE_UNSPECIFIED defaults to using the upgrade target from the
+ *  channel's patch upgrade targets as the upgrade target for the version.
+ *
+ *  Value: "PATCH_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GkeAutoUpgradeConfig_PatchMode_PatchModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_GPUDriverInstallationConfig.gpuDriverVersion
@@ -703,6 +1079,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDriverInstallationConfig_Gp
  *  Value: "GPU_SHARING_STRATEGY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_GpuSharingStrategyUnspecified;
+/**
+ *  GPUs are shared between containers with NVIDIA MPS.
+ *
+ *  Value: "MPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_Mps;
 /**
  *  GPUs are time-shared between containers.
  *
@@ -780,6 +1162,85 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_Cgr
 FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_CgroupMode_CgroupModeV2;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_LinuxNodeConfig.transparentHugepageDefrag
+
+/**
+ *  It means that an application requesting THP will stall on allocation failure
+ *  and directly reclaim pages and compact memory in an effort to allocate a THP
+ *  immediately.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragAlways;
+/**
+ *  It means that an application will wake kswapd in the background to reclaim
+ *  pages and wake kcompactd to compact memory so that THP is available in the
+ *  near future. It’s the responsibility of khugepaged to then install the THP
+ *  pages later.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDefer;
+/**
+ *  It means that an application will enter direct reclaim and compaction like
+ *  always, but only for regions that have used madvise(MADV_HUGEPAGE); all
+ *  other regions will wake kswapd in the background to reclaim pages and wake
+ *  kcompactd to compact memory so that THP is available in the near future.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER_WITH_MADVISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDeferWithMadvise;
+/**
+ *  It means that an application will enter direct reclaim like always but only
+ *  for regions that are have used madvise(MADV_HUGEPAGE). This is the default
+ *  kernel configuration.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_MADVISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragMadvise;
+/**
+ *  It means that an application will never enter direct reclaim or compaction.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragNever;
+/**
+ *  Default value. GKE will not modify the kernel configuration.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_LinuxNodeConfig.transparentHugepageEnabled
+
+/**
+ *  Transparent hugepage support for anonymous memory is enabled system wide.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_ENABLED_ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledAlways;
+/**
+ *  Transparent hugepage support for anonymous memory is enabled inside
+ *  MADV_HUGEPAGE regions. This is the default kernel configuration.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_ENABLED_MADVISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledMadvise;
+/**
+ *  Transparent hugepage support for anonymous memory is disabled.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_ENABLED_NEVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledNever;
+/**
+ *  Default value. GKE will not modify the kernel configuration.
+ *
+ *  Value: "TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_LoggingComponentConfig.enableComponents
 
 /**
@@ -800,6 +1261,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableC
  *  Value: "CONTROLLER_MANAGER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ControllerManager;
+/**
+ *  kcp connection logs
+ *
+ *  Value: "KCP_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpConnection;
+/**
+ *  horizontal pod autoscaler decision logs
+ *
+ *  Value: "KCP_HPA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpHpa;
+/**
+ *  kcp-sshd
+ *
+ *  Value: "KCP_SSHD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_KcpSshd;
 /**
  *  kube-scheduler
  *
@@ -877,6 +1356,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_Sc
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Apiserver;
 /**
+ *  CADVISOR
+ *
+ *  Value: "CADVISOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Cadvisor;
+/**
  *  Default value. This shouldn't be used.
  *
  *  Value: "COMPONENT_UNSPECIFIED"
@@ -895,6 +1380,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_Enab
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Daemonset;
 /**
+ *  NVIDIA Data Center GPU Manager (DCGM)
+ *
+ *  Value: "DCGM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Dcgm;
+/**
  *  Deployment
  *
  *  Value: "DEPLOYMENT"
@@ -906,6 +1397,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_Enab
  *  Value: "HPA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Hpa;
+/**
+ *  JobSet
+ *
+ *  Value: "JOBSET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Jobset;
+/**
+ *  KUBELET
+ *
+ *  Value: "KUBELET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_Kubelet;
 /**
  *  Pod
  *
@@ -943,7 +1446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_Enab
 /**
  *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
  *  Dataplane V2
- *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  documentation](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/dataplane-v2)
  *  for more.
  *
  *  Value: "ADVANCED_DATAPATH"
@@ -1068,6 +1571,56 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeAffinity_OperatorProperty_
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeAffinity_OperatorProperty_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_NodeConfig.effectiveCgroupMode
+
+/**
+ *  EFFECTIVE_CGROUP_MODE_UNSPECIFIED means the cgroup configuration for the
+ *  node pool is unspecified, i.e. the node pool is a Windows node pool.
+ *
+ *  Value: "EFFECTIVE_CGROUP_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_EffectiveCgroupMode_EffectiveCgroupModeUnspecified;
+/**
+ *  CGROUP_MODE_V1 means the node pool is configured to use cgroupv1 for the
+ *  cgroup configuration.
+ *
+ *  Value: "EFFECTIVE_CGROUP_MODE_V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_EffectiveCgroupMode_EffectiveCgroupModeV1;
+/**
+ *  CGROUP_MODE_V2 means the node pool is configured to use cgroupv2 for the
+ *  cgroup configuration.
+ *
+ *  Value: "EFFECTIVE_CGROUP_MODE_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_EffectiveCgroupMode_EffectiveCgroupModeV2;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NodeConfig.localSsdEncryptionMode
+
+/**
+ *  The given node will opt-in for using ephemeral key for encryption of Local
+ *  SSDs. The Local SSDs will not be able to recover data in case of node crash.
+ *
+ *  Value: "EPHEMERAL_KEY_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_EphemeralKeyEncryption;
+/**
+ *  The given node will be encrypted using keys managed by Google infrastructure
+ *  and the keys will be deleted when the node is deleted.
+ *
+ *  Value: "LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_LocalSsdEncryptionModeUnspecified;
+/**
+ *  The given node will be encrypted using keys managed by Google infrastructure
+ *  and the keys will be deleted when the node is deleted.
+ *
+ *  Value: "STANDARD_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_StandardEncryption;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_NodePool.status
 
 /**
@@ -1143,6 +1696,71 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPo
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolAutoscaling_LocationPolicy_LocationPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_NodePoolUpgradeInfo.autoUpgradeStatus
+
+/**
+ *  ACTIVE indicates an active status.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_Active;
+/**
+ *  MINOR_UPGRADE_PAUSED indicates the minor version upgrade is paused.
+ *
+ *  Value: "MINOR_UPGRADE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_MinorUpgradePaused;
+/**
+ *  UNKNOWN indicates an unknown status.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_Unknown;
+/**
+ *  UPGRADE_PAUSED indicates the upgrade is paused.
+ *
+ *  Value: "UPGRADE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_AutoUpgradeStatus_UpgradePaused;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NodePoolUpgradeInfo.pausedReason
+
+/**
+ *  AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED indicates an unspecified reason.
+ *
+ *  Value: "AUTO_UPGRADE_PAUSED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_AutoUpgradePausedReasonUnspecified;
+/**
+ *  MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES indicates the cluster is in a
+ *  maintenance exclusion with scope NO_MINOR_UPGRADES.
+ *
+ *  Value: "MAINTENANCE_EXCLUSION_NO_MINOR_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceExclusionNoMinorUpgrades;
+/**
+ *  MAINTENANCE_EXCLUSION_NO_UPGRADES indicates the cluster is in a maintenance
+ *  exclusion with scope NO_UPGRADES.
+ *
+ *  Value: "MAINTENANCE_EXCLUSION_NO_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceExclusionNoUpgrades;
+/**
+ *  MAINTENANCE_WINDOW indicates the cluster is outside customer maintenance
+ *  window.
+ *
+ *  Value: "MAINTENANCE_WINDOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_MaintenanceWindow;
+/**
+ *  SYSTEM_CONFIG indicates the cluster upgrade is paused by system config.
+ *
+ *  Value: "SYSTEM_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodePoolUpgradeInfo_PausedReason_SystemConfig;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_NodeTaint.effect
 
 /**
@@ -1175,7 +1793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_PreferNoSched
 
 /**
  *  A problem has been detected with nodes and [they are being
- *  repaired](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-repair).
+ *  repaired](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-repair).
  *  This operation type is initiated by GKE, typically automatically. This
  *  operation may be concurrent with other operations and there may be multiple
  *  repairs occurring on the same node pool.
@@ -1201,7 +1819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Create
  *  A node pool is being created. The node pool should be assumed to be unusable
  *  until this operation finishes. In the event of an error, the node pool may
  *  be partially created. If enabled, [node
- *  autoprovisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
+ *  autoprovisioning](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-provisioning)
  *  may have automatically initiated such operations.
  *
  *  Value: "CREATE_NODE_POOL"
@@ -1234,7 +1852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_FleetF
  *  A problem has been detected with the control plane and is being repaired.
  *  This operation type is initiated by GKE. For more details, see
  *  [documentation on
- *  repairs](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *  repairs](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *
  *  Value: "REPAIR_CLUSTER"
  */
@@ -1244,7 +1862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Repair
  *  These operations are often performed preemptively to ensure that the control
  *  plane has sufficient resources and is not typically an indication of issues.
  *  For more details, see [documentation on
- *  resizes](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *  resizes](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *
  *  Value: "RESIZE_CLUSTER"
  */
@@ -1301,7 +1919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_TypeUn
  *  recreating the nodes as well. Those will be recreated as separate operations
  *  and the update may not be completely functional until the node pools
  *  recreations finish. Node recreations will generally follow [maintenance
- *  policies](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
+ *  policies](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
  *  Some GKE-initiated operations use this type. This includes certain types of
  *  auto-upgrades and incident mitigations.
  *
@@ -1311,9 +1929,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Update
 /**
  *  The cluster version is being updated. Note that this includes "upgrades" to
  *  the same version, which are simply a recreation. This also includes
- *  [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
+ *  [auto-upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
  *  For more details, see [documentation on cluster
- *  upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
+ *  upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
  *
  *  Value: "UPGRADE_MASTER"
  */
@@ -1321,10 +1939,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Upgrad
 /**
  *  A node pool is being updated. Despite calling this an "upgrade", this
  *  includes most forms of updates to node pools. This also includes
- *  [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades).
+ *  [auto-upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-upgrades).
  *  This operation sets the progress field and may be canceled. The upgrade
  *  strategy depends on [node pool
- *  configuration](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
+ *  configuration](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
  *  The nodes are generally still usable during this operation.
  *
  *  Value: "UPGRADE_NODES"
@@ -1417,8 +2035,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_PlacementPolicy_Type_Compact;
 FOUNDATION_EXTERN NSString * const kGTLRContainer_PlacementPolicy_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_PodAutoscaling.hpaProfile
+
+/**
+ *  HPA_PROFILE_UNSPECIFIED is used when no custom HPA profile is set.
+ *
+ *  Value: "HPA_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_HpaProfileUnspecified;
+/**
+ *  Customers explicitly opt-out of HPA profiles.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_None;
+/**
+ *  PERFORMANCE is used when customers opt-in to the performance HPA profile. In
+ *  this profile we support a higher number of HPAs per cluster and faster
+ *  metrics collection for workload autoscaling.
+ *
+ *  Value: "PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_PodAutoscaling_HpaProfile_Performance;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_ReleaseChannel.channel
 
+/**
+ *  Clusters subscribed to EXTENDED receive extended support and availability
+ *  for versions which are known to be stable and reliable in production.
+ *
+ *  Value: "EXTENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Extended;
 /**
  *  RAPID channel is offered on an early access basis for customers who want to
  *  test new releases. WARNING: Versions available in the RAPID Channel may be
@@ -1453,6 +2102,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannel_Channel_Unspeci
 // ----------------------------------------------------------------------------
 // GTLRContainer_ReleaseChannelConfig.channel
 
+/**
+ *  Clusters subscribed to EXTENDED receive extended support and availability
+ *  for versions which are known to be stable and reliable in production.
+ *
+ *  Value: "EXTENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ReleaseChannelConfig_Channel_Extended;
 /**
  *  RAPID channel is offered on an early access basis for customers who want to
  *  test new releases. WARNING: Versions available in the RAPID Channel may be
@@ -1530,6 +2186,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Gvisor;
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SandboxConfig_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_SecondaryBootDisk.mode
+
+/**
+ *  CONTAINER_IMAGE_CACHE is for using the secondary boot disk as a container
+ *  image cache.
+ *
+ *  Value: "CONTAINER_IMAGE_CACHE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecondaryBootDisk_Mode_ContainerImageCache;
+/**
+ *  MODE_UNSPECIFIED is when mode is not set.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecondaryBootDisk_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_SecurityPostureConfig.mode
 
 /**
@@ -1544,6 +2217,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Bas
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Disabled;
+/**
+ *  Applies the Security Posture off cluster Enterprise level features.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Enterprise;
 /**
  *  Default value not specified.
  *
@@ -1785,6 +2464,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_CaExpiring;
 /**
+ *  Cloud KMS key version used for etcd level encryption has been destroyed.
+ *  This is a permanent error.
+ *
+ *  Value: "CLOUD_KMS_KEY_DESTROYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyDestroyed;
+/**
  *  Unable to perform an encrypt operation against the CloudKMS key used for
  *  etcd level encryption.
  *
@@ -1811,6 +2497,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GceStocko
  *  Value: "GKE_SERVICE_ACCOUNT_DELETED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted;
+/**
+ *  Node service account is missing permissions.
+ *
+ *  Value: "NODE_SERVICE_ACCOUNT_MISSING_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_NodeServiceAccountMissingPermissions;
 /**
  *  Cluster state was manually changed by an SRE due to a system logic error.
  *
@@ -1847,6 +2539,62 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_Resource
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeDetails.startType
+
+/**
+ *  Upgrade started automatically.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_StartType_Automatic;
+/**
+ *  Upgrade started manually.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_StartType_Manual;
+/**
+ *  Upgrade start type is unspecified.
+ *
+ *  Value: "START_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_StartType_StartTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeDetails.state
+
+/**
+ *  Upgrade has been canceled.
+ *
+ *  Value: "CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Canceled;
+/**
+ *  Upgrade has failed with an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Failed;
+/**
+ *  Upgrade is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Running;
+/**
+ *  Upgrade has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Succeeded;
+/**
+ *  Upgrade state is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeDetails_State_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_UpgradeEvent.resourceType
 
 /**
@@ -1867,6 +2615,93 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeEvent_ResourceType_Node
  *  Value: "UPGRADE_RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeEvent_ResourceType_UpgradeResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeInfoEvent.eventType
+
+/**
+ *  COS_MILESTONE_VERSION_UPDATE indicates that the COS node image will update
+ *  COS milestone version for new patch versions starting with the one in the
+ *  description.
+ *
+ *  Value: "COS_MILESTONE_VERSION_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_CosMilestoneVersionUpdate;
+/**
+ *  END_OF_SUPPORT indicates GKE version reaches end of support, check
+ *  standard_support_end_time and extended_support_end_time for more details.
+ *
+ *  Value: "END_OF_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_EndOfSupport;
+/**
+ *  EVENT_TYPE_UNSPECIFIED indicates the event type is unspecified.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_EventTypeUnspecified;
+/**
+ *  UPGRADE_LIFECYCLE indicates the event is about the upgrade lifecycle.
+ *
+ *  Value: "UPGRADE_LIFECYCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_UpgradeLifecycle;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeInfoEvent.resourceType
+
+/**
+ *  Master / control plane
+ *
+ *  Value: "MASTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_ResourceType_Master;
+/**
+ *  Node pool
+ *
+ *  Value: "NODE_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_ResourceType_NodePool;
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "UPGRADE_RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_ResourceType_UpgradeResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeInfoEvent.state
+
+/**
+ *  CANCELED indicates the upgrade has canceled.
+ *
+ *  Value: "CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_State_Canceled;
+/**
+ *  FAILED indicates the upgrade has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_State_Failed;
+/**
+ *  STARTED indicates the upgrade has started.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_State_Started;
+/**
+ *  STATE_UNSPECIFIED indicates the state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_State_StateUnspecified;
+/**
+ *  SUCCEEDED indicates the upgrade has completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_UpgradeSettings.strategy
@@ -1935,19 +2770,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange
 // GTLRContainer_WindowsNodeConfig.osVersion
 
 /**
- *  LTSC2019 specifies to use LTSC2019 as the Windows Servercore Base Image
+ *  LTSC2019 specifies to use LTSC2019 as the Windows Servercore Base Image.
  *
  *  Value: "OS_VERSION_LTSC2019"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2019;
 /**
- *  LTSC2022 specifies to use LTSC2022 as the Windows Servercore Base Image
+ *  LTSC2022 specifies to use LTSC2022 as the Windows Servercore Base Image.
  *
  *  Value: "OS_VERSION_LTSC2022"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2022;
 /**
- *  When OSVersion is not specified
+ *  When OSVersion is not specified.
  *
  *  Value: "OS_VERSION_UNSPECIFIED"
  */
@@ -1993,7 +2828,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The accelerator type resource name. List of supported accelerators
- *  [here](https://cloud.google.com/compute/docs/gpus)
+ *  [here](https://{$universe.dns_names.final_documentation_domain}/compute/docs/gpus)
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
@@ -2009,6 +2844,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The configuration for GPU sharing options. */
 @property(nonatomic, strong, nullable) GTLRContainer_GPUSharingConfig *gpuSharingConfig;
+
+@end
+
+
+/**
+ *  AdditionalIPRangesConfig is the configuration for individual additional
+ *  subnetwork attached to the cluster
+ */
+@interface GTLRContainer_AdditionalIPRangesConfig : GTLRObject
+
+/**
+ *  List of secondary ranges names within this subnetwork that can be used for
+ *  pod IPs. Example1: gke-pod-range1 Example2: gke-pod-range1,gke-pod-range2
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *podIpv4RangeNames;
+
+/**
+ *  Name of the subnetwork. This can be the full path of the subnetwork or just
+ *  the name. Example1: my-subnet Example2:
+ *  projects/gke-project/regions/us-central1/subnetworks/my-subnet
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
 
 @end
 
@@ -2034,16 +2891,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_AdditionalPodNetworkConfig : GTLRObject
 
-/** The maximum number of pods per node which use this pod network */
+/** The maximum number of pods per node which use this pod network. */
 @property(nonatomic, strong, nullable) GTLRContainer_MaxPodsConstraint *maxPodsPerNode;
 
 /**
+ *  The name of the network attachment for pods to communicate to; cannot be
+ *  specified along with subnetwork or secondary_pod_range.
+ */
+@property(nonatomic, copy, nullable) NSString *networkAttachment;
+
+/**
  *  The name of the secondary range on the subnet which provides IP address for
- *  this pod range
+ *  this pod range.
  */
 @property(nonatomic, copy, nullable) NSString *secondaryPodRange;
 
-/** Name of the subnetwork where the additional pod network belongs */
+/** Name of the subnetwork where the additional pod network belongs. */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 @end
@@ -2055,7 +2918,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_AdditionalPodRangesConfig : GTLRObject
 
-/** Output only. [Output only] Information for additional pod range. */
+/** Output only. Information for additional pod range. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_RangeInfo *> *podRangeInfo;
 
 /**
@@ -2099,6 +2962,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration for the Backup for GKE agent addon. */
 @property(nonatomic, strong, nullable) GTLRContainer_GkeBackupAgentConfig *gkeBackupAgentConfig;
 
+/** Configuration for the High Scale Checkpointing add-on. */
+@property(nonatomic, strong, nullable) GTLRContainer_HighScaleCheckpointingConfig *highScaleCheckpointingConfig;
+
 /**
  *  Configuration for the horizontal pod autoscaling feature, which increases or
  *  decreases the number of replica pods a replication controller has based on
@@ -2117,9 +2983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  will be disabled in 1.15. It is recommended to use the Cloud Console to
  *  manage and monitor your Kubernetes clusters, workloads and applications. For
  *  more information, see:
- *  https://cloud.google.com/kubernetes-engine/docs/concepts/dashboards
+ *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/dashboards
  */
 @property(nonatomic, strong, nullable) GTLRContainer_KubernetesDashboard *kubernetesDashboard GTLR_DEPRECATED;
+
+/** Configuration for the Lustre CSI driver. */
+@property(nonatomic, strong, nullable) GTLRContainer_LustreCsiDriverConfig *lustreCsiDriverConfig;
 
 /**
  *  Configuration for NetworkPolicy. This only tracks whether the addon is
@@ -2127,6 +2996,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  enabled for the nodes.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicyConfig *networkPolicyConfig;
+
+/** Configuration for the Cloud Storage Parallelstore CSI driver. */
+@property(nonatomic, strong, nullable) GTLRContainer_ParallelstoreCsiDriverConfig *parallelstoreCsiDriverConfig;
+
+/** Optional. Configuration for Ray Operator addon. */
+@property(nonatomic, strong, nullable) GTLRContainer_RayOperatorConfig *rayOperatorConfig;
 
 /** Optional. Configuration for the StatefulHA add-on. */
 @property(nonatomic, strong, nullable) GTLRContainer_StatefulHAConfig *statefulHaConfig;
@@ -2179,6 +3054,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_AdvancedMachineFeatures : GTLRObject
 
 /**
+ *  Whether or not to enable nested virtualization (defaults to false).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
+
+/**
+ *  Type of Performance Monitoring Unit (PMU) requested on node pool instances.
+ *  If unset, PMU will not be available to the node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Architectural
+ *        Architecturally defined non-LLC events. (Value: "ARCHITECTURAL")
+ *    @arg @c kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Enhanced
+ *        Most documented core/L2 and LLC events. (Value: "ENHANCED")
+ *    @arg @c kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_PerformanceMonitoringUnitUnspecified
+ *        PMU not enabled. (Value: "PERFORMANCE_MONITORING_UNIT_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_AdvancedMachineFeatures_PerformanceMonitoringUnit_Standard
+ *        Most documented core/L2 events. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *performanceMonitoringUnit;
+
+/**
  *  The number of threads per physical core. To disable simultaneous
  *  multithreading (SMT) set this to 1. If unset, the maximum number of threads
  *  supported per core by the underlying processor is assumed.
@@ -2186,6 +3084,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *threadsPerCore;
+
+@end
+
+
+/**
+ *  AnonymousAuthenticationConfig defines the settings needed to limit endpoints
+ *  that allow anonymous authentication.
+ */
+@interface GTLRContainer_AnonymousAuthenticationConfig : GTLRObject
+
+/**
+ *  Defines the mode of limiting anonymous access in the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_AnonymousAuthenticationConfig_Mode_Enabled
+ *        Anonymous authentication is allowed for all endpoints. (Value:
+ *        "ENABLED")
+ *    @arg @c kGTLRContainer_AnonymousAuthenticationConfig_Mode_Limited
+ *        Anonymous authentication is allowed for only health check endpoints.
+ *        (Value: "LIMITED")
+ *    @arg @c kGTLRContainer_AnonymousAuthenticationConfig_Mode_ModeUnspecified
+ *        Default value not specified. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
 
 @end
 
@@ -2213,6 +3135,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  AutoIpamConfig contains all information related to Auto IPAM
+ */
+@interface GTLRContainer_AutoIpamConfig : GTLRObject
+
+/**
+ *  The flag that enables Auto IPAM on this cluster
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  AutoMonitoringConfig defines the configuration for GKE Workload
+ *  Auto-Monitoring.
+ */
+@interface GTLRContainer_AutoMonitoringConfig : GTLRObject
+
+/**
+ *  Scope for GKE Workload Auto-Monitoring.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_AutoMonitoringConfig_Scope_All Auto-Monitoring is
+ *        enabled for all supported applications. (Value: "ALL")
+ *    @arg @c kGTLRContainer_AutoMonitoringConfig_Scope_None Disable
+ *        Auto-Monitoring. (Value: "NONE")
+ *    @arg @c kGTLRContainer_AutoMonitoringConfig_Scope_ScopeUnspecified Not
+ *        set. (Value: "SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
  *  Autopilot is the configuration for Autopilot settings on the cluster.
  */
 @interface GTLRContainer_Autopilot : GTLRObject
@@ -2224,7 +3183,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
-/** Workload policy configuration for Autopilot. */
+/**
+ *  PrivilegedAdmissionConfig is the configuration related to privileged
+ *  admission control.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_PrivilegedAdmissionConfig *privilegedAdmissionConfig;
+
+/**
+ *  WorkloadPolicyConfig is the configuration related to GCW workload policy
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadPolicyConfig *workloadPolicyConfig;
 
 @end
@@ -2246,7 +3213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** A URL to a public documnetation, which addresses resolving this issue. */
+/** A URL to a public documentation, which addresses resolving this issue. */
 @property(nonatomic, copy, nullable) NSString *documentationUrl;
 
 /**
@@ -2278,6 +3245,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  AutopilotConfig contains configuration of autopilot feature for this
+ *  nodepool.
+ */
+@interface GTLRContainer_AutopilotConfig : GTLRObject
+
+/**
+ *  Denotes that nodes belonging to this node pool are Autopilot nodes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  AutoprovisioningNodePoolDefaults contains defaults for a node pool created
  *  by NAP.
  */
@@ -2288,7 +3271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  to each node in the node pool. This should be of the form
  *  projects/[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME].
  *  For more information about protecting resources with Cloud KMS Keys please
- *  see: https://cloud.google.com/compute/docs/disks/customer-managed-encryption
+ *  see:
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/customer-managed-encryption
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
 
@@ -2308,13 +3292,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The image type to use for NAP created node. Please see
- *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
- *  available image types.
+ *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-images
+ *  for available image types.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
- *  Enable or disable Kubelet read only port.
+ *  DEPRECATED. Use NodePoolAutoConfig.NodeKubeletConfig instead.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2329,7 +3313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  values are the friendly names of CPU platforms, such as minCpuPlatform:
  *  Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information,
  *  read [how to specify min CPU
- *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
+ *  platform](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/specify-min-cpu-platform).
  *  This field is deprecated, min_cpu_platform should be specified using
  *  `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To
  *  unset the min cpu platform field pass "automatic" as field value.
@@ -2358,14 +3342,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_AutoUpgradeOptions : GTLRObject
 
 /**
- *  [Output only] This field is set when upgrades are about to commence with the
+ *  Output only. This field is set when upgrades are about to commence with the
  *  approximate start time for the upgrades, in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *autoUpgradeStartTime;
 
 /**
- *  [Output only] This field is set when upgrades are about to commence with the
+ *  Output only. This field is set when upgrades are about to commence with the
  *  description of the upgrade.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -2517,6 +3501,40 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  BootDisk specifies the boot disk configuration for nodepools.
+ */
+@interface GTLRContainer_BootDisk : GTLRObject
+
+/**
+ *  Disk type of the boot disk. (i.e. Hyperdisk-Balanced, PD-Balanced, etc.)
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  For Hyperdisk-Balanced only, the provisioned IOPS config value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedIops;
+
+/**
+ *  For Hyperdisk-Balanced only, the provisioned throughput config value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
+
+/**
+ *  Disk size in GB. Replaces NodeConfig.disk_size_gb
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+@end
+
+
+/**
  *  CancelOperationRequest cancels a single operation.
  */
 @interface GTLRContainer_CancelOperationRequest : GTLRObject
@@ -2535,20 +3553,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  operation resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the operation resides. This field has been deprecated and replaced
+ *  by the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  CertificateAuthorityDomainConfig configures one or more fully qualified
+ *  domain names (FQDN) to a specific certificate.
+ */
+@interface GTLRContainer_CertificateAuthorityDomainConfig : GTLRObject
+
+/**
+ *  List of fully qualified domain names (FQDN). Specifying port is supported.
+ *  Wildcards are NOT supported. Examples: - my.customdomain.com - 10.0.1.2:5000
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fqdns;
+
+/** Google Secret Manager (GCP) certificate configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_GCPSecretManagerCertificateConfig *gcpSecretManagerCertificateConfig;
 
 @end
 
@@ -2635,6 +3671,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *addonsConfig;
 
+/**
+ *  The list of user specified Kubernetes feature gates. Each string represents
+ *  the activation status of a feature gate (e.g. "featureX=true" or
+ *  "featureX=false")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alphaClusterFeatureGates;
+
+/**
+ *  Configuration for limiting anonymous access to all endpoints except the
+ *  health checks.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AnonymousAuthenticationConfig *anonymousAuthenticationConfig;
+
 /** Configuration controlling RBAC group membership information. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *authenticatorGroupsConfig;
 
@@ -2655,6 +3704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
 
+/** Enable/Disable Compliance Posture features for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_CompliancePostureConfig *compliancePostureConfig;
+
 /** Which conditions caused the current cluster state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
 
@@ -2664,20 +3716,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
 
+/** Configuration for all cluster's control plane endpoints. */
+@property(nonatomic, strong, nullable) GTLRContainer_ControlPlaneEndpointsConfig *controlPlaneEndpointsConfig;
+
 /** Configuration for the fine-grained cost management feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_CostManagementConfig *costManagementConfig;
 
 /**
- *  [Output only] The time the cluster was created, in
+ *  Output only. The time the cluster was created, in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *createTime;
 
-/** [Output only] The current software version of the master endpoint. */
+/** Output only. The current software version of the master endpoint. */
 @property(nonatomic, copy, nullable) NSString *currentMasterVersion;
 
 /**
- *  [Output only] The number of nodes currently in the cluster. Deprecated. Call
+ *  Output only. The number of nodes currently in the cluster. Deprecated. Call
  *  Kubernetes API directly to retrieve node information.
  *
  *  Uses NSNumber of intValue.
@@ -2685,8 +3740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *currentNodeCount GTLR_DEPRECATED;
 
 /**
- *  [Output only] Deprecated, use
- *  [NodePools.version](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools)
+ *  Output only. Deprecated, use
+ *  [NodePools.version](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools)
  *  instead. The current version of the node software components. If they are
  *  currently at multiple versions because they're in the process of being
  *  upgraded, this reflects the minimum version of all nodes.
@@ -2725,14 +3780,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enableKubernetesAlpha;
 
 /**
- *  Enable the ability to use Cloud TPUs in this cluster.
+ *  Enable the ability to use Cloud TPUs in this cluster. This field is
+ *  deprecated due to the deprecation of 2VM TPU. The end of life date for 2VM
+ *  TPU is 2025-04-25.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableTpu;
+@property(nonatomic, strong, nullable) NSNumber *enableTpu GTLR_DEPRECATED;
 
 /**
- *  [Output only] The IP address of this cluster's master endpoint. The endpoint
+ *  Output only. The IP address of this cluster's master endpoint. The endpoint
  *  can be accessed from the internet at `https://username:password\@endpoint/`.
  *  See the `masterAuth` property of this resource for username and password
  *  information.
@@ -2750,13 +3807,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  [Output only] The time the cluster will be automatically deleted in
+ *  Output only. The time the cluster will be automatically deleted in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *expireTime;
 
 /** Fleet information for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_Fleet *fleet;
+
+/** Configuration for GKE auto upgrades. */
+@property(nonatomic, strong, nullable) GTLRContainer_GkeAutoUpgradeConfig *gkeAutoUpgradeConfig;
 
 /**
  *  Output only. Unique id for the cluster.
@@ -2783,8 +3843,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The number of nodes to create in this cluster. You must ensure that your
- *  Compute Engine [resource quota](https://cloud.google.com/compute/quotas) is
- *  sufficient for this number of instances. You must also have available
+ *  Compute Engine [resource
+ *  quota](https://{$universe.dns_names.final_documentation_domain}/compute/quotas)
+ *  is sufficient for this number of instances. You must also have available
  *  firewall and routes quota. For requests, this field should only be used in
  *  lieu of a "node_pool" object, since this configuration (along with the
  *  "node_config") will be used to create a "NodePool" object with an
@@ -2795,7 +3856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *initialNodeCount GTLR_DEPRECATED;
 
-/** Deprecated. Use node_pools.instance_group_urls. */
+/** Output only. Deprecated. Use node_pools.instance_group_urls. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceGroupUrls GTLR_DEPRECATED;
 
 /** Configuration for cluster IP allocation. */
@@ -2808,22 +3869,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_LegacyAbac *legacyAbac;
 
 /**
- *  [Output only] The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  Output only. The name of the Google Compute Engine
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/regions-zones/regions-zones#available)
  *  or
- *  [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  [region](https://{$universe.dns_names.final_documentation_domain}/compute/docs/regions-zones/regions-zones#available)
  *  in which the cluster resides.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The list of Google Compute Engine
- *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster's nodes should be located. This field provides a default value if
- *  [NodePool.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations)
+ *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster's nodes should be located. This field provides a
+ *  default value if
+ *  [NodePool.Locations](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations)
  *  are not specified during node pool creation. Warning: changing cluster
  *  locations will update the
- *  [NodePool.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations)
+ *  [NodePool.Locations](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations)
  *  of all node pools and will result in nodes being added and/or removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
@@ -2853,8 +3915,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuth *masterAuth;
 
-/** The configuration options for master authorized networks feature. */
-@property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *masterAuthorizedNetworksConfig;
+/**
+ *  The configuration options for master authorized networks feature.
+ *  Deprecated: Use
+ *  ControlPlaneEndpointsConfig.IPEndpointsConfig.authorized_networks_config
+ *  instead.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *masterAuthorizedNetworksConfig GTLR_DEPRECATED;
 
 /**
  *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
@@ -2866,7 +3933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The monitoring service the cluster should use to write metrics. Currently
- *  available options: * "monitoring.googleapis.com/kubernetes" - The Cloud
+ *  available options: * `monitoring.googleapis.com/kubernetes` - The Cloud
  *  Monitoring service with a Kubernetes-native resource model *
  *  `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
  *  available as of GKE 1.15). * `none` - No metrics will be exported from the
@@ -2886,7 +3953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name of the Google Compute Engine
- *  [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks)
+ *  [network](https://{$universe.dns_names.final_documentation_domain}/compute/docs/networks-and-firewalls#networks)
  *  to which the cluster is connected. If left unspecified, the `default`
  *  network will be used.
  */
@@ -2911,7 +3978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig *nodeConfig GTLR_DEPRECATED;
 
 /**
- *  [Output only] The size of the address space on each node for hosting
+ *  Output only. The size of the address space on each node for hosting
  *  containers. This is provisioned from within the `container_ipv4_cidr` range.
  *  This field will only be set when cluster is in route-based network mode.
  *
@@ -2947,8 +4014,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ParentProductConfig *parentProductConfig;
 
+/** The config for pod autoscaling. */
+@property(nonatomic, strong, nullable) GTLRContainer_PodAutoscaling *podAutoscaling;
+
 /** Configuration for private cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *privateClusterConfig;
+
+/**
+ *  RBACBindingConfig allows user to restrict ClusterRoleBindings an
+ *  RoleBindings that can be created.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_RBACBindingConfig *rbacBindingConfig;
 
 /**
  *  Release channel configuration. If left unspecified on cluster creation and a
@@ -2972,14 +4048,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *resourceUsageExportConfig;
 
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/** Secret CSI driver configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_SecretManagerConfig *secretManagerConfig;
+
 /** Enable/Disable Security Posture API features for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecurityPostureConfig *securityPostureConfig;
 
-/** [Output only] Server-defined URL for the resource. */
+/** Output only. Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output only] The IP address range of the Kubernetes services in this
+ *  Output only. The IP address range of the Kubernetes services in this
  *  cluster, in
  *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
  *  (e.g. `1.2.3.4/29`). Service addresses are typically put in the last `/16`
@@ -2991,7 +4084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_ShieldedNodes *shieldedNodes;
 
 /**
- *  [Output only] The current status of this cluster.
+ *  Output only. The current status of this cluster.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_Cluster_Status_Degraded The DEGRADED state
@@ -3017,24 +4110,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  [Output only] Deprecated. Use conditions instead. Additional information
+ *  Output only. Deprecated. Use conditions instead. Additional information
  *  about the current status of this cluster, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage GTLR_DEPRECATED;
 
 /**
  *  The name of the Google Compute Engine
- *  [subnetwork](https://cloud.google.com/compute/docs/subnetworks) to which the
- *  cluster is connected.
+ *  [subnetwork](https://{$universe.dns_names.final_documentation_domain}/compute/docs/subnetworks)
+ *  to which the cluster is connected.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
- *  [Output only] The IP address range of the Cloud TPUs in this cluster, in
+ *  Output only. The IP address range of the Cloud TPUs in this cluster, in
  *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `1.2.3.4/29`).
+ *  (e.g. `1.2.3.4/29`). This field is deprecated due to the deprecation of 2VM
+ *  TPU. The end of life date for 2VM TPU is 2025-04-25.
  */
-@property(nonatomic, copy, nullable) NSString *tpuIpv4CidrBlock;
+@property(nonatomic, copy, nullable) NSString *tpuIpv4CidrBlock GTLR_DEPRECATED;
+
+/** The Custom keys configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_UserManagedKeysConfig *userManagedKeysConfig;
 
 /** Cluster-level Vertical Pod Autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *verticalPodAutoscaling;
@@ -3046,9 +4143,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadIdentityConfig *workloadIdentityConfig;
 
 /**
- *  [Output only] The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field is deprecated, use location instead.
+ *  Output only. The name of the Google Compute Engine
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field is deprecated, use location
+ *  instead.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3079,8 +4177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The list of Google Compute Engine
- *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
- *  NodePool's nodes can be created by NAP.
+ *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the NodePool's nodes can be created by NAP.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoprovisioningLocations;
 
@@ -3103,6 +4201,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        No change to autoscaling configuration. (Value: "PROFILE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *autoscalingProfile;
+
+/** Default compute class is a configuration for default compute class. */
+@property(nonatomic, strong, nullable) GTLRContainer_DefaultComputeClassConfig *defaultComputeClassConfig;
 
 /**
  *  Enables automatic node pool creation and deletion.
@@ -3152,13 +4253,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_AdditionalPodRangesConfig *additionalPodRangesConfig;
 
+/** The desired config for additional subnetworks attached to the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_DesiredAdditionalIPRangesConfig *desiredAdditionalIpRangesConfig;
+
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
+
+/**
+ *  Configuration for limiting anonymous access to all endpoints except the
+ *  health checks.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AnonymousAuthenticationConfig *desiredAnonymousAuthenticationConfig;
 
 /** The desired authenticator groups config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *desiredAuthenticatorGroupsConfig;
 
-/** The desired workload policy configuration for the autopilot cluster. */
+/** AutoIpamConfig contains all information related to Auto IPAM */
+@property(nonatomic, strong, nullable) GTLRContainer_AutoIpamConfig *desiredAutoIpamConfig;
+
+/**
+ *  WorkloadPolicyConfig is the configuration related to GCW workload policy
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadPolicyConfig *desiredAutopilotWorkloadPolicyConfig;
 
 /** The desired configuration options for the Binary Authorization feature. */
@@ -3166,6 +4281,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Cluster-level autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *desiredClusterAutoscaling;
+
+/** Enable/Disable Compliance Posture features for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_CompliancePostureConfig *desiredCompliancePostureConfig;
+
+/** The desired containerd config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_DConfig *desiredContainerdConfig;
+
+/** Control plane endpoints configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ControlPlaneEndpointsConfig *desiredControlPlaneEndpointsConfig;
 
 /** The desired configuration for the fine-grained cost management feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_CostManagementConfig *desiredCostManagementConfig;
@@ -3180,7 +4304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath
  *        Use the eBPF based GKE Dataplane V2 with additional features. See the
  *        [GKE Dataplane V2
- *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        documentation](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/dataplane-v2)
  *        for more. (Value: "ADVANCED_DATAPATH")
  *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified
  *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
@@ -3190,11 +4314,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *desiredDatapathProvider;
 
+/**
+ *  Override the default setting of whether future created nodes have private IP
+ *  addresses only, namely NetworkConfig.default_enable_private_nodes
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredDefaultEnablePrivateNodes;
+
 /** The desired status of whether to disable default sNAT for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DefaultSnatStatus *desiredDefaultSnatStatus;
 
+/**
+ *  Enable/Disable L4 LB VPC firewall reconciliation for the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredDisableL4LbFirewallReconciliation;
+
 /** DNSConfig contains clusterDNS config for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *desiredDnsConfig;
+
+/**
+ *  Enable/Disable Cilium Clusterwide Network Policy for the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredEnableCiliumClusterwideNetworkPolicy;
 
 /**
  *  Enable/Disable FQDN Network Policy for the cluster.
@@ -3204,11 +4350,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *desiredEnableFqdnNetworkPolicy;
 
 /**
- *  Enable/Disable private endpoint for the cluster's master.
+ *  Enable/Disable Multi-Networking for the cluster
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *desiredEnablePrivateEndpoint;
+@property(nonatomic, strong, nullable) NSNumber *desiredEnableMultiNetworking;
+
+/**
+ *  Enable/Disable private endpoint for the cluster's master. Deprecated: Use
+ *  desired_control_plane_endpoints_config.ip_endpoints_config.enable_public_endpoint
+ *  instead. Note that the value of enable_public_endpoint is reversed: if
+ *  enable_private_endpoint is false, then enable_public_endpoint will be true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *desiredEnablePrivateEndpoint GTLR_DEPRECATED;
+
+/** The desired enterprise configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_DesiredEnterpriseConfig *desiredEnterpriseConfig;
 
 /** The desired fleet configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_Fleet *desiredFleet;
@@ -3256,11 +4415,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The desired list of Google Compute Engine
- *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster's nodes should be located. This list must always include the
- *  cluster's primary zone. Warning: changing cluster locations will update the
- *  locations of all node pools and will result in nodes being added and/or
- *  removed.
+ *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster's nodes should be located. This list must always
+ *  include the cluster's primary zone. Warning: changing cluster locations will
+ *  update the locations of all node pools and will result in nodes being added
+ *  and/or removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
 
@@ -3280,8 +4439,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The desired configuration options for master authorized networks feature.
+ *  Deprecated: Use
+ *  desired_control_plane_endpoints_config.ip_endpoints_config.authorized_networks_config
+ *  instead.
  */
-@property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *desiredMasterAuthorizedNetworksConfig;
+@property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *desiredMasterAuthorizedNetworksConfig GTLR_DEPRECATED;
 
 /**
  *  The Kubernetes version to change the master to. Users may specify either
@@ -3304,7 +4466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The monitoring service the cluster should use to write metrics. Currently
- *  available options: * "monitoring.googleapis.com/kubernetes" - The Cloud
+ *  available options: * `monitoring.googleapis.com/kubernetes` - The Cloud
  *  Monitoring service with a Kubernetes-native resource model *
  *  `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
  *  available as of GKE 1.15). * `none` - No metrics will be exported from the
@@ -3316,6 +4478,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired network performance config. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterNetworkPerformanceConfig *desiredNetworkPerformanceConfig;
+
+/** The desired node kubelet config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *desiredNodeKubeletConfig;
+
+/**
+ *  The desired node kubelet config for all auto-provisioned node pools in
+ *  autopilot clusters and node auto-provisioning enabled clusters.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *desiredNodePoolAutoConfigKubeletConfig;
+
+/**
+ *  The desired Linux node config for all auto-provisioned node pools in
+ *  autopilot clusters and node auto-provisioning enabled clusters. Currently
+ *  only `cgroup_mode` can be set here.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig *desiredNodePoolAutoConfigLinuxNodeConfig;
 
 /**
  *  The desired network tags that apply to all auto-provisioned node pools in
@@ -3365,8 +4543,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired parent product config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_ParentProductConfig *desiredParentProductConfig;
 
-/** The desired private cluster configuration. */
-@property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *desiredPrivateClusterConfig;
+/** The desired config for pod autoscaling. */
+@property(nonatomic, strong, nullable) GTLRContainer_PodAutoscaling *desiredPodAutoscaling;
+
+/**
+ *  The desired private cluster configuration. master_global_access_config is
+ *  the only field that can be changed via this field. See also
+ *  ClusterUpdate.desired_enable_private_endpoint for modifying other fields
+ *  within PrivateClusterConfig. Deprecated: Use
+ *  desired_control_plane_endpoints_config.ip_endpoints_config.global_access
+ *  instead.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *desiredPrivateClusterConfig GTLR_DEPRECATED;
 
 /**
  *  The desired state of IPv6 connectivity to Google Services.
@@ -3387,11 +4575,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *desiredPrivateIpv6GoogleAccess;
 
+/**
+ *  RBACBindingConfig allows user to restrict ClusterRoleBindings an
+ *  RoleBindings that can be created.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_RBACBindingConfig *desiredRbacBindingConfig;
+
 /** The desired release channel configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ReleaseChannel *desiredReleaseChannel;
 
 /** The desired configuration for exporting resource usage. */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *desiredResourceUsageExportConfig;
+
+/** Enable/Disable Secret Manager Config. */
+@property(nonatomic, strong, nullable) GTLRContainer_SecretManagerConfig *desiredSecretManagerConfig;
 
 /** Enable/Disable Security Posture API features for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecurityPostureConfig *desiredSecurityPostureConfig;
@@ -3421,6 +4618,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *desiredStackType;
 
+/** The desired user managed keys config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_UserManagedKeysConfig *desiredUserManagedKeysConfig;
+
 /** Cluster-level Vertical Pod Autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *desiredVerticalPodAutoscaling;
 
@@ -3437,12 +4637,54 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
+/** Configuration for GKE auto upgrade. */
+@property(nonatomic, strong, nullable) GTLRContainer_GkeAutoUpgradeConfig *gkeAutoUpgradeConfig;
+
 /**
  *  The additional pod ranges that are to be removed from the cluster. The pod
  *  ranges specified here must have been specified earlier in the
  *  'additional_pod_ranges_config' argument.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_AdditionalPodRangesConfig *removedAdditionalPodRangesConfig;
+
+/**
+ *  The Custom keys configuration for the cluster. This field is deprecated. Use
+ *  ClusterUpdate.desired_user_managed_keys_config instead.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_UserManagedKeysConfig *userManagedKeysConfig GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  ClusterUpgradeInfo contains the upgrade information of a cluster.
+ */
+@interface GTLRContainer_ClusterUpgradeInfo : GTLRObject
+
+/** The auto upgrade status. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoUpgradeStatus;
+
+/**
+ *  The cluster's current minor version's end of extended support timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *endOfExtendedSupportTimestamp;
+
+/**
+ *  The cluster's current minor version's end of standard support timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *endOfStandardSupportTimestamp;
+
+/** minor_target_version indicates the target version for minor upgrade. */
+@property(nonatomic, copy, nullable) NSString *minorTargetVersion;
+
+/** patch_target_version indicates the target version for patch upgrade. */
+@property(nonatomic, copy, nullable) NSString *patchTargetVersion;
+
+/** The auto upgrade paused reason. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pausedReason;
+
+/** The list of past auto upgrades. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_UpgradeDetails *> *upgradeDetails;
 
 @end
 
@@ -3466,16 +4708,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3493,10 +4735,63 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  CompliancePostureConfig defines the settings needed to enable/disable
+ *  features for the Compliance Posture.
+ */
+@interface GTLRContainer_CompliancePostureConfig : GTLRObject
+
+/** List of enabled compliance standards. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_ComplianceStandard *> *complianceStandards;
+
+/**
+ *  Defines the enablement mode for Compliance Posture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_CompliancePostureConfig_Mode_Disabled Disables
+ *        Compliance Posture features on the cluster. (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_CompliancePostureConfig_Mode_Enabled Enables
+ *        Compliance Posture features on the cluster. (Value: "ENABLED")
+ *    @arg @c kGTLRContainer_CompliancePostureConfig_Mode_ModeUnspecified
+ *        Default value not specified. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
+ *  Defines the details of a compliance standard.
+ */
+@interface GTLRContainer_ComplianceStandard : GTLRObject
+
+/** Name of the compliance standard. */
+@property(nonatomic, copy, nullable) NSString *standard;
+
+@end
+
+
+/**
  *  ConfidentialNodes is configuration for the confidential nodes feature, which
  *  makes nodes run on confidential VMs.
  */
 @interface GTLRContainer_ConfidentialNodes : GTLRObject
+
+/**
+ *  Defines the type of technology used by the confidential node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_ConfidentialInstanceTypeUnspecified
+ *        No type specified. Do not use this value. (Value:
+ *        "CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Sev AMD
+ *        Secure Encrypted Virtualization. (Value: "SEV")
+ *    @arg @c kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_SevSnp
+ *        AMD Secure Encrypted Virtualization - Secure Nested Paging. (Value:
+ *        "SEV_SNP")
+ *    @arg @c kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Tdx
+ *        Intel Trust Domain eXtension. (Value: "TDX")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialInstanceType;
 
 /**
  *  Whether Confidential Nodes feature is enabled.
@@ -3540,6 +4835,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Configuration for all of the cluster's control plane endpoints.
+ */
+@interface GTLRContainer_ControlPlaneEndpointsConfig : GTLRObject
+
+/** DNS endpoint configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_DNSEndpointConfig *dnsEndpointConfig;
+
+/** IP endpoints configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_IPEndpointsConfig *ipEndpointsConfig;
+
+@end
+
+
+/**
  *  Configuration for fine-grained cost management feature.
  */
 @interface GTLRContainer_CostManagementConfig : GTLRObject
@@ -3561,7 +4870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Required. A [cluster
- *  resource](https://cloud.google.com/container-engine/reference/rest/v1/projects.locations.clusters)
+ *  resource](https://{$universe.dns_names.final_documentation_domain}/container-engine/reference/rest/v1/projects.locations.clusters)
  */
 @property(nonatomic, strong, nullable) GTLRContainer_Cluster *cluster;
 
@@ -3573,16 +4882,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the parent
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3613,16 +4922,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the parent
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the parent field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3637,7 +4946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_DailyMaintenanceWindow : GTLRObject
 
 /**
- *  [Output only] Duration of the time window, automatically chosen to be
+ *  Output only. Duration of the time window, automatically chosen to be
  *  smallest possible in the given scenario. Duration will be in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format "PTnHnMnS".
  */
@@ -3659,10 +4968,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_DatabaseEncryption : GTLRObject
 
 /**
+ *  Output only. The current state of etcd encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecrypted
+ *        Secrets in etcd are stored in plain text (at etcd level) - this is
+ *        unrelated to Compute Engine level full disk encryption. (Value:
+ *        "CURRENT_STATE_DECRYPTED")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionError
+ *        De-crypting Secrets to plain text in etcd encountered an error.
+ *        (Value: "CURRENT_STATE_DECRYPTION_ERROR")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecryptionPending
+ *        De-crypting Secrets to plain text in etcd is in progress. (Value:
+ *        "CURRENT_STATE_DECRYPTION_PENDING")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncrypted
+ *        Secrets in etcd are encrypted. (Value: "CURRENT_STATE_ENCRYPTED")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncryptionError
+ *        Encryption (or re-encryption with a different CloudKMS key) of Secrets
+ *        in etcd encountered an error. (Value:
+ *        "CURRENT_STATE_ENCRYPTION_ERROR")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateEncryptionPending
+ *        Encryption (or re-encryption with a different CloudKMS key) of Secrets
+ *        is in progress. (Value: "CURRENT_STATE_ENCRYPTION_PENDING")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateUnspecified
+ *        Should never be set (Value: "CURRENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *currentState;
+
+/**
+ *  Output only. Keys in use by the cluster for decrypting existing objects, in
+ *  addition to the key in `key_name`. Each item is a CloudKMS key resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *decryptionKeys;
+
+/**
  *  Name of CloudKMS key to use for the encryption of secrets in etcd. Ex.
  *  projects/my-project/locations/global/keyRings/my-ring/cryptoKeys/my-key
  */
 @property(nonatomic, copy, nullable) NSString *keyName;
+
+/**
+ *  Output only. Records errors seen during DatabaseEncryption update
+ *  operations.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_OperationError *> *lastOperationErrors;
 
 /**
  *  The desired state of etcd encryption.
@@ -3682,6 +5031,35 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  ContainerdConfig contains configuration to customize containerd.
+ */
+@interface GTLRContainer_DConfig : GTLRObject
+
+/**
+ *  PrivateRegistryAccessConfig is used to configure access configuration for
+ *  private container registries.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_PrivateRegistryAccessConfig *privateRegistryAccessConfig;
+
+@end
+
+
+/**
+ *  DefaultComputeClassConfig defines default compute class configuration.
+ */
+@interface GTLRContainer_DefaultComputeClassConfig : GTLRObject
+
+/**
+ *  Enables default compute class.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  DefaultSnatStatus contains the desired state of whether default sNAT should
  *  be disabled on the cluster.
  */
@@ -3693,6 +5071,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  DesiredAdditionalIPRangesConfig is a wrapper used for cluster update
+ *  operation and contains multiple AdditionalIPRangesConfigs.
+ */
+@interface GTLRContainer_DesiredAdditionalIPRangesConfig : GTLRObject
+
+/**
+ *  List of additional IP ranges configs where each AdditionalIPRangesConfig
+ *  corresponds to one subnetwork's IP ranges
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_AdditionalIPRangesConfig *> *additionalIpRangesConfigs;
+
+@end
+
+
+/**
+ *  DesiredEnterpriseConfig is a wrapper used for updating enterprise_config.
+ */
+@interface GTLRContainer_DesiredEnterpriseConfig : GTLRObject
+
+/**
+ *  desired_tier specifies the desired tier of the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DesiredEnterpriseConfig_DesiredTier_ClusterTierUnspecified
+ *        CLUSTER_TIER_UNSPECIFIED is when cluster_tier is not set. (Value:
+ *        "CLUSTER_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_DesiredEnterpriseConfig_DesiredTier_Enterprise
+ *        ENTERPRISE indicates a GKE Enterprise cluster. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRContainer_DesiredEnterpriseConfig_DesiredTier_Standard
+ *        STANDARD indicates a standard GKE cluster. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredTier;
 
 @end
 
@@ -3716,6 +5131,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  DNSConfig contains the desired set of options for configuring clusterDNS.
  */
 @interface GTLRContainer_DNSConfig : GTLRObject
+
+/** Optional. The domain used in Additive VPC scope. */
+@property(nonatomic, copy, nullable) NSString *additiveVpcScopeDnsDomain;
 
 /**
  *  cluster_dns indicates which in-cluster DNS provider should be used.
@@ -3754,6 +5172,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Describes the configuration of a DNS endpoint.
+ */
+@interface GTLRContainer_DNSEndpointConfig : GTLRObject
+
+/**
+ *  Controls whether user traffic is allowed over this endpoint. Note that
+ *  GCP-managed services may still use the endpoint even if this is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowExternalTraffic;
+
+/**
+ *  Output only. The cluster's DNS endpoint configuration. A DNS format address.
+ *  This is accessible from the public internet. Ex: uid.us-central1.gke.goog.
+ *  Always present, but the behavior may change according to the value of
+ *  DNSEndpointConfig.allow_external_traffic.
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -3769,8 +5211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_EnterpriseConfig : GTLRObject
 
 /**
- *  Output only. [Output only] cluster_tier specifies the premium tier of the
- *  cluster.
+ *  Output only. cluster_tier indicates the effective tier of the cluster.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_EnterpriseConfig_ClusterTier_ClusterTierUnspecified
@@ -3783,6 +5224,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *clusterTier;
 
+/**
+ *  desired_tier specifies the desired tier of the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_EnterpriseConfig_DesiredTier_ClusterTierUnspecified
+ *        CLUSTER_TIER_UNSPECIFIED is when cluster_tier is not set. (Value:
+ *        "CLUSTER_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_EnterpriseConfig_DesiredTier_Enterprise ENTERPRISE
+ *        indicates a GKE Enterprise cluster. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRContainer_EnterpriseConfig_DesiredTier_Standard STANDARD
+ *        indicates a standard GKE cluster. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredTier;
+
 @end
 
 
@@ -3793,24 +5248,204 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_EphemeralStorageLocalSsdConfig : GTLRObject
 
 /**
+ *  Number of local SSDs to use for GKE Data Cache.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCacheCount;
+
+/**
  *  Number of local SSDs to use to back ephemeral storage. Uses NVMe interfaces.
  *  A zero (or unset) value has different meanings depending on machine type
  *  being used: 1. For pre-Gen3 machines, which support flexible numbers of
  *  local ssds, zero (or unset) means to disable using local SSDs as ephemeral
  *  storage. The limit for this value is dependent upon the maximum number of
  *  disk available on a machine per zone. See:
- *  https://cloud.google.com/compute/docs/disks/local-ssd for more information.
- *  2. For Gen3 machines which dictate a specific number of local ssds, zero (or
- *  unset) means to use the default number of local ssds that goes with that
- *  machine type. For example, for a c3-standard-8-lssd machine, 2 local ssds
- *  would be provisioned. For c3-standard-8 (which doesn't support local ssds),
- *  0 will be provisioned. See
- *  https://cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd
+ *  for more information. 2. For Gen3 machines which dictate a specific number
+ *  of local ssds, zero (or unset) means to use the default number of local ssds
+ *  that goes with that machine type. For example, for a c3-standard-8-lssd
+ *  machine, 2 local ssds would be provisioned. For c3-standard-8 (which doesn't
+ *  support local ssds), 0 will be provisioned. See
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd#choose_number_local_ssds
  *  for more info.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *localSsdCount;
+
+@end
+
+
+/**
+ *  Eviction grace periods are grace periods for each eviction signal.
+ */
+@interface GTLRContainer_EvictionGracePeriod : GTLRObject
+
+/**
+ *  Optional. Grace period for eviction due to imagefs available signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsAvailable;
+
+/**
+ *  Optional. Grace period for eviction due to imagefs inodes free signal.
+ *  Sample format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsInodesFree;
+
+/**
+ *  Optional. Grace period for eviction due to memory available signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *memoryAvailable;
+
+/**
+ *  Optional. Grace period for eviction due to nodefs available signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsAvailable;
+
+/**
+ *  Optional. Grace period for eviction due to nodefs inodes free signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsInodesFree;
+
+/**
+ *  Optional. Grace period for eviction due to pid available signal. Sample
+ *  format: "10s". Must be >= 0. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *pidAvailable;
+
+@end
+
+
+/**
+ *  Eviction minimum reclaims are the resource amounts of minimum reclaims for
+ *  each eviction signal.
+ */
+@interface GTLRContainer_EvictionMinimumReclaim : GTLRObject
+
+/**
+ *  Optional. Minimum reclaim for eviction due to imagefs available signal. Only
+ *  take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsAvailable;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to imagefs inodes free signal.
+ *  Only take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsInodesFree;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to memory available signal. Only
+ *  take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *memoryAvailable;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to nodefs available signal. Only
+ *  take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsAvailable;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to nodefs inodes free signal.
+ *  Only take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsInodesFree;
+
+/**
+ *  Optional. Minimum reclaim for eviction due to pid available signal. Only
+ *  take percentage value for now. Sample format: "10%". Must be <=10%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *pidAvailable;
+
+@end
+
+
+/**
+ *  Eviction signals are the current state of a particular resource at a
+ *  specific point in time. The kubelet uses eviction signals to make eviction
+ *  decisions by comparing the signals to eviction thresholds, which are the
+ *  minimum amount of the resource that should be available on the node.
+ */
+@interface GTLRContainer_EvictionSignals : GTLRObject
+
+/**
+ *  Optional. Amount of storage available on filesystem that container runtime
+ *  uses for storing images layers. If the container filesystem and image
+ *  filesystem are not separate, then imagefs can store both image layers and
+ *  writeable layers. Defines the amount of "imagefs.available" signal in
+ *  kubelet. Default is unset, if not specified in the kubelet config. It takses
+ *  percentage value for now. Sample format: "30%". Must be >= 15% and <= 50%.
+ *  See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsAvailable;
+
+/**
+ *  Optional. Amount of inodes available on filesystem that container runtime
+ *  uses for storing images layers. Defines the amount of "imagefs.inodesFree"
+ *  signal in kubelet. Default is unset, if not specified in the kubelet config.
+ *  Linux only. It takses percentage value for now. Sample format: "30%". Must
+ *  be >= 5% and <= 50%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *imagefsInodesFree;
+
+/**
+ *  Optional. Memory available (i.e. capacity - workingSet), in bytes. Defines
+ *  the amount of "memory.available" signal in kubelet. Default is unset, if not
+ *  specified in the kubelet config. Format: positive number + unit, e.g. 100Ki,
+ *  10Mi, 5Gi. Valid units are Ki, Mi, Gi. Must be >= 100Mi and <= 50% of the
+ *  node's memory. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *memoryAvailable;
+
+/**
+ *  Optional. Amount of storage available on filesystem that kubelet uses for
+ *  volumes, daemon logs, etc. Defines the amount of "nodefs.available" signal
+ *  in kubelet. Default is unset, if not specified in the kubelet config. It
+ *  takses percentage value for now. Sample format: "30%". Must be >= 10% and <=
+ *  50%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsAvailable;
+
+/**
+ *  Optional. Amount of inodes available on filesystem that kubelet uses for
+ *  volumes, daemon logs, etc. Defines the amount of "nodefs.inodesFree" signal
+ *  in kubelet. Default is unset, if not specified in the kubelet config. Linux
+ *  only. It takses percentage value for now. Sample format: "30%". Must be >=
+ *  5% and <= 50%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *nodefsInodesFree;
+
+/**
+ *  Optional. Amount of PID available for pod allocation. Defines the amount of
+ *  "pid.available" signal in kubelet. Default is unset, if not specified in the
+ *  kubelet config. It takses percentage value for now. Sample format: "30%".
+ *  Must be >= 10% and <= 50%. See
+ *  https://kubernetes.io/docs/concepts/scheduling-eviction/node-pressure-eviction/#eviction-signals
+ */
+@property(nonatomic, copy, nullable) NSString *pidAvailable;
 
 @end
 
@@ -3850,14 +5485,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_Fleet : GTLRObject
 
 /**
- *  [Output only] The full resource name of the registered fleet membership of
+ *  Output only. The full resource name of the registered fleet membership of
  *  the cluster, in the format `//gkehub.googleapis.com/projects/ * /locations/
  *  * /memberships/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *membership;
 
 /**
- *  [Output only] Whether the cluster has been registered through the fleet API.
+ *  The type of the cluster's fleet membership.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_Fleet_MembershipType_Lightweight The membership
+ *        supports only lightweight compatible features. (Value: "LIGHTWEIGHT")
+ *    @arg @c kGTLRContainer_Fleet_MembershipType_MembershipTypeUnspecified The
+ *        MembershipType is not set. (Value: "MEMBERSHIP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *membershipType;
+
+/**
+ *  Output only. Whether the cluster has been registered through the fleet API.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3885,8 +5531,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelDisabled Gateway
  *        API support is disabled (Value: "CHANNEL_DISABLED")
  *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelExperimental
- *        Gateway API support is enabled, experimental CRDs are installed
- *        (Value: "CHANNEL_EXPERIMENTAL")
+ *        Deprecated: use CHANNEL_STANDARD instead. Gateway API support is
+ *        enabled, experimental CRDs are installed (Value:
+ *        "CHANNEL_EXPERIMENTAL")
  *    @arg @c kGTLRContainer_GatewayAPIConfig_Channel_ChannelStandard Gateway
  *        API support is enabled, standard CRDs are installed (Value:
  *        "CHANNEL_STANDARD")
@@ -3945,6 +5592,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  GCPSecretManagerCertificateConfig configures a secret from [Google Secret
+ *  Manager](https://{$universe.dns_names.final_documentation_domain}/secret-manager).
+ */
+@interface GTLRContainer_GCPSecretManagerCertificateConfig : GTLRObject
+
+/**
+ *  Secret URI, in the form
+ *  "projects/$PROJECT_ID/secrets/$SECRET_NAME/versions/$VERSION". Version can
+ *  be fixed (e.g. "2") or "latest"
+ */
+@property(nonatomic, copy, nullable) NSString *secretUri;
+
+@end
+
+
+/**
  *  Configuration for the Cloud Storage Fuse CSI driver.
  */
 @interface GTLRContainer_GcsFuseCsiDriverConfig : GTLRObject
@@ -3960,13 +5623,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  GetJSONWebKeysResponse is a valid JSON Web Key Set as specififed in rfc 7517
+ *  GetJSONWebKeysResponse is a valid JSON Web Key Set as specified in rfc 7517
  */
 @interface GTLRContainer_GetJSONWebKeysResponse : GTLRObject
 
 /**
- *  OnePlatform automatically extracts this field and uses it to set the HTTP
- *  Cache-Control header.
+ *  For HTTP requests, this field is automatically extracted into the
+ *  Cache-Control HTTP header.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_HttpCacheControlResponseHeader *cacheHeader;
 
@@ -3985,8 +5648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_GetOpenIDConfigResponse : GTLRObject
 
 /**
- *  OnePlatform automatically extracts this field and uses it to set the HTTP
- *  Cache-Control header.
+ *  For HTTP requests, this field is automatically extracted into the
+ *  Cache-Control HTTP header.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_HttpCacheControlResponseHeader *cacheHeader;
 
@@ -4010,6 +5673,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Supported subject types. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subjectTypesSupported;
+
+@end
+
+
+/**
+ *  GkeAutoUpgradeConfig is the configuration for GKE auto upgrades.
+ */
+@interface GTLRContainer_GkeAutoUpgradeConfig : GTLRObject
+
+/**
+ *  PatchMode specifies how auto upgrade patch builds should be selected.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_GkeAutoUpgradeConfig_PatchMode_Accelerated
+ *        ACCELERATED denotes that the latest patch build in the channel should
+ *        be used as the upgrade target for the version. (Value: "ACCELERATED")
+ *    @arg @c kGTLRContainer_GkeAutoUpgradeConfig_PatchMode_PatchModeUnspecified
+ *        PATCH_MODE_UNSPECIFIED defaults to using the upgrade target from the
+ *        channel's patch upgrade targets as the upgrade target for the version.
+ *        (Value: "PATCH_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *patchMode;
 
 @end
 
@@ -4067,6 +5752,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Likely values:
  *    @arg @c kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_GpuSharingStrategyUnspecified
  *        Default value. (Value: "GPU_SHARING_STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_Mps GPUs are
+ *        shared between containers with NVIDIA MPS. (Value: "MPS")
  *    @arg @c kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_TimeSharing
  *        GPUs are time-shared between containers. (Value: "TIME_SHARING")
  */
@@ -4078,6 +5765,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxSharedClientsPerGpu;
+
+@end
+
+
+/**
+ *  Configuration for the High Scale Checkpointing.
+ */
+@interface GTLRContainer_HighScaleCheckpointingConfig : GTLRObject
+
+/**
+ *  Whether the High Scale Checkpointing is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -4140,6 +5842,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Hugepages amount in both 2m and 1g size
+ */
+@interface GTLRContainer_HugepagesConfig : GTLRObject
+
+/**
+ *  Optional. Amount of 1G hugepages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hugepageSize1g;
+
+/**
+ *  Optional. Amount of 2M hugepages
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hugepageSize2m;
+
+@end
+
+
+/**
  *  IdentityServiceConfig is configuration for Identity Service which allows
  *  customers to use external identity providers with the K8S API
  */
@@ -4193,12 +5917,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_IPAllocationPolicy : GTLRObject
 
 /**
- *  Output only. [Output only] The additional pod ranges that are added to the
- *  cluster. These pod ranges can be used by new node pools to allocate pod IPs
- *  automatically. Once the range is removed it will not show up in
+ *  Output only. The additional IP ranges that are added to the cluster. These
+ *  IP ranges can be used by new node pools to allocate node and pod IPs
+ *  automatically. Each AdditionalIPRangesConfig corresponds to a single
+ *  subnetwork. Once a range is removed it will not show up in
  *  IPAllocationPolicy.
  */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_AdditionalIPRangesConfig *> *additionalIpRangesConfigs;
+
+/**
+ *  Output only. The additional pod ranges that are added to the cluster. These
+ *  pod ranges can be used by new node pools to allocate pod IPs automatically.
+ *  Once the range is removed it will not show up in IPAllocationPolicy.
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_AdditionalPodRangesConfig *additionalPodRangesConfig;
+
+/** Optional. AutoIpamConfig contains all information related to Auto IPAM */
+@property(nonatomic, strong, nullable) GTLRContainer_AutoIpamConfig *autoIpamConfig;
 
 /** This field is deprecated, use cluster_ipv4_cidr_block. */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr GTLR_DEPRECATED;
@@ -4232,9 +5967,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *createSubnetwork;
 
 /**
- *  Output only. [Output only] The utilization of the cluster default IPv4 range
- *  for the pod. The ratio is Usage/[Total number of IPs in the secondary
- *  range], Usage=numNodes*numZones*podIPsPerNode.
+ *  Output only. The utilization of the cluster default IPv4 range for the pod.
+ *  The ratio is Usage/[Total number of IPs in the secondary range],
+ *  Usage=numNodes*numZones*podIPsPerNode.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -4294,9 +6029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *servicesIpv4CidrBlock;
 
-/**
- *  Output only. [Output only] The services IPv6 CIDR block for the cluster.
- */
+/** Output only. The services IPv6 CIDR block for the cluster. */
 @property(nonatomic, copy, nullable) NSString *servicesIpv6CidrBlock;
 
 /**
@@ -4322,10 +6055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *stackType;
 
-/**
- *  Output only. [Output only] The subnet's IPv6 CIDR block used by nodes and
- *  pods.
- */
+/** Output only. The subnet's IPv6 CIDR block used by nodes and pods. */
 @property(nonatomic, copy, nullable) NSString *subnetIpv6CidrBlock;
 
 /**
@@ -4343,9 +6073,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  specific netmask. Set to a
  *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
  *  (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`,
- *  `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use.
+ *  `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use. This
+ *  field is deprecated due to the deprecation of 2VM TPU. The end of life date
+ *  for 2VM TPU is 2025-04-25.
  */
-@property(nonatomic, copy, nullable) NSString *tpuIpv4CidrBlock;
+@property(nonatomic, copy, nullable) NSString *tpuIpv4CidrBlock GTLR_DEPRECATED;
 
 /**
  *  Whether alias IPs will be used for pod IPs in the cluster. This is used in
@@ -4366,6 +6098,67 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *useRoutes;
+
+@end
+
+
+/**
+ *  IP endpoints configuration.
+ */
+@interface GTLRContainer_IPEndpointsConfig : GTLRObject
+
+/**
+ *  Configuration of authorized networks. If enabled, restricts access to the
+ *  control plane based on source IP. It is invalid to specify both
+ *  Cluster.masterAuthorizedNetworksConfig and this field at the same time.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *authorizedNetworksConfig;
+
+/**
+ *  Controls whether to allow direct IP access.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Controls whether the control plane allows access through a public IP. It is
+ *  invalid to specify both PrivateClusterConfig.enablePrivateEndpoint and this
+ *  field at the same time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePublicEndpoint;
+
+/**
+ *  Controls whether the control plane's private endpoint is accessible from
+ *  sources in other regions. It is invalid to specify both
+ *  PrivateClusterMasterGlobalAccessConfig.enabled and this field at the same
+ *  time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *globalAccess;
+
+/**
+ *  Output only. The internal IP address of this cluster's control plane. Only
+ *  populated if enabled.
+ */
+@property(nonatomic, copy, nullable) NSString *privateEndpoint;
+
+/**
+ *  Subnet to provision the master's private endpoint during cluster creation.
+ *  Specified in projects/ * /regions/ * /subnetworks/ * format. It is invalid
+ *  to specify both PrivateClusterConfig.privateEndpointSubnetwork and this
+ *  field at the same time.
+ */
+@property(nonatomic, copy, nullable) NSString *privateEndpointSubnetwork;
+
+/**
+ *  Output only. The external IP address of this cluster's control plane. Only
+ *  populated if enabled.
+ */
+@property(nonatomic, copy, nullable) NSString *publicEndpoint;
 
 @end
 
@@ -4472,14 +6265,92 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *cgroupMode;
 
+/** Optional. Amounts for 2M and 1G hugepages */
+@property(nonatomic, strong, nullable) GTLRContainer_HugepagesConfig *hugepages;
+
 /**
  *  The Linux kernel parameters to be applied to the nodes and all pods running
  *  on the nodes. The following parameters are supported. net.core.busy_poll
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
- *  net.core.wmem_default net.core.wmem_max net.core.optmem_max
- *  net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem net.ipv4.tcp_tw_reuse
+ *  net.core.rmem_default net.core.wmem_default net.core.wmem_max
+ *  net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
+ *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_max_orphans
+ *  net.netfilter.nf_conntrack_max net.netfilter.nf_conntrack_buckets
+ *  net.netfilter.nf_conntrack_tcp_timeout_close_wait
+ *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
+ *  net.netfilter.nf_conntrack_tcp_timeout_established
+ *  net.netfilter.nf_conntrack_acct kernel.shmmni kernel.shmmax kernel.shmall
+ *  fs.aio-max-nr fs.file-max fs.inotify.max_user_instances
+ *  fs.inotify.max_user_watches fs.nr_open vm.dirty_background_ratio
+ *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_writeback_centisecs
+ *  vm.max_map_count vm.overcommit_memory vm.overcommit_ratio
+ *  vm.vfs_cache_pressure vm.swappiness vm.watermark_scale_factor
+ *  vm.min_free_kbytes
  */
 @property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig_Sysctls *sysctls;
+
+/**
+ *  Optional. Defines the transparent hugepage defrag configuration on the node.
+ *  VM hugepage allocation can be managed by either limiting defragmentation for
+ *  delayed allocation or skipping it entirely for immediate allocation only.
+ *  See https://docs.kernel.org/admin-guide/mm/transhuge.html for more details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragAlways
+ *        It means that an application requesting THP will stall on allocation
+ *        failure and directly reclaim pages and compact memory in an effort to
+ *        allocate a THP immediately. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_ALWAYS")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDefer
+ *        It means that an application will wake kswapd in the background to
+ *        reclaim pages and wake kcompactd to compact memory so that THP is
+ *        available in the near future. It’s the responsibility of khugepaged to
+ *        then install the THP pages later. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDeferWithMadvise
+ *        It means that an application will enter direct reclaim and compaction
+ *        like always, but only for regions that have used
+ *        madvise(MADV_HUGEPAGE); all other regions will wake kswapd in the
+ *        background to reclaim pages and wake kcompactd to compact memory so
+ *        that THP is available in the near future. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER_WITH_MADVISE")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragMadvise
+ *        It means that an application will enter direct reclaim like always but
+ *        only for regions that are have used madvise(MADV_HUGEPAGE). This is
+ *        the default kernel configuration. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_MADVISE")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragNever
+ *        It means that an application will never enter direct reclaim or
+ *        compaction. (Value: "TRANSPARENT_HUGEPAGE_DEFRAG_NEVER")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragUnspecified
+ *        Default value. GKE will not modify the kernel configuration. (Value:
+ *        "TRANSPARENT_HUGEPAGE_DEFRAG_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transparentHugepageDefrag;
+
+/**
+ *  Optional. Transparent hugepage support for anonymous memory can be entirely
+ *  disabled (mostly for debugging purposes) or only enabled inside
+ *  MADV_HUGEPAGE regions (to avoid the risk of consuming more memory resources)
+ *  or enabled system wide. See
+ *  https://docs.kernel.org/admin-guide/mm/transhuge.html for more details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledAlways
+ *        Transparent hugepage support for anonymous memory is enabled system
+ *        wide. (Value: "TRANSPARENT_HUGEPAGE_ENABLED_ALWAYS")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledMadvise
+ *        Transparent hugepage support for anonymous memory is enabled inside
+ *        MADV_HUGEPAGE regions. This is the default kernel configuration.
+ *        (Value: "TRANSPARENT_HUGEPAGE_ENABLED_MADVISE")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledNever
+ *        Transparent hugepage support for anonymous memory is disabled. (Value:
+ *        "TRANSPARENT_HUGEPAGE_ENABLED_NEVER")
+ *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageEnabled_TransparentHugepageEnabledUnspecified
+ *        Default value. GKE will not modify the kernel configuration. (Value:
+ *        "TRANSPARENT_HUGEPAGE_ENABLED_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transparentHugepageEnabled;
 
 @end
 
@@ -4488,8 +6359,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  The Linux kernel parameters to be applied to the nodes and all pods running
  *  on the nodes. The following parameters are supported. net.core.busy_poll
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
- *  net.core.wmem_default net.core.wmem_max net.core.optmem_max
- *  net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem net.ipv4.tcp_tw_reuse
+ *  net.core.rmem_default net.core.wmem_default net.core.wmem_max
+ *  net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
+ *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_max_orphans
+ *  net.netfilter.nf_conntrack_max net.netfilter.nf_conntrack_buckets
+ *  net.netfilter.nf_conntrack_tcp_timeout_close_wait
+ *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
+ *  net.netfilter.nf_conntrack_tcp_timeout_established
+ *  net.netfilter.nf_conntrack_acct kernel.shmmni kernel.shmmax kernel.shmall
+ *  fs.aio-max-nr fs.file-max fs.inotify.max_user_instances
+ *  fs.inotify.max_user_watches fs.nr_open vm.dirty_background_ratio
+ *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_writeback_centisecs
+ *  vm.max_map_count vm.overcommit_memory vm.overcommit_ratio
+ *  vm.vfs_cache_pressure vm.swappiness vm.watermark_scale_factor
+ *  vm.min_free_kbytes
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4586,16 +6469,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  Number of local NVMe SSDs to use. The limit for this value is dependent upon
  *  the maximum number of disk available on a machine per zone. See:
- *  https://cloud.google.com/compute/docs/disks/local-ssd for more information.
- *  A zero (or unset) value has different meanings depending on machine type
- *  being used: 1. For pre-Gen3 machines, which support flexible numbers of
- *  local ssds, zero (or unset) means to disable using local SSDs as ephemeral
- *  storage. 2. For Gen3 machines which dictate a specific number of local ssds,
- *  zero (or unset) means to use the default number of local ssds that goes with
- *  that machine type. For example, for a c3-standard-8-lssd machine, 2 local
- *  ssds would be provisioned. For c3-standard-8 (which doesn't support local
- *  ssds), 0 will be provisioned. See
- *  https://cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd
+ *  for more information. A zero (or unset) value has different meanings
+ *  depending on machine type being used: 1. For pre-Gen3 machines, which
+ *  support flexible numbers of local ssds, zero (or unset) means to disable
+ *  using local SSDs as ephemeral storage. 2. For Gen3 machines which dictate a
+ *  specific number of local ssds, zero (or unset) means to use the default
+ *  number of local ssds that goes with that machine type. For example, for a
+ *  c3-standard-8-lssd machine, 2 local ssds would be provisioned. For
+ *  c3-standard-8 (which doesn't support local ssds), 0 will be provisioned. See
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd#choose_number_local_ssds
  *  for more info.
  *
  *  Uses NSNumber of intValue.
@@ -4646,6 +6529,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        Default value. This shouldn't be used. (Value: "VARIANT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *variant;
+
+@end
+
+
+/**
+ *  Configuration for the Lustre CSI driver.
+ */
+@interface GTLRContainer_LustreCsiDriverConfig : GTLRObject
+
+/**
+ *  Whether the Lustre CSI driver is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  If set to true, the Lustre CSI driver will install Lustre kernel modules
+ *  using port 6988. This serves as a workaround for a port conflict with the
+ *  gke-metadata-server. This field is required ONLY under the following
+ *  conditions: 1. The GKE node version is older than 1.33.2-gke.4655000. 2.
+ *  You're connecting to a Lustre instance that has the 'gke-support-enabled'
+ *  flag.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableLegacyLustrePort GTLR_DEPRECATED;
 
 @end
 
@@ -4740,6 +6650,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_ManagedPrometheusConfig : GTLRObject
 
+/** GKE Workload Auto-Monitoring Configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_AutoMonitoringConfig *autoMonitoringConfig;
+
 /**
  *  Enable Managed Collection.
  *
@@ -4758,8 +6671,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_MasterAuth : GTLRObject
 
 /**
- *  [Output only] Base64-encoded public certificate used by clients to
- *  authenticate to the cluster endpoint.
+ *  Output only. Base64-encoded public certificate used by clients to
+ *  authenticate to the cluster endpoint. Issued only if
+ *  client_certificate_config is set.
  */
 @property(nonatomic, copy, nullable) NSString *clientCertificate;
 
@@ -4771,14 +6685,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_ClientCertificateConfig *clientCertificateConfig;
 
 /**
- *  [Output only] Base64-encoded private key used by clients to authenticate to
+ *  Output only. Base64-encoded private key used by clients to authenticate to
  *  the cluster endpoint.
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
 /**
- *  [Output only] Base64-encoded public certificate that is the root of trust
- *  for the cluster.
+ *  Output only. Base64-encoded public certificate that is the root of trust for
+ *  the cluster.
  */
 @property(nonatomic, copy, nullable) NSString *clusterCaCertificate;
 
@@ -4789,7 +6703,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  must be non-empty. Warning: basic authentication is deprecated, and will be
  *  removed in GKE control plane versions 1.19 and newer. For a list of
  *  recommended authentication methods, see:
- *  https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
+ *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/api-server-authentication
  */
 @property(nonatomic, copy, nullable) NSString *password GTLR_DEPRECATED;
 
@@ -4800,7 +6714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  basic authentication is deprecated, and will be removed in GKE control plane
  *  versions 1.19 and newer. For a list of recommended authentication methods,
  *  see:
- *  https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
+ *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/api-server-authentication
  */
 @property(nonatomic, copy, nullable) NSString *username GTLR_DEPRECATED;
 
@@ -4829,11 +6743,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Whether master is accessbile via Google Compute Engine Public IP addresses.
+ *  Whether master is accessible via Google Compute Engine Public IP addresses.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *gcpPublicCidrsAccessEnabled;
+
+/**
+ *  Whether master authorized networks is enforced on private endpoint or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *privateEndpointEnforcementEnabled;
 
 @end
 
@@ -4849,6 +6770,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxPodsPerNode;
+
+@end
+
+
+/**
+ *  The option enables the Kubernetes NUMA-aware Memory Manager feature.
+ *  Detailed description about the feature can be found
+ *  [here](https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/).
+ */
+@interface GTLRContainer_MemoryManager : GTLRObject
+
+/**
+ *  Controls the memory management policy on the Node. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/#policies
+ *  The following values are allowed. * "none" * "static" The default value is
+ *  'none' if unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
 
 @end
 
@@ -4944,7 +6883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath Use
  *        the eBPF based GKE Dataplane V2 with additional features. See the [GKE
  *        Dataplane V2
- *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        documentation](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/dataplane-v2)
  *        for more. (Value: "ADVANCED_DATAPATH")
  *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_DatapathProviderUnspecified
  *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
@@ -4955,6 +6894,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *datapathProvider;
 
 /**
+ *  Controls whether by default nodes have private IP addresses only. It is
+ *  invalid to specify both PrivateClusterConfig.enablePrivateNodes and this
+ *  field at the same time. To update the default setting, use
+ *  ClusterUpdate.desired_default_enable_private_nodes
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultEnablePrivateNodes;
+
+/**
  *  Whether the cluster disables default in-node sNAT rules. In-node sNAT rules
  *  will be disabled when default_snat_status is disabled. When disabled is set
  *  to false, default IP masquerade rules will be applied to the nodes to
@@ -4962,8 +6911,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_DefaultSnatStatus *defaultSnatStatus;
 
+/**
+ *  Disable L4 load balancer VPC firewalls to enable firewall policies.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableL4LbFirewallReconciliation;
+
 /** DNSConfig contains clusterDNS config for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *dnsConfig;
+
+/**
+ *  Whether CiliumClusterwideNetworkPolicy is enabled on this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableCiliumClusterwideNetworkPolicy;
 
 /**
  *  Whether FQDN Network Policy is enabled on this cluster.
@@ -5000,7 +6963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_GatewayAPIConfig *gatewayApiConfig;
 
 /**
- *  Specify the details of in-transit encryption.
+ *  Specify the details of in-transit encryption. Now named inter-node
+ *  transparent encryption.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_NetworkConfig_InTransitEncryptionConfig_InTransitEncryptionConfigUnspecified
@@ -5018,7 +6982,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Output only. The relative name of the Google Compute Engine
- *  network(https://cloud.google.com/compute/docs/networks-and-firewalls#networks)
+ *  [network](https://{$universe.dns_names.final_documentation_domain}/compute/docs/networks-and-firewalls#networks)
  *  to which the cluster is connected. Example:
  *  projects/my-project/global/networks/my-network
  */
@@ -5055,8 +7019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Output only. The relative name of the Google Compute Engine
- *  [subnetwork](https://cloud.google.com/compute/docs/vpc) to which the cluster
- *  is connected. Example:
+ *  [subnetwork](https://{$universe.dns_names.final_documentation_domain}/compute/docs/vpc)
+ *  to which the cluster is connected. Example:
  *  projects/my-project/regions/us-central1/subnetworks/my-subnet
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
@@ -5142,7 +7106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  Specifies the NodeAffinity key, values, and affinity operator according to
  *  [shared sole tenant node group
- *  affinities](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes#node_affinity_and_anti-affinity).
+ *  affinities](https://{$universe.dns_names.final_documentation_domain}/compute/docs/nodes/sole-tenant-nodes#node_affinity_and_anti-affinity).
  */
 @interface GTLRContainer_NodeAffinity : GTLRObject
 
@@ -5180,20 +7144,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  A list of hardware accelerators to be attached to each node. See
- *  https://cloud.google.com/compute/docs/gpus for more information about
- *  support for GPUs.
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/gpus
+ *  for more information about support for GPUs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_AcceleratorConfig *> *accelerators;
 
 /** Advanced features for the Compute Engine VM. */
 @property(nonatomic, strong, nullable) GTLRContainer_AdvancedMachineFeatures *advancedMachineFeatures;
 
+/** The boot disk configuration for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_BootDisk *bootDisk;
+
 /**
  *  The Customer Managed Encryption Key used to encrypt the boot disk attached
  *  to each node in the node pool. This should be of the form
  *  projects/[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME].
  *  For more information about protecting resources with Cloud KMS Keys please
- *  see: https://cloud.google.com/compute/docs/disks/customer-managed-encryption
+ *  see:
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/customer-managed-encryption
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
 
@@ -5202,6 +7170,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Confidential VM once enabled.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
+
+/** Parameters for containerd customization. */
+@property(nonatomic, strong, nullable) GTLRContainer_DConfig *containerdConfig;
 
 /**
  *  Size of the disk attached to each node, specified in GB. The smallest
@@ -5218,6 +7189,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *diskType;
 
 /**
+ *  Output only. effective_cgroup_mode is the cgroup mode actually used by the
+ *  node pool. It is determined by the cgroup mode specified in the
+ *  LinuxNodeConfig or the default cgroup mode based on the cluster creation
+ *  version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NodeConfig_EffectiveCgroupMode_EffectiveCgroupModeUnspecified
+ *        EFFECTIVE_CGROUP_MODE_UNSPECIFIED means the cgroup configuration for
+ *        the node pool is unspecified, i.e. the node pool is a Windows node
+ *        pool. (Value: "EFFECTIVE_CGROUP_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NodeConfig_EffectiveCgroupMode_EffectiveCgroupModeV1
+ *        CGROUP_MODE_V1 means the node pool is configured to use cgroupv1 for
+ *        the cgroup configuration. (Value: "EFFECTIVE_CGROUP_MODE_V1")
+ *    @arg @c kGTLRContainer_NodeConfig_EffectiveCgroupMode_EffectiveCgroupModeV2
+ *        CGROUP_MODE_V2 means the node pool is configured to use cgroupv2 for
+ *        the cgroup configuration. (Value: "EFFECTIVE_CGROUP_MODE_V2")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveCgroupMode;
+
+/**
+ *  Optional. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialStorage;
+
+/**
  *  Parameters for the node ephemeral storage using Local SSDs. If unspecified,
  *  ephemeral storage is backed by the boot disk.
  */
@@ -5225,6 +7223,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Enable or disable NCCL fast socket for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_FastSocket *fastSocket;
+
+/**
+ *  Flex Start flag for enabling Flex Start VM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flexStart;
 
 /** Google Container File System (image streaming) configs. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
@@ -5235,8 +7240,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The image type to use for this node. Note that for a given image type, the
  *  latest version of it will be used. Please see
- *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
- *  available image types.
+ *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-images
+ *  for available image types.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -5263,22 +7268,49 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The number of local SSD disks to be attached to the node. The limit for this
  *  value is dependent upon the maximum number of disks available on a machine
- *  per zone. See: https://cloud.google.com/compute/docs/disks/local-ssd for
- *  more information.
+ *  per zone. See:
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd
+ *  for more information.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *localSsdCount;
+
+/**
+ *  Specifies which method should be used for encrypting the Local SSDs attached
+ *  to the node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_EphemeralKeyEncryption
+ *        The given node will opt-in for using ephemeral key for encryption of
+ *        Local SSDs. The Local SSDs will not be able to recover data in case of
+ *        node crash. (Value: "EPHEMERAL_KEY_ENCRYPTION")
+ *    @arg @c kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_LocalSsdEncryptionModeUnspecified
+ *        The given node will be encrypted using keys managed by Google
+ *        infrastructure and the keys will be deleted when the node is deleted.
+ *        (Value: "LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_StandardEncryption
+ *        The given node will be encrypted using keys managed by Google
+ *        infrastructure and the keys will be deleted when the node is deleted.
+ *        (Value: "STANDARD_ENCRYPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *localSsdEncryptionMode;
 
 /** Logging configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolLoggingConfig *loggingConfig;
 
 /**
  *  The name of a Google Compute Engine [machine
- *  type](https://cloud.google.com/compute/docs/machine-types) If unspecified,
- *  the default machine type is `e2-medium`.
+ *  type](https://{$universe.dns_names.final_documentation_domain}/compute/docs/machine-types)
+ *  If unspecified, the default machine type is `e2-medium`.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  The maximum duration for the nodes to exist. If unspecified, the nodes can
+ *  exist indefinitely.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
 
 /**
  *  The metadata key/value pairs assigned to instances in the cluster. Keys must
@@ -5304,14 +7336,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  friendly names of CPU platforms, such as `minCpuPlatform: "Intel Haswell"`
  *  or `minCpuPlatform: "Intel Sandy Bridge"`. For more information, read [how
  *  to specify min CPU
- *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+ *  platform](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/specify-min-cpu-platform)
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
  *  Setting this field will assign instances of this pool to run on the
  *  specified node group. This is useful for running workloads on [sole tenant
- *  nodes](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes).
+ *  nodes](https://{$universe.dns_names.final_documentation_domain}/compute/docs/nodes/sole-tenant-nodes).
  */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
 
@@ -5323,16 +7355,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  persistent storage on your nodes. *
  *  `https://www.googleapis.com/auth/devstorage.read_only` is required for
  *  communicating with **gcr.io** (the [Google Container
- *  Registry](https://cloud.google.com/container-registry/)). If unspecified, no
- *  scopes are added, unless Cloud Logging or Cloud Monitoring are enabled, in
- *  which case their required scopes will be added.
+ *  Registry](https://{$universe.dns_names.final_documentation_domain}/container-registry/)).
+ *  If unspecified, no scopes are added, unless Cloud Logging or Cloud
+ *  Monitoring are enabled, in which case their required scopes will be added.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
 /**
  *  Whether the nodes are created as preemptible VM instances. See:
- *  https://cloud.google.com/compute/docs/instances/preemptible for more
- *  information about preemptible VM instances.
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/preemptible
+ *  for more information about preemptible VM instances.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5341,7 +7373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The optional reservation affinity. Setting this field will apply the
  *  specified [Zonal Compute
- *  Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+ *  Reservation](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/reserving-zonal-resources)
  *  to this node pool.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ReservationAffinity *reservationAffinity;
@@ -5359,6 +7391,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Sandbox configuration for this node. */
 @property(nonatomic, strong, nullable) GTLRContainer_SandboxConfig *sandboxConfig;
+
+/** List of secondary boot disks attached to the nodes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_SecondaryBootDisk *> *secondaryBootDisks;
+
+/** Secondary boot disk update strategy. */
+@property(nonatomic, strong, nullable) GTLRContainer_SecondaryBootDiskUpdateStrategy *secondaryBootDiskUpdateStrategy;
 
 /**
  *  The Google Cloud Platform Service Account to be used by the node VMs.
@@ -5382,6 +7420,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *spot;
+
+/** List of Storage Pools where boot disks are provisioned. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *storagePools;
 
 /**
  *  The list of instance tags applied to all nodes. Tags are used to identify
@@ -5468,11 +7509,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_NodeConfigDefaults : GTLRObject
 
+/** Parameters for containerd customization. */
+@property(nonatomic, strong, nullable) GTLRContainer_DConfig *containerdConfig;
+
 /** GCFS (Google Container File System, also known as Riptide) options. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
 /** Logging configuration for node pools. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodePoolLoggingConfig *loggingConfig;
+
+/**
+ *  NodeKubeletConfig controls the defaults for new node-pools. Currently only
+ *  `insecure_kubelet_readonly_port_enabled` can be set here.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *nodeKubeletConfig;
 
 @end
 
@@ -5481,6 +7531,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Node kubelet configs.
  */
 @interface GTLRContainer_NodeKubeletConfig : GTLRObject
+
+/**
+ *  Optional. Defines a comma-separated allowlist of unsafe sysctls or sysctl
+ *  patterns (ending in `*`). The unsafe namespaced sysctl groups are
+ *  `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, and `net.*`.
+ *  Leaving this allowlist empty means they cannot be set on Pods. To allow
+ *  certain sysctls or sysctl patterns to be set on Pods, list them separated by
+ *  commas. For example: `kernel.msg*,net.ipv4.route.min_pmtu`. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/ for more
+ *  details.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedUnsafeSysctls;
+
+/**
+ *  Optional. Defines the maximum number of container log files that can be
+ *  present for a container. See
+ *  https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation
+ *  The value must be an integer between 2 and 10, inclusive. The default value
+ *  is 5 if unspecified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containerLogMaxFiles;
+
+/**
+ *  Optional. Defines the maximum size of the container log file before it is
+ *  rotated. See
+ *  https://kubernetes.io/docs/concepts/cluster-administration/logging/#log-rotation
+ *  Valid format is positive number + unit, e.g. 100Ki, 10Mi. Valid units are
+ *  Ki, Mi, Gi. The value must be between 10Mi and 500Mi, inclusive. Note that
+ *  the total container log size (container_log_max_size *
+ *  container_log_max_files) cannot exceed 1% of the total storage of the node,
+ *  to avoid disk pressure caused by log files. The default value is 10Mi if
+ *  unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *containerLogMaxSize;
 
 /**
  *  Enable CPU CFS quota enforcement for containers that specify CPU limits.
@@ -5514,11 +7600,105 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *cpuManagerPolicy;
 
 /**
+ *  Optional. eviction_max_pod_grace_period_seconds is the maximum allowed grace
+ *  period (in seconds) to use when terminating pods in response to a soft
+ *  eviction threshold being met. This value effectively caps the Pod's
+ *  terminationGracePeriodSeconds value during soft evictions. Default: 0.
+ *  Range: [0, 300].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evictionMaxPodGracePeriodSeconds;
+
+/**
+ *  Optional. eviction_minimum_reclaim is a map of signal names to quantities
+ *  that defines minimum reclaims, which describe the minimum amount of a given
+ *  resource the kubelet will reclaim when performing a pod eviction while that
+ *  resource is under pressure.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_EvictionMinimumReclaim *evictionMinimumReclaim;
+
+/**
+ *  Optional. eviction_soft is a map of signal names to quantities that defines
+ *  soft eviction thresholds. Each signal is compared to its corresponding
+ *  threshold to determine if a pod eviction should occur.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_EvictionSignals *evictionSoft;
+
+/**
+ *  Optional. eviction_soft_grace_period is a map of signal names to quantities
+ *  that defines grace periods for each soft eviction signal. The grace period
+ *  is the amount of time that a pod must be under pressure before an eviction
+ *  occurs.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_EvictionGracePeriod *evictionSoftGracePeriod;
+
+/**
+ *  Optional. Defines the percent of disk usage after which image garbage
+ *  collection is always run. The percent is calculated as this field value out
+ *  of 100. The value must be between 10 and 85, inclusive and greater than
+ *  image_gc_low_threshold_percent. The default value is 85 if unspecified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imageGcHighThresholdPercent;
+
+/**
+ *  Optional. Defines the percent of disk usage before which image garbage
+ *  collection is never run. Lowest disk usage to garbage collect to. The
+ *  percent is calculated as this field value out of 100. The value must be
+ *  between 10 and 85, inclusive and smaller than
+ *  image_gc_high_threshold_percent. The default value is 80 if unspecified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imageGcLowThresholdPercent;
+
+/**
+ *  Optional. Defines the maximum age an image can be unused before it is
+ *  garbage collected. The string must be a sequence of decimal numbers, each
+ *  with optional fraction and a unit suffix, such as "300s", "1.5h", and
+ *  "2h45m". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h". The
+ *  value must be a positive duration greater than image_minimum_gc_age or "0s".
+ *  The default value is "0s" if unspecified, which disables this field, meaning
+ *  images won't be garbage collected based on being unused for too long.
+ */
+@property(nonatomic, copy, nullable) NSString *imageMaximumGcAge;
+
+/**
+ *  Optional. Defines the minimum age for an unused image before it is garbage
+ *  collected. The string must be a sequence of decimal numbers, each with
+ *  optional fraction and a unit suffix, such as "300s", "1.5h", and "2h45m".
+ *  Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h". The value
+ *  must be a positive duration less than or equal to 2 minutes. The default
+ *  value is "2m0s" if unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *imageMinimumGcAge;
+
+/**
  *  Enable or disable Kubelet read only port.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *insecureKubeletReadonlyPortEnabled;
+
+/**
+ *  Optional. Defines the maximum number of image pulls in parallel. The range
+ *  is 2 to 5, inclusive. The default value is 2 or 3 depending on the disk
+ *  type. See
+ *  https://kubernetes.io/docs/concepts/containers/images/#maximum-parallel-image-pulls
+ *  for more details.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxParallelImagePulls;
+
+/**
+ *  Optional. Controls NUMA-aware Memory Manager configuration on the node. For
+ *  more information, see:
+ *  https://kubernetes.io/docs/tasks/administer-cluster/memory-manager/
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MemoryManager *memoryManager;
 
 /**
  *  Set the Pod PID limits. See
@@ -5529,6 +7709,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *podPidsLimit;
+
+/**
+ *  Optional. Defines whether to enable single process OOM killer. If true, will
+ *  prevent the memory.oom.group flag from being set for container cgroups in
+ *  cgroups v2. This causes processes in the container to be OOM killed
+ *  individually instead of as a group.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *singleProcessOomKill;
+
+/**
+ *  Optional. Controls Topology Manager configuration on the node. For more
+ *  information, see:
+ *  https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_TopologyManager *topologyManager;
 
 @end
 
@@ -5620,7 +7817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  Whether nodes have internal IP addresses only. If enable_private_nodes is
  *  not specified, then the value is derived from
- *  cluster.privateClusterConfig.enablePrivateNodes
+ *  Cluster.NetworkConfig.default_enable_private_nodes
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5653,8 +7850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *podIpv4CidrBlock;
 
 /**
- *  Output only. [Output only] The utilization of the IPv4 range for the pod.
- *  The ratio is Usage/[Total number of IPs in the secondary range],
+ *  Output only. The utilization of the IPv4 range for the pod. The ratio is
+ *  Usage/[Total number of IPs in the secondary range],
  *  Usage=numNodes*numZones*podIPsPerNode.
  *
  *  Uses NSNumber of doubleValue.
@@ -5670,6 +7867,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *podRange;
 
+/**
+ *  Output only. The subnetwork path for the node pool. Format:
+ *  projects/{project}/regions/{region}/subnetworks/{subnetwork} If the cluster
+ *  is associated with multiple subnetworks, the subnetwork for the node pool is
+ *  picked based on the IP utilization during node pool creation and is
+ *  immutable.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
 @end
 
 
@@ -5682,6 +7888,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  the workload.
  */
 @interface GTLRContainer_NodePool : GTLRObject
+
+/**
+ *  Specifies the autopilot configuration for this node pool. This field is
+ *  exclusively reserved for Cluster Autoscaler.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_AutopilotConfig *autopilotConfig;
 
 /**
  *  Autoscaler configuration for this NodePool. Autoscaler is enabled only if a
@@ -5707,8 +7919,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The initial node count for the pool. You must ensure that your Compute
- *  Engine [resource quota](https://cloud.google.com/compute/quotas) is
- *  sufficient for this number of instances. You must also have available
+ *  Engine [resource
+ *  quota](https://{$universe.dns_names.final_documentation_domain}/compute/quotas)
+ *  is sufficient for this number of instances. You must also have available
  *  firewall and routes quota.
  *
  *  Uses NSNumber of intValue.
@@ -5716,8 +7929,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *initialNodeCount;
 
 /**
- *  [Output only] The resource URLs of the [managed instance
- *  groups](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances)
+ *  Output only. The resource URLs of the [managed instance
+ *  groups](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instance-groups/creating-groups-of-managed-instances)
  *  associated with this node pool. During the node pool blue-green upgrade
  *  operation, the URLs contain both blue and green resources.
  */
@@ -5725,10 +7938,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The list of Google Compute Engine
- *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
- *  NodePool's nodes should be located. If this value is unspecified during node
- *  pool creation, the
- *  [Cluster.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.FIELDS.locations)
+ *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the NodePool's nodes should be located. If this value is
+ *  unspecified during node pool creation, the
+ *  [Cluster.Locations](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.FIELDS.locations)
  *  value will be used, instead. Warning: changing node pool locations will
  *  result in nodes being added and/or removed.
  */
@@ -5756,7 +7969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_PlacementPolicy *placementPolicy;
 
 /**
- *  [Output only] The pod CIDR block size per node in this node pool.
+ *  Output only. The pod CIDR block size per node in this node pool.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5765,11 +7978,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Specifies the configuration of queued provisioning. */
 @property(nonatomic, strong, nullable) GTLRContainer_QueuedProvisioning *queuedProvisioning;
 
-/** [Output only] Server-defined URL for the resource. */
+/** Output only. Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output only] The status of the nodes in this pool instance.
+ *  Output only. The status of the nodes in this pool instance.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_NodePool_Status_Error The ERROR state indicates the
@@ -5796,14 +8009,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  [Output only] Deprecated. Use conditions instead. Additional information
+ *  Output only. Deprecated. Use conditions instead. Additional information
  *  about the current status of this node pool instance, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage GTLR_DEPRECATED;
 
 /**
- *  Output only. [Output only] Update info contains relevant information during
- *  a node pool update.
+ *  Output only. Update info contains relevant information during a node pool
+ *  update.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_UpdateInfo *updateInfo;
 
@@ -5813,7 +8026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  The version of Kubernetes running on this NodePool's nodes. If unspecified,
  *  it defaults as described
- *  [here](https://cloud.google.com/kubernetes-engine/versioning#specifying_node_version).
+ *  [here](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/versioning#specifying_node_version).
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -5826,6 +8039,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_NodePoolAutoConfig : GTLRObject
 
+/** Output only. Configuration options for Linux nodes. */
+@property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig *linuxNodeConfig;
+
 /**
  *  The list of instance tags applied to all nodes. Tags are used to identify
  *  valid sources or targets for network firewalls and are specified by the
@@ -5833,6 +8049,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  RFC1035.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkTags *networkTags;
+
+/**
+ *  NodeKubeletConfig controls the defaults for autoprovisioned node-pools.
+ *  Currently only `insecure_kubelet_readonly_port_enabled` can be set here.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *nodeKubeletConfig;
 
 /**
  *  Resource manager tag keys and values to be attached to the nodes for
@@ -5878,7 +8100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *locationPolicy;
 
 /**
- *  Maximum number of nodes for one location in the NodePool. Must be >=
+ *  Maximum number of nodes for one location in the node pool. Must be >=
  *  min_node_count. There has to be enough quota to scale up the cluster.
  *
  *  Uses NSNumber of intValue.
@@ -5886,15 +8108,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
 
 /**
- *  Minimum number of nodes for one location in the NodePool. Must be >= 1 and
- *  <= max_node_count.
+ *  Minimum number of nodes for one location in the node pool. Must be greater
+ *  than or equal to 0 and less than or equal to max_node_count.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minNodeCount;
 
 /**
- *  Maximum number of nodes in the node pool. Must be greater than
+ *  Maximum number of nodes in the node pool. Must be greater than or equal to
  *  total_min_node_count. There has to be enough quota to scale up the cluster.
  *  The total_*_node_count fields are mutually exclusive with the *_node_count
  *  fields.
@@ -5904,9 +8126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *totalMaxNodeCount;
 
 /**
- *  Minimum number of nodes in the node pool. Must be greater than 1 less than
- *  total_max_node_count. The total_*_node_count fields are mutually exclusive
- *  with the *_node_count fields.
+ *  Minimum number of nodes in the node pool. Must be greater than or equal to 0
+ *  and less than or equal to total_max_node_count. The total_*_node_count
+ *  fields are mutually exclusive with the *_node_count fields.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5933,6 +8155,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Logging variant configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_LoggingVariantConfig *variantConfig;
+
+@end
+
+
+/**
+ *  NodePoolUpgradeInfo contains the upgrade information of a nodepool.
+ */
+@interface GTLRContainer_NodePoolUpgradeInfo : GTLRObject
+
+/** The auto upgrade status. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoUpgradeStatus;
+
+/**
+ *  The nodepool's current minor version's end of extended support timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *endOfExtendedSupportTimestamp;
+
+/**
+ *  The nodepool's current minor version's end of standard support timestamp.
+ */
+@property(nonatomic, copy, nullable) NSString *endOfStandardSupportTimestamp;
+
+/** minor_target_version indicates the target version for minor upgrade. */
+@property(nonatomic, copy, nullable) NSString *minorTargetVersion;
+
+/** patch_target_version indicates the target version for patch upgrade. */
+@property(nonatomic, copy, nullable) NSString *patchTargetVersion;
+
+/** The auto upgrade paused reason. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pausedReason;
+
+/** The list of past auto upgrades. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_UpgradeDetails *> *upgradeDetails;
 
 @end
 
@@ -6005,11 +8260,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *clusterConditions GTLR_DEPRECATED;
 
-/** Detailed operation progress, if available. */
+/** Output only. Detailed operation progress, if available. */
 @property(nonatomic, copy, nullable) NSString *detail;
 
 /**
- *  [Output only] The time the operation completed, in
+ *  Output only. The time the operation completed, in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *endTime;
@@ -6018,15 +8273,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_Status *error;
 
 /**
- *  [Output only] The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  Output only. The name of the Google Compute Engine
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/regions-zones/regions-zones#available)
  *  or
- *  [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
+ *  [region](https://{$universe.dns_names.final_documentation_domain}/compute/docs/regions-zones/regions-zones#available)
  *  in which the cluster resides.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** The server-assigned ID for the operation. */
+/** Output only. The server-assigned ID for the operation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -6036,12 +8291,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *nodepoolConditions GTLR_DEPRECATED;
 
 /**
- *  The operation type.
+ *  Output only. The operation type.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_Operation_OperationType_AutoRepairNodes A problem
  *        has been detected with nodes and [they are being
- *        repaired](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-repair).
+ *        repaired](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-repair).
  *        This operation type is initiated by GKE, typically automatically. This
  *        operation may be concurrent with other operations and there may be
  *        multiple repairs occurring on the same node pool. (Value:
@@ -6058,7 +8313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        is being created. The node pool should be assumed to be unusable until
  *        this operation finishes. In the event of an error, the node pool may
  *        be partially created. If enabled, [node
- *        autoprovisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
+ *        autoprovisioning](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-provisioning)
  *        may have automatically initiated such operations. (Value:
  *        "CREATE_NODE_POOL")
  *    @arg @c kGTLRContainer_Operation_OperationType_DeleteCluster The cluster
@@ -6077,14 +8332,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        been detected with the control plane and is being repaired. This
  *        operation type is initiated by GKE. For more details, see
  *        [documentation on
- *        repairs](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *        repairs](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *        (Value: "REPAIR_CLUSTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_ResizeCluster The control
  *        plane is being resized. This operation type is initiated by GKE. These
  *        operations are often performed preemptively to ensure that the control
  *        plane has sufficient resources and is not typically an indication of
  *        issues. For more details, see [documentation on
- *        resizes](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *        resizes](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *        (Value: "RESIZE_CLUSTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetLabels Unused. Updating
  *        labels uses UPDATE_CLUSTER. (Value: "SET_LABELS")
@@ -6115,46 +8370,46 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        separate operations and the update may not be completely functional
  *        until the node pools recreations finish. Node recreations will
  *        generally follow [maintenance
- *        policies](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
+ *        policies](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
  *        Some GKE-initiated operations use this type. This includes certain
  *        types of auto-upgrades and incident mitigations. (Value:
  *        "UPDATE_CLUSTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeMaster The cluster
  *        version is being updated. Note that this includes "upgrades" to the
  *        same version, which are simply a recreation. This also includes
- *        [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
+ *        [auto-upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
  *        For more details, see [documentation on cluster
- *        upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
+ *        upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
  *        (Value: "UPGRADE_MASTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeNodes A node pool is
  *        being updated. Despite calling this an "upgrade", this includes most
  *        forms of updates to node pools. This also includes
- *        [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades).
+ *        [auto-upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-upgrades).
  *        This operation sets the progress field and may be canceled. The
  *        upgrade strategy depends on [node pool
- *        configuration](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
+ *        configuration](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
  *        The nodes are generally still usable during this operation. (Value:
  *        "UPGRADE_NODES")
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
-/** Output only. [Output only] Progress information for an operation. */
+/** Output only. Progress information for an operation. */
 @property(nonatomic, strong, nullable) GTLRContainer_OperationProgress *progress;
 
 /**
- *  Server-defined URI for the operation. Example:
+ *  Output only. Server-defined URI for the operation. Example:
  *  `https://container.googleapis.com/v1alpha1/projects/123/locations/us-central1/operations/operation-123`.
  */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output only] The time the operation started, in
+ *  Output only. The time the operation started, in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
 /**
- *  The current status of the operation.
+ *  Output only. The current status of the operation.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_Operation_Status_Aborting The operation is
@@ -6177,10 +8432,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *statusMessage GTLR_DEPRECATED;
 
 /**
- *  Server-defined URI for the target of the operation. The format of this is a
- *  URI to the resource being modified (such as a cluster, node pool, or node).
- *  For node pool repairs, there may be multiple nodes being repaired, but only
- *  one will be the target. Examples: - ##
+ *  Output only. Server-defined URI for the target of the operation. The format
+ *  of this is a URI to the resource being modified (such as a cluster, node
+ *  pool, or node). For node pool repairs, there may be multiple nodes being
+ *  repaired, but only one will be the target. Examples: - ##
  *  `https://container.googleapis.com/v1/projects/123/locations/us-central1/clusters/my-cluster`
  *  ##
  *  `https://container.googleapis.com/v1/projects/123/zones/us-central1-c/clusters/my-cluster/nodePools/my-np`
@@ -6189,13 +8444,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *targetLink;
 
 /**
- *  The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  operation is taking place. This field is deprecated, use location instead.
+ *  Output only. The name of the Google Compute Engine
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the operation is taking place. This field is deprecated, use
+ *  location instead.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  OperationError records errors seen from CloudKMS keys encountered during
+ *  updates to DatabaseEncryption configuration.
+ */
+@interface GTLRContainer_OperationError : GTLRObject
+
+/** Description of the error seen during the operation. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** CloudKMS key resource that had the error. */
+@property(nonatomic, copy, nullable) NSString *keyName;
+
+/** Time when the CloudKMS error was seen. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 @end
 
@@ -6243,6 +8517,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Configuration for the Cloud Storage Parallelstore CSI driver.
+ */
+@interface GTLRContainer_ParallelstoreCsiDriverConfig : GTLRObject
+
+/**
+ *  Whether the Cloud Storage Parallelstore CSI driver is enabled for this
+ *  cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  ParentProductConfig is the configuration of the parent product of the
  *  cluster. This field is used by Google internal products that are built on
  *  top of a GKE cluster and take the ownership of the cluster.
@@ -6284,7 +8574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Optional. TPU placement topology for pod slice node pool.
- *  https://cloud.google.com/tpu/docs/types-topologies#tpu_topologies
+ *  https://{$universe.dns_names.final_documentation_domain}/tpu/docs/types-topologies#tpu_topologies
  */
 @property(nonatomic, copy, nullable) NSString *tpuTopology;
 
@@ -6300,6 +8590,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  PodAutoscaling is used for configuration of parameters for workload
+ *  autoscaling.
+ */
+@interface GTLRContainer_PodAutoscaling : GTLRObject
+
+/**
+ *  Selected Horizontal Pod Autoscaling profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_PodAutoscaling_HpaProfile_HpaProfileUnspecified
+ *        HPA_PROFILE_UNSPECIFIED is used when no custom HPA profile is set.
+ *        (Value: "HPA_PROFILE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_PodAutoscaling_HpaProfile_None Customers explicitly
+ *        opt-out of HPA profiles. (Value: "NONE")
+ *    @arg @c kGTLRContainer_PodAutoscaling_HpaProfile_Performance PERFORMANCE
+ *        is used when customers opt-in to the performance HPA profile. In this
+ *        profile we support a higher number of HPAs per cluster and faster
+ *        metrics collection for workload autoscaling. (Value: "PERFORMANCE")
+ */
+@property(nonatomic, copy, nullable) NSString *hpaProfile;
 
 @end
 
@@ -6327,22 +8642,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Whether the master's internal IP address is used as the cluster endpoint.
+ *  Deprecated: Use
+ *  ControlPlaneEndpointsConfig.IPEndpointsConfig.enable_public_endpoint
+ *  instead. Note that the value of enable_public_endpoint is reversed: if
+ *  enable_private_endpoint is false, then enable_public_endpoint will be true.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enablePrivateEndpoint;
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateEndpoint GTLR_DEPRECATED;
 
 /**
  *  Whether nodes have internal IP addresses only. If enabled, all nodes are
  *  given only RFC 1918 private addresses and communicate with the master via
- *  private networking.
+ *  private networking. Deprecated: Use
+ *  NetworkConfig.default_enable_private_nodes instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enablePrivateNodes;
+@property(nonatomic, strong, nullable) NSNumber *enablePrivateNodes GTLR_DEPRECATED;
 
-/** Controls master global access settings. */
-@property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterMasterGlobalAccessConfig *masterGlobalAccessConfig;
+/**
+ *  Controls master global access settings. Deprecated: Use
+ *  ControlPlaneEndpointsConfig.IPEndpointsConfig.enable_global_access instead.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterMasterGlobalAccessConfig *masterGlobalAccessConfig GTLR_DEPRECATED;
 
 /**
  *  The IP range in CIDR notation to use for the hosted master network. This
@@ -6355,17 +8678,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Output only. The peering name in the customer VPC used by this cluster. */
 @property(nonatomic, copy, nullable) NSString *peeringName;
 
-/** Output only. The internal IP address of this cluster's master endpoint. */
-@property(nonatomic, copy, nullable) NSString *privateEndpoint;
+/**
+ *  Output only. The internal IP address of this cluster's master endpoint.
+ *  Deprecated: Use
+ *  ControlPlaneEndpointsConfig.IPEndpointsConfig.private_endpoint instead.
+ */
+@property(nonatomic, copy, nullable) NSString *privateEndpoint GTLR_DEPRECATED;
 
 /**
  *  Subnet to provision the master's private endpoint during cluster creation.
- *  Specified in projects/ * /regions/ * /subnetworks/ * format.
+ *  Specified in projects/ * /regions/ * /subnetworks/ * format. Deprecated: Use
+ *  ControlPlaneEndpointsConfig.IPEndpointsConfig.private_endpoint_subnetwork
+ *  instead.
  */
-@property(nonatomic, copy, nullable) NSString *privateEndpointSubnetwork;
+@property(nonatomic, copy, nullable) NSString *privateEndpointSubnetwork GTLR_DEPRECATED;
 
-/** Output only. The external IP address of this cluster's master endpoint. */
-@property(nonatomic, copy, nullable) NSString *publicEndpoint;
+/**
+ *  Output only. The external IP address of this cluster's master endpoint.
+ *  Deprecated:Use ControlPlaneEndpointsConfig.IPEndpointsConfig.public_endpoint
+ *  instead.
+ */
+@property(nonatomic, copy, nullable) NSString *publicEndpoint GTLR_DEPRECATED;
 
 @end
 
@@ -6381,6 +8714,45 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  PrivateRegistryAccessConfig contains access configuration for private
+ *  container registries.
+ */
+@interface GTLRContainer_PrivateRegistryAccessConfig : GTLRObject
+
+/** Private registry access configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_CertificateAuthorityDomainConfig *> *certificateAuthorityDomainConfig;
+
+/**
+ *  Private registry access is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  PrivilegedAdmissionConfig stores the list of authorized allowlist paths for
+ *  the cluster.
+ */
+@interface GTLRContainer_PrivilegedAdmissionConfig : GTLRObject
+
+/**
+ *  The customer allowlist Cloud Storage paths for the cluster. These paths are
+ *  used with the `--autopilot-privileged-admission` flag to authorize
+ *  privileged workloads in Autopilot clusters. Paths can be GKE-owned, in the
+ *  format `gke:////`, or customer-owned, in the format `gs:///`. Wildcards
+ *  (`*`) are supported to authorize all allowlists under specific paths or
+ *  directories. Example: `gs://my-bucket/ *` will authorize all allowlists
+ *  under the `my-bucket` bucket.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowlistPaths;
 
 @end
 
@@ -6434,15 +8806,92 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_RangeInfo : GTLRObject
 
-/** Output only. [Output only] Name of a range. */
+/** Output only. Name of a range. */
 @property(nonatomic, copy, nullable) NSString *rangeName;
 
 /**
- *  Output only. [Output only] The utilization of the range.
+ *  Output only. The utilization of the range.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *utilization;
+
+@end
+
+
+/**
+ *  RayClusterLoggingConfig specifies configuration of Ray logging.
+ */
+@interface GTLRContainer_RayClusterLoggingConfig : GTLRObject
+
+/**
+ *  Enable log collection for Ray clusters.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  RayClusterMonitoringConfig specifies monitoring configuration for Ray
+ *  clusters.
+ */
+@interface GTLRContainer_RayClusterMonitoringConfig : GTLRObject
+
+/**
+ *  Enable metrics collection for Ray clusters.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Configuration options for the Ray Operator add-on.
+ */
+@interface GTLRContainer_RayOperatorConfig : GTLRObject
+
+/**
+ *  Whether the Ray Operator addon is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Optional. Logging configuration for Ray clusters. */
+@property(nonatomic, strong, nullable) GTLRContainer_RayClusterLoggingConfig *rayClusterLoggingConfig;
+
+/** Optional. Monitoring configuration for Ray clusters. */
+@property(nonatomic, strong, nullable) GTLRContainer_RayClusterMonitoringConfig *rayClusterMonitoringConfig;
+
+@end
+
+
+/**
+ *  RBACBindingConfig allows user to restrict ClusterRoleBindings an
+ *  RoleBindings that can be created.
+ */
+@interface GTLRContainer_RBACBindingConfig : GTLRObject
+
+/**
+ *  Setting this to true will allow any ClusterRoleBinding and RoleBinding with
+ *  subjects system:authenticated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableInsecureBindingSystemAuthenticated;
+
+/**
+ *  Setting this to true will allow any ClusterRoleBinding and RoleBinding with
+ *  subjets system:anonymous or system:unauthenticated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableInsecureBindingSystemUnauthenticated;
 
 @end
 
@@ -6490,6 +8939,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  channel specifies which release channel the cluster is subscribed to.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Extended Clusters subscribed
+ *        to EXTENDED receive extended support and availability for versions
+ *        which are known to be stable and reliable in production. (Value:
+ *        "EXTENDED")
  *    @arg @c kGTLRContainer_ReleaseChannel_Channel_Rapid RAPID channel is
  *        offered on an early access basis for customers who want to test new
  *        releases. WARNING: Versions available in the RAPID Channel may be
@@ -6519,6 +8972,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  The release channel this configuration applies to.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Extended Clusters
+ *        subscribed to EXTENDED receive extended support and availability for
+ *        versions which are known to be stable and reliable in production.
+ *        (Value: "EXTENDED")
  *    @arg @c kGTLRContainer_ReleaseChannelConfig_Channel_Rapid RAPID channel is
  *        offered on an early access basis for customers who want to test new
  *        releases. WARNING: Versions available in the RAPID Channel may be
@@ -6539,6 +8996,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The default version for newly created clusters on the channel. */
 @property(nonatomic, copy, nullable) NSString *defaultVersion;
 
+/** The auto upgrade target version for clusters on the channel. */
+@property(nonatomic, copy, nullable) NSString *upgradeTargetVersion;
+
 /** List of valid versions for the channel. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *validVersions;
 
@@ -6546,7 +9006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  [ReservationAffinity](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+ *  [ReservationAffinity](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/reserving-zonal-resources)
  *  is the configuration of desired reservation which instances could take
  *  capacity from.
  */
@@ -6585,7 +9045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Collection of [GCP
- *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels).
+ *  labels](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-labels).
  */
 @interface GTLRContainer_ResourceLabels : GTLRObject
 
@@ -6637,8 +9097,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  A map of resource manager tag keys and values to be attached to the nodes
  *  for managing Compute Engine firewalls using Network Firewall Policies. Tags
  *  must be according to specifications in
- *  https://cloud.google.com/vpc/docs/tags-firewalls-overview#specifications. A
- *  maximum of 5 tag key-value pairs can be specified. Existing tags will be
+ *  https://{$universe.dns_names.final_documentation_domain}/vpc/docs/tags-firewalls-overview#specifications.
+ *  A maximum of 5 tag key-value pairs can be specified. Existing tags will be
  *  replaced with new values.
  */
 @interface GTLRContainer_ResourceManagerTags : GTLRObject
@@ -6719,7 +9179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -6734,13 +9194,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  RotationConfig is config for secret manager auto rotation.
+ */
+@interface GTLRContainer_RotationConfig : GTLRObject
+
+/**
+ *  Whether the rotation is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The interval between two consecutive rotations. Default rotation interval is
+ *  2 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *rotationInterval;
 
 @end
 
@@ -6760,6 +9241,56 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        should not be used. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  SecondaryBootDisk represents a persistent disk attached to a node with
+ *  special configurations based on its mode.
+ */
+@interface GTLRContainer_SecondaryBootDisk : GTLRObject
+
+/** Fully-qualified resource ID for an existing disk image. */
+@property(nonatomic, copy, nullable) NSString *diskImage;
+
+/**
+ *  Disk mode (container image cache, etc.)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_SecondaryBootDisk_Mode_ContainerImageCache
+ *        CONTAINER_IMAGE_CACHE is for using the secondary boot disk as a
+ *        container image cache. (Value: "CONTAINER_IMAGE_CACHE")
+ *    @arg @c kGTLRContainer_SecondaryBootDisk_Mode_ModeUnspecified
+ *        MODE_UNSPECIFIED is when mode is not set. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
+ *  SecondaryBootDiskUpdateStrategy is a placeholder which will be extended in
+ *  the future to define different options for updating secondary boot disks.
+ */
+@interface GTLRContainer_SecondaryBootDiskUpdateStrategy : GTLRObject
+@end
+
+
+/**
+ *  SecretManagerConfig is config for secret manager enablement.
+ */
+@interface GTLRContainer_SecretManagerConfig : GTLRObject
+
+/**
+ *  Enable/Disable Secret Manager Config.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Rotation config for secret manager. */
+@property(nonatomic, strong, nullable) GTLRContainer_RotationConfig *rotationConfig;
 
 @end
 
@@ -6795,6 +9326,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *manualStepsRequired;
+
+/** The GKE versions where this vulnerability is mitigated. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mitigatedVersions;
 
 /** The GKE versions where this vulnerability is patched. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *patchedVersions;
@@ -6835,6 +9369,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        Posture features on the cluster. (Value: "BASIC")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Disabled Disables
  *        Security Posture features on the cluster. (Value: "DISABLED")
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Enterprise Applies the
+ *        Security Posture off cluster Enterprise level features. (Value:
+ *        "ENTERPRISE")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_ModeUnspecified Default
  *        value not specified. (Value: "MODE_UNSPECIFIED")
  */
@@ -6927,16 +9464,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -6976,7 +9513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -6986,9 +9523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7036,16 +9573,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7067,11 +9604,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Required. The desired list of Google Compute Engine
- *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster's nodes should be located. Changing the locations a cluster is in
- *  will result in nodes being either created or removed from the cluster,
- *  depending on whether locations are being added or removed. This list must
- *  always include the cluster's primary zone.
+ *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster's nodes should be located. Changing the locations a
+ *  cluster is in will result in nodes being either created or removed from the
+ *  cluster, depending on whether locations are being added or removed. This
+ *  list must always include the cluster's primary zone.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -7083,16 +9620,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7131,16 +9668,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7171,14 +9708,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Required. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Required. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7225,7 +9762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -7235,9 +9772,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7259,7 +9796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Required. The monitoring service the cluster should use to write metrics.
- *  Currently available options: * "monitoring.googleapis.com/kubernetes" - The
+ *  Currently available options: * `monitoring.googleapis.com/kubernetes` - The
  *  Cloud Monitoring service with a Kubernetes-native resource model *
  *  `monitoring.googleapis.com` - The legacy Cloud Monitoring service (no longer
  *  available as of GKE 1.15). * `none` - No metrics will be exported from the
@@ -7277,16 +9814,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7317,16 +9854,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7364,16 +9901,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7412,16 +9949,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7463,16 +10000,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7531,6 +10068,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_SoleTenantConfig : GTLRObject
 
+/**
+ *  Optional. The minimum number of virtual CPUs this instance will consume when
+ *  running on a sole-tenant node. This field can only be set if the node pool
+ *  is created in a shared sole-tenant node group.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCpus;
+
 /** NodeAffinities used to match to a shared sole tenant node group. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodeAffinity *> *nodeAffinities;
 
@@ -7583,7 +10129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -7597,9 +10143,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7788,6 +10334,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Likely values:
  *    @arg @c kGTLRContainer_StatusCondition_Code_CaExpiring Cluster CA is
  *        expiring soon. (Value: "CA_EXPIRING")
+ *    @arg @c kGTLRContainer_StatusCondition_Code_CloudKmsKeyDestroyed Cloud KMS
+ *        key version used for etcd level encryption has been destroyed. This is
+ *        a permanent error. (Value: "CLOUD_KMS_KEY_DESTROYED")
  *    @arg @c kGTLRContainer_StatusCondition_Code_CloudKmsKeyError Unable to
  *        perform an encrypt operation against the CloudKMS key used for etcd
  *        level encryption. (Value: "CLOUD_KMS_KEY_ERROR")
@@ -7799,6 +10348,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted
  *        GKE_SERVICE_ACCOUNT_DELETED indicates that the user deleted their
  *        robot service account. (Value: "GKE_SERVICE_ACCOUNT_DELETED")
+ *    @arg @c kGTLRContainer_StatusCondition_Code_NodeServiceAccountMissingPermissions
+ *        Node service account is missing permissions. (Value:
+ *        "NODE_SERVICE_ACCOUNT_MISSING_PERMISSIONS")
  *    @arg @c kGTLRContainer_StatusCondition_Code_SetByOperator Cluster state
  *        was manually changed by an SRE due to a system logic error. (Value:
  *        "SET_BY_OPERATOR")
@@ -7836,6 +10388,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  TopologyManager defines the configuration options for Topology Manager
+ *  feature. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/
+ */
+@interface GTLRContainer_TopologyManager : GTLRObject
+
+/**
+ *  Configures the strategy for resource alignment. Allowed values are: * none:
+ *  the default policy, and does not perform any topology alignment. *
+ *  restricted: the topology manager stores the preferred NUMA node affinity for
+ *  the container, and will reject the pod if the affinity if not preferred. *
+ *  best-effort: the topology manager stores the preferred NUMA node affinity
+ *  for the container. If the affinity is not preferred, the topology manager
+ *  will admit the pod to the node anyway. * single-numa-node: the topology
+ *  manager determines if the single NUMA node affinity is possible. If it is,
+ *  Topology Manager will store this and the Hint Providers can then use this
+ *  information when making the resource allocation decision. If, however, this
+ *  is not possible then the Topology Manager will reject the pod from the node.
+ *  This will result in a pod in a Terminated state with a pod admission
+ *  failure. The default policy value is 'none' if unspecified. Details about
+ *  each strategy can be found
+ *  [here](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/#topology-manager-policies).
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  The Topology Manager aligns resources in following scopes: * container * pod
+ *  The default scope is 'container' if unspecified. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/#topology-manager-scopes
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
  *  UpdateClusterRequest updates the settings of a cluster.
  */
 @interface GTLRContainer_UpdateClusterRequest : GTLRObject
@@ -7854,7 +10442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -7864,9 +10452,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7917,16 +10505,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -7941,6 +10529,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_UpdateNodePoolRequest : GTLRObject
 
 /**
+ *  A list of hardware accelerators to be attached to each node. See
+ *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/gpus
+ *  for more information about support for GPUs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_AcceleratorConfig *> *accelerators;
+
+/**
+ *  The desired boot disk config for nodes in the node pool. Initiates an
+ *  upgrade operation that migrates the nodes in the node pool to the specified
+ *  boot disk config.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_BootDisk *bootDisk;
+
+/**
  *  Deprecated. The name of the cluster to upgrade. This field has been
  *  deprecated and replaced by the name field.
  */
@@ -7951,6 +10553,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Confidential VM once enabled.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
+
+/**
+ *  The desired containerd config for nodes in the node pool. Initiates an
+ *  upgrade operation that recreates the nodes with the new config.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_DConfig *containerdConfig;
 
 /**
  *  Optional. The desired disk size for nodes in the node pool specified in GB.
@@ -7978,6 +10586,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Enable or disable NCCL fast socket for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_FastSocket *fastSocket;
 
+/**
+ *  Flex Start flag for enabling Flex Start VM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flexStart;
+
 /** GCFS config. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
@@ -7986,8 +10601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Required. The desired image type for the node pool. Please see
- *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
- *  available image types.
+ *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-images
+ *  for available image types.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -8006,10 +10621,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The desired list of Google Compute Engine
- *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
- *  node pool's nodes should be located. Changing the locations for a node pool
- *  will result in nodes being either created or removed from the node pool,
- *  depending on whether locations are being added or removed.
+ *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the node pool's nodes should be located. Changing the locations for
+ *  a node pool will result in nodes being either created or removed from the
+ *  node pool, depending on whether locations are being added or removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -8018,11 +10633,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Optional. The desired [Google Compute Engine machine
- *  type](https://cloud.google.com/compute/docs/machine-types) for nodes in the
- *  node pool. Initiates an upgrade operation that migrates the nodes in the
- *  node pool to the specified machine type.
+ *  type](https://{$universe.dns_names.final_documentation_domain}/compute/docs/machine-types)
+ *  for nodes in the node pool. Initiates an upgrade operation that migrates the
+ *  nodes in the node pool to the specified machine type.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  The maximum duration for the nodes to exist. If unspecified, the nodes can
+ *  exist indefinitely.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maxRunDuration;
 
 /**
  *  The name (project, location, cluster, node pool) of the node pool to update.
@@ -8053,10 +10674,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
+ *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
+
+/** Specifies the configuration of queued provisioning. */
+@property(nonatomic, strong, nullable) GTLRContainer_QueuedProvisioning *queuedProvisioning;
 
 /**
  *  The resource labels for the node pool to use to annotate any related Google
@@ -8070,6 +10694,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  tags will be replaced with new values.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceManagerTags *resourceManagerTags;
+
+/**
+ *  List of Storage Pools where boot disks are provisioned. Existing Storage
+ *  Pools will be replaced with storage-pools.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *storagePools;
 
 /**
  *  The desired network tags to be applied to all nodes in the node pool. If
@@ -8096,9 +10726,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
- *  cluster resides. This field has been deprecated and replaced by the name
- *  field.
+ *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
+ *  in which the cluster resides. This field has been deprecated and replaced by
+ *  the name field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -8146,6 +10776,57 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  UpgradeDetails contains detailed information of each individual upgrade
+ *  operation.
+ */
+@interface GTLRContainer_UpgradeDetails : GTLRObject
+
+/** The end timestamp of the upgrade. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The version before the upgrade. */
+@property(nonatomic, copy, nullable) NSString *initialVersion;
+
+/** The start timestamp of the upgrade. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The start type of the upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeDetails_StartType_Automatic Upgrade started
+ *        automatically. (Value: "AUTOMATIC")
+ *    @arg @c kGTLRContainer_UpgradeDetails_StartType_Manual Upgrade started
+ *        manually. (Value: "MANUAL")
+ *    @arg @c kGTLRContainer_UpgradeDetails_StartType_StartTypeUnspecified
+ *        Upgrade start type is unspecified. (Value: "START_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *startType;
+
+/**
+ *  Output only. The state of the upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Canceled Upgrade has been
+ *        canceled. (Value: "CANCELED")
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Failed Upgrade has failed with
+ *        an error. (Value: "FAILED")
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Running Upgrade is running.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Succeeded Upgrade has
+ *        succeeded. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRContainer_UpgradeDetails_State_Unknown Upgrade state is
+ *        unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The version after the upgrade. */
+@property(nonatomic, copy, nullable) NSString *targetVersion;
+
+@end
+
+
+/**
  *  UpgradeEvent is a notification sent to customers by the cluster server when
  *  a resource is upgrading.
  */
@@ -8179,6 +10860,102 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        "UPGRADE_RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** The target version for the upgrade. */
+@property(nonatomic, copy, nullable) NSString *targetVersion;
+
+@end
+
+
+/**
+ *  UpgradeInfoEvent is a notification sent to customers about the upgrade
+ *  information of a resource.
+ */
+@interface GTLRContainer_UpgradeInfoEvent : GTLRObject
+
+/** The current version before the upgrade. */
+@property(nonatomic, copy, nullable) NSString *currentVersion;
+
+/**
+ *  A brief description of the event.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The time when the operation ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The type of the event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_EventType_CosMilestoneVersionUpdate
+ *        COS_MILESTONE_VERSION_UPDATE indicates that the COS node image will
+ *        update COS milestone version for new patch versions starting with the
+ *        one in the description. (Value: "COS_MILESTONE_VERSION_UPDATE")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_EventType_EndOfSupport
+ *        END_OF_SUPPORT indicates GKE version reaches end of support, check
+ *        standard_support_end_time and extended_support_end_time for more
+ *        details. (Value: "END_OF_SUPPORT")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_EventType_EventTypeUnspecified
+ *        EVENT_TYPE_UNSPECIFIED indicates the event type is unspecified.
+ *        (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_EventType_UpgradeLifecycle
+ *        UPGRADE_LIFECYCLE indicates the event is about the upgrade lifecycle.
+ *        (Value: "UPGRADE_LIFECYCLE")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
+/** The end of extended support timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *extendedSupportEndTime;
+
+/** The operation associated with this upgrade. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  Optional relative path to the resource. For example in node pool upgrades,
+ *  the relative path of the node pool.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The resource type associated with the upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_ResourceType_Master Master /
+ *        control plane (Value: "MASTER")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_ResourceType_NodePool Node pool
+ *        (Value: "NODE_POOL")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_ResourceType_UpgradeResourceTypeUnspecified
+ *        Default value. This shouldn't be used. (Value:
+ *        "UPGRADE_RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** The end of standard support timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *standardSupportEndTime;
+
+/** The time when the operation was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The state of the upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_Canceled CANCELED indicates
+ *        the upgrade has canceled. (Value: "CANCELED")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_Failed FAILED indicates the
+ *        upgrade has failed. (Value: "FAILED")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_Started STARTED indicates
+ *        the upgrade has started. (Value: "STARTED")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_StateUnspecified
+ *        STATE_UNSPECIFIED indicates the state is unspecified. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_Succeeded SUCCEEDED
+ *        indicates the upgrade has completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /** The target version for the upgrade. */
 @property(nonatomic, copy, nullable) NSString *targetVersion;
@@ -8334,6 +11111,65 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  UserManagedKeysConfig holds the resource address to Keys which are used for
+ *  signing certs and token that are used for communication within cluster.
+ */
+@interface GTLRContainer_UserManagedKeysConfig : GTLRObject
+
+/**
+ *  The Certificate Authority Service caPool to use for the aggregation CA in
+ *  this cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationCa;
+
+/**
+ *  The Certificate Authority Service caPool to use for the cluster CA in this
+ *  cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterCa;
+
+/**
+ *  The Cloud KMS cryptoKey to use for Confidential Hyperdisk on the control
+ *  plane nodes.
+ */
+@property(nonatomic, copy, nullable) NSString *controlPlaneDiskEncryptionKey;
+
+/**
+ *  Resource path of the Certificate Authority Service caPool to use for the
+ *  etcd API CA in this cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *etcdApiCa;
+
+/**
+ *  Resource path of the Certificate Authority Service caPool to use for the
+ *  etcd peer CA in this cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *etcdPeerCa;
+
+/**
+ *  Resource path of the Cloud KMS cryptoKey to use for encryption of internal
+ *  etcd backups.
+ */
+@property(nonatomic, copy, nullable) NSString *gkeopsEtcdBackupEncryptionKey;
+
+/**
+ *  The Cloud KMS cryptoKeyVersions to use for signing service account JWTs
+ *  issued by this cluster. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{cryptoKey}/cryptoKeyVersions/{cryptoKeyVersion}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccountSigningKeys;
+
+/**
+ *  The Cloud KMS cryptoKeyVersions to use for verifying service account JWTs
+ *  issued by this cluster. Format:
+ *  `projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{cryptoKey}/cryptoKeyVersions/{cryptoKeyVersion}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccountVerificationKeys;
+
+@end
+
+
+/**
  *  VerticalPodAutoscaling contains global, per-cluster information required by
  *  Vertical Pod Autoscaler to automatically adjust the resources of pods
  *  controlled by it.
@@ -8368,22 +11204,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  Parameters that can be configured on Windows nodes. Windows Node Config that
  *  define the parameters that will be used to configure the Windows node pool
- *  settings
+ *  settings.
  */
 @interface GTLRContainer_WindowsNodeConfig : GTLRObject
 
 /**
- *  OSVersion specifies the Windows node config to be used on the node
+ *  OSVersion specifies the Windows node config to be used on the node.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2019
  *        LTSC2019 specifies to use LTSC2019 as the Windows Servercore Base
- *        Image (Value: "OS_VERSION_LTSC2019")
+ *        Image. (Value: "OS_VERSION_LTSC2019")
  *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionLtsc2022
  *        LTSC2022 specifies to use LTSC2022 as the Windows Servercore Base
- *        Image (Value: "OS_VERSION_LTSC2022")
+ *        Image. (Value: "OS_VERSION_LTSC2022")
  *    @arg @c kGTLRContainer_WindowsNodeConfig_OsVersion_OsVersionUnspecified
- *        When OSVersion is not specified (Value: "OS_VERSION_UNSPECIFIED")
+ *        When OSVersion is not specified. (Value: "OS_VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *osVersion;
 
@@ -8430,8 +11266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  WorkloadPolicyConfig is the configuration of workload policy for autopilot
- *  clusters.
+ *  WorkloadPolicyConfig is the configuration related to GCW workload policy
  */
 @interface GTLRContainer_WorkloadPolicyConfig : GTLRObject
 
@@ -8441,6 +11276,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowNetAdmin;
+
+/**
+ *  If true, enables the GCW Auditor that audits workloads on standard clusters.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autopilotCompatibilityAuditingEnabled;
 
 @end
 

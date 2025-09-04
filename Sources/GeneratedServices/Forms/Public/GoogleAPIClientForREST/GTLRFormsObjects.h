@@ -6,7 +6,7 @@
 // Description:
 //   Reads and writes Google Forms and responses.
 // Documentation:
-//   https://developers.google.com/forms/api
+//   https://developers.google.com/workspace/forms/api
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -44,10 +44,13 @@
 @class GTLRForms_MoveItemRequest;
 @class GTLRForms_Option;
 @class GTLRForms_PageBreakItem;
+@class GTLRForms_PublishSettings;
+@class GTLRForms_PublishState;
 @class GTLRForms_Question;
 @class GTLRForms_QuestionGroupItem;
 @class GTLRForms_QuestionItem;
 @class GTLRForms_QuizSettings;
+@class GTLRForms_RatingQuestion;
 @class GTLRForms_Request;
 @class GTLRForms_Response;
 @class GTLRForms_RowQuestion;
@@ -108,6 +111,38 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_ChoiceQuestion_Type_DropDown;
  *  Value: "RADIO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRForms_ChoiceQuestion_Type_Radio;
+
+// ----------------------------------------------------------------------------
+// GTLRForms_Ettings.emailCollectionType
+
+/**
+ *  The form doesn't collect email addresses. Default value if the form owner
+ *  uses a Google account.
+ *
+ *  Value: "DO_NOT_COLLECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_Ettings_EmailCollectionType_DoNotCollect;
+/**
+ *  Unspecified. This value is unused.
+ *
+ *  Value: "EMAIL_COLLECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_Ettings_EmailCollectionType_EmailCollectionTypeUnspecified;
+/**
+ *  The form collects email addresses using a field that the respondent
+ *  completes on the form.
+ *
+ *  Value: "RESPONDER_INPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_Ettings_EmailCollectionType_ResponderInput;
+/**
+ *  The form collects email addresses automatically based on the account of the
+ *  signed-in user. Default value if the form owner uses a Google Workspace
+ *  account.
+ *
+ *  Value: "VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_Ettings_EmailCollectionType_Verified;
 
 // ----------------------------------------------------------------------------
 // GTLRForms_FileUploadQuestion.types
@@ -228,6 +263,34 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Option_GoToAction_RestartForm;
  *  Value: "SUBMIT_FORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRForms_Option_GoToAction_SubmitForm;
+
+// ----------------------------------------------------------------------------
+// GTLRForms_RatingQuestion.iconType
+
+/**
+ *  A heart icon.
+ *
+ *  Value: "HEART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_RatingQuestion_IconType_Heart;
+/**
+ *  Default value. Unused.
+ *
+ *  Value: "RATING_ICON_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_RatingQuestion_IconType_RatingIconTypeUnspecified;
+/**
+ *  A star icon.
+ *
+ *  Value: "STAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_RatingQuestion_IconType_Star;
+/**
+ *  A thumbs down icon.
+ *
+ *  Value: "THUMB_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRForms_RatingQuestion_IconType_ThumbUp;
 
 // ----------------------------------------------------------------------------
 // GTLRForms_Watch.errorType
@@ -565,6 +628,27 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
  */
 @interface GTLRForms_Ettings : GTLRObject
 
+/**
+ *  Optional. The setting that determines whether the form collects email
+ *  addresses from respondents.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRForms_Ettings_EmailCollectionType_DoNotCollect The form
+ *        doesn't collect email addresses. Default value if the form owner uses
+ *        a Google account. (Value: "DO_NOT_COLLECT")
+ *    @arg @c kGTLRForms_Ettings_EmailCollectionType_EmailCollectionTypeUnspecified
+ *        Unspecified. This value is unused. (Value:
+ *        "EMAIL_COLLECTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRForms_Ettings_EmailCollectionType_ResponderInput The form
+ *        collects email addresses using a field that the respondent completes
+ *        on the form. (Value: "RESPONDER_INPUT")
+ *    @arg @c kGTLRForms_Ettings_EmailCollectionType_Verified The form collects
+ *        email addresses automatically based on the account of the signed-in
+ *        user. Default value if the form owner uses a Google Workspace account.
+ *        (Value: "VERIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *emailCollectionType;
+
 /** Settings related to quiz forms and grading. */
 @property(nonatomic, strong, nullable) GTLRForms_QuizSettings *quizSettings;
 
@@ -695,8 +779,17 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 @property(nonatomic, copy, nullable) NSString *linkedSheetId;
 
 /**
+ *  Output only. The publishing settings for a form. This field isn't set for
+ *  legacy forms because they don't have the publish_settings field. All newly
+ *  created forms support publish settings. Forms with publish_settings value
+ *  set can call SetPublishSettings API to publish or unpublish the form.
+ */
+@property(nonatomic, strong, nullable) GTLRForms_PublishSettings *publishSettings;
+
+/**
  *  Output only. The form URI to share with responders. This opens a page that
- *  allows the user to submit responses but not edit the questions.
+ *  allows the user to submit responses but not edit the questions. For forms
+ *  that have publish_settings value set, this is the published form URI.
  */
 @property(nonatomic, copy, nullable) NSString *responderUri;
 
@@ -706,16 +799,18 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
  *  of the revision ID may change over time, so it should be treated opaquely. A
  *  returned revision ID is only guaranteed to be valid for 24 hours after it
  *  has been returned and cannot be shared across users. If the revision ID is
- *  unchanged between calls, then the form has not changed. Conversely, a
- *  changed ID (for the same form and user) usually means the form has been
- *  updated; however, a changed ID can also be due to internal factors such as
- *  ID format changes.
+ *  unchanged between calls, then the form *content* has not changed.
+ *  Conversely, a changed ID (for the same form and user) usually means the form
+ *  *content* has been updated; however, a changed ID can also be due to
+ *  internal factors such as ID format changes. Form content excludes form
+ *  metadata, including: * sharing settings (who has access to the form) *
+ *  publish_settings (if the form supports publishing and if it is published)
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
  *  The form's settings. This must be updated with UpdateSettingsRequest; it is
- *  ignored during `forms.create` and UpdateFormInfoRequest.
+ *  ignored during CreateForm and UpdateFormInfoRequest.
  */
 @property(nonatomic, strong, nullable) GTLRForms_Ettings *settings;
 
@@ -920,8 +1015,8 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 /**
  *  Output only. The title of the document which is visible in Drive. If
- *  `Info.title` is empty, `document_title` may appear in its place in the
- *  Google Forms UI and be visible to responders. `document_title` can be set on
+ *  Info.title is empty, `document_title` may appear in its place in the Google
+ *  Forms UI and be visible to responders. `document_title` can be set on
  *  create, but cannot be modified by a batchUpdate request. Please use the
  *  [Google Drive
  *  API](https://developers.google.com/drive/api/v3/reference/files/update) if
@@ -1130,6 +1225,45 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 
 /**
+ *  The publishing settings of a form.
+ */
+@interface GTLRForms_PublishSettings : GTLRObject
+
+/**
+ *  Optional. The publishing state of a form. When updating `publish_state`,
+ *  both `is_published` and `is_accepting_responses` must be set. However,
+ *  setting `is_accepting_responses` to `true` and `is_published` to `false`
+ *  isn't supported and returns an error.
+ */
+@property(nonatomic, strong, nullable) GTLRForms_PublishState *publishState;
+
+@end
+
+
+/**
+ *  The publishing state of a form.
+ */
+@interface GTLRForms_PublishState : GTLRObject
+
+/**
+ *  Required. Whether the form accepts responses. If `is_published` is set to
+ *  `false`, this field is forced to `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isAcceptingResponses;
+
+/**
+ *  Required. Whether the form is published and visible to others.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPublished;
+
+@end
+
+
+/**
  *  Any question. The specific type of question is known by its `kind`.
  */
 @interface GTLRForms_Question : GTLRObject
@@ -1151,6 +1285,9 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
  *  not be already used in the form. If not provided, a new ID is assigned.
  */
 @property(nonatomic, copy, nullable) NSString *questionId;
+
+/** A respondent can choose a rating from a pre-defined set of icons. */
+@property(nonatomic, strong, nullable) GTLRForms_RatingQuestion *ratingQuestion;
 
 /**
  *  Whether the question must be answered in order for a respondent to submit
@@ -1234,6 +1371,36 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 
 /**
+ *  A rating question. The user has a range of icons to choose from.
+ */
+@interface GTLRForms_RatingQuestion : GTLRObject
+
+/**
+ *  Required. The icon type to use for the rating.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRForms_RatingQuestion_IconType_Heart A heart icon. (Value:
+ *        "HEART")
+ *    @arg @c kGTLRForms_RatingQuestion_IconType_RatingIconTypeUnspecified
+ *        Default value. Unused. (Value: "RATING_ICON_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRForms_RatingQuestion_IconType_Star A star icon. (Value:
+ *        "STAR")
+ *    @arg @c kGTLRForms_RatingQuestion_IconType_ThumbUp A thumbs down icon.
+ *        (Value: "THUMB_UP")
+ */
+@property(nonatomic, copy, nullable) NSString *iconType;
+
+/**
+ *  Required. The rating scale level of the rating question.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ratingScaleLevel;
+
+@end
+
+
+/**
  *  Renew an existing Watch for seven days.
  */
 @interface GTLRForms_RenewWatchRequest : GTLRObject
@@ -1312,6 +1479,41 @@ FOUNDATION_EXTERN NSString * const kGTLRForms_Watch_State_Suspended;
 
 /** The label to display describing the lowest point on the scale. */
 @property(nonatomic, copy, nullable) NSString *lowLabel;
+
+@end
+
+
+/**
+ *  Updates the publish settings of a Form.
+ */
+@interface GTLRForms_SetPublishSettingsRequest : GTLRObject
+
+/** Required. The desired publish settings to apply to the form. */
+@property(nonatomic, strong, nullable) GTLRForms_PublishSettings *publishSettings;
+
+/**
+ *  Optional. The `publish_settings` fields to update. This field mask accepts
+ *  the following values: * `publish_state`: Updates or replaces all
+ *  `publish_state` settings. * `"*"`: Updates or replaces all
+ *  `publish_settings` fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  The response of a SetPublishSettings request.
+ */
+@interface GTLRForms_SetPublishSettingsResponse : GTLRObject
+
+/** Required. The ID of the Form. This is same as the Form.form_id field. */
+@property(nonatomic, copy, nullable) NSString *formId;
+
+/** The publish settings of the form. */
+@property(nonatomic, strong, nullable) GTLRForms_PublishSettings *publishSettings;
 
 @end
 

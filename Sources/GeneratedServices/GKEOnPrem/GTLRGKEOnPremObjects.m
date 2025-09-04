@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Anthos On-Prem API (gkeonprem/v1)
+//   GKE On-Prem API (gkeonprem/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/clusters/docs/on-prem/
 
@@ -515,10 +515,10 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 @dynamic adminClusterMembership, adminClusterName, annotations,
          bareMetalVersion, binaryAuthorization, clusterOperations, controlPlane,
          createTime, deleteTime, descriptionProperty, endpoint, ETag, fleet,
-         loadBalancer, localName, maintenanceConfig, maintenanceStatus, name,
-         networkConfig, nodeAccessConfig, nodeConfig, osEnvironmentConfig,
-         proxy, reconciling, securityConfig, state, status, storage, uid,
-         updateTime, upgradePolicy, validationCheck;
+         loadBalancer, localName, localNamespace, maintenanceConfig,
+         maintenanceStatus, name, networkConfig, nodeAccessConfig, nodeConfig,
+         osEnvironmentConfig, proxy, reconciling, securityConfig, state, status,
+         storage, uid, updateTime, upgradePolicy, validationCheck;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -561,7 +561,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_BareMetalClusterUpgradePolicy
-@dynamic policy;
+@dynamic pause, policy;
 @end
 
 
@@ -1092,7 +1092,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_EnrollBareMetalClusterRequest
-@dynamic adminClusterMembership, bareMetalClusterId, localName;
+@dynamic adminClusterMembership, bareMetalClusterId, localName, localNamespace;
 @end
 
 
@@ -1578,7 +1578,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_ResourceStatus
-@dynamic conditions, errorMessage;
+@dynamic conditions, errorMessage, version, versions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1723,6 +1723,34 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_Version
+//
+
+@implementation GTLRGKEOnPrem_Version
+@dynamic count, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_Versions
+//
+
+@implementation GTLRGKEOnPrem_Versions
+@dynamic versions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"versions" : [GTLRGKEOnPrem_Version class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_VmwareAAGConfig
 //
 
@@ -1785,10 +1813,10 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 @implementation GTLRGKEOnPrem_VmwareAdminCluster
 @dynamic addonNode, annotations, antiAffinityGroups, authorization,
          autoRepairConfig, bootstrapClusterMembership, controlPlaneNode,
-         createTime, descriptionProperty, endpoint, ETag, fleet, imageType,
-         loadBalancer, localName, name, networkConfig, onPremVersion,
-         platformConfig, preparedSecrets, reconciling, state, status, uid,
-         updateTime, vcenter;
+         createTime, descriptionProperty, enableAdvancedCluster, endpoint, ETag,
+         fleet, imageType, loadBalancer, localName, name, networkConfig,
+         onPremVersion, platformConfig, preparedSecrets, privateRegistryConfig,
+         reconciling, state, status, uid, updateTime, validationCheck, vcenter;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1872,6 +1900,7 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_VmwareAdminMetalLbConfig
+@dynamic enabled;
 @end
 
 
@@ -1902,6 +1931,16 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 @implementation GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig
+//
+
+@implementation GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig
+@dynamic address, caCert;
 @end
 
 
@@ -1985,10 +2024,10 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
          antiAffinityGroups, authorization, autoRepairConfig,
          binaryAuthorization, controlPlaneNode, createTime, dataplaneV2,
          deleteTime, descriptionProperty, disableBundledIngress,
-         enableControlPlaneV2, endpoint, ETag, fleet, loadBalancer, localName,
-         name, networkConfig, onPremVersion, reconciling, state, status,
-         storage, uid, updateTime, upgradePolicy, validationCheck, vcenter,
-         vmTrackingEnabled;
+         enableAdvancedCluster, enableControlPlaneV2, endpoint, ETag, fleet,
+         loadBalancer, localName, name, networkConfig, onPremVersion,
+         reconciling, state, status, storage, uid, updateTime, upgradePolicy,
+         validationCheck, vcenter, vmTrackingEnabled;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

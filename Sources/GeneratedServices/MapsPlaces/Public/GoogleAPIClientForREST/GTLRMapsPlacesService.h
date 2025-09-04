@@ -38,11 +38,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesCloudPlatform;
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlaces;
 /**
  *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/maps-platform.places.autocomplete
+ *
+ *  Value "https://www.googleapis.com/auth/maps-platform.places.autocomplete"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesAutocomplete;
+/**
+ *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/maps-platform.places.details
  *
  *  Value "https://www.googleapis.com/auth/maps-platform.places.details"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesDetails;
+/**
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/maps-platform.places.getphotomedia
+ *
+ *  Value "https://www.googleapis.com/auth/maps-platform.places.getphotomedia"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesGetphotomedia;
 /**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/maps-platform.places.nearbysearch

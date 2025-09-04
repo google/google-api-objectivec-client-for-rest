@@ -245,11 +245,11 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance
-@dynamic consumerDefinedName, createTime, instanceType, labels,
-         maintenancePolicyNames, maintenanceSchedules, maintenanceSettings,
-         name, notificationParameters, producerMetadata, provisionedResources,
-         slmInstanceTemplate, sloMetadata, softwareVersions, state,
-         tenantProjectId, updateTime;
+@dynamic consumerDefinedName, consumerProjectNumber, createTime, instanceType,
+         labels, maintenancePolicyNames, maintenanceSchedules,
+         maintenanceSettings, name, notificationParameters, producerMetadata,
+         provisionedResources, slmInstanceTemplate, sloMetadata,
+         softwareVersions, state, tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -479,7 +479,8 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 @dynamic authorizedNetwork, createTime, discoveryEndpoint, displayName,
          instanceMessages, labels, maintenancePolicy, maintenanceSchedule,
          memcacheFullVersion, memcacheNodes, memcacheVersion, name, nodeConfig,
-         nodeCount, parameters, reservedIpRangeId, state, updateTime, zones;
+         nodeCount, parameters, reservedIpRangeId, satisfiesPzi, satisfiesPzs,
+         state, updateTime, zones;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

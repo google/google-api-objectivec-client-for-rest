@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Data Portability API (dataportability/v1beta)
+//   Data Portability API (dataportability/v1)
 // Description:
 //   The Data Portability API lets you build applications that request
 //   authorization from a user to move a copy of data from Google services into
@@ -28,28 +28,51 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRDataPortability_InitiatePortabilityArchiveResponse.accessType
+
+/**
+ *  One-time access to the requested scopes.
+ *
+ *  Value: "ACCESS_TYPE_ONE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeOneTime;
+/**
+ *  Multiple exports allowed over 30 days. Enum value subject to change before
+ *  launch.
+ *
+ *  Value: "ACCESS_TYPE_TIME_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeTimeBased;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ACCESS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataPortability_PortabilityArchiveState.state
 
 /**
- *  The Takeout job is cancelled.
+ *  The job is cancelled.
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_State_Cancelled;
 /**
- *  The Takeout job is complete.
+ *  The job is complete.
  *
  *  Value: "COMPLETE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_State_Complete;
 /**
- *  The Takeout job failed.
+ *  The job failed.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_State_Failed;
 /**
- *  The Takeout job is in progress.
+ *  The job is in progress.
  *
  *  Value: "IN_PROGRESS"
  */
@@ -62,6 +85,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_
 FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_State_StateUnspecified;
 
 /**
+ *  Request to cancel a Portability Archive job.
+ */
+@interface GTLRDataPortability_CancelPortabilityArchiveRequest : GTLRObject
+@end
+
+
+/**
+ *  Response to canceling a Data Portability Archive job.
+ */
+@interface GTLRDataPortability_CancelPortabilityArchiveResponse : GTLRObject
+@end
+
+
+/**
+ *  Request to check the token's access type. All required information is
+ *  derived from the attached OAuth token.
+ */
+@interface GTLRDataPortability_CheckAccessTypeRequest : GTLRObject
+@end
+
+
+/**
+ *  Response to checking the token's access type.
+ */
+@interface GTLRDataPortability_CheckAccessTypeResponse : GTLRObject
+
+/**
+ *  Jobs initiated with this token will be one-time if any requested resources
+ *  have one-time access.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *oneTimeResources;
+
+/**
+ *  Jobs initiated with this token will be time-based if all requested resources
+ *  have time-based access.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeBasedResources;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -72,9 +137,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_
 
 
 /**
- *  Request to kick off a Takeout Archive job.
+ *  Request to kick off an Archive job.
  */
 @interface GTLRDataPortability_InitiatePortabilityArchiveRequest : GTLRObject
+
+/**
+ *  Optional. The timestamp that represents the end point for the data you are
+ *  exporting. If the end_time is not specified in the
+ *  InitiatePortabilityArchiveRequest, this field is set to the latest available
+ *  data.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  The resources from which you're exporting data. These values have a 1:1
@@ -82,17 +155,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
+/**
+ *  Optional. The timestamp that represents the starting point for the data you
+ *  are exporting. If the start_time is not specified in the
+ *  InitiatePortabilityArchiveRequest, the field is set to the earliest
+ *  available data.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 
 /**
- *  Response from initiating a Take Archive job.
+ *  Response from initiating an Archive job.
  */
 @interface GTLRDataPortability_InitiatePortabilityArchiveResponse : GTLRObject
 
 /**
- *  The archive job ID that is initiated in the Takeout API. This can be used to
- *  get the state of the job.
+ *  The access type of the Archive job initiated by the API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeOneTime
+ *        One-time access to the requested scopes. (Value:
+ *        "ACCESS_TYPE_ONE_TIME")
+ *    @arg @c kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeTimeBased
+ *        Multiple exports allowed over 30 days. Enum value subject to change
+ *        before launch. (Value: "ACCESS_TYPE_TIME_BASED")
+ *    @arg @c kGTLRDataPortability_InitiatePortabilityArchiveResponse_AccessType_AccessTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ACCESS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *accessType;
+
+/**
+ *  The archive job ID that is initiated in the API. This can be used to get the
+ *  state of the job.
  */
 @property(nonatomic, copy, nullable) NSString *archiveJobId;
 
@@ -100,9 +197,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_
 
 
 /**
- *  Resource that contains the state of a Takeout Archive job.
+ *  Resource that contains the state of an Archive job.
  */
 @interface GTLRDataPortability_PortabilityArchiveState : GTLRObject
+
+/**
+ *  The timestamp that represents the end point for the data you are exporting.
+ *  If the end_time value is set in the InitiatePortabilityArchiveRequest, this
+ *  field is set to that value. If end_time is not set, this value is set to the
+ *  time the export was requested.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *exportTime;
 
 /**
  *  The resource name of ArchiveJob's PortabilityArchiveState singleton. The
@@ -112,17 +217,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Resource that represents the state of the Takeout Archive job.
+ *  The timestamp that represents the starting point for the data you are
+ *  exporting. This field is set only if the start_time field is specified in
+ *  the InitiatePortabilityArchiveRequest.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Resource that represents the state of the Archive job.
  *
  *  Likely values:
  *    @arg @c kGTLRDataPortability_PortabilityArchiveState_State_Cancelled The
- *        Takeout job is cancelled. (Value: "CANCELLED")
+ *        job is cancelled. (Value: "CANCELLED")
  *    @arg @c kGTLRDataPortability_PortabilityArchiveState_State_Complete The
- *        Takeout job is complete. (Value: "COMPLETE")
- *    @arg @c kGTLRDataPortability_PortabilityArchiveState_State_Failed The
- *        Takeout job failed. (Value: "FAILED")
+ *        job is complete. (Value: "COMPLETE")
+ *    @arg @c kGTLRDataPortability_PortabilityArchiveState_State_Failed The job
+ *        failed. (Value: "FAILED")
  *    @arg @c kGTLRDataPortability_PortabilityArchiveState_State_InProgress The
- *        Takeout job is in progress. (Value: "IN_PROGRESS")
+ *        job is in progress. (Value: "IN_PROGRESS")
  *    @arg @c kGTLRDataPortability_PortabilityArchiveState_State_StateUnspecified
  *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
  */
@@ -158,7 +270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataPortability_PortabilityArchiveState_
 
 /**
  *  The archive job ID that is initiated by the retry endpoint. This can be used
- *  to get the state of the new job
+ *  to get the state of the new job.
  */
 @property(nonatomic, copy, nullable) NSString *archiveJobId;
 

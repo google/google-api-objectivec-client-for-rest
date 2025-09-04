@@ -5,7 +5,15 @@
 //   Access Context Manager API (accesscontextmanager/v1)
 // Description:
 //   An API for setting attribute based access control to requests to Google
-//   Cloud services.
+//   Cloud services. *Warning:* Do not mix *v1alpha* and *v1* API usage in the
+//   same access policy. The v1alpha API supports new Access Context Manager
+//   features, which may have different attributes or behaviors that are not
+//   supported by v1. The practice of mixed API usage within a policy may result
+//   in the inability to update that policy, including any access levels or
+//   service perimeters belonging to it. It is not recommended to use both v1
+//   and v1alpha for modifying policies with critical service perimeters.
+//   Modifications using v1alpha should be limited to policies with
+//   non-production/non-critical service perimeters.
 // Documentation:
 //   https://cloud.google.com/access-context-manager/docs/reference/rest/
 
@@ -80,6 +88,18 @@ NSString * const kGTLRAccessContextManager_OsConstraint_OsType_OsUnspecified = @
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge = @"PERIMETER_TYPE_BRIDGE";
 NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeRegular = @"PERIMETER_TYPE_REGULAR";
 
+// GTLRAccessContextManager_SessionSettings.sessionReauthMethod
+NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Login = @"LOGIN";
+NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_Password = @"PASSWORD";
+NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SecurityKey = @"SECURITY_KEY";
+NSString * const kGTLRAccessContextManager_SessionSettings_SessionReauthMethod_SessionReauthMethodUnspecified = @"SESSION_REAUTH_METHOD_UNSPECIFIED";
+
+// GTLRAccessContextManager_SupportedService.serviceSupportStage
+NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Ga = @"GA";
+NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_Preview = @"PREVIEW";
+NSString * const kGTLRAccessContextManager_SupportedService_ServiceSupportStage_ServiceSupportStageUnspecified = @"SERVICE_SUPPORT_STAGE_UNSPECIFIED";
+
 // GTLRAccessContextManager_SupportedService.supportStage
 NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Alpha = @"ALPHA";
 NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Beta = @"BETA";
@@ -129,6 +149,34 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_AccessScope
+//
+
+@implementation GTLRAccessContextManager_AccessScope
+@dynamic clientScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_AccessSettings
+//
+
+@implementation GTLRAccessContextManager_AccessSettings
+@dynamic accessLevels, sessionSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessLevels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_ApiOperation
 //
 
@@ -142,6 +190,16 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_Application
+//
+
+@implementation GTLRAccessContextManager_Application
+@dynamic clientId, name;
 @end
 
 
@@ -241,6 +299,16 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ClientScope
+//
+
+@implementation GTLRAccessContextManager_ClientScope
+@dynamic restrictedClientApplication;
 @end
 
 
@@ -357,7 +425,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_EgressPolicy
-@dynamic egressFrom, egressTo;
+@dynamic egressFrom, egressTo, title;
 @end
 
 
@@ -367,7 +435,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_EgressSource
-@dynamic accessLevel;
+@dynamic accessLevel, resource;
 @end
 
 
@@ -377,13 +445,14 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_EgressTo
-@dynamic externalResources, operations, resources;
+@dynamic externalResources, operations, resources, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"externalResources" : [NSString class],
     @"operations" : [GTLRAccessContextManager_ApiOperation class],
-    @"resources" : [NSString class]
+    @"resources" : [NSString class],
+    @"roles" : [NSString class]
   };
   return map;
 }
@@ -421,12 +490,15 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_GcpUserAccessBinding
-@dynamic accessLevels, dryRunAccessLevels, groupKey, name;
+@dynamic accessLevels, dryRunAccessLevels, groupKey, name,
+         restrictedClientApplications, scopedAccessSettings, sessionSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class],
-    @"dryRunAccessLevels" : [NSString class]
+    @"dryRunAccessLevels" : [NSString class],
+    @"restrictedClientApplications" : [GTLRAccessContextManager_Application class],
+    @"scopedAccessSettings" : [GTLRAccessContextManager_ScopedAccessSettings class]
   };
   return map;
 }
@@ -488,7 +560,7 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_IngressPolicy
-@dynamic ingressFrom, ingressTo;
+@dynamic ingressFrom, ingressTo, title;
 @end
 
 
@@ -508,12 +580,13 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_IngressTo
-@dynamic operations, resources;
+@dynamic operations, resources, roles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"operations" : [GTLRAccessContextManager_ApiOperation class],
-    @"resources" : [NSString class]
+    @"resources" : [NSString class],
+    @"roles" : [NSString class]
   };
   return map;
 }
@@ -847,15 +920,29 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_ScopedAccessSettings
+//
+
+@implementation GTLRAccessContextManager_ScopedAccessSettings
+@dynamic activeSettings, dryRunSettings, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_ServicePerimeter
 //
 
 @implementation GTLRAccessContextManager_ServicePerimeter
-@dynamic descriptionProperty, name, perimeterType, spec, status, title,
+@dynamic descriptionProperty, ETag, name, perimeterType, spec, status, title,
          useExplicitDryRunSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end
@@ -881,6 +968,17 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_SessionSettings
+//
+
+@implementation GTLRAccessContextManager_SessionSettings
+@dynamic maxInactivity, sessionLength, sessionLengthEnabled,
+         sessionReauthMethod, useOidcMaxAge;
 @end
 
 
@@ -932,8 +1030,8 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_SupportedService
-@dynamic availableOnRestrictedVip, knownLimitations, name, supportedMethods,
-         supportStage, title;
+@dynamic availableOnRestrictedVip, knownLimitations, name, serviceSupportStage,
+         supportedMethods, supportStage, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

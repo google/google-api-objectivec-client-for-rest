@@ -26,6 +26,8 @@
 @class GTLRAdsense_Header;
 @class GTLRAdsense_HttpBody_Extensions_Item;
 @class GTLRAdsense_Payment;
+@class GTLRAdsense_PolicyIssue;
+@class GTLRAdsense_PolicyTopic;
 @class GTLRAdsense_Row;
 @class GTLRAdsense_SavedReport;
 @class GTLRAdsense_Site;
@@ -240,6 +242,114 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Header_Type_MetricRatio;
 FOUNDATION_EXTERN NSString * const kGTLRAdsense_Header_Type_MetricTally;
 
 // ----------------------------------------------------------------------------
+// GTLRAdsense_PolicyIssue.action
+
+/**
+ *  Ad personalization is restricted because the ad requests coming from the EEA
+ *  and UK do not have a TCF string or the Consent Management Platform (CMP)
+ *  indicated by the TCF string is not Google certified. As a result,
+ *  basic/limited ads will be served. See
+ *  https://support.google.com/adsense/answer/13554116.
+ *
+ *  Value: "AD_PERSONALIZATION_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_Action_AdPersonalizationRestricted;
+/**
+ *  Ads are being served for the entity but Confirmed Click is being applied to
+ *  the ads. See https://support.google.com/adsense/answer/10025624.
+ *
+ *  Value: "AD_SERVED_WITH_CLICK_CONFIRMATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_Action_AdServedWithClickConfirmation;
+/**
+ *  Ad serving has been disabled on the entity.
+ *
+ *  Value: "AD_SERVING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_Action_AdServingDisabled;
+/**
+ *  Ad serving demand has been restricted on the entity.
+ *
+ *  Value: "AD_SERVING_RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_Action_AdServingRestricted;
+/**
+ *  The action is unspecified.
+ *
+ *  Value: "ENFORCEMENT_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_Action_EnforcementActionUnspecified;
+/**
+ *  No ad serving enforcement is currently present, but enforcement will start
+ *  on the `warning_escalation_date` if the issue is not resolved.
+ *
+ *  Value: "WARNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_Action_Warned;
+
+// ----------------------------------------------------------------------------
+// GTLRAdsense_PolicyIssue.entityType
+
+/**
+ *  The entity type is unspecified.
+ *
+ *  Value: "ENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_EntityType_EntityTypeUnspecified;
+/**
+ *  The enforced entity is a single web page.
+ *
+ *  Value: "PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_EntityType_Page;
+/**
+ *  The enforced entity is an entire website.
+ *
+ *  Value: "SITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_EntityType_Site;
+/**
+ *  The enforced entity is a particular section of a website. All the pages with
+ *  this prefix are enforced.
+ *
+ *  Value: "SITE_SECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyIssue_EntityType_SiteSection;
+
+// ----------------------------------------------------------------------------
+// GTLRAdsense_PolicyTopic.type
+
+/**
+ *  Topics that are related to advertiser preferences. Certain advertisers may
+ *  choose not to bid on content that are labeled with certain policies.
+ *
+ *  Value: "ADVERTISER_PREFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_AdvertiserPreference;
+/**
+ *  Topics that are primarily related to the Google Publisher Policy (GPP)
+ *  (https://support.google.com/publisherpolicies/answer/10502938) or the Google
+ *  Publisher Restrictions (GPR) policies
+ *  (https://support.google.com/publisherpolicies/answer/10437795).
+ *
+ *  Value: "POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_Policy;
+/**
+ *  The type is unspecified.
+ *
+ *  Value: "POLICY_TOPIC_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_PolicyTopicTypeUnspecified;
+/**
+ *  Any topics that are a result of a country or regional regulatory requirement
+ *  body.
+ *
+ *  Value: "REGULATORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsense_PolicyTopic_Type_Regulatory;
+
+// ----------------------------------------------------------------------------
 // GTLRAdsense_Site.state
 
 /**
@@ -301,7 +411,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pendingTasks;
 
 /**
- *  Output only. Whether this account is premium.
+ *  Output only. Whether this account is premium. Premium accounts have access
+ *  to additional spam-related metrics.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -959,6 +1070,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 
 
 /**
+ *  Response definition for the policy issues list rpc. Policy issues are
+ *  reported only if the publisher has at least one AFC ad client in READY or
+ *  GETTING_READY state. If the publisher has no such AFC ad client, the
+ *  response will be an empty list.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "policyIssues" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAdsense_ListPolicyIssuesResponse : GTLRCollectionObject
+
+/**
+ *  Continuation token used to page through policy issues. To retrieve the next
+ *  page of the results, set the next request's "page_token" value to this.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The policy issues returned in the list response.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdsense_PolicyIssue *> *policyIssues;
+
+@end
+
+
+/**
  *  Response definition for the saved reports list rpc.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1070,6 +1211,182 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  *  earnings.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Representation of a policy issue for a single entity (site, site-section, or
+ *  page). All issues for a single entity are represented by a single
+ *  PolicyIssue resource, though that PolicyIssue can have multiple causes (or
+ *  "topics") that can change over time. Policy issues are removed if there are
+ *  no issues detected recently or if there's a recent successful appeal for the
+ *  entity.
+ */
+@interface GTLRAdsense_PolicyIssue : GTLRObject
+
+/**
+ *  Required. The most severe action taken on the entity over the past seven
+ *  days.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdsense_PolicyIssue_Action_AdPersonalizationRestricted Ad
+ *        personalization is restricted because the ad requests coming from the
+ *        EEA and UK do not have a TCF string or the Consent Management Platform
+ *        (CMP) indicated by the TCF string is not Google certified. As a
+ *        result, basic/limited ads will be served. See
+ *        https://support.google.com/adsense/answer/13554116. (Value:
+ *        "AD_PERSONALIZATION_RESTRICTED")
+ *    @arg @c kGTLRAdsense_PolicyIssue_Action_AdServedWithClickConfirmation Ads
+ *        are being served for the entity but Confirmed Click is being applied
+ *        to the ads. See https://support.google.com/adsense/answer/10025624.
+ *        (Value: "AD_SERVED_WITH_CLICK_CONFIRMATION")
+ *    @arg @c kGTLRAdsense_PolicyIssue_Action_AdServingDisabled Ad serving has
+ *        been disabled on the entity. (Value: "AD_SERVING_DISABLED")
+ *    @arg @c kGTLRAdsense_PolicyIssue_Action_AdServingRestricted Ad serving
+ *        demand has been restricted on the entity. (Value:
+ *        "AD_SERVING_RESTRICTED")
+ *    @arg @c kGTLRAdsense_PolicyIssue_Action_EnforcementActionUnspecified The
+ *        action is unspecified. (Value: "ENFORCEMENT_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRAdsense_PolicyIssue_Action_Warned No ad serving enforcement
+ *        is currently present, but enforcement will start on the
+ *        `warning_escalation_date` if the issue is not resolved. (Value:
+ *        "WARNED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Optional. List of ad clients associated with the policy issue (either as the
+ *  primary ad client or an associated host/secondary ad client). In the latter
+ *  case, this will be an ad client that is not owned by the current account.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *adClients;
+
+/**
+ *  Required. Total number of ad requests affected by the policy violations over
+ *  the past seven days.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adRequestCount;
+
+/**
+ *  Required. Type of the entity indicating if the entity is a site,
+ *  site-section, or page.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdsense_PolicyIssue_EntityType_EntityTypeUnspecified The
+ *        entity type is unspecified. (Value: "ENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdsense_PolicyIssue_EntityType_Page The enforced entity is a
+ *        single web page. (Value: "PAGE")
+ *    @arg @c kGTLRAdsense_PolicyIssue_EntityType_Site The enforced entity is an
+ *        entire website. (Value: "SITE")
+ *    @arg @c kGTLRAdsense_PolicyIssue_EntityType_SiteSection The enforced
+ *        entity is a particular section of a website. All the pages with this
+ *        prefix are enforced. (Value: "SITE_SECTION")
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
+
+/**
+ *  Required. The date (in the America/Los_Angeles timezone) when policy
+ *  violations were first detected on the entity.
+ */
+@property(nonatomic, strong, nullable) GTLRAdsense_Date *firstDetectedDate;
+
+/**
+ *  Required. The date (in the America/Los_Angeles timezone) when policy
+ *  violations were last detected on the entity.
+ */
+@property(nonatomic, strong, nullable) GTLRAdsense_Date *lastDetectedDate;
+
+/**
+ *  Required. Resource name of the entity with policy issues. Format:
+ *  accounts/{account}/policyIssues/{policy_issue}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Unordered list. The policy topics that this entity was found to
+ *  violate over the past seven days.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdsense_PolicyTopic *> *policyTopics;
+
+/**
+ *  Required. Hostname/domain of the entity (for example "foo.com" or
+ *  "www.foo.com"). This _should_ be a bare domain/host name without any
+ *  protocol. This will be present for all policy issues.
+ */
+@property(nonatomic, copy, nullable) NSString *site;
+
+/**
+ *  Optional. Prefix of the site-section having policy issues (For example
+ *  "foo.com/bar-section"). This will be present if the `entity_type` is
+ *  `SITE_SECTION` and will be absent for other entity types.
+ */
+@property(nonatomic, copy, nullable) NSString *siteSection;
+
+/**
+ *  Optional. URI of the page having policy violations (for example
+ *  "foo.com/bar" or "www.foo.com/bar"). This will be present if the
+ *  `entity_type` is `PAGE` and will be absent for other entity types.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Optional. The date (in the America/Los_Angeles timezone) when the entity
+ *  will have ad serving demand restricted or ad serving disabled. This is
+ *  present only for issues with a `WARNED` enforcement action. See
+ *  https://support.google.com/adsense/answer/11066888.
+ */
+@property(nonatomic, strong, nullable) GTLRAdsense_Date *warningEscalationDate;
+
+@end
+
+
+/**
+ *  Information about a particular policy topic. A policy topic represents a
+ *  single class of policy issue that can impact ad serving for your site. For
+ *  example, sexual content or having ads that obscure your content. A single
+ *  policy issue can have multiple policy topics for a single entity.
+ */
+@interface GTLRAdsense_PolicyTopic : GTLRObject
+
+/**
+ *  Required. Deprecated. Always set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mustFix GTLR_DEPRECATED;
+
+/**
+ *  Required. The policy topic. For example, "sexual-content" or
+ *  "ads-obscuring-content"."
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+/**
+ *  Optional. The type of policy topic. For example, "POLICY" represents all the
+ *  policy topics that are related to the Google Publisher Policy (GPP). See
+ *  https://support.google.com/adsense/answer/15689616.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdsense_PolicyTopic_Type_AdvertiserPreference Topics that are
+ *        related to advertiser preferences. Certain advertisers may choose not
+ *        to bid on content that are labeled with certain policies. (Value:
+ *        "ADVERTISER_PREFERENCE")
+ *    @arg @c kGTLRAdsense_PolicyTopic_Type_Policy Topics that are primarily
+ *        related to the Google Publisher Policy (GPP)
+ *        (https://support.google.com/publisherpolicies/answer/10502938) or the
+ *        Google Publisher Restrictions (GPR) policies
+ *        (https://support.google.com/publisherpolicies/answer/10437795).
+ *        (Value: "POLICY")
+ *    @arg @c kGTLRAdsense_PolicyTopic_Type_PolicyTopicTypeUnspecified The type
+ *        is unspecified. (Value: "POLICY_TOPIC_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdsense_PolicyTopic_Type_Regulatory Any topics that are a
+ *        result of a country or regional regulatory requirement body. (Value:
+ *        "REGULATORY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1219,13 +1536,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @interface GTLRAdsense_TimeZone : GTLRObject
 
 /**
- *  IANA Time Zone Database time zone, e.g. "America/New_York".
+ *  IANA Time Zone Database time zone. For example "America/New_York".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Optional. IANA Time Zone Database version number, e.g. "2019a". */
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end

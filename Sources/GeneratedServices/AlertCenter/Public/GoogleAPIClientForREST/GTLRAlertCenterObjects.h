@@ -7,7 +7,7 @@
 //   Manages alerts on issues affecting your domain. Note: The current version
 //   of this API (v1beta1) is available to all Google Workspace customers.
 // Documentation:
-//   https://developers.google.com/admin-sdk/alertcenter/
+//   https://developers.google.com/workspace/admin/alertcenter/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -348,6 +348,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_MailPhishing_SystemActionTyp
 // GTLRAlertCenter_RuleViolationInfo.dataSource
 
 /**
+ *  Chat data source.
+ *
+ *  Value: "CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Chat;
+/**
+ *  Chrome data source.
+ *
+ *  Value: "CHROME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Chrome;
+/**
  *  Data source is unspecified.
  *
  *  Value: "DATA_SOURCE_UNSPECIFIED"
@@ -359,6 +371,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource
  *  Value: "DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_RuleViolationInfo.eventType
+
+/**
+ *  An access attempt was blocked.
+ *
+ *  Value: "ACCESS_BLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_EventType_AccessBlocked;
+/**
+ *  Event type wasn't set.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_EventType_EventTypeUnspecified;
+/**
+ *  A sharing attempt was blocked.
+ *
+ *  Value: "SHARING_BLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_EventType_SharingBlocked;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.suppressedActionTypes
@@ -376,17 +410,113 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert;
 /**
+ *  Chat actions. Block Chat content to be sent out.
+ *
+ *  Value: "CHAT_BLOCK_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChatBlockContent;
+/**
+ *  Warn end user about Chat content.
+ *
+ *  Value: "CHAT_WARN_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChatWarnUser;
+/**
+ *  Chrome actions. Block file download.
+ *
+ *  Value: "CHROME_BLOCK_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileDownload;
+/**
+ *  Block file upload.
+ *
+ *  Value: "CHROME_BLOCK_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileUpload;
+/**
+ *  Block page print.
+ *
+ *  Value: "CHROME_BLOCK_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockPagePrint;
+/**
+ *  Block screenshot alert.
+ *
+ *  Value: "CHROME_BLOCK_SCREENSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockScreenshot;
+/**
+ *  Block Chrome URL visit.
+ *
+ *  Value: "CHROME_BLOCK_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockUrlVisited;
+/**
+ *  Block web content upload.
+ *
+ *  Value: "CHROME_BLOCK_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockWebContentUpload;
+/**
+ *  Store the content that violated the rule.
+ *
+ *  Value: "CHROME_STORE_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeStoreContent;
+/**
+ *  Warn user about downloaded file.
+ *
+ *  Value: "CHROME_WARN_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileDownload;
+/**
+ *  Warn user about uploaded file.
+ *
+ *  Value: "CHROME_WARN_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileUpload;
+/**
+ *  Warn user about printed page.
+ *
+ *  Value: "CHROME_WARN_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnPagePrint;
+/**
+ *  Warn user about Chrome URL visited.
+ *
+ *  Value: "CHROME_WARN_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnUrlVisited;
+/**
+ *  Warn user about uploaded web content.
+ *
+ *  Value: "CHROME_WARN_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnWebContentUpload;
+/**
  *  Delete web protect evidence file
  *
  *  Value: "DELETE_WEBPROTECT_EVIDENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DeleteWebprotectEvidence;
 /**
+ *  Apply customer specified Drive labels to the file.
+ *
+ *  Value: "DRIVE_APPLY_DRIVE_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveApplyDriveLabels;
+/**
  *  Block sharing a file externally.
  *
  *  Value: "DRIVE_BLOCK_EXTERNAL_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing;
+/**
+ *  Disable download, print, and copy for commenters and viewers in drive.
+ *
+ *  Value: "DRIVE_RESTRICT_DOWNLOAD_PRINT_COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveRestrictDownloadPrintCopy;
 /**
  *  Show a warning message when sharing a file externally.
  *
@@ -409,6 +539,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.trigger
 
+/**
+ *  A Chat attachment is uploaded.
+ *
+ *  Value: "CHAT_ATTACHMENT_UPLOADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatAttachmentUploaded;
+/**
+ *  A Chat message is sent.
+ *
+ *  Value: "CHAT_MESSAGE_SENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent;
+/**
+ *  A file being downloaded in a Chrome browser.
+ *
+ *  Value: "CHROME_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileDownload;
+/**
+ *  A file being uploaded from a Chrome browser.
+ *
+ *  Value: "CHROME_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload;
+/**
+ *  A page is being printed by Chrome.
+ *
+ *  Value: "CHROME_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromePagePrint;
+/**
+ *  A URL is visited within Chrome.
+ *
+ *  Value: "CHROME_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeUrlVisited;
+/**
+ *  Web content being uploaded from a Chrome browser.
+ *
+ *  Value: "CHROME_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeWebContentUpload;
 /**
  *  A Drive file is shared.
  *
@@ -438,17 +610,113 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert;
 /**
+ *  Chat actions. Block Chat content to be sent out.
+ *
+ *  Value: "CHAT_BLOCK_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChatBlockContent;
+/**
+ *  Warn end user about Chat content.
+ *
+ *  Value: "CHAT_WARN_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChatWarnUser;
+/**
+ *  Chrome actions. Block file download.
+ *
+ *  Value: "CHROME_BLOCK_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileDownload;
+/**
+ *  Block file upload.
+ *
+ *  Value: "CHROME_BLOCK_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileUpload;
+/**
+ *  Block page print.
+ *
+ *  Value: "CHROME_BLOCK_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockPagePrint;
+/**
+ *  Block screenshot alert.
+ *
+ *  Value: "CHROME_BLOCK_SCREENSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockScreenshot;
+/**
+ *  Block Chrome URL visit.
+ *
+ *  Value: "CHROME_BLOCK_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockUrlVisited;
+/**
+ *  Block web content upload.
+ *
+ *  Value: "CHROME_BLOCK_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockWebContentUpload;
+/**
+ *  Store the content that violated the rule.
+ *
+ *  Value: "CHROME_STORE_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeStoreContent;
+/**
+ *  Warn user about downloaded file.
+ *
+ *  Value: "CHROME_WARN_FILE_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileDownload;
+/**
+ *  Warn user about uploaded file.
+ *
+ *  Value: "CHROME_WARN_FILE_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileUpload;
+/**
+ *  Warn user about printed page.
+ *
+ *  Value: "CHROME_WARN_PAGE_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnPagePrint;
+/**
+ *  Warn user about Chrome URL visited.
+ *
+ *  Value: "CHROME_WARN_URL_VISITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnUrlVisited;
+/**
+ *  Warn user about uploaded web content.
+ *
+ *  Value: "CHROME_WARN_WEB_CONTENT_UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnWebContentUpload;
+/**
  *  Delete web protect evidence file
  *
  *  Value: "DELETE_WEBPROTECT_EVIDENCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DeleteWebprotectEvidence;
 /**
+ *  Apply customer specified Drive labels to the file.
+ *
+ *  Value: "DRIVE_APPLY_DRIVE_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveApplyDriveLabels;
+/**
  *  Block sharing a file externally.
  *
  *  Value: "DRIVE_BLOCK_EXTERNAL_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing;
+/**
+ *  Disable download, print, and copy for commenters and viewers in drive.
+ *
+ *  Value: "DRIVE_RESTRICT_DOWNLOAD_PRINT_COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveRestrictDownloadPrintCopy;
 /**
  *  Show a warning message when sharing a file externally.
  *
@@ -530,6 +798,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_
  *  Value: "UNLICENSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_TransferError_InvalidReason_Unlicensed;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_VaultAcceleratedDeletion.actionType
+
+/**
+ *  AD Cancel action type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_ACTION_TYPE_CANCEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCancel;
+/**
+ *  AD Create action type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_ACTION_TYPE_CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCreate;
+/**
+ *  Unspecified action type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_VaultAcceleratedDeletion.appType
+
+/**
+ *  Gmail app type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_APP_TYPE_GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeGmail;
+/**
+ *  Unspecified app type
+ *
+ *  Value: "VAULT_ACCELERATED_DELETION_APP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_VoicemailRecipientError.invalidReason
@@ -895,7 +1201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /**
  *  Required. The type of the alert. This is output only after alert is created.
  *  For a list of available alert types see [Google Workspace Alert
- *  types](https://developers.google.com/admin-sdk/alertcenter/reference/alert-types).
+ *  types](https://developers.google.com/workspace/admin/alertcenter/reference/alert-types).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1045,8 +1351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 /**
  *  Alerts from AppSettingsChanged bucket Rules configured by Admin which
- *  contain the below rules. Calendar settings changed Drive settings changed
- *  Email settings changed Mobile settings changed
+ *  contain the following rules: - Calendar settings changed - Drive settings
+ *  changed - Email settings changed - Mobile settings changed
  */
 @interface GTLRAlertCenter_AppSettingsChanged : GTLRObject
 
@@ -1368,11 +1674,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /** The email of the user this alert was created for. */
 @property(nonatomic, copy, nullable) NSString *email;
 
+/**
+ *  ID of the rule that triggered the alert
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
 /** Required for iOS, empty for others. */
 @property(nonatomic, copy, nullable) NSString *iosVendorId;
 
+/** Obfuscated ID of the owner of the device */
+@property(nonatomic, copy, nullable) NSString *ownerId;
+
 /** The device resource ID. */
 @property(nonatomic, copy, nullable) NSString *resourceId;
+
+/** Action taken as result of the rule */
+@property(nonatomic, copy, nullable) NSString *ruleAction;
 
 /** The serial number of the device. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
@@ -1731,7 +2050,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /**
  *  Settings for callback notifications. For more details see [Google Workspace
  *  Alert
- *  Notification](https://developers.google.com/admin-sdk/alertcenter/guides/notifications).
+ *  Notification](https://developers.google.com/workspace/admin/alertcenter/guides/notifications).
  */
 @interface GTLRAlertCenter_Notification : GTLRObject
 
@@ -1744,7 +2063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /**
  *  Alert for a spike in user reported phishing. *Warning*: This type has been
  *  deprecated. Use
- *  [MailPhishing](/admin-sdk/alertcenter/reference/rest/v1beta1/MailPhishing)
+ *  [MailPhishing](https://developers.google.com/workspace/admin/alertcenter/reference/rest/v1beta1/MailPhishing)
  *  instead.
  */
 @interface GTLRAlertCenter_PhishingSpike : GTLRObject
@@ -1855,6 +2174,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  */
 @interface GTLRAlertCenter_ResourceInfo : GTLRObject
 
+/** Chat attachment ID. */
+@property(nonatomic, copy, nullable) NSString *chatAttachmentId;
+
+/** Chat message ID. */
+@property(nonatomic, copy, nullable) NSString *chatMessageId;
+
+/**
+ *  Id to identify a device. For example, for Android devices, this is the
+ *  "Android Device Id" and for Chrome OS devices, it's the "Device Virtual Id".
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
 /** Drive file ID. */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
@@ -1888,12 +2219,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Source of the data.
  *
  *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Chat Chat data
+ *        source. (Value: "CHAT")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Chrome Chrome data
+ *        source. (Value: "CHROME")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_DataSourceUnspecified
  *        Data source is unspecified. (Value: "DATA_SOURCE_UNSPECIFIED")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive Drive data
  *        source. (Value: "DRIVE")
  */
 @property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Event associated with this alert after applying the rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_EventType_AccessBlocked An
+ *        access attempt was blocked. (Value: "ACCESS_BLOCKED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_EventType_EventTypeUnspecified
+ *        Event type wasn't set. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_EventType_SharingBlocked A
+ *        sharing attempt was blocked. (Value: "SHARING_BLOCKED")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
 
 /** List of matches that were found in the resource content. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_MatchInfo *> *matchInfo;
@@ -1921,6 +2269,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Trigger of the rule.
  *
  *  Likely values:
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatAttachmentUploaded
+ *        A Chat attachment is uploaded. (Value: "CHAT_ATTACHMENT_UPLOADED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChatMessageSent A Chat
+ *        message is sent. (Value: "CHAT_MESSAGE_SENT")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileDownload A
+ *        file being downloaded in a Chrome browser. (Value:
+ *        "CHROME_FILE_DOWNLOAD")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload A file
+ *        being uploaded from a Chrome browser. (Value: "CHROME_FILE_UPLOAD")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromePagePrint A page
+ *        is being printed by Chrome. (Value: "CHROME_PAGE_PRINT")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeUrlVisited A URL
+ *        is visited within Chrome. (Value: "CHROME_URL_VISITED")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeWebContentUpload
+ *        Web content being uploaded from a Chrome browser. (Value:
+ *        "CHROME_WEB_CONTENT_UPLOAD")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare A Drive file
  *        is shared. (Value: "DRIVE_SHARE")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified
@@ -2263,9 +2627,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 /**
  *  Alerts from UserChanges bucket Rules for predefined rules which contain the
- *  below rules. Suspended user made active New user Added User suspended (by
- *  admin) User granted admin privileges User admin privileges revoked User
- *  deleted Users password changed
+ *  following rules: - Suspended user made active - New user added - User
+ *  suspended (by admin) - User granted admin privileges - User admin privileges
+ *  revoked - User deleted - Users password changed
  */
 @interface GTLRAlertCenter_UserChanges : GTLRObject
 
@@ -2285,6 +2649,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 /** Resource name that uniquely identifies the detector. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+@end
+
+
+/**
+ *  Alert that is triggered when a Vault accelerated deletion request is created
+ *  or canceled.
+ */
+@interface GTLRAlertCenter_VaultAcceleratedDeletion : GTLRObject
+
+/**
+ *  The action can be one of create and cancel
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCancel
+ *        AD Cancel action type (Value:
+ *        "VAULT_ACCELERATED_DELETION_ACTION_TYPE_CANCEL")
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeCreate
+ *        AD Create action type (Value:
+ *        "VAULT_ACCELERATED_DELETION_ACTION_TYPE_CREATE")
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_ActionType_VaultAcceleratedDeletionActionTypeUnspecified
+ *        Unspecified action type (Value:
+ *        "VAULT_ACCELERATED_DELETION_ACTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *actionType;
+
+/**
+ *  Currentlty only Gmail is supported as app type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeGmail
+ *        Gmail app type (Value: "VAULT_ACCELERATED_DELETION_APP_TYPE_GMAIL")
+ *    @arg @c kGTLRAlertCenter_VaultAcceleratedDeletion_AppType_VaultAcceleratedDeletionAppTypeUnspecified
+ *        Unspecified app type (Value:
+ *        "VAULT_ACCELERATED_DELETION_APP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/** The UTC timestamp of when the AD request was created */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Accelerated deletion request ID intended to be used to construct the Vault
+ *  UI link to the AD request
+ */
+@property(nonatomic, copy, nullable) NSString *deletionRequestId;
+
+/**
+ *  Matter ID of the accelerated deletion request intended to be used to
+ *  construct the Vault UI link to the AD request
+ */
+@property(nonatomic, copy, nullable) NSString *matterId;
 
 @end
 

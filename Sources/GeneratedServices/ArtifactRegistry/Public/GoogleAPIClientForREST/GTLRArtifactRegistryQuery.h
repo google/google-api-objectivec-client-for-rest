@@ -156,6 +156,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsList : GTLRArtifactRegistryQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -301,6 +307,152 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Creates an attachment. The returned Operation will finish once the
+ *  attachment has been created. Its response will be the created attachment.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.attachments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsCreate : GTLRArtifactRegistryQuery
+
+/** Required. The attachment id to use for this attachment. */
+@property(nonatomic, copy, nullable) NSString *attachmentId;
+
+/**
+ *  Required. The name of the parent resource where the attachment will be
+ *  created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Creates an attachment. The returned Operation will finish once the
+ *  attachment has been created. Its response will be the created attachment.
+ *
+ *  @param object The @c GTLRArtifactRegistry_Attachment to include in the
+ *    query.
+ *  @param parent Required. The name of the parent resource where the attachment
+ *    will be created.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_Attachment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an attachment. The returned Operation will finish once the
+ *  attachments has been deleted. It will not have any Operation metadata and
+ *  will return a `google.protobuf.Empty` response.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.attachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsDelete : GTLRArtifactRegistryQuery
+
+/** Required. The name of the attachment to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Deletes an attachment. The returned Operation will finish once the
+ *  attachments has been deleted. It will not have any Operation metadata and
+ *  will return a `google.protobuf.Empty` response.
+ *
+ *  @param name Required. The name of the attachment to delete.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an attachment.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.attachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the attachment to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Attachment.
+ *
+ *  Gets an attachment.
+ *
+ *  @param name Required. The name of the attachment to retrieve.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists attachments.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.attachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsList : GTLRArtifactRegistryQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Filter
+ *  rules are case insensitive. The fields eligible for filtering are: *
+ *  `target` * `type` * `attachment_namespace`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of attachments to return. Maximum page size is 1,000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose attachments will be listed.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListAttachmentsResponse.
+ *
+ *  Lists attachments.
+ *
+ *  @param parent Required. The name of the parent resource whose attachments
+ *    will be listed.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a repository. The returned Operation will finish once the repository
  *  has been created. Its response will be the created Repository.
  *
@@ -409,7 +561,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 /** The field to order the results by. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** The maximum number of artifacts to return. */
+/** The maximum number of artifacts to return. Maximum page size is 1,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -438,6 +590,74 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a file and all of its content. It is only allowed on generic
+ *  repositories. The returned operation will complete once the file has been
+ *  deleted.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.files.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDelete : GTLRArtifactRegistryQuery
+
+/** Required. The name of the file to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Deletes a file and all of its content. It is only allowed on generic
+ *  repositories. The returned operation will complete once the file has been
+ *  deleted.
+ *
+ *  @param name Required. The name of the file to delete.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Download a file.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.files.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload : GTLRArtifactRegistryQuery
+
+/** Required. The name of the file to download. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_DownloadFileResponse.
+ *
+ *  Download a file.
+ *
+ *  @param name Required. The name of the file to download.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Download a file.
+ *
+ *  @param name Required. The name of the file to download.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDownload
+ */
++ (instancetype)queryForMediaWithName:(NSString *)name;
 
 @end
 
@@ -482,18 +702,43 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 /**
  *  An expression for filtering the results of the request. Filter rules are
  *  case insensitive. The fields eligible for filtering are: * `name` * `owner`
- *  An example of using a filter: *
- *  `name="projects/p1/locations/us-central1/repositories/repo1/files/a/b/ *"`
- *  --> Files with an ID starting with "a/b/". *
- *  `owner="projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0"`
- *  --> Files owned by the version `1.0` in package `pkg1`.
+ *  * `annotations` Examples of using a filter: To filter the results of your
+ *  request to files with the name `my_file.txt` in project `my-project` in the
+ *  `us-central` region, in repository `my-repo`, append the following filter
+ *  expression to your request: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/files/my-file.txt"`
+ *  You can also use wildcards to match any number of characters before or after
+ *  the value: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/files/my-*"`
+ *  *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/files/
+ *  *file.txt"` *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/files/
+ *  *file*"` To filter the results of your request to files owned by the version
+ *  `1.0` in package `pkg1`, append the following filter expression to your
+ *  request: *
+ *  `owner="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/1.0"`
+ *  To filter the results of your request to files with the annotation key-value
+ *  pair [`external_link`: `external_link_value`], append the following filter
+ *  expression to your request: *
+ *  `"annotations.external_link:external_link_value"` To filter just for a
+ *  specific annotation key `external_link`, append the following filter
+ *  expression to your request: * `"annotations.external_link"` If the
+ *  annotation key or value contains special characters, you can escape them by
+ *  surrounding the value with backticks. For example, to filter the results of
+ *  your request to files with the annotation key-value pair
+ *  [`external.link`:`https://example.com/my-file`], append the following filter
+ *  expression to your request: * ``
+ *  "annotations.`external.link`:`https://example.com/my-file`" `` You can also
+ *  filter with annotations with a wildcard to match any number of characters
+ *  before or after the value: * `` "annotations.*_link:`*example.com*`" ``
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The field to order the results by. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** The maximum number of files to return. */
+/** The maximum number of files to return. Maximum page size is 1,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -522,6 +767,131 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a file.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.files.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesPatch : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the file, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt`.
+ *  If the file ID part contains slashes, they are escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File.
+ *
+ *  Updates a file.
+ *
+ *  @param object The @c
+ *    GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File to include in
+ *    the query.
+ *  @param name The name of the file, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt`.
+ *    If the file ID part contains slashes, they are escaped.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesPatch
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Directly uploads a file to a repository. The returned Operation will
+ *  complete once the resources are uploaded.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.files.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesUpload : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The resource name of the repository where the file will be
+ *  uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_UploadFileMediaResponse.
+ *
+ *  Directly uploads a file to a repository. The returned Operation will
+ *  complete once the resources are uploaded.
+ *
+ *  @param object The @c GTLRArtifactRegistry_UploadFileRequest to include in
+ *    the query.
+ *  @param parent Required. The resource name of the repository where the file
+ *    will be uploaded.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesUpload
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadFileRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Directly uploads a Generic artifact. The returned operation will complete
+ *  once the resources are uploaded. Package, version, and file resources are
+ *  created based on the uploaded artifact. Uploaded artifacts that conflict
+ *  with existing resources will raise an `ALREADY_EXISTS` error.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.genericArtifacts.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGenericArtifactsUpload : GTLRArtifactRegistryQuery
+
+/**
+ *  The resource name of the repository where the generic artifact will be
+ *  uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_UploadGenericArtifactMediaResponse.
+ *
+ *  Directly uploads a Generic artifact. The returned operation will complete
+ *  once the resources are uploaded. Package, version, and file resources are
+ *  created based on the uploaded artifact. Uploaded artifacts that conflict
+ *  with existing resources will raise an `ALREADY_EXISTS` error.
+ *
+ *  @param object The @c GTLRArtifactRegistry_UploadGenericArtifactRequest to
+ *    include in the query.
+ *  @param parent The resource name of the repository where the generic artifact
+ *    will be uploaded.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGenericArtifactsUpload
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadGenericArtifactRequest *)object
+                         parent:(NSString *)parent
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 
@@ -767,6 +1137,24 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesList : GTLRArtifactRegistryQuery
 
 /**
+ *  Optional. An expression for filtering the results of the request. Filter
+ *  rules are case insensitive. The fields eligible for filtering are: * `name`
+ *  Examples of using a filter: To filter the results of your request to
+ *  repositories with the name `my-repo` in project `my-project` in the
+ *  `us-central` region, append the following filter expression to your request:
+ *  * `name="projects/my-project/locations/us-central1/repositories/my-repo"`
+ *  You can also use wildcards to match any number of characters before or after
+ *  the value: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-*"` *
+ *  `name="projects/my-project/locations/us-central1/repositories/ *repo"` *
+ *  `name="projects/my-project/locations/us-central1/repositories/ *repo*"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The field to order the results by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  The maximum number of repositories to return. Maximum page size is 1,000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -837,7 +1225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesMavenArtifactsList : GTLRArtifactRegistryQuery
 
-/** The maximum number of artifacts to return. */
+/** The maximum number of artifacts to return. Maximum page size is 1,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -907,7 +1295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesNpmPackagesList : GTLRArtifactRegistryQuery
 
-/** The maximum number of artifacts to return. */
+/** The maximum number of artifacts to return. Maximum page size is 1,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -1004,6 +1392,42 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesList : GTLRArtifactRegistryQuery
 
+/**
+ *  Optional. An expression for filtering the results of the request. Filter
+ *  rules are case insensitive. The fields eligible for filtering are: * `name`
+ *  * `annotations` Examples of using a filter: To filter the results of your
+ *  request to packages with the name `my-package` in project `my-project` in
+ *  the `us-central` region, in repository `my-repo`, append the following
+ *  filter expression to your request: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package"`
+ *  You can also use wildcards to match any number of characters before or after
+ *  the value: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-*"`
+ *  *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/
+ *  *package"` *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/
+ *  *pack*"` To filter the results of your request to packages with the
+ *  annotation key-value pair [`external_link`: `external_link_value`], append
+ *  the following filter expression to your request": *
+ *  `"annotations.external_link:external_link_value"` To filter the results just
+ *  for a specific annotation key `external_link`, append the following filter
+ *  expression to your request: * `"annotations.external_link"` If the
+ *  annotation key or value contains special characters, you can escape them by
+ *  surrounding the value with backticks. For example, to filter the results of
+ *  your request to packages with the annotation key-value pair
+ *  [`external.link`:`https://example.com/my-package`], append the following
+ *  filter expression to your request: * ``
+ *  "annotations.`external.link`:`https://example.com/my-package`" `` You can
+ *  also filter with annotations with a wildcard to match any number of
+ *  characters before or after the value: * ``
+ *  "annotations.*_link:`*example.com*`" ``
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The field to order the results by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /** The maximum number of packages to return. Maximum page size is 1,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1032,6 +1456,48 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a package.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.packages.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesPatch : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the package, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`. If the
+ *  package ID part contains slashes, the slashes are escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Package.
+ *
+ *  Updates a package.
+ *
+ *  @param object The @c GTLRArtifactRegistry_Package to include in the query.
+ *  @param name The name of the package, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1`. If
+ *    the package ID part contains slashes, the slashes are escaped.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesPatch
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_Package *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1132,14 +1598,27 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 
 /**
  *  An expression for filtering the results of the request. Filter rules are
- *  case insensitive. The fields eligible for filtering are: * `version` An
- *  example of using a filter: *
- *  `version="projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0"`
- *  --> Tags that are applied to the version `1.0` in package `pkg1`.
+ *  case insensitive. The fields eligible for filtering are: * `name` *
+ *  `version` Examples of using a filter: To filter the results of your request
+ *  to tags with the name `my-tag` in package `my-package` in repository
+ *  `my-repo` in project "`y-project` in the us-central region, append the
+ *  following filter expression to your request: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/tags/my-tag"`
+ *  You can also use wildcards to match any number of characters before or after
+ *  the value: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/tags/my*"`
+ *  *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/tags/
+ *  *tag"` *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/tags/
+ *  *tag*"` To filter the results of your request to tags applied to the version
+ *  `1.0` in package `my-package`, append the following filter expression to
+ *  your request: *
+ *  `version="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/1.0"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of tags to return. Maximum page size is 10,000. */
+/** The maximum number of tags to return. Maximum page size is 1,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -1334,6 +1813,39 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsList : GTLRArtifactRegistryQuery
 
+/**
+ *  Optional. An expression for filtering the results of the request. Filter
+ *  rules are case insensitive. The fields eligible for filtering are: * `name`
+ *  * `annotations` Examples of using a filter: To filter the results of your
+ *  request to versions with the name `my-version` in project `my-project` in
+ *  the `us-central` region, in repository `my-repo`, append the following
+ *  filter expression to your request: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/my-version"`
+ *  You can also use wildcards to match any number of characters before or after
+ *  the value: *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/
+ *  *version"` *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/my*"`
+ *  *
+ *  `name="projects/my-project/locations/us-central1/repositories/my-repo/packages/my-package/versions/
+ *  *version*"` To filter the results of your request to versions with the
+ *  annotation key-value pair [`external_link`: `external_link_value`], append
+ *  the following filter expression to your request: *
+ *  `"annotations.external_link:external_link_value"` To filter just for a
+ *  specific annotation key `external_link`, append the following filter
+ *  expression to your request: * `"annotations.external_link"` If the
+ *  annotation key or value contains special characters, you can escape them by
+ *  surrounding the value with backticks. For example, to filter the results of
+ *  your request to versions with the annotation key-value pair
+ *  [`external.link`:`https://example.com/my-version`], append the following
+ *  filter expression to your request: * ``
+ *  "annotations.`external.link`:`https://example.com/my-version`" `` You can
+ *  also filter with annotations with a wildcard to match any number of
+ *  characters before or after the value: * ``
+ *  "annotations.*_link:`*example.com*`" ``
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** Optional. The field to order the results by. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1379,6 +1891,49 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Updates a version.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.packages.versions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsPatch : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the version, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1`.
+ *  If the package or version ID parts contain slashes, the slashes are escaped.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Version.
+ *
+ *  Updates a version.
+ *
+ *  @param object The @c GTLRArtifactRegistry_Version to include in the query.
+ *  @param name The name of the version, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1`.
+ *    If the package or version ID parts contain slashes, the slashes are
+ *    escaped.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_Version *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates a repository.
  *
  *  Method: artifactregistry.projects.locations.repositories.patch
@@ -1390,7 +1945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 
 /**
  *  The name of the repository, for example:
- *  `projects/p1/locations/us-central1/repositories/repo1`.
+ *  `projects/p1/locations/us-central1/repositories/repo1`. For each location in
+ *  a project, repository names must be unique.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1410,7 +1966,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param object The @c GTLRArtifactRegistry_Repository to include in the
  *    query.
  *  @param name The name of the repository, for example:
- *    `projects/p1/locations/us-central1/repositories/repo1`.
+ *    `projects/p1/locations/us-central1/repositories/repo1`. For each location
+ *    in a project, repository names must be unique.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPatch
  */
@@ -1457,7 +2014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPythonPackagesList : GTLRArtifactRegistryQuery
 
-/** The maximum number of artifacts to return. */
+/** The maximum number of artifacts to return. Maximum page size is 1,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -1486,6 +2043,181 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a rule.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesCreate : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The name of the parent resource where the rule will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The rule id to use for this repository. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.
+ *
+ *  Creates a rule.
+ *
+ *  @param object The @c
+ *    GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule to include in
+ *    the query.
+ *  @param parent Required. The name of the parent resource where the rule will
+ *    be created.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a rule.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesDelete : GTLRArtifactRegistryQuery
+
+/** Required. The name of the rule to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Empty.
+ *
+ *  Deletes a rule.
+ *
+ *  @param name Required. The name of the rule to delete.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a rule.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the rule to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.
+ *
+ *  Gets a rule.
+ *
+ *  @param name Required. The name of the rule to retrieve.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists rules.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesList : GTLRArtifactRegistryQuery
+
+/** The maximum number of rules to return. Maximum page size is 1,000. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent repository whose rules will be listed. For
+ *  example: `projects/p1/locations/us-central1/repositories/repo1`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListRulesResponse.
+ *
+ *  Lists rules.
+ *
+ *  @param parent Required. The name of the parent repository whose rules will
+ *    be listed. For example:
+ *    `projects/p1/locations/us-central1/repositories/repo1`.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a rule.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.rules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesPatch : GTLRArtifactRegistryQuery
+
+/**
+ *  The name of the rule, for example:
+ *  `projects/p1/locations/us-central1/repositories/repo1/rules/rule1`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule.
+ *
+ *  Updates a rule.
+ *
+ *  @param object The @c
+ *    GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule to include in
+ *    the query.
+ *  @param name The name of the rule, for example:
+ *    `projects/p1/locations/us-central1/repositories/repo1/rules/rule1`.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule *)object
+                           name:(NSString *)name;
 
 @end
 

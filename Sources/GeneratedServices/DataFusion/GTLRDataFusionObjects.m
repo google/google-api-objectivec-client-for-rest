@@ -61,12 +61,19 @@ NSString * const kGTLRDataFusion_Instance_Type_Developer       = @"DEVELOPER";
 NSString * const kGTLRDataFusion_Instance_Type_Enterprise      = @"ENTERPRISE";
 NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDataFusion_MaintenanceEvent.state
+NSString * const kGTLRDataFusion_MaintenanceEvent_State_Completed = @"COMPLETED";
+NSString * const kGTLRDataFusion_MaintenanceEvent_State_Scheduled = @"SCHEDULED";
+NSString * const kGTLRDataFusion_MaintenanceEvent_State_Started = @"STARTED";
+NSString * const kGTLRDataFusion_MaintenanceEvent_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDataFusion_NetworkConfig.connectionType
 NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_PrivateServiceConnectInterfaces = @"PRIVATE_SERVICE_CONNECT_INTERFACES";
 NSString * const kGTLRDataFusion_NetworkConfig_ConnectionType_VpcPeering = @"VPC_PEERING";
 
 // GTLRDataFusion_Version.type
+NSString * const kGTLRDataFusion_Version_Type_TypeDeprecated   = @"TYPE_DEPRECATED";
 NSString * const kGTLRDataFusion_Version_Type_TypeGeneralAvailability = @"TYPE_GENERAL_AVAILABILITY";
 NSString * const kGTLRDataFusion_Version_Type_TypePreview      = @"TYPE_PREVIEW";
 NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
@@ -156,26 +163,6 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_DataResidencyAugmentedView
-//
-
-@implementation GTLRDataFusion_DataResidencyAugmentedView
-@dynamic crGopoGuris, crGopoPrefixes, serviceData, tpIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"crGopoGuris" : [NSString class],
-    @"crGopoPrefixes" : [NSString class],
-    @"tpIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataFusion_DnsPeering
 //
 
@@ -234,9 +221,10 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
          dataprocServiceAccount, descriptionProperty, disabledReason,
          displayName, enableRbac, enableStackdriverLogging,
          enableStackdriverMonitoring, enableZoneSeparation, eventPublishConfig,
-         gcsBucket, labels, name, networkConfig, options, p4ServiceAccount,
-         patchRevision, privateInstance, satisfiesPzs, serviceAccount,
-         serviceEndpoint, state, stateMessage, tenantProjectId, type,
+         gcsBucket, labels, loggingConfig, maintenanceEvents, maintenancePolicy,
+         name, networkConfig, options, p4ServiceAccount, patchRevision,
+         privateInstance, satisfiesPzi, satisfiesPzs, serviceAccount,
+         serviceEndpoint, state, stateMessage, tags, tenantProjectId, type,
          updateTime, version, workforceIdentityServiceEndpoint, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -251,7 +239,8 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRDataFusion_Accelerator class],
     @"availableVersion" : [GTLRDataFusion_Version class],
-    @"disabledReason" : [NSString class]
+    @"disabledReason" : [NSString class],
+    @"maintenanceEvents" : [GTLRDataFusion_MaintenanceEvent class]
   };
   return map;
 }
@@ -289,21 +278,32 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_Instance_Tags
+//
+
+@implementation GTLRDataFusion_Instance_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_ListAvailableVersionsResponse
 //
 
 @implementation GTLRDataFusion_ListAvailableVersionsResponse
-@dynamic availableVersions, nextPageToken;
+@dynamic availableVersions, nextPageToken, versions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"availableVersions" : [GTLRDataFusion_Version class]
+    @"availableVersions" : [GTLRDataFusion_Version class],
+    @"versions" : [GTLRDataFusion_Version class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"availableVersions";
 }
 
 @end
@@ -438,6 +438,46 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_LoggingConfig
+//
+
+@implementation GTLRDataFusion_LoggingConfig
+@dynamic instanceCloudLoggingDisabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_MaintenanceEvent
+//
+
+@implementation GTLRDataFusion_MaintenanceEvent
+@dynamic endTime, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_MaintenancePolicy
+//
+
+@implementation GTLRDataFusion_MaintenancePolicy
+@dynamic maintenanceExclusionWindow, maintenanceWindow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_MaintenanceWindow
+//
+
+@implementation GTLRDataFusion_MaintenanceWindow
+@dynamic recurringTimeWindow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_NetworkConfig
 //
 
@@ -511,25 +551,6 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_PersistentDiskData
-//
-
-@implementation GTLRDataFusion_PersistentDiskData
-@dynamic cfsRoots, gcsBucketNames;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cfsRoots" : [NSString class],
-    @"gcsBucketNames" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataFusion_Policy
 //
 
@@ -563,20 +584,20 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_RestartInstanceRequest
+//   GTLRDataFusion_RecurringTimeWindow
 //
 
-@implementation GTLRDataFusion_RestartInstanceRequest
+@implementation GTLRDataFusion_RecurringTimeWindow
+@dynamic recurrence, window;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_ServiceData
+//   GTLRDataFusion_RestartInstanceRequest
 //
 
-@implementation GTLRDataFusion_ServiceData
-@dynamic pd;
+@implementation GTLRDataFusion_RestartInstanceRequest
 @end
 
 
@@ -655,6 +676,16 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_TimeWindow
+//
+
+@implementation GTLRDataFusion_TimeWindow
+@dynamic endTime, startTime;
 @end
 
 

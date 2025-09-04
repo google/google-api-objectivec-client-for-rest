@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: servicenetworking.operations.cancel
@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRServiceNetworking_CancelOperationRequest to include
@@ -263,9 +263,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceNetworkingQuery_ServicesConnectionsCreate : GTLRServiceNetworkingQuery
 
 /**
- *  The service that is managing peering connectivity for a service producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  Required. The service that is managing peering connectivity for a service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -282,9 +282,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_Connection to include in the
  *    query.
- *  @param parent The service that is managing peering connectivity for a
- *    service producer's organization. For Google services that support this
- *    functionality, this value is `services/servicenetworking.googleapis.com`.
+ *  @param parent Required. The service that is managing peering connectivity
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesConnectionsCreate
  */
@@ -348,9 +349,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceNetworkingQuery_ServicesConnectionsList : GTLRServiceNetworkingQuery
 
 /**
- *  The name of service consumer's VPC network that's connected with service
- *  producer network through a private connection. The network name must be in
- *  the following format: `projects/{project}/global/networks/{network}`.
+ *  Required. The name of service consumer's VPC network that's connected with
+ *  service producer network through a private connection. The network name must
+ *  be in the following format: `projects/{project}/global/networks/{network}`.
  *  {project} is a project number, such as in `12345` that includes the VPC
  *  service consumer's VPC network. {network} is the name of the service
  *  consumer's VPC network.
@@ -358,11 +359,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  The service that is managing peering connectivity for a service producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`. If you specify
- *  `services/-` as the parameter value, all configured peering services are
- *  listed.
+ *  Required. The service that is managing peering connectivity for a service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`. If
+ *  you specify `services/-` as the parameter value, all configured peering
+ *  services are listed.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -372,11 +373,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  List the private connections that are configured in a service consumer's VPC
  *  network.
  *
- *  @param parent The service that is managing peering connectivity for a
- *    service producer's organization. For Google services that support this
- *    functionality, this value is `services/servicenetworking.googleapis.com`.
- *    If you specify `services/-` as the parameter value, all configured peering
- *    services are listed.
+ *  @param parent Required. The service that is managing peering connectivity
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`. If you specify `services/-`
+ *    as the parameter value, all configured peering services are listed.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesConnectionsList
  */
@@ -402,7 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  The private service connection that connects to a service producer
+ *  Required. The private service connection that connects to a service producer
  *  organization. The name includes both the private service name and the VPC
  *  network peering name in the format of
  *  `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google
@@ -426,9 +427,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_Connection to include in the
  *    query.
- *  @param name The private service connection that connects to a service
- *    producer organization. The name includes both the private service name and
- *    the VPC network peering name in the format of
+ *  @param name Required. The private service connection that connects to a
+ *    service producer organization. The name includes both the private service
+ *    name and the VPC network peering name in the format of
  *    `services/{peering_service_name}/connections/{vpc_peering_name}`. For
  *    Google services that support this functionality, this is
  *    `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
@@ -452,9 +453,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls : GTLRServiceNetworkingQuery
 
 /**
- *  The service that is managing peering connectivity for a service producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  Required. The service that is managing peering connectivity for a service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -465,9 +466,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_DisableVpcServiceControlsRequest
  *    to include in the query.
- *  @param parent The service that is managing peering connectivity for a
- *    service producer's organization. For Google services that support this
- *    functionality, this value is `services/servicenetworking.googleapis.com`.
+ *  @param parent Required. The service that is managing peering connectivity
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls
  */
@@ -796,9 +798,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls : GTLRServiceNetworkingQuery
 
 /**
- *  The service that is managing peering connectivity for a service producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  Required. The service that is managing peering connectivity for a service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -809,9 +811,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceNetworking_EnableVpcServiceControlsRequest
  *    to include in the query.
- *  @param parent The service that is managing peering connectivity for a
- *    service producer's organization. For Google services that support this
- *    functionality, this value is `services/servicenetworking.googleapis.com`.
+ *  @param parent Required. The service that is managing peering connectivity
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls
  */
@@ -835,7 +838,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The network that the consumer is using to connect with services.
  *  Must be in the form of
- *  services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName}
+ *  services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName}
  *  Where {service} is the peering service that is managing connectivity for the
  *  service producer's organization. For Google services that support this
  *  {project} is the project number, as in '12345' {network} is the network
@@ -851,7 +854,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The network that the consumer is using to connect with
  *    services. Must be in the form of
- *    services/{service}/projects/{project}/global/networks/{network}/zones/{zoneName}
+ *    services/{service}/projects/{project}/global/networks/{network}/dnsZones/{zoneName}
  *    Where {service} is the peering service that is managing connectivity for
  *    the service producer's organization. For Google services that support this
  *    {project} is the project number, as in '12345' {network} is the network

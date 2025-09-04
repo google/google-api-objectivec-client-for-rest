@@ -22,6 +22,7 @@
 @class GTLRApigee_GoogleApiHttpBody_Extensions_Item;
 @class GTLRApigee_GoogleCloudApigeeV1Access;
 @class GTLRApigee_GoogleCloudApigeeV1AccessGet;
+@class GTLRApigee_GoogleCloudApigeeV1AccessLoggingConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AccessRemove;
 @class GTLRApigee_GoogleCloudApigeeV1AccessSet;
 @class GTLRApigee_GoogleCloudApigeeV1AddonsConfig;
@@ -29,6 +30,9 @@
 @class GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategory;
+@class GTLRApigee_GoogleCloudApigeeV1ApiDebugSession;
+@class GTLRApigee_GoogleCloudApigeeV1ApiDoc;
+@class GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1APIProductAssociation;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProductRef;
@@ -45,6 +49,9 @@
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQuery;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQueryResult;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
+@class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll;
+@class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray;
+@class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource;
 @class GTLRApigee_GoogleCloudApigeeV1CanaryEvaluationMetricLabels;
 @class GTLRApigee_GoogleCloudApigeeV1Certificate;
 @class GTLRApigee_GoogleCloudApigeeV1CertInfo;
@@ -75,16 +82,24 @@
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1DimensionMetric;
+@class GTLRApigee_GoogleCloudApigeeV1DnsZone;
+@class GTLRApigee_GoogleCloudApigeeV1DnsZonePeeringConfig;
+@class GTLRApigee_GoogleCloudApigeeV1DocumentationFile;
 @class GTLRApigee_GoogleCloudApigeeV1EndpointAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1EndpointChainingRule;
 @class GTLRApigee_GoogleCloudApigeeV1EntityMetadata;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfigHeaderIndexAlgorithm;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig_FeatureFlags;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig;
+@class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Export;
 @class GTLRApigee_GoogleCloudApigeeV1FlowHookConfig;
 @class GTLRApigee_GoogleCloudApigeeV1GetAsyncQueryResultUrlResponseURLInfo;
+@class GTLRApigee_GoogleCloudApigeeV1GraphqlDocumentation;
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperation;
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup;
@@ -105,6 +120,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1MonetizationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1NatAddress;
 @class GTLRApigee_GoogleCloudApigeeV1NodeConfig;
+@class GTLRApigee_GoogleCloudApigeeV1OASDocumentation;
 @class GTLRApigee_GoogleCloudApigeeV1Operation;
 @class GTLRApigee_GoogleCloudApigeeV1OperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1OperationGroup;
@@ -161,10 +177,22 @@
 @class GTLRApigee_GoogleCloudApigeeV1SecurityActionDeny;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityActionFlag;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityActionHttpHeader;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResult;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_AssessmentRecommendations;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_FailedAssessmentPerWeight;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendation;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityIncident;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfile;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileEnvironment;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileScoringConfig;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReport;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric;
@@ -173,6 +201,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1Session;
 @class GTLRApigee_GoogleCloudApigeeV1SharedFlow;
 @class GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision_EntityMetaDataAsProperties;
+@class GTLRApigee_GoogleCloudApigeeV1Space;
 @class GTLRApigee_GoogleCloudApigeeV1StatsEnvironmentStats;
 @class GTLRApigee_GoogleCloudApigeeV1StatsHostStats;
 @class GTLRApigee_GoogleCloudApigeeV1TargetServerConfig;
@@ -341,6 +370,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiPr
  *  Value: "PROGRAMMABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiProxyType_Programmable;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource.type
+
+/**
+ *  Resource is an Apigee Proxy.
+ *
+ *  Value: "API_PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ApiProxy;
+/**
+ *  ResourceType not specified.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1CanaryEvaluation.state
@@ -569,6 +614,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonet
  *  Value: "PREPAID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1DnsZone.state
+
+/**
+ *  Resource is provisioned and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Active;
+/**
+ *  Resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Deleting;
+/**
+ *  Resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1EndpointAttachment.connectionState
@@ -1001,6 +1080,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_Sta
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1OASDocumentation.format
+
+/**
+ *  The format is not available.
+ *
+ *  Value: "FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_FormatUnspecified;
+/**
+ *  JSON format.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_Json;
+/**
+ *  YAML format.
+ *
+ *  Value: "YAML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_Yaml;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.operationType
 
 /** Value: "DELETE" */
@@ -1282,8 +1383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_Billi
  *  1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call * 201-300
  *  calls cost $1 per call * Total price for 50 calls: 50 x $2 = $100 * Total
  *  price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total price for 250
- *  calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**: Not supported by
- *  Apigee at this time.
+ *  calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400.
  *
  *  Value: "BANDED"
  */
@@ -1457,6 +1557,106 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource.type
+
+/**
+ *  Resource is an Apigee Proxy.
+ *
+ *  Value: "API_PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiProxy;
+/**
+ *  ResourceType not specified.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult.severity
+
+/**
+ *  Severity is high.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_High;
+/**
+ *  Severity is low.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Low;
+/**
+ *  Severity is medium.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Medium;
+/**
+ *  Severity is minimal
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Minimal;
+/**
+ *  Severity is not defined.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation.verdict
+
+/**
+ *  The assessment has failed.
+ *
+ *  Value: "FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Fail;
+/**
+ *  The assessment has passed.
+ *
+ *  Value: "PASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Pass;
+/**
+ *  The verdict is unspecified.
+ *
+ *  Value: "VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_VerdictUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation.weight
+
+/**
+ *  The weight is major.
+ *
+ *  Value: "MAJOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Major;
+/**
+ *  The weight is minor.
+ *
+ *  Value: "MINOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Minor;
+/**
+ *  The weight is moderate.
+ *
+ *  Value: "MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Moderate;
+/**
+ *  The weight is unspecified.
+ *
+ *  Value: "WEIGHT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_WeightUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityIncident.observability
 
 /**
@@ -1505,6 +1705,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncide
  *  Value: "SEVERE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig.weight
+
+/**
+ *  The weight is major.
+ *
+ *  Value: "MAJOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Major;
+/**
+ *  The weight is minor.
+ *
+ *  Value: "MINOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Minor;
+/**
+ *  The weight is moderate.
+ *
+ *  Value: "MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Moderate;
+/**
+ *  The weight is unspecified.
+ *
+ *  Value: "WEIGHT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_WeightUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
@@ -1939,6 +2167,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Access logging configuration enables customers to ship the access logs from
+ *  the tenant projects to their own project's cloud logging. The feature is at
+ *  the instance level ad disabled by default. It can be enabled during
+ *  CreateInstance or UpdateInstance.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AccessLoggingConfig : GTLRObject
+
+/**
+ *  Optional. Boolean flag that specifies whether the customer access log
+ *  feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. Ship the access log entries that match the status_code defined in
+ *  the filter. The status_code is the only expected/supported filter field.
+ *  (Ex: status_code) The filter will parse it to the Common Expression Language
+ *  semantics for expression evaluation to build the filter condition. (Ex:
+ *  "filter": status_code >= 200 && status_code < 300 )
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
  *  Remove action. For example, "Remove" : { "name" : "target.name", "success" :
  *  true }
  */
@@ -1991,7 +2247,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Configuration for the Advanced API Ops add-on. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig *advancedApiOpsConfig;
 
-/** Configuration for the Analytics add-on. */
+/**
+ *  Configuration for the Analytics add-on. Only used in
+ *  organizations.environments.addonsConfig.
+ */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AnalyticsConfig *analyticsConfig;
 
 /** Configuration for the API Security add-on. */
@@ -2199,6 +2458,241 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Session carries the debug session id and its creation time.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDebugSession : GTLRObject
+
+/** The revision ID of the deployed API proxy. */
+@property(nonatomic, copy, nullable) NSString *apiProxyRevisionId;
+
+/**
+ *  The first transaction creation timestamp in millisecond, recorded by UAP.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The environment ID of the deployed API proxy. */
+@property(nonatomic, copy, nullable) NSString *environmentId;
+
+/**
+ *  The debug session ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  `ApiDoc` represents an API catalog item. Catalog items are used in two ways
+ *  in a portal: - Users can browse and interact with a visual representation of
+ *  the API documentation - The `api_product_name` field provides a link to a
+ *  backing [API product]
+ *  (/apigee/docs/reference/apis/apigee/rest/v1/organizations.apiproducts).
+ *  Through this link, portal users can create and manage developer apps linked
+ *  to one or more API products.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDoc : GTLRObject
+
+/**
+ *  Optional. Boolean flag that manages user access to the catalog item. When
+ *  true, the catalog item has public visibility and can be viewed anonymously;
+ *  otherwise, only registered users may view it. Note: when the parent portal
+ *  is enrolled in the [audience management
+ *  feature](https://cloud.google.com/apigee/docs/api-platform/publish/portal/portal-audience#enrolling_in_the_beta_release_of_the_audience_management_feature),
+ *  and this flag is set to false, visibility is set to an indeterminate state
+ *  and must be explicitly specified in the management UI (see [Manage the
+ *  visibility of an API in your
+ *  portal](https://cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis#visibility)).
+ *  Additionally, when enrolled in the audience management feature, updates to
+ *  this flag will be ignored as visibility permissions must be updated in the
+ *  management UI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *anonAllowed;
+
+/**
+ *  Required. Immutable. The `name` field of the associated [API
+ *  product](/apigee/docs/reference/apis/apigee/rest/v1/organizations.apiproducts).
+ *  A portal may have only one catalog item associated with a given API product.
+ */
+@property(nonatomic, copy, nullable) NSString *apiProductName;
+
+/**
+ *  Optional. The IDs of the API categories to which this catalog item belongs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categoryIds;
+
+/**
+ *  Optional. Description of the catalog item. Max length is 10,000 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. Immutable. DEPRECATED: use the `apiProductName` field instead */
+@property(nonatomic, copy, nullable) NSString *edgeAPIProductName;
+
+/**
+ *  Optional. DEPRECATED: manage documentation through the `getDocumentation`
+ *  and `updateDocumentation` methods
+ */
+@property(nonatomic, copy, nullable) NSString *graphqlEndpointUrl GTLR_DEPRECATED;
+
+/**
+ *  Optional. DEPRECATED: manage documentation through the `getDocumentation`
+ *  and `updateDocumentation` methods
+ */
+@property(nonatomic, copy, nullable) NSString *graphqlSchema GTLR_DEPRECATED;
+
+/**
+ *  Optional. DEPRECATED: manage documentation through the `getDocumentation`
+ *  and `updateDocumentation` methods
+ */
+@property(nonatomic, copy, nullable) NSString *graphqlSchemaDisplayName GTLR_DEPRECATED;
+
+/**
+ *  Output only. The ID of the catalog item.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Optional. Location of the image used for the catalog item in the catalog.
+ *  This can be either an image with an external URL or a file path for [image
+ *  files stored in the
+ *  portal](/apigee/docs/api-platform/publish/portal/portal-files"), for
+ *  example, `/files/book-tree.jpg`. When specifying the URL of an external
+ *  image, the image won't be uploaded to your assets; additionally, loading the
+ *  image in the integrated portal will be subject to its availability, which
+ *  may be blocked or restricted by [content security
+ *  policies](/apigee/docs/api-platform/publish/portal/csp). Max length of file
+ *  path is 2,083 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+
+/**
+ *  Output only. Time the catalog item was last modified in milliseconds since
+ *  epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *modified;
+
+/**
+ *  Optional. Denotes whether the catalog item is published to the portal or is
+ *  in a draft state. When the parent portal is enrolled in the [audience
+ *  management
+ *  feature](https://cloud.google.com/apigee/docs/api-platform/publish/portal/portal-audience#enrolling_in_the_beta_release_of_the_audience_management_feature),
+ *  the visibility can be set to public on creation by setting the anonAllowed
+ *  flag to true or further managed in the management UI (see [Manage the
+ *  visibility of an API in your
+ *  portal](https://cloud.google.com/apigee/docs/api-platform/publish/portal/publish-apis#visibility))
+ *  before it can be visible to any users. If not enrolled in the audience
+ *  management feature, the visibility is managed by the `anonAllowed` flag.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *published;
+
+/**
+ *  Optional. Whether a callback URL is required when this catalog item's API
+ *  product is enabled in a developer app. When true, a portal user will be
+ *  required to input a URL when managing the app (this is typically used for
+ *  the app's OAuth flow).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireCallbackUrl;
+
+/** Output only. The ID of the parent portal. */
+@property(nonatomic, copy, nullable) NSString *siteId;
+
+/** Optional. DEPRECATED: DO NOT USE */
+@property(nonatomic, copy, nullable) NSString *specId GTLR_DEPRECATED;
+
+/**
+ *  Required. The user-facing name of the catalog item. `title` must be a
+ *  non-empty string with a max length of 255 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  Optional. DEPRECATED: use the `published` field instead
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visibility;
+
+@end
+
+
+/**
+ *  The documentation for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation : GTLRObject
+
+/** Optional. GraphQL documentation. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1GraphqlDocumentation *graphqlDocumentation;
+
+/** Optional. OpenAPI Specification documentation. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1OASDocumentation *oasDocumentation;
+
+@end
+
+
+/**
+ *  The catalog item documentation wrapped with response status, error_code,
+ *  etc.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentationResponse : GTLRObject
+
+/** Output only. The documentation resource. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation *data;
+
+/** Output only. Unique error code for the request, if any. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Output only. Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Output only. Unique ID of the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Output only. Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  The catalog item resource wrapped with response status, error_code, etc.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiDocResponse : GTLRObject
+
+/** The catalog item resource. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiDoc *data;
+
+/** Unique error code for the request, if any. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Unique ID of the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1ApiProduct
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiProduct : GTLRObject
@@ -2388,6 +2882,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
+/**
+ *  Optional. The resource ID of the parent Space. If not set, the parent
+ *  resource will be the Organization. To learn how Spaces can be used to manage
+ *  resources, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
 @end
 
 
@@ -2474,6 +2976,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Output only. List of revisions defined for the API proxy. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *revision;
+
+/**
+ *  Optional. The id of the space this proxy is associated with. Any IAM
+ *  policies applied to the space will control access to this proxy. To learn
+ *  how Spaces can be used to manage resources, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *space;
 
 @end
 
@@ -2655,8 +3165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Output only. Time at which the API Security add-on expires in in
- *  milliseconds since epoch. If unspecified, the add-on will never expire.
+ *  Output only. Time at which the API Security add-on expires in milliseconds
+ *  since epoch. If unspecified, the add-on will never expire.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3177,6 +3687,116 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Request for BatchComputeSecurityAssessmentResults.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequest : GTLRObject
+
+/** Include only these resources. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray *include;
+
+/** Include all resources under the scope. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll *includeAllResources;
+
+/**
+ *  Optional. The maximum number of results to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 results will be returned.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `BatchComputeSecurityAssessmentResults` call. Provide this to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Name of the profile that is used for computation. */
+@property(nonatomic, copy, nullable) NSString *profile;
+
+/**
+ *  Required. Scope of the resources for the computation. For Apigee, the
+ *  environment is the scope of the resources.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  Message for include_all_resources option.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll : GTLRObject
+@end
+
+
+/**
+ *  Message for the array of resources. For Apigee, the proxies are resources.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray : GTLRObject
+
+/**
+ *  Required. The array of resources. For Apigee, the proxies are resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource *> *resources;
+
+@end
+
+
+/**
+ *  Resource for which we are computing security assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource : GTLRObject
+
+/** Required. Name of this resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Type of this resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ApiProxy
+ *        Resource is an Apigee Proxy. (Value: "API_PROXY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ResourceTypeUnspecified
+ *        ResourceType not specified. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Response for BatchComputeSecurityAssessmentResults.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityAssessmentResults" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsResponse : GTLRCollectionObject
+
+/** The time of the assessment api call. */
+@property(nonatomic, strong, nullable) GTLRDateTime *assessmentTime;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is blank, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Default sort order is by resource name in alphabetic order.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResult *> *securityAssessmentResults;
+
+@end
+
+
+/**
  *  Request for BatchUpdateSecurityIncident.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1BatchUpdateSecurityIncidentsRequest : GTLRObject
@@ -3401,7 +4021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Required. Time range for score calculation. At most 14 days of scores will
- *  be returned.
+ *  be returned, and both the start and end dates must be within the last 90
+ *  days.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeInterval *timeRange;
 
@@ -3492,6 +4113,44 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *expiresAt;
+
+@end
+
+
+/**
+ *  ControlPlaneAccess is the request body and response body of
+ *  UpdateControlPlaneAccess. and the response body of GetControlPlaneAccess.
+ *  The input identities contains an array of service accounts to grant access
+ *  to the respective control plane resource, with each service account
+ *  specified using the following format:
+ *  `serviceAccount:`***service-account-name***. The ***service-account-name***
+ *  is formatted like an email address. For example:
+ *  `my-control-plane-service_account\@my_project_id.iam.gserviceaccount.com`
+ *  You might specify multiple service accounts, for example, if you have
+ *  multiple environments and wish to assign a unique service account to each
+ *  one.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ControlPlaneAccess : GTLRObject
+
+/**
+ *  Optional. Array of service accounts authorized to publish analytics data to
+ *  the control plane (for the Message Processor component).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *analyticsPublisherIdentities;
+
+/**
+ *  Identifier. The resource name of the ControlPlaneAccess. Format:
+ *  "organizations/{org}/controlPlaneAccess"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Array of service accounts to grant access to control plane
+ *  resources (for the Synchronizer component). The service accounts must have
+ *  **Apigee Synchronizer Manager** role. See also [Create service
+ *  accounts](https://cloud.google.com/apigee/docs/hybrid/latest/sa-about#create-the-service-accounts).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *synchronizerIdentities;
 
 @end
 
@@ -3828,7 +4487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Path of Cloud Storage bucket Required for `gcs` target_type. */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/** Required. GCP project in which the datastore exists */
+/** Required. Google Cloud project in which the datastore exists */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Prefix of BigQuery table Required for `bigquery` target_type. */
@@ -4036,7 +4695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1Deployment
+ *  Deployment represents a deployment of an API proxy or shared flow.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Deployment : GTLRObject
 
@@ -4447,7 +5106,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Developer app family. */
 @property(nonatomic, copy, nullable) NSString *appFamily;
 
-/** ID of the developer app. */
+/**
+ *  ID of the developer app. This ID is not user specified but is automatically
+ *  generated on app creation. appId is a UUID.
+ */
 @property(nonatomic, copy, nullable) NSString *appId;
 
 /** List of attributes for the developer app. */
@@ -4698,6 +5360,103 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  A DNS zone is a resource under an Apigee organization that is used to create
+ *  a DNS peering with Apigee's network. DNS peering will let Apigee instances
+ *  resolve the hostnames created in a peered network.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DnsZone : GTLRObject
+
+/** Output only. The time that this resource was created on the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Description of the resource. String of at most 1024 characters
+ *  associated with this resource for the user's convenience.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The domain name for hosts in this private zone, for instance
+ *  "example.com.".
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Identifier. Unique name for the resource. Defined by the server Format:
+ *  "organizations/{organization}/dnsZones/{dns_zone}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** DNS PEERING zone configuration. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DnsZonePeeringConfig *peeringConfig;
+
+/**
+ *  Output only. State of the DNS Peering. Values other than `ACTIVE` mean the
+ *  resource is not ready to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Active Resource is
+ *        provisioned and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Creating Resource is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Deleting The resource
+ *        is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_StateUnspecified
+ *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_Updating The resource
+ *        is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time that this resource was updated on the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Fields for DNS PEERING zone.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DnsZonePeeringConfig : GTLRObject
+
+/**
+ *  Required. The VPC network where the records for that private DNS zone's
+ *  namespace are available. Apigee will be performing DNS peering with this VPC
+ *  network.
+ */
+@property(nonatomic, copy, nullable) NSString *targetNetworkId;
+
+/** Required. The ID of the project that contains the producer VPC network. */
+@property(nonatomic, copy, nullable) NSString *targetProjectId;
+
+@end
+
+
+/**
+ *  Documentation file contents for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DocumentationFile : GTLRObject
+
+/**
+ *  Required. The file contents. The max size is 4 MB.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *contents;
+
+/**
+ *  Required. A display name for the file, shown in the management UI. Max
+ *  length is 255 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
  *  Message to enable a disabled SecurityAction.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EnableSecurityActionRequest : GTLRObject
@@ -4856,6 +5615,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *apiProxyType;
 
 /**
+ *  Optional. The algorithm to resolve IP. This will affect Analytics, API
+ *  Security, and other features that use the client ip. To remove a client ip
+ *  resolution config, update the field to an empty value. Example: '{
+ *  "clientIpResolutionConfig" = {} }' For more information, see:
+ *  https://cloud.google.com/apigee/docs/api-platform/system-administration/client-ip-resolution.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig *clientIpResolutionConfig;
+
+/**
  *  Output only. Creation time of this environment as milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
@@ -4902,12 +5670,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Optional. URI of the forward proxy to be applied to the runtime instances in
  *  this environment. Must be in the format of {scheme}://{hostname}:{port}.
- *  Note that the scheme must be one of "http" or "https", and the port must be
- *  supplied. To remove a forward proxy setting, update the field to an empty
- *  value. Note: At this time, PUT operations to add forwardProxyUri to an
- *  existing environment fail if the environment has nodeConfig set up. To
- *  successfully add the forwardProxyUri setting in this case, include the
- *  NodeConfig details with the request.
+ *  Note that the only supported scheme is "http". The port must be supplied. To
+ *  remove a forward proxy setting, update the field to an empty value. Note: At
+ *  this time, PUT operations to add forwardProxyUri to an existing environment
+ *  fail if the environment has nodeConfig set up. To successfully add the
+ *  forwardProxyUri setting in this case, include the NodeConfig details with
+ *  the request.
  */
 @property(nonatomic, copy, nullable) NSString *forwardProxyUri;
 
@@ -4985,6 +5753,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Configuration for resolving the client ip.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfig : GTLRObject
+
+/** Resolves the client ip based on a custom header. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfigHeaderIndexAlgorithm *headerIndexAlgorithm;
+
+@end
+
+
+/**
+ *  Resolves the client ip based on a custom header.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnvironmentClientIPResolutionConfigHeaderIndexAlgorithm : GTLRObject
+
+/**
+ *  Required. The index of the ip in the header. Positive indices 0, 1, 2, 3
+ *  chooses indices from the left (first ips) Negative indices -1, -2, -3
+ *  chooses indices from the right (last ips)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ipHeaderIndex;
+
+/**
+ *  Required. The name of the header to extract the client ip from. We are
+ *  currently only supporting the X-Forwarded-For header.
+ */
+@property(nonatomic, copy, nullable) NSString *ipHeaderName;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig : GTLRObject
@@ -4998,6 +5800,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  used by Envoy-based gateways.
  */
 @property(nonatomic, copy, nullable) NSString *arcConfigLocation;
+
+/** The algorithm to resolve IP. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig *clientIpResolutionConfig;
 
 /** Time that the environment configuration was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -5111,6 +5916,35 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        fetch them all at once.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig_FeatureFlags : GTLRObject
+@end
+
+
+/**
+ *  Configuration for resolving the client ip.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfig : GTLRObject
+
+/** Resolves the client ip based on a custom header. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm *headerIndexAlgorithm;
+
+@end
+
+
+/**
+ *  Resolves the client ip based on a custom header.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfigClientIPResolutionConfigHeaderIndexAlgorithm : GTLRObject
+
+/**
+ *  The index of the ip in the header. (By default, value is 0 if missing)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ipHeaderIndex;
+
+/** The name of the header to extract the client ip from. */
+@property(nonatomic, copy, nullable) NSString *ipHeaderName;
+
 @end
 
 
@@ -5500,6 +6334,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  GraphQL documentation for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GraphqlDocumentation : GTLRObject
+
+/**
+ *  Required. The GraphQL endpoint URI to be queried by API consumers. Max
+ *  length is 2,083 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointUri;
+
+/** Required. The documentation file contents for the GraphQL schema. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DocumentationFile *schema;
+
+@end
+
+
+/**
  *  Represents the pairing of GraphQL operation types and the GraphQL operation
  *  name.
  */
@@ -5675,6 +6526,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1Instance : GTLRObject
 
 /**
+ *  Optional. Access logging configuration enables the access logging feature at
+ *  the instance. Apigee customers can enable access logging to ship the access
+ *  logs to their own project's cloud logging.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AccessLoggingConfig *accessLoggingConfig;
+
+/**
  *  Optional. Customer accept list represents the list of projects (id/number)
  *  on customer side that can privately connect to the service attachment. It is
  *  an optional field which the customers can provide during the instance
@@ -5698,8 +6556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Customer Managed Encryption Key (CMEK) used for disk and volume encryption.
- *  Required for Apigee paid subscriptions only. Use the following format:
+ *  Optional. Customer Managed Encryption Key (CMEK) used for disk and volume
+ *  encryption. If not specified, a Google-Managed encryption key will be used.
+ *  Use the following format:
  *  `projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)`
  */
 @property(nonatomic, copy, nullable) NSString *diskEncryptionKeyName;
@@ -6026,6 +6885,73 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListApiDebugSessions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sessions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListApiDebugSessionsResponse : GTLRCollectionObject
+
+/**
+ *  Page token that you can include in a ListApiDebugSessionsRequest to retrieve
+ *  the next page. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Session info that includes debug session ID, environment ID, api proxy
+ *  revision ID and the first transaction creation timestamp.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiDebugSession *> *sessions;
+
+@end
+
+
+/**
+ *  GTLRApigee_GoogleCloudApigeeV1ListApiDocsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "data" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListApiDocsResponse : GTLRCollectionObject
+
+/**
+ *  The catalog item resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiDoc *> *data;
+
+/** Unique error code for the request, if any. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unique ID of the request. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1ListApiProductsResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListApiProductsResponse : GTLRObject
@@ -6037,8 +6963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  To change this message, in the same CL add a change log in
- *  go/changing-api-proto-breaks-ui
+ *  GTLRApigee_GoogleCloudApigeeV1ListApiProxiesResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListApiProxiesResponse : GTLRObject
 
@@ -6292,6 +7217,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  If this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextStartKey;
+
+@end
+
+
+/**
+ *  Response for list DNS zones.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dnsZones" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListDnsZonesResponse : GTLRCollectionObject
+
+/**
+ *  DNS zones in a given organization.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DnsZone *> *dnsZones;
+
+/**
+ *  Page token that you can include in an `ListDnsZones` request to retrieve the
+ *  next page. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -6614,6 +7566,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListSecurityMonitoringConditions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityMonitoringConditions" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityMonitoringConditionsResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of security monitoring conditions in the organization.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition *> *securityMonitoringConditions;
+
+@end
+
+
+/**
  *  Response for ListSecurityProfileRevisions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6671,6 +7650,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListSecurityProfilesV2.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityProfilesV2" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesV2Response : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of security profiles in the organization.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 *> *securityProfilesV2;
+
+@end
+
+
+/**
  *  The response for SecurityReports.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6700,12 +7706,39 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  To change this message, in the same CL add a change log in
- *  go/changing-api-proto-breaks-ui
+ *  GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SharedFlow *> *sharedFlows;
+
+@end
+
+
+/**
+ *  A response to a ListSpaces request containing the list of organization
+ *  spaces and a page token for the next page.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "spaces" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSpacesResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of Apigee organization spaces.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Space *> *spaces;
 
 @end
 
@@ -6840,6 +7873,48 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Moves API product to a different space.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MoveApiProductRequest : GTLRObject
+
+/**
+ *  Optional. Resource ID of the space to move the API product to. If
+ *  unspecified, the API product will be moved to the organization level.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
+@end
+
+
+/**
+ *  Moves an API Proxy to a different Space.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MoveApiProxyRequest : GTLRObject
+
+/**
+ *  Optional. Resource ID of the space to move the proxy to. If unspecified, the
+ *  proxy will be moved to the organization level.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
+@end
+
+
+/**
+ *  Moves a Shared Flow to a different space.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MoveSharedFlowRequest : GTLRObject
+
+/**
+ *  Optional. Resource ID of the space to move the shared flow to. If
+ *  unspecified, the shared flow will be moved to the organization level.
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
+@end
+
+
+/**
  *  Apigee NAT(network address translation) address. A NAT address is a static
  *  external IP address used for Internet egress traffic.
  */
@@ -6905,6 +7980,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+@end
+
+
+/**
+ *  OpenAPI Specification documentation for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1OASDocumentation : GTLRObject
+
+/**
+ *  Output only. The format of the input specification file contents.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_FormatUnspecified
+ *        The format is not available. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_Json JSON
+ *        format. (Value: "JSON")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OASDocumentation_Format_Yaml YAML
+ *        format. (Value: "YAML")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Required. The documentation file contents for the OpenAPI Specification.
+ *  JSON and YAML file formats are supported.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DocumentationFile *spec;
 
 @end
 
@@ -7088,7 +8190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1OptimizedStats
+ *  Encapsulates a response format for JavaScript Optimized Scenario.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1OptimizedStats : GTLRObject
 
@@ -7121,7 +8223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1OptimizedStatsNode : GTLRObject
 
 /**
- *  data
+ *  List of data values.
  *
  *  Can be any valid JSON type.
  */
@@ -7164,7 +8266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Organization : GTLRObject
 
-/** Addon configurations of the Apigee organization. */
+/** Optional. Addon configurations of the Apigee organization. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AddonsConfig *addonsConfig;
 
 /**
@@ -7176,19 +8278,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *analyticsRegion GTLR_DEPRECATED;
 
 /**
- *  Cloud KMS key name used for encrypting API consumer data. Required for US/EU
- *  regions when [BillingType](#BillingType) is `SUBSCRIPTION`. When
- *  [BillingType](#BillingType) is `EVALUATION` or the region is not US/EU, a
- *  Google-Managed encryption key will be used. Format: `projects/ * /locations/
- *  * /keyRings/ * /cryptoKeys/ *`
+ *  Optional. Cloud KMS key name used for encrypting API consumer data. If not
+ *  specified or [BillingType](#BillingType) is `EVALUATION`, a Google-Managed
+ *  encryption key will be used. Format: `projects/ * /locations/ * /keyRings/ *
+ *  /cryptoKeys/ *`
  */
 @property(nonatomic, copy, nullable) NSString *apiConsumerDataEncryptionKeyName;
 
 /**
- *  This field is needed only for customers with control plane in US or EU.
- *  Apigee stores some control plane data only in single region. This field
- *  determines which single region Apigee should use. For example: "us-west1"
- *  when control plane is in US or "europe-west2" when control plane is in EU.
+ *  Optional. This field is needed only for customers using non-default data
+ *  residency regions. Apigee stores some control plane data only in single
+ *  region. This field determines which single region Apigee should use. For
+ *  example: "us-west1" when control plane is in US or "europe-west2" when
+ *  control plane is in EU.
  */
 @property(nonatomic, copy, nullable) NSString *apiConsumerDataLocation;
 
@@ -7203,16 +8305,24 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
 
 /**
- *  Compute Engine network used for Service Networking to be peered with Apigee
- *  runtime instances. See [Getting started with the Service Networking
+ *  Optional. Compute Engine network used for Service Networking to be peered
+ *  with Apigee runtime instances. See [Getting started with the Service
+ *  Networking
  *  API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
  *  Valid only when [RuntimeType](#RuntimeType) is set to `CLOUD`. The value
  *  must be set before the creation of a runtime instance and can be updated
- *  only when there are no runtime instances. For example: `default`. Apigee
- *  also supports shared VPC (that is, the host network project is not the same
- *  as the one that is peering with Apigee). See [Shared VPC
- *  overview](https://cloud.google.com/vpc/docs/shared-vpc). To use a shared VPC
- *  network, use the following format:
+ *  only when there are no runtime instances. For example: `default`. When
+ *  changing authorizedNetwork, you must reconfigure VPC peering. After VPC
+ *  peering with previous network is deleted, [run the following
+ *  command](https://cloud.google.com/sdk/gcloud/reference/services/vpc-peerings/delete):
+ *  `gcloud services vpc-peerings delete --network=NETWORK`, where `NETWORK` is
+ *  the name of the previous network. This will delete the previous Service
+ *  Networking. Otherwise, you will get the following error: `The resource
+ *  'projects/...-tp' is already linked to another shared VPC host
+ *  'projects/...-tp`. Apigee also supports shared VPC (that is, the host
+ *  network project is not the same as the one that is peering with Apigee). See
+ *  [Shared VPC overview](https://cloud.google.com/vpc/docs/shared-vpc). To use
+ *  a shared VPC network, use the following format:
  *  `projects/{host-project-id}/{region}/networks/{network-name}`. For example:
  *  `projects/my-sharedvpc-host/global/networks/mynetwork` **Note:** Not
  *  supported for Apigee hybrid.
@@ -7220,7 +8330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
- *  Billing type of the Apigee organization. See [Apigee
+ *  Optional. Billing type of the Apigee organization. See [Apigee
  *  pricing](https://cloud.google.com/apigee/pricing).
  *
  *  Likely values:
@@ -7246,11 +8356,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *caCertificate;
 
 /**
- *  Cloud KMS key name used for encrypting control plane data that is stored in
- *  a multi region. Required when [BillingType](#BillingType) is `SUBSCRIPTION`.
- *  When [BillingType](#BillingType) is `EVALUATION`, a Google-Managed
- *  encryption key will be used. Format: `projects/ * /locations/ * /keyRings/ *
- *  /cryptoKeys/ *`
+ *  Optional. Cloud KMS key name used for encrypting control plane data that is
+ *  stored in a multi region. Only used for the data residency region "US" or
+ *  "EU". If not specified or [BillingType](#BillingType) is `EVALUATION`, a
+ *  Google-Managed encryption key will be used. Format: `projects/ * /locations/
+ *  * /keyRings/ * /cryptoKeys/ *`
  */
 @property(nonatomic, copy, nullable) NSString *controlPlaneEncryptionKeyName;
 
@@ -7266,7 +8376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *customerName;
 
 /**
- *  Description of the Apigee organization.
+ *  Optional. Description of the Apigee organization.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -7289,8 +8399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *disableVpcPeering;
 
 /**
- *  Display name for the Apigee organization. Unused, but reserved for future
- *  use.
+ *  Optional. Display name for the Apigee organization. Unused, but reserved for
+ *  future use.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -7316,7 +8426,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Configuration for the Portals settings.
+ *  Optional. Flag that specifies if internet egress is restricted for VPC
+ *  Service Controls. Valid only when runtime_type is `CLOUD` and
+ *  disable_vpc_peering is `true`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *networkEgressRestricted;
+
+/**
+ *  Optional. Configuration for the Portals settings.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7325,15 +8444,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Output only. Project ID associated with the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Properties defined in the Apigee organization profile. */
+/** Optional. Properties defined in the Apigee organization profile. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Properties *properties;
 
 /**
- *  Cloud KMS key name used for encrypting the data that is stored and
+ *  Optional. Cloud KMS key name used for encrypting the data that is stored and
  *  replicated across runtime instances. Update is not allowed after the
- *  organization is created. Required when [RuntimeType](#RuntimeType) is
- *  `CLOUD`. If not specified when [RuntimeType](#RuntimeType) is `TRIAL`, a
- *  Google-Managed encryption key will be used. For example:
+ *  organization is created. If not specified or [RuntimeType](#RuntimeType) is
+ *  `TRIAL`, a Google-Managed encryption key will be used. For example:
  *  "projects/foo/locations/us/keyRings/bar/cryptoKeys/baz". **Note:** Not
  *  supported for Apigee hybrid.
  */
@@ -8097,11 +9215,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  API call volume ranges and the fees charged when the total number of API
  *  calls is within a given range. The method used to calculate the final fee
  *  depends on the selected pricing model. For example, if the pricing model is
- *  `STAIRSTEP` and the ranges are defined as follows: ``` { "start": 1, "end":
- *  100, "fee": 75 }, { "start": 101, "end": 200, "fee": 100 }, } ``` Then the
- *  following fees would be charged based on the total number of API calls
- *  (assuming the currency selected is `USD`): * 1 call costs $75 * 50 calls
- *  cost $75 * 150 calls cost $100 The number of API calls cannot exceed 200.
+ *  `BANDED` and the ranges are defined as follows: ``` { "start": 1, "end":
+ *  100, "fee": 2 }, { "start": 101, "end": 200, "fee": 1.50 }, { "start": 201,
+ *  "end": 0, "fee": 1 }, } ``` Then the following fees would be charged based
+ *  on the total number of API calls (assuming the currency selected is `USD`):
+ *  * 50 calls cost 50 x $2 = $100 * 150 calls cost 100 x $2 + 50 x $1.5 = $275
+ *  * 250 calls cost 100 x $2 + 100 x $1.5 + 50 x $1 = $400 * 500 calls cost 100
+ *  x $2 + 100 x $1.5 + 300 x $1 = $650
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RateRange *> *consumptionPricingRates;
 
@@ -8114,8 +9234,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        * 1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call *
  *        201-300 calls cost $1 per call * Total price for 50 calls: 50 x $2 =
  *        $100 * Total price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total
- *        price for 250 calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**:
- *        Not supported by Apigee at this time. (Value: "BANDED")
+ *        price for 250 calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. (Value:
+ *        "BANDED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_ConsumptionPricingTypeUnspecified
  *        Pricing model not specified. This is the default. (Value:
  *        "CONSUMPTION_PRICING_TYPE_UNSPECIFIED")
@@ -9055,6 +10175,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Allow a request through if it matches this SecurityAction. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityActionAllow *allow;
 
+/**
+ *  Optional. If unset, this would apply to all proxies in the environment. If
+ *  set, this action is enforced only if at least one proxy in the repeated list
+ *  is deployed at the time of enforcement. If set, several restrictions are
+ *  enforced on SecurityActions. There can be at most 100 enabled actions with
+ *  proxies set in an env. Several other restrictions apply on conditions and
+ *  are detailed later.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiProxies;
+
 /** Required. A valid SecurityAction must contain at least one condition. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig *conditionConfig;
 
@@ -9126,12 +10256,31 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  The following are a list of conditions. A valid SecurityAction must contain
  *  at least one condition. Within a condition, each element is ORed. Across
  *  conditions elements are ANDed. For example if a SecurityAction has the
- *  following: api_keys: ["key1", "key2"] and developers: ["dev1", "dev2"] then
- *  this is interpreted as: enforce the action if the incoming request has
- *  ((api_key = "key1" OR api_key="key") AND (developer="dev1" OR
- *  developer="dev2")).
+ *  following: ip_address_ranges: ["ip1", "ip2"] and bot_reasons: ["Flooder",
+ *  "Robot Abuser"] then this is interpreted as: enforce the action if the
+ *  incoming request has ((ip_address_ranges = "ip1" OR ip_address_ranges =
+ *  "ip2") AND (bot_reasons="Flooder" OR bot_reasons="Robot Abuser")).
+ *  Conditions other than ip_address_ranges and bot_reasons cannot be ANDed.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityActionConditionConfig : GTLRObject
+
+/** Optional. A list of access_tokens. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessTokens;
+
+/** Optional. A list of API keys. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiKeys;
+
+/** Optional. A list of API Products. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apiProducts;
+
+/**
+ *  Optional. A list of ASN numbers to act on, e.g. 23.
+ *  https://en.wikipedia.org/wiki/Autonomous_system_(Internet) This uses int64
+ *  instead of uint32 because of https://linter.aip.dev/141/forbidden-types.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *asns;
 
 /**
  *  Optional. A list of Bot Reasons. Current options: Flooder, Brute Guessor,
@@ -9141,11 +10290,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *botReasons;
 
+/** Optional. A list of developer apps. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *developerApps;
+
+/** Optional. A list of developers. Limit 1000 per action. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *developers;
+
+/**
+ *  Optional. Act only on particular HTTP methods. E.g. A read-only API can
+ *  block POST/PUT/DELETE methods. Accepted values are: GET, HEAD, POST, PUT,
+ *  DELETE, CONNECT, OPTIONS, TRACE and PATCH.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *httpMethods;
+
 /**
  *  Optional. A list of IP addresses. This could be either IPv4 or IPv6. Limited
  *  to 100 per action.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddressRanges;
+
+/**
+ *  Optional. A list of countries/region codes to act on, e.g. US. This follows
+ *  https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
+
+/**
+ *  Optional. A list of user agents to deny. We look for exact matches. Limit 50
+ *  per action.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userAgents;
 
 @end
 
@@ -9218,6 +10392,217 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Output only. The update time for configuration. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The security assessment result for one resource.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResult : GTLRObject
+
+/**
+ *  The time of the assessment of this resource. This could lag behind
+ *  `assessment_time` due to caching within the backend.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The error status if scoring fails. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleRpcStatus *error;
+
+/** The assessed resource. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource *resource;
+
+/** The result of the assessment. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult *scoringResult;
+
+@end
+
+
+/**
+ *  Resource for which we are computing security assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource : GTLRObject
+
+/** Required. Name of this resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The revision id for the resource. In case of Apigee, this is proxy revision
+ *  id.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceRevisionId;
+
+/**
+ *  Required. Type of this resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiProxy
+ *        Resource is an Apigee Proxy. (Value: "API_PROXY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ResourceTypeUnspecified
+ *        ResourceType not specified. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The result of the assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult : GTLRObject
+
+/**
+ *  The recommendations of the assessment. The key is the "name" of the
+ *  assessment (not display_name), and the value are the recommendations.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_AssessmentRecommendations *assessmentRecommendations;
+
+/**
+ *  The time when resource data was last fetched for this resource. This time
+ *  may be different than when the resource was actually updated due to lag in
+ *  data collection.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *dataUpdateTime;
+
+/**
+ *  The number of failed assessments grouped by its weight. Keys are one of the
+ *  following: "MAJOR", "MODERATE", "MINOR".
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_FailedAssessmentPerWeight *failedAssessmentPerWeight;
+
+/**
+ *  The security score of the assessment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+/**
+ *  severity
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_High
+ *        Severity is high. (Value: "HIGH")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Low
+ *        Severity is low. (Value: "LOW")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Medium
+ *        Severity is medium. (Value: "MEDIUM")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_Minimal
+ *        Severity is minimal (Value: "MINIMAL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_Severity_SeverityUnspecified
+ *        Severity is not defined. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  The recommendations of the assessment. The key is the "name" of the
+ *  assessment (not display_name), and the value are the recommendations.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_AssessmentRecommendations : GTLRObject
+@end
+
+
+/**
+ *  The number of failed assessments grouped by its weight. Keys are one of the
+ *  following: "MAJOR", "MODERATE", "MINOR".
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_FailedAssessmentPerWeight : GTLRObject
+@end
+
+
+/**
+ *  The message format of a recommendation from the assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation : GTLRObject
+
+/** The display name of the assessment. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The recommended steps of the assessment. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendation *> *recommendations;
+
+/**
+ *  Score impact indicates the impact on the overall score if the assessment
+ *  were to pass.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scoreImpact;
+
+/**
+ *  Verdict indicates the assessment result.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Fail
+ *        The assessment has failed. (Value: "FAIL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Pass
+ *        The assessment has passed. (Value: "PASS")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_VerdictUnspecified
+ *        The verdict is unspecified. (Value: "VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+/**
+ *  The weight of the assessment which was set in the profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Major
+ *        The weight is major. (Value: "MAJOR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Minor
+ *        The weight is minor. (Value: "MINOR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Moderate
+ *        The weight is moderate. (Value: "MODERATE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_WeightUnspecified
+ *        The weight is unspecified. (Value: "WEIGHT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *weight;
+
+@end
+
+
+/**
+ *  The format of the assessment recommendation.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendation : GTLRObject
+
+/**
+ *  The description of the recommendation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The link for the recommendation. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink *link;
+
+@end
+
+
+/**
+ *  The format for a link in the recommendation.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink : GTLRObject
+
+/** The text of the url. (ie: "Learn more") */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** The link itself. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -9296,6 +10681,55 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *trafficCount;
+
+@end
+
+
+/**
+ *  Security monitoring condition for risk assessment version 2.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition : GTLRObject
+
+/** Output only. The time of the security monitoring condition creation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Include only these resources. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray *include;
+
+/** Include all resources under the scope. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll *includeAllResources;
+
+/**
+ *  Identifier. Name of the security monitoring condition resource. Format:
+ *  organizations/{org}/securityMonitoringConditions/{security_monitoring_condition}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. ID of security profile of the security monitoring condition. */
+@property(nonatomic, copy, nullable) NSString *profile;
+
+/**
+ *  Required. Scope of the security monitoring condition. For Apigee, the
+ *  environment is the scope of the resources.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Output only. Total number of deployed resources within scope.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDeployedResources;
+
+/**
+ *  Output only. Total number of monitored resources within this condition.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalMonitoredResources;
+
+/** Output only. The time of the security monitoring condition update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -9426,6 +10860,83 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Title of the config. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Security profile for risk assessment version 2.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2 : GTLRObject
+
+/** Output only. The time of the security profile creation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The description of the security profile.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Whether the security profile is google defined.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleDefined;
+
+/**
+ *  Identifier. Name of the security profile v2 resource. Format:
+ *  organizations/{org}/securityProfilesV2/{profile}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The configuration for each assessment in this profile. Key is the
+ *  name/id of the assessment.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs *profileAssessmentConfigs;
+
+/** Output only. The time of the security profile update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Required. The configuration for each assessment in this profile. Key is the
+ *  name/id of the assessment.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs : GTLRObject
+@end
+
+
+/**
+ *  The configuration definition for a specific assessment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig : GTLRObject
+
+/**
+ *  The weight of the assessment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Major
+ *        The weight is major. (Value: "MAJOR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Minor
+ *        The weight is minor. (Value: "MINOR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_Moderate
+ *        The weight is moderate. (Value: "MODERATE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_WeightUnspecified
+ *        The weight is unspecified. (Value: "WEIGHT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *weight;
 
 @end
 
@@ -9803,6 +11314,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** A list of revisions of this shared flow. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *revision;
 
+/**
+ *  Optional. The ID of the space associated with this shared flow. Any IAM
+ *  policies applied to the space will control access to this shared flow. To
+ *  learn how Spaces can be used to manage resources, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
 @end
 
 
@@ -9887,6 +11406,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        fetch them all at once.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision_EntityMetaDataAsProperties : GTLRObject
+@end
+
+
+/**
+ *  Organization space resource.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1Space : GTLRObject
+
+/** Output only. Create timestamp of the space. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Display name of the space. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Identifier. Id of the space. This field is used as the resource
+ *  name, and must follow [AIP-122](https://google.aip.dev/122) guidelines.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Last modified timestamp of the space. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -10201,6 +11743,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
+ *  TLS is strictly enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforce;
+
+/**
  *  If true, Edge ignores TLS certificate errors. Valid when configuring TLS for
  *  target servers and target endpoints, and when configuring virtual hosts that
  *  use 2-way TLS. When used with a target endpoint/target server, if the
@@ -10276,6 +11825,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Flag that enforces TLS settings
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforce;
 
 /**
  *  Flag that specifies whether to ignore TLS certificate validation errors. Set
@@ -10416,8 +11972,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *apiProducts;
 
 /**
- *  The new AppGroupKey to be amended. Note that the status can be updated only
- *  via action.
+ *  Note that only Scopes and Attributes of the AppGroupAppKey can be amended.
+ *  Scopes and Attributes mentioned in the request will be inserted and the
+ *  existing scopes and attributes will be removed.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey *appGroupAppKey;
 

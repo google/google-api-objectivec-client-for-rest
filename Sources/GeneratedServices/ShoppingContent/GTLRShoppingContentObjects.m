@@ -83,34 +83,11 @@ NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_LinkAdsAccount = 
 NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_ShowAdditionalContent = @"SHOW_ADDITIONAL_CONTENT";
 NSString * const kGTLRShoppingContent_BuiltInSimpleAction_Type_VerifyPhone = @"VERIFY_PHONE";
 
-// GTLRShoppingContent_BuyOnGoogleProgramStatus.businessModel
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_BusinessModelUnspecified = @"BUSINESS_MODEL_UNSPECIFIED";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Importer = @"IMPORTER";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Manufacturer = @"MANUFACTURER";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Other = @"OTHER";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Reseller = @"RESELLER";
-
-// GTLRShoppingContent_BuyOnGoogleProgramStatus.onlineSalesChannel
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_GoogleAndOtherWebsites = @"GOOGLE_AND_OTHER_WEBSITES";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_GoogleExclusive = @"GOOGLE_EXCLUSIVE";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_OnlineSalesChannelUnspecified = @"ONLINE_SALES_CHANNEL_UNSPECIFIED";
-
-// GTLRShoppingContent_BuyOnGoogleProgramStatus.participationStage
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active = @"ACTIVE";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Deprecated = @"DEPRECATED";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible = @"ELIGIBLE";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_EligibleForReview = @"ELIGIBLE_FOR_REVIEW";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible = @"NOT_ELIGIBLE";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Onboarding = @"ONBOARDING";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused = @"PAUSED";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_PendingReview = @"PENDING_REVIEW";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified = @"PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED";
-NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ReviewDisapproved = @"REVIEW_DISAPPROVED";
-
-// GTLRShoppingContent_CaptureOrderResponse.executionStatus
-NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Duplicate = @"DUPLICATE";
-NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Executed = @"EXECUTED";
-NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified = @"EXECUTION_STATUS_UNSPECIFIED";
+// GTLRShoppingContent_Callout.styleHint
+NSString * const kGTLRShoppingContent_Callout_StyleHint_CalloutStyleHintUnspecified = @"CALLOUT_STYLE_HINT_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_Callout_StyleHint_Error  = @"ERROR";
+NSString * const kGTLRShoppingContent_Callout_StyleHint_Info   = @"INFO";
+NSString * const kGTLRShoppingContent_Callout_StyleHint_Warning = @"WARNING";
 
 // GTLRShoppingContent_CheckoutSettings.effectiveEnrollmentState
 NSString * const kGTLRShoppingContent_CheckoutSettings_EffectiveEnrollmentState_CheckoutOnMerchantEnrollmentStateUnspecified = @"CHECKOUT_ON_MERCHANT_ENROLLMENT_STATE_UNSPECIFIED";
@@ -186,10 +163,21 @@ NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_Revi
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified = @"REVIEW_INELIGIBILITY_REASON_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically = @"WILL_BE_REVIEWED_AUTOMATICALLY";
 
+// GTLRShoppingContent_InputFieldTextInput.type
+NSString * const kGTLRShoppingContent_InputFieldTextInput_Type_GenericLongText = @"GENERIC_LONG_TEXT";
+NSString * const kGTLRShoppingContent_InputFieldTextInput_Type_GenericShortText = @"GENERIC_SHORT_TEXT";
+NSString * const kGTLRShoppingContent_InputFieldTextInput_Type_TextInputTypeUnspecified = @"TEXT_INPUT_TYPE_UNSPECIFIED";
+
 // GTLRShoppingContent_OrderTrackingSignalShippingInfo.shippingStatus
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Delivered = @"DELIVERED";
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Shipped = @"SHIPPED";
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified = @"SHIPPING_STATE_UNSPECIFIED";
+
+// GTLRShoppingContent_PriceInsights.effectiveness
+NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_EffectivenessUnspecified = @"EFFECTIVENESS_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_High = @"HIGH";
+NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_Low = @"LOW";
+NSString * const kGTLRShoppingContent_PriceInsights_Effectiveness_Medium = @"MEDIUM";
 
 // GTLRShoppingContent_ProductCluster.brandInventoryStatus
 NSString * const kGTLRShoppingContent_ProductCluster_BrandInventoryStatus_InStock = @"IN_STOCK";
@@ -209,6 +197,11 @@ NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Info = @"INFO"
 NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_ProductIssueImpact_Severity_Warning = @"WARNING";
 
+// GTLRShoppingContent_ProductSustainabilityIncentive.type
+NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_EvPriceDiscount = @"EV_PRICE_DISCOUNT";
+NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_EvTaxCredit = @"EV_TAX_CREDIT";
+NSString * const kGTLRShoppingContent_ProductSustainabilityIncentive_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRShoppingContent_ProductView.aggregatedDestinationStatus
 NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_AggregatedStatusUnspecified = @"AGGREGATED_STATUS_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Eligible = @"ELIGIBLE";
@@ -220,6 +213,12 @@ NSString * const kGTLRShoppingContent_ProductView_AggregatedDestinationStatus_Pe
 NSString * const kGTLRShoppingContent_ProductView_Channel_ChannelUnspecified = @"CHANNEL_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_ProductView_Channel_Local = @"LOCAL";
 NSString * const kGTLRShoppingContent_ProductView_Channel_Online = @"ONLINE";
+
+// GTLRShoppingContent_ProductView.clickPotential
+NSString * const kGTLRShoppingContent_ProductView_ClickPotential_ClickPotentialUnspecified = @"CLICK_POTENTIAL_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ProductView_ClickPotential_High = @"HIGH";
+NSString * const kGTLRShoppingContent_ProductView_ClickPotential_Low = @"LOW";
+NSString * const kGTLRShoppingContent_ProductView_ClickPotential_Medium = @"MEDIUM";
 
 // GTLRShoppingContent_ProductViewItemIssue.resolution
 NSString * const kGTLRShoppingContent_ProductViewItemIssue_Resolution_MerchantAction = @"MERCHANT_ACTION";
@@ -262,6 +261,15 @@ NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_InStore = @"IN
 NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_Online = @"ONLINE";
 NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_RedemptionChannelUnspecified = @"REDEMPTION_CHANNEL_UNSPECIFIED";
 
+// GTLRShoppingContent_Promotion.redemptionRestriction
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_Custom = @"CUSTOM";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_FirstOrder = @"FIRST_ORDER";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_FormsOfPayment = @"FORMS_OF_PAYMENT";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_RedemptionRestrictionUnspecified = @"REDEMPTION_RESTRICTION_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SignUpForEmail = @"SIGN_UP_FOR_EMAIL";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SignUpForText = @"SIGN_UP_FOR_TEXT";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionRestriction_SubscribeAndSave = @"SUBSCRIBE_AND_SAVE";
+
 // GTLRShoppingContent_Promotion.storeApplicability
 NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_AllStores = @"ALL_STORES";
 NSString * const kGTLRShoppingContent_Promotion_StoreApplicability_SpecificStores = @"SPECIFIC_STORES";
@@ -290,9 +298,19 @@ NSString * const kGTLRShoppingContent_RecommendationDescription_Type_Short = @"S
 NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_ContentOptionUnspecified = @"CONTENT_OPTION_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_ContentOption_PreRenderedHtml = @"PRE_RENDERED_HTML";
 
+// GTLRShoppingContent_RenderAccountIssuesRequestPayload.userInputActionOption
+NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_BuiltInUserInputActions = @"BUILT_IN_USER_INPUT_ACTIONS";
+NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_RedirectToMerchantCenter = @"REDIRECT_TO_MERCHANT_CENTER";
+NSString * const kGTLRShoppingContent_RenderAccountIssuesRequestPayload_UserInputActionOption_UserInputActionRenderingOptionUnspecified = @"USER_INPUT_ACTION_RENDERING_OPTION_UNSPECIFIED";
+
 // GTLRShoppingContent_RenderProductIssuesRequestPayload.contentOption
 NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_ContentOptionUnspecified = @"CONTENT_OPTION_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_ContentOption_PreRenderedHtml = @"PRE_RENDERED_HTML";
+
+// GTLRShoppingContent_RenderProductIssuesRequestPayload.userInputActionOption
+NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_BuiltInUserInputActions = @"BUILT_IN_USER_INPUT_ACTIONS";
+NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_RedirectToMerchantCenter = @"REDIRECT_TO_MERCHANT_CENTER";
+NSString * const kGTLRShoppingContent_RenderProductIssuesRequestPayload_UserInputActionOption_UserInputActionRenderingOptionUnspecified = @"USER_INPUT_ACTION_RENDERING_OPTION_UNSPECIFIED";
 
 // GTLRShoppingContent_ReportInteractionRequest.interactionType
 NSString * const kGTLRShoppingContent_ReportInteractionRequest_InteractionType_InteractionClick = @"INTERACTION_CLICK";
@@ -374,6 +392,11 @@ NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_Revie
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_OnboardingIssues = @"ONBOARDING_ISSUES";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified = @"REVIEW_INELIGIBILITY_REASON_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_WillBeReviewedAutomatically = @"WILL_BE_REVIEWED_AUTOMATICALLY";
+
+// GTLRShoppingContent_TextWithTooltip.tooltipIconStyle
+NSString * const kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_Info = @"INFO";
+NSString * const kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_Question = @"QUESTION";
+NSString * const kGTLRShoppingContent_TextWithTooltip_TooltipIconStyle_TooltipIconStyleUnspecified = @"TOOLTIP_ICON_STYLE_UNSPECIFIED";
 
 // GTLRShoppingContent_VerifyPhoneNumberRequest.phoneVerificationMethod
 NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_PhoneCall = @"PHONE_CALL";
@@ -554,7 +577,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_AccountIssue
-@dynamic actions, impact, prerenderedContent, title;
+@dynamic actions, impact, prerenderedContent,
+         prerenderedOutOfCourtDisputeSettlement, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1229,7 +1253,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AccountUser
 @dynamic admin, emailAddress, orderManager, paymentsAnalyst, paymentsManager,
-         reportingManager;
+         readOnly, reportingManager;
 @end
 
 
@@ -1249,11 +1273,53 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_Action
-@dynamic builtinSimpleAction, buttonLabel, externalAction, isAvailable, reasons;
+@dynamic builtinSimpleAction, builtinUserInputAction, buttonLabel,
+         externalAction, isAvailable, reasons;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"reasons" : [GTLRShoppingContent_ActionReason class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ActionFlow
+//
+
+@implementation GTLRShoppingContent_ActionFlow
+@dynamic dialogButtonLabel, dialogCallout, dialogMessage, dialogTitle,
+         identifier, inputs, label;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inputs" : [GTLRShoppingContent_InputField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ActionInput
+//
+
+@implementation GTLRShoppingContent_ActionInput
+@dynamic actionFlowId, inputValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inputValues" : [GTLRShoppingContent_InputValue class]
   };
   return map;
 }
@@ -1268,15 +1334,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_ActionReason
 @dynamic action, detail, message;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
-//
-
-@implementation GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
 @end
 
 
@@ -1297,16 +1354,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AlternateDisputeResolution
 @dynamic label, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_Amount
-//
-
-@implementation GTLRShoppingContent_Amount
-@dynamic priceAmount, taxAmount;
 @end
 
 
@@ -1418,6 +1465,24 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_BuiltInUserInputAction
+//
+
+@implementation GTLRShoppingContent_BuiltInUserInputAction
+@dynamic actionContext, flows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"flows" : [GTLRShoppingContent_ActionFlow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_BusinessDayConfig
 //
 
@@ -1436,43 +1501,11 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_BuyOnGoogleProgramStatus
+//   GTLRShoppingContent_Callout
 //
 
-@implementation GTLRShoppingContent_BuyOnGoogleProgramStatus
-@dynamic businessModel, customerServicePendingEmail,
-         customerServicePendingPhoneNumber,
-         customerServicePendingPhoneRegionCode, customerServiceVerifiedEmail,
-         customerServiceVerifiedPhoneNumber,
-         customerServiceVerifiedPhoneRegionCode, onlineSalesChannel,
-         participationStage;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"businessModel" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_CaptureOrderRequest
-//
-
-@implementation GTLRShoppingContent_CaptureOrderRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_CaptureOrderResponse
-//
-
-@implementation GTLRShoppingContent_CaptureOrderResponse
-@dynamic executionStatus;
+@implementation GTLRShoppingContent_Callout
+@dynamic fullMessage, styleHint;
 @end
 
 
@@ -1697,21 +1730,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"groupValues" : [GTLRShoppingContent_CustomAttribute class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_CustomerReturnReason
-//
-
-@implementation GTLRShoppingContent_CustomerReturnReason
-@dynamic descriptionProperty, reasonCode;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -2222,6 +2240,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_FreeShippingThreshold
+//
+
+@implementation GTLRShoppingContent_FreeShippingThreshold
+@dynamic country, priceThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_GenerateRecommendationsResponse
 //
 
@@ -2327,6 +2355,113 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_InputField
+//
+
+@implementation GTLRShoppingContent_InputField
+@dynamic checkboxInput, choiceInput, identifier, label, required, textInput;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InputFieldCheckboxInput
+//
+
+@implementation GTLRShoppingContent_InputFieldCheckboxInput
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InputFieldChoiceInput
+//
+
+@implementation GTLRShoppingContent_InputFieldChoiceInput
+@dynamic options;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"options" : [GTLRShoppingContent_InputFieldChoiceInputChoiceInputOption class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InputFieldChoiceInputChoiceInputOption
+//
+
+@implementation GTLRShoppingContent_InputFieldChoiceInputChoiceInputOption
+@dynamic additionalInput, identifier, label;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InputFieldTextInput
+//
+
+@implementation GTLRShoppingContent_InputFieldTextInput
+@dynamic additionalInfo, ariaLabel, formatInfo, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InputValue
+//
+
+@implementation GTLRShoppingContent_InputValue
+@dynamic checkboxInputValue, choiceInputValue, inputFieldId, textInputValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InputValueCheckboxInputValue
+//
+
+@implementation GTLRShoppingContent_InputValueCheckboxInputValue
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InputValueChoiceInputValue
+//
+
+@implementation GTLRShoppingContent_InputValueChoiceInputValue
+@dynamic choiceInputOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InputValueTextInputValue
+//
+
+@implementation GTLRShoppingContent_InputValueTextInputValue
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_InsertCheckoutSettingsRequest
 //
 
@@ -2341,35 +2476,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_Installment
-@dynamic amount, months;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_InvoiceSummary
-//
-
-@implementation GTLRShoppingContent_InvoiceSummary
-@dynamic additionalChargeSummaries, productTotal;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"additionalChargeSummaries" : [GTLRShoppingContent_InvoiceSummaryAdditionalChargeSummary class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_InvoiceSummaryAdditionalChargeSummary
-//
-
-@implementation GTLRShoppingContent_InvoiceSummaryAdditionalChargeSummary
-@dynamic totalAmount, type;
+@dynamic amount, creditType, downpayment, months;
 @end
 
 
@@ -3064,11 +3171,12 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_LoyaltyPoints
+//   GTLRShoppingContent_LoyaltyProgram
 //
 
-@implementation GTLRShoppingContent_LoyaltyPoints
-@dynamic name, pointsValue, ratio;
+@implementation GTLRShoppingContent_LoyaltyProgram
+@dynamic cashbackForFutureUse, loyaltyPoints, memberPriceEffectiveDate, price,
+         programLabel, shippingLabel, tierLabel;
 @end
 
 
@@ -3084,66 +3192,11 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_MerchantOrderReturn
-//
-
-@implementation GTLRShoppingContent_MerchantOrderReturn
-@dynamic creationDate, merchantOrderId, orderId, orderReturnId, returnItems,
-         returnPricingInfo, returnShipments;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"returnItems" : [GTLRShoppingContent_MerchantOrderReturnItem class],
-    @"returnShipments" : [GTLRShoppingContent_ReturnShipment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_MerchantOrderReturnItem
-//
-
-@implementation GTLRShoppingContent_MerchantOrderReturnItem
-@dynamic customerReturnReason, itemId, merchantRejectionReason,
-         merchantReturnReason, product, refundableAmount, returnItemId,
-         returnShipmentIds, shipmentGroupId, shipmentUnitId, state;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"returnShipmentIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_MerchantRejectionReason
-//
-
-@implementation GTLRShoppingContent_MerchantRejectionReason
-@dynamic descriptionProperty, reasonCode;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRShoppingContent_MethodQuota
 //
 
 @implementation GTLRShoppingContent_MethodQuota
-@dynamic method, quotaLimit, quotaUsage;
+@dynamic method, quotaLimit, quotaMinuteLimit, quotaUsage;
 @end
 
 
@@ -3192,1346 +3245,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"storeCodes" : [NSString class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_MonetaryAmount
-//
-
-@implementation GTLRShoppingContent_MonetaryAmount
-@dynamic priceAmount, taxAmount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest
-//
-
-@implementation GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest
-@dynamic customerServiceEmail;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_Order
-//
-
-@implementation GTLRShoppingContent_Order
-@dynamic acknowledged, annotations, billingAddress, customer, deliveryDetails,
-         identifier, kind, lineItems, merchantId, merchantOrderId,
-         netPriceAmount, netTaxAmount, paymentStatus, pickupDetails, placedDate,
-         promotions, refunds, shipments, shippingCost, shippingCostTax, status,
-         taxCollector;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"annotations" : [GTLRShoppingContent_OrderOrderAnnotation class],
-    @"lineItems" : [GTLRShoppingContent_OrderLineItem class],
-    @"promotions" : [GTLRShoppingContent_OrderPromotion class],
-    @"refunds" : [GTLRShoppingContent_OrderRefund class],
-    @"shipments" : [GTLRShoppingContent_OrderShipment class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderAddress
-//
-
-@implementation GTLRShoppingContent_OrderAddress
-@dynamic country, fullAddress, isPostOfficeBox, locality, postalCode,
-         recipientName, region, streetAddress;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fullAddress" : [NSString class],
-    @"streetAddress" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderCancellation
-//
-
-@implementation GTLRShoppingContent_OrderCancellation
-@dynamic actor, creationDate, quantity, reason, reasonText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderCustomer
-//
-
-@implementation GTLRShoppingContent_OrderCustomer
-@dynamic fullName, invoiceReceivingEmail, loyaltyInfo, marketingRightsInfo;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderCustomerLoyaltyInfo
-//
-
-@implementation GTLRShoppingContent_OrderCustomerLoyaltyInfo
-@dynamic loyaltyNumber, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderCustomerMarketingRightsInfo
-//
-
-@implementation GTLRShoppingContent_OrderCustomerMarketingRightsInfo
-@dynamic explicitMarketingPreference, lastUpdatedTimestamp,
-         marketingEmailAddress;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderDeliveryDetails
-//
-
-@implementation GTLRShoppingContent_OrderDeliveryDetails
-@dynamic address, phoneNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceRequest
-//
-
-@implementation GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceRequest
-@dynamic invoiceId, invoiceSummary, lineItemInvoices, operationId,
-         shipmentGroupId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"lineItemInvoices" : [GTLRShoppingContent_ShipmentInvoiceLineItemInvoice class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceResponse
-//
-
-@implementation GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest
-//
-
-@implementation GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest
-@dynamic invoiceId, operationId, refundOnlyOption, returnOption,
-         shipmentInvoices;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"shipmentInvoices" : [GTLRShoppingContent_ShipmentInvoice class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceResponse
-//
-
-@implementation GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption
-//
-
-@implementation GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceRefundOption
-@dynamic descriptionProperty, reason;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption
-//
-
-@implementation GTLRShoppingContent_OrderinvoicesCustomBatchRequestEntryCreateRefundInvoiceReturnOption
-@dynamic descriptionProperty, reason;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderLineItem
-//
-
-@implementation GTLRShoppingContent_OrderLineItem
-@dynamic adjustments, annotations, cancellations, identifier, price, product,
-         quantityCanceled, quantityDelivered, quantityOrdered, quantityPending,
-         quantityReadyForPickup, quantityReturned, quantityShipped,
-         quantityUndeliverable, returnInfo, returns, shippingDetails, tax;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"adjustments" : [GTLRShoppingContent_OrderLineItemAdjustment class],
-    @"annotations" : [GTLRShoppingContent_OrderMerchantProvidedAnnotation class],
-    @"cancellations" : [GTLRShoppingContent_OrderCancellation class],
-    @"returns" : [GTLRShoppingContent_OrderReturn class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderLineItemAdjustment
-//
-
-@implementation GTLRShoppingContent_OrderLineItemAdjustment
-@dynamic priceAdjustment, taxAdjustment, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderLineItemProduct
-//
-
-@implementation GTLRShoppingContent_OrderLineItemProduct
-@dynamic brand, condition, contentLanguage, fees, gtin, identifier, imageLink,
-         itemGroupId, mpn, offerId, price, shownImage, targetCountry, title,
-         variantAttributes;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fees" : [GTLRShoppingContent_OrderLineItemProductFee class],
-    @"variantAttributes" : [GTLRShoppingContent_OrderLineItemProductVariantAttribute class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderLineItemProductFee
-//
-
-@implementation GTLRShoppingContent_OrderLineItemProductFee
-@dynamic amount, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderLineItemProductVariantAttribute
-//
-
-@implementation GTLRShoppingContent_OrderLineItemProductVariantAttribute
-@dynamic dimension, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderLineItemReturnInfo
-//
-
-@implementation GTLRShoppingContent_OrderLineItemReturnInfo
-@dynamic daysToReturn, isReturnable, policyUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderLineItemShippingDetails
-//
-
-@implementation GTLRShoppingContent_OrderLineItemShippingDetails
-@dynamic deliverByDate, method, pickupPromiseInMinutes, shipByDate, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderLineItemShippingDetailsMethod
-//
-
-@implementation GTLRShoppingContent_OrderLineItemShippingDetailsMethod
-@dynamic carrier, maxDaysInTransit, methodName, minDaysInTransit;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderMerchantProvidedAnnotation
-//
-
-@implementation GTLRShoppingContent_OrderMerchantProvidedAnnotation
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderOrderAnnotation
-//
-
-@implementation GTLRShoppingContent_OrderOrderAnnotation
-@dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderPickupDetails
-//
-
-@implementation GTLRShoppingContent_OrderPickupDetails
-@dynamic address, collectors, locationId, pickupType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"collectors" : [GTLRShoppingContent_OrderPickupDetailsCollector class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderPickupDetailsCollector
-//
-
-@implementation GTLRShoppingContent_OrderPickupDetailsCollector
-@dynamic name, phoneNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderPromotion
-//
-
-@implementation GTLRShoppingContent_OrderPromotion
-@dynamic applicableItems, appliedItems, endTime, funder, merchantPromotionId,
-         priceValue, shortTitle, startTime, subtype, taxValue, title, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"applicableItems" : [GTLRShoppingContent_OrderPromotionItem class],
-    @"appliedItems" : [GTLRShoppingContent_OrderPromotionItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderPromotionItem
-//
-
-@implementation GTLRShoppingContent_OrderPromotionItem
-@dynamic lineItemId, offerId, productId, quantity;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderRefund
-//
-
-@implementation GTLRShoppingContent_OrderRefund
-@dynamic actor, amount, creationDate, reason, reasonText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderReportDisbursement
-//
-
-@implementation GTLRShoppingContent_OrderReportDisbursement
-@dynamic disbursementAmount, disbursementCreationDate, disbursementDate,
-         disbursementId, merchantId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreportsListDisbursementsResponse
-//
-
-@implementation GTLRShoppingContent_OrderreportsListDisbursementsResponse
-@dynamic disbursements, kind, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"disbursements" : [GTLRShoppingContent_OrderReportDisbursement class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"disbursements";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreportsListTransactionsResponse
-//
-
-@implementation GTLRShoppingContent_OrderreportsListTransactionsResponse
-@dynamic kind, nextPageToken, transactions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"transactions" : [GTLRShoppingContent_OrderReportTransaction class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"transactions";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderReportTransaction
-//
-
-@implementation GTLRShoppingContent_OrderReportTransaction
-@dynamic disbursementAmount, disbursementCreationDate, disbursementDate,
-         disbursementId, merchantId, merchantOrderId, orderId, productAmount,
-         transactionDate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderReturn
-//
-
-@implementation GTLRShoppingContent_OrderReturn
-@dynamic actor, creationDate, quantity, reason, reasonText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsAcknowledgeRequest
-//
-
-@implementation GTLRShoppingContent_OrderreturnsAcknowledgeRequest
-@dynamic operationId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsAcknowledgeResponse
-//
-
-@implementation GTLRShoppingContent_OrderreturnsAcknowledgeResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsCreateOrderReturnRequest
-//
-
-@implementation GTLRShoppingContent_OrderreturnsCreateOrderReturnRequest
-@dynamic lineItems, operationId, orderId, returnMethodType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"lineItems" : [GTLRShoppingContent_OrderreturnsLineItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsCreateOrderReturnResponse
-//
-
-@implementation GTLRShoppingContent_OrderreturnsCreateOrderReturnResponse
-@dynamic executionStatus, kind, orderReturn;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsLineItem
-//
-
-@implementation GTLRShoppingContent_OrderreturnsLineItem
-@dynamic lineItemId, productId, quantity;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsListResponse
-//
-
-@implementation GTLRShoppingContent_OrderreturnsListResponse
-@dynamic kind, nextPageToken, resources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRShoppingContent_MerchantOrderReturn class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"resources";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsPartialRefund
-//
-
-@implementation GTLRShoppingContent_OrderreturnsPartialRefund
-@dynamic priceAmount, taxAmount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsProcessRequest
-//
-
-@implementation GTLRShoppingContent_OrderreturnsProcessRequest
-@dynamic fullChargeReturnShippingCost, operationId, refundShippingFee,
-         returnItems;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"returnItems" : [GTLRShoppingContent_OrderreturnsReturnItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsProcessResponse
-//
-
-@implementation GTLRShoppingContent_OrderreturnsProcessResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsRefundOperation
-//
-
-@implementation GTLRShoppingContent_OrderreturnsRefundOperation
-@dynamic fullRefund, partialRefund, paymentType, reasonText, returnRefundReason;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsRejectOperation
-//
-
-@implementation GTLRShoppingContent_OrderreturnsRejectOperation
-@dynamic reason, reasonText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderreturnsReturnItem
-//
-
-@implementation GTLRShoppingContent_OrderreturnsReturnItem
-@dynamic refund, reject, returnItemId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersAcknowledgeRequest
-//
-
-@implementation GTLRShoppingContent_OrdersAcknowledgeRequest
-@dynamic operationId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersAcknowledgeResponse
-//
-
-@implementation GTLRShoppingContent_OrdersAcknowledgeResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersAdvanceTestOrderResponse
-//
-
-@implementation GTLRShoppingContent_OrdersAdvanceTestOrderResponse
-@dynamic kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCancelLineItemRequest
-//
-
-@implementation GTLRShoppingContent_OrdersCancelLineItemRequest
-@dynamic lineItemId, operationId, productId, quantity, reason, reasonText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCancelLineItemResponse
-//
-
-@implementation GTLRShoppingContent_OrdersCancelLineItemResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCancelRequest
-//
-
-@implementation GTLRShoppingContent_OrdersCancelRequest
-@dynamic operationId, reason, reasonText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCancelResponse
-//
-
-@implementation GTLRShoppingContent_OrdersCancelResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest
-//
-
-@implementation GTLRShoppingContent_OrdersCancelTestOrderByCustomerRequest
-@dynamic reason;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse
-//
-
-@implementation GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse
-@dynamic kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCreateTestOrderRequest
-//
-
-@implementation GTLRShoppingContent_OrdersCreateTestOrderRequest
-@dynamic country, templateName, testOrder;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCreateTestOrderResponse
-//
-
-@implementation GTLRShoppingContent_OrdersCreateTestOrderResponse
-@dynamic kind, orderId;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCreateTestReturnRequest
-//
-
-@implementation GTLRShoppingContent_OrdersCreateTestReturnRequest
-@dynamic items;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRShoppingContent_OrdersCustomBatchRequestEntryCreateTestReturnReturnItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCreateTestReturnResponse
-//
-
-@implementation GTLRShoppingContent_OrdersCreateTestReturnResponse
-@dynamic kind, returnId;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCustomBatchRequestEntryCreateTestReturnReturnItem
-//
-
-@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryCreateTestReturnReturnItem
-@dynamic lineItemId, quantity;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemItem
-//
-
-@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemItem
-@dynamic amount, fullRefund, lineItemId, productId, quantity;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemShipping
-//
-
-@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemShipping
-@dynamic amount, fullRefund;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo
-//
-
-@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo
-@dynamic carrier, shipmentId, trackingId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipmentScheduledDeliveryDetails
-//
-
-@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipmentScheduledDeliveryDetails
-@dynamic carrierPhoneNumber, scheduledDate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse
-//
-
-@implementation GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse
-@dynamic kind, order;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersGetTestOrderTemplateResponse
-//
-
-@implementation GTLRShoppingContent_OrdersGetTestOrderTemplateResponse
-@dynamic kind, templateProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"templateProperty" : @"template" };
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderShipment
-//
-
-@implementation GTLRShoppingContent_OrderShipment
-@dynamic carrier, creationDate, deliveryDate, identifier, lineItems,
-         scheduledDeliveryDetails, shipmentGroupId, status, trackingId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"lineItems" : [GTLRShoppingContent_OrderShipmentLineItemShipment class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderShipmentLineItemShipment
-//
-
-@implementation GTLRShoppingContent_OrderShipmentLineItemShipment
-@dynamic lineItemId, productId, quantity;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrderShipmentScheduledDeliveryDetails
-//
-
-@implementation GTLRShoppingContent_OrderShipmentScheduledDeliveryDetails
-@dynamic carrierPhoneNumber, scheduledDate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersInStoreRefundLineItemRequest
-//
-
-@implementation GTLRShoppingContent_OrdersInStoreRefundLineItemRequest
-@dynamic lineItemId, operationId, priceAmount, productId, quantity, reason,
-         reasonText, taxAmount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersInStoreRefundLineItemResponse
-//
-
-@implementation GTLRShoppingContent_OrdersInStoreRefundLineItemResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersListResponse
-//
-
-@implementation GTLRShoppingContent_OrdersListResponse
-@dynamic kind, nextPageToken, resources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRShoppingContent_Order class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"resources";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersRefundItemRequest
-//
-
-@implementation GTLRShoppingContent_OrdersRefundItemRequest
-@dynamic items, operationId, reason, reasonText, shipping;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersRefundItemResponse
-//
-
-@implementation GTLRShoppingContent_OrdersRefundItemResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersRefundOrderRequest
-//
-
-@implementation GTLRShoppingContent_OrdersRefundOrderRequest
-@dynamic amount, fullRefund, operationId, reason, reasonText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersRefundOrderResponse
-//
-
-@implementation GTLRShoppingContent_OrdersRefundOrderResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersRejectReturnLineItemRequest
-//
-
-@implementation GTLRShoppingContent_OrdersRejectReturnLineItemRequest
-@dynamic lineItemId, operationId, productId, quantity, reason, reasonText;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersRejectReturnLineItemResponse
-//
-
-@implementation GTLRShoppingContent_OrdersRejectReturnLineItemResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersReturnRefundLineItemRequest
-//
-
-@implementation GTLRShoppingContent_OrdersReturnRefundLineItemRequest
-@dynamic lineItemId, operationId, priceAmount, productId, quantity, reason,
-         reasonText, taxAmount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersReturnRefundLineItemResponse
-//
-
-@implementation GTLRShoppingContent_OrdersReturnRefundLineItemResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersSetLineItemMetadataRequest
-//
-
-@implementation GTLRShoppingContent_OrdersSetLineItemMetadataRequest
-@dynamic annotations, lineItemId, operationId, productId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"annotations" : [GTLRShoppingContent_OrderMerchantProvidedAnnotation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersSetLineItemMetadataResponse
-//
-
-@implementation GTLRShoppingContent_OrdersSetLineItemMetadataResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersShipLineItemsRequest
-//
-
-@implementation GTLRShoppingContent_OrdersShipLineItemsRequest
-@dynamic lineItems, operationId, shipmentGroupId, shipmentInfos;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"lineItems" : [GTLRShoppingContent_OrderShipmentLineItemShipment class],
-    @"shipmentInfos" : [GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersShipLineItemsResponse
-//
-
-@implementation GTLRShoppingContent_OrdersShipLineItemsResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest
-//
-
-@implementation GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest
-@dynamic deliverByDate, lineItemId, operationId, productId, shipByDate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse
-//
-
-@implementation GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersUpdateMerchantOrderIdRequest
-//
-
-@implementation GTLRShoppingContent_OrdersUpdateMerchantOrderIdRequest
-@dynamic merchantOrderId, operationId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersUpdateMerchantOrderIdResponse
-//
-
-@implementation GTLRShoppingContent_OrdersUpdateMerchantOrderIdResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersUpdateShipmentRequest
-//
-
-@implementation GTLRShoppingContent_OrdersUpdateShipmentRequest
-@dynamic carrier, deliveryDate, lastPickupDate, operationId, readyPickupDate,
-         scheduledDeliveryDetails, shipmentId, status, trackingId,
-         undeliveredDate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_OrdersUpdateShipmentResponse
-//
-
-@implementation GTLRShoppingContent_OrdersUpdateShipmentResponse
-@dynamic executionStatus, kind;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
 }
 
 @end
@@ -4590,15 +3303,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          earliestDeliveryPromiseTime, latestDeliveryPromiseTime,
          originPostalCode, originRegionCode, shipmentId, shippedTime,
          shippingStatus, trackingId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_PauseBuyOnGoogleProgramRequest
-//
-
-@implementation GTLRShoppingContent_PauseBuyOnGoogleProgramRequest
 @end
 
 
@@ -4937,8 +3641,9 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_PriceInsights
-@dynamic predictedClicksChangeFraction, predictedConversionsChangeFraction,
-         predictedGrossProfitChangeFraction, predictedImpressionsChangeFraction,
+@dynamic effectiveness, predictedClicksChangeFraction,
+         predictedConversionsChangeFraction, predictedGrossProfitChangeFraction,
+         predictedImpressionsChangeFraction,
          predictedMonthlyGrossProfitChangeCurrencyCode,
          predictedMonthlyGrossProfitChangeMicros, suggestedPriceCurrencyCode,
          suggestedPriceMicros;
@@ -4952,18 +3657,19 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Product
 @dynamic additionalImageLinks, additionalSizeType, adsGrouping, adsLabels,
-         adsRedirect, adult, ageGroup, availability, availabilityDate, brand,
-         canonicalLink, certifications, channel,
+         adsRedirect, adult, ageGroup, autoPricingMinPrice, availability,
+         availabilityDate, brand, canonicalLink, certifications, channel,
          cloudExportAdditionalProperties, color, condition, contentLanguage,
          costOfGoodsSold, customAttributes, customLabel0, customLabel1,
          customLabel2, customLabel3, customLabel4, descriptionProperty,
          disclosureDate, displayAdsId, displayAdsLink, displayAdsSimilarIds,
          displayAdsTitle, displayAdsValue, energyEfficiencyClass,
          excludedDestinations, expirationDate, externalSellerId, feedLabel,
-         gender, googleProductCategory, gtin, identifier, identifierExists,
-         imageLink, includedDestinations, installment, isBundle, itemGroupId,
-         kind, lifestyleImageLinks, link, linkTemplate, loyaltyPoints, material,
-         maxEnergyEfficiencyClass, maxHandlingTime, minEnergyEfficiencyClass,
+         freeShippingThreshold, gender, googleProductCategory, gtin, identifier,
+         identifierExists, imageLink, includedDestinations, installment,
+         isBundle, itemGroupId, kind, lifestyleImageLinks, link, linkTemplate,
+         loyaltyProgram, loyaltyPrograms, material, maxEnergyEfficiencyClass,
+         maxHandlingTime, maximumRetailPrice, minEnergyEfficiencyClass,
          minHandlingTime, mobileLink, mobileLinkTemplate, mpn, multipack,
          offerId, pattern, pause, pickupMethod, pickupSla, price,
          productDetails, productHeight, productHighlights, productLength,
@@ -4971,7 +3677,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          salePriceEffectiveDate, sellOnGoogleQuantity, shipping, shippingHeight,
          shippingLabel, shippingLength, shippingWeight, shippingWidth,
          shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
-         subscriptionCost, targetCountry, taxCategory, taxes, title,
+         structuredDescription, structuredTitle, subscriptionCost,
+         sustainabilityIncentives, targetCountry, taxCategory, taxes, title,
          transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure,
          virtualModelLink;
 
@@ -4992,8 +3699,10 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"customAttributes" : [GTLRShoppingContent_CustomAttribute class],
     @"displayAdsSimilarIds" : [NSString class],
     @"excludedDestinations" : [NSString class],
+    @"freeShippingThreshold" : [GTLRShoppingContent_FreeShippingThreshold class],
     @"includedDestinations" : [NSString class],
     @"lifestyleImageLinks" : [NSString class],
+    @"loyaltyPrograms" : [GTLRShoppingContent_LoyaltyProgram class],
     @"productDetails" : [GTLRShoppingContent_ProductProductDetail class],
     @"productHighlights" : [NSString class],
     @"productTypes" : [NSString class],
@@ -5001,6 +3710,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"shipping" : [GTLRShoppingContent_ProductShipping class],
     @"shoppingAdsExcludedCountries" : [NSString class],
     @"sizes" : [NSString class],
+    @"sustainabilityIncentives" : [GTLRShoppingContent_ProductSustainabilityIncentive class],
     @"taxes" : [GTLRShoppingContent_ProductTax class]
   };
   return map;
@@ -5017,21 +3727,12 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_ProductAmount
-//
-
-@implementation GTLRShoppingContent_ProductAmount
-@dynamic priceAmount, remittedTaxAmount, taxAmount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRShoppingContent_ProductCertification
 //
 
 @implementation GTLRShoppingContent_ProductCertification
-@dynamic certificationAuthority, certificationCode, certificationName;
+@dynamic certificationAuthority, certificationCode, certificationName,
+         certificationValue;
 @end
 
 
@@ -5119,7 +3820,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ProductIssue
-@dynamic actions, impact, prerenderedContent, title;
+@dynamic actions, impact, prerenderedContent,
+         prerenderedOutOfCourtDisputeSettlement, title;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5466,11 +4168,41 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ProductStructuredDescription
+//
+
+@implementation GTLRShoppingContent_ProductStructuredDescription
+@dynamic content, digitalSourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductStructuredTitle
+//
+
+@implementation GTLRShoppingContent_ProductStructuredTitle
+@dynamic content, digitalSourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ProductSubscriptionCost
 //
 
 @implementation GTLRShoppingContent_ProductSubscriptionCost
 @dynamic amount, period, periodLength;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ProductSustainabilityIncentive
+//
+
+@implementation GTLRShoppingContent_ProductSustainabilityIncentive
+@dynamic amount, percentage, type;
 @end
 
 
@@ -5511,11 +4243,12 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_ProductView
 @dynamic aggregatedDestinationStatus, availability, brand, categoryL1,
-         categoryL2, categoryL3, categoryL4, categoryL5, channel, condition,
-         creationTime, currencyCode, expirationDate, gtin, identifier,
-         itemGroupId, itemIssues, languageCode, offerId, priceMicros,
-         productTypeL1, productTypeL2, productTypeL3, productTypeL4,
-         productTypeL5, shippingLabel, title;
+         categoryL2, categoryL3, categoryL4, categoryL5, channel,
+         clickPotential, clickPotentialRank, condition, creationTime,
+         currencyCode, expirationDate, gtin, identifier, itemGroupId,
+         itemIssues, languageCode, offerId, priceMicros, productTypeL1,
+         productTypeL2, productTypeL3, productTypeL4, productTypeL5,
+         shippingLabel, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -5606,17 +4339,19 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_Promotion
 @dynamic brand, brandExclusion, contentLanguage, couponValueType,
-         freeGiftDescription, freeGiftItemId, freeGiftValue,
-         genericRedemptionCode, getThisQuantityDiscounted, identifier,
-         itemGroupId, itemGroupIdExclusion, itemId, itemIdExclusion,
-         limitQuantity, limitValue, longTitle, minimumPurchaseAmount,
-         minimumPurchaseQuantity, moneyBudget, moneyOffAmount, offerType,
-         orderLimit, percentOff, productApplicability, productType,
-         productTypeExclusion, promotionDestinationIds, promotionDisplayDates,
+         customRedemptionRestriction, freeGiftDescription, freeGiftItemId,
+         freeGiftValue, genericRedemptionCode, getThisQuantityDiscounted,
+         identifier, itemGroupId, itemGroupIdExclusion, itemId, itemIdExclusion,
+         limitQuantity, limitValue, longTitle, maxDiscountAmount,
+         minimumPurchaseAmount, minimumPurchaseQuantity, moneyBudget,
+         moneyOffAmount, offerType, orderLimit, percentOff,
+         productApplicability, productType, productTypeExclusion,
+         promotionDestinationIds, promotionDisplayDates,
          promotionDisplayTimePeriod, promotionEffectiveDates,
          promotionEffectiveTimePeriod, promotionId, promotionStatus,
-         promotionUrl, redemptionChannel, shippingServiceNames,
-         storeApplicability, storeCode, storeCodeExclusion, targetCountry;
+         promotionUrl, redemptionChannel, redemptionRestriction,
+         shippingServiceNames, storeApplicability, storeCode,
+         storeCodeExclusion, targetCountry;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -5782,21 +4517,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_RefundReason
-//
-
-@implementation GTLRShoppingContent_RefundReason
-@dynamic descriptionProperty, reasonCode;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRShoppingContent_Region
 //
 
@@ -5952,7 +4672,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_RenderAccountIssuesRequestPayload
-@dynamic contentOption;
+@dynamic contentOption, userInputActionOption;
 @end
 
 
@@ -5980,7 +4700,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_RenderProductIssuesRequestPayload
-@dynamic contentOption;
+@dynamic contentOption, userInputActionOption;
 @end
 
 
@@ -6020,7 +4740,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 @implementation GTLRShoppingContent_ReportRow
 @dynamic bestSellers, brand, competitiveVisibility, metrics,
          priceCompetitiveness, priceInsights, productCluster, productView,
-         segments;
+         segments, topicTrends;
 @end
 
 
@@ -6041,15 +4761,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_RequestPhoneVerificationResponse
 @dynamic verificationId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest
-//
-
-@implementation GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest
 @end
 
 
@@ -6409,47 +5120,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_ReturnPricingInfo
-//
-
-@implementation GTLRShoppingContent_ReturnPricingInfo
-@dynamic chargeReturnShippingFee, maxReturnShippingFee,
-         refundableItemsTotalAmount, refundableShippingAmount,
-         totalRefundedAmount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ReturnShipment
-//
-
-@implementation GTLRShoppingContent_ReturnShipment
-@dynamic creationDate, deliveryDate, returnMethodType, shipmentId,
-         shipmentTrackingInfos, shippingDate, state;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"shipmentTrackingInfos" : [GTLRShoppingContent_ShipmentTrackingInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ReturnShippingLabel
-//
-
-@implementation GTLRShoppingContent_ReturnShippingLabel
-@dynamic carrier, labelUri, trackingId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRShoppingContent_Row
 //
 
@@ -6567,204 +5237,6 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_ServiceStoreConfigCutoffConfigLocalCutoffTime
 @dynamic hour, minute;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_SettlementReport
-//
-
-@implementation GTLRShoppingContent_SettlementReport
-@dynamic endDate, kind, previousBalance, settlementId, startDate,
-         transferAmount, transferDate, transferIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"transferIds" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_SettlementreportsListResponse
-//
-
-@implementation GTLRShoppingContent_SettlementreportsListResponse
-@dynamic kind, nextPageToken, resources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRShoppingContent_SettlementReport class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"resources";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_SettlementTransaction
-//
-
-@implementation GTLRShoppingContent_SettlementTransaction
-@dynamic amount, identifiers, kind, transaction;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_SettlementTransactionAmount
-//
-
-@implementation GTLRShoppingContent_SettlementTransactionAmount
-@dynamic commission, descriptionProperty, transactionAmount, type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_SettlementTransactionAmountCommission
-//
-
-@implementation GTLRShoppingContent_SettlementTransactionAmountCommission
-@dynamic category, rate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_SettlementTransactionIdentifiers
-//
-
-@implementation GTLRShoppingContent_SettlementTransactionIdentifiers
-@dynamic adjustmentId, merchantOrderId, orderItemId, settlementEntryId,
-         shipmentIds, transactionId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"shipmentIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_SettlementtransactionsListResponse
-//
-
-@implementation GTLRShoppingContent_SettlementtransactionsListResponse
-@dynamic kind, nextPageToken, resources;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRShoppingContent_SettlementTransaction class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"resources";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_SettlementTransactionTransaction
-//
-
-@implementation GTLRShoppingContent_SettlementTransactionTransaction
-@dynamic postDate, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ShipmentInvoice
-//
-
-@implementation GTLRShoppingContent_ShipmentInvoice
-@dynamic invoiceSummary, lineItemInvoices, shipmentGroupId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"lineItemInvoices" : [GTLRShoppingContent_ShipmentInvoiceLineItemInvoice class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ShipmentInvoiceLineItemInvoice
-//
-
-@implementation GTLRShoppingContent_ShipmentInvoiceLineItemInvoice
-@dynamic lineItemId, productId, shipmentUnitIds, unitInvoice;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"shipmentUnitIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_ShipmentTrackingInfo
-//
-
-@implementation GTLRShoppingContent_ShipmentTrackingInfo
-@dynamic carrier, trackingNumber;
 @end
 
 
@@ -7028,117 +5500,11 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRShoppingContent_TestOrder
+//   GTLRShoppingContent_TextWithTooltip
 //
 
-@implementation GTLRShoppingContent_TestOrder
-@dynamic deliveryDetails, enableOrderinvoices, kind, lineItems,
-         notificationMode, pickupDetails, predefinedBillingAddress,
-         predefinedDeliveryAddress, predefinedEmail, predefinedPickupDetails,
-         promotions, shippingCost, shippingOption;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"lineItems" : [GTLRShoppingContent_TestOrderLineItem class],
-    @"promotions" : [GTLRShoppingContent_OrderPromotion class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_TestOrderAddress
-//
-
-@implementation GTLRShoppingContent_TestOrderAddress
-@dynamic country, fullAddress, isPostOfficeBox, locality, postalCode,
-         recipientName, region, streetAddress;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fullAddress" : [NSString class],
-    @"streetAddress" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_TestOrderDeliveryDetails
-//
-
-@implementation GTLRShoppingContent_TestOrderDeliveryDetails
-@dynamic address, isScheduledDelivery, phoneNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_TestOrderLineItem
-//
-
-@implementation GTLRShoppingContent_TestOrderLineItem
-@dynamic product, quantityOrdered, returnInfo, shippingDetails;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_TestOrderLineItemProduct
-//
-
-@implementation GTLRShoppingContent_TestOrderLineItemProduct
-@dynamic brand, condition, contentLanguage, fees, gtin, imageLink, itemGroupId,
-         mpn, offerId, price, targetCountry, title, variantAttributes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fees" : [GTLRShoppingContent_OrderLineItemProductFee class],
-    @"variantAttributes" : [GTLRShoppingContent_OrderLineItemProductVariantAttribute class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_TestOrderPickupDetails
-//
-
-@implementation GTLRShoppingContent_TestOrderPickupDetails
-@dynamic locationCode, pickupLocationAddress, pickupLocationType, pickupPersons;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"pickupPersons" : [GTLRShoppingContent_TestOrderPickupDetailsPickupPerson class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_TestOrderPickupDetailsPickupPerson
-//
-
-@implementation GTLRShoppingContent_TestOrderPickupDetailsPickupPerson
-@dynamic name, phoneNumber;
+@implementation GTLRShoppingContent_TextWithTooltip
+@dynamic simpleTooltipValue, simpleValue, tooltipIconStyle;
 @end
 
 
@@ -7164,6 +5530,19 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TopicTrends
+//
+
+@implementation GTLRShoppingContent_TopicTrends
+@dynamic customerCountryCode, date, last120DaysSearchInterest,
+         last30DaysSearchInterest, last7DaysSearchInterest,
+         last90DaysSearchInterest, next7DaysSearchInterest, searchInterest,
+         topic;
 @end
 
 
@@ -7217,49 +5596,30 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_TriggerActionPayload
+//
+
+@implementation GTLRShoppingContent_TriggerActionPayload
+@dynamic actionContext, actionInput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TriggerActionResponse
+//
+
+@implementation GTLRShoppingContent_TriggerActionResponse
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_UndeleteConversionSourceRequest
 //
 
 @implementation GTLRShoppingContent_UndeleteConversionSourceRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_UnitInvoice
-//
-
-@implementation GTLRShoppingContent_UnitInvoice
-@dynamic additionalCharges, unitPrice, unitPriceTaxes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"additionalCharges" : [GTLRShoppingContent_UnitInvoiceAdditionalCharge class],
-    @"unitPriceTaxes" : [GTLRShoppingContent_UnitInvoiceTaxLine class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_UnitInvoiceAdditionalCharge
-//
-
-@implementation GTLRShoppingContent_UnitInvoiceAdditionalCharge
-@dynamic additionalChargeAmount, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRShoppingContent_UnitInvoiceTaxLine
-//
-
-@implementation GTLRShoppingContent_UnitInvoiceTaxLine
-@dynamic taxAmount, taxName, taxType;
 @end
 
 

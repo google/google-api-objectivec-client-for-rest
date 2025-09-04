@@ -81,6 +81,11 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTargeting_TimeZoneType_
 NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTargeting_TimeZoneType_TimeZoneTypeUnspecified = @"TIME_ZONE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_DayPartTargeting_TimeZoneType_User = @"USER";
 
+// GTLRAuthorizedBuyersMarketplace_Deal.buyerPermissionType
+NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_Bidder = @"BIDDER";
+NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_BuyerPermissionTypeUnspecified = @"BUYER_PERMISSION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_BuyerPermissionType_NegotiatorOnly = @"NEGOTIATOR_ONLY";
+
 // GTLRAuthorizedBuyersMarketplace_Deal.dealType
 NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_DealType_DealTypeUnspecified = @"DEAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAuthorizedBuyersMarketplace_Deal_DealType_PreferredDeal = @"PREFERRED_DEAL";
@@ -274,8 +279,9 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 //
 
 @implementation GTLRAuthorizedBuyersMarketplace_AuctionPackage
-@dynamic createTime, creator, descriptionProperty, displayName, name,
-         subscribedClients, updateTime;
+@dynamic createTime, creator, dealOwnerSeatId, descriptionProperty, displayName,
+         eligibleSeatIds, name, subscribedBuyers, subscribedClients,
+         subscribedMediaPlanners, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -283,7 +289,10 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"subscribedClients" : [NSString class]
+    @"eligibleSeatIds" : [NSString class],
+    @"subscribedBuyers" : [NSString class],
+    @"subscribedClients" : [NSString class],
+    @"subscribedMediaPlanners" : [GTLRAuthorizedBuyersMarketplace_MediaPlanner class]
   };
   return map;
 }
@@ -449,14 +458,22 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 //
 
 @implementation GTLRAuthorizedBuyersMarketplace_Deal
-@dynamic billedBuyer, buyer, client, createTime, creativeRequirements, dealType,
-         deliveryControl, descriptionProperty, displayName, estimatedGrossSpend,
-         flightEndTime, flightStartTime, name, preferredDealTerms,
+@dynamic billedBuyer, buyer, buyerPermissionType, client, createTime,
+         creativeRequirements, dealType, deliveryControl, descriptionProperty,
+         displayName, eligibleSeatIds, estimatedGrossSpend, flightEndTime,
+         flightStartTime, mediaPlanner, name, preferredDealTerms,
          privateAuctionTerms, programmaticGuaranteedTerms, proposalRevision,
          publisherProfile, sellerTimeZone, targeting, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eligibleSeatIds" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -737,9 +754,28 @@ NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeting_TargetedPositio
 //
 
 @implementation GTLRAuthorizedBuyersMarketplace_MarketplaceTargeting
-@dynamic daypartTargeting, geoTargeting, inventorySizeTargeting,
-         inventoryTypeTargeting, placementTargeting, technologyTargeting,
-         userListTargeting, videoTargeting;
+@dynamic daypartTargeting, excludedSensitiveCategoryIds, geoTargeting,
+         inventorySizeTargeting, inventoryTypeTargeting, placementTargeting,
+         technologyTargeting, userListTargeting, verticalTargeting,
+         videoTargeting;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedSensitiveCategoryIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAuthorizedBuyersMarketplace_MediaPlanner
+//
+
+@implementation GTLRAuthorizedBuyersMarketplace_MediaPlanner
+@dynamic accountId;
 @end
 
 

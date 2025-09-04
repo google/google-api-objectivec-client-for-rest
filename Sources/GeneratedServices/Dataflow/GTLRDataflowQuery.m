@@ -479,6 +479,39 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsDebugGetWorkerStacktraces
+
+@dynamic jobId, location, projectId;
+
++ (instancetype)queryWithObject:(GTLRDataflow_GetWorkerStacktracesRequest *)object
+                      projectId:(NSString *)projectId
+                       location:(NSString *)location
+                          jobId:(NSString *)jobId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/debug/getWorkerStacktraces";
+  GTLRDataflowQuery_ProjectsLocationsJobsDebugGetWorkerStacktraces *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_GetWorkerStacktracesResponse class];
+  query.loggingName = @"dataflow.projects.locations.jobs.debug.getWorkerStacktraces";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsDebugSendCapture
 
 @dynamic jobId, location, projectId;

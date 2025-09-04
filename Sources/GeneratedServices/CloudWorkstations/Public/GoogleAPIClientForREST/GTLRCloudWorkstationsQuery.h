@@ -71,6 +71,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsList : GTLRCloudWorkstationsQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -117,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: workstations.projects.locations.operations.cancel
@@ -140,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudWorkstations_CancelOperationRequest to include
@@ -375,6 +381,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudWorkstationsCloudPlatform
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersList : GTLRCloudWorkstationsQuery
+
+/**
+ *  Optional. Filter the WorkstationClusters to be listed. Possible filters are
+ *  described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -622,6 +634,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudWorkstationsCloudPlatform
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsList : GTLRCloudWorkstationsQuery
+
+/**
+ *  Optional. Filter the WorkstationConfigs to be listed. Possible filters are
+ *  described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -905,7 +923,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns a short-lived credential that can be used to send authenticated and
- *  authorized traffic to a workstation.
+ *  authorized traffic to a workstation. Once generated this token cannot be
+ *  revoked and is good for the lifetime of the token.
  *
  *  Method: workstations.projects.locations.workstationClusters.workstationConfigs.workstations.generateAccessToken
  *
@@ -924,7 +943,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudWorkstations_GenerateAccessTokenResponse.
  *
  *  Returns a short-lived credential that can be used to send authenticated and
- *  authorized traffic to a workstation.
+ *  authorized traffic to a workstation. Once generated this token cannot be
+ *  revoked and is good for the lifetime of the token.
  *
  *  @param object The @c GTLRCloudWorkstations_GenerateAccessTokenRequest to
  *    include in the query.
@@ -1022,6 +1042,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudWorkstationsCloudPlatform
  */
 @interface GTLRCloudWorkstationsQuery_ProjectsLocationsWorkstationClustersWorkstationConfigsWorkstationsList : GTLRCloudWorkstationsQuery
+
+/**
+ *  Optional. Filter the Workstations to be listed. Possible filters are
+ *  described in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;

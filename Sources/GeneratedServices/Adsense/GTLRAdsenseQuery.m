@@ -55,6 +55,7 @@ NSString * const kGTLRAdsenseDimensionsDomainCode            = @"DOMAIN_CODE";
 NSString * const kGTLRAdsenseDimensionsDomainName            = @"DOMAIN_NAME";
 NSString * const kGTLRAdsenseDimensionsDomainRegistrant      = @"DOMAIN_REGISTRANT";
 NSString * const kGTLRAdsenseDimensionsHostedAdClientId      = @"HOSTED_AD_CLIENT_ID";
+NSString * const kGTLRAdsenseDimensionsHostedCustomChannelId = @"HOSTED_CUSTOM_CHANNEL_ID";
 NSString * const kGTLRAdsenseDimensionsMonth                 = @"MONTH";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteDomainName   = @"OWNED_SITE_DOMAIN_NAME";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteId           = @"OWNED_SITE_ID";
@@ -590,6 +591,44 @@ NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZoneUnspecified = @"R
   query.parent = parent;
   query.expectedObjectClass = [GTLRAdsense_ListPaymentsResponse class];
   query.loggingName = @"adsense.accounts.payments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsPolicyIssuesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRAdsenseQuery_AccountsPolicyIssuesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAdsense_PolicyIssue class];
+  query.loggingName = @"adsense.accounts.policyIssues.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdsenseQuery_AccountsPolicyIssuesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/policyIssues";
+  GTLRAdsenseQuery_AccountsPolicyIssuesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAdsense_ListPolicyIssuesResponse class];
+  query.loggingName = @"adsense.accounts.policyIssues.list";
   return query;
 }
 

@@ -79,8 +79,16 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection_
 //
 
 @implementation GTLRRecommender_GoogleCloudRecommenderV1Impact
-@dynamic category, costProjection, reliabilityProjection, securityProjection,
-         sustainabilityProjection;
+@dynamic category, costProjection, impactComponents, reliabilityProjection,
+         securityProjection, service, sustainabilityProjection;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"impactComponents" : [GTLRRecommender_GoogleCloudRecommenderV1Impact class]
+  };
+  return map;
+}
+
 @end
 
 

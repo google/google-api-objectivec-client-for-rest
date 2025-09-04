@@ -14,9 +14,31 @@
 
 @end
 
+@implementation GTLRMapsPlacesQuery_PlacesAutocomplete
+
++ (instancetype)queryWithObject:(GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/places:autocomplete";
+  GTLRMapsPlacesQuery_PlacesAutocomplete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesResponse class];
+  query.loggingName = @"places.places.autocomplete";
+  return query;
+}
+
+@end
+
 @implementation GTLRMapsPlacesQuery_PlacesGet
 
-@dynamic languageCode, name, regionCode;
+@dynamic languageCode, name, regionCode, sessionToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

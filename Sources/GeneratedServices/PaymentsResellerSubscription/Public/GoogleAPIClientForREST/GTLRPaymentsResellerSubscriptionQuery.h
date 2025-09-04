@@ -32,24 +32,25 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  To retrieve the products that can be resold by the partner. It should be
- *  autenticated with a service account.
+ *  Currently, it doesn't support **YouTube** products. Retrieves the products
+ *  that can be resold by the partner. It should be autenticated with a service
+ *  account.
  *
  *  Method: paymentsresellersubscription.partners.products.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersProductsList : GTLRPaymentsResellerSubscriptionQuery
 
 /**
  *  Optional. Specifies the filters for the product results. The syntax is
- *  defined in https://google.aip.dev/160 with the following caveats: - Only the
- *  following features are supported: - Logical operator `AND` - Comparison
+ *  defined in https://google.aip.dev/160 with the following caveats: 1. Only
+ *  the following features are supported: - Logical operator `AND` - Comparison
  *  operator `=` (no wildcards `*`) - Traversal operator `.` - Has operator `:`
- *  (no wildcards `*`) - Only the following fields are supported: -
+ *  (no wildcards `*`) 2. Only the following fields are supported: -
  *  `regionCodes` - `youtubePayload.partnerEligibilityId` -
- *  `youtubePayload.postalCode` - Unless explicitly mentioned above, other
+ *  `youtubePayload.postalCode` 3. Unless explicitly mentioned above, other
  *  features are not supported. Example: `regionCodes:US AND
  *  youtubePayload.postalCode=94043 AND
  *  youtubePayload.partnerEligibilityId=eligibility-id`
@@ -78,11 +79,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListProductsResponse.
+ *  Fetches a @c GTLRPaymentsResellerSubscription_ListProductsResponse.
  *
- *  To retrieve the products that can be resold by the partner. It should be
- *  autenticated with a service account.
+ *  Currently, it doesn't support **YouTube** products. Retrieves the products
+ *  that can be resold by the partner. It should be autenticated with a service
+ *  account.
  *
  *  @param parent Required. The parent, the partner that can resell. Format:
  *    partners/{partner}
@@ -98,14 +99,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  To find eligible promotions for the current user. The API requires user
- *  authorization via OAuth. The bare minimum oauth scope `openid` is
- *  sufficient, which will skip the consent screen.
+ *  Currently, it is only enabeld for **YouTube**. Finds eligible promotions for
+ *  the current user. The API requires user authorization via OAuth. The bare
+ *  minimum oauth scope `openid` is sufficient, which will skip the consent
+ *  screen.
  *
  *  Method: paymentsresellersubscription.partners.promotions.findEligible
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsFindEligible : GTLRPaymentsResellerSubscriptionQuery
 
@@ -117,44 +119,46 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsResponse.
+ *  GTLRPaymentsResellerSubscription_FindEligiblePromotionsResponse.
  *
- *  To find eligible promotions for the current user. The API requires user
- *  authorization via OAuth. The bare minimum oauth scope `openid` is
- *  sufficient, which will skip the consent screen.
+ *  Currently, it is only enabeld for **YouTube**. Finds eligible promotions for
+ *  the current user. The API requires user authorization via OAuth. The bare
+ *  minimum oauth scope `openid` is sufficient, which will skip the consent
+ *  screen.
  *
  *  @param object The @c
- *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest
- *    to include in the query.
+ *    GTLRPaymentsResellerSubscription_FindEligiblePromotionsRequest to include
+ *    in the query.
  *  @param parent Required. The parent, the partner that can resell. Format:
  *    partners/{partner}
  *
  *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsFindEligible
  */
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1FindEligiblePromotionsRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_FindEligiblePromotionsRequest *)object
                          parent:(NSString *)parent;
 
 @end
 
 /**
- *  To retrieve the promotions, such as free trial, that can be used by the
- *  partner. It should be autenticated with a service account.
+ *  Currently, it doesn't support **YouTube** promotions. Retrieves the
+ *  promotions, such as free trial, that can be used by the partner. It should
+ *  be autenticated with a service account.
  *
  *  Method: paymentsresellersubscription.partners.promotions.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersPromotionsList : GTLRPaymentsResellerSubscriptionQuery
 
 /**
  *  Optional. Specifies the filters for the promotion results. The syntax is
- *  defined in https://google.aip.dev/160 with the following caveats: - Only the
- *  following features are supported: - Logical operator `AND` - Comparison
+ *  defined in https://google.aip.dev/160 with the following caveats: 1. Only
+ *  the following features are supported: - Logical operator `AND` - Comparison
  *  operator `=` (no wildcards `*`) - Traversal operator `.` - Has operator `:`
- *  (no wildcards `*`) - Only the following fields are supported: -
+ *  (no wildcards `*`) 2. Only the following fields are supported: -
  *  `applicableProducts` - `regionCodes` - `youtubePayload.partnerEligibilityId`
- *  - `youtubePayload.postalCode` - Unless explicitly mentioned above, other
+ *  - `youtubePayload.postalCode` 3. Unless explicitly mentioned above, other
  *  features are not supported. Example:
  *  `applicableProducts:partners/partner1/products/product1 AND regionCodes:US
  *  AND youtubePayload.postalCode=94043 AND
@@ -184,11 +188,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ListPromotionsResponse.
+ *  Fetches a @c GTLRPaymentsResellerSubscription_ListPromotionsResponse.
  *
- *  To retrieve the promotions, such as free trial, that can be used by the
- *  partner. It should be autenticated with a service account.
+ *  Currently, it doesn't support **YouTube** promotions. Retrieves the
+ *  promotions, such as free trial, that can be used by the partner. It should
+ *  be autenticated with a service account.
  *
  *  @param parent Required. The parent, the partner that can resell. Format:
  *    partners/{partner}
@@ -204,14 +208,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Used by partners to cancel a subscription service either immediately or by
- *  the end of the current billing cycle for their customers. It should be
- *  called directly by the partner using service accounts.
+ *  Cancels a subscription service either immediately or by the end of the
+ *  current billing cycle for their customers. It should be called directly by
+ *  the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.cancel
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsCancel : GTLRPaymentsResellerSubscriptionQuery
 
@@ -222,23 +226,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionResponse.
+ *  Fetches a @c GTLRPaymentsResellerSubscription_CancelSubscriptionResponse.
  *
- *  Used by partners to cancel a subscription service either immediately or by
- *  the end of the current billing cycle for their customers. It should be
- *  called directly by the partner using service accounts.
+ *  Cancels a subscription service either immediately or by the end of the
+ *  current billing cycle for their customers. It should be called directly by
+ *  the partner using service accounts.
  *
  *  @param object The @c
- *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest
- *    to include in the query.
+ *    GTLRPaymentsResellerSubscription_CancelSubscriptionRequest to include in
+ *    the query.
  *  @param name Required. The name of the subscription resource to be cancelled.
  *    It will have the format of
  *    "partners/{partner_id}/subscriptions/{subscription_id}"
  *
  *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsCancel
  */
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_CancelSubscriptionRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -251,7 +254,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.create
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsCreate : GTLRPaymentsResellerSubscriptionQuery
 
@@ -270,36 +273,33 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
- *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.
+ *  Fetches a @c GTLRPaymentsResellerSubscription_Subscription.
  *
  *  Used by partners to create a subscription for their customers. The created
  *  subscription is associated with the end user inferred from the end user
  *  credentials. This API must be authorized by the end user using OAuth.
  *
- *  @param object The @c
- *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription
- *    to include in the query.
+ *  @param object The @c GTLRPaymentsResellerSubscription_Subscription to
+ *    include in the query.
  *  @param parent Required. The parent resource name, which is the identifier of
  *    the partner. It will have the format of "partners/{partner_id}".
  *
  *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsCreate
  */
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_Subscription *)object
                          parent:(NSString *)parent;
 
 @end
 
 /**
- *  Used by partners to entitle a previously provisioned subscription to the
- *  current end user. The end user identity is inferred from the authorized
- *  credential of the request. This API must be authorized by the end user using
- *  OAuth.
+ *  Entitles a previously provisioned subscription to the current end user. The
+ *  end user identity is inferred from the authorized credential of the request.
+ *  This API must be authorized by the end user using OAuth.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.entitle
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsEntitle : GTLRPaymentsResellerSubscriptionQuery
 
@@ -311,38 +311,36 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionResponse.
+ *  Fetches a @c GTLRPaymentsResellerSubscription_EntitleSubscriptionResponse.
  *
- *  Used by partners to entitle a previously provisioned subscription to the
- *  current end user. The end user identity is inferred from the authorized
- *  credential of the request. This API must be authorized by the end user using
- *  OAuth.
+ *  Entitles a previously provisioned subscription to the current end user. The
+ *  end user identity is inferred from the authorized credential of the request.
+ *  This API must be authorized by the end user using OAuth.
  *
  *  @param object The @c
- *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest
- *    to include in the query.
+ *    GTLRPaymentsResellerSubscription_EntitleSubscriptionRequest to include in
+ *    the query.
  *  @param name Required. The name of the subscription resource that is entitled
  *    to the current end user. It will have the format of
  *    "partners/{partner_id}/subscriptions/{subscription_id}"
  *
  *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsEntitle
  */
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1EntitleSubscriptionRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_EntitleSubscriptionRequest *)object
                            name:(NSString *)name;
 
 @end
 
 /**
- *  [Opt-in only] Most partners should be on auto-extend by default. Used by
- *  partners to extend a subscription service for their customers on an ongoing
- *  basis for the subscription to remain active and renewable. It should be
- *  called directly by the partner using service accounts.
+ *  [Opt-in only] Most partners should be on auto-extend by default. Extends a
+ *  subscription service for their customers on an ongoing basis for the
+ *  subscription to remain active and renewable. It should be called directly by
+ *  the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.extend
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsExtend : GTLRPaymentsResellerSubscriptionQuery
 
@@ -353,36 +351,35 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionResponse.
+ *  Fetches a @c GTLRPaymentsResellerSubscription_ExtendSubscriptionResponse.
  *
- *  [Opt-in only] Most partners should be on auto-extend by default. Used by
- *  partners to extend a subscription service for their customers on an ongoing
- *  basis for the subscription to remain active and renewable. It should be
- *  called directly by the partner using service accounts.
+ *  [Opt-in only] Most partners should be on auto-extend by default. Extends a
+ *  subscription service for their customers on an ongoing basis for the
+ *  subscription to remain active and renewable. It should be called directly by
+ *  the partner using service accounts.
  *
  *  @param object The @c
- *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionRequest
- *    to include in the query.
+ *    GTLRPaymentsResellerSubscription_ExtendSubscriptionRequest to include in
+ *    the query.
  *  @param name Required. The name of the subscription resource to be extended.
  *    It will have the format of
  *    "partners/{partner_id}/subscriptions/{subscription_id}".
  *
  *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsExtend
  */
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_ExtendSubscriptionRequest *)object
                            name:(NSString *)name;
 
 @end
 
 /**
- *  Used by partners to get a subscription by id. It should be called directly
- *  by the partner using service accounts.
+ *  Gets a subscription by id. It should be called directly by the partner using
+ *  service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.get
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsGet : GTLRPaymentsResellerSubscriptionQuery
 
@@ -393,11 +390,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.
+ *  Fetches a @c GTLRPaymentsResellerSubscription_Subscription.
  *
- *  Used by partners to get a subscription by id. It should be called directly
- *  by the partner using service accounts.
+ *  Gets a subscription by id. It should be called directly by the partner using
+ *  service accounts.
  *
  *  @param name Required. The name of the subscription resource to retrieve. It
  *    will have the format of
@@ -419,7 +415,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: paymentsresellersubscription.partners.subscriptions.provision
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsProvision : GTLRPaymentsResellerSubscriptionQuery
 
@@ -438,8 +434,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
- *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.
+ *  Fetches a @c GTLRPaymentsResellerSubscription_Subscription.
  *
  *  Used by partners to provision a subscription for their customers. This
  *  creates a subscription without associating it with the end user account.
@@ -447,29 +442,107 @@ NS_ASSUME_NONNULL_BEGIN
  *  end user account to be associated with the subscription. It should be called
  *  directly by the partner using service accounts.
  *
- *  @param object The @c
- *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription
- *    to include in the query.
+ *  @param object The @c GTLRPaymentsResellerSubscription_Subscription to
+ *    include in the query.
  *  @param parent Required. The parent resource name, which is the identifier of
  *    the partner. It will have the format of "partners/{partner_id}".
  *
  *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsProvision
  */
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_Subscription *)object
                          parent:(NSString *)parent;
 
 @end
 
 /**
- *  Used by partners to revoke the pending cancellation of a subscription, which
- *  is currently in `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is
- *  already cancelled, the request will fail. It should be called directly by
- *  the partner using service accounts.
+ *  Resumes a suspended subscription. The new billing cycle will start at the
+ *  time of the request. It should be called directly by the partner using
+ *  service accounts.
+ *
+ *  Method: paymentsresellersubscription.partners.subscriptions.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
+ */
+@interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsResume : GTLRPaymentsResellerSubscriptionQuery
+
+/**
+ *  Required. The name of the subscription resource to be resumed. It will have
+ *  the format of "partners/{partner_id}/subscriptions/{subscription_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPaymentsResellerSubscription_ResumeSubscriptionResponse.
+ *
+ *  Resumes a suspended subscription. The new billing cycle will start at the
+ *  time of the request. It should be called directly by the partner using
+ *  service accounts.
+ *
+ *  @param object The @c
+ *    GTLRPaymentsResellerSubscription_ResumeSubscriptionRequest to include in
+ *    the query.
+ *  @param name Required. The name of the subscription resource to be resumed.
+ *    It will have the format of
+ *    "partners/{partner_id}/subscriptions/{subscription_id}"
+ *
+ *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsResume
+ */
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_ResumeSubscriptionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Suspends a subscription. Contract terms may dictate if a prorated refund
+ *  will be issued upon suspension. It should be called directly by the partner
+ *  using service accounts.
+ *
+ *  Method: paymentsresellersubscription.partners.subscriptions.suspend
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
+ */
+@interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsSuspend : GTLRPaymentsResellerSubscriptionQuery
+
+/**
+ *  Required. The name of the subscription resource to be suspended. It will
+ *  have the format of "partners/{partner_id}/subscriptions/{subscription_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPaymentsResellerSubscription_SuspendSubscriptionResponse.
+ *
+ *  Suspends a subscription. Contract terms may dictate if a prorated refund
+ *  will be issued upon suspension. It should be called directly by the partner
+ *  using service accounts.
+ *
+ *  @param object The @c
+ *    GTLRPaymentsResellerSubscription_SuspendSubscriptionRequest to include in
+ *    the query.
+ *  @param name Required. The name of the subscription resource to be suspended.
+ *    It will have the format of
+ *    "partners/{partner_id}/subscriptions/{subscription_id}"
+ *
+ *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsSuspend
+ */
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_SuspendSubscriptionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Currently, it is used by **Google One, Play Pass** partners. Revokes the
+ *  pending cancellation of a subscription, which is currently in
+ *  `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is already
+ *  cancelled, the request will fail. It should be called directly by the
+ *  partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.undoCancel
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopePaymentsResellerSubscriptionOpenid
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsUndoCancel : GTLRPaymentsResellerSubscriptionQuery
 
@@ -482,24 +555,69 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionResponse.
+ *  GTLRPaymentsResellerSubscription_UndoCancelSubscriptionResponse.
  *
- *  Used by partners to revoke the pending cancellation of a subscription, which
- *  is currently in `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is
- *  already cancelled, the request will fail. It should be called directly by
- *  the partner using service accounts.
+ *  Currently, it is used by **Google One, Play Pass** partners. Revokes the
+ *  pending cancellation of a subscription, which is currently in
+ *  `STATE_CANCEL_AT_END_OF_CYCLE` state. If the subscription is already
+ *  cancelled, the request will fail. It should be called directly by the
+ *  partner using service accounts.
  *
  *  @param object The @c
- *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionRequest
- *    to include in the query.
+ *    GTLRPaymentsResellerSubscription_UndoCancelSubscriptionRequest to include
+ *    in the query.
  *  @param name Required. The name of the subscription resource whose pending
  *    cancellation needs to be undone. It will have the format of
  *    "partners/{partner_id}/subscriptions/{subscription_id}"
  *
  *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsUndoCancel
  */
-+ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1UndoCancelSubscriptionRequest *)object
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_UndoCancelSubscriptionRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  This API replaces user authorized OAuth consent based APIs (Create,
+ *  Entitle). Issues a timed session token for the given user intent. You can
+ *  use the session token to redirect the user to Google to finish the signup
+ *  flow. You can re-generate new session token repeatedly for the same request
+ *  if necessary, regardless of the previous tokens being expired or not. By
+ *  default, the session token is valid for 1 hour.
+ *
+ *  Method: paymentsresellersubscription.partners.userSessions.generate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
+ */
+@interface GTLRPaymentsResellerSubscriptionQuery_PartnersUserSessionsGenerate : GTLRPaymentsResellerSubscriptionQuery
+
+/**
+ *  Required. The parent, the partner that can resell. Format:
+ *  partners/{partner}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPaymentsResellerSubscription_GenerateUserSessionResponse.
+ *
+ *  This API replaces user authorized OAuth consent based APIs (Create,
+ *  Entitle). Issues a timed session token for the given user intent. You can
+ *  use the session token to redirect the user to Google to finish the signup
+ *  flow. You can re-generate new session token repeatedly for the same request
+ *  if necessary, regardless of the previous tokens being expired or not. By
+ *  default, the session token is valid for 1 hour.
+ *
+ *  @param object The @c
+ *    GTLRPaymentsResellerSubscription_GenerateUserSessionRequest to include in
+ *    the query.
+ *  @param parent Required. The parent, the partner that can resell. Format:
+ *    partners/{partner}
+ *
+ *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersUserSessionsGenerate
+ */
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_GenerateUserSessionRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

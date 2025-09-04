@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Game Services (games/v1)
+//   Google Play Games Services API (games/v1)
 // Description:
-//   The Google Play games service allows developers to enhance games with
+//   The Google Play Games Service allows developers to enhance games with
 //   social leaderboards, achievements, game state, sign-in with Google, and
 //   more.
 // Documentation:
@@ -717,6 +717,36 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_GamePlayerToken
+//
+
+@implementation GTLRGames_GamePlayerToken
+@dynamic applicationId, recallToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_GeneratePlayGroupingApiTokenResponse
+//
+
+@implementation GTLRGames_GeneratePlayGroupingApiTokenResponse
+@dynamic token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_GenerateRecallPlayGroupingApiTokenResponse
+//
+
+@implementation GTLRGames_GenerateRecallPlayGroupingApiTokenResponse
+@dynamic token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_GetMultipleApplicationPlayerIdsResponse
 //
 
@@ -1283,6 +1313,16 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_PlayGroupingApiToken
+//
+
+@implementation GTLRGames_PlayGroupingApiToken
+@dynamic tokenValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_ProfileSettings
 //
 
@@ -1325,6 +1365,34 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 
 @implementation GTLRGames_ResetPersonaResponse
 @dynamic unlinked;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse
+//
+
+@implementation GTLRGames_RetrieveDeveloperGamesLastPlayerTokenResponse
+@dynamic gamePlayerToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_RetrieveGamesPlayerTokensResponse
+//
+
+@implementation GTLRGames_RetrieveGamesPlayerTokensResponse
+@dynamic gamePlayerTokens;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gamePlayerTokens" : [GTLRGames_GamePlayerToken class]
+  };
+  return map;
+}
+
 @end
 
 

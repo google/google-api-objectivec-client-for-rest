@@ -18,10 +18,43 @@ NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersDelete = @"DELETE";
 NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersFailureActionUnspecified = @"FAILURE_ACTION_UNSPECIFIED";
 NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersNoAction = @"NO_ACTION";
 
+// applicationStatus
+NSString * const kGTLRDataprocApplicationStatusApplicationStatusCompleted = @"APPLICATION_STATUS_COMPLETED";
+NSString * const kGTLRDataprocApplicationStatusApplicationStatusRunning = @"APPLICATION_STATUS_RUNNING";
+NSString * const kGTLRDataprocApplicationStatusApplicationStatusUnspecified = @"APPLICATION_STATUS_UNSPECIFIED";
+
+// executorStatus
+NSString * const kGTLRDataprocExecutorStatusExecutorStatusActive = @"EXECUTOR_STATUS_ACTIVE";
+NSString * const kGTLRDataprocExecutorStatusExecutorStatusDead = @"EXECUTOR_STATUS_DEAD";
+NSString * const kGTLRDataprocExecutorStatusExecutorStatusUnspecified = @"EXECUTOR_STATUS_UNSPECIFIED";
+
 // jobStateMatcher
 NSString * const kGTLRDataprocJobStateMatcherActive    = @"ACTIVE";
 NSString * const kGTLRDataprocJobStateMatcherAll       = @"ALL";
 NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
+
+// jobStatus
+NSString * const kGTLRDataprocJobStatusJobExecutionStatusFailed = @"JOB_EXECUTION_STATUS_FAILED";
+NSString * const kGTLRDataprocJobStatusJobExecutionStatusRunning = @"JOB_EXECUTION_STATUS_RUNNING";
+NSString * const kGTLRDataprocJobStatusJobExecutionStatusSucceeded = @"JOB_EXECUTION_STATUS_SUCCEEDED";
+NSString * const kGTLRDataprocJobStatusJobExecutionStatusUnknown = @"JOB_EXECUTION_STATUS_UNKNOWN";
+NSString * const kGTLRDataprocJobStatusJobExecutionStatusUnspecified = @"JOB_EXECUTION_STATUS_UNSPECIFIED";
+
+// stageStatus
+NSString * const kGTLRDataprocStageStatusStageStatusActive     = @"STAGE_STATUS_ACTIVE";
+NSString * const kGTLRDataprocStageStatusStageStatusComplete   = @"STAGE_STATUS_COMPLETE";
+NSString * const kGTLRDataprocStageStatusStageStatusFailed     = @"STAGE_STATUS_FAILED";
+NSString * const kGTLRDataprocStageStatusStageStatusPending    = @"STAGE_STATUS_PENDING";
+NSString * const kGTLRDataprocStageStatusStageStatusSkipped    = @"STAGE_STATUS_SKIPPED";
+NSString * const kGTLRDataprocStageStatusStageStatusUnspecified = @"STAGE_STATUS_UNSPECIFIED";
+
+// taskStatus
+NSString * const kGTLRDataprocTaskStatusTaskStatusFailed      = @"TASK_STATUS_FAILED";
+NSString * const kGTLRDataprocTaskStatusTaskStatusKilled      = @"TASK_STATUS_KILLED";
+NSString * const kGTLRDataprocTaskStatusTaskStatusPending     = @"TASK_STATUS_PENDING";
+NSString * const kGTLRDataprocTaskStatusTaskStatusRunning     = @"TASK_STATUS_RUNNING";
+NSString * const kGTLRDataprocTaskStatusTaskStatusSuccess     = @"TASK_STATUS_SUCCESS";
+NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -225,6 +258,33 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesAnalyze
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_AnalyzeBatchRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:analyze";
+  GTLRDataprocQuery_ProjectsLocationsBatchesAnalyze *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.locations.batches.analyze";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsLocationsBatchesCreate
 
 @dynamic batchId, parent, requestId;
@@ -304,6 +364,396 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
   query.parent = parent;
   query.expectedObjectClass = [GTLRDataproc_ListBatchesResponse class];
   query.loggingName = @"dataproc.projects.locations.batches.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccess
+
+@dynamic name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:access";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.access";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessEnvironmentInfo
+
+@dynamic name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessEnvironmentInfo";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessEnvironmentInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationEnvironmentInfoResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.accessEnvironmentInfo";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessJob
+
+@dynamic jobId, name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessJob";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessJob *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationJobResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.accessJob";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlPlan
+
+@dynamic executionId, name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessSqlPlan";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlPlan *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationSqlSparkPlanGraphResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.accessSqlPlan";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlQuery
+
+@dynamic details, executionId, name, parent, planDescription;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessSqlQuery";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationSqlQueryResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.accessSqlQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageAttempt
+
+@dynamic name, parent, stageAttemptId, stageId, summaryMetricsMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessStageAttempt";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageAttempt *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationStageAttemptResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.accessStageAttempt";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageRddGraph
+
+@dynamic name, parent, stageId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessStageRddGraph";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageRddGraph *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSparkApplicationStageRddOperationGraphResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.accessStageRddGraph";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearch
+
+@dynamic applicationStatus, maxEndTime, maxTime, minEndTime, minTime, pageSize,
+         pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sparkApplications:search";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationsResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutors
+
+@dynamic executorStatus, name, pageSize, pageToken, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchExecutors";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutors *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationExecutorsResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchExecutors";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutorStageSummary
+
+@dynamic name, pageSize, pageToken, parent, stageAttemptId, stageId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchExecutorStageSummary";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutorStageSummary *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationExecutorStageSummaryResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchExecutorStageSummary";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchJobs
+
+@dynamic jobStatus, name, pageSize, pageToken, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchJobs";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchJobs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationJobsResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchJobs";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchSqlQueries
+
+@dynamic details, name, pageSize, pageToken, parent, planDescription;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchSqlQueries";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchSqlQueries *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationSqlQueriesResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchSqlQueries";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttempts
+
+@dynamic name, pageSize, pageToken, parent, stageId, summaryMetricsMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchStageAttempts";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttempts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationStageAttemptsResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchStageAttempts";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttemptTasks
+
+@dynamic name, pageSize, pageToken, parent, sortRuntime, stageAttemptId,
+         stageId, taskStatus;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchStageAttemptTasks";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttemptTasks *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationStageAttemptTasksResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchStageAttemptTasks";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStages
+
+@dynamic name, pageSize, pageToken, parent, stageStatus, summaryMetricsMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchStages";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStages *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSparkApplicationStagesResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.searchStages";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeExecutors
+
+@dynamic name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:summarizeExecutors";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeExecutors *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SummarizeSparkApplicationExecutorsResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.summarizeExecutors";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeJobs
+
+@dynamic name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:summarizeJobs";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeJobs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SummarizeSparkApplicationJobsResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.summarizeJobs";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStageAttemptTasks
+
+@dynamic name, parent, stageAttemptId, stageId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:summarizeStageAttemptTasks";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStageAttemptTasks *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SummarizeSparkApplicationStageAttemptTasksResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.summarizeStageAttemptTasks";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStages
+
+@dynamic name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:summarizeStages";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStages *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SummarizeSparkApplicationStagesResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.summarizeStages";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsWrite
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_WriteSparkApplicationContextRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:write";
+  GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsWrite *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_WriteSparkApplicationContextResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.sparkApplications.write";
   return query;
 }
 
@@ -464,6 +914,433 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
   query.parent = parent;
   query.expectedObjectClass = [GTLRDataproc_ListSessionsResponse class];
   query.loggingName = @"dataproc.projects.locations.sessions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccess
+
+@dynamic name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:access";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.access";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessEnvironmentInfo
+
+@dynamic name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessEnvironmentInfo";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessEnvironmentInfo *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationEnvironmentInfoResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.accessEnvironmentInfo";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessJob
+
+@dynamic jobId, name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessJob";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessJob *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationJobResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.accessJob";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlPlan
+
+@dynamic executionId, name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessSqlPlan";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlPlan *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationSqlSparkPlanGraphResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.accessSqlPlan";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlQuery
+
+@dynamic details, executionId, name, parent, planDescription;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessSqlQuery";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationSqlQueryResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.accessSqlQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageAttempt
+
+@dynamic name, parent, stageAttemptId, stageId, summaryMetricsMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessStageAttempt";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageAttempt *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationStageAttemptResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.accessStageAttempt";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageRddGraph
+
+@dynamic name, parent, stageId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:accessStageRddGraph";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageRddGraph *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_AccessSessionSparkApplicationStageRddOperationGraphResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.accessStageRddGraph";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearch
+
+@dynamic applicationStatus, maxEndTime, maxTime, minEndTime, minTime, pageSize,
+         pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sparkApplications:search";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationsResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutors
+
+@dynamic executorStatus, name, pageSize, pageToken, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchExecutors";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutors *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationExecutorsResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.searchExecutors";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutorStageSummary
+
+@dynamic name, pageSize, pageToken, parent, stageAttemptId, stageId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchExecutorStageSummary";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutorStageSummary *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationExecutorStageSummaryResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.searchExecutorStageSummary";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchJobs
+
+@dynamic jobIds, jobStatus, name, pageSize, pageToken, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobIds" : [NSNumber class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchJobs";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchJobs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationJobsResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.searchJobs";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchSqlQueries
+
+@dynamic details, name, operationIds, pageSize, pageToken, parent,
+         planDescription;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchSqlQueries";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchSqlQueries *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationSqlQueriesResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.searchSqlQueries";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttempts
+
+@dynamic name, pageSize, pageToken, parent, stageId, summaryMetricsMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchStageAttempts";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttempts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationStageAttemptsResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.searchStageAttempts";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttemptTasks
+
+@dynamic name, pageSize, pageToken, parent, sortRuntime, stageAttemptId,
+         stageId, taskStatus;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchStageAttemptTasks";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttemptTasks *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationStageAttemptTasksResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.searchStageAttemptTasks";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStages
+
+@dynamic name, pageSize, pageToken, parent, stageIds, stageStatus,
+         summaryMetricsMask;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stageIds" : [NSNumber class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:searchStages";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStages *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SearchSessionSparkApplicationStagesResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.searchStages";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeExecutors
+
+@dynamic name, parent;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:summarizeExecutors";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeExecutors *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SummarizeSessionSparkApplicationExecutorsResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.summarizeExecutors";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeJobs
+
+@dynamic jobIds, name, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobIds" : [NSNumber class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:summarizeJobs";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeJobs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SummarizeSessionSparkApplicationJobsResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.summarizeJobs";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStageAttemptTasks
+
+@dynamic name, parent, stageAttemptId, stageId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:summarizeStageAttemptTasks";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStageAttemptTasks *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SummarizeSessionSparkApplicationStageAttemptTasksResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.summarizeStageAttemptTasks";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStages
+
+@dynamic name, parent, stageIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stageIds" : [NSNumber class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:summarizeStages";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStages *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_SummarizeSessionSparkApplicationStagesResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.summarizeStages";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsWrite
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataproc_WriteSessionSparkApplicationContextRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:write";
+  GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsWrite *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_WriteSessionSparkApplicationContextResponse class];
+  query.loggingName = @"dataproc.projects.locations.sessions.sparkApplications.write";
   return query;
 }
 

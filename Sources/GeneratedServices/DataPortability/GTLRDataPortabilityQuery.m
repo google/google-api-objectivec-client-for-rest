@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Data Portability API (dataportability/v1beta)
+//   Data Portability API (dataportability/v1)
 // Description:
 //   The Data Portability API lets you build applications that request
 //   authorization from a user to move a copy of data from Google services into
@@ -19,13 +19,62 @@
 
 @end
 
+@implementation GTLRDataPortabilityQuery_AccessTypeCheck
+
++ (instancetype)queryWithObject:(GTLRDataPortability_CheckAccessTypeRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/accessType:check";
+  GTLRDataPortabilityQuery_AccessTypeCheck *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDataPortability_CheckAccessTypeResponse class];
+  query.loggingName = @"dataportability.accessType.check";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataPortabilityQuery_ArchiveJobsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataPortability_CancelPortabilityArchiveRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRDataPortabilityQuery_ArchiveJobsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataPortability_CancelPortabilityArchiveResponse class];
+  query.loggingName = @"dataportability.archiveJobs.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataPortabilityQuery_ArchiveJobsGetPortabilityArchiveState
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataPortabilityQuery_ArchiveJobsGetPortabilityArchiveState *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -51,7 +100,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}:retry";
+  NSString *pathURITemplate = @"v1/{+name}:retry";
   GTLRDataPortabilityQuery_ArchiveJobsRetry *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -74,7 +123,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta/authorization:reset";
+  NSString *pathURITemplate = @"v1/authorization:reset";
   GTLRDataPortabilityQuery_AuthorizationReset *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -96,7 +145,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta/portabilityArchive:initiate";
+  NSString *pathURITemplate = @"v1/portabilityArchive:initiate";
   GTLRDataPortabilityQuery_PortabilityArchiveInitiate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

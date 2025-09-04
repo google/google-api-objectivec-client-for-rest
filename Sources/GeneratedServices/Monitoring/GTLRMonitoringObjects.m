@@ -62,6 +62,11 @@ NSString * const kGTLRMonitoring_AlertPolicy_Severity_Error    = @"ERROR";
 NSString * const kGTLRMonitoring_AlertPolicy_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRMonitoring_AlertPolicy_Severity_Warning  = @"WARNING";
 
+// GTLRMonitoring_AlertStrategy.notificationPrompts
+NSString * const kGTLRMonitoring_AlertStrategy_NotificationPrompts_Closed = @"CLOSED";
+NSString * const kGTLRMonitoring_AlertStrategy_NotificationPrompts_NotificationPromptUnspecified = @"NOTIFICATION_PROMPT_UNSPECIFIED";
+NSString * const kGTLRMonitoring_AlertStrategy_NotificationPrompts_Opened = @"OPENED";
+
 // GTLRMonitoring_CollectdValue.dataSourceType
 NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Absolute = @"ABSOLUTE";
 NSString * const kGTLRMonitoring_CollectdValue_DataSourceType_Counter = @"COUNTER";
@@ -165,6 +170,12 @@ NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_LaunchStag
 NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRMonitoring_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder = @"FOLDER";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization = @"ORGANIZATION";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project = @"PROJECT";
+NSString * const kGTLRMonitoring_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified = @"TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED";
+
 // GTLRMonitoring_MetricThreshold.comparison
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonEq = @"COMPARISON_EQ";
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonGe = @"COMPARISON_GE";
@@ -236,6 +247,19 @@ NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass4xx =
 NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClass5xx = @"STATUS_CLASS_5XX";
 NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassAny = @"STATUS_CLASS_ANY";
 NSString * const kGTLRMonitoring_ResponseStatusCode_StatusClass_StatusClassUnspecified = @"STATUS_CLASS_UNSPECIFIED";
+
+// GTLRMonitoring_RowCountTest.comparison
+NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonEq = @"COMPARISON_EQ";
+NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonGe = @"COMPARISON_GE";
+NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonGt = @"COMPARISON_GT";
+NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonLe = @"COMPARISON_LE";
+NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonLt = @"COMPARISON_LT";
+NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonNe = @"COMPARISON_NE";
+NSString * const kGTLRMonitoring_RowCountTest_Comparison_ComparisonUnspecified = @"COMPARISON_UNSPECIFIED";
+
+// GTLRMonitoring_ServiceAgentAuthentication.type
+NSString * const kGTLRMonitoring_ServiceAgentAuthentication_Type_OidcToken = @"OIDC_TOKEN";
+NSString * const kGTLRMonitoring_ServiceAgentAuthentication_Type_ServiceAgentAuthenticationTypeUnspecified = @"SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED";
 
 // GTLRMonitoring_ServiceLevelObjective.calendarPeriod
 NSString * const kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified = @"CALENDAR_PERIOD_UNSPECIFIED";
@@ -370,11 +394,13 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_AlertStrategy
-@dynamic autoClose, notificationChannelStrategy, notificationRateLimit;
+@dynamic autoClose, notificationChannelStrategy, notificationPrompts,
+         notificationRateLimit;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"notificationChannelStrategy" : [GTLRMonitoring_NotificationChannelStrategy class]
+    @"notificationChannelStrategy" : [GTLRMonitoring_NotificationChannelStrategy class],
+    @"notificationPrompts" : [NSString class]
   };
   return map;
 }
@@ -452,6 +478,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_BooleanTest
+//
+
+@implementation GTLRMonitoring_BooleanTest
+@dynamic column;
 @end
 
 
@@ -583,8 +619,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_Condition
 @dynamic conditionAbsent, conditionMatchedLog, conditionMonitoringQueryLanguage,
-         conditionPrometheusQueryLanguage, conditionThreshold, displayName,
-         name;
+         conditionPrometheusQueryLanguage, conditionSql, conditionThreshold,
+         displayName, name;
 @end
 
 
@@ -676,7 +712,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Criteria
-@dynamic policies;
+@dynamic filter, policies;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -694,6 +730,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Custom
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Daily
+//
+
+@implementation GTLRMonitoring_Daily
+@dynamic executionTime, periodicity;
 @end
 
 
@@ -733,7 +779,15 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Documentation
-@dynamic content, mimeType, subject;
+@dynamic content, links, mimeType, subject;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRMonitoring_Link class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -948,13 +1002,23 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_Hourly
+//
+
+@implementation GTLRMonitoring_Hourly
+@dynamic minuteOffset, periodicity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_HttpCheck
 //
 
 @implementation GTLRMonitoring_HttpCheck
 @dynamic acceptedResponseStatusCodes, authInfo, body, contentType,
          customContentType, headers, maskHeaders, path, pingConfig, port,
-         requestMethod, useSsl, validateSsl;
+         requestMethod, serviceAgentAuthentication, useSsl, validateSsl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1052,6 +1116,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_Linear
 @dynamic numFiniteBuckets, offset, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Link
+//
+
+@implementation GTLRMonitoring_Link
+@dynamic displayName, url;
 @end
 
 
@@ -1281,12 +1355,13 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_ListTimeSeriesResponse
-@dynamic executionErrors, nextPageToken, timeSeries, unit;
+@dynamic executionErrors, nextPageToken, timeSeries, unit, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"executionErrors" : [GTLRMonitoring_Status class],
-    @"timeSeries" : [GTLRMonitoring_TimeSeries class]
+    @"timeSeries" : [GTLRMonitoring_TimeSeries class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1444,7 +1519,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_MetricDescriptorMetadata
-@dynamic ingestDelay, launchStage, samplePeriod;
+@dynamic ingestDelay, launchStage, samplePeriod,
+         timeSeriesResourceHierarchyLevel;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"timeSeriesResourceHierarchyLevel" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1476,6 +1560,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Minutes
+//
+
+@implementation GTLRMonitoring_Minutes
+@dynamic periodicity;
 @end
 
 
@@ -1764,7 +1858,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_PrometheusQueryLanguageCondition
-@dynamic alertRule, duration, evaluationInterval, labels, query, ruleGroup;
+@dynamic alertRule, disableMetricValidation, duration, evaluationInterval,
+         labels, query, ruleGroup;
 @end
 
 
@@ -1863,6 +1958,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_RowCountTest
+//
+
+@implementation GTLRMonitoring_RowCountTest
+@dynamic comparison, threshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_SendNotificationChannelVerificationCodeRequest
 //
 
@@ -1893,6 +1998,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ServiceAgentAuthentication
+//
+
+@implementation GTLRMonitoring_ServiceAgentAuthentication
+@dynamic type;
 @end
 
 
@@ -1958,6 +2073,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_SpanContext
 @dynamic spanName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_SqlCondition
+//
+
+@implementation GTLRMonitoring_SqlCondition
+@dynamic booleanTest, daily, hourly, minutes, query, rowCountTest;
 @end
 
 
@@ -2035,11 +2160,26 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_TimeOfDay
+//
+
+@implementation GTLRMonitoring_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_TimeSeries
 //
 
 @implementation GTLRMonitoring_TimeSeries
-@dynamic metadata, metric, metricKind, points, resource, unit, valueType;
+@dynamic descriptionProperty, metadata, metric, metricKind, points, resource,
+         unit, valueType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2145,9 +2285,10 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_UptimeCheckConfig
-@dynamic checkerType, contentMatchers, displayName, httpCheck, internalCheckers,
-         isInternal, monitoredResource, name, period, resourceGroup,
-         selectedRegions, syntheticMonitor, tcpCheck, timeout, userLabels;
+@dynamic checkerType, contentMatchers, disabled, displayName, httpCheck,
+         internalCheckers, isInternal, logCheckFailures, monitoredResource,
+         name, period, resourceGroup, selectedRegions, syntheticMonitor,
+         tcpCheck, timeout, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

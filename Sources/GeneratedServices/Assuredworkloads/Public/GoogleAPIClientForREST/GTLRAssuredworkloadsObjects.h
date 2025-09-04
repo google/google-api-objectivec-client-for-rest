@@ -16,6 +16,11 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisGroup;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveAnalysisResult;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1MoveImpact;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Violation;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationExceptionContext;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation;
@@ -31,6 +36,8 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Metadata;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Response;
@@ -72,6 +79,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AcknowledgeViolationRequest_AcknowledgeType_SingleViolation;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata.action
+
+/**
+ *  The update is applied.
+ *
+ *  Value: "APPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_Apply;
+/**
+ *  Unspecified value.
+ *
+ *  Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_WorkloadUpdateActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest.action
+
+/**
+ *  The update is applied.
+ *
+ *  Value: "APPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_Apply;
+/**
+ *  Unspecified value.
+ *
+ *  Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
@@ -86,6 +125,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "AU_REGIONS_AND_US_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport;
+/**
+ *  Australia Data Boundary and Support
+ *
+ *  Value: "AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AustraliaDataBoundaryAndSupport;
+/**
+ *  Canada Controlled Goods
+ *
+ *  Value: "CANADA_CONTROLLED_GOODS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaControlledGoods;
+/**
+ *  Canada Data Boundary and Support
+ *
+ *  Value: "CANADA_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaDataBoundaryAndSupport;
 /**
  *  Assured Workloads for Canada Protected B regime
  *
@@ -111,6 +168,72 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified;
 /**
+ *  Data Boundary for Canada Controlled Goods
+ *
+ *  Value: "DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCanadaControlledGoods;
+/**
+ *  Data Boundary for Canada Protected B
+ *
+ *  Value: "DATA_BOUNDARY_FOR_CANADA_PROTECTED_B"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCanadaProtectedB;
+/**
+ *  Data Boundary for CJIS
+ *
+ *  Value: "DATA_BOUNDARY_FOR_CJIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCjis;
+/**
+ *  Data Boundary for FedRAMP High
+ *
+ *  Value: "DATA_BOUNDARY_FOR_FEDRAMP_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForFedrampHigh;
+/**
+ *  Data Boundary for FedRAMP Moderate
+ *
+ *  Value: "DATA_BOUNDARY_FOR_FEDRAMP_MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForFedrampModerate;
+/**
+ *  Data Boundary for IL2
+ *
+ *  Value: "DATA_BOUNDARY_FOR_IL2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl2;
+/**
+ *  Data Boundary for IL4
+ *
+ *  Value: "DATA_BOUNDARY_FOR_IL4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl4;
+/**
+ *  Data Boundary for IL5
+ *
+ *  Value: "DATA_BOUNDARY_FOR_IL5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl5;
+/**
+ *  Data Boundary for IRS Publication 1075
+ *
+ *  Value: "DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIrsPublication1075;
+/**
+ *  Data Boundary for ITAR
+ *
+ *  Value: "DATA_BOUNDARY_FOR_ITAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForItar;
+/**
+ *  Data Boundary for EU Regions and Support
+ *
+ *  Value: "EU_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuDataBoundaryAndSupport;
+/**
  *  Assured Workloads For EU Regions and Support controls
  *
  *  Value: "EU_REGIONS_AND_SUPPORT"
@@ -129,17 +252,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate;
 /**
- *  Health Insurance Portability and Accountability Act controls
+ *  Healthcare and Life Science Controls
+ *
+ *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControls;
+/**
+ *  Healthcare and Life Science Controls with US Support
+ *
+ *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport;
+/**
+ *  [DEPRECATED] Health Insurance Portability and Accountability Act controls
  *
  *  Value: "HIPAA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa;
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa GTLR_DEPRECATED;
 /**
- *  Health Information Trust Alliance controls
+ *  [DEPRECATED] Health Information Trust Alliance controls
  *
  *  Value: "HITRUST"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust;
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust GTLR_DEPRECATED;
 /**
  *  Information protection as per DoD IL2 requirements.
  *
@@ -159,7 +294,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il5;
 /**
- *  Assured Workloads for Israel
+ *  Internal Revenue Service 1075 controls
+ *
+ *  Value: "IRS_1075"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Irs1075;
+/**
+ *  Data Boundary for Israel Regions
+ *
+ *  Value: "ISRAEL_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsraelDataBoundaryAndSupport;
+/**
+ *  Assured Workloads for Israel Regions
  *
  *  Value: "ISR_REGIONS"
  */
@@ -177,11 +324,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar;
 /**
+ *  JAPAN Data Boundary
+ *
+ *  Value: "JAPAN_DATA_BOUNDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JapanDataBoundary;
+/**
  *  Assured Workloads for Japan Regions
  *
  *  Value: "JP_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport;
+/**
+ *  KSA Data Boundary with Access Justifications
+ *
+ *  Value: "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaDataBoundaryWithAccessJustifications;
+/**
+ *  Assured Workloads Sovereign Controls KSA
+ *
+ *  Value: "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls;
+/**
+ *  Assured Workloads for Regional Controls
+ *
+ *  Value: "REGIONAL_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls;
+/**
+ *  Regional Data Boundary
+ *
+ *  Value: "REGIONAL_DATA_BOUNDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalDataBoundary;
+/**
+ *  Data Boundary for US Regions and Support
+ *
+ *  Value: "US_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryAndSupport;
+/**
+ *  Data Boundary for US Healthcare and Life Sciences
+ *
+ *  Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences;
+/**
+ *  Data Boundary for US Healthcare and Life Sciences with Support
+ *
+ *  Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport;
 /**
  *  Assured Workloads For US Regions data protection controls
  *
@@ -304,6 +499,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation;
 /**
+ *  Remediation type for resource violation due to gcp.restrictNonCmekServices
+ *
+ *  Value: "REMEDIATION_RESOURCE_VIOLATION_NON_CMEK_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolationNonCmekServices;
+/**
  *  Remediation type for gcp.restrictCmekCryptoKeyProjects
  *
  *  Value: "REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION"
@@ -332,6 +533,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport;
 /**
+ *  Australia Data Boundary and Support
+ *
+ *  Value: "AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AustraliaDataBoundaryAndSupport;
+/**
+ *  Canada Controlled Goods
+ *
+ *  Value: "CANADA_CONTROLLED_GOODS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaControlledGoods;
+/**
+ *  Canada Data Boundary and Support
+ *
+ *  Value: "CANADA_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaDataBoundaryAndSupport;
+/**
  *  Assured Workloads for Canada Protected B regime
  *
  *  Value: "CA_PROTECTED_B"
@@ -356,6 +575,72 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified;
 /**
+ *  Data Boundary for Canada Controlled Goods
+ *
+ *  Value: "DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCanadaControlledGoods;
+/**
+ *  Data Boundary for Canada Protected B
+ *
+ *  Value: "DATA_BOUNDARY_FOR_CANADA_PROTECTED_B"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCanadaProtectedB;
+/**
+ *  Data Boundary for CJIS
+ *
+ *  Value: "DATA_BOUNDARY_FOR_CJIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCjis;
+/**
+ *  Data Boundary for FedRAMP High
+ *
+ *  Value: "DATA_BOUNDARY_FOR_FEDRAMP_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForFedrampHigh;
+/**
+ *  Data Boundary for FedRAMP Moderate
+ *
+ *  Value: "DATA_BOUNDARY_FOR_FEDRAMP_MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForFedrampModerate;
+/**
+ *  Data Boundary for IL2
+ *
+ *  Value: "DATA_BOUNDARY_FOR_IL2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl2;
+/**
+ *  Data Boundary for IL4
+ *
+ *  Value: "DATA_BOUNDARY_FOR_IL4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl4;
+/**
+ *  Data Boundary for IL5
+ *
+ *  Value: "DATA_BOUNDARY_FOR_IL5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl5;
+/**
+ *  Data Boundary for IRS Publication 1075
+ *
+ *  Value: "DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIrsPublication1075;
+/**
+ *  Data Boundary for ITAR
+ *
+ *  Value: "DATA_BOUNDARY_FOR_ITAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForItar;
+/**
+ *  Data Boundary for EU Regions and Support
+ *
+ *  Value: "EU_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuDataBoundaryAndSupport;
+/**
  *  Assured Workloads For EU Regions and Support controls
  *
  *  Value: "EU_REGIONS_AND_SUPPORT"
@@ -374,17 +659,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate;
 /**
- *  Health Insurance Portability and Accountability Act controls
+ *  Healthcare and Life Science Controls
+ *
+ *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControls;
+/**
+ *  Healthcare and Life Science Controls with US Support
+ *
+ *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport;
+/**
+ *  [DEPRECATED] Health Insurance Portability and Accountability Act controls
  *
  *  Value: "HIPAA"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa;
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa GTLR_DEPRECATED;
 /**
- *  Health Information Trust Alliance controls
+ *  [DEPRECATED] Health Information Trust Alliance controls
  *
  *  Value: "HITRUST"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust;
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust GTLR_DEPRECATED;
 /**
  *  Information protection as per DoD IL2 requirements.
  *
@@ -404,7 +701,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il5;
 /**
- *  Assured Workloads for Israel
+ *  Internal Revenue Service 1075 controls
+ *
+ *  Value: "IRS_1075"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Irs1075;
+/**
+ *  Data Boundary for Israel Regions
+ *
+ *  Value: "ISRAEL_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsraelDataBoundaryAndSupport;
+/**
+ *  Assured Workloads for Israel Regions
  *
  *  Value: "ISR_REGIONS"
  */
@@ -422,11 +731,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar;
 /**
+ *  JAPAN Data Boundary
+ *
+ *  Value: "JAPAN_DATA_BOUNDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JapanDataBoundary;
+/**
  *  Assured Workloads for Japan Regions
  *
  *  Value: "JP_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport;
+/**
+ *  KSA Data Boundary with Access Justifications
+ *
+ *  Value: "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaDataBoundaryWithAccessJustifications;
+/**
+ *  Assured Workloads Sovereign Controls KSA
+ *
+ *  Value: "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls;
+/**
+ *  Assured Workloads for Regional Controls
+ *
+ *  Value: "REGIONAL_CONTROLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls;
+/**
+ *  Regional Data Boundary
+ *
+ *  Value: "REGIONAL_DATA_BOUNDARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalDataBoundary;
+/**
+ *  Data Boundary for US Regions and Support
+ *
+ *  Value: "US_DATA_BOUNDARY_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryAndSupport;
+/**
+ *  Data Boundary for US Healthcare and Life Sciences
+ *
+ *  Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences;
+/**
+ *  Data Boundary for US Healthcare and Life Sciences with Support
+ *
+ *  Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport;
 /**
  *  Assured Workloads For US Regions data protection controls
  *
@@ -467,6 +824,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_LocalControlsByS3ns;
 /** Value: "PARTNER_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified;
+/**
+ *  Enum representing CNTXT (Kingdom of Saudi Arabia) partner.
+ *
+ *  Value: "SOVEREIGN_CONTROLS_BY_CNTXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxt;
+/**
+ *  Enum representing CNTXT (Kingdom of Saudi Arabia) partner offering without
+ *  EKM.
+ *
+ *  Value: "SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxtNoEkm;
 /**
  *  Enum representing PSN (TIM) partner.
  *
@@ -710,6 +1080,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending;
 
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate.state
+
+/**
+ *  The update has been applied.
+ *
+ *  Value: "APPLIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Applied;
+/**
+ *  The update is available to be applied.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Available;
+/**
+ *  Unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_StateUnspecified;
+/**
+ *  The update has been withdrawn by the service.
+ *
+ *  Value: "WITHDRAWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Withdrawn;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions.kajEnrollmentType
+
+/**
+ *  KAJ Enrollment type is unspecified
+ *
+ *  Value: "KAJ_ENROLLMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KajEnrollmentTypeUnspecified;
+/**
+ *  KAT sets External, Hardware, and Software key feature logging only to TRUE.
+ *
+ *  Value: "KEY_ACCESS_TRANSPARENCY_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KeyAccessTransparencyOff;
+
 /**
  *  Request for acknowledging the violation
  */
@@ -780,6 +1194,61 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  Operation metadata to give request details of ApplyWorkloadUpdate.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata : GTLRObject
+
+/**
+ *  Optional. The time the operation was created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_Apply
+ *        The update is applied. (Value: "APPLY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateOperationMetadata_Action_WorkloadUpdateActionUnspecified
+ *        Unspecified value. (Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Optional. Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The resource name of the update */
+@property(nonatomic, copy, nullable) NSString *updateName;
+
+@end
+
+
+/**
+ *  Request to apply update to a workload.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest : GTLRObject
+
+/**
+ *  The action to be performed on the update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_Apply
+ *        The update is applied. (Value: "APPLY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateRequest_Action_WorkloadUpdateActionUnspecified
+ *        Unspecified value. (Value: "WORKLOAD_UPDATE_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+@end
+
+
+/**
+ *  Response for ApplyWorkloadUpdate endpoint.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ApplyWorkloadUpdateResponse : GTLRObject
+
+/** The update that was applied. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate *appliedUpdate;
+
+@end
+
+
+/**
  *  Represents move analysis results for an asset.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis : GTLRObject
@@ -819,6 +1288,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
  *        Assured Workloads for Australia Regions and Support controls (Value:
  *        "AU_REGIONS_AND_US_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AustraliaDataBoundaryAndSupport
+ *        Australia Data Boundary and Support (Value:
+ *        "AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaControlledGoods
+ *        Canada Controlled Goods (Value: "CANADA_CONTROLLED_GOODS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaDataBoundaryAndSupport
+ *        Canada Data Boundary and Support (Value:
+ *        "CANADA_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaProtectedB
  *        Assured Workloads for Canada Protected B regime (Value:
  *        "CA_PROTECTED_B")
@@ -830,6 +1307,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCanadaControlledGoods
+ *        Data Boundary for Canada Controlled Goods (Value:
+ *        "DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCanadaProtectedB
+ *        Data Boundary for Canada Protected B (Value:
+ *        "DATA_BOUNDARY_FOR_CANADA_PROTECTED_B")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCjis
+ *        Data Boundary for CJIS (Value: "DATA_BOUNDARY_FOR_CJIS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForFedrampHigh
+ *        Data Boundary for FedRAMP High (Value:
+ *        "DATA_BOUNDARY_FOR_FEDRAMP_HIGH")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForFedrampModerate
+ *        Data Boundary for FedRAMP Moderate (Value:
+ *        "DATA_BOUNDARY_FOR_FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl2
+ *        Data Boundary for IL2 (Value: "DATA_BOUNDARY_FOR_IL2")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl4
+ *        Data Boundary for IL4 (Value: "DATA_BOUNDARY_FOR_IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl5
+ *        Data Boundary for IL5 (Value: "DATA_BOUNDARY_FOR_IL5")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIrsPublication1075
+ *        Data Boundary for IRS Publication 1075 (Value:
+ *        "DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForItar
+ *        Data Boundary for ITAR (Value: "DATA_BOUNDARY_FOR_ITAR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuDataBoundaryAndSupport
+ *        Data Boundary for EU Regions and Support (Value:
+ *        "EU_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport
  *        Assured Workloads For EU Regions and Support controls (Value:
  *        "EU_REGIONS_AND_SUPPORT")
@@ -837,26 +1342,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControls
+ *        Healthcare and Life Science Controls (Value:
+ *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport
+ *        Healthcare and Life Science Controls with US Support (Value:
+ *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
- *        Health Insurance Portability and Accountability Act controls (Value:
- *        "HIPAA")
+ *        [DEPRECATED] Health Insurance Portability and Accountability Act
+ *        controls (Value: "HIPAA")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust
- *        Health Information Trust Alliance controls (Value: "HITRUST")
+ *        [DEPRECATED] Health Information Trust Alliance controls (Value:
+ *        "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il2
  *        Information protection as per DoD IL2 requirements. (Value: "IL2")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il5
  *        Information protection as per DoD IL5 requirements. (Value: "IL5")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Irs1075
+ *        Internal Revenue Service 1075 controls (Value: "IRS_1075")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsraelDataBoundaryAndSupport
+ *        Data Boundary for Israel Regions (Value:
+ *        "ISRAEL_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions
- *        Assured Workloads for Israel (Value: "ISR_REGIONS")
+ *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport
  *        Assured Workloads for Israel Regions (Value:
  *        "ISR_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar
  *        International Traffic in Arms Regulations (Value: "ITAR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JapanDataBoundary
+ *        JAPAN Data Boundary (Value: "JAPAN_DATA_BOUNDARY")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport
  *        Assured Workloads for Japan Regions (Value: "JP_REGIONS_AND_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaDataBoundaryWithAccessJustifications
+ *        KSA Data Boundary with Access Justifications (Value:
+ *        "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls
+ *        Assured Workloads Sovereign Controls KSA (Value:
+ *        "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls
+ *        Assured Workloads for Regional Controls (Value: "REGIONAL_CONTROLS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalDataBoundary
+ *        Regional Data Boundary (Value: "REGIONAL_DATA_BOUNDARY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryAndSupport
+ *        Data Boundary for US Regions and Support (Value:
+ *        "US_DATA_BOUNDARY_AND_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences
+ *        Data Boundary for US Healthcare and Life Sciences (Value:
+ *        "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport
+ *        Data Boundary for US Healthcare and Life Sciences with Support (Value:
+ *        "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -872,6 +1410,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 /** Optional. The parent of the workload. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+@end
+
+
+/**
+ *  Response for EnableComplianceUpdates endpoint.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1EnableComplianceUpdatesResponse : GTLRObject
 @end
 
 
@@ -926,6 +1471,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload *> *workloads;
+
+@end
+
+
+/**
+ *  Response of listing the compliance updates per workload with pagination.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "workloadUpdates" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ListWorkloadUpdatesResponse : GTLRCollectionObject
+
+/** The next page token. Return empty if reached the last page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of workload updates for a given workload.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate *> *workloadUpdates;
 
 @end
 
@@ -1006,6 +1575,111 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  This assured workload service object is used to represent the org policy
+ *  attached to a resource. It servces the same purpose as the
+ *  orgpolicy.v2.Policy object but with functionality that is limited to what is
+ *  supported by Assured Workloads(e.g. only one rule under one OrgPolicy
+ *  object, no conditions, etc).
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy : GTLRObject
+
+/**
+ *  The constraint name of the OrgPolicy. e.g.
+ *  "constraints/gcp.resourceLocations".
+ */
+@property(nonatomic, copy, nullable) NSString *constraint;
+
+/**
+ *  If `inherit` is true, policy rules of the lowest ancestor in the resource
+ *  hierarchy chain are inherited. If it is false, policy rules are not
+ *  inherited.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inherit;
+
+/**
+ *  Ignores policies set above this resource and restores to the
+ *  `constraint_default` value. `reset` can only be true when `rules` is empty
+ *  and `inherit` is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reset;
+
+/**
+ *  Resource that the OrgPolicy attaches to. Format: folders/123" projects/123".
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/** The rule of the OrgPolicy. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule *rule;
+
+@end
+
+
+/**
+ *  A rule used to express this policy.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRule : GTLRObject
+
+/**
+ *  ListPolicy only when all values are allowed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAll;
+
+/**
+ *  ListPolicy only when all values are denied.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *denyAll;
+
+/**
+ *  BooleanPolicy only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enforce;
+
+/** ListPolicy only when custom values are specified. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues *values;
+
+@end
+
+
+/**
+ *  The values allowed for a ListPolicy.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyPolicyRuleStringValues : GTLRObject
+
+/** List of values allowed at this resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
+
+/** List of values denied at this resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deniedValues;
+
+@end
+
+
+/**
+ *  Represents an update for an org policy control applied on an Assured
+ *  Workload resource. The inherited org policy is not considered.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate : GTLRObject
+
+/** The org policy currently applied on the assured workload resource. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy *appliedPolicy;
+
+/** The suggested org policy that replaces the applied policy. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicy *suggestedPolicy;
+
+@end
+
+
+/**
  *  Request for restricting list of available resources in Workload environment.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesRequest : GTLRObject
@@ -1041,6 +1715,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Response for restricting the list of allowed resources.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse : GTLRObject
+@end
+
+
+/**
+ *  The details of the update.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails : GTLRObject
+
+/** Update to one org policy, e.g. gcp.resourceLocation. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1OrgPolicyUpdate *orgPolicyUpdate;
+
 @end
 
 
@@ -1240,6 +1925,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolation
  *        Remediation type for resource violation. (Value:
  *        "REMEDIATION_RESOURCE_VIOLATION")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationResourceViolationNonCmekServices
+ *        Remediation type for resource violation due to
+ *        gcp.restrictNonCmekServices (Value:
+ *        "REMEDIATION_RESOURCE_VIOLATION_NON_CMEK_SERVICES")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ViolationRemediation_RemediationType_RemediationRestrictCmekCryptoKeyProjectsOrgPolicyViolation
  *        Remediation type for gcp.restrictCmekCryptoKeyProjects (Value:
  *        "REMEDIATION_RESTRICT_CMEK_CRYPTO_KEY_PROJECTS_ORG_POLICY_VIOLATION")
@@ -1325,6 +2014,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport
  *        Assured Workloads for Australia Regions and Support controls (Value:
  *        "AU_REGIONS_AND_US_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AustraliaDataBoundaryAndSupport
+ *        Australia Data Boundary and Support (Value:
+ *        "AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaControlledGoods
+ *        Canada Controlled Goods (Value: "CANADA_CONTROLLED_GOODS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaDataBoundaryAndSupport
+ *        Canada Data Boundary and Support (Value:
+ *        "CANADA_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaProtectedB
  *        Assured Workloads for Canada Protected B regime (Value:
  *        "CA_PROTECTED_B")
@@ -1336,6 +2033,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCanadaControlledGoods
+ *        Data Boundary for Canada Controlled Goods (Value:
+ *        "DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCanadaProtectedB
+ *        Data Boundary for Canada Protected B (Value:
+ *        "DATA_BOUNDARY_FOR_CANADA_PROTECTED_B")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCjis
+ *        Data Boundary for CJIS (Value: "DATA_BOUNDARY_FOR_CJIS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForFedrampHigh
+ *        Data Boundary for FedRAMP High (Value:
+ *        "DATA_BOUNDARY_FOR_FEDRAMP_HIGH")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForFedrampModerate
+ *        Data Boundary for FedRAMP Moderate (Value:
+ *        "DATA_BOUNDARY_FOR_FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl2
+ *        Data Boundary for IL2 (Value: "DATA_BOUNDARY_FOR_IL2")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl4
+ *        Data Boundary for IL4 (Value: "DATA_BOUNDARY_FOR_IL4")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl5
+ *        Data Boundary for IL5 (Value: "DATA_BOUNDARY_FOR_IL5")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIrsPublication1075
+ *        Data Boundary for IRS Publication 1075 (Value:
+ *        "DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForItar
+ *        Data Boundary for ITAR (Value: "DATA_BOUNDARY_FOR_ITAR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuDataBoundaryAndSupport
+ *        Data Boundary for EU Regions and Support (Value:
+ *        "EU_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport
  *        Assured Workloads For EU Regions and Support controls (Value:
  *        "EU_REGIONS_AND_SUPPORT")
@@ -1343,26 +2068,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControls
+ *        Healthcare and Life Science Controls (Value:
+ *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport
+ *        Healthcare and Life Science Controls with US Support (Value:
+ *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa
- *        Health Insurance Portability and Accountability Act controls (Value:
- *        "HIPAA")
+ *        [DEPRECATED] Health Insurance Portability and Accountability Act
+ *        controls (Value: "HIPAA")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust
- *        Health Information Trust Alliance controls (Value: "HITRUST")
+ *        [DEPRECATED] Health Information Trust Alliance controls (Value:
+ *        "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il2
  *        Information protection as per DoD IL2 requirements. (Value: "IL2")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il5
  *        Information protection as per DoD IL5 requirements. (Value: "IL5")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Irs1075
+ *        Internal Revenue Service 1075 controls (Value: "IRS_1075")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsraelDataBoundaryAndSupport
+ *        Data Boundary for Israel Regions (Value:
+ *        "ISRAEL_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions
- *        Assured Workloads for Israel (Value: "ISR_REGIONS")
+ *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport
  *        Assured Workloads for Israel Regions (Value:
  *        "ISR_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar
  *        International Traffic in Arms Regulations (Value: "ITAR")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JapanDataBoundary
+ *        JAPAN Data Boundary (Value: "JAPAN_DATA_BOUNDARY")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport
  *        Assured Workloads for Japan Regions (Value: "JP_REGIONS_AND_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaDataBoundaryWithAccessJustifications
+ *        KSA Data Boundary with Access Justifications (Value:
+ *        "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls
+ *        Assured Workloads Sovereign Controls KSA (Value:
+ *        "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls
+ *        Assured Workloads for Regional Controls (Value: "REGIONAL_CONTROLS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalDataBoundary
+ *        Regional Data Boundary (Value: "REGIONAL_DATA_BOUNDARY")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryAndSupport
+ *        Data Boundary for US Regions and Support (Value:
+ *        "US_DATA_BOUNDARY_AND_SUPPORT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences
+ *        Data Boundary for US Healthcare and Life Sciences (Value:
+ *        "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport
+ *        Data Boundary for US Healthcare and Life Sciences with Support (Value:
+ *        "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess
  *        Assured Workloads For US Regions data protection controls (Value:
  *        "US_REGIONAL_ACCESS")
@@ -1452,6 +2210,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        "LOCAL_CONTROLS_BY_S3NS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_PartnerUnspecified
  *        Value "PARTNER_UNSPECIFIED"
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxt
+ *        Enum representing CNTXT (Kingdom of Saudi Arabia) partner. (Value:
+ *        "SOVEREIGN_CONTROLS_BY_CNTXT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByCntxtNoEkm
+ *        Enum representing CNTXT (Kingdom of Saudi Arabia) partner offering
+ *        without EKM. (Value: "SOVEREIGN_CONTROLS_BY_CNTXT_NO_EKM")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByPsn
  *        Enum representing PSN (TIM) partner. (Value:
  *        "SOVEREIGN_CONTROLS_BY_PSN")
@@ -1469,6 +2233,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  workload
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions *partnerPermissions;
+
+/**
+ *  Optional. Billing account necessary for purchasing services from Sovereign
+ *  Partners. This field is required for creating SIA/PSN/CNTXT partner
+ *  workloads. The caller should have 'billing.resourceAssociations.create' IAM
+ *  permission on this billing-account. The format of this string is
+ *  billingAccounts/AAAAAA-BBBBBB-CCCCCC
+ */
+@property(nonatomic, copy, nullable) NSString *partnerServicesBillingAccount;
 
 /**
  *  Input only. The parent resource for the resources managed by this Assured
@@ -1520,6 +2293,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *violationNotificationsEnabled;
+
+/** Optional. Options to be set for the given created workload. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions *workloadOptions;
 
 @end
 
@@ -1619,7 +2395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *ekmProvisioningErrorMapping;
 
 /**
- *  Indicates Ekm enrollment Provisioning of a given workload.
+ *  Output only. Indicates Ekm enrollment Provisioning of a given workload.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse_EkmProvisioningState_EkmProvisioningStateCompleted
@@ -1669,6 +2445,13 @@ GTLR_DEPRECATED
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadPartnerPermissions : GTLRObject
 
 /**
+ *  Optional. Allow partner to view support case details for an AXT log
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accessTransparencyLogsSupportCaseViewer;
+
+/**
  *  Optional. Allow partner to view violation alerts.
  *
  *  Uses NSNumber of boolValue.
@@ -1676,7 +2459,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *assuredWorkloadsMonitoring;
 
 /**
- *  Allow the partner to view inspectability logs and monitoring violations.
+ *  Optional. Allow the partner to view inspectability logs and monitoring
+ *  violations.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1698,7 +2482,8 @@ GTLR_DEPRECATED
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo : GTLRObject
 
 /**
- *  Resource identifier. For a project this represents project_number.
+ *  Output only. Resource identifier. For a project this represents
+ *  project_number.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1780,7 +2565,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setupErrors;
 
 /**
- *  Indicates SAA enrollment status of a given workload.
+ *  Output only. Indicates SAA enrollment status of a given workload.
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified
@@ -1791,6 +2576,66 @@ GTLR_DEPRECATED
  *        SAA enrollment pending. (Value: "STATUS_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *setupStatus;
+
+@end
+
+
+/**
+ *  A workload update is a change to the workload's compliance configuration.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate : GTLRObject
+
+/** The time the update was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The details of the update. */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails *details;
+
+/**
+ *  Output only. Immutable. Identifier. Resource name of the WorkloadUpdate.
+ *  Format:
+ *  organizations/{organization}/locations/{location}/workloads/{workload}/updates/{update}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Applied
+ *        The update has been applied. (Value: "APPLIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Available
+ *        The update is available to be applied. (Value: "AVAILABLE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_StateUnspecified
+ *        Unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadUpdate_State_Withdrawn
+ *        The update has been withdrawn by the service. (Value: "WITHDRAWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time the update was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Options to be set for the given created workload.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions : GTLRObject
+
+/**
+ *  Optional. Specifies type of KAJ Enrollment if provided.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KajEnrollmentTypeUnspecified
+ *        KAJ Enrollment type is unspecified (Value:
+ *        "KAJ_ENROLLMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWorkloadOptions_KajEnrollmentType_KeyAccessTransparencyOff
+ *        KAT sets External, Hardware, and Software key feature logging only to
+ *        TRUE. (Value: "KEY_ACCESS_TRANSPARENCY_OFF")
+ */
+@property(nonatomic, copy, nullable) NSString *kajEnrollmentType;
 
 @end
 

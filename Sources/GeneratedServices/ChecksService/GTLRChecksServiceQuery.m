@@ -204,6 +204,112 @@
 
 @end
 
+@implementation GTLRChecksServiceQuery_AccountsReposOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRChecksServiceQuery_AccountsReposOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_Operation class];
+  query.loggingName = @"checks.accounts.repos.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsReposScansGenerate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRChecksService_GoogleChecksRepoScanV1alphaGenerateScanRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/scans:generate";
+  GTLRChecksServiceQuery_AccountsReposScansGenerate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChecksService_Operation class];
+  query.loggingName = @"checks.accounts.repos.scans.generate";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsReposScansGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRChecksServiceQuery_AccountsReposScansGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChecksService_GoogleChecksRepoScanV1alphaRepoScan class];
+  query.loggingName = @"checks.accounts.repos.scans.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AccountsReposScansList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/scans";
+  GTLRChecksServiceQuery_AccountsReposScansList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChecksService_GoogleChecksRepoScanV1alphaListRepoScansResponse class];
+  query.loggingName = @"checks.accounts.repos.scans.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChecksServiceQuery_AisafetyClassifyContent
+
++ (instancetype)queryWithObject:(GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1alpha/aisafety:classifyContent";
+  GTLRChecksServiceQuery_AisafetyClassifyContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRChecksService_GoogleChecksAisafetyV1alphaClassifyContentResponse class];
+  query.loggingName = @"checks.aisafety.classifyContent";
+  return query;
+}
+
+@end
+
 @implementation GTLRChecksServiceQuery_MediaUpload
 
 @dynamic parent;

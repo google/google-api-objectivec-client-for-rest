@@ -218,7 +218,7 @@ NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet = @"TABLET";
 //
 
 @implementation GTLRChromeUXReport_QueryHistoryRequest
-@dynamic formFactor, metrics, origin, url;
+@dynamic collectionPeriodCount, formFactor, metrics, origin, url;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

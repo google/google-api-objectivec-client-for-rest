@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/
+//   https://developers.google.com/workspace/admin/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -362,7 +362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Use
- *  [BatchChangeChromeOsDeviceStatus](/admin-sdk/directory/reference/rest/v1/customer.devices.chromeos/batchChangeStatus)
+ *  [BatchChangeChromeOsDeviceStatus](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customer.devices.chromeos/batchChangeStatus)
  *  instead. Takes an action that affects a Chrome OS Device. This includes
  *  deprovisioning, disabling, and re-enabling devices. *Warning:* *
  *  Deprovisioning a device will stop device policy syncing and remove
@@ -386,14 +386,15 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  The unique ID of the device. The `resourceId`s are returned in the response
  *  from the
- *  [chromeosdevices.list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *  [chromeosdevices.list](https://developers.google.com/workspace/admin/directory/v1/reference/chromeosdevices/list)
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *resourceId;
@@ -403,7 +404,7 @@ GTLR_DEPRECATED
  *  be nil. This query does not fetch an object.
  *
  *  Use
- *  [BatchChangeChromeOsDeviceStatus](/admin-sdk/directory/reference/rest/v1/customer.devices.chromeos/batchChangeStatus)
+ *  [BatchChangeChromeOsDeviceStatus](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customer.devices.chromeos/batchChangeStatus)
  *  instead. Takes an action that affects a Chrome OS Device. This includes
  *  deprovisioning, disabling, and re-enabling devices. *Warning:* *
  *  Deprovisioning a device will stop device policy syncing and remove
@@ -420,10 +421,11 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param resourceId The unique ID of the device. The `resourceId`s are
  *    returned in the response from the
- *    [chromeosdevices.list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *    [chromeosdevices.list](https://developers.google.com/workspace/admin/directory/v1/reference/chromeosdevices/list)
  *    method.
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesAction
@@ -449,14 +451,15 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  The unique ID of the device. The `deviceId`s are returned in the response
  *  from the
- *  [chromeosdevices.list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *  [chromeosdevices.list](https://developers.google.com/workspace/admin/directory/v1/reference/chromeosdevices/list)
  *  method.
  */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -482,10 +485,11 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
  *    the response from the
- *    [chromeosdevices.list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *    [chromeosdevices.list](https://developers.google.com/workspace/admin/directory/v1/reference/chromeosdevices/list)
  *    method.
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesGet
@@ -510,7 +514,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -521,7 +526,7 @@ GTLR_DEPRECATED
 @property(nonatomic, assign) BOOL includeChildOrgunits;
 
 /**
- *  Maximum number of results to return.
+ *  Maximum number of results to return. Value should not exceed 300.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -544,7 +549,7 @@ GTLR_DEPRECATED
  *        entered when the device was enabled. (Value: "serialNumber")
  *    @arg @c kGTLRDirectoryOrderByStatus Chrome device status. For more
  *        information, see the <a
- *        [chromeosdevices](/admin-sdk/directory/v1/reference/chromeosdevices.html).
+ *        [chromeosdevices](https://developers.google.com/workspace/admin/directory/v1/reference/chromeosdevices.html).
  *        (Value: "status")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -563,7 +568,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Restrict information returned to a set of selected fields.
+ *  Determines whether the response contains the full list of properties or only
+ *  a subset.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
@@ -576,7 +582,7 @@ GTLR_DEPRECATED
 
 /**
  *  Search string in the format given at
- *  https://developers.google.com/admin-sdk/directory/v1/list-query-operators
+ *  https://developers.google.com/workspace/admin/directory/v1/list-query-operators
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -600,7 +606,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesList
  *
@@ -653,7 +660,7 @@ GTLR_DEPRECATED
  *  Updates a device's updatable properties, such as `annotatedUser`,
  *  `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. This
  *  method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch).
  *
  *  Method: directory.chromeosdevices.patch
  *
@@ -666,19 +673,22 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  The unique ID of the device. The `deviceId`s are returned in the response
  *  from the
- *  [chromeosdevices.list](/admin-sdk/v1/reference/chromeosdevices/list) method.
+ *  [chromeosdevices.list](https://developers.google.com/workspace/admin/v1/reference/chromeosdevices/list)
+ *  method.
  */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
- *  Restrict information returned to a set of selected fields.
+ *  Determines whether the response contains the full list of properties or only
+ *  a subset.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
@@ -695,16 +705,17 @@ GTLR_DEPRECATED
  *  Updates a device's updatable properties, such as `annotatedUser`,
  *  `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. This
  *  method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_ChromeOsDevice to include in the query.
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
  *    the response from the
- *    [chromeosdevices.list](/admin-sdk/v1/reference/chromeosdevices/list)
+ *    [chromeosdevices.list](https://developers.google.com/workspace/admin/v1/reference/chromeosdevices/list)
  *    method.
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesPatch
@@ -730,19 +741,22 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  The unique ID of the device. The `deviceId`s are returned in the response
  *  from the
- *  [chromeosdevices.list](/admin-sdk/v1/reference/chromeosdevices/list) method.
+ *  [chromeosdevices.list](https://developers.google.com/workspace/admin/v1/reference/chromeosdevices/list)
+ *  method.
  */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
- *  Restrict information returned to a set of selected fields.
+ *  Determines whether the response contains the full list of properties or only
+ *  a subset.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
@@ -763,10 +777,11 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
  *    the response from the
- *    [chromeosdevices.list](/admin-sdk/v1/reference/chromeosdevices/list)
+ *    [chromeosdevices.list](https://developers.google.com/workspace/admin/v1/reference/chromeosdevices/list)
  *    method.
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesUpdate
@@ -1169,7 +1184,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *clearMask;
 
 /**
- *  The resource name of the Printer object, in the format
+ *  Identifier. The resource name of the Printer object, in the format
  *  customers/{customer-id}/printers/{printer-id} (During printer creation leave
  *  empty)
  */
@@ -1189,9 +1204,9 @@ GTLR_DEPRECATED
  *  Updates a `Printer` resource.
  *
  *  @param object The @c GTLRDirectory_Printer to include in the query.
- *  @param name The resource name of the Printer object, in the format
- *    customers/{customer-id}/printers/{printer-id} (During printer creation
- *    leave empty)
+ *  @param name Identifier. The resource name of the Printer object, in the
+ *    format customers/{customer-id}/printers/{printer-id} (During printer
+ *    creation leave empty)
  *
  *  @return GTLRDirectoryQuery_CustomersChromePrintersPatch
  */
@@ -1212,7 +1227,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The [unique
- *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *  of the customer's Google Workspace account. Format: `customers/{id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1225,7 +1240,7 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRDirectory_BatchCreatePrintServersRequest to include
  *    in the query.
  *  @param parent Required. The [unique
- *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *    of the customer's Google Workspace account. Format: `customers/{id}`
  *
  *  @return GTLRDirectoryQuery_CustomersChromePrintServersBatchCreatePrintServers
@@ -1247,7 +1262,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The [unique
- *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *  of the customer's Google Workspace account. Format:
  *  `customers/{customer.id}`
  */
@@ -1261,7 +1276,7 @@ GTLR_DEPRECATED
  *  @param object The @c GTLRDirectory_BatchDeletePrintServersRequest to include
  *    in the query.
  *  @param parent Required. The [unique
- *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *    of the customer's Google Workspace account. Format:
  *    `customers/{customer.id}`
  *
@@ -1284,7 +1299,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The [unique
- *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *  of the customer's Google Workspace account. Format: `customers/{id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1296,7 +1311,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRDirectory_PrintServer to include in the query.
  *  @param parent Required. The [unique
- *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *    of the customer's Google Workspace account. Format: `customers/{id}`
  *
  *  @return GTLRDirectoryQuery_CustomersChromePrintServersCreate
@@ -1349,7 +1364,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The [unique
- *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *  of the customer's Google Workspace account. Format: `customers/{id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1360,7 +1375,7 @@ GTLR_DEPRECATED
  *  Returns a print server's configuration.
  *
  *  @param name Required. The [unique
- *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *    of the customer's Google Workspace account. Format: `customers/{id}`
  *
  *  @return GTLRDirectoryQuery_CustomersChromePrintServersGet
@@ -1420,7 +1435,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The [unique
- *  ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *  ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *  of the customer's Google Workspace account. Format: `customers/{id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1431,7 +1446,7 @@ GTLR_DEPRECATED
  *  Lists print server configurations.
  *
  *  @param parent Required. The [unique
- *    ID](https://developers.google.com/admin-sdk/directory/reference/rest/v1/customers)
+ *    ID](https://developers.google.com/workspace/admin/directory/reference/rest/v1/customers)
  *    of the customer's Google Workspace account. Format: `customers/{id}`
  *
  *  @return GTLRDirectoryQuery_CustomersChromePrintServersList
@@ -1455,7 +1470,7 @@ GTLR_DEPRECATED
 @interface GTLRDirectoryQuery_CustomersChromePrintServersPatch : GTLRDirectoryQuery
 
 /**
- *  Immutable. Resource name of the print server. Leave empty when creating.
+ *  Identifier. Resource name of the print server. Leave empty when creating.
  *  Format: `customers/{customer.id}/printServers/{print_server.id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1474,7 +1489,7 @@ GTLR_DEPRECATED
  *  Updates a print server's configuration.
  *
  *  @param object The @c GTLRDirectory_PrintServer to include in the query.
- *  @param name Immutable. Resource name of the print server. Leave empty when
+ *  @param name Identifier. Resource name of the print server. Leave empty when
  *    creating. Format: `customers/{customer.id}/printServers/{print_server.id}`
  *
  *  @return GTLRDirectoryQuery_CustomersChromePrintServersPatch
@@ -1615,8 +1630,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -1632,7 +1648,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *  @param domainAliasName Name of domain alias to be retrieved.
@@ -1688,8 +1705,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -1705,7 +1723,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *
@@ -1763,8 +1782,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -1780,7 +1800,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *  @param domainName Name of domain to be retrieved
@@ -1836,8 +1857,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -1850,7 +1872,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *
@@ -2060,8 +2083,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -2111,7 +2135,7 @@ GTLR_DEPRECATED
 /**
  *  Email or immutable ID of the user if only those groups are to be listed, the
  *  given user is a member of. If it's an ID, it should match with the ID of the
- *  user object.
+ *  user object. Cannot be used with the `customer` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -2132,7 +2156,7 @@ GTLR_DEPRECATED
 
 /**
  *  Updates a group's properties. This method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch).
  *
  *  Method: directory.groups.patch
  *
@@ -2151,7 +2175,7 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRDirectory_Group.
  *
  *  Updates a group's properties. This method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_Group to include in the query.
  *  @param groupKey Identifies the group in the API request. The value can be
@@ -2373,7 +2397,7 @@ GTLR_DEPRECATED
 /**
  *  Retrieves a paginated list of all members in a group. This method times out
  *  after 60 minutes. For more information, see [Troubleshoot error
- *  codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
+ *  codes](https://developers.google.com/workspace/admin/directory/v1/guides/troubleshoot-error-codes).
  *
  *  Method: directory.members.list
  *
@@ -2415,7 +2439,7 @@ GTLR_DEPRECATED
  *
  *  Retrieves a paginated list of all members in a group. This method times out
  *  after 60 minutes. For more information, see [Troubleshoot error
- *  codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
+ *  codes](https://developers.google.com/workspace/admin/directory/v1/guides/troubleshoot-error-codes).
  *
  *  @param groupKey Identifies the group in the API request. The value can be
  *    the group's email address, group alias, or the unique group ID.
@@ -2433,7 +2457,7 @@ GTLR_DEPRECATED
 /**
  *  Updates the membership properties of a user in the specified group. This
  *  method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch).
  *
  *  Method: directory.members.patch
  *
@@ -2461,7 +2485,7 @@ GTLR_DEPRECATED
  *
  *  Updates the membership properties of a user in the specified group. This
  *  method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_Member to include in the query.
  *  @param groupKey Identifies the group in the API request. The value can be
@@ -2538,7 +2562,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2557,7 +2582,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param resourceId The unique ID the API service uses to identify the mobile
  *    device.
  *
@@ -2583,7 +2609,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2599,7 +2626,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param resourceId The unique ID the API service uses to identify the mobile
  *    device.
  *
@@ -2626,7 +2654,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2653,7 +2682,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param resourceId The unique ID the API service uses to identify the mobile
  *    device.
  *
@@ -2671,7 +2701,7 @@ GTLR_DEPRECATED
  *  API](https://cloud.google.com/identity/docs/concepts/overview-devices)
  *  instead. This method times out after 60 minutes. For more information, see
  *  [Troubleshoot error
- *  codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
+ *  codes](https://developers.google.com/workspace/admin/directory/v1/guides/troubleshoot-error-codes).
  *
  *  Method: directory.mobiledevices.list
  *
@@ -2686,7 +2716,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2737,7 +2768,7 @@ GTLR_DEPRECATED
 
 /**
  *  Search string in the format given at
- *  https://developers.google.com/admin-sdk/directory/v1/search-operators
+ *  https://developers.google.com/workspace/admin/directory/v1/search-operators
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -2762,12 +2793,13 @@ GTLR_DEPRECATED
  *  API](https://cloud.google.com/identity/docs/concepts/overview-devices)
  *  instead. This method times out after 60 minutes. For more information, see
  *  [Troubleshoot error
- *  codes](https://developers.google.com/admin-sdk/directory/v1/guides/troubleshoot-error-codes).
+ *  codes](https://developers.google.com/workspace/admin/directory/v1/guides/troubleshoot-error-codes).
  *
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *
  *  @return GTLRDirectoryQuery_MobiledevicesList
  *
@@ -2793,7 +2825,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2812,7 +2845,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param orgUnitPath The full path of the organizational unit (minus the
  *    leading `/`) or its unique ID.
  *
@@ -2838,7 +2872,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2856,7 +2891,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param orgUnitPath The full path of the organizational unit (minus the
  *    leading `/`) or its unique ID.
  *
@@ -2881,7 +2917,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2894,7 +2931,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *
  *  @return GTLRDirectoryQuery_OrgunitsInsert
  */
@@ -2918,7 +2956,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2949,7 +2988,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *
  *  @return GTLRDirectoryQuery_OrgunitsList
  */
@@ -2959,7 +2999,7 @@ GTLR_DEPRECATED
 
 /**
  *  Updates an organizational unit. This method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch)
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch)
  *
  *  Method: directory.orgunits.patch
  *
@@ -2972,7 +3012,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -2986,13 +3027,14 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
  *  Updates an organizational unit. This method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch)
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch)
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param orgUnitPath The full path of the organizational unit (minus the
  *    leading `/`) or its unique ID.
  *
@@ -3018,7 +3060,8 @@ GTLR_DEPRECATED
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
- *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  [Users
+ *  resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -3037,7 +3080,8 @@ GTLR_DEPRECATED
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
- *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *    as part of the [Users
+ *    resource](https://developers.google.com/workspace/admin/directory/v1/reference/users).
  *  @param orgUnitPath The full path of the organizational unit (minus the
  *    leading `/`) or its unique ID.
  *
@@ -3065,8 +3109,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -3079,7 +3124,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *
@@ -3970,8 +4016,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -3987,7 +4034,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *  @param roleAssignmentId Immutable ID of the role assignment.
@@ -4043,8 +4091,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -4087,7 +4136,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *
@@ -4149,8 +4199,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -4166,7 +4217,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *  @param roleId Immutable ID of the role.
@@ -4222,8 +4274,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -4246,7 +4299,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *
@@ -4374,8 +4428,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -4391,7 +4446,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *  @param schemaKey Name or immutable ID of the schema.
@@ -4447,8 +4503,9 @@ GTLR_DEPRECATED
  *  multi-domain account, to fetch all groups for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -4461,7 +4518,8 @@ GTLR_DEPRECATED
  *    In case of a multi-domain account, to fetch all groups for a customer, use
  *    this field instead of `domain`. You can also use the `my_customer` alias
  *    to represent your account's `customerId`. The `customerId` is also
- *    returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *    returned as part of the
+ *    [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
  *    resource. You must provide either the `customer` or the `domain`
  *    parameter.
  *
@@ -4896,7 +4954,7 @@ GTLR_DEPRECATED
 /**
  *  Whether to fetch the administrator-only or domain-wide public view of the
  *  user. For more information, see [Retrieve a user as a
- *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin).
+ *  non-administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#retrieve_users_non_admin).
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryViewTypeAdminView Results include both
@@ -4930,7 +4988,12 @@ GTLR_DEPRECATED
  *  sometimes fail as the user isn't fully created due to propagation delay in
  *  our backends. Check the error details for the "User creation is not
  *  complete" message to see if this is the case. Retrying the calls after some
- *  time can help in this case.
+ *  time can help in this case. If `resolveConflictAccount` is set to `true`, a
+ *  `202` response code means that a conflicting unmanaged account exists and
+ *  was invited to join the organization. A `409` response code means that a
+ *  conflicting account exists so the user wasn't created based on the [handling
+ *  unmanaged user accounts](https://support.google.com/a/answer/11112794)
+ *  option selected.
  *
  *  Method: directory.users.insert
  *
@@ -4953,7 +5016,12 @@ GTLR_DEPRECATED
  *  sometimes fail as the user isn't fully created due to propagation delay in
  *  our backends. Check the error details for the "User creation is not
  *  complete" message to see if this is the case. Retrying the calls after some
- *  time can help in this case.
+ *  time can help in this case. If `resolveConflictAccount` is set to `true`, a
+ *  `202` response code means that a conflicting unmanaged account exists and
+ *  was invited to join the organization. A `409` response code means that a
+ *  conflicting account exists so the user wasn't created based on the [handling
+ *  unmanaged user accounts](https://support.google.com/a/answer/11112794)
+ *  option selected.
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
  *
@@ -4977,11 +5045,12 @@ GTLR_DEPRECATED
 
 /**
  *  The unique ID for the customer's Google Workspace account. In case of a
- *  multi-domain account, to fetch all groups for a customer, use this field
+ *  multi-domain account, to fetch all users for a customer, use this field
  *  instead of `domain`. You can also use the `my_customer` alias to represent
  *  your account's `customerId`. The `customerId` is also returned as part of
- *  the [Users](/admin-sdk/directory/v1/reference/users) resource. You must
- *  provide either the `customer` or the `domain` parameter.
+ *  the
+ *  [Users](https://developers.google.com/workspace/admin/directory/v1/reference/users)
+ *  resource. You must provide either the `customer` or the `domain` parameter.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -4992,10 +5061,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customFieldMask;
 
 /**
- *  The domain name. Use this field to get groups from only one domain. To
- *  return all domains for a customer account, use the `customer` query
- *  parameter instead. Either the `customer` or the `domain` parameter must be
- *  provided.
+ *  The domain name. Use this field to get users from only one domain. To return
+ *  all domains for a customer account, use the `customer` query parameter
+ *  instead. Either the `customer` or the `domain` parameter must be provided.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
@@ -5034,7 +5102,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Token to specify next page in the list */
+/**
+ *  Token to specify next page in the list. The page token is only valid for
+ *  three days.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -5056,7 +5127,7 @@ GTLR_DEPRECATED
 /**
  *  Query string for searching user fields. For more information on constructing
  *  user queries, see [Search for
- *  Users](/admin-sdk/directory/v1/guides/search-users).
+ *  Users](https://developers.google.com/workspace/admin/directory/v1/guides/search-users).
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -5079,7 +5150,7 @@ GTLR_DEPRECATED
 /**
  *  Whether to fetch the administrator-only or domain-wide public view of the
  *  user. For more information, see [Retrieve a user as a
- *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin).
+ *  non-administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#retrieve_users_non_admin).
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryViewTypeAdminView Results include both
@@ -5147,7 +5218,7 @@ GTLR_DEPRECATED
  *  instead, because it also supports patch semantics and has better
  *  performance. If you're mapping an external identity to a Google identity,
  *  use the
- *  [`update`](https://developers.google.com/admin-sdk/directory/v1/reference/users/update)
+ *  [`update`](https://developers.google.com/workspace/admin/directory/v1/reference/users/update)
  *  method instead of the `patch` method. This method is unable to clear fields
  *  that contain repeated objects (`addresses`, `phones`, etc). Use the update
  *  method instead.
@@ -5172,7 +5243,7 @@ GTLR_DEPRECATED
  *  instead, because it also supports patch semantics and has better
  *  performance. If you're mapping an external identity to a Google identity,
  *  use the
- *  [`update`](https://developers.google.com/admin-sdk/directory/v1/reference/users/update)
+ *  [`update`](https://developers.google.com/workspace/admin/directory/v1/reference/users/update)
  *  method instead of the `patch` method. This method is unable to clear fields
  *  that contain repeated objects (`addresses`, `phones`, etc). Use the update
  *  method instead.
@@ -5252,7 +5323,7 @@ GTLR_DEPRECATED
 
 /**
  *  Adds a photo for the user. This method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch).
  *
  *  Method: directory.users.photos.patch
  *
@@ -5271,7 +5342,7 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRDirectory_UserPhoto.
  *
  *  Adds a photo for the user. This method supports [patch
- *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
+ *  semantics](https://developers.google.com/workspace/admin/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_UserPhoto to include in the query.
  *  @param userKey Identifies the user in the API request. The value can be the
@@ -5386,7 +5457,7 @@ GTLR_DEPRECATED
  *  For repeating fields that contain arrays, individual items in the array
  *  can't be patched piecemeal; they must be supplied in the request body with
  *  the desired values for all items. See the [user accounts
- *  guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user)
+ *  guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#update_user)
  *  for more information.
  *
  *  Method: directory.users.update
@@ -5411,7 +5482,7 @@ GTLR_DEPRECATED
  *  For repeating fields that contain arrays, individual items in the array
  *  can't be patched piecemeal; they must be supplied in the request body with
  *  the desired values for all items. See the [user accounts
- *  guide](https://developers.google.com/admin-sdk/directory/v1/guides/manage-users#update_user)
+ *  guide](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#update_user)
  *  for more information.
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
@@ -5532,7 +5603,7 @@ GTLR_DEPRECATED
 /**
  *  Whether to fetch the administrator-only or domain-wide public view of the
  *  user. For more information, see [Retrieve a user as a
- *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin).
+ *  non-administrator](https://developers.google.com/workspace/admin/directory/v1/guides/manage-users#retrieve_users_non_admin).
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryViewTypeAdminView Results include both

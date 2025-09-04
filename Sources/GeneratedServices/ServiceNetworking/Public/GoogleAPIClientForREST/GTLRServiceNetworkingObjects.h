@@ -16,6 +16,8 @@
 #endif
 
 @class GTLRServiceNetworking_Api;
+@class GTLRServiceNetworking_Aspect;
+@class GTLRServiceNetworking_Aspect_Spec;
 @class GTLRServiceNetworking_Authentication;
 @class GTLRServiceNetworking_AuthenticationRule;
 @class GTLRServiceNetworking_AuthProvider;
@@ -23,6 +25,9 @@
 @class GTLRServiceNetworking_Backend;
 @class GTLRServiceNetworking_BackendRule;
 @class GTLRServiceNetworking_BackendRule_OverridesByRequestProtocol;
+@class GTLRServiceNetworking_BatchingConfigProto;
+@class GTLRServiceNetworking_BatchingDescriptorProto;
+@class GTLRServiceNetworking_BatchingSettingsProto;
 @class GTLRServiceNetworking_Billing;
 @class GTLRServiceNetworking_BillingDestination;
 @class GTLRServiceNetworking_ClientLibrarySettings;
@@ -49,10 +54,12 @@
 @class GTLRServiceNetworking_Endpoint;
 @class GTLRServiceNetworking_Enum;
 @class GTLRServiceNetworking_EnumValue;
+@class GTLRServiceNetworking_ExperimentalFeatures;
 @class GTLRServiceNetworking_Field;
 @class GTLRServiceNetworking_FieldPolicy;
 @class GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange;
 @class GTLRServiceNetworking_GoSettings;
+@class GTLRServiceNetworking_GoSettings_RenamedServices;
 @class GTLRServiceNetworking_Http;
 @class GTLRServiceNetworking_HttpRule;
 @class GTLRServiceNetworking_JavaSettings;
@@ -94,6 +101,7 @@
 @class GTLRServiceNetworking_RubySettings;
 @class GTLRServiceNetworking_SecondaryIpRange;
 @class GTLRServiceNetworking_SecondaryIpRangeSpec;
+@class GTLRServiceNetworking_SelectiveGapicGeneration;
 @class GTLRServiceNetworking_SourceContext;
 @class GTLRServiceNetworking_SourceInfo;
 @class GTLRServiceNetworking_SourceInfo_SourceFiles_Item;
@@ -174,6 +182,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTransl
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_ConstantAddress;
 /** Value: "PATH_TRANSLATION_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BackendRule_PathTranslation_PathTranslationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceNetworking_BatchingSettingsProto.flowControlLimitExceededBehavior
+
+/**
+ *  Pause operation until limit clears.
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block;
+/**
+ *  Continue operation, disregard limit.
+ *
+ *  Value: "IGNORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore;
+/**
+ *  Stop operation, raise error.
+ *
+ *  Value: "THROW_EXCEPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException;
+/**
+ *  Default behavior, system-defined.
+ *
+ *  Value: "UNSET_BEHAVIOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceNetworking_ClientLibrarySettings.launchStage
@@ -707,6 +743,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetada
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceNetworking_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceNetworking_MonitoredResourceDescriptor.launchStage
 
 /**
@@ -928,6 +992,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /** Value: "SERVICE_NETWORKING_NOT_ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled;
 /**
+ *  The SN service agent {service-\@service-networking.iam.gserviceaccount.com}
+ *  does not have the SN service agent role on the consumer project.
+ *
+ *  Value: "SN_SERVICE_AGENT_PERMISSION_DENIED_ON_CONSUMER_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_SnServiceAgentPermissionDeniedOnConsumerProject;
+/**
  *  The consumer project does not have the permission from the host project.
  *
  *  Value: "USE_PERMISSION_NOT_FOUND"
@@ -1097,15 +1168,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSNumber *checkServiceNetworkingUsePermission;
 
 /**
- *  Optional. Specifies a custom time bucket for Arcus subnetwork request
- *  idempotency. If two equivalent concurrent requests are made, Arcus will know
+ *  Optional. Specifies a custom time bucket for GCE subnetwork request
+ *  idempotency. If two equivalent concurrent requests are made, GCE will know
  *  to ignore the request if it has already been completed or is in progress.
  *  Only requests with matching compute_idempotency_window have guaranteed
  *  idempotency. Changing this time window between requests results in undefined
  *  behavior. Zero (or empty) value with custom_compute_idempotency_window=true
- *  specifies no idempotency (i.e. no request ID is provided to Arcus). Maximum
- *  value of 14 days (enforced by Arcus limit). For more information on how to
- *  use, see: go/revisit-sn-idempotency-window
+ *  specifies no idempotency (i.e. no request ID is provided to GCE). Maximum
+ *  value of 14 days (enforced by GCE limit).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *computeIdempotencyWindow;
 
@@ -1180,7 +1250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *purpose;
 
 /**
- *  Required. The name of a [region](/compute/docs/regions-zones) for the
+ *  Required. The name of a
+ *  [region](https://cloud.google.com/compute/docs/regions-zones) for the
  *  subnet, such `europe-west1`.
  */
 @property(nonatomic, copy, nullable) NSString *region;
@@ -1218,8 +1289,22 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_SecondaryIpRangeSpec *> *secondaryIpRangeSpecs;
 
 /**
+ *  Optional. Skips validating if the requested_address is in use by SN VPC’s
+ *  peering group. Compute Engine will still perform this check and fail the
+ *  request if the requested_address is in use. Note that Compute Engine does
+ *  not check for the existence of dynamic routes when performing this check.
+ *  Caller of this API should make sure that there are no dynamic routes
+ *  overlapping with the requested_address/prefix_length IP address range
+ *  otherwise the created subnet could cause misrouting.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipRequestedAddressValidation;
+
+/**
  *  Required. A name for the new subnet. For information about the naming
- *  requirements, see [subnetwork](/compute/docs/reference/rest/v1/subnetworks)
+ *  requirements, see
+ *  [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks)
  *  in the Compute API documentation.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
@@ -1232,10 +1317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  Optional. Specifies if Service Networking should use a custom time bucket
- *  for Arcus idempotency. If false, Service Networking uses a 300 second (5
- *  minute) Arcus idempotency window. If true, Service Networking uses a custom
+ *  for GCE idempotency. If false, Service Networking uses a 300 second (5
+ *  minute) GCE idempotency window. If true, Service Networking uses a custom
  *  idempotency window provided by the user in field compute_idempotency_window.
- *  For more information on how to use, see: go/revisit-sn-idempotency-window
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1252,9 +1336,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  opposed to simply a description of methods and bindings. They are also
  *  sometimes simply referred to as "APIs" in other contexts, such as the name
  *  of this message itself. See https://cloud.google.com/apis/design/glossary
- *  for detailed terminology.
+ *  for detailed terminology. New usages of this message as an alternative to
+ *  ServiceDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceNetworking_Api : GTLRObject
+
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /** The methods of this interface, in unspecified order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Method *> *methods;
@@ -1307,6 +1398,37 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
+@end
+
+
+/**
+ *  Aspect represents Generic aspect. It is used to configure an aspect without
+ *  making direct changes to service.proto
+ */
+@interface GTLRServiceNetworking_Aspect : GTLRObject
+
+/** The type of this aspect configuration. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Content of the configuration. The underlying schema should be defined by
+ *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_Aspect_Spec *spec;
+
+@end
+
+
+/**
+ *  Content of the configuration. The underlying schema should be defined by
+ *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceNetworking_Aspect_Spec : GTLRObject
 @end
 
 
@@ -1521,6 +1643,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
 
 /**
+ *  The load balancing policy used for connection to the application backend.
+ *  Defined as an arbitrary string to accomondate custom load balancing policies
+ *  supported by the underlying channel, but suggest most users use one of the
+ *  standard policies, such as the default, "RoundRobin".
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingPolicy;
+
+/**
  *  Deprecated, do not use.
  *
  *  Uses NSNumber of doubleValue.
@@ -1539,7 +1669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
 
 /**
- *  pathTranslation
+ *  no-lint
  *
  *  Likely values:
  *    @arg @c kGTLRServiceNetworking_BackendRule_PathTranslation_AppendPathToAddress
@@ -1609,6 +1739,125 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  `BatchingConfigProto` defines the batching configuration for an API method.
+ */
+@interface GTLRServiceNetworking_BatchingConfigProto : GTLRObject
+
+/** The request and response fields used in batching. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_BatchingDescriptorProto *batchDescriptor;
+
+/** The thresholds which trigger a batched request to be sent. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_BatchingSettingsProto *thresholds;
+
+@end
+
+
+/**
+ *  `BatchingDescriptorProto` specifies the fields of the request message to be
+ *  used for batching, and, optionally, the fields of the response message to be
+ *  used for demultiplexing.
+ */
+@interface GTLRServiceNetworking_BatchingDescriptorProto : GTLRObject
+
+/** The repeated field in the request message to be aggregated by batching. */
+@property(nonatomic, copy, nullable) NSString *batchedField;
+
+/**
+ *  A list of the fields in the request message. Two requests will be batched
+ *  together only if the values of every field specified in
+ *  `request_discriminator_fields` is equal between the two requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *discriminatorFields;
+
+/**
+ *  Optional. When present, indicates the field in the response message to be
+ *  used to demultiplex the response into multiple response messages, in
+ *  correspondence with the multiple request messages originally batched
+ *  together.
+ */
+@property(nonatomic, copy, nullable) NSString *subresponseField;
+
+@end
+
+
+/**
+ *  `BatchingSettingsProto` specifies a set of batching thresholds, each of
+ *  which acts as a trigger to send a batch of messages as a request. At least
+ *  one threshold must be positive nonzero.
+ */
+@interface GTLRServiceNetworking_BatchingSettingsProto : GTLRObject
+
+/**
+ *  The duration after which a batch should be sent, starting from the addition
+ *  of the first message to that batch.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *delayThreshold;
+
+/**
+ *  The maximum number of elements collected in a batch that could be accepted
+ *  by server.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementCountLimit;
+
+/**
+ *  The number of elements of a field collected into a batch which, if exceeded,
+ *  causes the batch to be sent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementCountThreshold;
+
+/**
+ *  The maximum size of data allowed by flow control.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowControlByteLimit;
+
+/**
+ *  The maximum number of elements allowed by flow control.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowControlElementLimit;
+
+/**
+ *  The behavior to take when the flow control limit is exceeded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block
+ *        Pause operation until limit clears. (Value: "BLOCK")
+ *    @arg @c kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore
+ *        Continue operation, disregard limit. (Value: "IGNORE")
+ *    @arg @c kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException
+ *        Stop operation, raise error. (Value: "THROW_EXCEPTION")
+ *    @arg @c kGTLRServiceNetworking_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior
+ *        Default behavior, system-defined. (Value: "UNSET_BEHAVIOR")
+ */
+@property(nonatomic, copy, nullable) NSString *flowControlLimitExceededBehavior;
+
+/**
+ *  The maximum size of the request that could be accepted by server.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestByteLimit;
+
+/**
+ *  The aggregated size of the batched field which, if exceeded, causes the
+ *  batch to be sent. This size is computed by aggregating the sizes of the
+ *  request field to be batched, not of the entire request message.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestByteThreshold;
+
+@end
+
+
+/**
  *  Billing related configuration of the service. The following example shows
  *  how to configure monitored resources and metrics for billing,
  *  `consumer_destinations` is the only supported destination and the monitored
@@ -1664,6 +1913,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRServiceNetworking_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Metadata provided through GetOperation request for the LRO generated by
+ *  Cleanup Connection API
+ */
+@interface GTLRServiceNetworking_CleanupConnectionMetadata : GTLRObject
 @end
 
 
@@ -1766,14 +2023,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @interface GTLRServiceNetworking_CloudSQLConfig : GTLRObject
 
-/** Peering service used for peering with the Cloud SQL project. */
+/** Required. Peering service used for peering with the Cloud SQL project. */
 @property(nonatomic, copy, nullable) NSString *service;
 
-/** The name of the umbrella network in the Cloud SQL umbrella project. */
+/**
+ *  Required. The name of the umbrella network in the Cloud SQL umbrella
+ *  project.
+ */
 @property(nonatomic, copy, nullable) NSString *umbrellaNetwork;
 
 /**
- *  The project number of the Cloud SQL umbrella project.
+ *  Required. The project number of the Cloud SQL umbrella project.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1798,6 +2058,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
 
+/** Configuration for which RPCs should be generated in the GAPIC client. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_SelectiveGapicGeneration *selectiveGapicGeneration;
+
 @end
 
 
@@ -1809,8 +2072,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_Connection : GTLRObject
 
 /**
- *  The name of service consumer's VPC network that's connected with service
- *  producer network, in the following format:
+ *  Required. The name of service consumer's VPC network that's connected with
+ *  service producer network, in the following format:
  *  `projects/{project}/global/networks/{network}`. `{project}` is a project
  *  number, such as in `12345` that includes the VPC service consumer's VPC
  *  network. `{network}` is the name of the service consumer's VPC network.
@@ -2009,10 +2272,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
-/** A list of full type names of provided contexts. */
+/**
+ *  A list of full type names of provided contexts. It is used to support
+ *  propagating HTTP headers and ETags from the response extension.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
 
-/** A list of full type names of requested contexts. */
+/**
+ *  A list of full type names of requested contexts, only the requested context
+ *  will be made available to the backend.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requested;
 
 /**
@@ -2255,6 +2524,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @interface GTLRServiceNetworking_Documentation : GTLRObject
 
+/**
+ *  Optional information about the IAM configuration. This is typically used to
+ *  link to documentation about a product's IAM roles and permissions.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalIamInfo;
+
 /** The URL to the root of documentation. */
 @property(nonatomic, copy, nullable) NSString *documentationRootUrl;
 
@@ -2277,9 +2552,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_DocumentationRule *> *rules;
 
 /**
- *  Specifies section and content to override boilerplate content provided by
- *  go/api-docgen. Currently overrides following sections: 1.
- *  rest.service.client_libraries
+ *  Specifies section and content to override the boilerplate content. Currently
+ *  overrides following sections: 1. rest.service.client_libraries
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Page *> *sectionOverrides;
 
@@ -2322,7 +2596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  String of comma or space separated case-sensitive words for which
- *  method/field name replacement will be disabled by go/api-docgen.
+ *  method/field name replacement will be disabled.
  */
 @property(nonatomic, copy, nullable) NSString *disableReplacementWords;
 
@@ -2458,12 +2732,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_Endpoint : GTLRObject
 
 /**
- *  Unimplemented. Dot not use. DEPRECATED: This field is no longer supported.
- *  Instead of using aliases, please specify multiple google.api.Endpoint for
- *  each of the intended aliases. Additional names that this endpoint will be
- *  hosted on.
+ *  Aliases for this endpoint, these will be served by the same UrlMap as the
+ *  parent endpoint, and will be provisioned in the GCP stack for the Regional
+ *  Endpoints.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Allowing
@@ -2493,7 +2766,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Enum type definition.
+ *  Enum type definition. New usages of this message as an alternative to
+ *  EnumDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceNetworking_Enum : GTLRObject
 
@@ -2529,7 +2806,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Enum value definition.
+ *  Enum value definition. New usages of this message as an alternative to
+ *  EnumValueDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceNetworking_EnumValue : GTLRObject
 
@@ -2550,7 +2831,50 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  A single field of a message type.
+ *  Experimental features to be included during client library generation. These
+ *  fields will be deprecated once the feature graduates and is enabled by
+ *  default.
+ */
+@interface GTLRServiceNetworking_ExperimentalFeatures : GTLRObject
+
+/**
+ *  Enables generation of protobuf code using new types that are more Pythonic
+ *  which are included in `protobuf>=5.29.x`. This feature will be enabled by
+ *  default 1 month after launching the feature in preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protobufPythonicTypesEnabled;
+
+/**
+ *  Enables generation of asynchronous REST clients if `rest` transport is
+ *  enabled. By default, asynchronous REST clients will not be generated. This
+ *  feature will be enabled by default 1 month after launching the feature in
+ *  preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restAsyncIoEnabled;
+
+/**
+ *  Disables generation of an unversioned Python package for this client
+ *  library. This means that the module names will need to be versioned in
+ *  import statements. For example `import google.cloud.library_v2` instead of
+ *  `import google.cloud.library`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unversionedPackageDisabled;
+
+@end
+
+
+/**
+ *  A single field of a message type. New usages of this message as an
+ *  alternative to FieldDescriptorProto are strongly discouraged. This message
+ *  does not reliability preserve all information necessary to model the schema
+ *  and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceNetworking_Field : GTLRObject
 
@@ -2810,6 +3134,29 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
 
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_GoSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceNetworking_GoSettings_RenamedServices : GTLRObject
 @end
 
 
@@ -2840,7 +3187,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  # gRPC Transcoding gRPC Transcoding is a feature for mapping between a gRPC
+ *  gRPC Transcoding gRPC Transcoding is a feature for mapping between a gRPC
  *  method and one or more HTTP REST endpoints. It allows developers to build a
  *  single API service that supports both gRPC APIs and REST APIs. Many systems,
  *  including [Google APIs](https://github.com/googleapis/googleapis), [Cloud
@@ -2861,24 +3208,23 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  (Message) { option (google.api.http) = { get: "/v1/{name=messages/ *}" }; }
  *  } message GetMessageRequest { string name = 1; // Mapped to URL path. }
  *  message Message { string text = 1; // The resource content. } This enables
- *  an HTTP REST to gRPC mapping as below: HTTP | gRPC -----|----- `GET
- *  /v1/messages/123456` | `GetMessage(name: "messages/123456")` Any fields in
- *  the request message which are not bound by the path template automatically
- *  become HTTP query parameters if there is no HTTP request body. For example:
- *  service Messaging { rpc GetMessage(GetMessageRequest) returns (Message) {
- *  option (google.api.http) = { get:"/v1/messages/{message_id}" }; } } message
+ *  an HTTP REST to gRPC mapping as below: - HTTP: `GET /v1/messages/123456` -
+ *  gRPC: `GetMessage(name: "messages/123456")` Any fields in the request
+ *  message which are not bound by the path template automatically become HTTP
+ *  query parameters if there is no HTTP request body. For example: service
+ *  Messaging { rpc GetMessage(GetMessageRequest) returns (Message) { option
+ *  (google.api.http) = { get:"/v1/messages/{message_id}" }; } } message
  *  GetMessageRequest { message SubMessage { string subfield = 1; } string
  *  message_id = 1; // Mapped to URL path. int64 revision = 2; // Mapped to URL
  *  query parameter `revision`. SubMessage sub = 3; // Mapped to URL query
  *  parameter `sub.subfield`. } This enables a HTTP JSON to RPC mapping as
- *  below: HTTP | gRPC -----|----- `GET
- *  /v1/messages/123456?revision=2&sub.subfield=foo` | `GetMessage(message_id:
- *  "123456" revision: 2 sub: SubMessage(subfield: "foo"))` Note that fields
- *  which are mapped to URL query parameters must have a primitive type or a
- *  repeated primitive type or a non-repeated message type. In the case of a
- *  repeated type, the parameter can be repeated in the URL as
- *  `...?param=A&param=B`. In the case of a message type, each field of the
- *  message is mapped to a separate parameter, such as
+ *  below: - HTTP: `GET /v1/messages/123456?revision=2&sub.subfield=foo` - gRPC:
+ *  `GetMessage(message_id: "123456" revision: 2 sub: SubMessage(subfield:
+ *  "foo"))` Note that fields which are mapped to URL query parameters must have
+ *  a primitive type or a repeated primitive type or a non-repeated message
+ *  type. In the case of a repeated type, the parameter can be repeated in the
+ *  URL as `...?param=A&param=B`. In the case of a message type, each field of
+ *  the message is mapped to a separate parameter, such as
  *  `...?foo.a=A&foo.b=B&foo.c=C`. For HTTP methods that allow a request body,
  *  the `body` field specifies the mapping. Consider a REST update method on the
  *  message resource collection: service Messaging { rpc
@@ -2887,18 +3233,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  } } message UpdateMessageRequest { string message_id = 1; // mapped to the
  *  URL Message message = 2; // mapped to the body } The following HTTP JSON to
  *  RPC mapping is enabled, where the representation of the JSON in the request
- *  body is determined by protos JSON encoding: HTTP | gRPC -----|----- `PATCH
- *  /v1/messages/123456 { "text": "Hi!" }` | `UpdateMessage(message_id: "123456"
- *  message { text: "Hi!" })` The special name `*` can be used in the body
- *  mapping to define that every field not bound by the path template should be
- *  mapped to the request body. This enables the following alternative
+ *  body is determined by protos JSON encoding: - HTTP: `PATCH
+ *  /v1/messages/123456 { "text": "Hi!" }` - gRPC: `UpdateMessage(message_id:
+ *  "123456" message { text: "Hi!" })` The special name `*` can be used in the
+ *  body mapping to define that every field not bound by the path template
+ *  should be mapped to the request body. This enables the following alternative
  *  definition of the update method: service Messaging { rpc
  *  UpdateMessage(Message) returns (Message) { option (google.api.http) = {
  *  patch: "/v1/messages/{message_id}" body: "*" }; } } message Message { string
  *  message_id = 1; string text = 2; } The following HTTP JSON to RPC mapping is
- *  enabled: HTTP | gRPC -----|----- `PATCH /v1/messages/123456 { "text": "Hi!"
- *  }` | `UpdateMessage(message_id: "123456" text: "Hi!")` Note that when using
- *  `*` in the body mapping, it is not possible to have HTTP parameters, as all
+ *  enabled: - HTTP: `PATCH /v1/messages/123456 { "text": "Hi!" }` - gRPC:
+ *  `UpdateMessage(message_id: "123456" text: "Hi!")` Note that when using `*`
+ *  in the body mapping, it is not possible to have HTTP parameters, as all
  *  fields not bound by the path end in the body. This makes this option more
  *  rarely used in practice when defining REST APIs. The common usage of `*` is
  *  in custom methods which don't use the URL at all for transferring data. It
@@ -2908,35 +3254,35 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  { get: "/v1/messages/{message_id}" additional_bindings { get:
  *  "/v1/users/{user_id}/messages/{message_id}" } }; } } message
  *  GetMessageRequest { string message_id = 1; string user_id = 2; } This
- *  enables the following two alternative HTTP JSON to RPC mappings: HTTP | gRPC
- *  -----|----- `GET /v1/messages/123456` | `GetMessage(message_id: "123456")`
- *  `GET /v1/users/me/messages/123456` | `GetMessage(user_id: "me" message_id:
- *  "123456")` ## Rules for HTTP mapping 1. Leaf request fields (recursive
- *  expansion nested messages in the request message) are classified into three
- *  categories: - Fields referred by the path template. They are passed via the
- *  URL path. - Fields referred by the HttpRule.body. They are passed via the
- *  HTTP request body. - All other fields are passed via the URL query
- *  parameters, and the parameter name is the field path in the request message.
- *  A repeated field can be represented as multiple query parameters under the
- *  same name. 2. If HttpRule.body is "*", there is no URL query parameter, all
- *  fields are passed via URL path and HTTP request body. 3. If HttpRule.body is
- *  omitted, there is no HTTP request body, all fields are passed via URL path
- *  and URL query parameters. ### Path template syntax Template = "/" Segments [
- *  Verb ] ; Segments = Segment { "/" Segment } ; Segment = "*" | "**" | LITERAL
- *  | Variable ; Variable = "{" FieldPath [ "=" Segments ] "}" ; FieldPath =
- *  IDENT { "." IDENT } ; Verb = ":" LITERAL ; The syntax `*` matches a single
- *  URL path segment. The syntax `**` matches zero or more URL path segments,
- *  which must be the last part of the URL path except the `Verb`. The syntax
- *  `Variable` matches part of the URL path as specified by its template. A
- *  variable template must not contain other variables. If a variable matches a
- *  single path segment, its template may be omitted, e.g. `{var}` is equivalent
- *  to `{var=*}`. The syntax `LITERAL` matches literal text in the URL path. If
- *  the `LITERAL` contains any reserved character, such characters should be
- *  percent-encoded before the matching. If a variable contains exactly one path
- *  segment, such as `"{var}"` or `"{var=*}"`, when such a variable is expanded
- *  into a URL path on the client side, all characters except `[-_.~0-9a-zA-Z]`
- *  are percent-encoded. The server side does the reverse decoding. Such
- *  variables show up in the [Discovery
+ *  enables the following two alternative HTTP JSON to RPC mappings: - HTTP:
+ *  `GET /v1/messages/123456` - gRPC: `GetMessage(message_id: "123456")` - HTTP:
+ *  `GET /v1/users/me/messages/123456` - gRPC: `GetMessage(user_id: "me"
+ *  message_id: "123456")` Rules for HTTP mapping 1. Leaf request fields
+ *  (recursive expansion nested messages in the request message) are classified
+ *  into three categories: - Fields referred by the path template. They are
+ *  passed via the URL path. - Fields referred by the HttpRule.body. They are
+ *  passed via the HTTP request body. - All other fields are passed via the URL
+ *  query parameters, and the parameter name is the field path in the request
+ *  message. A repeated field can be represented as multiple query parameters
+ *  under the same name. 2. If HttpRule.body is "*", there is no URL query
+ *  parameter, all fields are passed via URL path and HTTP request body. 3. If
+ *  HttpRule.body is omitted, there is no HTTP request body, all fields are
+ *  passed via URL path and URL query parameters. Path template syntax Template
+ *  = "/" Segments [ Verb ] ; Segments = Segment { "/" Segment } ; Segment = "*"
+ *  | "**" | LITERAL | Variable ; Variable = "{" FieldPath [ "=" Segments ] "}"
+ *  ; FieldPath = IDENT { "." IDENT } ; Verb = ":" LITERAL ; The syntax `*`
+ *  matches a single URL path segment. The syntax `**` matches zero or more URL
+ *  path segments, which must be the last part of the URL path except the
+ *  `Verb`. The syntax `Variable` matches part of the URL path as specified by
+ *  its template. A variable template must not contain other variables. If a
+ *  variable matches a single path segment, its template may be omitted, e.g.
+ *  `{var}` is equivalent to `{var=*}`. The syntax `LITERAL` matches literal
+ *  text in the URL path. If the `LITERAL` contains any reserved character, such
+ *  characters should be percent-encoded before the matching. If a variable
+ *  contains exactly one path segment, such as `"{var}"` or `"{var=*}"`, when
+ *  such a variable is expanded into a URL path on the client side, all
+ *  characters except `[-_.~0-9a-zA-Z]` are percent-encoded. The server side
+ *  does the reverse decoding. Such variables show up in the [Discovery
  *  Document](https://developers.google.com/discovery/v1/reference/apis) as
  *  `{var}`. If a variable contains multiple path segments, such as `"{var=foo/
  *  *}"` or `"{var=**}"`, when such a variable is expanded into a URL path on
@@ -2944,7 +3290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  percent-encoded. The server side does the reverse decoding, except "%2F" and
  *  "%2f" are left unchanged. Such variables show up in the [Discovery
  *  Document](https://developers.google.com/discovery/v1/reference/apis) as
- *  `{+var}`. ## Using gRPC API Service Configuration gRPC API Service
+ *  `{+var}`. Using gRPC API Service Configuration gRPC API Service
  *  Configuration (service config) is a configuration language for configuring a
  *  gRPC service to become a user-facing product. The service config is simply
  *  the YAML representation of the `google.api.Service` proto message. As an
@@ -2954,11 +3300,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  effect as the proto annotation. This can be particularly useful if you have
  *  a proto that is reused in multiple services. Note that any transcoding
  *  specified in the service config will override any matching transcoding
- *  configuration in the proto. Example: http: rules: # Selects a gRPC method
- *  and applies HttpRule to it. - selector: example.v1.Messaging.GetMessage get:
- *  /v1/messages/{message_id}/{sub.subfield} ## Special notes When gRPC
- *  Transcoding is used to map a gRPC to JSON REST endpoints, the proto to JSON
- *  conversion must follow the [proto3
+ *  configuration in the proto. The following example selects a gRPC method and
+ *  applies an `HttpRule` to it: http: rules: - selector:
+ *  example.v1.Messaging.GetMessage get:
+ *  /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC Transcoding
+ *  is used to map a gRPC to JSON REST endpoints, the proto to JSON conversion
+ *  must follow the [proto3
  *  specification](https://developers.google.com/protocol-buffers/docs/proto3#json).
  *  While the single segment variable follows the semantics of [RFC
  *  6570](https://tools.ietf.org/html/rfc6570) Section 3.2.2 Simple String
@@ -3055,8 +3402,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  protobuf. This should be used **only** by APIs who have already set the
  *  language_settings.java.package_name" field in gapic.yaml. API teams should
  *  use the protobuf java_package option where possible. Example of a YAML
- *  configuration:: publishing: java_settings: library_package:
- *  com.google.cloud.pubsub.v1
+ *  configuration:: publishing: library_settings: java_settings:
+ *  library_package: com.google.cloud.pubsub.v1
  */
 @property(nonatomic, copy, nullable) NSString *libraryPackage;
 
@@ -3355,9 +3702,20 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Method represents a method of an API interface.
+ *  Method represents a method of an API interface. New usages of this message
+ *  as an alternative to MethodDescriptorProto are strongly discouraged. This
+ *  message does not reliability preserve all information necessary to model the
+ *  schema and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceNetworking_Method : GTLRObject
+
+/**
+ *  The source edition string, only valid when syntax is SYNTAX_EDITIONS. This
+ *  field should be ignored, instead the edition should be inherited from Api.
+ *  This is similar to Field and EnumValue.
+ */
+@property(nonatomic, copy, nullable) NSString *edition GTLR_DEPRECATED;
 
 /** The simple name of this method. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3386,7 +3744,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *responseTypeUrl;
 
 /**
- *  The source syntax of this method.
+ *  The source syntax of this method. This field should be ignored, instead the
+ *  syntax should be inherited from Api. This is similar to Field and EnumValue.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceNetworking_Method_Syntax_SyntaxEditions Syntax
@@ -3396,7 +3755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *    @arg @c kGTLRServiceNetworking_Method_Syntax_SyntaxProto3 Syntax `proto3`.
  *        (Value: "SYNTAX_PROTO3")
  */
-@property(nonatomic, copy, nullable) NSString *syntax;
+@property(nonatomic, copy, nullable) NSString *syntax GTLR_DEPRECATED;
 
 @end
 
@@ -3436,20 +3795,31 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoPopulatedFields;
 
 /**
+ *  Batching configuration for an API method in client libraries. Example of a
+ *  YAML configuration: publishing: method_settings: - selector:
+ *  google.example.v1.ExampleService.BatchCreateExample batching:
+ *  element_count_threshold: 1000 request_byte_threshold: 100000000
+ *  delay_threshold_millis: 10
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_BatchingConfigProto *batching;
+
+/**
  *  Describes settings to use for long-running operations when generating API
  *  methods for RPCs. Complements RPCs that use the annotations in
  *  google/longrunning/operations.proto. Example of a YAML configuration::
  *  publishing: method_settings: - selector:
  *  google.cloud.speech.v2.Speech.BatchRecognize long_running:
- *  initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5
- *  max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000
- *  # 90 minutes
+ *  initial_poll_delay: 60s # 1 minute poll_delay_multiplier: 1.5
+ *  max_poll_delay: 360s # 6 minutes total_poll_timeout: 54000s # 90 minutes
  */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_LongRunning *longRunning;
 
 /**
  *  The fully qualified name of the method, for which the options below apply.
- *  This is used to find the method to apply the options.
+ *  This is used to find the method to apply the options. Example: publishing:
+ *  method_settings: - selector:
+ *  google.storage.control.v2.StorageControl.CreateFolder # method settings for
+ *  CreateFolder...
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
@@ -3724,6 +4094,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
+
 @end
 
 
@@ -3785,7 +4158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inherting
+ *  processor will see the effective `Storage.GetAcl` method after inheriting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -4106,7 +4479,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  A protocol buffer option, which can be attached to a message, field,
- *  enumeration, etc.
+ *  enumeration, etc. New usages of this message as an alternative to
+ *  FileOptions, MessageOptions, FieldOptions, EnumOptions, EnumValueOptions,
+ *  ServiceOptions, or MethodOptions are strongly discouraged.
  */
 @interface GTLRServiceNetworking_Option : GTLRObject
 
@@ -4151,9 +4526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_Page : GTLRObject
 
 /**
- *  The Markdown content of the page. You can use (== include {path} ==) to
- *  include content from a Markdown file. The content can be used to produce the
- *  documentation page such as HTML format page.
+ *  The Markdown content of the page. You can use ```(== include {path} ==)```
+ *  to include content from a Markdown file. The content can be used to produce
+ *  the documentation page such as HTML format page.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -4198,10 +4573,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *dnsSuffix;
 
 /**
- *  User assigned name for this resource. Must be unique within the consumer
- *  network. The name must be 1-63 characters long, must begin with a letter,
- *  end with a letter or digit, and only contain lowercase letters, digits or
- *  dashes.
+ *  Required. User assigned name for this resource. Must be unique within the
+ *  consumer network. The name must be 1-63 characters long, must begin with a
+ *  letter, end with a letter or digit, and only contain lowercase letters,
+ *  digits or dashes.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4223,6 +4598,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
+
+/**
+ *  The package name to use in Php. Clobbers the php_namespace option set in the
+ *  protobuf. This should be used **only** by APIs who have already set the
+ *  language_settings.php.package_name" field in gapic.yaml. API teams should
+ *  use the protobuf php_namespace option where possible. Example of a YAML
+ *  configuration:: publishing: library_settings: php_settings: library_package:
+ *  Google\\Cloud\\PubSub\\V1
+ */
+@property(nonatomic, copy, nullable) NSString *libraryPackage;
 
 @end
 
@@ -4246,8 +4631,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  'roles/container.hostServiceAgentUser' applied on the shared VPC host
  *  project - 'roles/compute.securityAdmin' applied on the shared VPC host
  *  project - 'roles/compute.networkAdmin' applied on the shared VPC host
- *  project - 'roles/compute.xpnAdmin' applied on the shared VPC host project -
- *  'roles/dns.admin' applied on the shared VPC host project
+ *  project - 'roles/tpu.xpnAgent' applied on the shared VPC host project -
+ *  'roles/dns.admin' applied on the shared VPC host project -
+ *  'roles/logging.admin' applied on the shared VPC host project -
+ *  'roles/monitoring.viewer' applied on the shared VPC host project -
+ *  'roles/servicemanagement.quotaViewer' applied on the shared VPC host project
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -4354,6 +4742,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_CommonLanguageSettings *common;
+
+/** Experimental features to be included during client library generation. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_ExperimentalFeatures *experimentalFeatures;
 
 @end
 
@@ -4477,11 +4868,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specify the unit of the quota limit. It uses the same syntax as Metric.unit.
- *  The supported unit kinds are determined by the quota backend system. Here
- *  are some examples: * "1/min/{project}" for quota per minute per project.
- *  Note: the order of unit components is insignificant. The "1" at the
- *  beginning is required to follow the metric unit syntax.
+ *  Specify the unit of the quota limit. It uses the same syntax as
+ *  MetricDescriptor.unit. The supported unit kinds are determined by the quota
+ *  backend system. Here are some examples: * "1/min/{project}" for quota per
+ *  minute per project. Note: the order of unit components is insignificant. The
+ *  "1" at the beginning is required to follow the metric unit syntax.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -4714,10 +5105,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
 
 /**
- *  Network name in the consumer project. This network must have been already
- *  peered with a shared VPC network using CreateConnection method. Must be in a
- *  form 'projects/{project}/global/networks/{network}'. {project} is a project
- *  number, as in '12345' {network} is network name.
+ *  Required. Network name in the consumer project. This network must have been
+ *  already peered with a shared VPC network using CreateConnection method. Must
+ *  be in a form 'projects/{project}/global/networks/{network}'. {project} is a
+ *  project number, as in '12345' {network} is network name.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -4780,6 +5171,33 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  This message is used to configure the generation of a subset of the RPCs in
+ *  a service for client libraries.
+ */
+@interface GTLRServiceNetworking_SelectiveGapicGeneration : GTLRObject
+
+/**
+ *  Setting this to true indicates to the client generators that methods that
+ *  would be excluded from the generation should instead be generated in a way
+ *  that indicates these methods should not be consumed by end users. How this
+ *  is expressed is up to individual language implementations to decide. Some
+ *  examples may be: added annotations, obfuscated identifiers, or other
+ *  language idiomatic patterns.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generateOmittedAsInternal;
+
+/**
+ *  An allowlist of the fully qualified names of RPCs that should be included on
+ *  public client surfaces.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
+
+@end
+
+
+/**
  *  `Service` is the root object of Google API service configuration (service
  *  config). It describes the basic information about a logical service, such as
  *  the service name and the user-facing title, and delegates other aspects to
@@ -4805,6 +5223,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  resolved against the associated IDL files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Api *> *apis;
+
+/**
+ *  Configuration aspects. This is a repeated field to allow multiple aspects to
+ *  be configured. The kind field in each ConfigAspect specifies the type of
+ *  aspect. The spec field contains the configuration for that aspect. The
+ *  schema for the spec field is defined by the backend service owners.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Aspect *> *aspects;
 
 /** Auth configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_Authentication *authentication;
@@ -5136,7 +5562,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  A protocol buffer message type.
+ *  A protocol buffer message type. New usages of this message as an alternative
+ *  to DescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceNetworking_Type : GTLRObject
 
@@ -5266,23 +5696,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  Usage configuration rules for the service. NOTE: Under development. Use this
- *  rule to configure unregistered calls for the service. Unregistered calls are
- *  calls that do not contain consumer project identity. (Example: calls that do
- *  not contain an API key). By default, API methods do not allow unregistered
- *  calls, and each method call must be identified by a consumer project
- *  identity. Use this rule to allow/disallow unregistered calls. Example of an
- *  API that wants to allow unregistered calls for entire service. usage: rules:
- *  - selector: "*" allow_unregistered_calls: true Example of a method that
- *  wants to allow unregistered calls. usage: rules: - selector:
- *  "google.example.library.v1.LibraryService.CreateBook"
- *  allow_unregistered_calls: true
+ *  Usage configuration rules for the service.
  */
 @interface GTLRServiceNetworking_UsageRule : GTLRObject
 
 /**
- *  If true, the selected method allows unregistered calls, e.g. calls that
- *  don't identify any user or application.
+ *  Use this rule to configure unregistered calls for the service. Unregistered
+ *  calls are calls that do not contain consumer project identity. (Example:
+ *  calls that do not contain an API key). WARNING: By default, API methods do
+ *  not allow unregistered calls, and each method call must be identified by a
+ *  consumer project identity.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5334,8 +5757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_ConsumerProject *consumerProject;
 
 /**
- *  RANGES_EXHAUSTED, RANGES_EXHAUSTED, and RANGES_DELETED_LATER are done when
- *  range_reservation is provided.
+ *  RANGES_EXHAUSTED, RANGES_NOT_RESERVED, and RANGES_DELETED_LATER are done
+ *  when range_reservation is provided.
  */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_RangeReservation *rangeReservation;
 
@@ -5412,6 +5835,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        The IP ranges were not reserved. (Value: "RANGES_NOT_RESERVED")
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled
  *        Value "SERVICE_NETWORKING_NOT_ENABLED"
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_SnServiceAgentPermissionDeniedOnConsumerProject
+ *        The SN service agent
+ *        {service-\@service-networking.iam.gserviceaccount.com} does not have
+ *        the SN service agent role on the consumer project. (Value:
+ *        "SN_SERVICE_AGENT_PERMISSION_DENIED_ON_CONSUMER_PROJECT")
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_UsePermissionNotFound
  *        The consumer project does not have the permission from the host
  *        project. (Value: "USE_PERMISSION_NOT_FOUND")

@@ -37,6 +37,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// scope
+
+/**
+ *  The flag is a connection pool flag.
+ *
+ *  Value: "CONNECTION_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminScopeConnectionPool;
+/**
+ *  The flag is a database flag.
+ *
+ *  Value: "DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminScopeDatabase;
+/**
+ *  The scope of the flag is not specified. Default is DATABASE.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminScopeScopeUnspecified;
+
+// ----------------------------------------------------------------------------
 // view
 
 /**
@@ -115,16 +137,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -174,16 +195,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -308,16 +328,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -381,23 +400,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the create
- *  request.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -439,23 +457,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the create
- *  request.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -504,22 +521,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the delete.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -538,43 +555,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @end
 
 /**
- *  Generate a client certificate signed by a Cluster CA. The sole purpose of
- *  this endpoint is to support AlloyDB connectors and the Auth Proxy client.
- *  The endpoint's behavior is subject to change without notice, so do not rely
- *  on its behavior remaining constant. Future changes will not break AlloyDB
- *  connectors or the Auth Proxy client.
+ *  Exports data from the cluster. Imperative only.
  *
- *  Method: alloydb.projects.locations.clusters.generateClientCertificate
+ *  Method: alloydb.projects.locations.clusters.export
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
  */
-@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersGenerateClientCertificate : GTLRCloudAlloyDBAdminQuery
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersExport : GTLRCloudAlloyDBAdminQuery
+
+/** Required. The resource name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The name of the parent resource. The required format is: *
- *  projects/{project}/locations/{location}/clusters/{cluster}
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Exports data from the cluster. Imperative only.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_ExportClusterRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the cluster.
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersExport
  */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCloudAlloyDBAdmin_GenerateClientCertificateResponse.
- *
- *  Generate a client certificate signed by a Cluster CA. The sole purpose of
- *  this endpoint is to support AlloyDB connectors and the Auth Proxy client.
- *  The endpoint's behavior is subject to change without notice, so do not rely
- *  on its behavior remaining constant. Future changes will not break AlloyDB
- *  connectors or the Auth Proxy client.
- *
- *  @param object The @c GTLRCloudAlloyDBAdmin_GenerateClientCertificateRequest
- *    to include in the query.
- *  @param parent Required. The name of the parent resource. The required format
- *    is: * projects/{project}/locations/{location}/clusters/{cluster}
- *
- *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersGenerateClientCertificate
- */
-+ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_GenerateClientCertificateRequest *)object
-                         parent:(NSString *)parent;
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_ExportClusterRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -628,6 +633,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @end
 
 /**
+ *  Imports data to the cluster. Imperative only.
+ *
+ *  Method: alloydb.projects.locations.clusters.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
+ */
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersImport : GTLRCloudAlloyDBAdminQuery
+
+/** Required. The resource name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Imports data to the cluster. Imperative only.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_ImportClusterRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the cluster.
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersImport
+ */
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_ImportClusterRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Instance in a given project and location.
  *
  *  Method: alloydb.projects.locations.clusters.instances.create
@@ -648,23 +682,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the create
- *  request.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -705,23 +738,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the create
- *  request.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -766,22 +798,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the delete.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -900,16 +932,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1046,16 +1077,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1071,9 +1101,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the update
- *  request.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -1214,16 +1244,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1239,9 +1268,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Optional. If set, performs request validation (e.g. permission checks and
- *  any other type of validation), but do not actually execute the update
- *  request.
+ *  Optional. If set, performs request validation, for example, permission
+ *  checks and any other type of validation, but does not actually execute the
+ *  create request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -1340,6 +1369,105 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @end
 
 /**
+ *  Restores an AlloyDB cluster from a CloudSQL resource.
+ *
+ *  Method: alloydb.projects.locations.clusters.restoreFromCloudSQL
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
+ */
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersRestoreFromCloudSQL : GTLRCloudAlloyDBAdminQuery
+
+/**
+ *  Required. The location of the new cluster. For the required format, see the
+ *  comment on Cluster.name field.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Restores an AlloyDB cluster from a CloudSQL resource.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_RestoreFromCloudSQLRequest to
+ *    include in the query.
+ *  @param parent Required. The location of the new cluster. For the required
+ *    format, see the comment on Cluster.name field.
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersRestoreFromCloudSQL
+ */
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_RestoreFromCloudSQLRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Switches the roles of PRIMARY and SECONDARY clusters without any data loss.
+ *  This promotes the SECONDARY cluster to PRIMARY and sets up the original
+ *  PRIMARY cluster to replicate from this newly promoted cluster.
+ *
+ *  Method: alloydb.projects.locations.clusters.switchover
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
+ */
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersSwitchover : GTLRCloudAlloyDBAdminQuery
+
+/**
+ *  Required. The name of the resource. For the required format, see the comment
+ *  on the Cluster.name field
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Switches the roles of PRIMARY and SECONDARY clusters without any data loss.
+ *  This promotes the SECONDARY cluster to PRIMARY and sets up the original
+ *  PRIMARY cluster to replicate from this newly promoted cluster.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_SwitchoverClusterRequest to
+ *    include in the query.
+ *  @param name Required. The name of the resource. For the required format, see
+ *    the comment on the Cluster.name field
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersSwitchover
+ */
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_SwitchoverClusterRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Upgrades a single Cluster. Imperative only.
+ *
+ *  Method: alloydb.projects.locations.clusters.upgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAlloyDBAdminCloudPlatform
+ */
+@interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersUpgrade : GTLRCloudAlloyDBAdminQuery
+
+/** Required. The resource name of the cluster. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAlloyDBAdmin_Operation.
+ *
+ *  Upgrades a single Cluster. Imperative only.
+ *
+ *  @param object The @c GTLRCloudAlloyDBAdmin_UpgradeClusterRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the cluster.
+ *
+ *  @return GTLRCloudAlloyDBAdminQuery_ProjectsLocationsClustersUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRCloudAlloyDBAdmin_UpgradeClusterRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new User in a given project, location, and cluster.
  *
  *  Method: alloydb.projects.locations.clusters.users.create
@@ -1354,16 +1482,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1409,16 +1536,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1540,16 +1666,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and the request times
- *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  request ID so that if you must retry your request, the server ignores the
+ *  request if it has already been completed. The server guarantees that for at
+ *  least 60 minutes since the first request. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if the original
+ *  operation with the same request ID was received, and if so, ignores the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1623,6 +1748,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @interface GTLRCloudAlloyDBAdminQuery_ProjectsLocationsList : GTLRCloudAlloyDBAdminQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -1669,7 +1800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: alloydb.projects.locations.operations.cancel
@@ -1692,7 +1823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudAlloyDBAdmin_CancelOperationRequest to include
@@ -1836,6 +1967,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
  *  support region-specific flags.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The scope for which supported flags are requested. If not
+ *  specified, default is DATABASE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdminScopeScopeUnspecified The scope of the flag
+ *        is not specified. Default is DATABASE. (Value: "SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdminScopeDatabase The flag is a database flag.
+ *        (Value: "DATABASE")
+ *    @arg @c kGTLRCloudAlloyDBAdminScopeConnectionPool The flag is a connection
+ *        pool flag. (Value: "CONNECTION_POOL")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
 
 /**
  *  Fetches a @c GTLRCloudAlloyDBAdmin_ListSupportedDatabaseFlagsResponse.

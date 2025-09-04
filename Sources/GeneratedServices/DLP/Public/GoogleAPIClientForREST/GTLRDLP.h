@@ -8,7 +8,7 @@
 //   to help you discover, classify, and protect your valuable data assets with
 //   ease.
 // Documentation:
-//   https://cloud.google.com/dlp/docs/
+//   https://cloud.google.com/sensitive-data-protection/docs/
 
 #import "GTLRDLPObjects.h"
 #import "GTLRDLPQuery.h"

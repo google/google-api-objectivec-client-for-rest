@@ -181,25 +181,6 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
-@implementation GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries
-
-@dynamic packageName, versionCode;
-
-+ (instancetype)queryWithPackageName:(NSString *)packageName {
-  NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries";
-  GTLRAndroidPublisherQuery_ApprecoveryAppRecoveries *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.packageName = packageName;
-  query.expectedObjectClass = [GTLRAndroidPublisher_ListAppRecoveriesResponse class];
-  query.loggingName = @"androidpublisher.apprecovery.appRecoveries";
-  return query;
-}
-
-@end
-
 @implementation GTLRAndroidPublisherQuery_ApprecoveryCancel
 
 @dynamic appRecoveryId, packageName;
@@ -284,6 +265,25 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
   query.appRecoveryId = appRecoveryId;
   query.expectedObjectClass = [GTLRAndroidPublisher_DeployAppRecoveryResponse class];
   query.loggingName = @"androidpublisher.apprecovery.deploy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApprecoveryList
+
+@dynamic packageName, versionCode;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/appRecoveries";
+  GTLRAndroidPublisherQuery_ApprecoveryList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListAppRecoveriesResponse class];
+  query.loggingName = @"androidpublisher.apprecovery.list";
   return query;
 }
 
@@ -1813,6 +1813,507 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchDelete
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchDeleteOneTimeProductsRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts:batchDelete";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.batchDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchGet
+
+@dynamic packageName, productIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"productIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts:batchGet";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchGetOneTimeProductsResponse class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchUpdate
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateOneTimeProductsRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts:batchUpdate";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchUpdateOneTimeProductsResponse class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsDelete
+
+@dynamic latencyTolerance, packageName, productId;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId {
+  NSArray *pathParams = @[
+    @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.productId = productId;
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsGet
+
+@dynamic packageName, productId;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId {
+  NSArray *pathParams = @[
+    @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_OneTimeProduct class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsList
+
+@dynamic packageName, pageSize, pageToken;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListOneTimeProductsResponse class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPatch
+
+@dynamic allowMissing, latencyTolerance, packageName, productId,
+         regionsVersionVersion, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"regionsVersionVersion" : @"regionsVersion.version" };
+}
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_OneTimeProduct *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/onetimeproducts/{productId}";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_OneTimeProduct class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsBatchDelete
+
+@dynamic packageName, productId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchDeletePurchaseOptionsRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions:batchDelete";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.batchDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsBatchUpdateStates
+
+@dynamic packageName, productId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions:batchUpdateStates";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsBatchUpdateStates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchUpdatePurchaseOptionStatesResponse class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.batchUpdateStates";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersActivate
+
+@dynamic offerId, packageName, productId, purchaseOptionId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ActivateOneTimeProductOfferRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId
+                        offerId:(NSString *)offerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"offerId", @"packageName", @"productId", @"purchaseOptionId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions/{purchaseOptionId}/offers/{offerId}:activate";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersActivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.purchaseOptionId = purchaseOptionId;
+  query.offerId = offerId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_OneTimeProductOffer class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.activate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchDelete
+
+@dynamic packageName, productId, purchaseOptionId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId", @"purchaseOptionId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions/{purchaseOptionId}/offers:batchDelete";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.purchaseOptionId = purchaseOptionId;
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.batchDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchGet
+
+@dynamic packageName, productId, purchaseOptionId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchGetOneTimeProductOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId", @"purchaseOptionId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions/{purchaseOptionId}/offers:batchGet";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.purchaseOptionId = purchaseOptionId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchGetOneTimeProductOffersResponse class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchUpdate
+
+@dynamic packageName, productId, purchaseOptionId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId", @"purchaseOptionId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions/{purchaseOptionId}/offers:batchUpdate";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.purchaseOptionId = purchaseOptionId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchUpdateOneTimeProductOffersResponse class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchUpdateStates
+
+@dynamic packageName, productId, purchaseOptionId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"productId", @"purchaseOptionId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions/{purchaseOptionId}/offers:batchUpdateStates";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersBatchUpdateStates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.purchaseOptionId = purchaseOptionId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchUpdateOneTimeProductOfferStatesResponse class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.batchUpdateStates";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersCancel
+
+@dynamic offerId, packageName, productId, purchaseOptionId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CancelOneTimeProductOfferRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId
+                        offerId:(NSString *)offerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"offerId", @"packageName", @"productId", @"purchaseOptionId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions/{purchaseOptionId}/offers/{offerId}:cancel";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.purchaseOptionId = purchaseOptionId;
+  query.offerId = offerId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_OneTimeProductOffer class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersDeactivate
+
+@dynamic offerId, packageName, productId, purchaseOptionId;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest *)object
+                    packageName:(NSString *)packageName
+                      productId:(NSString *)productId
+               purchaseOptionId:(NSString *)purchaseOptionId
+                        offerId:(NSString *)offerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"offerId", @"packageName", @"productId", @"purchaseOptionId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions/{purchaseOptionId}/offers/{offerId}:deactivate";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersDeactivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.productId = productId;
+  query.purchaseOptionId = purchaseOptionId;
+  query.offerId = offerId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_OneTimeProductOffer class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.deactivate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersList
+
+@dynamic packageName, pageSize, pageToken, productId, purchaseOptionId;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                           productId:(NSString *)productId
+                    purchaseOptionId:(NSString *)purchaseOptionId {
+  NSArray *pathParams = @[
+    @"packageName", @"productId", @"purchaseOptionId"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/oneTimeProducts/{productId}/purchaseOptions/{purchaseOptionId}/offers";
+  GTLRAndroidPublisherQuery_MonetizationOnetimeproductsPurchaseOptionsOffersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.productId = productId;
+  query.purchaseOptionId = purchaseOptionId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListOneTimeProductOffersResponse class];
+  query.loggingName = @"androidpublisher.monetization.onetimeproducts.purchaseOptions.offers.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_MonetizationSubscriptionsArchive
 
 @dynamic packageName, productId;
@@ -2537,6 +3038,55 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_OrdersBatchget
+
+@dynamic orderIds, packageName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"orderIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPackageName:(NSString *)packageName {
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/orders:batchGet";
+  GTLRAndroidPublisherQuery_OrdersBatchget *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_BatchGetOrdersResponse class];
+  query.loggingName = @"androidpublisher.orders.batchget";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_OrdersGet
+
+@dynamic orderId, packageName;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                             orderId:(NSString *)orderId {
+  NSArray *pathParams = @[
+    @"orderId", @"packageName"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/orders/{orderId}";
+  GTLRAndroidPublisherQuery_OrdersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.orderId = orderId;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Order class];
+  query.loggingName = @"androidpublisher.orders.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_OrdersRefund
 
 @dynamic orderId, packageName, revoke;
@@ -2635,6 +3185,29 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
   query.token = token;
   query.expectedObjectClass = [GTLRAndroidPublisher_ProductPurchase class];
   query.loggingName = @"androidpublisher.purchases.products.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_PurchasesProductsv2Getproductpurchasev2
+
+@dynamic packageName, token;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                               token:(NSString *)token {
+  NSArray *pathParams = @[
+    @"packageName", @"token"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/productsv2/tokens/{token}";
+  GTLRAndroidPublisherQuery_PurchasesProductsv2Getproductpurchasev2 *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.token = token;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ProductPurchaseV2 class];
+  query.loggingName = @"androidpublisher.purchases.productsv2.getproductpurchasev2";
   return query;
 }
 
@@ -2858,7 +3431,8 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @implementation GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList
 
-@dynamic endTime, maxResults, packageName, startIndex, startTime, token, type;
+@dynamic endTime, includeQuantityBasedPartialRefund, maxResults, packageName,
+         startIndex, startTime, token, type;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName {
   NSArray *pathParams = @[ @"packageName" ];

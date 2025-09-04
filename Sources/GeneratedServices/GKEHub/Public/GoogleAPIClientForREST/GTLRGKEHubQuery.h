@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   GKE Hub API (gkehub/v1)
+//   GKE Hub API (gkehub/v2)
 // Documentation:
 //   https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster
 
@@ -28,620 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
-
-@end
-
-/**
- *  Returns all fleets within an organization or a project that the caller has
- *  access to.
- *
- *  Method: gkehub.organizations.locations.fleets.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_OrganizationsLocationsFleetsList : GTLRGKEHubQuery
-
-/**
- *  Optional. The maximum number of fleets to return. The service may return
- *  fewer than this value. If unspecified, at most 200 fleets will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. A page token, received from a previous `ListFleets` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListFleets` must match the call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The organization or project to list for Fleets under, in the
- *  format `organizations/ * /locations/ *` or `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGKEHub_ListFleetsResponse.
- *
- *  Returns all fleets within an organization or a project that the caller has
- *  access to.
- *
- *  @param parent Required. The organization or project to list for Fleets
- *    under, in the format `organizations/ * /locations/ *` or `projects/ *
- *    /locations/ *`.
- *
- *  @return GTLRGKEHubQuery_OrganizationsLocationsFleetsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Adds a new Feature.
- *
- *  Method: gkehub.projects.locations.features.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFeaturesCreate : GTLRGKEHubQuery
-
-/** The ID of the feature to create. */
-@property(nonatomic, copy, nullable) NSString *featureId;
-
-/**
- *  Required. The parent (project and location) where the Feature will be
- *  created. Specified in the format `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  A request ID to identify requests. Specify a unique request ID so that if
- *  you must retry your request, the server will know to ignore the request if
- *  it has already been completed. The server will guarantee that for at least
- *  60 minutes after the first request. For example, consider a situation where
- *  you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, will ignore the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Adds a new Feature.
- *
- *  @param object The @c GTLRGKEHub_Feature to include in the query.
- *  @param parent Required. The parent (project and location) where the Feature
- *    will be created. Specified in the format `projects/ * /locations/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesCreate
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Feature *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Removes a Feature.
- *
- *  Method: gkehub.projects.locations.features.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFeaturesDelete : GTLRGKEHubQuery
-
-/**
- *  If set to true, the delete will ignore any outstanding resources for this
- *  Feature (that is, `FeatureState.has_resources` is set to true). These
- *  resources will NOT be cleaned up or modified in any way.
- */
-@property(nonatomic, assign) BOOL force;
-
-/**
- *  Required. The Feature resource name in the format `projects/ * /locations/ *
- *  /features/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server will guarantee that for
- *  at least 60 minutes after the first request. For example, consider a
- *  situation where you make an initial request and the request times out. If
- *  you make the request again with the same request ID, the server can check if
- *  original operation with the same request ID was received, and if so, will
- *  ignore the second request. This prevents clients from accidentally creating
- *  duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Removes a Feature.
- *
- *  @param name Required. The Feature resource name in the format `projects/ *
- *    /locations/ * /features/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets details of a single Feature.
- *
- *  Method: gkehub.projects.locations.features.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFeaturesGet : GTLRGKEHubQuery
-
-/**
- *  Required. The Feature resource name in the format `projects/ * /locations/ *
- *  /features/ *`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Feature.
- *
- *  Gets details of a single Feature.
- *
- *  @param name Required. The Feature resource name in the format `projects/ *
- *    /locations/ * /features/ *`
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: gkehub.projects.locations.features.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFeaturesGetIamPolicy : GTLRGKEHubQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Lists Features in a given project and location.
- *
- *  Method: gkehub.projects.locations.features.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFeaturesList : GTLRGKEHubQuery
-
-/**
- *  Lists Features that match the filter expression, following the syntax
- *  outlined in https://google.aip.dev/160. Examples: - Feature with the name
- *  "servicemesh" in project "foo-proj": name =
- *  "projects/foo-proj/locations/global/features/servicemesh" - Features that
- *  have a label called `foo`: labels.foo:* - Features that have a label called
- *  `foo` whose value is `bar`: labels.foo = bar
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  One or more fields to compare and use to sort the output. See
- *  https://google.aip.dev/132#ordering.
- */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
-/**
- *  When requesting a 'page' of resources, `page_size` specifies number of
- *  resources to return. If unspecified or set to 0, all resources will be
- *  returned.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Token returned by previous call to `ListFeatures` which specifies the
- *  position in the list from where to continue listing the resources.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent (project and location) where the Features will be
- *  listed. Specified in the format `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGKEHub_ListFeaturesResponse.
- *
- *  Lists Features in a given project and location.
- *
- *  @param parent Required. The parent (project and location) where the Features
- *    will be listed. Specified in the format `projects/ * /locations/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates an existing Feature.
- *
- *  Method: gkehub.projects.locations.features.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFeaturesPatch : GTLRGKEHubQuery
-
-/**
- *  Required. The Feature resource name in the format `projects/ * /locations/ *
- *  /features/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  A request ID to identify requests. Specify a unique request ID so that if
- *  you must retry your request, the server will know to ignore the request if
- *  it has already been completed. The server will guarantee that for at least
- *  60 minutes after the first request. For example, consider a situation where
- *  you make an initial request and the request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, will ignore the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Mask of fields to update.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Updates an existing Feature.
- *
- *  @param object The @c GTLRGKEHub_Feature to include in the query.
- *  @param name Required. The Feature resource name in the format `projects/ *
- *    /locations/ * /features/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesPatch
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Feature *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: gkehub.projects.locations.features.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFeaturesSetIamPolicy : GTLRGKEHubQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRGKEHub_SetIamPolicyRequest to include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: gkehub.projects.locations.features.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFeaturesTestIamPermissions : GTLRGKEHubQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRGKEHub_TestIamPermissionsRequest to include in the
- *    query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Creates a fleet.
- *
- *  Method: gkehub.projects.locations.fleets.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFleetsCreate : GTLRGKEHubQuery
-
-/**
- *  Required. The parent (project and location) where the Fleet will be created.
- *  Specified in the format `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Creates a fleet.
- *
- *  @param object The @c GTLRGKEHub_Fleet to include in the query.
- *  @param parent Required. The parent (project and location) where the Fleet
- *    will be created. Specified in the format `projects/ * /locations/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsCreate
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Fleet *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Removes a Fleet. There must be no memberships remaining in the Fleet.
- *
- *  Method: gkehub.projects.locations.fleets.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFleetsDelete : GTLRGKEHubQuery
-
-/**
- *  Required. The Fleet resource name in the format `projects/ * /locations/ *
- *  /fleets/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Removes a Fleet. There must be no memberships remaining in the Fleet.
- *
- *  @param name Required. The Fleet resource name in the format `projects/ *
- *    /locations/ * /fleets/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns the details of a fleet.
- *
- *  Method: gkehub.projects.locations.fleets.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFleetsGet : GTLRGKEHubQuery
-
-/**
- *  Required. The Fleet resource name in the format `projects/ * /locations/ *
- *  /fleets/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Fleet.
- *
- *  Returns the details of a fleet.
- *
- *  @param name Required. The Fleet resource name in the format `projects/ *
- *    /locations/ * /fleets/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns all fleets within an organization or a project that the caller has
- *  access to.
- *
- *  Method: gkehub.projects.locations.fleets.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFleetsList : GTLRGKEHubQuery
-
-/**
- *  Optional. The maximum number of fleets to return. The service may return
- *  fewer than this value. If unspecified, at most 200 fleets will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. A page token, received from a previous `ListFleets` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListFleets` must match the call that provided the page token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The organization or project to list for Fleets under, in the
- *  format `organizations/ * /locations/ *` or `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGKEHub_ListFleetsResponse.
- *
- *  Returns all fleets within an organization or a project that the caller has
- *  access to.
- *
- *  @param parent Required. The organization or project to list for Fleets
- *    under, in the format `organizations/ * /locations/ *` or `projects/ *
- *    /locations/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a fleet.
- *
- *  Method: gkehub.projects.locations.fleets.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsFleetsPatch : GTLRGKEHubQuery
-
-/**
- *  Output only. The full, unique resource name of this fleet in the format of
- *  `projects/{project}/locations/{location}/fleets/{fleet}`. Each Google Cloud
- *  project can have at most one fleet resource, named "default".
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The fields to be updated;
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Updates a fleet.
- *
- *  @param object The @c GTLRGKEHub_Fleet to include in the query.
- *  @param name Output only. The full, unique resource name of this fleet in the
- *    format of `projects/{project}/locations/{location}/fleets/{fleet}`. Each
- *    Google Cloud project can have at most one fleet resource, named "default".
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsFleetsPatch
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Fleet *)object
-                           name:(NSString *)name;
 
 @end
 
@@ -680,6 +66,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsList : GTLRGKEHubQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -721,535 +113,164 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a MembershipBinding.
+ *  Creates membershipFeature under a given parent.
  *
- *  Method: gkehub.projects.locations.memberships.bindings.create
+ *  Method: gkehub.projects.locations.memberships.features.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsCreate : GTLRGKEHubQuery
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesCreate : GTLRGKEHubQuery
 
-/** Required. The ID to use for the MembershipBinding. */
-@property(nonatomic, copy, nullable) NSString *membershipBindingId;
+/** Required. The ID of the membership_feature to create. */
+@property(nonatomic, copy, nullable) NSString *featureId;
 
 /**
- *  Required. The parent (project and location) where the MembershipBinding will
- *  be created. Specified in the format `projects/ * /locations/ * /memberships/
- *  *`.
+ *  Required. The name of parent where the MembershipFeature will be created.
+ *  Specified in the format `projects/ * /locations/ * /memberships/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Creates a MembershipBinding.
- *
- *  @param object The @c GTLRGKEHub_MembershipBinding to include in the query.
- *  @param parent Required. The parent (project and location) where the
- *    MembershipBinding will be created. Specified in the format `projects/ *
- *    /locations/ * /memberships/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsCreate
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_MembershipBinding *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a MembershipBinding.
- *
- *  Method: gkehub.projects.locations.memberships.bindings.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsDelete : GTLRGKEHubQuery
-
-/**
- *  Required. The MembershipBinding resource name in the format `projects/ *
- *  /locations/ * /memberships/ * /bindings/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Deletes a MembershipBinding.
- *
- *  @param name Required. The MembershipBinding resource name in the format
- *    `projects/ * /locations/ * /memberships/ * /bindings/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns the details of a MembershipBinding.
- *
- *  Method: gkehub.projects.locations.memberships.bindings.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsGet : GTLRGKEHubQuery
-
-/**
- *  Required. The MembershipBinding resource name in the format `projects/ *
- *  /locations/ * /memberships/ * /bindings/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_MembershipBinding.
- *
- *  Returns the details of a MembershipBinding.
- *
- *  @param name Required. The MembershipBinding resource name in the format
- *    `projects/ * /locations/ * /memberships/ * /bindings/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists MembershipBindings.
- *
- *  Method: gkehub.projects.locations.memberships.bindings.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsList : GTLRGKEHubQuery
-
-/**
- *  Optional. Lists MembershipBindings that match the filter expression,
- *  following the syntax outlined in https://google.aip.dev/160.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Optional. When requesting a 'page' of resources, `page_size` specifies
- *  number of resources to return. If unspecified or set to 0, all resources
- *  will be returned.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. Token returned by previous call to `ListMembershipBindings` which
- *  specifies the position in the list from where to continue listing the
- *  resources.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent Membership for which the MembershipBindings will be
- *  listed. Specified in the format `projects/ * /locations/ * /memberships/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGKEHub_ListMembershipBindingsResponse.
- *
- *  Lists MembershipBindings.
- *
- *  @param parent Required. The parent Membership for which the
- *    MembershipBindings will be listed. Specified in the format `projects/ *
- *    /locations/ * /memberships/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a MembershipBinding.
- *
- *  Method: gkehub.projects.locations.memberships.bindings.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsPatch : GTLRGKEHubQuery
-
-/**
- *  The resource name for the membershipbinding itself
- *  `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The fields to be updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Updates a MembershipBinding.
- *
- *  @param object The @c GTLRGKEHub_MembershipBinding to include in the query.
- *  @param name The resource name for the membershipbinding itself
- *    `projects/{project}/locations/{location}/memberships/{membership}/bindings/{membershipbinding}`
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsBindingsPatch
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_MembershipBinding *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Creates a new Membership. **This is currently only supported for GKE
- *  clusters on Google Cloud**. To register other clusters, follow the
- *  instructions at
- *  https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster.
- *
- *  Method: gkehub.projects.locations.memberships.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsCreate : GTLRGKEHubQuery
-
-/**
- *  Required. Client chosen ID for the membership. `membership_id` must be a
- *  valid RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It
- *  must consist of lower case alphanumeric characters or `-` 3. It must start
- *  and end with an alphanumeric character Which can be expressed as the regex:
- *  `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters.
- */
-@property(nonatomic, copy, nullable) NSString *membershipId;
-
-/**
- *  Required. The parent (project and location) where the Memberships will be
- *  created. Specified in the format `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server will guarantee that for
- *  at least 60 minutes after the first request. For example, consider a
- *  situation where you make an initial request and the request times out. If
- *  you make the request again with the same request ID, the server can check if
- *  original operation with the same request ID was received, and if so, will
- *  ignore the second request. This prevents clients from accidentally creating
- *  duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
- */
+/** Idempotent request UUID. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRGKEHub_Operation.
  *
- *  Creates a new Membership. **This is currently only supported for GKE
- *  clusters on Google Cloud**. To register other clusters, follow the
- *  instructions at
- *  https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster.
+ *  Creates membershipFeature under a given parent.
  *
- *  @param object The @c GTLRGKEHub_Membership to include in the query.
- *  @param parent Required. The parent (project and location) where the
- *    Memberships will be created. Specified in the format `projects/ *
- *    /locations/ *`.
+ *  @param object The @c GTLRGKEHub_MembershipFeature to include in the query.
+ *  @param parent Required. The name of parent where the MembershipFeature will
+ *    be created. Specified in the format `projects/ * /locations/ *
+ *    /memberships/ *`.
  *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsCreate
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesCreate
  */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Membership *)object
++ (instancetype)queryWithObject:(GTLRGKEHub_MembershipFeature *)object
                          parent:(NSString *)parent;
 
 @end
 
 /**
- *  Removes a Membership. **This is currently only supported for GKE clusters on
- *  Google Cloud**. To unregister other clusters, follow the instructions at
- *  https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster.
+ *  Removes a membershipFeature.
  *
- *  Method: gkehub.projects.locations.memberships.delete
+ *  Method: gkehub.projects.locations.memberships.features.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsDelete : GTLRGKEHubQuery
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesDelete : GTLRGKEHubQuery
 
 /**
- *  Optional. If set to true, any subresource from this Membership will also be
- *  deleted. Otherwise, the request will only work if the Membership has no
- *  subresource.
- */
-@property(nonatomic, assign) BOOL force;
-
-/**
- *  Required. The Membership resource name in the format `projects/ *
- *  /locations/ * /memberships/ *`.
+ *  Required. The name of the membershipFeature to be deleted. Specified in the
+ *  format `projects/ * /locations/ * /memberships/ * /features/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server will guarantee that for
- *  at least 60 minutes after the first request. For example, consider a
- *  situation where you make an initial request and the request times out. If
- *  you make the request again with the same request ID, the server can check if
- *  original operation with the same request ID was received, and if so, will
- *  ignore the second request. This prevents clients from accidentally creating
- *  duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
- */
+/** Idempotent request UUID. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRGKEHub_Operation.
  *
- *  Removes a Membership. **This is currently only supported for GKE clusters on
- *  Google Cloud**. To unregister other clusters, follow the instructions at
- *  https://cloud.google.com/anthos/multicluster-management/connect/unregistering-a-cluster.
+ *  Removes a membershipFeature.
  *
- *  @param name Required. The Membership resource name in the format `projects/
- *    * /locations/ * /memberships/ *`.
+ *  @param name Required. The name of the membershipFeature to be deleted.
+ *    Specified in the format `projects/ * /locations/ * /memberships/ *
+ *    /features/ *`.
  *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsDelete
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Generates the manifest for deployment of the GKE connect agent. **This
- *  method is used internally by Google-provided libraries.** Most clients
- *  should not need to call this method directly.
+ *  ========= MembershipFeature Services ========= Gets details of a
+ *  membershipFeature.
  *
- *  Method: gkehub.projects.locations.memberships.generateConnectManifest
+ *  Method: gkehub.projects.locations.memberships.features.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsGenerateConnectManifest : GTLRGKEHubQuery
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesGet : GTLRGKEHubQuery
 
 /**
- *  Optional. The image pull secret content for the registry, if not public.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *imagePullSecretContent;
-
-/**
- *  Optional. If true, generate the resources for upgrade only. Some resources
- *  generated only for installation (e.g. secrets) will be excluded.
- */
-@property(nonatomic, assign) BOOL isUpgrade;
-
-/**
- *  Required. The Membership resource name the Agent will associate with, in the
- *  format `projects/ * /locations/ * /memberships/ *`.
+ *  Required. The MembershipFeature resource name in the format `projects/ *
+ *  /locations/ * /memberships/ * /features/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Namespace for GKE Connect agent resources. Defaults to
- *  `gke-connect`. The Connect Agent is authorized automatically when run in the
- *  default namespace. Otherwise, explicit authorization must be granted with an
- *  additional IAM binding.
+ *  Fetches a @c GTLRGKEHub_MembershipFeature.
  *
- *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
- */
-@property(nonatomic, copy, nullable) NSString *namespaceProperty;
-
-/**
- *  Optional. URI of a proxy if connectivity from the agent to
- *  gkeconnect.googleapis.com requires the use of a proxy. Format must be in the
- *  form `http(s)://{proxy_address}`, depending on the HTTP/HTTPS protocol
- *  supported by the proxy. This will direct the connect agent's outbound
- *  traffic through a HTTP(S) proxy.
+ *  ========= MembershipFeature Services ========= Gets details of a
+ *  membershipFeature.
  *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *proxy;
-
-/**
- *  Optional. The registry to fetch the connect agent image from. Defaults to
- *  gcr.io/gkeconnect.
- */
-@property(nonatomic, copy, nullable) NSString *registry;
-
-/**
- *  Optional. The Connect agent version to use. Defaults to the most current
- *  version.
- */
-@property(nonatomic, copy, nullable) NSString *version;
-
-/**
- *  Fetches a @c GTLRGKEHub_GenerateConnectManifestResponse.
+ *  @param name Required. The MembershipFeature resource name in the format
+ *    `projects/ * /locations/ * /memberships/ * /features/ *`.
  *
- *  Generates the manifest for deployment of the GKE connect agent. **This
- *  method is used internally by Google-provided libraries.** Most clients
- *  should not need to call this method directly.
- *
- *  @param name Required. The Membership resource name the Agent will associate
- *    with, in the format `projects/ * /locations/ * /memberships/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsGenerateConnectManifest
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Gets the details of a Membership.
+ *  Lists MembershipFeatures in a given project and location.
  *
- *  Method: gkehub.projects.locations.memberships.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsGet : GTLRGKEHubQuery
-
-/**
- *  Required. The Membership resource name in the format `projects/ *
- *  /locations/ * /memberships/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Membership.
- *
- *  Gets the details of a Membership.
- *
- *  @param name Required. The Membership resource name in the format `projects/
- *    * /locations/ * /memberships/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: gkehub.projects.locations.memberships.getIamPolicy
+ *  Method: gkehub.projects.locations.memberships.features.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsGetIamPolicy : GTLRGKEHubQuery
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesList : GTLRGKEHubQuery
 
 /**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Lists Memberships in a given project and location.
- *
- *  Method: gkehub.projects.locations.memberships.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsList : GTLRGKEHubQuery
-
-/**
- *  Optional. Lists Memberships that match the filter expression, following the
- *  syntax outlined in https://google.aip.dev/160. Examples: - Name is `bar` in
- *  project `foo-proj` and location `global`: name =
- *  "projects/foo-proj/locations/global/membership/bar" - Memberships that have
- *  a label called `foo`: labels.foo:* - Memberships that have a label called
- *  `foo` whose value is `bar`: labels.foo = bar - Memberships in the CREATING
- *  state: state = CREATING
+ *  Lists MembershipFeatures that match the filter expression, following the
+ *  syntax outlined in https://google.aip.dev/160. Examples: - Feature with the
+ *  name "helloworld" in project "foo-proj" and membership "member-bar": name =
+ *  "projects/foo-proj/locations/global/memberships/member-bar/features/helloworld"
+ *  - Features that have a label called `foo`: labels.foo:* - Features that have
+ *  a label called `foo` whose value is `bar`: labels.foo = bar
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. One or more fields to compare and use to sort the output. See
+ *  One or more fields to compare and use to sort the output. See
  *  https://google.aip.dev/132#ordering.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. When requesting a 'page' of resources, `page_size` specifies
- *  number of resources to return. If unspecified or set to 0, all resources
- *  will be returned.
+ *  When requesting a 'page' of resources, `page_size` specifies number of
+ *  resources to return. If unspecified or set to 0, all resources will be
+ *  returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. Token returned by previous call to `ListMemberships` which
- *  specifies the position in the list from where to continue listing the
- *  resources.
+ *  Token returned by previous call to `ListFeatures` which specifies the
+ *  position in the list from where to continue listing the resources.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent (project and location) where the Memberships will be
- *  listed. Specified in the format `projects/ * /locations/ *`. `projects/ *
- *  /locations/-` list memberships in all the regions.
+ *  Required. The parent where the MembershipFeature will be listed. In the
+ *  format: `projects/ * /locations/ * /memberships/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c GTLRGKEHub_ListMembershipsResponse.
+ *  Fetches a @c GTLRGKEHub_ListMembershipFeaturesResponse.
  *
- *  Lists Memberships in a given project and location.
+ *  Lists MembershipFeatures in a given project and location.
  *
- *  @param parent Required. The parent (project and location) where the
- *    Memberships will be listed. Specified in the format `projects/ *
- *    /locations/ *`. `projects/ * /locations/-` list memberships in all the
- *    regions.
+ *  @param parent Required. The parent where the MembershipFeature will be
+ *    listed. In the format: `projects/ * /locations/ * /memberships/ *`.
  *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsList
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1260,34 +281,31 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing Membership.
+ *  Updates an existing MembershipFeature.
  *
- *  Method: gkehub.projects.locations.memberships.patch
+ *  Method: gkehub.projects.locations.memberships.features.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsPatch : GTLRGKEHubQuery
+@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesPatch : GTLRGKEHubQuery
 
 /**
- *  Required. The Membership resource name in the format `projects/ *
- *  /locations/ * /memberships/ *`.
+ *  Optional. If set to true, and the MembershipFeature is not found, a new
+ *  MembershipFeature will be created. In this situation, `update_mask` is
+ *  ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Output only. The resource name of the membershipFeature, in the format:
+ *  `projects/{project}/locations/{location}/memberships/{membership}/features/{feature}`.
+ *  Note that `membershipFeatures` is shortened to `features` in the resource
+ *  name. (see http://go/aip/122#collection-identifiers)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server will guarantee that for
- *  at least 60 minutes after the first request. For example, consider a
- *  situation where you make an initial request and the request times out. If
- *  you make the request again with the same request ID, the server can check if
- *  original operation with the same request ID was received, and if so, will
- *  ignore the second request. This prevents clients from accidentally creating
- *  duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
- */
+/** Idempotent request UUID. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
@@ -1300,99 +318,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGKEHub_Operation.
  *
- *  Updates an existing Membership.
+ *  Updates an existing MembershipFeature.
  *
- *  @param object The @c GTLRGKEHub_Membership to include in the query.
- *  @param name Required. The Membership resource name in the format `projects/
- *    * /locations/ * /memberships/ *`.
+ *  @param object The @c GTLRGKEHub_MembershipFeature to include in the query.
+ *  @param name Output only. The resource name of the membershipFeature, in the
+ *    format:
+ *    `projects/{project}/locations/{location}/memberships/{membership}/features/{feature}`.
+ *    Note that `membershipFeatures` is shortened to `features` in the resource
+ *    name. (see http://go/aip/122#collection-identifiers)
  *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsPatch
+ *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsFeaturesPatch
  */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Membership *)object
++ (instancetype)queryWithObject:(GTLRGKEHub_MembershipFeature *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: gkehub.projects.locations.memberships.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsSetIamPolicy : GTLRGKEHubQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRGKEHub_SetIamPolicyRequest to include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: gkehub.projects.locations.memberships.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsMembershipsTestIamPermissions : GTLRGKEHubQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRGKEHub_TestIamPermissionsRequest to include in the
- *    query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsMembershipsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -1404,7 +342,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  Method: gkehub.projects.locations.operations.cancel
@@ -1427,7 +365,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  other methods to check whether the cancellation succeeded or whether the
  *  operation completed despite cancellation. On successful cancellation, the
  *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
  *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRGKEHub_CancelOperationRequest to include in the
@@ -1438,38 +376,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRGKEHub_CancelOperationRequest *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  Method: gkehub.projects.locations.operations.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsOperationsDelete : GTLRGKEHubQuery
-
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Empty.
- *
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  @param name The name of the operation resource to be deleted.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsOperationsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1541,703 +447,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Creates a Scope.
- *
- *  Method: gkehub.projects.locations.scopes.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesCreate : GTLRGKEHubQuery
-
-/**
- *  Required. The parent (project and location) where the Scope will be created.
- *  Specified in the format `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/** Required. Client chosen ID for the Scope. `scope_id` must be a ???? */
-@property(nonatomic, copy, nullable) NSString *scopeId;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Creates a Scope.
- *
- *  @param object The @c GTLRGKEHub_Scope to include in the query.
- *  @param parent Required. The parent (project and location) where the Scope
- *    will be created. Specified in the format `projects/ * /locations/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesCreate
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Scope *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a Scope.
- *
- *  Method: gkehub.projects.locations.scopes.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesDelete : GTLRGKEHubQuery
-
-/**
- *  Required. The Scope resource name in the format `projects/ * /locations/ *
- *  /scopes/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Deletes a Scope.
- *
- *  @param name Required. The Scope resource name in the format `projects/ *
- *    /locations/ * /scopes/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns the details of a Scope.
- *
- *  Method: gkehub.projects.locations.scopes.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesGet : GTLRGKEHubQuery
-
-/**
- *  Required. The Scope resource name in the format `projects/ * /locations/ *
- *  /scopes/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Scope.
- *
- *  Returns the details of a Scope.
- *
- *  @param name Required. The Scope resource name in the format `projects/ *
- *    /locations/ * /scopes/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: gkehub.projects.locations.scopes.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesGetIamPolicy : GTLRGKEHubQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Lists Scopes.
- *
- *  Method: gkehub.projects.locations.scopes.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesList : GTLRGKEHubQuery
-
-/**
- *  Optional. When requesting a 'page' of resources, `page_size` specifies
- *  number of resources to return. If unspecified or set to 0, all resources
- *  will be returned.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. Token returned by previous call to `ListScopes` which specifies
- *  the position in the list from where to continue listing the resources.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent (project and location) where the Scope will be listed.
- *  Specified in the format `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGKEHub_ListScopesResponse.
- *
- *  Lists Scopes.
- *
- *  @param parent Required. The parent (project and location) where the Scope
- *    will be listed. Specified in the format `projects/ * /locations/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates a fleet namespace.
- *
- *  Method: gkehub.projects.locations.scopes.namespaces.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesCreate : GTLRGKEHubQuery
-
-/**
- *  Required. The parent (project and location) where the Namespace will be
- *  created. Specified in the format `projects/ * /locations/ * /scopes/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Required. Client chosen ID for the Namespace. `namespace_id` must be a valid
- *  RFC 1123 compliant DNS label: 1. At most 63 characters in length 2. It must
- *  consist of lower case alphanumeric characters or `-` 3. It must start and
- *  end with an alphanumeric character Which can be expressed as the regex:
- *  `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63 characters.
- */
-@property(nonatomic, copy, nullable) NSString *scopeNamespaceId;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Creates a fleet namespace.
- *
- *  @param object The @c GTLRGKEHub_Namespace to include in the query.
- *  @param parent Required. The parent (project and location) where the
- *    Namespace will be created. Specified in the format `projects/ *
- *    /locations/ * /scopes/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesCreate
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Namespace *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a fleet namespace.
- *
- *  Method: gkehub.projects.locations.scopes.namespaces.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesDelete : GTLRGKEHubQuery
-
-/**
- *  Required. The Namespace resource name in the format `projects/ * /locations/
- *  * /scopes/ * /namespaces/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Deletes a fleet namespace.
- *
- *  @param name Required. The Namespace resource name in the format `projects/ *
- *    /locations/ * /scopes/ * /namespaces/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns the details of a fleet namespace.
- *
- *  Method: gkehub.projects.locations.scopes.namespaces.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesGet : GTLRGKEHubQuery
-
-/**
- *  Required. The Namespace resource name in the format `projects/ * /locations/
- *  * /scopes/ * /namespaces/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Namespace.
- *
- *  Returns the details of a fleet namespace.
- *
- *  @param name Required. The Namespace resource name in the format `projects/ *
- *    /locations/ * /scopes/ * /namespaces/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists fleet namespaces.
- *
- *  Method: gkehub.projects.locations.scopes.namespaces.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesList : GTLRGKEHubQuery
-
-/**
- *  Optional. When requesting a 'page' of resources, `page_size` specifies
- *  number of resources to return. If unspecified or set to 0, all resources
- *  will be returned.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. Token returned by previous call to `ListFeatures` which specifies
- *  the position in the list from where to continue listing the resources.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent (project and location) where the Features will be
- *  listed. Specified in the format `projects/ * /locations/ * /scopes/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGKEHub_ListScopeNamespacesResponse.
- *
- *  Lists fleet namespaces.
- *
- *  @param parent Required. The parent (project and location) where the Features
- *    will be listed. Specified in the format `projects/ * /locations/ *
- *    /scopes/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a fleet namespace.
- *
- *  Method: gkehub.projects.locations.scopes.namespaces.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesPatch : GTLRGKEHubQuery
-
-/**
- *  The resource name for the namespace
- *  `projects/{project}/locations/{location}/namespaces/{namespace}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The fields to be updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Updates a fleet namespace.
- *
- *  @param object The @c GTLRGKEHub_Namespace to include in the query.
- *  @param name The resource name for the namespace
- *    `projects/{project}/locations/{location}/namespaces/{namespace}`
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesNamespacesPatch
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Namespace *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Updates a scopes.
- *
- *  Method: gkehub.projects.locations.scopes.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesPatch : GTLRGKEHubQuery
-
-/**
- *  The resource name for the scope
- *  `projects/{project}/locations/{location}/scopes/{scope}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The fields to be updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Updates a scopes.
- *
- *  @param object The @c GTLRGKEHub_Scope to include in the query.
- *  @param name The resource name for the scope
- *    `projects/{project}/locations/{location}/scopes/{scope}`
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesPatch
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_Scope *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Creates a Scope RBACRoleBinding.
- *
- *  Method: gkehub.projects.locations.scopes.rbacrolebindings.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsCreate : GTLRGKEHubQuery
-
-/**
- *  Required. The parent (project and location) where the RBACRoleBinding will
- *  be created. Specified in the format `projects/ * /locations/ * /scopes/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Required. Client chosen ID for the RBACRoleBinding. `rbacrolebinding_id`
- *  must be a valid RFC 1123 compliant DNS label: 1. At most 63 characters in
- *  length 2. It must consist of lower case alphanumeric characters or `-` 3. It
- *  must start and end with an alphanumeric character Which can be expressed as
- *  the regex: `[a-z0-9]([-a-z0-9]*[a-z0-9])?`, with a maximum length of 63
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *rbacrolebindingId;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Creates a Scope RBACRoleBinding.
- *
- *  @param object The @c GTLRGKEHub_RBACRoleBinding to include in the query.
- *  @param parent Required. The parent (project and location) where the
- *    RBACRoleBinding will be created. Specified in the format `projects/ *
- *    /locations/ * /scopes/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsCreate
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_RBACRoleBinding *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes a Scope RBACRoleBinding.
- *
- *  Method: gkehub.projects.locations.scopes.rbacrolebindings.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsDelete : GTLRGKEHubQuery
-
-/**
- *  Required. The RBACRoleBinding resource name in the format `projects/ *
- *  /locations/ * /scopes/ * /rbacrolebindings/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Deletes a Scope RBACRoleBinding.
- *
- *  @param name Required. The RBACRoleBinding resource name in the format
- *    `projects/ * /locations/ * /scopes/ * /rbacrolebindings/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns the details of a Scope RBACRoleBinding.
- *
- *  Method: gkehub.projects.locations.scopes.rbacrolebindings.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsGet : GTLRGKEHubQuery
-
-/**
- *  Required. The RBACRoleBinding resource name in the format `projects/ *
- *  /locations/ * /scopes/ * /rbacrolebindings/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGKEHub_RBACRoleBinding.
- *
- *  Returns the details of a Scope RBACRoleBinding.
- *
- *  @param name Required. The RBACRoleBinding resource name in the format
- *    `projects/ * /locations/ * /scopes/ * /rbacrolebindings/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists all Scope RBACRoleBindings.
- *
- *  Method: gkehub.projects.locations.scopes.rbacrolebindings.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsList : GTLRGKEHubQuery
-
-/**
- *  Optional. When requesting a 'page' of resources, `page_size` specifies
- *  number of resources to return. If unspecified or set to 0, all resources
- *  will be returned.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. Token returned by previous call to `ListScopeRBACRoleBindings`
- *  which specifies the position in the list from where to continue listing the
- *  resources.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The parent (project and location) where the Features will be
- *  listed. Specified in the format `projects/ * /locations/ * /scopes/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGKEHub_ListScopeRBACRoleBindingsResponse.
- *
- *  Lists all Scope RBACRoleBindings.
- *
- *  @param parent Required. The parent (project and location) where the Features
- *    will be listed. Specified in the format `projects/ * /locations/ *
- *    /scopes/ *`.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates a Scope RBACRoleBinding.
- *
- *  Method: gkehub.projects.locations.scopes.rbacrolebindings.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsPatch : GTLRGKEHubQuery
-
-/**
- *  The resource name for the rbacrolebinding
- *  `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}`
- *  or
- *  `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The fields to be updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGKEHub_Operation.
- *
- *  Updates a Scope RBACRoleBinding.
- *
- *  @param object The @c GTLRGKEHub_RBACRoleBinding to include in the query.
- *  @param name The resource name for the rbacrolebinding
- *    `projects/{project}/locations/{location}/scopes/{scope}/rbacrolebindings/{rbacrolebinding}`
- *    or
- *    `projects/{project}/locations/{location}/memberships/{membership}/rbacrolebindings/{rbacrolebinding}`
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesRbacrolebindingsPatch
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_RBACRoleBinding *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: gkehub.projects.locations.scopes.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesSetIamPolicy : GTLRGKEHubQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRGKEHub_SetIamPolicyRequest to include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: gkehub.projects.locations.scopes.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGKEHubCloudPlatform
- */
-@interface GTLRGKEHubQuery_ProjectsLocationsScopesTestIamPermissions : GTLRGKEHubQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRGKEHub_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRGKEHub_TestIamPermissionsRequest to include in the
- *    query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRGKEHubQuery_ProjectsLocationsScopesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRGKEHub_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 

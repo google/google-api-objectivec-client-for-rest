@@ -343,9 +343,9 @@
 //
 
 @implementation GTLRDiscovery_RestMethod
-@dynamic deprecated, descriptionProperty, etagRequired, flatPath, httpMethod,
-         identifier, mediaUpload, parameterOrder, parameters, path, request,
-         response, scopes, supportsMediaDownload, supportsMediaUpload,
+@dynamic apiVersion, deprecated, descriptionProperty, etagRequired, flatPath,
+         httpMethod, identifier, mediaUpload, parameterOrder, parameters, path,
+         request, response, scopes, supportsMediaDownload, supportsMediaUpload,
          supportsSubscription, useMediaDownloadService;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

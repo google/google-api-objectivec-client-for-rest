@@ -18,7 +18,11 @@
 
 @class GTLRServiceUsage_AdminQuotaPolicy;
 @class GTLRServiceUsage_AdminQuotaPolicy_Dimensions;
+@class GTLRServiceUsage_Analysis;
+@class GTLRServiceUsage_AnalysisResult;
 @class GTLRServiceUsage_Api;
+@class GTLRServiceUsage_Aspect;
+@class GTLRServiceUsage_Aspect_Spec;
 @class GTLRServiceUsage_Authentication;
 @class GTLRServiceUsage_AuthenticationRule;
 @class GTLRServiceUsage_AuthProvider;
@@ -26,6 +30,9 @@
 @class GTLRServiceUsage_Backend;
 @class GTLRServiceUsage_BackendRule;
 @class GTLRServiceUsage_BackendRule_OverridesByRequestProtocol;
+@class GTLRServiceUsage_BatchingConfigProto;
+@class GTLRServiceUsage_BatchingDescriptorProto;
+@class GTLRServiceUsage_BatchingSettingsProto;
 @class GTLRServiceUsage_Billing;
 @class GTLRServiceUsage_BillingDestination;
 @class GTLRServiceUsage_ClientLibrarySettings;
@@ -48,6 +55,7 @@
 @class GTLRServiceUsage_Endpoint;
 @class GTLRServiceUsage_Enum;
 @class GTLRServiceUsage_EnumValue;
+@class GTLRServiceUsage_ExperimentalFeatures;
 @class GTLRServiceUsage_Field;
 @class GTLRServiceUsage_FieldPolicy;
 @class GTLRServiceUsage_GoogleApiServiceusageV1beta1ServiceIdentity;
@@ -55,9 +63,16 @@
 @class GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig;
 @class GTLRServiceUsage_GoogleApiServiceusageV2alphaConsumerPolicy_Annotations;
 @class GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaImpact;
 @class GTLRServiceUsage_GoSettings;
+@class GTLRServiceUsage_GoSettings_RenamedServices;
 @class GTLRServiceUsage_Http;
 @class GTLRServiceUsage_HttpRule;
+@class GTLRServiceUsage_Impact;
 @class GTLRServiceUsage_JavaSettings;
 @class GTLRServiceUsage_JavaSettings_ServiceClassNames;
 @class GTLRServiceUsage_JwtLocation;
@@ -94,6 +109,7 @@
 @class GTLRServiceUsage_QuotaOverride;
 @class GTLRServiceUsage_QuotaOverride_Dimensions;
 @class GTLRServiceUsage_RubySettings;
+@class GTLRServiceUsage_SelectiveGapicGeneration;
 @class GTLRServiceUsage_ServiceIdentity;
 @class GTLRServiceUsage_SourceContext;
 @class GTLRServiceUsage_SourceInfo;
@@ -116,6 +132,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_Analysis.analysisType
+
+/**
+ *  The analysis of service dependencies.
+ *
+ *  Value: "ANALYSIS_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeDependency;
+/**
+ *  The analysis of service resource existence.
+ *
+ *  Value: "ANALYSIS_TYPE_RESOURCE_EXISTENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceExistence;
+/**
+ *  The analysis of service resource usage.
+ *
+ *  Value: "ANALYSIS_TYPE_RESOURCE_USAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceUsage;
+/**
+ *  Unspecified analysis type. Do not use.
+ *
+ *  Value: "ANALYSIS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_Api.syntax
@@ -174,6 +218,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_ConstantAddress;
 /** Value: "PATH_TRANSLATION_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BackendRule_PathTranslation_PathTranslationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_BatchingSettingsProto.flowControlLimitExceededBehavior
+
+/**
+ *  Pause operation until limit clears.
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block;
+/**
+ *  Continue operation, disregard limit.
+ *
+ *  Value: "IGNORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore;
+/**
+ *  Stop operation, raise error.
+ *
+ *  Value: "THROW_EXCEPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException;
+/**
+ *  Default behavior, system-defined.
+ *
+ *  Value: "UNSET_BEHAVIOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior;
 
 // ----------------------------------------------------------------------------
 // GTLRServiceUsage_ClientLibrarySettings.launchStage
@@ -555,6 +627,71 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Serv
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV1Service_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis.analysisType
+
+/**
+ *  The analysis of service dependencies.
+ *
+ *  Value: "ANALYSIS_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeDependency;
+/**
+ *  The analysis of service resource usage.
+ *
+ *  Value: "ANALYSIS_TYPE_RESOURCE_USAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeResourceUsage;
+/**
+ *  Unspecified analysis type. Do not use.
+ *
+ *  Value: "ANALYSIS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_GoogleApiServiceusageV2betaImpact.impactType
+
+/**
+ *  Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY
+ *
+ *  Value: "DEPENDENCY_MISSING_DEPENDENCIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_DependencyMissingDependencies;
+/**
+ *  Reserved Blocks (Block n contains codes from 100n to 100(n+1) -1 Block 0 -
+ *  Special/Admin codes Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY Block
+ *  2 - Impact Type of ANALYSIS_TYPE_RESOURCE_USAGE ...
+ *
+ *  Value: "IMPACT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_ImpactTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRServiceUsage_Impact.impactType
+
+/**
+ *  Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY
+ *
+ *  Value: "DEPENDENCY_MISSING_DEPENDENCIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies;
+/**
+ *  Reserved Blocks (Block n contains codes from 100n to 100(n+1) -1 Block 0 -
+ *  Special/Admin codes Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY Block
+ *  2 - Impact Type of ANALYSIS_TYPE_RESOURCE_USAGE Block 3 - Impact Type of
+ *  ANALYSIS_TYPE_RESOURCE_EXISTENCE ...
+ *
+ *  Value: "IMPACT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified;
+/**
+ *  Block 3 - Impact Type of ANALYSIS_TYPE_RESOURCE_EXISTENCE
+ *
+ *  Value: "RESOURCE_EXISTENCE_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Impact_ImpactType_ResourceExistenceProject;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceUsage_LabelDescriptor.valueType
 
 /**
@@ -822,6 +959,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_La
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRServiceUsage_MetricDescriptorMetadata.timeSeriesResourceHierarchyLevel
+
+/**
+ *  Scopes a metric to a folder.
+ *
+ *  Value: "FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Folder;
+/**
+ *  Scopes a metric to an organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Organization;
+/**
+ *  Scopes a metric to a project.
+ *
+ *  Value: "PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_Project;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_MetricDescriptorMetadata_TimeSeriesResourceHierarchyLevel_TimeSeriesResourceHierarchyLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRServiceUsage_MonitoredResourceDescriptor.launchStage
 
 /**
@@ -1068,6 +1233,87 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  A message to group the analysis information.
+ */
+@interface GTLRServiceUsage_Analysis : GTLRObject
+
+/** Output only. Analysis result of updating a policy. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_AnalysisResult *analysis;
+
+/**
+ *  Output only. The type of analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeDependency The
+ *        analysis of service dependencies. (Value: "ANALYSIS_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceExistence
+ *        The analysis of service resource existence. (Value:
+ *        "ANALYSIS_TYPE_RESOURCE_EXISTENCE")
+ *    @arg @c kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeResourceUsage
+ *        The analysis of service resource usage. (Value:
+ *        "ANALYSIS_TYPE_RESOURCE_USAGE")
+ *    @arg @c kGTLRServiceUsage_Analysis_AnalysisType_AnalysisTypeUnspecified
+ *        Unspecified analysis type. Do not use. (Value:
+ *        "ANALYSIS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *analysisType;
+
+/**
+ *  Output only. The user friendly display name of the analysis type. E.g.
+ *  service dependency analysis, service resource usage analysis, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The names of the service that has analysis result of warnings or blockers.
+ *  Example: `services/storage.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  An analysis result including blockers and warnings.
+ */
+@interface GTLRServiceUsage_AnalysisResult : GTLRObject
+
+/** Blocking information that would prevent the policy changes at runtime. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Impact *> *blockers;
+
+/**
+ *  Warning information indicating that the policy changes might be unsafe, but
+ *  will not block the changes at runtime.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Impact *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata for the `AnalyzeConsumerPolicy` method.
+ */
+@interface GTLRServiceUsage_AnalyzeConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response of analyzing a consumer policy update.
+ */
+@interface GTLRServiceUsage_AnalyzeConsumerPolicyResponse : GTLRObject
+
+/**
+ *  The list of analyses returned from performing the intended policy update
+ *  analysis. The analysis is grouped by service name and different analysis
+ *  types. The empty analysis list means that the consumer policy can be updated
+ *  without any warnings or blockers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Analysis *> *analysis;
+
+@end
+
+
+/**
  *  Api is a light-weight descriptor for an API Interface. Interfaces are also
  *  described as "protocol buffer services" in some contexts, such as by the
  *  "service" keyword in a .proto file, but they are different from API
@@ -1130,6 +1376,37 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
+@end
+
+
+/**
+ *  Aspect represents Generic aspect. It is used to configure an aspect without
+ *  making direct changes to service.proto
+ */
+@interface GTLRServiceUsage_Aspect : GTLRObject
+
+/** The type of this aspect configuration. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Content of the configuration. The underlying schema should be defined by
+ *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Aspect_Spec *spec;
+
+@end
+
+
+/**
+ *  Content of the configuration. The underlying schema should be defined by
+ *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceUsage_Aspect_Spec : GTLRObject
 @end
 
 
@@ -1344,6 +1621,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
 
 /**
+ *  The load balancing policy used for connection to the application backend.
+ *  Defined as an arbitrary string to accomondate custom load balancing policies
+ *  supported by the underlying channel, but suggest most users use one of the
+ *  standard policies, such as the default, "RoundRobin".
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingPolicy;
+
+/**
  *  Deprecated, do not use.
  *
  *  Uses NSNumber of doubleValue.
@@ -1497,6 +1782,125 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** The requested Service states. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV1Service *> *services;
+
+@end
+
+
+/**
+ *  `BatchingConfigProto` defines the batching configuration for an API method.
+ */
+@interface GTLRServiceUsage_BatchingConfigProto : GTLRObject
+
+/** The request and response fields used in batching. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_BatchingDescriptorProto *batchDescriptor;
+
+/** The thresholds which trigger a batched request to be sent. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_BatchingSettingsProto *thresholds;
+
+@end
+
+
+/**
+ *  `BatchingDescriptorProto` specifies the fields of the request message to be
+ *  used for batching, and, optionally, the fields of the response message to be
+ *  used for demultiplexing.
+ */
+@interface GTLRServiceUsage_BatchingDescriptorProto : GTLRObject
+
+/** The repeated field in the request message to be aggregated by batching. */
+@property(nonatomic, copy, nullable) NSString *batchedField;
+
+/**
+ *  A list of the fields in the request message. Two requests will be batched
+ *  together only if the values of every field specified in
+ *  `request_discriminator_fields` is equal between the two requests.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *discriminatorFields;
+
+/**
+ *  Optional. When present, indicates the field in the response message to be
+ *  used to demultiplex the response into multiple response messages, in
+ *  correspondence with the multiple request messages originally batched
+ *  together.
+ */
+@property(nonatomic, copy, nullable) NSString *subresponseField;
+
+@end
+
+
+/**
+ *  `BatchingSettingsProto` specifies a set of batching thresholds, each of
+ *  which acts as a trigger to send a batch of messages as a request. At least
+ *  one threshold must be positive nonzero.
+ */
+@interface GTLRServiceUsage_BatchingSettingsProto : GTLRObject
+
+/**
+ *  The duration after which a batch should be sent, starting from the addition
+ *  of the first message to that batch.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *delayThreshold;
+
+/**
+ *  The maximum number of elements collected in a batch that could be accepted
+ *  by server.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementCountLimit;
+
+/**
+ *  The number of elements of a field collected into a batch which, if exceeded,
+ *  causes the batch to be sent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *elementCountThreshold;
+
+/**
+ *  The maximum size of data allowed by flow control.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowControlByteLimit;
+
+/**
+ *  The maximum number of elements allowed by flow control.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowControlElementLimit;
+
+/**
+ *  The behavior to take when the flow control limit is exceeded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Block
+ *        Pause operation until limit clears. (Value: "BLOCK")
+ *    @arg @c kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_Ignore
+ *        Continue operation, disregard limit. (Value: "IGNORE")
+ *    @arg @c kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_ThrowException
+ *        Stop operation, raise error. (Value: "THROW_EXCEPTION")
+ *    @arg @c kGTLRServiceUsage_BatchingSettingsProto_FlowControlLimitExceededBehavior_UnsetBehavior
+ *        Default behavior, system-defined. (Value: "UNSET_BEHAVIOR")
+ */
+@property(nonatomic, copy, nullable) NSString *flowControlLimitExceededBehavior;
+
+/**
+ *  The maximum size of the request that could be accepted by server.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestByteLimit;
+
+/**
+ *  The aggregated size of the batched field which, if exceeded, causes the
+ *  batch to be sent. This size is computed by aggregating the sizes of the
+ *  request field to be batched, not of the entire request message.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestByteThreshold;
 
 @end
 
@@ -1670,6 +2074,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
 
+/** Configuration for which RPCs should be generated in the GAPIC client. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_SelectiveGapicGeneration *selectiveGapicGeneration;
+
 @end
 
 
@@ -1770,10 +2177,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedResponseExtensions;
 
-/** A list of full type names of provided contexts. */
+/**
+ *  A list of full type names of provided contexts. It is used to support
+ *  propagating HTTP headers and ETags from the response extension.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *provided;
 
-/** A list of full type names of requested contexts. */
+/**
+ *  A list of full type names of requested contexts, only the requested context
+ *  will be made available to the backend.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requested;
 
 /**
@@ -1972,6 +2385,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @interface GTLRServiceUsage_Documentation : GTLRObject
 
+/**
+ *  Optional information about the IAM configuration. This is typically used to
+ *  link to documentation about a product's IAM roles and permissions.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalIamInfo;
+
 /** The URL to the root of documentation. */
 @property(nonatomic, copy, nullable) NSString *documentationRootUrl;
 
@@ -1994,9 +2413,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_DocumentationRule *> *rules;
 
 /**
- *  Specifies section and content to override boilerplate content provided by
- *  go/api-docgen. Currently overrides following sections: 1.
- *  rest.service.client_libraries
+ *  Specifies section and content to override the boilerplate content. Currently
+ *  overrides following sections: 1. rest.service.client_libraries
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Page *> *sectionOverrides;
 
@@ -2039,7 +2457,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  String of comma or space separated case-sensitive words for which
- *  method/field name replacement will be disabled by go/api-docgen.
+ *  method/field name replacement will be disabled.
  */
 @property(nonatomic, copy, nullable) NSString *disableReplacementWords;
 
@@ -2245,12 +2663,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_Endpoint : GTLRObject
 
 /**
- *  Unimplemented. Dot not use. DEPRECATED: This field is no longer supported.
- *  Instead of using aliases, please specify multiple google.api.Endpoint for
- *  each of the intended aliases. Additional names that this endpoint will be
- *  hosted on.
+ *  Aliases for this endpoint, these will be served by the same UrlMap as the
+ *  parent endpoint, and will be provisioned in the GCP stack for the Regional
+ *  Endpoints.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Allowing
@@ -2332,6 +2749,45 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** Protocol buffer options. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Option *> *options;
+
+@end
+
+
+/**
+ *  Experimental features to be included during client library generation. These
+ *  fields will be deprecated once the feature graduates and is enabled by
+ *  default.
+ */
+@interface GTLRServiceUsage_ExperimentalFeatures : GTLRObject
+
+/**
+ *  Enables generation of protobuf code using new types that are more Pythonic
+ *  which are included in `protobuf>=5.29.x`. This feature will be enabled by
+ *  default 1 month after launching the feature in preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protobufPythonicTypesEnabled;
+
+/**
+ *  Enables generation of asynchronous REST clients if `rest` transport is
+ *  enabled. By default, asynchronous REST clients will not be generated. This
+ *  feature will be enabled by default 1 month after launching the feature in
+ *  preview packages.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restAsyncIoEnabled;
+
+/**
+ *  Disables generation of an unversioned Python package for this client
+ *  library. This means that the module names will need to be versioned in
+ *  import statements. For example `import google.cloud.library_v2` instead of
+ *  `import google.cloud.library`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unversionedPackageDisabled;
 
 @end
 
@@ -2540,6 +2996,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  resolved against the associated IDL files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Api *> *apis;
+
+/**
+ *  Configuration aspects. This is a repeated field to allow multiple aspects to
+ *  be configured. The kind field in each ConfigAspect specifies the type of
+ *  aspect. The spec field contains the configuration for that aspect. The
+ *  schema for the spec field is defined by the backend service owners.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Aspect *> *aspects;
 
 /** Auth configuration. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_Authentication *authentication;
@@ -2906,18 +3370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule : GTLRObject
 
 /**
- *  The names of the categories that are enabled. Example:
- *  `categories/googleServices`.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
-
-/**
- *  The names of the service groups that are enabled. Example:
- *  `services/container.googleapis.com/groups/dependencies`.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *groups;
-
-/**
  *  The names of the services that are enabled. Example:
  *  `services/storage.googleapis.com`.
  */
@@ -2934,6 +3386,195 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  A message to group the analysis information.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis : GTLRObject
+
+/** Output only. Analysis result of updating a policy. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult *analysisResult;
+
+/**
+ *  Output only. The type of analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeDependency
+ *        The analysis of service dependencies. (Value:
+ *        "ANALYSIS_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeResourceUsage
+ *        The analysis of service resource usage. (Value:
+ *        "ANALYSIS_TYPE_RESOURCE_USAGE")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis_AnalysisType_AnalysisTypeUnspecified
+ *        Unspecified analysis type. Do not use. (Value:
+ *        "ANALYSIS_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *analysisType;
+
+/**
+ *  Output only. The user friendly display name of the analysis type. E.g.
+ *  service dependency analysis, service resource usage analysis, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The names of the service that has analysis result of warnings or blockers.
+ *  Example: `services/storage.googleapis.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  An analysis result including blockers and warnings.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult : GTLRObject
+
+/** Blocking information that would prevent the policy changes at runtime. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaImpact *> *blockers;
+
+/**
+ *  Warning information indicating that the policy changes might be unsafe, but
+ *  will not block the changes at runtime.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaImpact *> *warnings;
+
+@end
+
+
+/**
+ *  Metadata for the `AnalyzeConsumerPolicy` method.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response of analyzing a consumer policy update.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaAnalyzeConsumerPolicyResponse : GTLRObject
+
+/**
+ *  The list of analyses returned from performing the intended policy update
+ *  analysis. The analysis is grouped by service name and different analysis
+ *  types. The empty analysis list means that the consumer policy can be updated
+ *  without any warnings or blockers.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis *> *analysis;
+
+@end
+
+
+/**
+ *  Consumer Policy is a set of rules that define what services or service
+ *  groups can be used for a cloud resource hierarchy.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy : GTLRObject
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a policy
+ *  that may be set by external tools to store and retrieve arbitrary metadata.
+ *  They are not queryable and should be preserved when modifying objects.
+ *  [AIP-128](https://google.aip.dev/128#annotations)
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations *annotations;
+
+/**
+ *  Output only. The time the policy was created. For singleton policies, this
+ *  is the first touch of the policy.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Enable rules define usable services, groups, and categories. There can
+ *  currently be at most one `EnableRule`. This restriction will be lifted in
+ *  later releases.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule *> *enableRules;
+
+/**
+ *  Output only. An opaque tag indicating the current version of the policy,
+ *  used for concurrency control.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name of the policy. Only the `default` policy is
+ *  supported: `projects/12345/consumerPolicies/default`,
+ *  `folders/12345/consumerPolicies/default`,
+ *  `organizations/12345/consumerPolicies/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time the policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a policy
+ *  that may be set by external tools to store and retrieve arbitrary metadata.
+ *  They are not queryable and should be preserved when modifying objects.
+ *  [AIP-128](https://google.aip.dev/128#annotations)
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations : GTLRObject
+@end
+
+
+/**
+ *  The consumer policy rule that defines enabled services, groups, and
+ *  categories.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule : GTLRObject
+
+/**
+ *  The names of the services that are enabled. Example:
+ *  `services/storage.googleapis.com`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *services;
+
+@end
+
+
+/**
+ *  A message to group impacts of updating a policy.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaImpact : GTLRObject
+
+/** Output only. User friendly impact detail in a free form message. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Output only. The type of impact.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_DependencyMissingDependencies
+ *        Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY (Value:
+ *        "DEPENDENCY_MISSING_DEPENDENCIES")
+ *    @arg @c kGTLRServiceUsage_GoogleApiServiceusageV2betaImpact_ImpactType_ImpactTypeUnspecified
+ *        Reserved Blocks (Block n contains codes from 100n to 100(n+1) -1 Block
+ *        0 - Special/Admin codes Block 1 - Impact Type of
+ *        ANALYSIS_TYPE_DEPENDENCY Block 2 - Impact Type of
+ *        ANALYSIS_TYPE_RESOURCE_USAGE ... (Value: "IMPACT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *impactType;
+
+@end
+
+
+/**
+ *  Metadata for the `UpdateConsumerPolicy` method.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
  *  Settings for Go client libraries.
  */
 @interface GTLRServiceUsage_GoSettings : GTLRObject
@@ -2941,6 +3582,29 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_CommonLanguageSettings *common;
 
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_GoSettings_RenamedServices *renamedServices;
+
+@end
+
+
+/**
+ *  Map of service names to renamed services. Keys are the package relative
+ *  service names and values are the name to be used for the service client and
+ *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  TopicAdmin
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceUsage_GoSettings_RenamedServices : GTLRObject
 @end
 
 
@@ -2971,7 +3635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  # gRPC Transcoding gRPC Transcoding is a feature for mapping between a gRPC
+ *  gRPC Transcoding gRPC Transcoding is a feature for mapping between a gRPC
  *  method and one or more HTTP REST endpoints. It allows developers to build a
  *  single API service that supports both gRPC APIs and REST APIs. Many systems,
  *  including [Google APIs](https://github.com/googleapis/googleapis), [Cloud
@@ -2992,24 +3656,23 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  (Message) { option (google.api.http) = { get: "/v1/{name=messages/ *}" }; }
  *  } message GetMessageRequest { string name = 1; // Mapped to URL path. }
  *  message Message { string text = 1; // The resource content. } This enables
- *  an HTTP REST to gRPC mapping as below: HTTP | gRPC -----|----- `GET
- *  /v1/messages/123456` | `GetMessage(name: "messages/123456")` Any fields in
- *  the request message which are not bound by the path template automatically
- *  become HTTP query parameters if there is no HTTP request body. For example:
- *  service Messaging { rpc GetMessage(GetMessageRequest) returns (Message) {
- *  option (google.api.http) = { get:"/v1/messages/{message_id}" }; } } message
+ *  an HTTP REST to gRPC mapping as below: - HTTP: `GET /v1/messages/123456` -
+ *  gRPC: `GetMessage(name: "messages/123456")` Any fields in the request
+ *  message which are not bound by the path template automatically become HTTP
+ *  query parameters if there is no HTTP request body. For example: service
+ *  Messaging { rpc GetMessage(GetMessageRequest) returns (Message) { option
+ *  (google.api.http) = { get:"/v1/messages/{message_id}" }; } } message
  *  GetMessageRequest { message SubMessage { string subfield = 1; } string
  *  message_id = 1; // Mapped to URL path. int64 revision = 2; // Mapped to URL
  *  query parameter `revision`. SubMessage sub = 3; // Mapped to URL query
  *  parameter `sub.subfield`. } This enables a HTTP JSON to RPC mapping as
- *  below: HTTP | gRPC -----|----- `GET
- *  /v1/messages/123456?revision=2&sub.subfield=foo` | `GetMessage(message_id:
- *  "123456" revision: 2 sub: SubMessage(subfield: "foo"))` Note that fields
- *  which are mapped to URL query parameters must have a primitive type or a
- *  repeated primitive type or a non-repeated message type. In the case of a
- *  repeated type, the parameter can be repeated in the URL as
- *  `...?param=A&param=B`. In the case of a message type, each field of the
- *  message is mapped to a separate parameter, such as
+ *  below: - HTTP: `GET /v1/messages/123456?revision=2&sub.subfield=foo` - gRPC:
+ *  `GetMessage(message_id: "123456" revision: 2 sub: SubMessage(subfield:
+ *  "foo"))` Note that fields which are mapped to URL query parameters must have
+ *  a primitive type or a repeated primitive type or a non-repeated message
+ *  type. In the case of a repeated type, the parameter can be repeated in the
+ *  URL as `...?param=A&param=B`. In the case of a message type, each field of
+ *  the message is mapped to a separate parameter, such as
  *  `...?foo.a=A&foo.b=B&foo.c=C`. For HTTP methods that allow a request body,
  *  the `body` field specifies the mapping. Consider a REST update method on the
  *  message resource collection: service Messaging { rpc
@@ -3018,18 +3681,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  } } message UpdateMessageRequest { string message_id = 1; // mapped to the
  *  URL Message message = 2; // mapped to the body } The following HTTP JSON to
  *  RPC mapping is enabled, where the representation of the JSON in the request
- *  body is determined by protos JSON encoding: HTTP | gRPC -----|----- `PATCH
- *  /v1/messages/123456 { "text": "Hi!" }` | `UpdateMessage(message_id: "123456"
- *  message { text: "Hi!" })` The special name `*` can be used in the body
- *  mapping to define that every field not bound by the path template should be
- *  mapped to the request body. This enables the following alternative
+ *  body is determined by protos JSON encoding: - HTTP: `PATCH
+ *  /v1/messages/123456 { "text": "Hi!" }` - gRPC: `UpdateMessage(message_id:
+ *  "123456" message { text: "Hi!" })` The special name `*` can be used in the
+ *  body mapping to define that every field not bound by the path template
+ *  should be mapped to the request body. This enables the following alternative
  *  definition of the update method: service Messaging { rpc
  *  UpdateMessage(Message) returns (Message) { option (google.api.http) = {
  *  patch: "/v1/messages/{message_id}" body: "*" }; } } message Message { string
  *  message_id = 1; string text = 2; } The following HTTP JSON to RPC mapping is
- *  enabled: HTTP | gRPC -----|----- `PATCH /v1/messages/123456 { "text": "Hi!"
- *  }` | `UpdateMessage(message_id: "123456" text: "Hi!")` Note that when using
- *  `*` in the body mapping, it is not possible to have HTTP parameters, as all
+ *  enabled: - HTTP: `PATCH /v1/messages/123456 { "text": "Hi!" }` - gRPC:
+ *  `UpdateMessage(message_id: "123456" text: "Hi!")` Note that when using `*`
+ *  in the body mapping, it is not possible to have HTTP parameters, as all
  *  fields not bound by the path end in the body. This makes this option more
  *  rarely used in practice when defining REST APIs. The common usage of `*` is
  *  in custom methods which don't use the URL at all for transferring data. It
@@ -3039,35 +3702,35 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  { get: "/v1/messages/{message_id}" additional_bindings { get:
  *  "/v1/users/{user_id}/messages/{message_id}" } }; } } message
  *  GetMessageRequest { string message_id = 1; string user_id = 2; } This
- *  enables the following two alternative HTTP JSON to RPC mappings: HTTP | gRPC
- *  -----|----- `GET /v1/messages/123456` | `GetMessage(message_id: "123456")`
- *  `GET /v1/users/me/messages/123456` | `GetMessage(user_id: "me" message_id:
- *  "123456")` ## Rules for HTTP mapping 1. Leaf request fields (recursive
- *  expansion nested messages in the request message) are classified into three
- *  categories: - Fields referred by the path template. They are passed via the
- *  URL path. - Fields referred by the HttpRule.body. They are passed via the
- *  HTTP request body. - All other fields are passed via the URL query
- *  parameters, and the parameter name is the field path in the request message.
- *  A repeated field can be represented as multiple query parameters under the
- *  same name. 2. If HttpRule.body is "*", there is no URL query parameter, all
- *  fields are passed via URL path and HTTP request body. 3. If HttpRule.body is
- *  omitted, there is no HTTP request body, all fields are passed via URL path
- *  and URL query parameters. ### Path template syntax Template = "/" Segments [
- *  Verb ] ; Segments = Segment { "/" Segment } ; Segment = "*" | "**" | LITERAL
- *  | Variable ; Variable = "{" FieldPath [ "=" Segments ] "}" ; FieldPath =
- *  IDENT { "." IDENT } ; Verb = ":" LITERAL ; The syntax `*` matches a single
- *  URL path segment. The syntax `**` matches zero or more URL path segments,
- *  which must be the last part of the URL path except the `Verb`. The syntax
- *  `Variable` matches part of the URL path as specified by its template. A
- *  variable template must not contain other variables. If a variable matches a
- *  single path segment, its template may be omitted, e.g. `{var}` is equivalent
- *  to `{var=*}`. The syntax `LITERAL` matches literal text in the URL path. If
- *  the `LITERAL` contains any reserved character, such characters should be
- *  percent-encoded before the matching. If a variable contains exactly one path
- *  segment, such as `"{var}"` or `"{var=*}"`, when such a variable is expanded
- *  into a URL path on the client side, all characters except `[-_.~0-9a-zA-Z]`
- *  are percent-encoded. The server side does the reverse decoding. Such
- *  variables show up in the [Discovery
+ *  enables the following two alternative HTTP JSON to RPC mappings: - HTTP:
+ *  `GET /v1/messages/123456` - gRPC: `GetMessage(message_id: "123456")` - HTTP:
+ *  `GET /v1/users/me/messages/123456` - gRPC: `GetMessage(user_id: "me"
+ *  message_id: "123456")` Rules for HTTP mapping 1. Leaf request fields
+ *  (recursive expansion nested messages in the request message) are classified
+ *  into three categories: - Fields referred by the path template. They are
+ *  passed via the URL path. - Fields referred by the HttpRule.body. They are
+ *  passed via the HTTP request body. - All other fields are passed via the URL
+ *  query parameters, and the parameter name is the field path in the request
+ *  message. A repeated field can be represented as multiple query parameters
+ *  under the same name. 2. If HttpRule.body is "*", there is no URL query
+ *  parameter, all fields are passed via URL path and HTTP request body. 3. If
+ *  HttpRule.body is omitted, there is no HTTP request body, all fields are
+ *  passed via URL path and URL query parameters. Path template syntax Template
+ *  = "/" Segments [ Verb ] ; Segments = Segment { "/" Segment } ; Segment = "*"
+ *  | "**" | LITERAL | Variable ; Variable = "{" FieldPath [ "=" Segments ] "}"
+ *  ; FieldPath = IDENT { "." IDENT } ; Verb = ":" LITERAL ; The syntax `*`
+ *  matches a single URL path segment. The syntax `**` matches zero or more URL
+ *  path segments, which must be the last part of the URL path except the
+ *  `Verb`. The syntax `Variable` matches part of the URL path as specified by
+ *  its template. A variable template must not contain other variables. If a
+ *  variable matches a single path segment, its template may be omitted, e.g.
+ *  `{var}` is equivalent to `{var=*}`. The syntax `LITERAL` matches literal
+ *  text in the URL path. If the `LITERAL` contains any reserved character, such
+ *  characters should be percent-encoded before the matching. If a variable
+ *  contains exactly one path segment, such as `"{var}"` or `"{var=*}"`, when
+ *  such a variable is expanded into a URL path on the client side, all
+ *  characters except `[-_.~0-9a-zA-Z]` are percent-encoded. The server side
+ *  does the reverse decoding. Such variables show up in the [Discovery
  *  Document](https://developers.google.com/discovery/v1/reference/apis) as
  *  `{var}`. If a variable contains multiple path segments, such as `"{var=foo/
  *  *}"` or `"{var=**}"`, when such a variable is expanded into a URL path on
@@ -3075,7 +3738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  percent-encoded. The server side does the reverse decoding, except "%2F" and
  *  "%2f" are left unchanged. Such variables show up in the [Discovery
  *  Document](https://developers.google.com/discovery/v1/reference/apis) as
- *  `{+var}`. ## Using gRPC API Service Configuration gRPC API Service
+ *  `{+var}`. Using gRPC API Service Configuration gRPC API Service
  *  Configuration (service config) is a configuration language for configuring a
  *  gRPC service to become a user-facing product. The service config is simply
  *  the YAML representation of the `google.api.Service` proto message. As an
@@ -3085,11 +3748,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  effect as the proto annotation. This can be particularly useful if you have
  *  a proto that is reused in multiple services. Note that any transcoding
  *  specified in the service config will override any matching transcoding
- *  configuration in the proto. Example: http: rules: # Selects a gRPC method
- *  and applies HttpRule to it. - selector: example.v1.Messaging.GetMessage get:
- *  /v1/messages/{message_id}/{sub.subfield} ## Special notes When gRPC
- *  Transcoding is used to map a gRPC to JSON REST endpoints, the proto to JSON
- *  conversion must follow the [proto3
+ *  configuration in the proto. The following example selects a gRPC method and
+ *  applies an `HttpRule` to it: http: rules: - selector:
+ *  example.v1.Messaging.GetMessage get:
+ *  /v1/messages/{message_id}/{sub.subfield} Special notes When gRPC Transcoding
+ *  is used to map a gRPC to JSON REST endpoints, the proto to JSON conversion
+ *  must follow the [proto3
  *  specification](https://developers.google.com/protocol-buffers/docs/proto3#json).
  *  While the single segment variable follows the semantics of [RFC
  *  6570](https://tools.ietf.org/html/rfc6570) Section 3.2.2 Simple String
@@ -3174,6 +3838,50 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  A message to group impacts of updating a policy.
+ */
+@interface GTLRServiceUsage_Impact : GTLRObject
+
+/** Output only. User friendly impact detail in a free form message. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Output only. The type of impact.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRServiceUsage_Impact_ImpactType_DependencyMissingDependencies
+ *        Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY (Value:
+ *        "DEPENDENCY_MISSING_DEPENDENCIES")
+ *    @arg @c kGTLRServiceUsage_Impact_ImpactType_ImpactTypeUnspecified Reserved
+ *        Blocks (Block n contains codes from 100n to 100(n+1) -1 Block 0 -
+ *        Special/Admin codes Block 1 - Impact Type of ANALYSIS_TYPE_DEPENDENCY
+ *        Block 2 - Impact Type of ANALYSIS_TYPE_RESOURCE_USAGE Block 3 - Impact
+ *        Type of ANALYSIS_TYPE_RESOURCE_EXISTENCE ... (Value:
+ *        "IMPACT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRServiceUsage_Impact_ImpactType_ResourceExistenceProject Block
+ *        3 - Impact Type of ANALYSIS_TYPE_RESOURCE_EXISTENCE (Value:
+ *        "RESOURCE_EXISTENCE_PROJECT")
+ */
+@property(nonatomic, copy, nullable) NSString *impactType;
+
+/**
+ *  The parent resource that the analysis is based on and the service name that
+ *  the analysis is for. Example:
+ *  `projects/100/services/compute.googleapis.com`,
+ *  folders/101/services/compute.googleapis.com` and
+ *  `organizations/102/services/compute.googleapis.com`. Usually, the parent
+ *  resource here is same as the parent resource of the analyzed policy.
+ *  However, for some analysis types, the parent can be different. For example,
+ *  for resource existence analysis, if the parent resource of the analyzed
+ *  policy is a folder or an organization, the parent resource here can still be
+ *  the project that contains the resources.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
  *  Metadata message that provides information such as progress, partial
  *  failures, and similar information on each GetOperation call of LRO returned
  *  by ImportAdminOverrides.
@@ -3246,8 +3954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  protobuf. This should be used **only** by APIs who have already set the
  *  language_settings.java.package_name" field in gapic.yaml. API teams should
  *  use the protobuf java_package option where possible. Example of a YAML
- *  configuration:: publishing: java_settings: library_package:
- *  com.google.cloud.pubsub.v1
+ *  configuration:: publishing: library_settings: java_settings:
+ *  library_package: com.google.cloud.pubsub.v1
  */
 @property(nonatomic, copy, nullable) NSString *libraryPackage;
 
@@ -3602,20 +4310,31 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoPopulatedFields;
 
 /**
+ *  Batching configuration for an API method in client libraries. Example of a
+ *  YAML configuration: publishing: method_settings: - selector:
+ *  google.example.v1.ExampleService.BatchCreateExample batching:
+ *  element_count_threshold: 1000 request_byte_threshold: 100000000
+ *  delay_threshold_millis: 10
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_BatchingConfigProto *batching;
+
+/**
  *  Describes settings to use for long-running operations when generating API
  *  methods for RPCs. Complements RPCs that use the annotations in
  *  google/longrunning/operations.proto. Example of a YAML configuration::
  *  publishing: method_settings: - selector:
  *  google.cloud.speech.v2.Speech.BatchRecognize long_running:
- *  initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5
- *  max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000
- *  # 90 minutes
+ *  initial_poll_delay: 60s # 1 minute poll_delay_multiplier: 1.5
+ *  max_poll_delay: 360s # 6 minutes total_poll_timeout: 54000s # 90 minutes
  */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_LongRunning *longRunning;
 
 /**
  *  The fully qualified name of the method, for which the options below apply.
- *  This is used to find the method to apply the options.
+ *  This is used to find the method to apply the options. Example: publishing:
+ *  method_settings: - selector:
+ *  google.storage.control.v2.StorageControl.CreateFolder # method settings for
+ *  CreateFolder...
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
@@ -3890,6 +4609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) GTLRDuration *samplePeriod;
 
+/** The scope of the timeseries data of the metric. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesResourceHierarchyLevel;
+
 @end
 
 
@@ -3951,7 +4673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inherting
+ *  processor will see the effective `Storage.GetAcl` method after inheriting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -4331,9 +5053,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_Page : GTLRObject
 
 /**
- *  The Markdown content of the page. You can use (== include {path} ==) to
- *  include content from a Markdown file. The content can be used to produce the
- *  documentation page such as HTML format page.
+ *  The Markdown content of the page. You can use ```(== include {path} ==)```
+ *  to include content from a Markdown file. The content can be used to produce
+ *  the documentation page such as HTML format page.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -4364,6 +5086,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_CommonLanguageSettings *common;
+
+/**
+ *  The package name to use in Php. Clobbers the php_namespace option set in the
+ *  protobuf. This should be used **only** by APIs who have already set the
+ *  language_settings.php.package_name" field in gapic.yaml. API teams should
+ *  use the protobuf php_namespace option where possible. Example of a YAML
+ *  configuration:: publishing: library_settings: php_settings: library_package:
+ *  Google\\Cloud\\PubSub\\V1
+ */
+@property(nonatomic, copy, nullable) NSString *libraryPackage;
 
 @end
 
@@ -4467,6 +5199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_CommonLanguageSettings *common;
+
+/** Experimental features to be included during client library generation. */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_ExperimentalFeatures *experimentalFeatures;
 
 @end
 
@@ -4590,11 +5325,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specify the unit of the quota limit. It uses the same syntax as Metric.unit.
- *  The supported unit kinds are determined by the quota backend system. Here
- *  are some examples: * "1/min/{project}" for quota per minute per project.
- *  Note: the order of unit components is insignificant. The "1" at the
- *  beginning is required to follow the metric unit syntax.
+ *  Specify the unit of the quota limit. It uses the same syntax as
+ *  MetricDescriptor.unit. The supported unit kinds are determined by the quota
+ *  backend system. Here are some examples: * "1/min/{project}" for quota per
+ *  minute per project. Note: the order of unit components is insignificant. The
+ *  "1" at the beginning is required to follow the metric unit syntax.
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -4744,6 +5479,33 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_CommonLanguageSettings *common;
+
+@end
+
+
+/**
+ *  This message is used to configure the generation of a subset of the RPCs in
+ *  a service for client libraries.
+ */
+@interface GTLRServiceUsage_SelectiveGapicGeneration : GTLRObject
+
+/**
+ *  Setting this to true indicates to the client generators that methods that
+ *  would be excluded from the generation should instead be generated in a way
+ *  that indicates these methods should not be consumed by end users. How this
+ *  is expressed is up to individual language implementations to decide. Some
+ *  examples may be: added annotations, obfuscated identifiers, or other
+ *  language idiomatic patterns.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generateOmittedAsInternal;
+
+/**
+ *  An allowlist of the fully qualified names of RPCs that should be included on
+ *  public client surfaces.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
 
 @end
 
@@ -5019,23 +5781,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Usage configuration rules for the service. NOTE: Under development. Use this
- *  rule to configure unregistered calls for the service. Unregistered calls are
- *  calls that do not contain consumer project identity. (Example: calls that do
- *  not contain an API key). By default, API methods do not allow unregistered
- *  calls, and each method call must be identified by a consumer project
- *  identity. Use this rule to allow/disallow unregistered calls. Example of an
- *  API that wants to allow unregistered calls for entire service. usage: rules:
- *  - selector: "*" allow_unregistered_calls: true Example of a method that
- *  wants to allow unregistered calls. usage: rules: - selector:
- *  "google.example.library.v1.LibraryService.CreateBook"
- *  allow_unregistered_calls: true
+ *  Usage configuration rules for the service.
  */
 @interface GTLRServiceUsage_UsageRule : GTLRObject
 
 /**
- *  If true, the selected method allows unregistered calls, e.g. calls that
- *  don't identify any user or application.
+ *  Use this rule to configure unregistered calls for the service. Unregistered
+ *  calls are calls that do not contain consumer project identity. (Example:
+ *  calls that do not contain an API key). WARNING: By default, API methods do
+ *  not allow unregistered calls, and each method call must be identified by a
+ *  consumer project identity.
  *
  *  Uses NSNumber of boolValue.
  */

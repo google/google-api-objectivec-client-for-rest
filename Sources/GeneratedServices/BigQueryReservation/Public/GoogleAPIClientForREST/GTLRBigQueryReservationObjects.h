@@ -4,7 +4,7 @@
 // API:
 //   BigQuery Reservation API (bigqueryreservation/v1)
 // Description:
-//   A service to modify your BigQuery flat-rate reservations.
+//   A service to modify your BigQuery reservations.
 // Documentation:
 //   https://cloud.google.com/bigquery/
 
@@ -15,9 +15,17 @@
 #endif
 
 @class GTLRBigQueryReservation_Assignment;
+@class GTLRBigQueryReservation_AuditConfig;
+@class GTLRBigQueryReservation_AuditLogConfig;
 @class GTLRBigQueryReservation_Autoscale;
+@class GTLRBigQueryReservation_Binding;
 @class GTLRBigQueryReservation_CapacityCommitment;
+@class GTLRBigQueryReservation_Expr;
+@class GTLRBigQueryReservation_Policy;
+@class GTLRBigQueryReservation_ReplicationStatus;
 @class GTLRBigQueryReservation_Reservation;
+@class GTLRBigQueryReservation_Reservation_Labels;
+@class GTLRBigQueryReservation_ReservationGroup;
 @class GTLRBigQueryReservation_Status;
 @class GTLRBigQueryReservation_Status_Details_Item;
 @class GTLRBigQueryReservation_TableReference;
@@ -41,6 +49,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "BACKGROUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background;
+/**
+ *  Continuous SQL jobs will use this reservation. Reservations with continuous
+ *  assignments cannot be mixed with non-continuous assignments.
+ *
+ *  Value: "CONTINUOUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Continuous;
 /**
  *  Invalid type. Requests with this value will be rejected with error code
  *  `google.rpc.Code.INVALID_ARGUMENT`.
@@ -92,6 +107,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Pen
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigQueryReservation_AuditLogConfig.logType
+
+/**
+ *  Admin reads. Example: CloudIAM getIamPolicy
+ *
+ *  Value: "ADMIN_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_AuditLogConfig_LogType_AdminRead;
+/**
+ *  Data reads. Example: CloudSQL Users list
+ *
+ *  Value: "DATA_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_AuditLogConfig_LogType_DataRead;
+/**
+ *  Data writes. Example: CloudSQL Users create
+ *
+ *  Value: "DATA_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_AuditLogConfig_LogType_DataWrite;
+/**
+ *  Default case. Should never be this.
+ *
+ *  Value: "LOG_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_CapacityCommitment.edition
 
 /**
@@ -107,7 +150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise;
 /**
- *  Enterprise plus edition.
+ *  Enterprise Plus edition.
  *
  *  Value: "ENTERPRISE_PLUS"
  */
@@ -318,6 +361,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigQueryReservation_FailoverReservationRequest.failoverMode
+
+/**
+ *  Invalid value.
+ *
+ *  Value: "FAILOVER_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_FailoverModeUnspecified;
+/**
+ *  When customers initiate a hard failover, BigQuery will not wait until all
+ *  committed writes are replicated to the secondary. There can be data loss for
+ *  hard failover.
+ *
+ *  Value: "HARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Hard;
+/**
+ *  When customers initiate a soft failover, BigQuery will wait until all
+ *  committed writes are replicated to the secondary.
+ *
+ *  Value: "SOFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Soft;
+
+// ----------------------------------------------------------------------------
 // GTLRBigQueryReservation_Reservation.edition
 
 /**
@@ -333,7 +401,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_Enterprise;
 /**
- *  Enterprise plus edition.
+ *  Enterprise Plus edition.
  *
  *  Value: "ENTERPRISE_PLUS"
  */
@@ -345,6 +413,66 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_Standard;
 
+// ----------------------------------------------------------------------------
+// GTLRBigQueryReservation_Reservation.scalingMode
+
+/**
+ *  The reservation will scale up using all slots available to it. It will use
+ *  idle slots contributed by other reservations or from unassigned commitments
+ *  first. If no idle slots are available it will scale up using autoscaling.
+ *  For example, if max_slots is 1000, baseline is 200 and customer sets
+ *  ScalingMode to ALL_SLOTS, 1. if there are 800 idle slots available in other
+ *  reservations, the reservation will scale up to 1000 slots with 200 baseline
+ *  and 800 idle slots. 2. if there are 500 idle slots available in other
+ *  reservations, the reservation will scale up to 1000 slots with 200 baseline,
+ *  500 idle slots and 300 autoscaling slots. 3. if there are no idle slots
+ *  available in other reservations, it will scale up to 1000 slots with 200
+ *  baseline and 800 autoscaling slots. Please note, in this mode, the
+ *  ignore_idle_slots field must be set to false. Otherwise the request will be
+ *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *
+ *  Value: "ALL_SLOTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_AllSlots;
+/**
+ *  The reservation will scale up only using slots from autoscaling. It will not
+ *  use any idle slots even if there may be some available. The upper limit that
+ *  autoscaling can scale up to will be max_slots - baseline. For example, if
+ *  max_slots is 1000, baseline is 200 and customer sets ScalingMode to
+ *  AUTOSCALE_ONLY, then autoscalerg will scale up to 800 slots and no idle
+ *  slots will be used. Please note, in this mode, the ignore_idle_slots field
+ *  must be set to true. Otherwise the request will be rejected with error code
+ *  `google.rpc.Code.INVALID_ARGUMENT`.
+ *
+ *  Value: "AUTOSCALE_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_AutoscaleOnly;
+/**
+ *  The reservation will scale up using only idle slots contributed by other
+ *  reservations or from unassigned commitments. If no idle slots are available
+ *  it will not scale up further. If the idle slots which it is using are
+ *  reclaimed by the contributing reservation(s) it may be forced to scale down.
+ *  The max idle slots the reservation can be max_slots - baseline capacity. For
+ *  example, if max_slots is 1000, baseline is 200 and customer sets ScalingMode
+ *  to IDLE_SLOTS_ONLY, 1. if there are 1000 idle slots available in other
+ *  reservations, the reservation will scale up to 1000 slots with 200 baseline
+ *  and 800 idle slots. 2. if there are 500 idle slots available in other
+ *  reservations, the reservation will scale up to 700 slots with 200 baseline
+ *  and 300 idle slots. Please note, in this mode, the reservation might not be
+ *  able to scale up to max_slots. Please note, in this mode, the
+ *  ignore_idle_slots field must be set to false. Otherwise the request will be
+ *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *
+ *  Value: "IDLE_SLOTS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_IdleSlotsOnly;
+/**
+ *  Default value of ScalingMode.
+ *
+ *  Value: "SCALING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUnspecified;
+
 /**
  *  An assignment allows a project to submit jobs of a certain type using slots
  *  from the specified reservation.
@@ -352,18 +480,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @interface GTLRBigQueryReservation_Assignment : GTLRObject
 
 /**
- *  The resource which will use the reservation. E.g. `projects/myproject`,
- *  `folders/123`, or `organizations/456`.
+ *  Optional. The resource which will use the reservation. E.g.
+ *  `projects/myproject`, `folders/123`, or `organizations/456`.
  */
 @property(nonatomic, copy, nullable) NSString *assignee;
 
 /**
- *  Which type of jobs will use the reservation.
+ *  Optional. This field controls if "Gemini in BigQuery"
+ *  (https://cloud.google.com/gemini/docs/bigquery/overview) features should be
+ *  enabled for this reservation assignment, which is not on by default. "Gemini
+ *  in BigQuery" has a distinct compliance posture from BigQuery. If this field
+ *  is set to true, the assignment job type is QUERY, and the parent reservation
+ *  edition is ENTERPRISE_PLUS, then the assignment will give the grantee
+ *  project/organization access to "Gemini in BigQuery" features.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableGeminiInBigquery;
+
+/**
+ *  Optional. Which type of jobs will use the reservation.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Background Background
  *        jobs that BigQuery runs for the customers in the background. (Value:
  *        "BACKGROUND")
+ *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Continuous Continuous
+ *        SQL jobs will use this reservation. Reservations with continuous
+ *        assignments cannot be mixed with non-continuous assignments. (Value:
+ *        "CONTINUOUS")
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified
  *        Invalid type. Requests with this value will be rejected with error
  *        code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
@@ -406,24 +551,179 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 
 
 /**
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
+ *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
+ *  logging. It also exempts `jose\@example.com` from DATA_READ logging, and
+ *  `aliya\@example.com` from DATA_WRITE logging.
+ */
+@interface GTLRBigQueryReservation_AuditConfig : GTLRObject
+
+/** The configuration for logging of each type of permission. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_AuditLogConfig *> *auditLogConfigs;
+
+/**
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
+ */
+@interface GTLRBigQueryReservation_AuditLogConfig : GTLRObject
+
+/**
+ *  Specifies the identities that do not cause logging for this type of
+ *  permission. Follows the same format of Binding.members.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
+
+/**
+ *  The log type that this config enables.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_AuditLogConfig_LogType_AdminRead Admin
+ *        reads. Example: CloudIAM getIamPolicy (Value: "ADMIN_READ")
+ *    @arg @c kGTLRBigQueryReservation_AuditLogConfig_LogType_DataRead Data
+ *        reads. Example: CloudSQL Users list (Value: "DATA_READ")
+ *    @arg @c kGTLRBigQueryReservation_AuditLogConfig_LogType_DataWrite Data
+ *        writes. Example: CloudSQL Users create (Value: "DATA_WRITE")
+ *    @arg @c kGTLRBigQueryReservation_AuditLogConfig_LogType_LogTypeUnspecified
+ *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
  *  Auto scaling settings.
  */
 @interface GTLRBigQueryReservation_Autoscale : GTLRObject
 
 /**
  *  Output only. The slot capacity added to this reservation when autoscale
- *  happens. Will be between [0, max_slots].
+ *  happens. Will be between [0, max_slots]. Note: after users reduce max_slots,
+ *  it may take a while before it can be propagated, so current_slots may stay
+ *  in the original value and could be larger than max_slots for that brief
+ *  period (less than one minute)
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *currentSlots;
 
 /**
- *  Number of slots to be scaled when needed.
+ *  Optional. Number of slots to be scaled when needed.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxSlots;
+
+@end
+
+
+/**
+ *  Associates `members`, or principals, with a `role`.
+ */
+@interface GTLRBigQueryReservation_Binding : GTLRObject
+
+/**
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the principals in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_Expr *condition;
+
+/**
+ *  Specifies the principals requesting access for a Google Cloud resource.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. Does
+ *  not include identities that come from external identity providers (IdPs)
+ *  through identity federation. * `user:{emailid}`: An email address that
+ *  represents a specific Google account. For example, `alice\@example.com` . *
+ *  `serviceAccount:{emailid}`: An email address that represents a Google
+ *  service account. For example, `my-other-app\@appspot.gserviceaccount.com`. *
+ *  `serviceAccount:{projectid}.svc.id.goog[{namespace}/{kubernetes-sa}]`: An
+ *  identifier for a [Kubernetes service
+ *  account](https://cloud.google.com/kubernetes-engine/docs/how-to/kubernetes-service-accounts).
+ *  For example, `my-project.svc.id.goog[my-namespace/my-kubernetes-sa]`. *
+ *  `group:{emailid}`: An email address that represents a Google group. For
+ *  example, `admins\@example.com`. * `domain:{domain}`: The G Suite domain
+ *  (primary) that represents all the users of that domain. For example,
+ *  `google.com` or `example.com`. *
+ *  `principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workforce identity pool. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/group/{group_id}`:
+ *  All workforce identities in a group. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All workforce identities with a specific attribute value. *
+ *  `principalSet://iam.googleapis.com/locations/global/workforcePools/{pool_id}/
+ *  *`: All identities in a workforce identity pool. *
+ *  `principal://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/subject/{subject_attribute_value}`:
+ *  A single identity in a workload identity pool. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/group/{group_id}`:
+ *  A workload identity pool group. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/attribute.{attribute_name}/{attribute_value}`:
+ *  All identities in a workload identity pool with a certain attribute. *
+ *  `principalSet://iam.googleapis.com/projects/{project_number}/locations/global/workloadIdentityPools/{pool_id}/
+ *  *`: All identities in a workload identity pool. *
+ *  `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
+ *  `serviceAccount:{emailid}` and the undeleted service account retains the
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. *
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/{pool_id}/subject/{subject_attribute_value}`:
+ *  Deleted single identity in a workforce identity pool. For example,
+ *  `deleted:principal://iam.googleapis.com/locations/global/workforcePools/my-pool-id/subject/my-subject-attribute-value`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *members;
+
+/**
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`. For an overview of the IAM
+ *  roles and permissions, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/roles-overview). For a list
+ *  of the available pre-defined roles, see
+ *  [here](https://cloud.google.com/iam/docs/understanding-roles).
+ */
+@property(nonatomic, copy, nullable) NSString *role;
 
 @end
 
@@ -434,16 +734,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @interface GTLRBigQueryReservation_BiReservation : GTLRObject
 
 /**
- *  The resource name of the singleton BI reservation. Reservation names have
- *  the form `projects/{project_id}/locations/{location_id}/biReservation`.
+ *  Identifier. The resource name of the singleton BI reservation. Reservation
+ *  names have the form
+ *  `projects/{project_id}/locations/{location_id}/biReservation`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Preferred tables to use BI capacity for. */
+/** Optional. Preferred tables to use BI capacity for. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_TableReference *> *preferredTables;
 
 /**
- *  Size of a reservation, in bytes.
+ *  Optional. Size of a reservation, in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -467,18 +768,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 
 /**
  *  Output only. The end of the current commitment period. It is applicable only
- *  for ACTIVE capacity commitments.
+ *  for ACTIVE capacity commitments. Note after renewal, commitment_end_time is
+ *  the time the renewed commitment expires. So itwould be at a time after
+ *  commitment_start_time + committed period, because we don't change
+ *  commitment_start_time ,
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentEndTime;
 
 /**
  *  Output only. The start of the current commitment period. It is applicable
- *  only for ACTIVE capacity commitments.
+ *  only for ACTIVE capacity commitments. Note after the commitment is renewed,
+ *  commitment_start_time won't be changed. It refers to the start time of the
+ *  original commitment.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentStartTime;
 
 /**
- *  Edition of the capacity commitment.
+ *  Optional. Edition of the capacity commitment.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_EditionUnspecified
@@ -487,7 +793,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Enterprise
  *        Enterprise edition. (Value: "ENTERPRISE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_EnterprisePlus
- *        Enterprise plus edition. (Value: "ENTERPRISE_PLUS")
+ *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Edition_Standard
  *        Standard edition. (Value: "STANDARD")
  */
@@ -516,7 +822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *multiRegionAuxiliary;
+@property(nonatomic, strong, nullable) NSNumber *multiRegionAuxiliary GTLR_DEPRECATED;
 
 /**
  *  Output only. The resource name of the capacity commitment, e.g.,
@@ -528,7 +834,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Capacity commitment commitment plan.
+ *  Optional. Capacity commitment commitment plan.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual Annual
@@ -577,9 +883,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, copy, nullable) NSString *plan;
 
 /**
- *  The plan this capacity commitment is converted to after commitment_end_time
- *  passes. Once the plan is changed, committed period is extended according to
- *  commitment plan. Only applicable for ANNUAL and TRIAL commitments.
+ *  Optional. The plan this capacity commitment is converted to after
+ *  commitment_end_time passes. Once the plan is changed, committed period is
+ *  extended according to commitment plan. Only applicable for ANNUAL and TRIAL
+ *  commitments.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual
@@ -629,7 +936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, copy, nullable) NSString *renewalPlan;
 
 /**
- *  Number of slots in this commitment.
+ *  Optional. Number of slots in this commitment.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -662,6 +969,79 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRBigQueryReservation_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents a textual expression in the Common Expression Language (CEL)
+ *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
+ */
+@interface GTLRBigQueryReservation_Expr : GTLRObject
+
+/**
+ *  Optional. Description of the expression. This is a longer text which
+ *  describes the expression, e.g. when hovered over it in a UI.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Textual representation of an expression in Common Expression Language
+ *  syntax.
+ */
+@property(nonatomic, copy, nullable) NSString *expression;
+
+/**
+ *  Optional. String indicating the location of the expression for error
+ *  reporting, e.g. a file name and a position in the file.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  The request for ReservationService.FailoverReservation.
+ */
+@interface GTLRBigQueryReservation_FailoverReservationRequest : GTLRObject
+
+/**
+ *  Optional. failover mode for the failover operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_FailoverModeUnspecified
+ *        Invalid value. (Value: "FAILOVER_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Hard
+ *        When customers initiate a hard failover, BigQuery will not wait until
+ *        all committed writes are replicated to the secondary. There can be
+ *        data loss for hard failover. (Value: "HARD")
+ *    @arg @c kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Soft
+ *        When customers initiate a soft failover, BigQuery will wait until all
+ *        committed writes are replicated to the secondary. (Value: "SOFT")
+ */
+@property(nonatomic, copy, nullable) NSString *failoverMode;
+
 @end
 
 
@@ -720,6 +1100,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 
 
 /**
+ *  The response for ReservationService.ListReservationGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "reservationGroups" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBigQueryReservation_ListReservationGroupsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of reservations visible to the user.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_ReservationGroup *> *reservationGroups;
+
+@end
+
+
+/**
  *  The response for ReservationService.ListReservations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -750,6 +1157,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  The request for ReservationService.MergeCapacityCommitments.
  */
 @interface GTLRBigQueryReservation_MergeCapacityCommitmentsRequest : GTLRObject
+
+/**
+ *  Optional. The optional resulting capacity commitment ID. Capacity commitment
+ *  name will be generated automatically if this field is empty. This field must
+ *  only contain lower case alphanumeric characters or dashes. The first and
+ *  last character cannot be a dash. Max length is 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *capacityCommitmentId;
 
 /**
  *  Ids of capacity commitments to merge. These capacity commitments must exist
@@ -788,20 +1203,147 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 
 
 /**
+ *  An Identity and Access Management (IAM) policy, which specifies access
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ *  **JSON example:** ``` { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } ``` **YAML example:** ``` bindings: -
+ *  members: - user:mike\@example.com - group:admins\@example.com -
+ *  domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
+ *  version: 3 ``` For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
+ */
+@interface GTLRBigQueryReservation_Policy : GTLRObject
+
+/** Specifies cloud audit logging configuration for this policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_AuditConfig *> *auditConfigs;
+
+/**
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_Binding *> *bindings;
+
+/**
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
+ *  **Important:** If you use IAM Conditions, you must include the `etag` field
+ *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
+ *  you to overwrite a version `3` policy with a version `1` policy, and all of
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Disaster Recovery(DR) replication status of the reservation.
+ */
+@interface GTLRBigQueryReservation_ReplicationStatus : GTLRObject
+
+/**
+ *  Output only. The last error encountered while trying to replicate changes
+ *  from the primary to the secondary. This field is only available if the
+ *  replication has not succeeded since.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_Status *error;
+
+/**
+ *  Output only. The time at which the last error was encountered while trying
+ *  to replicate changes from the primary to the secondary. This field is only
+ *  available if the replication has not succeeded since.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastErrorTime;
+
+/**
+ *  Output only. A timestamp corresponding to the last change on the primary
+ *  that was successfully replicated to the secondary.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastReplicationTime;
+
+/**
+ *  Output only. The time at which a soft failover for the reservation and its
+ *  associated datasets was initiated. After this field is set, all subsequent
+ *  changes to the reservation will be rejected unless a hard failover overrides
+ *  this operation. This field will be cleared once the failover is complete.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *softFailoverStartTime;
+
+@end
+
+
+/**
  *  A reservation is a mechanism used to guarantee slots to users.
  */
 @interface GTLRBigQueryReservation_Reservation : GTLRObject
 
-/** The configuration parameters for the auto scaling feature. */
+/** Optional. The configuration parameters for the auto scaling feature. */
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Autoscale *autoscale;
 
 /**
- *  Job concurrency target which sets a soft upper bound on the number of jobs
- *  that can run concurrently in this reservation. This is a soft target due to
- *  asynchronous nature of the system and various optimizations for small
+ *  Optional. Job concurrency target which sets a soft upper bound on the number
+ *  of jobs that can run concurrently in this reservation. This is a soft target
+ *  due to asynchronous nature of the system and various optimizations for small
  *  queries. Default value is 0 which means that concurrency target will be
- *  automatically computed by the system. NOTE: this field is exposed as
- *  `target_job_concurrency` in the Information Schema, DDL and BQ CLI.
+ *  automatically computed by the system. NOTE: this field is exposed as target
+ *  job concurrency in the Information Schema, DDL and BigQuery CLI.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -811,7 +1353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
 /**
- *  Edition of the reservation.
+ *  Optional. Edition of the reservation.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EditionUnspecified
@@ -820,21 +1362,67 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Enterprise Enterprise
  *        edition. (Value: "ENTERPRISE")
  *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_EnterprisePlus
- *        Enterprise plus edition. (Value: "ENTERPRISE_PLUS")
+ *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
  *    @arg @c kGTLRBigQueryReservation_Reservation_Edition_Standard Standard
  *        edition. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *edition;
 
 /**
- *  If false, any query or pipeline job using this reservation will use idle
- *  slots from other reservations within the same admin project. If true, a
- *  query or pipeline job using this reservation will execute with the slot
- *  capacity specified in the slot_capacity field at most.
+ *  Optional. If false, any query or pipeline job using this reservation will
+ *  use idle slots from other reservations within the same admin project. If
+ *  true, a query or pipeline job using this reservation will execute with the
+ *  slot capacity specified in the slot_capacity field at most.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreIdleSlots;
+
+/**
+ *  Optional. The labels associated with this reservation. You can use these to
+ *  organize and group your reservations. You can set this property when you
+ *  create or update a reservation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_Reservation_Labels *labels;
+
+/**
+ *  Optional. The overall max slots for the reservation, covering slot_capacity
+ *  (baseline), idle slots (if ignore_idle_slots is false) and scaled slots. If
+ *  present, the reservation won't use more than the specified number of slots,
+ *  even if there is demand and supply (from idle slots). NOTE: capping a
+ *  reservation's idle slot usage is best effort and its usage may exceed the
+ *  max_slots value. However, in terms of autoscale.current_slots (which
+ *  accounts for the additional added slots), it will never exceed the max_slots
+ *  - baseline. This field must be set together with the scaling_mode enum
+ *  value, otherwise the request will be rejected with error code
+ *  `google.rpc.Code.INVALID_ARGUMENT`. If the max_slots and scaling_mode are
+ *  set, the autoscale or autoscale.max_slots field must be unset. Otherwise the
+ *  request will be rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *  However, the autoscale field may still be in the output. The
+ *  autopscale.max_slots will always show as 0 and the autoscaler.current_slots
+ *  will represent the current slots from autoscaler excluding idle slots. For
+ *  example, if the max_slots is 1000 and scaling_mode is AUTOSCALE_ONLY, then
+ *  in the output, the autoscaler.max_slots will be 0 and the
+ *  autoscaler.current_slots may be any value between 0 and 1000. If the
+ *  max_slots is 1000, scaling_mode is ALL_SLOTS, the baseline is 100 and idle
+ *  slots usage is 200, then in the output, the autoscaler.max_slots will be 0
+ *  and the autoscaler.current_slots will not be higher than 700. If the
+ *  max_slots is 1000, scaling_mode is IDLE_SLOTS_ONLY, then in the output, the
+ *  autoscaler field will be null. If the max_slots and scaling_mode are set,
+ *  then the ignore_idle_slots field must be aligned with the scaling_mode enum
+ *  value.(See details in ScalingMode comments). Otherwise the request will be
+ *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`. Please note,
+ *  the max_slots is for user to manage the part of slots greater than the
+ *  baseline. Therefore, we don't allow users to set max_slots smaller or equal
+ *  to the baseline as it will not be meaningful. If the field is present and
+ *  slot_capacity>=max_slots, requests will be rejected with error code
+ *  `google.rpc.Code.INVALID_ARGUMENT`. Please note that if max_slots is set to
+ *  0, we will treat it as unset. Customers can set max_slots to 0 and set
+ *  scaling_mode to SCALING_MODE_UNSPECIFIED to disable the max_slots feature.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSlots;
 
 /**
  *  Applicable only for reservations located within one of the BigQuery
@@ -846,33 +1434,126 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *multiRegionAuxiliary;
+@property(nonatomic, strong, nullable) NSNumber *multiRegionAuxiliary GTLR_DEPRECATED;
 
 /**
- *  The resource name of the reservation, e.g., `projects/ * /locations/ *
- *  /reservations/team1-prod`. The reservation_id must only contain lower case
- *  alphanumeric characters or dashes. It must start with a letter and must not
- *  end with a dash. Its maximum length is 64 characters.
+ *  Identifier. The resource name of the reservation, e.g., `projects/ *
+ *  /locations/ * /reservations/team1-prod`. The reservation_id must only
+ *  contain lower case alphanumeric characters or dashes. It must start with a
+ *  letter and must not end with a dash. Its maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Baseline slots available to this reservation. A slot is a unit of
+ *  Output only. The location where the reservation was originally created. This
+ *  is set only during the failover reservation's creation. All billing charges
+ *  for the failover reservation will be applied to this location.
+ */
+@property(nonatomic, copy, nullable) NSString *originalPrimaryLocation;
+
+/**
+ *  Output only. The current location of the reservation's primary replica. This
+ *  field is only set for reservations using the managed disaster recovery
+ *  feature.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryLocation;
+
+/**
+ *  Output only. The Disaster Recovery(DR) replication status of the
+ *  reservation. This is only available for the primary replicas of DR/failover
+ *  reservations and provides information about the both the staleness of the
+ *  secondary and the last error encountered while trying to replicate changes
+ *  from the primary to the secondary. If this field is blank, it means that the
+ *  reservation is either not a DR reservation or the reservation is a DR
+ *  secondary or that any replication operations on the reservation have
+ *  succeeded.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_ReplicationStatus *replicationStatus;
+
+/**
+ *  Optional. The reservation group that this reservation belongs to. You can
+ *  set this property when you create or update a reservation. Reservations do
+ *  not need to belong to a reservation group. Format:
+ *  projects/{project}/locations/{location}/reservationGroups/{reservation_group}
+ *  or just {reservation_group}
+ */
+@property(nonatomic, copy, nullable) NSString *reservationGroup;
+
+/**
+ *  Optional. The scaling mode for the reservation. If the field is present but
+ *  max_slots is not present, requests will be rejected with error code
+ *  `google.rpc.Code.INVALID_ARGUMENT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryReservation_Reservation_ScalingMode_AllSlots The
+ *        reservation will scale up using all slots available to it. It will use
+ *        idle slots contributed by other reservations or from unassigned
+ *        commitments first. If no idle slots are available it will scale up
+ *        using autoscaling. For example, if max_slots is 1000, baseline is 200
+ *        and customer sets ScalingMode to ALL_SLOTS, 1. if there are 800 idle
+ *        slots available in other reservations, the reservation will scale up
+ *        to 1000 slots with 200 baseline and 800 idle slots. 2. if there are
+ *        500 idle slots available in other reservations, the reservation will
+ *        scale up to 1000 slots with 200 baseline, 500 idle slots and 300
+ *        autoscaling slots. 3. if there are no idle slots available in other
+ *        reservations, it will scale up to 1000 slots with 200 baseline and 800
+ *        autoscaling slots. Please note, in this mode, the ignore_idle_slots
+ *        field must be set to false. Otherwise the request will be rejected
+ *        with error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
+ *        "ALL_SLOTS")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_ScalingMode_AutoscaleOnly The
+ *        reservation will scale up only using slots from autoscaling. It will
+ *        not use any idle slots even if there may be some available. The upper
+ *        limit that autoscaling can scale up to will be max_slots - baseline.
+ *        For example, if max_slots is 1000, baseline is 200 and customer sets
+ *        ScalingMode to AUTOSCALE_ONLY, then autoscalerg will scale up to 800
+ *        slots and no idle slots will be used. Please note, in this mode, the
+ *        ignore_idle_slots field must be set to true. Otherwise the request
+ *        will be rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *        (Value: "AUTOSCALE_ONLY")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_ScalingMode_IdleSlotsOnly The
+ *        reservation will scale up using only idle slots contributed by other
+ *        reservations or from unassigned commitments. If no idle slots are
+ *        available it will not scale up further. If the idle slots which it is
+ *        using are reclaimed by the contributing reservation(s) it may be
+ *        forced to scale down. The max idle slots the reservation can be
+ *        max_slots - baseline capacity. For example, if max_slots is 1000,
+ *        baseline is 200 and customer sets ScalingMode to IDLE_SLOTS_ONLY, 1.
+ *        if there are 1000 idle slots available in other reservations, the
+ *        reservation will scale up to 1000 slots with 200 baseline and 800 idle
+ *        slots. 2. if there are 500 idle slots available in other reservations,
+ *        the reservation will scale up to 700 slots with 200 baseline and 300
+ *        idle slots. Please note, in this mode, the reservation might not be
+ *        able to scale up to max_slots. Please note, in this mode, the
+ *        ignore_idle_slots field must be set to false. Otherwise the request
+ *        will be rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *        (Value: "IDLE_SLOTS_ONLY")
+ *    @arg @c kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUnspecified
+ *        Default value of ScalingMode. (Value: "SCALING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scalingMode;
+
+/**
+ *  Optional. The current location of the reservation's secondary replica. This
+ *  field is only set for reservations using the managed disaster recovery
+ *  feature. Users can set this in create reservation calls to create a failover
+ *  reservation or in update reservation calls to convert a non-failover
+ *  reservation to a failover reservation(or vice versa).
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryLocation;
+
+/**
+ *  Optional. Baseline slots available to this reservation. A slot is a unit of
  *  computational power in BigQuery, and serves as the unit of parallelism.
  *  Queries using this reservation might use more slots during runtime if
- *  ignore_idle_slots is set to false, or autoscaling is enabled. If edition is
- *  EDITION_UNSPECIFIED and total slot_capacity of the reservation and its
- *  siblings exceeds the total slot_count of all capacity commitments, the
- *  request will fail with `google.rpc.Code.RESOURCE_EXHAUSTED`. If edition is
- *  any value but EDITION_UNSPECIFIED, then the above requirement is not needed.
- *  The total slot_capacity of the reservation and its siblings may exceed the
- *  total slot_count of capacity commitments. In that case, the exceeding slots
- *  will be charged with the autoscale SKU. You can increase the number of
- *  baseline slots in a reservation every few minutes. If you want to decrease
- *  your baseline slots, you are limited to once an hour if you have recently
- *  changed your baseline slot capacity and your baseline slots exceed your
- *  committed slots. Otherwise, you can decrease your baseline slots every few
- *  minutes.
+ *  ignore_idle_slots is set to false, or autoscaling is enabled. The total
+ *  slot_capacity of the reservation and its siblings may exceed the total
+ *  slot_count of capacity commitments. In that case, the exceeding slots will
+ *  be charged with the autoscale SKU. You can increase the number of baseline
+ *  slots in a reservation every few minutes. If you want to decrease your
+ *  baseline slots, you are limited to once an hour if you have recently changed
+ *  your baseline slot capacity and your baseline slots exceed your committed
+ *  slots. Otherwise, you can decrease your baseline slots every few minutes.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -880,6 +1561,37 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
 
 /** Output only. Last update time of the reservation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. The labels associated with this reservation. You can use these to
+ *  organize and group your reservations. You can set this property when you
+ *  create or update a reservation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBigQueryReservation_Reservation_Labels : GTLRObject
+@end
+
+
+/**
+ *  A reservation group is a container for reservations.
+ */
+@interface GTLRBigQueryReservation_ReservationGroup : GTLRObject
+
+/**
+ *  Identifier. The resource name of the reservation group, e.g., `projects/ *
+ *  /locations/ * /reservationGroups/team1-prod`. The reservation_group_id must
+ *  only contain lower case alphanumeric characters or dashes. It must start
+ *  with a letter and must not end with a dash. Its maximum length is 64
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -934,6 +1646,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Request message for `SetIamPolicy` method.
+ */
+@interface GTLRBigQueryReservation_SetIamPolicyRequest : GTLRObject
+
+/**
+ *  REQUIRED: The complete policy to be applied to the `resource`. The size of
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Google Cloud services (such as Projects) might reject them.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_Policy *policy;
+
+/**
+ *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
+ *  the fields in the mask will be modified. If no mask is provided, the
+ *  following default mask is used: `paths: "bindings, etag"`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 
@@ -1018,14 +1754,42 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_Edition_
  */
 @interface GTLRBigQueryReservation_TableReference : GTLRObject
 
-/** The ID of the dataset in the above project. */
+/** Optional. The ID of the dataset in the above project. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
-/** The assigned project ID of the project. */
+/** Optional. The assigned project ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** The ID of the table in the above dataset. */
+/** Optional. The ID of the table in the above dataset. */
 @property(nonatomic, copy, nullable) NSString *tableId;
+
+@end
+
+
+/**
+ *  Request message for `TestIamPermissions` method.
+ */
+@interface GTLRBigQueryReservation_TestIamPermissionsRequest : GTLRObject
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Response message for `TestIamPermissions` method.
+ */
+@interface GTLRBigQueryReservation_TestIamPermissionsResponse : GTLRObject
+
+/**
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 

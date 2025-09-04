@@ -41,6 +41,7 @@
 @class GTLRAppengine_FileInfo;
 @class GTLRAppengine_FirewallRule;
 @class GTLRAppengine_FlexibleRuntimeSettings;
+@class GTLRAppengine_GceTag;
 @class GTLRAppengine_HealthCheck;
 @class GTLRAppengine_IdentityAwareProxy;
 @class GTLRAppengine_Instance;
@@ -248,6 +249,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_Unsp
  *  Value: "USER_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_ServingStatus_UserDisabled;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_Application.sslPolicy
+
+/**
+ *  DEFAULT is to allow all TLS versions and cipher suites supported by App
+ *  Engine
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_SslPolicy_Default;
+/**
+ *  MODERN is to allow only TLS 1.2 and TLS 1.3 along with Modern cipher suites
+ *  only
+ *
+ *  Value: "MODERN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_SslPolicy_Modern;
+/**
+ *  Required by linter. Will work same as DEFAULT
+ *
+ *  Value: "SSL_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Application_SslPolicy_SslPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ContainerState.state
@@ -535,8 +560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_NetworkSettings_IngressTraffic
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_AfterResourceHandling;
 /** Value: "BEFORE_RESOURCE_HANDLING" */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_BeforeResourceHandling;
-/** Value: "UNKNOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_Unknown;
+/** Value: "CONTAINER_EVENT_PHASE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_ProjectEvent_Phase_ContainerEventPhaseUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ProjectsMetadata.consumerProjectState
@@ -700,6 +725,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_Purge;
  *  Value: "UNHIDE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_DataGovernance_Unhide;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_Reasons.serviceActivation
+
+/**
+ *  Service is disabled in the project recently i.e., within last 24 hours.
+ *
+ *  Value: "SERVICE_ACTIVATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationDisabled;
+/**
+ *  Service has been disabled for configured grace_period (default 30 days).
+ *
+ *  Value: "SERVICE_ACTIVATION_DISABLED_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationDisabledFull;
+/**
+ *  Service is active in the project.
+ *
+ *  Value: "SERVICE_ACTIVATION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationEnabled;
+/**
+ *  Default Unspecified status
+ *
+ *  Value: "SERVICE_ACTIVATION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationStatusUnspecified;
+/**
+ *  Happens when PSM cannot determine the status of service in a project Could
+ *  happen due to variety of reasons like PERMISSION_DENIED or Project got
+ *  deleted etc.
+ *
+ *  Value: "SERVICE_ACTIVATION_UNKNOWN_REASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationUnknownReason;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_Reasons.serviceManagement
@@ -866,7 +927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_SslSettings_SslManagementType_
 /**
  *  SSL support for this domain is configured manually by the user. Either the
  *  domain has no SSL support or a user-obtained SSL certificate has been
- *  explictly mapped to this domain.
+ *  explicitly mapped to this domain.
  *
  *  Value: "MANUAL"
  */
@@ -1324,10 +1385,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
-/**
- *  Output only. Full path to the Application resource in the API. Example:
- *  apps/myapp.\@OutputOnly
- */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1352,6 +1409,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *        has been disabled by the user. (Value: "USER_DISABLED")
  */
 @property(nonatomic, copy, nullable) NSString *servingStatus;
+
+/**
+ *  The SSL policy that will be applied to the application. If set to Modern it
+ *  will restrict traffic with TLS < 1.2 and allow only Modern Ciphers suite
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Application_SslPolicy_Default DEFAULT is to allow
+ *        all TLS versions and cipher suites supported by App Engine (Value:
+ *        "DEFAULT")
+ *    @arg @c kGTLRAppengine_Application_SslPolicy_Modern MODERN is to allow
+ *        only TLS 1.2 and TLS 1.3 along with Modern cipher suites only (Value:
+ *        "MODERN")
+ *    @arg @c kGTLRAppengine_Application_SslPolicy_SslPolicyUnspecified Required
+ *        by linter. Will work same as DEFAULT (Value: "SSL_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sslPolicy;
 
 @end
 
@@ -1676,7 +1749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @interface GTLRAppengine_ContainerState : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *currentReasons GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *currentReasons;
 
 /**
  *  The previous and current reasons for a container state will be sent for a
@@ -1687,12 +1760,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  this is a CCFE-triggered event used for reconciliation then the current
  *  reasons will be set to their *_CONTROL_PLANE_SYNC state. The previous
  *  reasons will contain the last known set of non-unknown
- *  non-control_plane_sync reasons for the state.Reasons fields are deprecated.
- *  New tenants should only use the state field. If you must know the reason(s)
- *  behind a specific state, please consult with CCFE team first
- *  (cloud-ccfe-discuss\@google.com).
+ *  non-control_plane_sync reasons for the state.
  */
-@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *previousReasons GTLR_DEPRECATED;
+@property(nonatomic, strong, nullable) GTLRAppengine_Reasons *previousReasons;
 
 /**
  *  The current state of the container. This state is the culmination of all of
@@ -2131,7 +2201,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 /**
  *  A single firewall rule that is evaluated against incoming traffic and
- *  provides an action to take on matched requests.
+ *  provides an action to take on matched requests. A positive integer between
+ *  1, Int32.MaxValue-1 that defines the order of rule evaluation. Rules with
+ *  the lowest priority are evaluated first.A default rule at priority
+ *  Int32.MaxValue matches all IPv4 and IPv6 traffic when no previous rule
+ *  matches. Only the action of this rule can be modified by the user.
  */
 @interface GTLRAppengine_FirewallRule : GTLRObject
 
@@ -2157,11 +2231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  A positive integer between 1, Int32.MaxValue-1 that defines the order of
- *  rule evaluation. Rules with the lowest priority are evaluated first.A
- *  default rule at priority Int32.MaxValue matches all IPv4 and IPv6 traffic
- *  when no previous rule matches. Only the action of this rule can be modified
- *  by the user.
+ *  priority
  *
  *  Uses NSNumber of intValue.
  */
@@ -2192,6 +2262,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 /** The runtime version of an App Engine flexible application. */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+@end
+
+
+/**
+ *  For use only by GCE. GceTag is a wrapper around the GCE administrative tag
+ *  with parent info.
+ */
+@interface GTLRAppengine_GceTag : GTLRObject
+
+/**
+ *  The parents(s) of the tag. Eg. projects/123, folders/456 It usually contains
+ *  only one parent. But, in some corner cases, it can contain multiple parents.
+ *  Currently, organizations are not supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parent;
+
+/** The administrative_tag name. */
+@property(nonatomic, copy, nullable) NSString *tag;
 
 @end
 
@@ -3261,21 +3350,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
- *  phase
+ *  Phase indicates when in the container event propagation this event is being
+ *  communicated. Events are sent before and after the per-resource events are
+ *  propagated. required
  *
  *  Likely values:
  *    @arg @c kGTLRAppengine_ProjectEvent_Phase_AfterResourceHandling Value
  *        "AFTER_RESOURCE_HANDLING"
  *    @arg @c kGTLRAppengine_ProjectEvent_Phase_BeforeResourceHandling Value
  *        "BEFORE_RESOURCE_HANDLING"
- *    @arg @c kGTLRAppengine_ProjectEvent_Phase_Unknown Value "UNKNOWN"
+ *    @arg @c kGTLRAppengine_ProjectEvent_Phase_ContainerEventPhaseUnspecified
+ *        Value "CONTAINER_EVENT_PHASE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *phase;
 
 /** The projects metadata for this project. required */
 @property(nonatomic, strong, nullable) GTLRAppengine_ProjectsMetadata *projectMetadata;
 
-/** The state of the project that led to this event. */
+/** The state of the organization that led to this event. */
 @property(nonatomic, strong, nullable) GTLRAppengine_ContainerState *state;
 
 @end
@@ -3331,6 +3423,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *        container with this state is an error. (Value: "UNKNOWN_STATE")
  */
 @property(nonatomic, copy, nullable) NSString *consumerProjectState;
+
+/**
+ *  The GCE tags associated with the consumer project and those inherited due to
+ *  their ancestry, if any. Not supported by CCFE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAppengine_GceTag *> *gceTag;
 
 /**
  *  The service account authorized to operate on the consumer project. Note:
@@ -3411,7 +3509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  various systems. CCFE will provide the CLH with reasons for the current
  *  state per system.The current systems that CCFE supports are: Service
  *  Management (Inception) Data Governance (Wipeout) Abuse (Ares) Billing
- *  (Internal Cloud Billing API)
+ *  (Internal Cloud Billing API) Service Activation (Service Controller)
  */
 @interface GTLRAppengine_Reasons : GTLRObject
 
@@ -3496,6 +3594,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *dataGovernance;
 
 /**
+ *  Consumer Container denotes if the service is active within a project or not.
+ *  This information could be used to clean up resources in case service in
+ *  DISABLED_FULL i.e. Service is inactive > 30 days.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationDisabled
+ *        Service is disabled in the project recently i.e., within last 24
+ *        hours. (Value: "SERVICE_ACTIVATION_DISABLED")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationDisabledFull
+ *        Service has been disabled for configured grace_period (default 30
+ *        days). (Value: "SERVICE_ACTIVATION_DISABLED_FULL")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationEnabled
+ *        Service is active in the project. (Value:
+ *        "SERVICE_ACTIVATION_ENABLED")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationStatusUnspecified
+ *        Default Unspecified status (Value:
+ *        "SERVICE_ACTIVATION_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRAppengine_Reasons_ServiceActivation_ServiceActivationUnknownReason
+ *        Happens when PSM cannot determine the status of service in a project
+ *        Could happen due to variety of reasons like PERMISSION_DENIED or
+ *        Project got deleted etc. (Value: "SERVICE_ACTIVATION_UNKNOWN_REASON")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceActivation;
+
+/**
  *  serviceManagement
  *
  *  Likely values:
@@ -3557,6 +3680,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetRequestCountPerSecond;
+
+@end
+
+
+/**
+ *  The request that is passed to CLH during per-resource events. The request
+ *  will be sent with update semantics in all cases except for data governance
+ *  purge events. These events will be sent with delete semantics and the CLH is
+ *  expected to delete the resource receiving this event.
+ */
+@interface GTLRAppengine_ResourceEvent : GTLRObject
+
+/**
+ *  The unique ID for this per-resource event. CLHs can use this value to dedup
+ *  repeated calls. required
+ */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** The name of the resource for which this event is. required */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The state of the project that led to this event. */
+@property(nonatomic, strong, nullable) GTLRAppengine_ContainerState *state;
 
 @end
 
@@ -3645,6 +3791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 /** Date when Runtime is deprecated. */
 @property(nonatomic, strong, nullable) GTLRAppengine_Date *deprecationDate;
 
+/** User-friendly display name, e.g. 'Node.js 12', etc. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /** Date when Runtime is end of support. */
 @property(nonatomic, strong, nullable) GTLRAppengine_Date *endOfSupportDate;
 
@@ -3725,7 +3874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_Service_GeneratedCustomerMetadata *generatedCustomerMetadata;
 
 /**
- *  Relative name of the service within the application. Example:
+ *  Output only. Relative name of the service within the application. Example:
  *  default.\@OutputOnly
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -3747,7 +3896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_Service_Labels *labels;
 
 /**
- *  Full path to the Service resource in the API. Example:
+ *  Output only. Full path to the Service resource in the API. Example:
  *  apps/myapp/services/default.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3838,7 +3987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *    @arg @c kGTLRAppengine_SslSettings_SslManagementType_Manual SSL support
  *        for this domain is configured manually by the user. Either the domain
  *        has no SSL support or a user-obtained SSL certificate has been
- *        explictly mapped to this domain. (Value: "MANUAL")
+ *        explicitly mapped to this domain. (Value: "MANUAL")
  *    @arg @c kGTLRAppengine_SslSettings_SslManagementType_SslManagementTypeUnspecified
  *        Defaults to AUTOMATIC. (Value: "SSL_MANAGEMENT_TYPE_UNSPECIFIED")
  */
@@ -3853,8 +4002,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @interface GTLRAppengine_StandardSchedulerSettings : GTLRObject
 
 /**
- *  Maximum number of instances to run for this version. Set to zero to disable
- *  max_instances configuration.
+ *  Maximum number of instances to run for this version. Set to 2147483647 to
+ *  disable max_instances configuration.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4248,7 +4397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_Version_BuildEnvVariables *buildEnvVariables;
 
-/** Email address of the user who created this version.\@OutputOnly */
+/**
+ *  Output only. Email address of the user who created this version.\@OutputOnly
+ */
 @property(nonatomic, copy, nullable) NSString *createdBy;
 
 /** Time that this version was created.\@OutputOnly */
@@ -4270,8 +4421,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_Deployment *deployment;
 
 /**
- *  Total size in bytes of all the files that are included in this version and
- *  currently hosted on the App Engine disk.\@OutputOnly
+ *  Output only. Total size in bytes of all the files that are included in this
+ *  version and currently hosted on the App Engine disk.\@OutputOnly
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4370,7 +4521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) GTLRAppengine_ManualScaling *manualScaling;
 
 /**
- *  Full path to the Version resource in the API. Example:
+ *  Output only. Full path to the Version resource in the API. Example:
  *  apps/myapp/services/default/versions/v1.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4451,7 +4602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, strong, nullable) NSNumber *threadsafe;
 
 /**
- *  Serving URL for this version. Example:
+ *  Output only. Serving URL for this version. Example:
  *  "https://myversion-dot-myservice-dot-myapp.appspot.com"\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *versionUrl;

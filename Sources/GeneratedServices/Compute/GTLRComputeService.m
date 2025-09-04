@@ -98,16 +98,28 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#instanceGroupManager" : [GTLRCompute_InstanceGroupManager class],
     @"compute#instanceGroupManagerAggregatedList" : [GTLRCompute_InstanceGroupManagerAggregatedList class],
     @"compute#instanceGroupManagerList" : [GTLRCompute_InstanceGroupManagerList class],
+    @"compute#instanceGroupManagerResizeRequest" : [GTLRCompute_InstanceGroupManagerResizeRequest class],
+    @"compute#instanceGroupManagerResizeRequestList" : [GTLRCompute_InstanceGroupManagerResizeRequestsListResponse class],
     @"compute#instanceGroupsListInstances" : [GTLRCompute_InstanceGroupsListInstances class],
     @"compute#instanceList" : [GTLRCompute_InstanceList class],
     @"compute#instanceListReferrers" : [GTLRCompute_InstanceListReferrers class],
+    @"compute#instanceSettings" : [GTLRCompute_InstanceSettings class],
     @"compute#instanceTemplate" : [GTLRCompute_InstanceTemplate class],
     @"compute#instanceTemplateAggregatedList" : [GTLRCompute_InstanceTemplateAggregatedList class],
     @"compute#instanceTemplateList" : [GTLRCompute_InstanceTemplateList class],
+    @"compute#instantSnapshot" : [GTLRCompute_InstantSnapshot class],
+    @"compute#instantSnapshotAggregatedList" : [GTLRCompute_InstantSnapshotAggregatedList class],
+    @"compute#instantSnapshotList" : [GTLRCompute_InstantSnapshotList class],
     @"compute#interconnect" : [GTLRCompute_Interconnect class],
     @"compute#interconnectAttachment" : [GTLRCompute_InterconnectAttachment class],
     @"compute#interconnectAttachmentAggregatedList" : [GTLRCompute_InterconnectAttachmentAggregatedList class],
+    // Skipping "compute#interconnectAttachmentGroup", was used on multiple classes:
+    //     GTLRCompute_InterconnectAttachmentGroup
+    //     GTLRCompute_InterconnectAttachmentGroupsListResponse
     @"compute#interconnectAttachmentList" : [GTLRCompute_InterconnectAttachmentList class],
+    // Skipping "compute#InterconnectGroup", was used on multiple classes:
+    //     GTLRCompute_InterconnectGroup
+    //     GTLRCompute_InterconnectGroupsListResponse
     @"compute#interconnectList" : [GTLRCompute_InterconnectList class],
     @"compute#interconnectLocation" : [GTLRCompute_InterconnectLocation class],
     @"compute#interconnectLocationList" : [GTLRCompute_InterconnectLocationList class],
@@ -120,7 +132,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#machineType" : [GTLRCompute_MachineType class],
     @"compute#machineTypeAggregatedList" : [GTLRCompute_MachineTypeAggregatedList class],
     @"compute#machineTypeList" : [GTLRCompute_MachineTypeList class],
-    @"compute#metadata" : [GTLRCompute_Metadata class],
+    // Skipping "compute#metadata", was used on multiple classes:
+    //     GTLRCompute_InstanceSettingsMetadata
+    //     GTLRCompute_Metadata
     @"compute#network" : [GTLRCompute_Network class],
     @"compute#networkAttachment" : [GTLRCompute_NetworkAttachment class],
     @"compute#networkAttachmentAggregatedList" : [GTLRCompute_NetworkAttachmentAggregatedList class],
@@ -131,8 +145,11 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#networkEndpointGroupAggregatedList" : [GTLRCompute_NetworkEndpointGroupAggregatedList class],
     @"compute#networkEndpointGroupList" : [GTLRCompute_NetworkEndpointGroupList class],
     @"compute#networkEndpointGroupsListNetworkEndpoints" : [GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints class],
+    @"compute#networkFirewallPolicyAggregatedList" : [GTLRCompute_NetworkFirewallPolicyAggregatedList class],
     @"compute#networkInterface" : [GTLRCompute_NetworkInterface class],
     @"compute#networkList" : [GTLRCompute_NetworkList class],
+    @"compute#networkProfile" : [GTLRCompute_NetworkProfile class],
+    @"compute#networkProfileList" : [GTLRCompute_NetworkProfilesListResponse class],
     @"compute#nodeGroup" : [GTLRCompute_NodeGroup class],
     @"compute#nodeGroupAggregatedList" : [GTLRCompute_NodeGroupAggregatedList class],
     @"compute#nodeGroupList" : [GTLRCompute_NodeGroupList class],
@@ -168,7 +185,13 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#regionList" : [GTLRCompute_RegionList class],
     @"compute#reservation" : [GTLRCompute_Reservation class],
     @"compute#reservationAggregatedList" : [GTLRCompute_ReservationAggregatedList class],
+    // Skipping "compute#reservationBlock", was used on multiple classes:
+    //     GTLRCompute_ReservationBlock
+    //     GTLRCompute_ReservationBlocksListResponse
     @"compute#reservationList" : [GTLRCompute_ReservationList class],
+    // Skipping "compute#reservationSubBlock", was used on multiple classes:
+    //     GTLRCompute_ReservationSubBlock
+    //     GTLRCompute_ReservationSubBlocksListResponse
     @"compute#resourcePolicy" : [GTLRCompute_ResourcePolicy class],
     @"compute#resourcePolicyAggregatedList" : [GTLRCompute_ResourcePolicyAggregatedList class],
     @"compute#resourcePolicyList" : [GTLRCompute_ResourcePolicyList class],
@@ -177,6 +200,8 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#router" : [GTLRCompute_Router class],
     @"compute#routerAggregatedList" : [GTLRCompute_RouterAggregatedList class],
     @"compute#routerList" : [GTLRCompute_RouterList class],
+    @"compute#routersListBgpRoutes" : [GTLRCompute_RoutersListBgpRoutes class],
+    @"compute#routersListRoutePolicies" : [GTLRCompute_RoutersListRoutePolicies class],
     @"compute#routerStatusResponse" : [GTLRCompute_RouterStatusResponse class],
     @"compute#savedAttachedDisk" : [GTLRCompute_SavedAttachedDisk class],
     @"compute#savedDisk" : [GTLRCompute_SavedDisk class],
@@ -198,6 +223,13 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#sslPoliciesAggregatedList" : [GTLRCompute_SslPoliciesAggregatedList class],
     @"compute#sslPoliciesList" : [GTLRCompute_SslPoliciesList class],
     @"compute#sslPolicy" : [GTLRCompute_SslPolicy class],
+    @"compute#storagePool" : [GTLRCompute_StoragePool class],
+    @"compute#storagePoolAggregatedList" : [GTLRCompute_StoragePoolAggregatedList class],
+    @"compute#storagePoolList" : [GTLRCompute_StoragePoolList class],
+    @"compute#storagePoolListDisks" : [GTLRCompute_StoragePoolListDisks class],
+    @"compute#storagePoolType" : [GTLRCompute_StoragePoolType class],
+    @"compute#storagePoolTypeAggregatedList" : [GTLRCompute_StoragePoolTypeAggregatedList class],
+    @"compute#storagePoolTypeList" : [GTLRCompute_StoragePoolTypeList class],
     @"compute#subnetwork" : [GTLRCompute_Subnetwork class],
     @"compute#subnetworkAggregatedList" : [GTLRCompute_SubnetworkAggregatedList class],
     @"compute#subnetworkList" : [GTLRCompute_SubnetworkList class],

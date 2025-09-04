@@ -6,7 +6,7 @@
 // Description:
 //   The Google Drive API allows clients to access resources from Google Drive.
 // Documentation:
-//   https://developers.google.com/drive/
+//   https://developers.google.com/workspace/drive/
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -51,6 +51,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveAppsReadonly;
  *  Value "https://www.googleapis.com/auth/drive.file"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveFile;
+/**
+ *  Authorization scope: See and download your Google Drive files that were
+ *  created or edited by Google Meet.
+ *
+ *  Value "https://www.googleapis.com/auth/drive.meet.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveMeetReadonly;
 /**
  *  Authorization scope: View and manage metadata of files in your Google Drive
  *

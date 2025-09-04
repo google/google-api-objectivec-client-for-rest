@@ -252,137 +252,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCloudSecurityToken_GoogleIdentityStsV1betaAccessBoundary *accessBoundary;
 
 /**
- *  The intended audience(s) of the credential. The audience value(s) should be
- *  the name(s) of services intended to receive the credential. Example:
- *  `["https://pubsub.googleapis.com/", "https://storage.googleapis.com/"]`. A
- *  maximum of 5 audiences can be included. For each provided audience, the
- *  maximum length is 262 characters.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *audiences;
-
-/**
  *  A Google project used for quota and billing purposes when the credential is
  *  used to access Google APIs. The provided project overrides the project bound
  *  to the credential. The value must be a project number or a project ID.
  *  Example: `my-sample-project-191923`. The maximum length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *userProject;
-
-@end
-
-
-/**
- *  Request message for ExchangeOauthToken
- */
-@interface GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenRequest : GTLRObject
-
-/**
- *  Optional. The client identifier for the OAuth 2.0 client that requested the
- *  provided token. It is REQUIRED when the [client]
- *  (https://www.rfc-editor.org/rfc/rfc6749#section-1.1) is not authenticating
- *  with the authorization server, i.e. when authentication method is [client
- *  authentication] (https://www.rfc-editor.org/rfc/rfc6749#section-3.2.1).
- */
-@property(nonatomic, copy, nullable) NSString *clientId;
-
-/**
- *  Optional. The authorization code that was previously from workforce identity
- *  federation's `authorize` endpoint. Required if the flow is authorization
- *  code flow, i.e. if grant_type is 'authorization_code'
- */
-@property(nonatomic, copy, nullable) NSString *code;
-
-/**
- *  Optional. The code verifier for the PKCE request, Google Cloud CLI
- *  originally generates it before the authorization request. PKCE is used to
- *  protect authorization code from interception attacks. See
- *  https://www.rfc-editor.org/rfc/rfc7636#section-1.1 and
- *  https://www.rfc-editor.org/rfc/rfc7636#section-3. It is required when the
- *  flow is authorization code flow, i.e. if grant_type is 'authorization_code'
- */
-@property(nonatomic, copy, nullable) NSString *codeVerifier;
-
-/**
- *  Required. The grant types are as follows: - 'authorization_code' : an
- *  authorization code flow, i.e. exchange of authorization code for the Oauth
- *  access token - 'refresh_token' : a refresh token flow, i.e. obtain a new
- *  access token by providing the refresh token. See
- *  https://www.rfc-editor.org/rfc/rfc6749#section-6
- */
-@property(nonatomic, copy, nullable) NSString *grantType;
-
-/**
- *  Optional. redirect_url is required when the flow is authorization code flow
- *  i.e. if grant_type is `authorization_code` See
- *  https://www.rfc-editor.org/rfc/rfc6749#section-4.1.3
- */
-@property(nonatomic, copy, nullable) NSString *redirectUri;
-
-/**
- *  Optional. The Refresh token is the credential that is used to obtain a new
- *  access token when the current access token becomes invalid or expires.
- *  Required when using refresh token flow, i.e. if `grant_type` is
- *  'refresh_token' See https://www.rfc-editor.org/rfc/rfc6749#section-1.5 and
- *  https://www.rfc-editor.org/rfc/rfc6749#section-6
- */
-@property(nonatomic, copy, nullable) NSString *refreshToken;
-
-/**
- *  Optional. An optional list of scopes that are requested for the token to be
- *  returned. See https://www.rfc-editor.org/rfc/rfc6749#section-3.3 Must be a
- *  list of space-delimited, case-sensitive strings. Note: Currently, the scopes
- *  in the request are not supported
- */
-@property(nonatomic, copy, nullable) NSString *scope;
-
-@end
-
-
-/**
- *  Response message for ExchangeOauthToken. see
- *  https://www.rfc-editor.org/rfc/rfc6749#section-5.1
- */
-@interface GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeOauthTokenResponse : GTLRObject
-
-/**
- *  An OAuth 2.0 security token, issued by Google, in response to the Oauth
- *  token exchange request for the authorization code and refresh token flows.
- *  The returned [access
- *  token](https://www.rfc-editor.org/rfc/rfc6749#section-4.1.4). Tokens can
- *  vary in size, depending, in part, on the size of mapped claims, up to a
- *  maximum of 12288 bytes (12 KB). Google reserves the right to change the
- *  token size and the maximum length at any time.
- */
-@property(nonatomic, copy, nullable) NSString *accessToken;
-
-/**
- *  The amount of time, in seconds, between the time when the access token was
- *  issued and the time when the access token will expires.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *expiresIn;
-
-/**
- *  Google issued ID token in response to the OAuth token exchange request for
- *  ID token flow.
- */
-@property(nonatomic, copy, nullable) NSString *idToken;
-
-/**
- *  A refresh token, issued by Google, in response to the OAuth token exchange
- *  request for refresh token flow
- */
-@property(nonatomic, copy, nullable) NSString *refreshToken;
-
-/** A list of scopes associated with the returned token. */
-@property(nonatomic, copy, nullable) NSString *scope;
-
-/**
- *  The type of token. Field reserved for RFC compliance. See
- *  https://www.rfc-editor.org/rfc/rfc6749#section-5.1
- */
-@property(nonatomic, copy, nullable) NSString *tokenType;
 
 @end
 
@@ -417,15 +292,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *options;
 
 /**
- *  Required. An identifier for the type of requested security token. Must be
- *  `urn:ietf:params:oauth:token-type:access_token`.
+ *  Required. An identifier for the type of requested security token. Can be
+ *  `urn:ietf:params:oauth:token-type:access_token` or
+ *  `urn:ietf:params:oauth:token-type:access_boundary_intermediary_token`.
  */
 @property(nonatomic, copy, nullable) NSString *requestedTokenType;
 
 /**
  *  The OAuth 2.0 scopes to include on the resulting access token, formatted as
- *  a list of space-delimited, case-sensitive strings. Required when exchanging
- *  an external credential for a Google access token.
+ *  a list of space-delimited, case-sensitive strings; for example,
+ *  `https://www.googleapis.com/auth/cloud-platform`. Required when exchanging
+ *  an external credential for a Google access token. For a list of OAuth 2.0
+ *  scopes, see [OAuth 2.0 Scopes for Google
+ *  APIs](https://developers.google.com/identity/protocols/oauth2/scopes).
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -500,7 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "https://sts.amazonaws.com?Action=GetCallerIdentity&Version=2011-06-15" }
  *  ``` If the token is a SAML 2.0 assertion, it must use the format defined in
  *  [the SAML 2.0
- *  spec](https://www.oasis-open.org/committees/download.php/56776/sstc-saml-core-errata-2.0-wd-07.pdf),
+ *  spec](https://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.pdf),
  *  and the `subject_token_type` must be
  *  `urn:ietf:params:oauth:token-type:saml2`. See [Verification of external
  *  credentials](https://cloud.google.com/iam/docs/using-workload-identity-federation#verification_of_external_credentials)
@@ -534,6 +413,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenResponse : GTLRObject
 
 /**
+ *  The access boundary session key. This key is used along with the access
+ *  boundary intermediary token to generate Credential Access Boundary tokens at
+ *  client side. This field is absent when the `requested_token_type` from the
+ *  request is not
+ *  `urn:ietf:params:oauth:token-type:access_boundary_intermediary_token`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *accessBoundarySessionKey;
+
+/**
  *  An OAuth 2.0 security token, issued by Google, in response to the token
  *  exchange request. Tokens can vary in size, depending in part on the size of
  *  mapped claims, up to a maximum of 12288 bytes (12 KB). Google reserves the
@@ -544,9 +435,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The amount of time, in seconds, between the time when the access token was
  *  issued and the time when the access token will expire. This field is absent
- *  when the `subject_token` in the request is a Google-issued, short-lived
- *  access token. In this case, the access token has the same expiration time as
- *  the `subject_token`.
+ *  when the `subject_token` in the request is a a short-lived access token for
+ *  a Cloud Identity or Google Workspace user account. In this case, the access
+ *  token has the same expiration time as the `subject_token`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -565,89 +456,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Request message for IntrospectToken.
- */
-@interface GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenRequest : GTLRObject
-
-/**
- *  Required. The OAuth 2.0 security token issued by the Security Token Service
- *  API.
- */
-@property(nonatomic, copy, nullable) NSString *token;
-
-/**
- *  Optional. The type of the given token. Supported values are
- *  `urn:ietf:params:oauth:token-type:access_token` and `access_token`.
- */
-@property(nonatomic, copy, nullable) NSString *tokenTypeHint;
-
-@end
-
-
-/**
- *  Response message for IntrospectToken.
- */
-@interface GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenResponse : GTLRObject
-
-/**
- *  A boolean value that indicates whether the provided access token is
- *  currently active.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *active;
-
-/**
- *  The client identifier for the OAuth 2.0 client that requested the provided
- *  token.
- */
-@property(nonatomic, copy, nullable) NSString *clientId;
-
-/**
- *  The expiration timestamp, measured in the number of seconds since January 1
- *  1970 UTC, indicating when this token will expire.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *exp;
-
-/**
- *  The issued timestamp, measured in the number of seconds since January 1 1970
- *  UTC, indicating when this token was originally issued.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *iat;
-
-/** The issuer of the provided token. */
-@property(nonatomic, copy, nullable) NSString *iss;
-
-/** A list of scopes associated with the provided token. */
-@property(nonatomic, copy, nullable) NSString *scope;
-
-/**
- *  The unique user ID associated with the provided token. For Google Accounts,
- *  this value is based on the Google Account's user ID. For federated
- *  identities, this value is based on the identity pool ID and the value of the
- *  mapped `google.subject` attribute.
- */
-@property(nonatomic, copy, nullable) NSString *sub;
-
-/**
- *  The human-readable identifier for the token principal subject. For example,
- *  if the provided token is associated with a workload identity pool, this
- *  field contains a value in the following format:
- *  `principal://iam.googleapis.com/projects//locations/global/workloadIdentityPools//subject/`.
- *  If the provided token is associated with a workforce pool, this field
- *  contains a value in the following format:
- *  `principal://iam.googleapis.com/locations/global/workforcePools//subject/`.
- */
-@property(nonatomic, copy, nullable) NSString *username;
-
-@end
-
-
-/**
  *  An `Options` object configures features that the Security Token Service
  *  supports, but that are not supported by standard OAuth 2.0 token exchange
  *  endpoints, as defined in https://tools.ietf.org/html/rfc8693.
@@ -661,15 +469,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  value should not exceed 2048 characters.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSecurityToken_GoogleIdentityStsV1AccessBoundary *accessBoundary;
-
-/**
- *  The intended audience(s) of the credential. The audience value(s) should be
- *  the name(s) of services intended to receive the credential. Example:
- *  `["https://pubsub.googleapis.com/", "https://storage.googleapis.com/"]`. A
- *  maximum of 5 audiences can be included. For each provided audience, the
- *  maximum length is 262 characters.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *audiences;
 
 /**
  *  A Google project used for quota and billing purposes when the credential is

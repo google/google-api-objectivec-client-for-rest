@@ -179,6 +179,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Detaches 2nd Gen function to Cloud Run function.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.detachFunction
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDetachFunction : GTLRCloudFunctionsQuery
+
+/** Required. The name of the function for which should be detached. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Operation.
+ *
+ *  Detaches 2nd Gen function to Cloud Run function.
+ *
+ *  @param object The @c GTLRCloudFunctions_DetachFunctionRequest to include in
+ *    the query.
+ *  @param name Required. The name of the function for which should be detached.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDetachFunction
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_DetachFunctionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns a signed URL for downloading deployed function source code. The URL
  *  is only valid for a limited period and should be used within 30 minutes of
  *  generation. For more information about the signed URL usage see:
@@ -290,6 +319,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The optional version of the 1st gen function whose details should
+ *  be obtained. The version of a 1st gen function is an integer that starts
+ *  from 1 and gets incremented on redeployments. GCF may keep historical
+ *  configs for old versions of 1st gen function. This field can be specified to
+ *  fetch the historical configs. This field is valid only for GCF 1st gen
+ *  function.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+/**
  *  Fetches a @c GTLRCloudFunctions_Function.
  *
  *  Returns a function with the given name from the requested project.
@@ -370,7 +409,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The sorting order of the resources returned. Value should be a comma
- *  separated list of fields. The default sorting oder is ascending. See
+ *  separated list of fields. The default sorting order is ascending. See
  *  https://google.aip.dev/132#ordering.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -439,8 +478,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. If no field mask is provided, all provided
- *  fields in the request will be updated.
+ *  The list of fields to be updated. If no field mask is provided, all fields
+ *  will be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -675,6 +714,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsList : GTLRCloudFunctionsQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

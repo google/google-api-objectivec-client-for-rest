@@ -15,10 +15,13 @@
 #endif
 
 @class GTLRTravelImpactModel_Date;
+@class GTLRTravelImpactModel_EasaLabelMetadata;
 @class GTLRTravelImpactModel_EmissionsGramsPerPax;
 @class GTLRTravelImpactModel_Flight;
 @class GTLRTravelImpactModel_FlightWithEmissions;
+@class GTLRTravelImpactModel_Market;
 @class GTLRTravelImpactModel_ModelVersion;
+@class GTLRTravelImpactModel_TypicalFlightEmissions;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -26,6 +29,59 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_FlightWithEmissions.contrailsImpactBucket
+
+/**
+ *  The contrails impact is comparable to the total CO2e emissions.
+ *
+ *  Value: "CONTRAILS_IMPACT_MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactModerate;
+/**
+ *  The contrails impact is negligible compared to the total CO2e emissions.
+ *
+ *  Value: "CONTRAILS_IMPACT_NEGLIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactNegligible;
+/**
+ *  The contrails impact is higher than the total CO2e emissions impact.
+ *
+ *  Value: "CONTRAILS_IMPACT_SEVERE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactSevere;
+/**
+ *  The contrails impact is unspecified.
+ *
+ *  Value: "CONTRAILS_IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_FlightWithEmissions.source
+
+/**
+ *  The emissions data is from the EASA environmental labels.
+ *
+ *  Value: "EASA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Easa;
+/**
+ *  The source of the emissions data is unspecified.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_SourceUnspecified;
+/**
+ *  The emissions data is from the Travel Impact Model.
+ *
+ *  Value: "TIM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim;
 
 /**
  *  Input definition for the ComputeFlightEmissions request.
@@ -51,6 +107,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  response were computed.
  */
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_ModelVersion *modelVersion;
+
+@end
+
+
+/**
+ *  A list of pair of airports (markets) to request the typical emissions for.
+ */
+@interface GTLRTravelImpactModel_ComputeTypicalFlightEmissionsRequest : GTLRObject
+
+/**
+ *  Required. Request the typical flight emissions estimates for this market
+ *  pair. A maximum of 1000 markets can be requested.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_Market *> *markets;
+
+@end
+
+
+/**
+ *  The response includes the emissions but also the model version.
+ */
+@interface GTLRTravelImpactModel_ComputeTypicalFlightEmissionsResponse : GTLRObject
+
+/**
+ *  The model version under which typical flight emission estimates for all
+ *  flights in this response were computed.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_ModelVersion *modelVersion;
+
+/** Market's Typical Flight Emissions requested. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_TypicalFlightEmissions *> *typicalFlightEmissions;
 
 @end
 
@@ -91,6 +178,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  Metadata about the EASA Flight Emissions Label.
+ */
+@interface GTLRTravelImpactModel_EasaLabelMetadata : GTLRObject
+
+/**
+ *  The date when the label expires. The label can be displayed until the end of
+ *  this date.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_Date *labelExpiryDate;
+
+/** The date when the label was issued. */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_Date *labelIssueDate;
+
+/** Version of the label. */
+@property(nonatomic, copy, nullable) NSString *labelVersion;
+
+/**
+ *  Sustainable Aviation Fuel (SAF) emissions discount percentage applied to the
+ *  label. It is a percentage as a decimal. The values are in the interval
+ *  [0,1]. For example, 0.0021 means 0.21%. This discount and reduction in
+ *  emissions are reported by the EASA label but they are not included in the
+ *  CO2e estimates distributed by this API.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *safDiscountPercentage;
 
 @end
 
@@ -176,12 +294,35 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTravelImpactModel_FlightWithEmissions : GTLRObject
 
 /**
+ *  Optional. The significance of contrails warming impact compared to the total
+ *  CO2e emissions impact.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactModerate
+ *        The contrails impact is comparable to the total CO2e emissions.
+ *        (Value: "CONTRAILS_IMPACT_MODERATE")
+ *    @arg @c kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactNegligible
+ *        The contrails impact is negligible compared to the total CO2e
+ *        emissions. (Value: "CONTRAILS_IMPACT_NEGLIGIBLE")
+ *    @arg @c kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactSevere
+ *        The contrails impact is higher than the total CO2e emissions impact.
+ *        (Value: "CONTRAILS_IMPACT_SEVERE")
+ *    @arg @c kGTLRTravelImpactModel_FlightWithEmissions_ContrailsImpactBucket_ContrailsImpactUnspecified
+ *        The contrails impact is unspecified. (Value:
+ *        "CONTRAILS_IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contrailsImpactBucket;
+
+/**
+ *  Optional. Metadata about the EASA Flight Emissions Label. Only set when the
+ *  emissions data source is EASA.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EasaLabelMetadata *easaLabelMetadata;
+
+/**
  *  Optional. Per-passenger emission estimate numbers. Will not be present if
  *  emissions could not be computed. For the list of reasons why emissions could
- *  not be computed, see ComputeFlightEmissions. Note this field is currently
- *  equivalent to ttw_emissions_grams_per_pax until TIM version 1.X.0 which will
- *  update this to be total wtw emissions aka wtt_emissions_grams_per_pax +
- *  ttw_emissions_grams_per_pax.
+ *  not be computed, see ComputeFlightEmissions.
  */
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsGramsPerPax *emissionsGramsPerPax;
 
@@ -191,12 +332,40 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_Flight *flight;
 
+/**
+ *  Optional. The source of the emissions data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_FlightWithEmissions_Source_Easa The
+ *        emissions data is from the EASA environmental labels. (Value: "EASA")
+ *    @arg @c kGTLRTravelImpactModel_FlightWithEmissions_Source_SourceUnspecified
+ *        The source of the emissions data is unspecified. (Value:
+ *        "SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim The
+ *        emissions data is from the Travel Impact Model. (Value: "TIM")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  A pair of airports.
+ */
+@interface GTLRTravelImpactModel_Market : GTLRObject
+
+/** Required. IATA airport code for flight destination, e.g. "JFK". */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** Required. IATA airport code for flight origin, e.g. "LHR". */
+@property(nonatomic, copy, nullable) NSString *origin;
+
 @end
 
 
 /**
  *  Travel Impact Model version. For more information about the model versioning
- *  see https://github.com/google/travel-impact-model/#versioning.
+ *  see [GitHub](https://github.com/google/travel-impact-model/#versioning).
  */
 @interface GTLRTravelImpactModel_ModelVersion : GTLRObject
 
@@ -210,8 +379,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Major versions: Major changes to methodology (e.g. adding new data sources
  *  to the model that lead to major output changes). Such changes will be
  *  infrequent and announced well in advance. Might involve API version changes,
- *  which will respect guidelines in
- *  https://cloud.google.com/endpoints/docs/openapi/versioning-an-api#backwards-incompatible
+ *  which will respect [Google Cloud API
+ *  guidelines](https://cloud.google.com/endpoints/docs/openapi/versioning-an-api#backwards-incompatible)
  *
  *  Uses NSNumber of intValue.
  */
@@ -232,6 +401,28 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *patch;
+
+@end
+
+
+/**
+ *  Typical flight emission estimates for a certain market
+ */
+@interface GTLRTravelImpactModel_TypicalFlightEmissions : GTLRObject
+
+/**
+ *  Optional. Typical flight emissions per passenger for requested market. Will
+ *  not be present if a typical emissions could not be computed. For the list of
+ *  reasons why typical flight emissions could not be computed, see
+ *  [GitHub](https://github.com/google/travel-impact-model/blob/main/projects/typical_flight_emissions.md#step-7-validate-dataset).
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsGramsPerPax *emissionsGramsPerPax;
+
+/**
+ *  Required. Matches the flight identifiers in the request. Note: all IATA
+ *  codes are capitalized.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_Market *market;
 
 @end
 

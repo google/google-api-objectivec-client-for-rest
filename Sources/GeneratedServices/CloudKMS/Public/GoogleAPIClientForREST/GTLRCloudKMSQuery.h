@@ -28,6 +28,50 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// publicKeyFormat
+
+/**
+ *  The returned public key will be encoded in DER format (the PrivateKeyInfo
+ *  structure from RFC 5208).
+ *
+ *  Value: "DER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatDer;
+/**
+ *  This is supported only for PQC algorithms. The key material is returned in
+ *  the format defined by NIST PQC standards (FIPS 203, FIPS 204, and FIPS 205).
+ *
+ *  Value: "NIST_PQC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatNistPqc;
+/**
+ *  The returned public key will be encoded in PEM format. See the
+ *  [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *  Considerations](https://tools.ietf.org/html/rfc7468#section-2) and [Textual
+ *  Encoding of Subject Public Key Info]
+ *  (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *
+ *  Value: "PEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatPem;
+/**
+ *  If the public_key_format field is not specified: - For PQC algorithms, an
+ *  error will be returned. - For non-PQC algorithms, the default format is PEM,
+ *  and the field pem will be populated. Otherwise, the public key will be
+ *  exported through the public_key field in the requested format.
+ *
+ *  Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatPublicKeyFormatUnspecified;
+/**
+ *  The returned public key is in raw bytes format defined in its standard
+ *  https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *
+ *  Value: "XWING_RAW_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMSPublicKeyFormatXwingRawBytes;
+
+// ----------------------------------------------------------------------------
 // versionView
 
 /**
@@ -72,6 +116,264 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Returns the AutokeyConfig for a folder.
+ *
+ *  Method: cloudkms.folders.getAutokeyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersGetAutokeyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. Name of the AutokeyConfig resource, e.g.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_AutokeyConfig.
+ *
+ *  Returns the AutokeyConfig for a folder.
+ *
+ *  @param name Required. Name of the AutokeyConfig resource, e.g.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ *
+ *  @return GTLRCloudKMSQuery_FoldersGetAutokeyConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.folders.getKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersGetKajPolicyConfig : GTLRCloudKMSQuery
+
+/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
+ *    get.
+ *
+ *  @return GTLRCloudKMSQuery_FoldersGetKajPolicyConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the AutokeyConfig for a folder. The caller must have both
+ *  `cloudkms.autokeyConfigs.update` permission on the parent folder and
+ *  `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A
+ *  KeyHandle creation in the folder's descendant projects will use this
+ *  configuration to determine where to create the resulting CryptoKey.
+ *
+ *  Method: cloudkms.folders.updateAutokeyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Identifier. Name of the AutokeyConfig resource, e.g.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Masks which fields of the AutokeyConfig to update, e.g.
+ *  `keyProject`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_AutokeyConfig.
+ *
+ *  Updates the AutokeyConfig for a folder. The caller must have both
+ *  `cloudkms.autokeyConfigs.update` permission on the parent folder and
+ *  `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A
+ *  KeyHandle creation in the folder's descendant projects will use this
+ *  configuration to determine where to create the resulting CryptoKey.
+ *
+ *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
+ *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ *
+ *  @return GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_AutokeyConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.folders.updateKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_FoldersUpdateKajPolicyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
+ *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
+ *    include in the query.
+ *  @param name Identifier. The resource name for this
+ *    KeyAccessJustificationsPolicyConfig in the format of
+ *    "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *
+ *  @return GTLRCloudKMSQuery_FoldersUpdateKajPolicyConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.organizations.getKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_OrganizationsGetKajPolicyConfig : GTLRCloudKMSQuery
+
+/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
+ *    get.
+ *
+ *  @return GTLRCloudKMSQuery_OrganizationsGetKajPolicyConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.organizations.updateKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_OrganizationsUpdateKajPolicyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
+ *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
+ *    include in the query.
+ *  @param name Identifier. The resource name for this
+ *    KeyAccessJustificationsPolicyConfig in the format of
+ *    "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *
+ *  @return GTLRCloudKMSQuery_OrganizationsUpdateKajPolicyConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.projects.getKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig : GTLRCloudKMSQuery
+
+/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Gets the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
+ *    get.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -643,6 +945,138 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Creates a new KeyHandle, triggering the provisioning of a new CryptoKey for
+ *  CMEK use with the given resource type in the configured key project and the
+ *  same location. GetOperation should be used to resolve the resulting
+ *  long-running operation and get the resulting KeyHandle and CryptoKey.
+ *
+ *  Method: cloudkms.projects.locations.keyHandles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesCreate : GTLRCloudKMSQuery
+
+/**
+ *  Optional. Id of the KeyHandle. Must be unique to the resource project and
+ *  location. If not provided by the caller, a new UUID is used.
+ */
+@property(nonatomic, copy, nullable) NSString *keyHandleId;
+
+/**
+ *  Required. Name of the resource project and location to create the KeyHandle
+ *  in, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Creates a new KeyHandle, triggering the provisioning of a new CryptoKey for
+ *  CMEK use with the given resource type in the configured key project and the
+ *  same location. GetOperation should be used to resolve the resulting
+ *  long-running operation and get the resulting KeyHandle and CryptoKey.
+ *
+ *  @param object The @c GTLRCloudKMS_KeyHandle to include in the query.
+ *  @param parent Required. Name of the resource project and location to create
+ *    the KeyHandle in, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyHandle *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the KeyHandle.
+ *
+ *  Method: cloudkms.projects.locations.keyHandles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesGet : GTLRCloudKMSQuery
+
+/**
+ *  Required. Name of the KeyHandle resource, e.g.
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/keyHandles/{KEY_HANDLE_ID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyHandle.
+ *
+ *  Returns the KeyHandle.
+ *
+ *  @param name Required. Name of the KeyHandle resource, e.g.
+ *    `projects/{PROJECT_ID}/locations/{LOCATION}/keyHandles/{KEY_HANDLE_ID}`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists KeyHandles.
+ *
+ *  Method: cloudkms.projects.locations.keyHandles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesList : GTLRCloudKMSQuery
+
+/**
+ *  Optional. Filter to apply when listing KeyHandles, e.g.
+ *  `resource_type_selector="{SERVICE}.googleapis.com/{TYPE}"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Optional limit on the number of KeyHandles to include in the
+ *  response. The service may return fewer than this value. Further KeyHandles
+ *  can subsequently be obtained by including the
+ *  ListKeyHandlesResponse.next_page_token in a subsequent request. If
+ *  unspecified, at most 100 KeyHandles will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Optional pagination token, returned earlier via
+ *  ListKeyHandlesResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the resource project and location from which to list
+ *  KeyHandles, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ListKeyHandlesResponse.
+ *
+ *  Lists KeyHandles.
+ *
+ *  @param parent Required. Name of the resource project and location from which
+ *    to list KeyHandles, e.g. `projects/{PROJECT_ID}/locations/{LOCATION}`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyHandlesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Create a new KeyRing in a given Project and Location.
  *
  *  Method: cloudkms.projects.locations.keyRings.create
@@ -833,6 +1267,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Decapsulates data that was encapsulated with a public key retrieved from
+ *  GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose
+ *  KEY_ENCAPSULATION.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.decapsulate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDecapsulate : GTLRCloudKMSQuery
+
+/**
+ *  Required. The resource name of the CryptoKeyVersion to use for
+ *  decapsulation.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_DecapsulateResponse.
+ *
+ *  Decapsulates data that was encapsulated with a public key retrieved from
+ *  GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose
+ *  KEY_ENCAPSULATION.
+ *
+ *  @param object The @c GTLRCloudKMS_DecapsulateRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the CryptoKeyVersion to use for
+ *    decapsulation.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDecapsulate
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_DecapsulateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
  *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time
  *  will be set to the time destroy_scheduled_duration in the future. At that
@@ -913,6 +1385,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /** Required. The name of the CryptoKeyVersion public key to get. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The PublicKey format specified by the user. This field is required
+ *  for PQC algorithms. If specified, the public key will be exported through
+ *  the public_key field in the requested format. Otherwise, the pem field will
+ *  be populated for non-PQC algorithms, and an error will be returned for PQC
+ *  algorithms.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatPublicKeyFormatUnspecified If the
+ *        public_key_format field is not specified: - For PQC algorithms, an
+ *        error will be returned. - For non-PQC algorithms, the default format
+ *        is PEM, and the field pem will be populated. Otherwise, the public key
+ *        will be exported through the public_key field in the requested format.
+ *        (Value: "PUBLIC_KEY_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatPem The returned public key will be
+ *        encoded in PEM format. See the
+ *        [RFC7468](https://tools.ietf.org/html/rfc7468) sections for [General
+ *        Considerations](https://tools.ietf.org/html/rfc7468#section-2) and
+ *        [Textual Encoding of Subject Public Key Info]
+ *        (https://tools.ietf.org/html/rfc7468#section-13) for more information.
+ *        (Value: "PEM")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatDer The returned public key will be
+ *        encoded in DER format (the PrivateKeyInfo structure from RFC 5208).
+ *        (Value: "DER")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatNistPqc This is supported only for PQC
+ *        algorithms. The key material is returned in the format defined by NIST
+ *        PQC standards (FIPS 203, FIPS 204, and FIPS 205). (Value: "NIST_PQC")
+ *    @arg @c kGTLRCloudKMSPublicKeyFormatXwingRawBytes The returned public key
+ *        is in raw bytes format defined in its standard
+ *        https://datatracker.ietf.org/doc/draft-connolly-cfrg-xwing-kem.
+ *        (Value: "XWING_RAW_BYTES")
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyFormat;
 
 /**
  *  Fetches a @c GTLRCloudKMS_PublicKey.
@@ -2155,6 +2661,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsList : GTLRCloudKMSQuery
 
 /**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).
@@ -2188,6 +2700,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: cloudkms.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsOperationsGet : GTLRCloudKMSQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2229,6 +2772,152 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @return GTLRCloudKMSQuery_ProjectsLocationsUpdateEkmConfig
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_EkmConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the effective Cloud KMS Autokey configuration for a given project.
+ *
+ *  Method: cloudkms.projects.showEffectiveAutokeyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsShowEffectiveAutokeyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. Name of the resource project to the show effective Cloud KMS
+ *  Autokey configuration for. This may be helpful for interrogating the effect
+ *  of nested folder configurations on a given resource project.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ShowEffectiveAutokeyConfigResponse.
+ *
+ *  Returns the effective Cloud KMS Autokey configuration for a given project.
+ *
+ *  @param parent Required. Name of the resource project to the show effective
+ *    Cloud KMS Autokey configuration for. This may be helpful for interrogating
+ *    the effect of nested folder configurations on a given resource project.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveAutokeyConfig
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the KeyAccessJustificationsEnrollmentConfig of the resource closest
+ *  to the given project in hierarchy.
+ *
+ *  Method: cloudkms.projects.showEffectiveKeyAccessJustificationsEnrollmentConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsEnrollmentConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. The number or id of the project to get the effective
+ *  KeyAccessJustificationsEnrollmentConfig for.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsEnrollmentConfigResponse.
+ *
+ *  Returns the KeyAccessJustificationsEnrollmentConfig of the resource closest
+ *  to the given project in hierarchy.
+ *
+ *  @param project Required. The number or id of the project to get the
+ *    effective KeyAccessJustificationsEnrollmentConfig for.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsEnrollmentConfig
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Returns the KeyAccessJustificationsPolicyConfig of the resource closest to
+ *  the given project in hierarchy.
+ *
+ *  Method: cloudkms.projects.showEffectiveKeyAccessJustificationsPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Required. The number or id of the project to get the effective
+ *  KeyAccessJustificationsPolicyConfig. In the format of "projects/{|}"
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse.
+ *
+ *  Returns the KeyAccessJustificationsPolicyConfig of the resource closest to
+ *  the given project in hierarchy.
+ *
+ *  @param project Required. The number or id of the project to get the
+ *    effective KeyAccessJustificationsPolicyConfig. In the format of
+ *    "projects/{|}"
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  Method: cloudkms.projects.updateKajPolicyConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsUpdateKajPolicyConfig : GTLRCloudKMSQuery
+
+/**
+ *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
+ *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig.
+ *
+ *  Updates the KeyAccessJustificationsPolicyConfig for a given
+ *  organization/folder/projects.
+ *
+ *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
+ *    include in the query.
+ *  @param name Identifier. The resource name for this
+ *    KeyAccessJustificationsPolicyConfig in the format of
+ *    "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsUpdateKajPolicyConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
                            name:(NSString *)name;
 
 @end

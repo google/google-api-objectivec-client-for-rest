@@ -29,17 +29,15 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // view
 
+/** Value: "BASIC" */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewBasic;
 /**
  *  Only populates `name` and fields related to the table's encryption state.
  *
  *  Value: "ENCRYPTION_VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewEncryptionView;
-/**
- *  Populates all fields except for stats. See STATS_VIEW to request stats.
- *
- *  Value: "FULL"
- */
+/** Value: "FULL" */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewFull;
 /**
  *  Only populates `name`.
@@ -53,6 +51,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewNameOnly;
  *  Value: "REPLICATION_VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewReplicationView;
+/**
+ *  Uses the default view for each method as documented in the request.
+ *
+ *  Value: "RESPONSE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewResponseViewUnspecified;
+/**
+ *  Uses the default view for each method as documented in the request.
+ *
+ *  Value: "SCHEMA_BUNDLE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewSchemaBundleViewUnspecified;
 /**
  *  Only populates `name` and fields related to the table's schema.
  *
@@ -84,6 +94,90 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: bigtableadmin.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_OperationsCancel : GTLRBigtableAdminQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRBigtableAdminQuery_OperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: bigtableadmin.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_OperationsDelete : GTLRBigtableAdminQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRBigtableAdminQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -372,8 +466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @property(nonatomic, assign) BOOL ignoreWarnings;
 
 /**
- *  The unique name of the app profile. Values are of the form
- *  `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
+ *  The unique name of the app profile, up to 50 characters long. Values are of
+ *  the form `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -391,7 +485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Updates an app profile within an instance.
  *
  *  @param object The @c GTLRBigtableAdmin_AppProfile to include in the query.
- *  @param name The unique name of the app profile. Values are of the form
+ *  @param name The unique name of the app profile, up to 50 characters long.
+ *    Values are of the form
  *    `projects/{project}/instances/{instance}/appProfiles/_a-zA-Z0-9*`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesPatch
@@ -418,7 +513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The name of the destination cluster that will contain the backup
- *  copy. The cluster must already exists. Values are of the form:
+ *  copy. The cluster must already exist. Values are of the form:
  *  `projects/{project}/instances/{instance}/clusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -432,8 +527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_CopyBackupRequest to include in the
  *    query.
  *  @param parent Required. The name of the destination cluster that will
- *    contain the backup copy. The cluster must already exists. Values are of
- *    the form: `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *    contain the backup copy. The cluster must already exist. Values are of the
+ *    form: `projects/{project}/instances/{instance}/clusters/{cluster}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCopy
  */
@@ -568,8 +663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Gets the access control policy for a Table or Backup resource. Returns an
- *  empty policy if the resource exists but does not have a policy set.
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
  *
  *  Method: bigtableadmin.projects.instances.clusters.backups.getIamPolicy
  *
@@ -592,8 +687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Gets the access control policy for a Table or Backup resource. Returns an
- *  empty policy if the resource exists but does not have a policy set.
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
  *
  *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
  *    query.
@@ -759,8 +854,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Sets the access control policy on a Table or Backup resource. Replaces any
- *  existing policy.
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
  *
  *  Method: bigtableadmin.projects.instances.clusters.backups.setIamPolicy
  *
@@ -783,8 +878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Sets the access control policy on a Table or Backup resource. Replaces any
- *  existing policy.
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
  *
  *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
  *    query.
@@ -801,8 +896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Returns permissions that the caller has on the specified Table or Backup
- *  resource.
+ *  Returns permissions that the caller has on the specified Bigtable resource.
  *
  *  Method: bigtableadmin.projects.instances.clusters.backups.testIamPermissions
  *
@@ -825,8 +919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_TestIamPermissionsResponse.
  *
- *  Returns permissions that the caller has on the specified Table or Backup
- *  resource.
+ *  Returns permissions that the caller has on the specified Bigtable resource.
  *
  *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
  *    in the query.
@@ -1388,6 +1481,705 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Creates a logical view within an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsCreate : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The ID to use for the logical view, which will become the final
+ *  component of the logical view's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *logicalViewId;
+
+/**
+ *  Required. The parent instance where this logical view will be created.
+ *  Format: `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Creates a logical view within an instance.
+ *
+ *  @param object The @c GTLRBigtableAdmin_LogicalView to include in the query.
+ *  @param parent Required. The parent instance where this logical view will be
+ *    created. Format: `projects/{project}/instances/{instance}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_LogicalView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a logical view from an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsDelete : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The current etag of the logical view. If an etag is provided and
+ *  does not match the current etag of the logical view, deletion will be
+ *  blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The unique name of the logical view to be deleted. Format:
+ *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a logical view from an instance.
+ *
+ *  @param name Required. The unique name of the logical view to be deleted.
+ *    Format:
+ *    `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a logical view.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGet : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the requested logical view. Values are of the
+ *  form `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_LogicalView.
+ *
+ *  Gets information about a logical view.
+ *
+ *  @param name Required. The unique name of the requested logical view. Values
+ *    are of the form
+ *    `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for an instance resource. Returns an empty
+ *  policy if an instance exists but does not have a policy set.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Gets the access control policy for an instance resource. Returns an empty
+ *  policy if an instance exists but does not have a policy set.
+ *
+ *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists information about logical views in an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsList : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The maximum number of logical views to return. The service may
+ *  return fewer than this value
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListLogicalViews` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListLogicalViews` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The unique name of the instance for which the list of logical
+ *  views is requested. Values are of the form
+ *  `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListLogicalViewsResponse.
+ *
+ *  Lists information about logical views in an instance.
+ *
+ *  @param parent Required. The unique name of the instance for which the list
+ *    of logical views is requested. Values are of the form
+ *    `projects/{project}/instances/{instance}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a logical view within an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsPatch : GTLRBigtableAdminQuery
+
+/**
+ *  Identifier. The unique name of the logical view. Format:
+ *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates a logical view within an instance.
+ *
+ *  @param object The @c GTLRBigtableAdmin_LogicalView to include in the query.
+ *  @param name Identifier. The unique name of the logical view. Format:
+ *    `projects/{project}/instances/{instance}/logicalViews/{logical_view}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_LogicalView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on an instance resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsSetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Sets the access control policy on an instance resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified instance resource.
+ *
+ *  Method: bigtableadmin.projects.instances.logicalViews.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsTestIamPermissions : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified instance resource.
+ *
+ *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesLogicalViewsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a materialized view within an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsCreate : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The ID to use for the materialized view, which will become the
+ *  final component of the materialized view's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *materializedViewId;
+
+/**
+ *  Required. The parent instance where this materialized view will be created.
+ *  Format: `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Creates a materialized view within an instance.
+ *
+ *  @param object The @c GTLRBigtableAdmin_MaterializedView to include in the
+ *    query.
+ *  @param parent Required. The parent instance where this materialized view
+ *    will be created. Format: `projects/{project}/instances/{instance}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_MaterializedView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a materialized view from an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsDelete : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The current etag of the materialized view. If an etag is provided
+ *  and does not match the current etag of the materialized view, deletion will
+ *  be blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The unique name of the materialized view to be deleted. Format:
+ *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a materialized view from an instance.
+ *
+ *  @param name Required. The unique name of the materialized view to be
+ *    deleted. Format:
+ *    `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a materialized view.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGet : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the requested materialized view. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_MaterializedView.
+ *
+ *  Gets information about a materialized view.
+ *
+ *  @param name Required. The unique name of the requested materialized view.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for an instance resource. Returns an empty
+ *  policy if an instance exists but does not have a policy set.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Gets the access control policy for an instance resource. Returns an empty
+ *  policy if an instance exists but does not have a policy set.
+ *
+ *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists information about materialized views in an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsList : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The maximum number of materialized views to return. The service
+ *  may return fewer than this value
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListMaterializedViews`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMaterializedViews` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The unique name of the instance for which the list of materialized
+ *  views is requested. Values are of the form
+ *  `projects/{project}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListMaterializedViewsResponse.
+ *
+ *  Lists information about materialized views in an instance.
+ *
+ *  @param parent Required. The unique name of the instance for which the list
+ *    of materialized views is requested. Values are of the form
+ *    `projects/{project}/instances/{instance}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a materialized view within an instance.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsPatch : GTLRBigtableAdminQuery
+
+/**
+ *  Identifier. The unique name of the materialized view. Format:
+ *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates a materialized view within an instance.
+ *
+ *  @param object The @c GTLRBigtableAdmin_MaterializedView to include in the
+ *    query.
+ *  @param name Identifier. The unique name of the materialized view. Format:
+ *    `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_MaterializedView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on an instance resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsSetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Sets the access control policy on an instance resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified instance resource.
+ *
+ *  Method: bigtableadmin.projects.instances.materializedViews.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsTestIamPermissions : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified instance resource.
+ *
+ *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesMaterializedViewsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Partially updates an instance within a project. This method can modify all
  *  fields of an Instance and is the preferred way to update an Instance.
  *
@@ -1473,6 +2265,399 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new AuthorizedView in a table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.authorizedViews.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsCreate : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The id of the AuthorizedView to create. This AuthorizedView must
+ *  not already exist. The `authorized_view_id` appended to `parent` forms the
+ *  full AuthorizedView name of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/authorizedView/{authorized_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *authorizedViewId;
+
+/**
+ *  Required. This is the name of the table the AuthorizedView belongs to.
+ *  Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Creates a new AuthorizedView in a table.
+ *
+ *  @param object The @c GTLRBigtableAdmin_AuthorizedView to include in the
+ *    query.
+ *  @param parent Required. This is the name of the table the AuthorizedView
+ *    belongs to. Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_AuthorizedView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Permanently deletes a specified AuthorizedView.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.authorizedViews.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsDelete : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The current etag of the AuthorizedView. If an etag is provided and
+ *  does not match the current etag of the AuthorizedView, deletion will be
+ *  blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The unique name of the AuthorizedView to be deleted. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Permanently deletes a specified AuthorizedView.
+ *
+ *  @param name Required. The unique name of the AuthorizedView to be deleted.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information from a specified AuthorizedView.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.authorizedViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsGet : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the requested AuthorizedView. Values are of the
+ *  form
+ *  `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The resource_view to be applied to the returned AuthorizedView's
+ *  fields. Default to BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdminViewResponseViewUnspecified Uses the default
+ *        view for each method as documented in the request. (Value:
+ *        "RESPONSE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdminViewNameOnly Only populates `name`. (Value:
+ *        "NAME_ONLY")
+ *    @arg @c kGTLRBigtableAdminViewBasic Only populates the AuthorizedView's
+ *        basic metadata. This includes: name, deletion_protection, etag.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates every fields. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_AuthorizedView.
+ *
+ *  Gets information from a specified AuthorizedView.
+ *
+ *  @param name Required. The unique name of the requested AuthorizedView.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.authorizedViews.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsGetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
+ *
+ *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists all AuthorizedViews from a specific table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.authorizedViews.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsList : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. Maximum number of results per page. A page_size of zero lets the
+ *  server choose the number of items to return. A page_size which is strictly
+ *  positive will return at most that many items. A negative page_size will
+ *  cause an error. Following the first request, subsequent paginated calls are
+ *  not required to pass a page_size. If a page_size is set in subsequent calls,
+ *  it must match the page_size given in the first request.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The value of `next_page_token` returned by a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The unique name of the table for which AuthorizedViews should be
+ *  listed. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource_view to be applied to the returned AuthorizedViews'
+ *  fields. Default to NAME_ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdminViewResponseViewUnspecified Uses the default
+ *        view for each method as documented in the request. (Value:
+ *        "RESPONSE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdminViewNameOnly Only populates `name`. (Value:
+ *        "NAME_ONLY")
+ *    @arg @c kGTLRBigtableAdminViewBasic Only populates the AuthorizedView's
+ *        basic metadata. This includes: name, deletion_protection, etag.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates every fields. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListAuthorizedViewsResponse.
+ *
+ *  Lists all AuthorizedViews from a specific table.
+ *
+ *  @param parent Required. The unique name of the table for which
+ *    AuthorizedViews should be listed. Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an AuthorizedView in a table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.authorizedViews.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsPatch : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. If true, ignore the safety checks when updating the
+ *  AuthorizedView.
+ */
+@property(nonatomic, assign) BOOL ignoreWarnings;
+
+/**
+ *  Identifier. The name of this AuthorizedView. Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. A mask specifying which fields in
+ *  the AuthorizedView resource should be updated. This mask is relative to the
+ *  AuthorizedView resource, not to the request message. A field will be
+ *  overwritten if it is in the mask. If empty, all fields set in the request
+ *  will be overwritten. A special value `*` means to overwrite all fields
+ *  (including fields not set in the request).
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates an AuthorizedView in a table.
+ *
+ *  @param object The @c GTLRBigtableAdmin_AuthorizedView to include in the
+ *    query.
+ *  @param name Identifier. The name of this AuthorizedView. Values are of the
+ *    form
+ *    `projects/{project}/instances/{instance}/tables/{table}/authorizedViews/{authorized_view}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_AuthorizedView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.authorizedViews.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsSetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified Bigtable resource.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.authorizedViews.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsTestIamPermissions : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified Bigtable resource.
+ *
+ *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesAuthorizedViewsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
 
 @end
@@ -1749,8 +2934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Gets the access control policy for a Table or Backup resource. Returns an
- *  empty policy if the resource exists but does not have a policy set.
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
  *
  *  Method: bigtableadmin.projects.instances.tables.getIamPolicy
  *
@@ -1773,8 +2958,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Gets the access control policy for a Table or Backup resource. Returns an
- *  empty policy if the resource exists but does not have a policy set.
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
  *
  *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
  *    query.
@@ -1927,6 +3112,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesPatch : GTLRBigtableAdminQuery
 
+/** Optional. If true, ignore safety checks when updating the table. */
+@property(nonatomic, assign) BOOL ignoreWarnings;
+
 /**
  *  The unique name of the table. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`. Views:
@@ -1940,9 +3128,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  relative to the `table` field, not to the request message. The wildcard (*)
  *  path is currently not supported. Currently UpdateTable is only supported for
  *  the following fields: * `change_stream_config` *
- *  `change_stream_config.retention_period` * `deletion_protection` If
- *  `column_families` is set in `update_mask`, it will return an UNIMPLEMENTED
- *  error.
+ *  `change_stream_config.retention_period` * `deletion_protection` *
+ *  `automated_backup_policy` * `automated_backup_policy.retention_period` *
+ *  `automated_backup_policy.frequency` * `row_key_schema` If `column_families`
+ *  is set in `update_mask`, it will return an UNIMPLEMENTED error.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2009,8 +3198,377 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Sets the access control policy on a Table or Backup resource. Replaces any
- *  existing policy.
+ *  Creates a new schema bundle in the specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesCreate : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The parent resource where this schema bundle will be created.
+ *  Values are of the form
+ *  `projects/{project}/instances/{instance}/tables/{table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The unique ID to use for the schema bundle, which will become the
+ *  final component of the schema bundle's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *schemaBundleId;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Creates a new schema bundle in the specified table.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SchemaBundle to include in the query.
+ *  @param parent Required. The parent resource where this schema bundle will be
+ *    created. Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesCreate
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SchemaBundle *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a schema bundle in the specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesDelete : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The etag of the schema bundle. If this is provided, it must match
+ *  the server's etag. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The unique name of the schema bundle to delete. Values are of the
+ *  form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Empty.
+ *
+ *  Deletes a schema bundle in the specified table.
+ *
+ *  @param name Required. The unique name of the schema bundle to delete. Values
+ *    are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets metadata information about the specified schema bundle.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesGet : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the schema bundle to retrieve. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_SchemaBundle.
+ *
+ *  Gets metadata information about the specified schema bundle.
+ *
+ *  @param name Required. The unique name of the schema bundle to retrieve.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesGetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Gets the access control policy for a Bigtable resource. Returns an empty
+ *  policy if the resource exists but does not have a policy set.
+ *
+ *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists all schema bundles associated with the specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesList : GTLRBigtableAdminQuery
+
+/**
+ *  The maximum number of schema bundles to return. If the value is positive,
+ *  the server may return at most this value. If unspecified, the server will
+ *  return the maximum allowed page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListSchemaBundles` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListSchemaBundles` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of schema bundles. Values
+ *  are of the form `projects/{project}/instances/{instance}/tables/{table}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource_view to be applied to the returned SchemaBundles'
+ *  fields. Defaults to NAME_ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdminViewSchemaBundleViewUnspecified Uses the default
+ *        view for each method as documented in the request. (Value:
+ *        "SCHEMA_BUNDLE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdminViewNameOnly Only populates `name`. (Value:
+ *        "NAME_ONLY")
+ *    @arg @c kGTLRBigtableAdminViewBasic Only populates the SchemaBundle's
+ *        basic metadata. This includes: name, etag, create_time, update_time.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates every field. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListSchemaBundlesResponse.
+ *
+ *  Lists all schema bundles associated with the specified table.
+ *
+ *  @param parent Required. The parent, which owns this collection of schema
+ *    bundles. Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a schema bundle in the specified table.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesPatch : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. If set, ignore the safety checks when updating the Schema Bundle.
+ *  The safety checks are: - The new Schema Bundle is backwards compatible with
+ *  the existing Schema Bundle.
+ */
+@property(nonatomic, assign) BOOL ignoreWarnings;
+
+/**
+ *  Identifier. The unique name identifying this schema bundle. Values are of
+ *  the form
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Updates a schema bundle in the specified table.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SchemaBundle to include in the query.
+ *  @param name Identifier. The unique name identifying this schema bundle.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/{schema_bundle}`
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesPatch
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SchemaBundle *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesSetIamPolicy : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Policy.
+ *
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
+ *
+ *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that the caller has on the specified Bigtable resource.
+ *
+ *  Method: bigtableadmin.projects.instances.tables.schemaBundles.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesTestIamPermissions : GTLRBigtableAdminQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that the caller has on the specified Bigtable resource.
+ *
+ *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSchemaBundlesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
  *
  *  Method: bigtableadmin.projects.instances.tables.setIamPolicy
  *
@@ -2033,8 +3591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Sets the access control policy on a Table or Backup resource. Replaces any
- *  existing policy.
+ *  Sets the access control policy on a Bigtable resource. Replaces any existing
+ *  policy.
  *
  *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
  *    query.
@@ -2051,8 +3609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Returns permissions that the caller has on the specified Table or Backup
- *  resource.
+ *  Returns permissions that the caller has on the specified Bigtable resource.
  *
  *  Method: bigtableadmin.projects.instances.tables.testIamPermissions
  *
@@ -2075,8 +3632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_TestIamPermissionsResponse.
  *
- *  Returns permissions that the caller has on the specified Table or Backup
- *  resource.
+ *  Returns permissions that the caller has on the specified Bigtable resource.
  *
  *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
  *    in the query.
@@ -2212,6 +3768,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Gets information about a location.
+ *
+ *  Method: bigtableadmin.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
+ */
+@interface GTLRBigtableAdminQuery_ProjectsLocationsGet : GTLRBigtableAdminQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: bigtableadmin.projects.locations.list
@@ -2226,6 +3814,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsLocationsList : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. A list of extra location types that should be used as conditions
+ *  for controlling the visibility of the locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering

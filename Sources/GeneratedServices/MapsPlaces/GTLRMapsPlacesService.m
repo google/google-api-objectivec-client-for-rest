@@ -13,7 +13,9 @@
 
 NSString * const kGTLRAuthScopeMapsPlacesCloudPlatform         = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlaces    = @"https://www.googleapis.com/auth/maps-platform.places";
+NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesAutocomplete = @"https://www.googleapis.com/auth/maps-platform.places.autocomplete";
 NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesDetails = @"https://www.googleapis.com/auth/maps-platform.places.details";
+NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesGetphotomedia = @"https://www.googleapis.com/auth/maps-platform.places.getphotomedia";
 NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesNearbysearch = @"https://www.googleapis.com/auth/maps-platform.places.nearbysearch";
 NSString * const kGTLRAuthScopeMapsPlacesMapsPlatformPlacesTextsearch = @"https://www.googleapis.com/auth/maps-platform.places.textsearch";
 
