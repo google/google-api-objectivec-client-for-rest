@@ -650,7 +650,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  characters. Valid characters are /a-z-/ with first character a letter and
  *  the last a letter or a number. Must not be UUID-like
  *  /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/. "(default)" database ID is also
- *  valid.
+ *  valid if the database is Standard edition.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
 
@@ -2343,8 +2343,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirestoreQuery_ProjectsLocationsList : GTLRFirestoreQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

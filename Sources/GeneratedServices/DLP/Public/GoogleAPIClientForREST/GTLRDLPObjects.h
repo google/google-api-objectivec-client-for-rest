@@ -202,6 +202,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed;
 @class GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment;
 @class GTLRDLP_GooglePrivacyDlpV2Location;
+@class GTLRDLP_GooglePrivacyDlpV2LocationSupport;
 @class GTLRDLP_GooglePrivacyDlpV2Manual;
 @class GTLRDLP_GooglePrivacyDlpV2MetadataLocation;
 @class GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing;
@@ -2824,6 +2825,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustme
  *  Value: "VERY_UNLIKELY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2LocationSupport.regionalizationScope
+
+/**
+ *  Feature may be used anywhere. Default value.
+ *
+ *  Value: "ANY_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_AnyLocation;
+/**
+ *  Feature may be used with one or more regions. See locations for details.
+ *
+ *  Value: "REGIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_Regional;
+/**
+ *  Invalid.
+ *
+ *  Value: "REGIONALIZATION_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_RegionalizationScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
@@ -5565,8 +5588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToChronicle *publishToChronicle;
 
 /**
- *  Publishes a portion of each profile to Dataplex Catalog with the aspect type
- *  Sensitive Data Protection Profile.
+ *  Publishes a portion of each profile to Dataplex Universal Catalog with the
+ *  aspect type Sensitive Data Protection Profile.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog *publishToDataplexCatalog;
 
@@ -8712,6 +8735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** A sample that is a true positive for this infoType. */
 @property(nonatomic, copy, nullable) NSString *example;
 
+/** Locations at which this feature can be used. May change over time. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LocationSupport *locationSupport;
+
 /** Internal name of the infoType. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -10038,6 +10064,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Locations at which a feature can be used.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2LocationSupport : GTLRObject
+
+/**
+ *  Specific locations where the feature may be used. Examples: us-central1, us,
+ *  asia, global If scope is ANY_LOCATION, no regions will be listed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
+
+/**
+ *  The current scope for location on this feature. This may expand over time.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_AnyLocation
+ *        Feature may be used anywhere. Default value. (Value: "ANY_LOCATION")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_Regional
+ *        Feature may be used with one or more regions. See locations for
+ *        details. (Value: "REGIONAL")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_RegionalizationScopeUnspecified
+ *        Invalid. (Value: "REGIONALIZATION_SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *regionalizationScope;
+
+@end
+
+
+/**
  *  Job trigger option for hybrid jobs. Jobs must be manually created and
  *  finished.
  */
@@ -10600,16 +10654,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Create Dataplex Catalog aspects for profiled resources with the aspect type
- *  Sensitive Data Protection Profile. To learn more about aspects, see
- *  https://cloud.google.com/sensitive-data-protection/docs/add-aspects.
+ *  Create Dataplex Universal Catalog aspects for profiled resources with the
+ *  aspect type Sensitive Data Protection Profile. To learn more about aspects,
+ *  see https://cloud.google.com/sensitive-data-protection/docs/add-aspects.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog : GTLRObject
 
 /**
- *  Whether creating a Dataplex Catalog aspect for a profiled resource should
- *  lower the risk of the profile for that resource. This also lowers the data
- *  risk of resources at the lower levels of the resource hierarchy. For
+ *  Whether creating a Dataplex Universal Catalog aspect for a profiled resource
+ *  should lower the risk of the profile for that resource. This also lowers the
+ *  data risk of resources at the lower levels of the resource hierarchy. For
  *  example, reducing the data risk of a table data profile also reduces the
  *  data risk of the constituent column data profiles.
  *
@@ -11994,8 +12048,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  The namespaced name for the tag value to attach to Google Cloud resources.
  *  Must be in the format `{parent_id}/{tag_key_short_name}/{short_name}`, for
- *  example, "123456/environment/prod". This is only set for Google Cloud
- *  resources.
+ *  example, "123456/environment/prod" for an organization parent, or
+ *  "my-project/environment/prod" for a project parent. This is only set for
+ *  Google Cloud resources.
  */
 @property(nonatomic, copy, nullable) NSString *namespacedTagValue;
 
@@ -12107,7 +12162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  The namespaced name for the tag value to attach to resources. Must be in the
  *  format `{parent_id}/{tag_key_short_name}/{short_name}`, for example,
- *  "123456/environment/prod".
+ *  "123456/environment/prod" for an organization parent, or
+ *  "my-project/environment/prod" for a project parent.
  */
 @property(nonatomic, copy, nullable) NSString *namespacedValue;
 

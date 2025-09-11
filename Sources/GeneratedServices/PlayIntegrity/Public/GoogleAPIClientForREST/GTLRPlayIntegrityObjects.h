@@ -28,6 +28,7 @@
 @class GTLRPlayIntegrity_PcAccountDetails;
 @class GTLRPlayIntegrity_PcDeviceIntegrity;
 @class GTLRPlayIntegrity_PcRequestDetails;
+@class GTLRPlayIntegrity_PcTestingDetails;
 @class GTLRPlayIntegrity_PcTokenPayloadExternal;
 @class GTLRPlayIntegrity_RecentDeviceActivity;
 @class GTLRPlayIntegrity_RequestDetails;
@@ -758,6 +759,22 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Contains additional information generated for testing responses.
+ */
+@interface GTLRPlayIntegrity_PcTestingDetails : GTLRObject
+
+/**
+ *  Indicates that the information contained in this payload is a testing
+ *  response that is statically overridden for a tester.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isTestingResponse;
+
+@end
+
+
+/**
  *  Contains PC device attestation details.
  */
 @interface GTLRPlayIntegrity_PcTokenPayloadExternal : GTLRObject
@@ -770,6 +787,12 @@ GTLR_DEPRECATED
 
 /** Required. Details about the integrity request. */
 @property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcRequestDetails *requestDetails;
+
+/**
+ *  Indicates that this payload is generated for testing purposes and contains
+ *  any additional data that is linked with testing status.
+ */
+@property(nonatomic, strong, nullable) GTLRPlayIntegrity_PcTestingDetails *testingDetails;
 
 @end
 

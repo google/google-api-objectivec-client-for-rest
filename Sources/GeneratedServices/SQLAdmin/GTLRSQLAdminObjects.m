@@ -350,6 +350,11 @@ NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_Public = @"PUBLIC";
 NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_DnsScopeUnspecified = @"DNS_SCOPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instance = @"INSTANCE";
 
+// GTLRSQLAdmin_ExecuteSqlPayload.partialResultMode
+NSString * const kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_AllowPartialResult = @"ALLOW_PARTIAL_RESULT";
+NSString * const kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_FailPartialResult = @"FAIL_PARTIAL_RESULT";
+NSString * const kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_PartialResultModeUnspecified = @"PARTIAL_RESULT_MODE_UNSPECIFIED";
+
 // GTLRSQLAdmin_ExportContext.fileType
 NSString * const kGTLRSQLAdmin_ExportContext_FileType_Bak      = @"BAK";
 NSString * const kGTLRSQLAdmin_ExportContext_FileType_Csv      = @"CSV";
@@ -1311,7 +1316,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ExecuteSqlPayload
-@dynamic autoIamAuthn, database, rowLimit, sqlStatement;
+@dynamic autoIamAuthn, database, partialResultMode, rowLimit, sqlStatement,
+         user;
 @end
 
 
@@ -2490,7 +2496,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesGetLatestRecoveryTimeResponse
-@dynamic kind, latestRecoveryTime;
+@dynamic earliestRecoveryTime, kind, latestRecoveryTime;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

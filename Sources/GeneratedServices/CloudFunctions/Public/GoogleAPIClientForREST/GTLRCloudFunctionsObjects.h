@@ -613,11 +613,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError;
 /**
- *  Functions in this state are eligible for 1st Gen -> 2nd Gen upgrade.
+ *  Functions in this state are eligible for 1st Gen upgrade.
  *
  *  Value: "ELIGIBLE_FOR_2ND_GEN_UPGRADE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade;
+/**
+ *  Functions in this state are ineligible for 1st Gen upgrade until
+ *  redeployment with newer runtime.
+ *
+ *  Value: "INELIGIBLE_FOR_UPGRADE_UNTIL_REDEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_IneligibleForUpgradeUntilRedeployment;
 /**
  *  RedirectFunctionUpgradeTraffic API was un-successful.
  *
@@ -2604,8 +2611,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        CommitFunctionUpgrade API was un-successful. (Value:
  *        "COMMIT_FUNCTION_UPGRADE_ERROR")
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade
- *        Functions in this state are eligible for 1st Gen -> 2nd Gen upgrade.
- *        (Value: "ELIGIBLE_FOR_2ND_GEN_UPGRADE")
+ *        Functions in this state are eligible for 1st Gen upgrade. (Value:
+ *        "ELIGIBLE_FOR_2ND_GEN_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_IneligibleForUpgradeUntilRedeployment
+ *        Functions in this state are ineligible for 1st Gen upgrade until
+ *        redeployment with newer runtime. (Value:
+ *        "INELIGIBLE_FOR_UPGRADE_UNTIL_REDEPLOYMENT")
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficError
  *        RedirectFunctionUpgradeTraffic API was un-successful. (Value:
  *        "REDIRECT_FUNCTION_UPGRADE_TRAFFIC_ERROR")

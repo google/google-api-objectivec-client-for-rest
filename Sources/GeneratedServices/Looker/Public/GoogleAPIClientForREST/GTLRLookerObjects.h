@@ -1366,6 +1366,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, copy, nullable) NSString *connectionStatus;
 
 /**
+ *  Output only. Reason the service attachment creation failed. This value will
+ *  only be populated if the service attachment encounters an issue during
+ *  provisioning.
+ */
+@property(nonatomic, copy, nullable) NSString *failureReason;
+
+/**
  *  Optional. Fully qualified domain name that will be used in the private DNS
  *  record created for the service attachment.
  */

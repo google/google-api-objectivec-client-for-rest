@@ -209,6 +209,11 @@ NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconImpression = @"AD_U
 NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconSkip = @"AD_URL_TYPE_BEACON_SKIP";
 NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeUnspecified = @"AD_URL_TYPE_UNSPECIFIED";
 
+// GTLRDisplayVideo_Advertiser.containsEuPoliticalAds
+NSString * const kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising = @"CONTAINS_EU_POLITICAL_ADVERTISING";
+NSString * const kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising = @"DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING";
+NSString * const kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown = @"EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN";
+
 // GTLRDisplayVideo_Advertiser.entityStatus
 NSString * const kGTLRDisplayVideo_Advertiser_EntityStatus_EntityStatusActive = @"ENTITY_STATUS_ACTIVE";
 NSString * const kGTLRDisplayVideo_Advertiser_EntityStatus_EntityStatusArchived = @"ENTITY_STATUS_ARCHIVED";
@@ -256,6 +261,21 @@ NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRa
 NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRange65Plus = @"AGE_RANGE_65_PLUS";
 NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRangeUnknown = @"AGE_RANGE_UNKNOWN";
 NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRangeUnspecified = @"AGE_RANGE_UNSPECIFIED";
+
+// GTLRDisplayVideo_AlgorithmRulesComparisonValue.contentDurationValue
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration0To1Min = @"CONTENT_DURATION_0_TO_1_MIN";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration15To30Min = @"CONTENT_DURATION_15_TO_30_MIN";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration1To5Min = @"CONTENT_DURATION_1_TO_5_MIN";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration30To60Min = @"CONTENT_DURATION_30_TO_60_MIN";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration5To15Min = @"CONTENT_DURATION_5_TO_15_MIN";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationOver60Min = @"CONTENT_DURATION_OVER_60_MIN";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationUnknown = @"CONTENT_DURATION_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationUnspecified = @"CONTENT_DURATION_UNSPECIFIED";
+
+// GTLRDisplayVideo_AlgorithmRulesComparisonValue.contentStreamTypeValue
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentLiveStream = @"CONTENT_LIVE_STREAM";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentOnDemand = @"CONTENT_ON_DEMAND";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentStreamTypeUnspecified = @"CONTENT_STREAM_TYPE_UNSPECIFIED";
 
 // GTLRDisplayVideo_AlgorithmRulesComparisonValue.deviceTypeValue
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_DeviceTypeValue_RuleDeviceTypeComputer = @"RULE_DEVICE_TYPE_COMPUTER";
@@ -419,6 +439,9 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_Exchang
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_ImpressionSignalUnspecified = @"IMPRESSION_SIGNAL_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_MobileModelId = @"MOBILE_MODEL_ID";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_OperatingSystemId = @"OPERATING_SYSTEM_ID";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoContentDurationBucket = @"VIDEO_CONTENT_DURATION_BUCKET";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoDeliveryType = @"VIDEO_DELIVERY_TYPE";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoGenreId = @"VIDEO_GENRE_ID";
 
 // GTLRDisplayVideo_AlgorithmRulesSignalComparison.comparisonOperator
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_ComparisonOperatorUnspecified = @"COMPARISON_OPERATOR_UNSPECIFIED";
@@ -427,6 +450,7 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOper
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_GreaterThanOrEqualTo = @"GREATER_THAN_OR_EQUAL_TO";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThan = @"LESS_THAN";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThanOrEqualTo = @"LESS_THAN_OR_EQUAL_TO";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_ListContains = @"LIST_CONTAINS";
 
 // GTLRDisplayVideo_AlgorithmRulesSignalValue.activeViewSignal
 NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalValue_ActiveViewSignal_ActiveViewSignalUnspecified = @"ACTIVE_VIEW_SIGNAL_UNSPECIFIED";
@@ -449,6 +473,7 @@ NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform
 NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformRoku = @"APP_PLATFORM_ROKU";
 NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformSamsungTv = @"APP_PLATFORM_SAMSUNG_TV";
 NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformUnspecified = @"APP_PLATFORM_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVidaa = @"APP_PLATFORM_VIDAA";
 NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVizioTv = @"APP_PLATFORM_VIZIO_TV";
 NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformXbox = @"APP_PLATFORM_XBOX";
 
@@ -833,6 +858,7 @@ NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersi
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion71 = @"SDF_VERSION_7_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81 = @"SDF_VERSION_8_1";
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion9 = @"SDF_VERSION_9";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_Creative.creativeAttributes
@@ -1188,6 +1214,11 @@ NSString * const kGTLRDisplayVideo_DoubleVerifyVideoViewability_VideoViewableRat
 NSString * const kGTLRDisplayVideo_DoubleVerifyVideoViewability_VideoViewableRate_ViewedPerformance30PercentHigher = @"VIEWED_PERFORMANCE_30_PERCENT_HIGHER";
 NSString * const kGTLRDisplayVideo_DoubleVerifyVideoViewability_VideoViewableRate_ViewedPerformance35PercentHigher = @"VIEWED_PERFORMANCE_35_PERCENT_HIGHER";
 NSString * const kGTLRDisplayVideo_DoubleVerifyVideoViewability_VideoViewableRate_ViewedPerformance40PercentHigher = @"VIEWED_PERFORMANCE_40_PERCENT_HIGHER";
+
+// GTLRDisplayVideo_DuplicateLineItemRequest.containsEuPoliticalAds
+NSString * const kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising = @"CONTAINS_EU_POLITICAL_ADVERTISING";
+NSString * const kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising = @"DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING";
+NSString * const kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown = @"EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN";
 
 // GTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails.environment
 NSString * const kGTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails_Environment_EnvironmentApp = @"ENVIRONMENT_APP";
@@ -1658,6 +1689,11 @@ NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderFem
 NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderMale = @"GENDER_MALE";
 NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderUnknown = @"GENDER_UNKNOWN";
 NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderUnspecified = @"GENDER_UNSPECIFIED";
+
+// GTLRDisplayVideo_GenerateDefaultLineItemRequest.containsEuPoliticalAds
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising = @"CONTAINS_EU_POLITICAL_ADVERTISING";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising = @"DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown = @"EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN";
 
 // GTLRDisplayVideo_GenerateDefaultLineItemRequest.lineItemType
 NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeAudioDefault = @"LINE_ITEM_TYPE_AUDIO_DEFAULT";
@@ -2168,6 +2204,11 @@ NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeVideoCompletionRate = @"KP
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeViewability = @"KPI_TYPE_VIEWABILITY";
 NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeVtr      = @"KPI_TYPE_VTR";
 
+// GTLRDisplayVideo_LineItem.containsEuPoliticalAds
+NSString * const kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising = @"CONTAINS_EU_POLITICAL_ADVERTISING";
+NSString * const kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising = @"DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING";
+NSString * const kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown = @"EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN";
+
 // GTLRDisplayVideo_LineItem.entityStatus
 NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_EntityStatusActive = @"ENTITY_STATUS_ACTIVE";
 NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_EntityStatusArchived = @"ENTITY_STATUS_ARCHIVED";
@@ -2511,6 +2552,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7 = @"SDF_VERSION
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71 = @"SDF_VERSION_7_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81 = @"SDF_VERSION_8_1";
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion9 = @"SDF_VERSION_9";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
@@ -2529,6 +2571,7 @@ NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7 =
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71 = @"SDF_VERSION_7_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81 = @"SDF_VERSION_8_1";
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion9 = @"SDF_VERSION_9";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails.excludedSensitiveCategory
@@ -2883,10 +2926,10 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_Advertiser
-@dynamic adServerConfig, advertiserId, billingConfig, creativeConfig,
-         dataAccessConfig, displayName, entityStatus, generalConfig,
-         integrationDetails, name, partnerId, prismaEnabled, servingConfig,
-         updateTime;
+@dynamic adServerConfig, advertiserId, billingConfig, containsEuPoliticalAds,
+         creativeConfig, dataAccessConfig, displayName, entityStatus,
+         generalConfig, integrationDetails, name, partnerId, prismaEnabled,
+         servingConfig, updateTime;
 @end
 
 
@@ -2998,9 +3041,10 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_AlgorithmRulesComparisonValue
-@dynamic boolValue, creativeDimensionValue, dayAndTimeValue, deviceTypeValue,
-         doubleValue, environmentValue, exchangeValue, int64Value,
-         onScreenPositionValue, stringValue, videoPlayerSizeValue;
+@dynamic boolValue, contentDurationValue, contentGenreIdValue,
+         contentStreamTypeValue, creativeDimensionValue, dayAndTimeValue,
+         deviceTypeValue, doubleValue, environmentValue, exchangeValue,
+         int64Value, onScreenPositionValue, stringValue, videoPlayerSizeValue;
 @end
 
 
@@ -4671,7 +4715,7 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_DuplicateLineItemRequest
-@dynamic targetDisplayName;
+@dynamic containsEuPoliticalAds, targetDisplayName;
 @end
 
 
@@ -5010,7 +5054,8 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_GenerateDefaultLineItemRequest
-@dynamic displayName, insertionOrderId, lineItemType, mobileApp;
+@dynamic containsEuPoliticalAds, displayName, insertionOrderId, lineItemType,
+         mobileApp;
 @end
 
 
@@ -5502,12 +5547,12 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_LineItem
-@dynamic advertiserId, bidStrategy, budget, campaignId, conversionCounting,
-         creativeIds, displayName, entityStatus, excludeNewExchanges, flight,
-         frequencyCap, insertionOrderId, integrationDetails, lineItemId,
-         lineItemType, mobileApp, name, pacing, partnerCosts,
-         partnerRevenueModel, reservationType, targetingExpansion, updateTime,
-         warningMessages, youtubeAndPartnersSettings;
+@dynamic advertiserId, bidStrategy, budget, campaignId, containsEuPoliticalAds,
+         conversionCounting, creativeIds, displayName, entityStatus,
+         excludeNewExchanges, flight, frequencyCap, insertionOrderId,
+         integrationDetails, lineItemId, lineItemType, mobileApp, name, pacing,
+         partnerCosts, partnerRevenueModel, reservationType, targetingExpansion,
+         updateTime, warningMessages, youtubeAndPartnersSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

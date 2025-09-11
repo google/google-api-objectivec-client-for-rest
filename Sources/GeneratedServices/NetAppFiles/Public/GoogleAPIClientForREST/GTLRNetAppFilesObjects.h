@@ -834,6 +834,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_Acces
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_AccessType_ReadWrite;
 
 // ----------------------------------------------------------------------------
+// GTLRNetAppFiles_SimpleExportPolicyRule.squashMode
+
+/**
+ *  All users are squashed to anonymous user ID.
+ *
+ *  Value: "ALL_SQUASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_AllSquash;
+/**
+ *  The root user (UID 0) retains full access. Other users are unaffected.
+ *
+ *  Value: "NO_ROOT_SQUASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_NoRootSquash;
+/**
+ *  The root user (UID 0) is squashed to anonymous user ID. Other users are
+ *  unaffected.
+ *
+ *  Value: "ROOT_SQUASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_RootSquash;
+/**
+ *  Defaults to NO_ROOT_SQUASH.
+ *
+ *  Value: "SQUASH_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_SquashModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetAppFiles_Snapshot.state
 
 /**
@@ -3225,6 +3254,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 /** Comma separated list of allowed clients IP addresses */
 @property(nonatomic, copy, nullable) NSString *allowedClients;
 
+/**
+ *  Optional. An integer representing the anonymous user ID. Range is 0 to
+ *  4294967295. Required when squash_mode is ROOT_SQUASH or ALL_SQUASH.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *anonUid;
+
 /** Whether Unix root access will be granted. */
 @property(nonatomic, copy, nullable) NSString *hasRootAccess;
 
@@ -3298,6 +3335,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nfsv4;
+
+/**
+ *  Optional. Defines how user identity squashing is applied for this export
+ *  rule. This field is the preferred way to configure squashing behavior and
+ *  takes precedence over `has_root_access` if both are provided.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_AllSquash All
+ *        users are squashed to anonymous user ID. (Value: "ALL_SQUASH")
+ *    @arg @c kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_NoRootSquash
+ *        The root user (UID 0) retains full access. Other users are unaffected.
+ *        (Value: "NO_ROOT_SQUASH")
+ *    @arg @c kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_RootSquash The
+ *        root user (UID 0) is squashed to anonymous user ID. Other users are
+ *        unaffected. (Value: "ROOT_SQUASH")
+ *    @arg @c kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_SquashModeUnspecified
+ *        Defaults to NO_ROOT_SQUASH. (Value: "SQUASH_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *squashMode;
 
 @end
 
@@ -3501,6 +3557,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @property(nonatomic, strong, nullable) NSNumber *capacityGib;
 
+/**
+ *  Output only. Total cold tier data rounded down to the nearest GiB used by
+ *  the storage pool.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coldTierSizeUsedGib;
+
 /** Output only. Create time of the storage pool */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3560,6 +3624,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hotTierSizeGib;
+
+/**
+ *  Output only. Total hot tier data rounded down to the nearest GiB used by the
+ *  storage pool.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hotTierSizeUsedGib;
 
 /** Optional. Specifies the KMS config to be used for volume encryption. */
 @property(nonatomic, copy, nullable) NSString *kmsConfig;
@@ -3937,6 +4009,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasReplication;
+
+/**
+ *  Output only. Total hot tier data rounded down to the nearest GiB used by the
+ *  Volume. This field is only used for flex Service Level
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hotTierSizeUsedGib;
 
 /** Optional. The Hybrid Replication parameters for the volume. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_HybridReplicationParameters *hybridReplicationParameters;

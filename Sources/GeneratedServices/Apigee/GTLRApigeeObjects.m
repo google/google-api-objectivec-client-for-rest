@@ -320,6 +320,24 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringR
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_Moderate = @"MODERATE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_WeightUnspecified = @"WEIGHT_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1SecurityFeedback.feedbackType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_FeedbackType_ExcludedDetection = @"EXCLUDED_DETECTION";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_FeedbackType_FeedbackTypeUnspecified = @"FEEDBACK_TYPE_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1SecurityFeedback.reason
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_InternalSystem = @"INTERNAL_SYSTEM";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_Nat = @"NAT";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_NonRiskClient = @"NON_RISK_CLIENT";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_Other = @"OTHER";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_PenetrationTest = @"PENETRATION_TEST";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext.attribute
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeApiKeys = @"ATTRIBUTE_API_KEYS";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeEnvironments = @"ATTRIBUTE_ENVIRONMENTS";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeIpAddressRanges = @"ATTRIBUTE_IP_ADDRESS_RANGES";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeUnspecified = @"ATTRIBUTE_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1SecurityIncident.observability
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_Active = @"ACTIVE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_Observability_Archived = @"ARCHIVED";
@@ -3078,6 +3096,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListSecurityFeedbackResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListSecurityFeedbackResponse
+@dynamic nextPageToken, securityFeedback;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"securityFeedback" : [GTLRApigee_GoogleCloudApigeeV1SecurityFeedback class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"securityFeedback";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListSecurityIncidentsResponse
 //
 
@@ -4557,6 +4597,43 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink
 @dynamic text, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityFeedback
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityFeedback
+@dynamic comment, createTime, displayName, feedbackContexts, feedbackType, name,
+         reason, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"feedbackContexts" : [GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext
+@dynamic attribute, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

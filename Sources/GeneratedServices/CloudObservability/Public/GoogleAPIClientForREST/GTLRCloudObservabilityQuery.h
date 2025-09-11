@@ -68,8 +68,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudObservabilityQuery_ProjectsLocationsList : GTLRCloudObservabilityQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -337,6 +337,202 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudObservabilityQuery_ProjectsLocationsScopesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudObservability_Scope *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a new TraceScope.
+ *
+ *  Method: observability.projects.locations.traceScopes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesCreate : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. The full resource name of the location where the trace scope
+ *  should be created projects/[PROJECT_ID]/locations/[LOCATION_ID] For example:
+ *  projects/my-project/locations/global
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. A client-assigned identifier for the trace scope. */
+@property(nonatomic, copy, nullable) NSString *traceScopeId;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_TraceScope.
+ *
+ *  Create a new TraceScope.
+ *
+ *  @param object The @c GTLRCloudObservability_TraceScope to include in the
+ *    query.
+ *  @param parent Required. The full resource name of the location where the
+ *    trace scope should be created
+ *    projects/[PROJECT_ID]/locations/[LOCATION_ID] For example:
+ *    projects/my-project/locations/global
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_TraceScope *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a TraceScope.
+ *
+ *  Method: observability.projects.locations.traceScopes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesDelete : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. The full resource name of the trace scope to delete:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/traceScopes/[TRACE_SCOPE_ID]
+ *  For example: projects/my-project/locations/global/traceScopes/my-trace-scope
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Empty.
+ *
+ *  Delete a TraceScope.
+ *
+ *  @param name Required. The full resource name of the trace scope to delete:
+ *    projects/[PROJECT_ID]/locations/[LOCATION_ID]/traceScopes/[TRACE_SCOPE_ID]
+ *    For example:
+ *    projects/my-project/locations/global/traceScopes/my-trace-scope
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get TraceScope resource.
+ *
+ *  Method: observability.projects.locations.traceScopes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesGet : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. The resource name of the trace scope:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/traceScopes/[TRACE_SCOPE_ID]
+ *  For example: projects/my-project/locations/global/traceScopes/my-trace-scope
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_TraceScope.
+ *
+ *  Get TraceScope resource.
+ *
+ *  @param name Required. The resource name of the trace scope:
+ *    projects/[PROJECT_ID]/locations/[LOCATION_ID]/traceScopes/[TRACE_SCOPE_ID]
+ *    For example:
+ *    projects/my-project/locations/global/traceScopes/my-trace-scope
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List TraceScopes of a project in a particular location.
+ *
+ *  Method: observability.projects.locations.traceScopes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesList : GTLRCloudObservabilityQuery
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of `next_page_token` in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. `page_token` must be the value of
+ *  `next_page_token` from the previous response. The values of other method
+ *  parameters should be identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The full resource name of the location to look for trace scopes:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID] For example:
+ *  projects/my-project/locations/global
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListTraceScopesResponse.
+ *
+ *  List TraceScopes of a project in a particular location.
+ *
+ *  @param parent Required. The full resource name of the location to look for
+ *    trace scopes: projects/[PROJECT_ID]/locations/[LOCATION_ID] For example:
+ *    projects/my-project/locations/global
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a TraceScope.
+ *
+ *  Method: observability.projects.locations.traceScopes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesPatch : GTLRCloudObservabilityQuery
+
+/**
+ *  Identifier. The resource name of the trace scope. For example:
+ *  projects/my-project/locations/global/traceScopes/my-trace-scope
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_TraceScope.
+ *
+ *  Update a TraceScope.
+ *
+ *  @param object The @c GTLRCloudObservability_TraceScope to include in the
+ *    query.
+ *  @param name Identifier. The resource name of the trace scope. For example:
+ *    projects/my-project/locations/global/traceScopes/my-trace-scope
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_TraceScope *)object
                            name:(NSString *)name;
 
 @end

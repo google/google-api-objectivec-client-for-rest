@@ -20,8 +20,12 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DeviceCheckConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAccountDetails;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAppIntegrity;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PublicJwk;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfigRiskAnalysis;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1SafetyNetConfig;
@@ -39,6 +43,73 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity.minDeviceRecognitionLevel
+
+/**
+ *  Default value. Do not specify this value directly. When this default value
+ *  is detected in a configuration, the `NO_INTEGRITY` default level takes
+ *  effect.
+ *
+ *  Value: "DEVICE_RECOGNITION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_DeviceRecognitionLevelUnspecified;
+/**
+ *  This level corresponds to the `MEETS_BASIC_INTEGRITY` [optional device
+ *  recognition
+ *  label](https://developer.android.com/google/play/integrity/verdicts#optional-device-labels).
+ *  This value represents the most basic level of device integrity, and is the
+ *  minimum allowed in App Check's standard implementation of Play Integrity.
+ *  Warning: Because this is an optional response, you **must** first explicitly
+ *  [opt in your app in the Play
+ *  Console](https://developer.android.com/google/play/integrity/setup#optional)
+ *  in order to receive this label. Without this opt-in, **your app may break**
+ *  for any user whose device is eligible for `MEETS_BASIC_INTEGRITY` but not
+ *  `MEETS_DEVICE_INTEGRITY`. This API is **not** responsible for any such
+ *  opt-ins.
+ *
+ *  Value: "MEETS_BASIC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsBasicIntegrity;
+/**
+ *  This level corresponds to the `MEETS_DEVICE_INTEGRITY` [device recognition
+ *  verdict](https://developer.android.com/google/play/integrity/verdicts#device-integrity-field).
+ *  Any app integrated with Play Integrity will automatically be eligible to
+ *  receive this label without any additional action from you. At this level,
+ *  devices that have the `MEETS_BASIC_INTEGRITY` label but **not** the
+ *  `MEETS_DEVICE_INTEGRITY` label will be rejected.
+ *
+ *  Value: "MEETS_DEVICE_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsDeviceIntegrity;
+/**
+ *  This level corresponds to the `MEETS_STRONG_INTEGRITY` [optional device
+ *  recognition
+ *  label](https://developer.android.com/google/play/integrity/verdicts#optional-device-labels).
+ *  This value represents the highest level of device integrity. At this level,
+ *  devices that have the `MEETS_BASIC_INTEGRITY` or `MEETS_DEVICE_INTEGRITY`
+ *  but **not** the `MEETS_STRONG_INTEGRITY` label will be rejected. Warning:
+ *  Because this is an optional response, you **must** first explicitly [opt in
+ *  your app in the Play
+ *  Console](https://developer.android.com/google/play/integrity/setup#optional)
+ *  in order to receive this label. Without this opt-in, **your app may break**
+ *  for any user whose device is eligible for `MEETS_STRONG_INTEGRITY`. This API
+ *  is **not** responsible for any such opt-ins.
+ *
+ *  Value: "MEETS_STRONG_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsStrongIntegrity;
+/**
+ *  If this level is set, no explicit device integrity label requirements will
+ *  be checked. However, because Play Integrity's other features may perform
+ *  (and require) their own intrinsic device integrity checks, your
+ *  `app_integrity` and `account_details` settings may still cause some device
+ *  integrity checks to be performed.
+ *
+ *  Value: "NO_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_NoIntegrity;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy.enforcementMode
@@ -852,6 +923,45 @@ GTLR_DEPRECATED
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig : GTLRObject
 
 /**
+ *  Specifies account requirements for Android devices running your app. These
+ *  settings correspond to requirements on the [**account details**
+ *  field](https://developer.android.com/google/play/integrity/verdicts#account-details-field)
+ *  obtained from the Play Integrity API. See the [default responses
+ *  table](https://developer.android.com/google/play/integrity/setup#default)
+ *  for a quick summary. The default values for these settings work for most
+ *  apps, and are recommended.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAccountDetails *accountDetails;
+
+/**
+ *  Specifies application integrity requirements for Android devices running
+ *  your app. These settings correspond to requirements on the [**application
+ *  integrity**
+ *  field](https://developer.android.com/google/play/integrity/verdicts#application-integrity-field)
+ *  obtained from the Play Integrity API. See the [default responses
+ *  table](https://developer.android.com/google/play/integrity/setup#default)
+ *  for a quick summary. The default values for these settings work for most
+ *  apps, and are recommended.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAppIntegrity *appIntegrity;
+
+/**
+ *  Specifies device integrity requirements for Android devices running your
+ *  app. These settings correspond to requirements on the [**device integrity**
+ *  field](https://developer.android.com/google/play/integrity/verdicts#device-integrity-field)
+ *  obtained from the Play Integrity API. See the [default responses
+ *  table](https://developer.android.com/google/play/integrity/setup#default)
+ *  for a quick summary. Warning: There are also
+ *  [conditional](https://developer.android.com/google/play/integrity/setup#conditional)
+ *  as well as
+ *  [optional](https://developer.android.com/google/play/integrity/setup#optional_device_information)
+ *  responses that you can receive, but requires additional explicit opt-in from
+ *  you. The App Check API is **not** responsible for any such opt-ins. The
+ *  default values for these settings work for most apps, and are recommended.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity *deviceIntegrity;
+
+/**
  *  Required. The relative resource name of the Play Integrity configuration
  *  object, in the format: ```
  *  projects/{project_number}/apps/{app_id}/playIntegrityConfig ```
@@ -864,6 +974,145 @@ GTLR_DEPRECATED
  *  assumed. Must be between 30 minutes and 7 days, inclusive.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
+
+@end
+
+
+/**
+ *  A settings object specifying account requirements for Android devices
+ *  running your app. These settings correspond to requirements on the
+ *  [**account details**
+ *  field](https://developer.android.com/google/play/integrity/verdicts#account-details-field)
+ *  obtained from the Play Integrity API. See the [default responses
+ *  table](https://developer.android.com/google/play/integrity/setup#default)
+ *  for a quick summary. The default values for these settings work for most
+ *  apps, and are recommended.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAccountDetails : GTLRObject
+
+/**
+ *  Specifies whether the caller must have received the [`LICENSED`
+ *  verdict](https://developer.android.com/google/play/integrity/verdicts#account-details-field).
+ *  For additional details about scenarios where your users will receive this
+ *  `LICENSED` label, see [the default responses
+ *  table](https://developer.android.com/google/play/integrity/setup#default).
+ *  If set to `true`, apps without the `LICENSED` app licensing verdict will be
+ *  rejected. If set to `false`, any app licensing verdict is allowed. The
+ *  default value is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requireLicensed;
+
+@end
+
+
+/**
+ *  A settings object specifying application integrity requirements for Android
+ *  devices running your app. These settings correspond to requirements on the
+ *  [**application integrity**
+ *  field](https://developer.android.com/google/play/integrity/verdicts#application-integrity-field)
+ *  obtained from the Play Integrity API. See the [default responses
+ *  table](https://developer.android.com/google/play/integrity/setup#default)
+ *  for a quick summary. The default values for these settings work for most
+ *  apps, and are recommended.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAppIntegrity : GTLRObject
+
+/**
+ *  Specifies whether your running app is allowed to have the
+ *  `UNRECOGNIZED_VERSION` [app recognition
+ *  verdict](https://developer.android.com/google/play/integrity/verdicts#application-integrity-field).
+ *  Note that the app recognition verdict `PLAY_RECOGNIZED` is a strong,
+ *  comprehensive integrity signal that takes into account various other
+ *  signals, including conditional and optional device integrity responses that
+ *  you have opted into. If your app is published off-Play, this field should be
+ *  set to `true` to allow instances of your app installed from off-Play sources
+ *  to function. If set to `false`, only `PLAY_RECOGNIZED` verdicts are allowed,
+ *  and both `UNRECOGNIZED_VERSION` and `UNEVALUATED` will be rejected. If set
+ *  to `true`, any app recognition verdict is allowed. The default value is
+ *  `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowUnrecognizedVersion;
+
+@end
+
+
+/**
+ *  A settings object specifying device integrity requirements for Android
+ *  devices running your app. These settings correspond to requirements on the
+ *  [**device integrity**
+ *  field](https://developer.android.com/google/play/integrity/verdicts#device-integrity-field)
+ *  obtained from the Play Integrity API. See the [default responses
+ *  table](https://developer.android.com/google/play/integrity/setup#default)
+ *  for a quick summary. Warning: There are also
+ *  [conditional](https://developer.android.com/google/play/integrity/setup#conditional)
+ *  as well as
+ *  [optional](https://developer.android.com/google/play/integrity/setup#optional_device_information)
+ *  responses that you can receive, but requires additional explicit opt-in from
+ *  you. The App Check API is **not** responsible for any such opt-ins. The
+ *  default values for these settings work for most apps, and are recommended.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity : GTLRObject
+
+/**
+ *  Specifies the minimum device integrity level in order for the device to be
+ *  considered valid. Any device with a device recognition verdict lower than
+ *  this level will be rejected. If this is unspecified, the default level is
+ *  `NO_INTEGRITY`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_DeviceRecognitionLevelUnspecified
+ *        Default value. Do not specify this value directly. When this default
+ *        value is detected in a configuration, the `NO_INTEGRITY` default level
+ *        takes effect. (Value: "DEVICE_RECOGNITION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsBasicIntegrity
+ *        This level corresponds to the `MEETS_BASIC_INTEGRITY` [optional device
+ *        recognition
+ *        label](https://developer.android.com/google/play/integrity/verdicts#optional-device-labels).
+ *        This value represents the most basic level of device integrity, and is
+ *        the minimum allowed in App Check's standard implementation of Play
+ *        Integrity. Warning: Because this is an optional response, you **must**
+ *        first explicitly [opt in your app in the Play
+ *        Console](https://developer.android.com/google/play/integrity/setup#optional)
+ *        in order to receive this label. Without this opt-in, **your app may
+ *        break** for any user whose device is eligible for
+ *        `MEETS_BASIC_INTEGRITY` but not `MEETS_DEVICE_INTEGRITY`. This API is
+ *        **not** responsible for any such opt-ins. (Value:
+ *        "MEETS_BASIC_INTEGRITY")
+ *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsDeviceIntegrity
+ *        This level corresponds to the `MEETS_DEVICE_INTEGRITY` [device
+ *        recognition
+ *        verdict](https://developer.android.com/google/play/integrity/verdicts#device-integrity-field).
+ *        Any app integrated with Play Integrity will automatically be eligible
+ *        to receive this label without any additional action from you. At this
+ *        level, devices that have the `MEETS_BASIC_INTEGRITY` label but **not**
+ *        the `MEETS_DEVICE_INTEGRITY` label will be rejected. (Value:
+ *        "MEETS_DEVICE_INTEGRITY")
+ *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsStrongIntegrity
+ *        This level corresponds to the `MEETS_STRONG_INTEGRITY` [optional
+ *        device recognition
+ *        label](https://developer.android.com/google/play/integrity/verdicts#optional-device-labels).
+ *        This value represents the highest level of device integrity. At this
+ *        level, devices that have the `MEETS_BASIC_INTEGRITY` or
+ *        `MEETS_DEVICE_INTEGRITY` but **not** the `MEETS_STRONG_INTEGRITY`
+ *        label will be rejected. Warning: Because this is an optional response,
+ *        you **must** first explicitly [opt in your app in the Play
+ *        Console](https://developer.android.com/google/play/integrity/setup#optional)
+ *        in order to receive this label. Without this opt-in, **your app may
+ *        break** for any user whose device is eligible for
+ *        `MEETS_STRONG_INTEGRITY`. This API is **not** responsible for any such
+ *        opt-ins. (Value: "MEETS_STRONG_INTEGRITY")
+ *    @arg @c kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_NoIntegrity
+ *        If this level is set, no explicit device integrity label requirements
+ *        will be checked. However, because Play Integrity's other features may
+ *        perform (and require) their own intrinsic device integrity checks,
+ *        your `app_integrity` and `account_details` settings may still cause
+ *        some device integrity checks to be performed. (Value: "NO_INTEGRITY")
+ */
+@property(nonatomic, copy, nullable) NSString *minDeviceRecognitionLevel;
 
 @end
 
@@ -947,6 +1196,15 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Specifies risk tolerance and requirements for your application. These
+ *  settings correspond to requirements on the
+ *  [**`riskAnalysis`**](https://cloud.google.com/recaptcha/docs/interpret-assessment-website#interpret_assessment)
+ *  tuple in the assessment obtained from reCAPTCHA Enterprise. The default
+ *  values for these settings work for most apps, and are recommended.
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfigRiskAnalysis *riskAnalysis;
+
+/**
  *  The score-based site key [created in reCAPTCHA
  *  Enterprise](https://cloud.google.com/recaptcha-enterprise/docs/create-key#creating_a_site_key)
  *  used to [invoke reCAPTCHA and generate the reCAPTCHA
@@ -967,12 +1225,44 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A settings object specifying risk tolerance and requirements for your
+ *  application. These settings correspond to requirements on the
+ *  [**`riskAnalysis`**](https://cloud.google.com/recaptcha/docs/interpret-assessment-website#interpret_assessment)
+ *  tuple in the assessment obtained from reCAPTCHA Enterprise. The default
+ *  values for these settings work for most apps, and are recommended.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfigRiskAnalysis : GTLRObject
+
+/**
+ *  Specifies a minimum score required for a reCAPTCHA token to be considered
+ *  valid. If its score is greater than or equal to this value, it will be
+ *  accepted; otherwise, it will be rejected. The value must be between 0.0 and
+ *  1.0. The default value is 0.5.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minValidScore;
+
+@end
+
+
+/**
  *  An app's reCAPTCHA v3 configuration object. This configuration is used by
  *  ExchangeRecaptchaV3Token to validate reCAPTCHA tokens issued to apps by
  *  reCAPTCHA v3. It also controls certain properties of the returned
  *  `AppCheckToken`, such as its ttl.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config : GTLRObject
+
+/**
+ *  Specifies a minimum score required for a reCAPTCHA token to be considered
+ *  valid. If its score is greater than or equal to this value, it will be
+ *  accepted; otherwise, it will be rejected. The value must be between 0.0 and
+ *  1.0. The default value is 0.5.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minValidScore;
 
 /**
  *  Required. The relative resource name of the reCAPTCHA v3 configuration

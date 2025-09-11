@@ -102,11 +102,6 @@ NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingForm
 NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_EncodingFormatUnspecified = @"ENCODING_FORMAT_UNSPECIFIED";
 NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Pem = @"PEM";
 
-// GTLRCertificateAuthorityService_ReconciliationOperationMetadata.exclusiveAction
-NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
-NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
-NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
-
 // GTLRCertificateAuthorityService_RevocationDetails.revocationState
 NSString * const kGTLRCertificateAuthorityService_RevocationDetails_RevocationState_AffiliationChanged = @"AFFILIATION_CHANGED";
 NSString * const kGTLRCertificateAuthorityService_RevocationDetails_RevocationState_AttributeAuthorityCompromise = @"ATTRIBUTE_AUTHORITY_COMPROMISE";
@@ -267,7 +262,7 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_CaPool
-@dynamic issuancePolicy, labels, name, publishingOptions, tier;
+@dynamic encryptionSpec, issuancePolicy, labels, name, publishingOptions, tier;
 @end
 
 
@@ -555,6 +550,16 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 @implementation GTLRCertificateAuthorityService_EnableCertificateAuthorityRequest
 @dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_EncryptionSpec
+//
+
+@implementation GTLRCertificateAuthorityService_EncryptionSpec
+@dynamic cloudKmsKey;
 @end
 
 
@@ -1032,16 +1037,6 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 @implementation GTLRCertificateAuthorityService_PublishingOptions
 @dynamic encodingFormat, publishCaCert, publishCrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_ReconciliationOperationMetadata
-//
-
-@implementation GTLRCertificateAuthorityService_ReconciliationOperationMetadata
-@dynamic deleteResource, exclusiveAction;
 @end
 
 

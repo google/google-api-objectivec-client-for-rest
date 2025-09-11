@@ -204,6 +204,7 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_Securi
 // GTLRAndroidManagement_ApplicationPolicy.installType
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Available = @"AVAILABLE";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked = @"BLOCKED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Custom = @"CUSTOM";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled = @"FORCE_INSTALLED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Kiosk = @"KIOSK";
@@ -231,6 +232,7 @@ NSString * const kGTLRAndroidManagement_ApplicationPolicy_WorkProfileWidgets_Wor
 
 // GTLRAndroidManagement_ApplicationReport.applicationSource
 NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified = @"APPLICATION_SOURCE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_Custom = @"CUSTOM";
 NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_InstalledFromPlayStore = @"INSTALLED_FROM_PLAY_STORE";
 NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppFactoryVersion = @"SYSTEM_APP_FACTORY_VERSION";
 NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_SystemAppUpdatedVersion = @"SYSTEM_APP_UPDATED_VERSION";
@@ -321,6 +323,11 @@ NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInP
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultAllowed = @"WORK_PROFILE_WIDGETS_DEFAULT_ALLOWED";
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultDisallowed = @"WORK_PROFILE_WIDGETS_DEFAULT_DISALLOWED";
 NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultUnspecified = @"WORK_PROFILE_WIDGETS_DEFAULT_UNSPECIFIED";
+
+// GTLRAndroidManagement_CustomAppConfig.userUninstallSettings
+NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_AllowUninstallByUser = @"ALLOW_UNINSTALL_BY_USER";
+NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_DisallowUninstallByUser = @"DISALLOW_UNINSTALL_BY_USER";
+NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_UserUninstallSettingsUnspecified = @"USER_UNINSTALL_SETTINGS_UNSPECIFIED";
 
 // GTLRAndroidManagement_Device.appliedState
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Active = @"ACTIVE";
@@ -602,6 +609,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppInstalled = @"APP_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotInstalled = @"APP_NOT_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated = @"APP_NOT_UPDATED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppSigningCertMismatch = @"APP_SIGNING_CERT_MISMATCH";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_DeviceIncompatible = @"DEVICE_INCOMPATIBLE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_InvalidValue = @"INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_ManagementMode = @"MANAGEMENT_MODE";
@@ -631,6 +639,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplian
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppInstalled = @"APP_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotInstalled = @"APP_NOT_INSTALLED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated = @"APP_NOT_UPDATED";
+NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppSigningCertMismatch = @"APP_SIGNING_CERT_MISMATCH";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_DeviceIncompatible = @"DEVICE_INCOMPATIBLE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_InvalidValue = @"INVALID_VALUE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_ManagementMode = @"MANAGEMENT_MODE";
@@ -1224,11 +1233,11 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
 @dynamic accessibleTrackIds, alwaysOnVpnLockdownExemption, autoUpdateMode,
-         connectedWorkAndPersonalApp, credentialProviderPolicy,
+         connectedWorkAndPersonalApp, credentialProviderPolicy, customAppConfig,
          defaultPermissionPolicy, delegatedScopes, disabled, extensionConfig,
          installConstraint, installPriority, installType, lockTaskAllowed,
          managedConfiguration, managedConfigurationTemplate, minimumVersionCode,
-         packageName, permissionGrants, preferentialNetworkId,
+         packageName, permissionGrants, preferentialNetworkId, signingKeyCerts,
          userControlSettings, workProfileWidgets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1236,7 +1245,8 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
     @"accessibleTrackIds" : [NSString class],
     @"delegatedScopes" : [NSString class],
     @"installConstraint" : [GTLRAndroidManagement_InstallConstraint class],
-    @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class]
+    @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class],
+    @"signingKeyCerts" : [GTLRAndroidManagement_ApplicationSigningKeyCert class]
   };
   return map;
 }
@@ -1298,6 +1308,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_ApplicationReportingSettings
 @dynamic includeRemovedApps;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ApplicationSigningKeyCert
+//
+
+@implementation GTLRAndroidManagement_ApplicationSigningKeyCert
+@dynamic signingKeyCertFingerprintSha256;
 @end
 
 
@@ -1595,6 +1615,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_CryptoSelfTestCompletedEvent
 @dynamic success;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_CustomAppConfig
+//
+
+@implementation GTLRAndroidManagement_CustomAppConfig
+@dynamic userUninstallSettings;
 @end
 
 

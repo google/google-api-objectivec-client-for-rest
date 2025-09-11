@@ -106,6 +106,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGcp;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGeminiInWorkspaceApps;
 /**
+ *  The Gmail application's activity reports return information about various
+ *  [Gmail activity events](/admin-sdk/reports/v1/appendix/activity/gmail).
+ *
+ *  Value: "gmail"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGmail;
+/**
  *  The Google+ application's activity reports return information about various
  *  Google+ activity events.
  *
@@ -269,6 +276,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
+ *    @arg @c kGTLRReportsApplicationNameGmail The Gmail application's activity
+ *        reports return information about various [Gmail activity
+ *        events](/admin-sdk/reports/v1/appendix/activity/gmail). (Value:
+ *        "gmail")
  *    @arg @c kGTLRReportsApplicationNameGplus The Google+ application's
  *        activity reports return information about various Google+ activity
  *        events. (Value: "gplus")
@@ -348,7 +359,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  start in April and end in May. The report itself can be requested in August.
  *  If the `endTime` is not specified, the report returns all activities from
  *  the `startTime` until the current time or the most recent 180 days if the
- *  `startTime` is more than 180 days in the past.
+ *  `startTime` is more than 180 days in the past. For Gmail requests,
+ *  `startTime` and `endTime` must be provided and the difference must not be
+ *  greater than 30 days.
  */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
@@ -441,7 +454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  the RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The report
  *  returns all activities from `startTime` until `endTime`. The `startTime`
  *  must be before the `endTime` (if specified) and the current time when the
- *  request is made, or the API returns an error.
+ *  request is made, or the API returns an error. For Gmail requests,
+ *  `startTime` and `endTime` must be provided and the difference must not be
+ *  greater than 30 days.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
@@ -492,6 +507,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
+ *    @arg @c kGTLRReportsApplicationNameGmail The Gmail application's activity
+ *        reports return information about various [Gmail activity
+ *        events](/admin-sdk/reports/v1/appendix/activity/gmail). (Value:
+ *        "gmail")
  *    @arg @c kGTLRReportsApplicationNameGplus The Google+ application's
  *        activity reports return information about various Google+ activity
  *        events. (Value: "gplus")

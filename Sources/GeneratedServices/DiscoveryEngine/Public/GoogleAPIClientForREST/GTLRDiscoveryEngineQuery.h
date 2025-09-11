@@ -8240,6 +8240,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the AclConfig.
+ *
+ *  Method: discoveryengine.projects.locations.getAclConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsGetAclConfig : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Resource name of AclConfig, such as `projects/ * /locations/ *
+ *  /aclConfig`. If the caller does not have permission to access the AclConfig,
+ *  regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AclConfig.
+ *
+ *  Gets the AclConfig.
+ *
+ *  @param name Required. Resource name of AclConfig, such as `projects/ *
+ *    /locations/ * /aclConfig`. If the caller does not have permission to
+ *    access the AclConfig, regardless of whether or not it exists, a
+ *    PERMISSION_DENIED error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsGetAclConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the CmekConfig.
  *
  *  Method: discoveryengine.projects.locations.getCmekConfig
@@ -8807,6 +8841,46 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RankRequest *)object
                   rankingConfig:(NSString *)rankingConfig;
+
+@end
+
+/**
+ *  Default ACL configuration for use in a location of a customer's project.
+ *  Updates will only reflect to new data stores. Existing data stores will
+ *  still use the old value.
+ *
+ *  Method: discoveryengine.projects.locations.updateAclConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUpdateAclConfig : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. The full resource name of the acl configuration. Format:
+ *  `projects/{project}/locations/{location}/aclConfig`. This field must be a
+ *  UTF-8 encoded string with a length limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AclConfig.
+ *
+ *  Default ACL configuration for use in a location of a customer's project.
+ *  Updates will only reflect to new data stores. Existing data stores will
+ *  still use the old value.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AclConfig to include in
+ *    the query.
+ *  @param name Immutable. The full resource name of the acl configuration.
+ *    Format: `projects/{project}/locations/{location}/aclConfig`. This field
+ *    must be a UTF-8 encoded string with a length limit of 1024 characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUpdateAclConfig
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AclConfig *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -165,6 +165,40 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMemorystoreforMemcached_GetTagsRequest
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GetTagsRequest
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GetTagsResponse
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GetTagsResponse
+@dynamic name, tags, tagsEtag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GetTagsResponse_Tags
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GetTagsResponse_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata
 //
 
@@ -819,6 +853,54 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 
 @implementation GTLRCloudMemorystoreforMemcached_Schedule
 @dynamic day, duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_SetTagsRequest
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_SetTagsRequest
+@dynamic name, requestId, tags, tagsEtag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_SetTagsRequest_Tags
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_SetTagsRequest_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_SetTagsResponse
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_SetTagsResponse
+@dynamic name, tags, tagsEtag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_SetTagsResponse_Tags
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_SetTagsResponse_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

@@ -15,6 +15,27 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation.validationOperator
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeEq = @"OPERATION_TYPE_EQ";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeGe = @"OPERATION_TYPE_GE";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeGt = @"OPERATION_TYPE_GT";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeLe = @"OPERATION_TYPE_LE";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeLt = @"OPERATION_TYPE_LT";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeNe = @"OPERATION_TYPE_NE";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+
+// GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation.operationType
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeAbs = @"OPERATION_TYPE_ABS";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeCount = @"OPERATION_TYPE_COUNT";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeDiv = @"OPERATION_TYPE_DIV";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeMax = @"OPERATION_TYPE_MAX";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeMin = @"OPERATION_TYPE_MIN";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeMul = @"OPERATION_TYPE_MUL";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeSub = @"OPERATION_TYPE_SUB";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeSum = @"OPERATION_TYPE_SUM";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeUnique = @"OPERATION_TYPE_UNIQUE";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata.destDatasetType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitTest = @"DATASET_SPLIT_TEST";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata_DestDatasetType_DatasetSplitTrain = @"DATASET_SPLIT_TRAIN";
@@ -173,13 +194,6 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypePr
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredMultiple = @"REQUIRED_MULTIPLE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_RequiredOnce = @"REQUIRED_ONCE";
 
-// GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult.validationResultType
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeInvalid = @"VALIDATION_RESULT_TYPE_INVALID";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeNotApplicable = @"VALIDATION_RESULT_TYPE_NOT_APPLICABLE";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeSkipped = @"VALIDATION_RESULT_TYPE_SKIPPED";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeUnspecified = @"VALIDATION_RESULT_TYPE_UNSPECIFIED";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult_ValidationResultType_ValidationResultTypeValid = @"VALIDATION_RESULT_TYPE_VALID";
-
 // GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics.metricsType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics_MetricsType_Aggregate = @"AGGREGATE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics_MetricsType_MetricsTypeUnspecified = @"METRICS_TYPE_UNSPECIFIED";
@@ -245,6 +259,110 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse_Sta
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_ModelBased = @"MODEL_BASED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_TemplateBased = @"TEMPLATE_BASED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_TrainingMethodUnspecified = @"TRAINING_METHOD_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInput
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInput
+@dynamic validationRules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"validationRules" : [GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRule
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRule
+@dynamic descriptionProperty, fieldOccurrences, fieldRegex, formValidation,
+         name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleConstant
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleConstant
+@dynamic floatValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField
+@dynamic defaultValue, fieldName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFieldOccurrences
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFieldOccurrences
+@dynamic field, maxOccurrences, minOccurrences;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFieldRegex
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFieldRegex
+@dynamic field, pattern;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation
+@dynamic leftOperand, rightOperand, validationOperator;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation
+@dynamic constants, fields, operations, operationType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"constants" : [GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleConstant class],
+    @"fields" : [GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField class],
+    @"operations" : [GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidationOperation class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -1558,7 +1676,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 @implementation GTLRDocument_GoogleCloudDocumentaiV1Document
 @dynamic chunkedDocument, content, docid, documentLayout, entities,
          entityRelations, error, mimeType, pages, revisions, shardInfo, text,
-         textChanges, textStyles, uri, validationOutputs;
+         textChanges, textStyles, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1567,8 +1685,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
     @"pages" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPage class],
     @"revisions" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision class],
     @"textChanges" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange class],
-    @"textStyles" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle class],
-    @"validationOutputs" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput class]
+    @"textStyles" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle class]
   };
   return map;
 }
@@ -2443,34 +2560,6 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput
-//
-
-@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutput
-@dynamic passAllRules, validationResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"validationResults" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult
-//
-
-@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentValidationOutputValidationResult
-@dynamic ruleDescription, ruleName, validationDetails, validationResultType;
 @end
 
 

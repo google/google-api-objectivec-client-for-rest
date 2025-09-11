@@ -219,6 +219,7 @@ NSString * const kGTLRBackupdr_GuestOsFeature_Type_Windows     = @"WINDOWS";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ComputeInstance = @"COMPUTE_INSTANCE";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FeatureUnspecified = @"FEATURE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer = @"MANAGEMENT_SERVER";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ProtectionSummary = @"PROTECTION_SUMMARY";
 
 // GTLRBackupdr_ManagementServer.state
 NSString * const kGTLRBackupdr_ManagementServer_State_Creating = @"CREATING";
@@ -265,6 +266,8 @@ NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_OperatorUnspecified
 
 // GTLRBackupdr_ResourceBackupConfig.targetResourceType
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
+NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineDisk = @"COMPUTE_ENGINE_DISK";
+NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineRegionalDisk = @"COMPUTE_ENGINE_REGIONAL_DISK";
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineVm = @"COMPUTE_ENGINE_VM";
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
@@ -327,6 +330,19 @@ NSString * const kGTLRBackupdr_StandardSchedule_RecurrenceType_Monthly = @"MONTH
 NSString * const kGTLRBackupdr_StandardSchedule_RecurrenceType_RecurrenceTypeUnspecified = @"RECURRENCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_StandardSchedule_RecurrenceType_Weekly = @"WEEKLY";
 NSString * const kGTLRBackupdr_StandardSchedule_RecurrenceType_Yearly = @"YEARLY";
+
+// GTLRBackupdr_Trial.endReason
+NSString * const kGTLRBackupdr_Trial_EndReason_Discontinued    = @"DISCONTINUED";
+NSString * const kGTLRBackupdr_Trial_EndReason_EndReasonUnspecified = @"END_REASON_UNSPECIFIED";
+NSString * const kGTLRBackupdr_Trial_EndReason_MoveToPaid      = @"MOVE_TO_PAID";
+
+// GTLRBackupdr_Trial.state
+NSString * const kGTLRBackupdr_Trial_State_Eligible         = @"ELIGIBLE";
+NSString * const kGTLRBackupdr_Trial_State_Expired          = @"EXPIRED";
+NSString * const kGTLRBackupdr_Trial_State_NotEligible      = @"NOT_ELIGIBLE";
+NSString * const kGTLRBackupdr_Trial_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBackupdr_Trial_State_Subscribed       = @"SUBSCRIBED";
+NSString * const kGTLRBackupdr_Trial_State_Unsubscribed     = @"UNSUBSCRIBED";
 
 // GTLRBackupdr_WeekDayOfMonth.dayOfWeek
 NSString * const kGTLRBackupdr_WeekDayOfMonth_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -2257,6 +2273,15 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_SubscribeTrialRequest
+//
+
+@implementation GTLRBackupdr_SubscribeTrialRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_Tags
 //
 
@@ -2326,6 +2351,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_Trial
+//
+
+@implementation GTLRBackupdr_Trial
+@dynamic endReason, endTime, name, startTime, state;
 @end
 
 

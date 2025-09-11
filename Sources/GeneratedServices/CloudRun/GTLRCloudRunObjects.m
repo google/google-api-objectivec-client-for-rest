@@ -174,6 +174,16 @@ NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Automa
 NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_Manual = @"MANUAL";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_ScalingModeUnspecified = @"SCALING_MODE_UNSPECIFIED";
 
+// GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest.releaseTrack
+NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Alpha = @"ALPHA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Beta = @"BETA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Deprecated = @"DEPRECATED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Ga = @"GA";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Unimplemented = @"UNIMPLEMENTED";
+
 // GTLRCloudRun_GoogleCloudRunV2Task.executionEnvironment
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen1 = @"EXECUTION_ENVIRONMENT_GEN1";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Task_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
@@ -1358,8 +1368,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest
-@dynamic buildpackBuild, dockerBuild, imageUri, machineType, serviceAccount,
-         storageSource, tags, workerPool;
+@dynamic buildpackBuild, dockerBuild, imageUri, machineType, releaseTrack,
+         serviceAccount, storageSource, tags, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

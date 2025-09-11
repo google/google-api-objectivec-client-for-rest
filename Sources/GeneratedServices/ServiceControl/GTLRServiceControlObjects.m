@@ -194,7 +194,7 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_Auth
-@dynamic accessLevels, audiences, claims, presenter, principal;
+@dynamic accessLevels, audiences, claims, oauth, presenter, principal;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -227,15 +227,29 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_AuthenticationInfo
-@dynamic authoritySelector, principalEmail, principalSubject,
-         serviceAccountDelegationInfo, serviceAccountKeyName,
-         serviceDelegationHistory, thirdPartyPrincipal;
+@dynamic authoritySelector, loggableShortLivedCredential, oauthInfo,
+         principalEmail, principalSubject, serviceAccountDelegationInfo,
+         serviceAccountKeyName, serviceDelegationHistory, thirdPartyPrincipal;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"serviceAccountDelegationInfo" : [GTLRServiceControl_ServiceAccountDelegationInfo class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_AuthenticationInfo_LoggableShortLivedCredential
+//
+
+@implementation GTLRServiceControl_AuthenticationInfo_LoggableShortLivedCredential
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -342,6 +356,26 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Oauth
+//
+
+@implementation GTLRServiceControl_Oauth
+@dynamic clientId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_OAuthInfo
+//
+
+@implementation GTLRServiceControl_OAuthInfo
+@dynamic oauthClientId;
 @end
 
 

@@ -197,7 +197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -220,7 +221,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
  *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`
+ *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig
  */
@@ -2661,8 +2663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsList : GTLRCloudKMSQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

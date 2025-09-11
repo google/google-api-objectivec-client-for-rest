@@ -18,6 +18,7 @@
 @class GTLRCCAIPlatform_ContactCenter_Labels;
 @class GTLRCCAIPlatform_Critical;
 @class GTLRCCAIPlatform_Early;
+@class GTLRCCAIPlatform_FeatureConfig;
 @class GTLRCCAIPlatform_InstanceConfig;
 @class GTLRCCAIPlatform_Location;
 @class GTLRCCAIPlatform_Location_Labels;
@@ -676,6 +677,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 /** Optional. Early release channel. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_Early *early;
 
+/** Optional. Feature configuration to populate the feature flags. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_FeatureConfig *featureConfig;
+
 /**
  *  The configuration of this instance, it is currently immutable once created.
  */
@@ -822,6 +826,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCCAIPlatform_Empty : GTLRObject
+@end
+
+
+/**
+ *  GTLRCCAIPlatform_FeatureConfig
+ */
+@interface GTLRCCAIPlatform_FeatureConfig : GTLRObject
+
+/**
+ *  Optional. If true - enables the agent desktop feature. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *agentDesktopEnabled;
+
 @end
 
 

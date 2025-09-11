@@ -657,6 +657,28 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_Del
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_Rule.ruleType
+
+/**
+ *  Baseline rules
+ *
+ *  Value: "BASELINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Rule_RuleType_Baseline;
+/**
+ *  Custom rules
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Rule_RuleType_Custom;
+/**
+ *  Not specified.
+ *
+ *  Value: "RULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Rule_RuleType_RuleTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_RuleExecutionResult.state
 
 /**
@@ -1137,9 +1159,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_Enab
 /**
  *  The state means the service has functionality errors.
  *
- *  Value: "FUNCTIONAILITY_FAILURE"
+ *  Value: "FUNCTIONALITY_FAILURE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_FunctionailityFailure;
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ServiceStates_State_FunctionalityFailure;
 /**
  *  The state means the service has IAM permission errors.
  *
@@ -1647,7 +1669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_InstanceProperties *instanceProperties;
 
 /**
- *  Output only. ComputeInstance, ComputeDisk, VPC, Bare Metal server, etc.
+ *  Output only.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_CloudResource_Kind_ResourceKindAddress This
@@ -1681,7 +1703,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Output only. resource name */
+/**
+ *  Output only. resource name Example:
+ *  compute.googleapis.com/projects/wlm-obs-dev/zones/us-central1-a/instances/sap-pri
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -2047,7 +2072,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 /** The insights data for the agent status. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_AgentStatus *agentStatus;
 
-/** Required. The instance id where the insight is generated from */
+/** Optional. The instance id where the insight is generated from */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
@@ -2616,6 +2641,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 /** Output only. the version of the rule */
 @property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  The type of the rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_Rule_RuleType_Baseline Baseline rules (Value:
+ *        "BASELINE")
+ *    @arg @c kGTLRWorkloadManager_Rule_RuleType_Custom Custom rules (Value:
+ *        "CUSTOM")
+ *    @arg @c kGTLRWorkloadManager_Rule_RuleType_RuleTypeUnspecified Not
+ *        specified. (Value: "RULE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ruleType;
 
 /** the secondary category */
 @property(nonatomic, copy, nullable) NSString *secondaryCategory;
@@ -3480,9 +3518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  *        the service disabled. (Value: "DISABLED")
  *    @arg @c kGTLRWorkloadManager_ServiceStates_State_Enabled The state means
  *        the service has no error. (Value: "ENABLED")
- *    @arg @c kGTLRWorkloadManager_ServiceStates_State_FunctionailityFailure The
+ *    @arg @c kGTLRWorkloadManager_ServiceStates_State_FunctionalityFailure The
  *        state means the service has functionality errors. (Value:
- *        "FUNCTIONAILITY_FAILURE")
+ *        "FUNCTIONALITY_FAILURE")
  *    @arg @c kGTLRWorkloadManager_ServiceStates_State_IamFailure The state
  *        means the service has IAM permission errors. (Value: "IAM_FAILURE")
  *    @arg @c kGTLRWorkloadManager_ServiceStates_State_StateUnspecified The
@@ -3700,7 +3738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 @property(nonatomic, copy, nullable) NSString *agentVersion;
 
 /**
- *  Required. instance_name lists the human readable name of the instance that
+ *  Optional. instance_name lists the human readable name of the instance that
  *  the data comes from.
  */
 @property(nonatomic, copy, nullable) NSString *instanceName;

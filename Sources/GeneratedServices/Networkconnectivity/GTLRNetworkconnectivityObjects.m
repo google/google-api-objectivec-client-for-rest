@@ -379,6 +379,16 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_AutoCreatedSubnetworkInfo
+//
+
+@implementation GTLRNetworkconnectivity_AutoCreatedSubnetworkInfo
+@dynamic internalRange, internalRangeRef, subnetwork, subnetworkRef;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_Binding
 //
 
@@ -1135,6 +1145,29 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse
+//
+
+@implementation GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse
+@dynamic nextPageToken, remoteTransportProfiles, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"remoteTransportProfiles" : [GTLRNetworkconnectivity_RemoteTransportProfile class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"remoteTransportProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_ListRoutesResponse
 //
 
@@ -1289,6 +1322,29 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 + (NSString *)collectionItemsKey {
   return @"spokes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_ListTransportsResponse
+//
+
+@implementation GTLRNetworkconnectivity_ListTransportsResponse
+@dynamic nextPageToken, transports, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transports" : [GTLRNetworkconnectivity_Transport class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"transports";
 }
 
 @end
@@ -1707,6 +1763,30 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_RemoteTransportProfile
+//
+
+@implementation GTLRNetworkconnectivity_RemoteTransportProfile
+@dynamic createTime, labels, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_RemoteTransportProfile_Labels
+//
+
+@implementation GTLRNetworkconnectivity_RemoteTransportProfile_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_Route
 //
 
@@ -1880,8 +1960,9 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_ServiceConnectionPolicy
-@dynamic createTime, descriptionProperty, ETag, infrastructure, labels, name,
-         network, pscConfig, pscConnections, serviceClass, updateTime;
+@dynamic autoCreatedSubnetInfo, createTime, descriptionProperty, ETag,
+         infrastructure, labels, name, network, pscConfig, pscConnections,
+         serviceClass, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2122,6 +2203,30 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
     @"permissions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_Transport
+//
+
+@implementation GTLRNetworkconnectivity_Transport
+@dynamic createTime, labels, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_Transport_Labels
+//
+
+@implementation GTLRNetworkconnectivity_Transport_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

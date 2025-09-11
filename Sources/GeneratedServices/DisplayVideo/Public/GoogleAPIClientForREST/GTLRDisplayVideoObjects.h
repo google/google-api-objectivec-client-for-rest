@@ -1282,6 +1282,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconS
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Advertiser.containsEuPoliticalAds
+
+/**
+ *  Contains EU political advertising.
+ *
+ *  Value: "CONTAINS_EU_POLITICAL_ADVERTISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising;
+/**
+ *  Does not contain EU political advertising.
+ *
+ *  Value: "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising;
+/**
+ *  Unknown.
+ *
+ *  Value: "EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_Advertiser.entityStatus
 
 /**
@@ -1569,6 +1591,83 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDeta
  *  Value: "AGE_RANGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRangeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesComparisonValue.contentDurationValue
+
+/**
+ *  Content is 0-1 minute long.
+ *
+ *  Value: "CONTENT_DURATION_0_TO_1_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration0To1Min;
+/**
+ *  Content is 15-30 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_15_TO_30_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration15To30Min;
+/**
+ *  Content is 1-5 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_1_TO_5_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration1To5Min;
+/**
+ *  Content is 30-60 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_30_TO_60_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration30To60Min;
+/**
+ *  Content is 5-15 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_5_TO_15_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration5To15Min;
+/**
+ *  Content is over 60 minutes long.
+ *
+ *  Value: "CONTENT_DURATION_OVER_60_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationOver60Min;
+/**
+ *  The content duration is unknown.
+ *
+ *  Value: "CONTENT_DURATION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationUnknown;
+/**
+ *  Content duration is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real content duration.
+ *
+ *  Value: "CONTENT_DURATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AlgorithmRulesComparisonValue.contentStreamTypeValue
+
+/**
+ *  The content is being live-streamed.
+ *
+ *  Value: "CONTENT_LIVE_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentLiveStream;
+/**
+ *  The content is viewed on-demand.
+ *
+ *  Value: "CONTENT_ON_DEMAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentOnDemand;
+/**
+ *  Content stream type is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real content stream
+ *  type.
+ *
+ *  Value: "CONTENT_STREAM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentStreamTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AlgorithmRulesComparisonValue.deviceTypeValue
@@ -2494,6 +2593,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_Impres
  *  Value: "OPERATING_SYSTEM_ID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_OperatingSystemId;
+/**
+ *  Video content duration. Value is stored in the contentDurationValue field of
+ *  the comparison value. The comparisonOperator field must be set to
+ *  `LIST_CONTAINS`.
+ *
+ *  Value: "VIDEO_CONTENT_DURATION_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoContentDurationBucket;
+/**
+ *  Video delivery type. Value is stored in the contentStreamTypeValue field of
+ *  the comparison value. The comparisonOperator field must be set to
+ *  `LIST_CONTAINS`.
+ *
+ *  Value: "VIDEO_DELIVERY_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoDeliveryType;
+/**
+ *  Video genre id. Value is stored in the int64Value field of the comparison
+ *  value. The comparisonOperator field must be set to `LIST_CONTAINS`.
+ *
+ *  Value: "VIDEO_GENRE_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoGenreId;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AlgorithmRulesSignalComparison.comparisonOperator
@@ -2534,6 +2656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalCompari
  *  Value: "LESS_THAN_OR_EQUAL_TO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThanOrEqualTo;
+/**
+ *  Signal value is a list and contains the comparison value.
+ *
+ *  Value: "LIST_CONTAINS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_ListContains;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AlgorithmRulesSignalValue.activeViewSignal
@@ -2658,6 +2786,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionD
  *  Value: "APP_PLATFORM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformUnspecified;
+/**
+ *  The app platform is Vidaa.
+ *
+ *  Value: "APP_PLATFORM_VIDAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVidaa;
 /**
  *  The app platform is VIZIO TV.
  *
@@ -4877,6 +5011,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81;
 /**
+ *  SDF version 9. Read the [v9 migration
+ *  guide](/display-video/api/structured-data-file/v9-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_9"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion9;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -6840,6 +6982,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DoubleVerifyVideoViewabilit
  *  Value: "VIEWED_PERFORMANCE_40_PERCENT_HIGHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DoubleVerifyVideoViewability_VideoViewableRate_ViewedPerformance40PercentHigher;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_DuplicateLineItemRequest.containsEuPoliticalAds
+
+/**
+ *  Contains EU political advertising.
+ *
+ *  Value: "CONTAINS_EU_POLITICAL_ADVERTISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising;
+/**
+ *  Does not contain EU political advertising.
+ *
+ *  Value: "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising;
+/**
+ *  Unknown.
+ *
+ *  Value: "EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails.environment
@@ -9547,6 +9711,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetail
  *  Value: "GENDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_GenerateDefaultLineItemRequest.containsEuPoliticalAds
+
+/**
+ *  Contains EU political advertising.
+ *
+ *  Value: "CONTAINS_EU_POLITICAL_ADVERTISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising;
+/**
+ *  Does not contain EU political advertising.
+ *
+ *  Value: "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising;
+/**
+ *  Unknown.
+ *
+ *  Value: "EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_GenerateDefaultLineItemRequest.lineItemType
@@ -12368,6 +12554,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeViewabil
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Kpi_KpiType_KpiTypeVtr;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_LineItem.containsEuPoliticalAds
+
+/**
+ *  Contains EU political advertising.
+ *
+ *  Value: "CONTAINS_EU_POLITICAL_ADVERTISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising;
+/**
+ *  Does not contain EU political advertising.
+ *
+ *  Value: "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising;
+/**
+ *  Unknown.
+ *
+ *  Value: "EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_LineItem.entityStatus
 
 /**
@@ -14205,6 +14413,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81;
 /**
+ *  SDF version 9. Read the [v9 migration
+ *  guide](/display-video/api/structured-data-file/v9-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_9"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion9;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -14310,6 +14526,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_8_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81;
+/**
+ *  SDF version 9. Read the [v9 migration
+ *  guide](/display-video/api/structured-data-file/v9-migration-guide) before
+ *  migrating to this version.
+ *
+ *  Value: "SDF_VERSION_9"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion9;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -16535,6 +16759,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Required. Billing related settings of the advertiser. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserBillingConfig *billingConfig;
 
+/**
+ *  Optional. Whether this advertiser contains line items that serve European
+ *  Union political ads. If this field is set to
+ *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING`, then the following will happen:
+ *  * Any new line items created under this advertiser will be assigned
+ *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if not otherwise specified. *
+ *  Any existing line items under this advertiser that do not have a set value
+ *  be updated to `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` within a day.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising
+ *        Contains EU political advertising. (Value:
+ *        "CONTAINS_EU_POLITICAL_ADVERTISING")
+ *    @arg @c kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising
+ *        Does not contain EU political advertising. (Value:
+ *        "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING")
+ *    @arg @c kGTLRDisplayVideo_Advertiser_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown
+ *        Unknown. (Value: "EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *containsEuPoliticalAds;
+
 /** Required. Creative related settings of the advertiser. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserCreativeConfig *creativeConfig;
 
@@ -17004,6 +17249,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Video content duration value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration0To1Min
+ *        Content is 0-1 minute long. (Value: "CONTENT_DURATION_0_TO_1_MIN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration15To30Min
+ *        Content is 15-30 minutes long. (Value:
+ *        "CONTENT_DURATION_15_TO_30_MIN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration1To5Min
+ *        Content is 1-5 minutes long. (Value: "CONTENT_DURATION_1_TO_5_MIN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration30To60Min
+ *        Content is 30-60 minutes long. (Value:
+ *        "CONTENT_DURATION_30_TO_60_MIN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDuration5To15Min
+ *        Content is 5-15 minutes long. (Value: "CONTENT_DURATION_5_TO_15_MIN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationOver60Min
+ *        Content is over 60 minutes long. (Value:
+ *        "CONTENT_DURATION_OVER_60_MIN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationUnknown
+ *        The content duration is unknown. (Value: "CONTENT_DURATION_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentDurationValue_ContentDurationUnspecified
+ *        Content duration is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real content
+ *        duration. (Value: "CONTENT_DURATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentDurationValue;
+
+/**
+ *  Video genre id value.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contentGenreIdValue;
+
+/**
+ *  Video delivery type value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentLiveStream
+ *        The content is being live-streamed. (Value: "CONTENT_LIVE_STREAM")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentOnDemand
+ *        The content is viewed on-demand. (Value: "CONTENT_ON_DEMAND")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ContentStreamTypeValue_ContentStreamTypeUnspecified
+ *        Content stream type is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real content
+ *        stream type. (Value: "CONTENT_STREAM_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentStreamTypeValue;
 
 /** Creative dimension value. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Dimensions *creativeDimensionValue;
@@ -17528,6 +17823,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_OperatingSystemId
  *        The operating system identifier. Value is stored in the int64Value
  *        field of the comparison value. (Value: "OPERATING_SYSTEM_ID")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoContentDurationBucket
+ *        Video content duration. Value is stored in the contentDurationValue
+ *        field of the comparison value. The comparisonOperator field must be
+ *        set to `LIST_CONTAINS`. (Value: "VIDEO_CONTENT_DURATION_BUCKET")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoDeliveryType
+ *        Video delivery type. Value is stored in the contentStreamTypeValue
+ *        field of the comparison value. The comparisonOperator field must be
+ *        set to `LIST_CONTAINS`. (Value: "VIDEO_DELIVERY_TYPE")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoGenreId
+ *        Video genre id. Value is stored in the int64Value field of the
+ *        comparison value. The comparisonOperator field must be set to
+ *        `LIST_CONTAINS`. (Value: "VIDEO_GENRE_ID")
  */
 @property(nonatomic, copy, nullable) NSString *impressionSignal;
 
@@ -17563,6 +17870,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_LessThanOrEqualTo
  *        Signal value is less than or equal to the comparison value. (Value:
  *        "LESS_THAN_OR_EQUAL_TO")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignalComparison_ComparisonOperator_ListContains
+ *        Signal value is a list and contains the comparison value. (Value:
+ *        "LIST_CONTAINS")
  */
 @property(nonatomic, copy, nullable) NSString *comparisonOperator;
 
@@ -17673,6 +17983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Default value when app platform is not specified in this version. This
  *        enum is a placeholder for default value and does not represent a real
  *        platform option. (Value: "APP_PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVidaa
+ *        The app platform is Vidaa. (Value: "APP_PLATFORM_VIDAA")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformVizioTv
  *        The app platform is VIZIO TV. (Value: "APP_PLATFORM_VIZIO_TV")
  *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformXbox
@@ -19583,7 +19895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Required. A field mask identifying which fields to update. Only the
  *  following fields are currently supported: * entityStatus *
- *  containsEuPoliticalAdvertising
+ *  containsEuPoliticalAds
  *
  *  String format is a comma-separated list of fields.
  */
@@ -21371,6 +21683,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        before migrating to this version. (Value: "SDF_VERSION_8")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81
  *        SDF version 8.1. (Value: "SDF_VERSION_8_1")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion9
+ *        SDF version 9. Read the [v9 migration
+ *        guide](/display-video/api/structured-data-file/v9-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_9")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -23366,6 +23682,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_DuplicateLineItemRequest : GTLRObject
 
 /**
+ *  Whether this line item will serve European Union political ads. If
+ *  contains_eu_political_ads has been set to
+ *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` in the parent advertiser, then
+ *  this field will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if
+ *  not otherwise specified. This field can then be updated using the UI, API,
+ *  or Structured Data Files. *Warning*: Starting **September 8, 2025**, this
+ *  field must be set. If not, either the value
+ *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` will be assigned to the line
+ *  item if the parent advertiser has declared that it does not serve EU
+ *  political ads, or **the request will fail**.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising
+ *        Contains EU political advertising. (Value:
+ *        "CONTAINS_EU_POLITICAL_ADVERTISING")
+ *    @arg @c kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising
+ *        Does not contain EU political advertising. (Value:
+ *        "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING")
+ *    @arg @c kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown
+ *        Unknown. (Value: "EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *containsEuPoliticalAds;
+
+/**
  *  The display name of the new line item. Must be UTF-8 encoded with a maximum
  *  size of 240 bytes.
  */
@@ -25128,6 +25468,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Request message for LineItemService.GenerateDefaultLineItem.
  */
 @interface GTLRDisplayVideo_GenerateDefaultLineItemRequest : GTLRObject
+
+/**
+ *  Whether this line item will serve European Union political ads. If
+ *  contains_eu_political_ads has been set to
+ *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` in the parent advertiser, then
+ *  this field will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if
+ *  not otherwise specified. This field can then be updated using the UI, API,
+ *  or Structured Data Files. *Warning*: Starting **September 8, 2025**, this
+ *  field must be set. If not, either the value
+ *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` will be assigned to the line
+ *  item if the parent advertiser has declared that it does not serve EU
+ *  political ads, or **the request will fail**.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising
+ *        Contains EU political advertising. (Value:
+ *        "CONTAINS_EU_POLITICAL_ADVERTISING")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising
+ *        Does not contain EU political advertising. (Value:
+ *        "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown
+ *        Unknown. (Value: "EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *containsEuPoliticalAds;
 
 /**
  *  Required. The display name of the line item. Must be UTF-8 encoded with a
@@ -27650,6 +28014,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *campaignId;
+
+/**
+ *  Whether this line item will serve European Union political ads. If
+ *  contains_eu_political_ads has been set to
+ *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` in the parent advertiser, then
+ *  this field will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if
+ *  not otherwise specified. This field can then be updated using the UI, API,
+ *  or Structured Data Files. *Warning*: Starting **September 8, 2025**, this
+ *  field must be set when creating a new line item. If not, either the value
+ *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` will be assigned if the parent
+ *  advertiser has declared that it does not serve EU political ads, or **the
+ *  `advertisers.lineItems.create` request will fail**.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising
+ *        Contains EU political advertising. (Value:
+ *        "CONTAINS_EU_POLITICAL_ADVERTISING")
+ *    @arg @c kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_DoesNotContainEuPoliticalAdvertising
+ *        Does not contain EU political advertising. (Value:
+ *        "DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING")
+ *    @arg @c kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_EuPoliticalAdvertisingStatusUnknown
+ *        Unknown. (Value: "EU_POLITICAL_ADVERTISING_STATUS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *containsEuPoliticalAds;
 
 /** The conversion tracking setting of the line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ConversionCountingConfig *conversionCounting;
@@ -31179,6 +31567,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        before migrating to this version. (Value: "SDF_VERSION_8")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81 SDF version 8.1.
  *        (Value: "SDF_VERSION_8_1")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion9 SDF version 9.
+ *        Read the [v9 migration
+ *        guide](/display-video/api/structured-data-file/v9-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_9")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -31257,6 +31649,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        before migrating to this version. (Value: "SDF_VERSION_8")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81 SDF
  *        version 8.1. (Value: "SDF_VERSION_8_1")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion9 SDF
+ *        version 9. Read the [v9 migration
+ *        guide](/display-video/api/structured-data-file/v9-migration-guide)
+ *        before migrating to this version. (Value: "SDF_VERSION_9")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -32997,9 +33393,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  assigned at the line item level, this field is only applicable for the
  *  following strategy types: *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` *
- *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` When the bidding
- *  strategy is assigned at the ad group level, this field is only applicable
- *  for the following strategy types: *
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` *
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_SHARE_OF_VOICE` When the
+ *  bidding strategy is assigned at the ad group level, this field is only
+ *  applicable for the following strategy types: *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPM` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPV` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` *

@@ -277,6 +277,13 @@ NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Typ
 NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_GenerateTypeUnspecified = @"GENERATE_TYPE_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_Single = @"SINGLE";
 
+// GTLROracleDatabase_IdentityConnector.connectionState
+NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_Connected = @"CONNECTED";
+NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_ConnectionStateUnspecified = @"CONNECTION_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_Disconnected = @"DISCONNECTED";
+NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_PartiallyConnected = @"PARTIALLY_CONNECTED";
+NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_Unknown = @"UNKNOWN";
+
 // GTLROracleDatabase_MaintenanceWindow.daysOfWeek
 NSString * const kGTLROracleDatabase_MaintenanceWindow_DaysOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_MaintenanceWindow_DaysOfWeek_Friday = @"FRIDAY";
@@ -616,8 +623,8 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 @implementation GTLROracleDatabase_CloudVmCluster
 @dynamic backupOdbSubnet, backupSubnetCidr, cidr, createTime, displayName,
-         exadataInfrastructure, gcpOracleZone, labels, name, network,
-         odbNetwork, odbSubnet, properties;
+         exadataInfrastructure, gcpOracleZone, identityConnector, labels, name,
+         network, odbNetwork, odbSubnet, properties;
 @end
 
 
@@ -803,6 +810,16 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 @implementation GTLROracleDatabase_GiVersion
 @dynamic name, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_IdentityConnector
+//
+
+@implementation GTLROracleDatabase_IdentityConnector
+@dynamic connectionState, serviceAgentEmail;
 @end
 
 

@@ -5610,7 +5610,8 @@ GTLR_DEPRECATED
 
 /**
  *  Cancels a user's subscription purchase. The subscription remains valid until
- *  its expiration time.
+ *  its expiration time. Newer version is available at
+ *  purchases.subscriptionsv2.cancel for better client library support.
  *
  *  Method: androidpublisher.purchases.subscriptions.cancel
  *
@@ -5642,7 +5643,8 @@ GTLR_DEPRECATED
  *  be nil. This query does not fetch an object.
  *
  *  Cancels a user's subscription purchase. The subscription remains valid until
- *  its expiration time.
+ *  its expiration time. Newer version is available at
+ *  purchases.subscriptionsv2.cancel for better client library support.
  *
  *  @param packageName The package name of the application for which this
  *    subscription was purchased (for example, 'com.some.thing').
@@ -5853,6 +5855,48 @@ GTLR_DEPRECATED
 + (instancetype)queryWithPackageName:(NSString *)packageName
                       subscriptionId:(NSString *)subscriptionId
                                token:(NSString *)token;
+
+@end
+
+/**
+ *  Cancel a subscription purchase for the user.
+ *
+ *  Method: androidpublisher.purchases.subscriptionsv2.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Cancel : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The package of the application for which this subscription was
+ *  purchased (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The token provided to the user's device when the subscription was
+ *  purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_CancelSubscriptionPurchaseResponse.
+ *
+ *  Cancel a subscription purchase for the user.
+ *
+ *  @param object The @c GTLRAndroidPublisher_CancelSubscriptionPurchaseRequest
+ *    to include in the query.
+ *  @param packageName Required. The package of the application for which this
+ *    subscription was purchased (for example, 'com.some.thing').
+ *  @param token Required. The token provided to the user's device when the
+ *    subscription was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Cancel
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CancelSubscriptionPurchaseRequest *)object
+                    packageName:(NSString *)packageName
+                          token:(NSString *)token;
 
 @end
 

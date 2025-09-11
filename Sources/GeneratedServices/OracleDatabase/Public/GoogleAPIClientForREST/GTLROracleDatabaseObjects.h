@@ -45,6 +45,7 @@
 @class GTLROracleDatabase_DbSystemShape;
 @class GTLROracleDatabase_Entitlement;
 @class GTLROracleDatabase_GiVersion;
+@class GTLROracleDatabase_IdentityConnector;
 @class GTLROracleDatabase_Location;
 @class GTLROracleDatabase_Location_Labels;
 @class GTLROracleDatabase_Location_Metadata;
@@ -1381,6 +1382,40 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GenerateAutonomousDatabas
  *  Value: "SINGLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_Single;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_IdentityConnector.connectionState
+
+/**
+ *  The identity pool connection is connected.
+ *
+ *  Value: "CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_Connected;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "CONNECTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_ConnectionStateUnspecified;
+/**
+ *  The identity pool connection is disconnected.
+ *
+ *  Value: "DISCONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_Disconnected;
+/**
+ *  The identity pool connection is partially connected.
+ *
+ *  Value: "PARTIALLY_CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_PartiallyConnected;
+/**
+ *  The identity pool connection is in an unknown state.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_IdentityConnector_ConnectionState_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_MaintenanceWindow.daysOfWeek
@@ -2923,7 +2958,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *entitlementId;
 
 /**
- *  Optional. Google Cloud Platform location where Oracle Exadata is hosted.
+ *  Optional. The GCP Oracle zone where Oracle Exadata Infrastructure is hosted.
+ *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
+ *  on availability.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
 
@@ -3201,10 +3238,17 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *exadataInfrastructure;
 
 /**
- *  Output only. Google Cloud Platform location where Oracle Exadata is hosted.
- *  It is same as Google Cloud Platform Oracle zone of Exadata infrastructure.
+ *  Output only. The GCP Oracle zone where Oracle CloudVmCluster is hosted. This
+ *  will be the same as the gcp_oracle_zone of the CloudExadataInfrastructure.
+ *  Example: us-east4-b-r2.
  */
 @property(nonatomic, copy, nullable) NSString *gcpOracleZone;
+
+/**
+ *  Output only. The identity connector details which will allow OCI to securely
+ *  access the resources in the customer project.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_IdentityConnector *identityConnector;
 
 /** Optional. Labels or tags associated with the VM Cluster. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_CloudVmCluster_Labels *labels;
@@ -4034,6 +4078,40 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 /** Optional. version */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  The identity connector details which will allow OCI to securely access the
+ *  resources in the customer project.
+ */
+@interface GTLROracleDatabase_IdentityConnector : GTLRObject
+
+/**
+ *  Output only. The connection state of the identity connector.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_IdentityConnector_ConnectionState_Connected
+ *        The identity pool connection is connected. (Value: "CONNECTED")
+ *    @arg @c kGTLROracleDatabase_IdentityConnector_ConnectionState_ConnectionStateUnspecified
+ *        Default unspecified value. (Value: "CONNECTION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_IdentityConnector_ConnectionState_Disconnected
+ *        The identity pool connection is disconnected. (Value: "DISCONNECTED")
+ *    @arg @c kGTLROracleDatabase_IdentityConnector_ConnectionState_PartiallyConnected
+ *        The identity pool connection is partially connected. (Value:
+ *        "PARTIALLY_CONNECTED")
+ *    @arg @c kGTLROracleDatabase_IdentityConnector_ConnectionState_Unknown The
+ *        identity pool connection is in an unknown state. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionState;
+
+/**
+ *  Output only. A google managed service account on which customers can grant
+ *  roles to access resources in the customer project. Example:
+ *  `p176944527254-55-75119d87fd8f\@gcp-sa-oci.iam.gserviceaccount.com`
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAgentEmail;
 
 @end
 

@@ -1954,6 +1954,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
+ *  Gets the Trial state for a given project
+ *
+ *  Method: backupdr.projects.locations.getTrial
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsGetTrial : GTLRBackupdrQuery
+
+/** Required. The name of the trial to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Trial.
+ *
+ *  Gets the Trial state for a given project
+ *
+ *  @param name Required. The name of the trial to retrieve.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsGetTrial
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: backupdr.projects.locations.list
@@ -1964,8 +1990,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @interface GTLRBackupdrQuery_ProjectsLocationsList : GTLRBackupdrQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2597,6 +2623,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRBackupdr_InitializeServiceRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Subscribes to a trial for a project
+ *
+ *  Method: backupdr.projects.locations.trial.subscribe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsTrialSubscribe : GTLRBackupdrQuery
+
+/** Required. The parent resource where this trial will be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Trial.
+ *
+ *  Subscribes to a trial for a project
+ *
+ *  @param object The @c GTLRBackupdr_SubscribeTrialRequest to include in the
+ *    query.
+ *  @param parent Required. The parent resource where this trial will be
+ *    created.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsTrialSubscribe
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_SubscribeTrialRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

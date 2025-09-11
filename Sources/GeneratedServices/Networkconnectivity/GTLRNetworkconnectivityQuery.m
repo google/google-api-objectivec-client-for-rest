@@ -13,6 +13,17 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// autoSubnetworkConfigIpStack
+NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigIpStackIpv4Ipv6 = @"IPV4_IPV6";
+NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigIpStackIpv4Only = @"IPV4_ONLY";
+NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigIpStackIpv6Only = @"IPV6_ONLY";
+NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigIpStackSubnetIpStackUnspecified = @"SUBNET_IP_STACK_UNSPECIFIED";
+
+// subnetworkMode
+NSString * const kGTLRNetworkconnectivitySubnetworkModeAutoCreated = @"AUTO_CREATED";
+NSString * const kGTLRNetworkconnectivitySubnetworkModeSubnetworkModeUnspecified = @"SUBNETWORK_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivitySubnetworkModeUserProvided = @"USER_PROVIDED";
+
 // view
 NSString * const kGTLRNetworkconnectivityViewBasic             = @"BASIC";
 NSString * const kGTLRNetworkconnectivityViewDetailed          = @"DETAILED";
@@ -1417,6 +1428,44 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_RemoteTransportProfile class];
+  query.loggingName = @"networkconnectivity.projects.locations.remoteTransportProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/remoteTransportProfiles";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.remoteTransportProfiles.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesDelete
 
 @dynamic ETag, name, requestId;
@@ -1776,7 +1825,18 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesCreate
 
-@dynamic parent, requestId, serviceConnectionPolicyId;
+@dynamic autoSubnetworkConfigAllocRangeSpace, autoSubnetworkConfigIpStack,
+         autoSubnetworkConfigPrefixLength, parent, requestId,
+         serviceConnectionPolicyId, subnetworkMode;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"autoSubnetworkConfigAllocRangeSpace" : @"autoSubnetworkConfig.allocRangeSpace",
+    @"autoSubnetworkConfigIpStack" : @"autoSubnetworkConfig.ipStack",
+    @"autoSubnetworkConfigPrefixLength" : @"autoSubnetworkConfig.prefixLength"
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceConnectionPolicy *)object
                          parent:(NSString *)parent {
@@ -2237,6 +2297,117 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.resource = resource;
   query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
   query.loggingName = @"networkconnectivity.projects.locations.spokes.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsCreate
+
+@dynamic parent, requestId, transportId;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Transport *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/transports";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_Transport class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/transports";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListTransportsResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Transport *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.patch";
   return query;
 }
 

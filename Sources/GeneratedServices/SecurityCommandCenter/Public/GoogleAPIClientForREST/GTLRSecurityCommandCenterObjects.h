@@ -185,6 +185,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingSecurityBulletin;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplication;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadata;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadataAwsAccount;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadata;
@@ -8335,7 +8336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
- *  The destination big query dataset to export findings to.
+ *  The destination BigQuery dataset to export findings to.
  */
 @interface GTLRSecurityCommandCenter_BigQueryDestination : GTLRObject
 
@@ -9734,7 +9735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_ExportFindingsMetadata : GTLRObject
 
-/** Required. The destination big query dataset to export findings to. */
+/** Required. The destination BigQuery dataset to export findings to. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_BigQueryDestination *bigQueryDestination;
 
 /** Optional. Timestamp at which export was started */
@@ -13498,12 +13499,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /**
  *  Output only. The canonical name of the finding. The following list shows
  *  some examples: +
- *  `organizations/{organization_id}/sources/{source_id}/findings/{finding_id}`
- *  +
  *  `organizations/{organization_id}/sources/{source_id}/locations/{location_id}/findings/{finding_id}`
- *  + `folders/{folder_id}/sources/{source_id}/findings/{finding_id}` +
+ *  +
  *  `folders/{folder_id}/sources/{source_id}/locations/{location_id}/findings/{finding_id}`
- *  + `projects/{project_id}/sources/{source_id}/findings/{finding_id}` +
+ *  +
  *  `projects/{project_id}/sources/{source_id}/locations/{location_id}/findings/{finding_id}`
  *  The prefix is the closest CRM ancestor of the resource associated with the
  *  finding.
@@ -14404,6 +14403,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource : GTLRObject
 
 /**
+ *  The AppHub application associated with the resource, if any. Only populated
+ *  for the primary resource.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplication *application;
+
+/**
  *  The AWS metadata of the resource associated with the issue. Only populated
  *  for AWS resources.
  */
@@ -14447,6 +14452,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The type of the resource associated with the issue. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The AppHub application associated with the resource, if any.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplication : GTLRObject
+
+/**
+ *  The resource name of an Application. Format:
+ *  `projects/{host-project-id}/locations/{location}/applications/{application-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

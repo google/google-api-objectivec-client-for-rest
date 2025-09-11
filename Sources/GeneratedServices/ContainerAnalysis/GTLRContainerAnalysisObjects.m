@@ -789,8 +789,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_BuildStep
 @dynamic allowExitCodes, allowFailure, args, automapSubstitutions, dir,
-         entrypoint, env, exitCode, identifier, name, pullTiming, results,
-         script, secretEnv, status, timeout, timing, volumes, waitFor;
+         entrypoint, env, exitCode, identifier, name, pullTiming, remoteConfig,
+         results, script, secretEnv, status, timeout, timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -819,6 +819,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_Category
 @dynamic categoryId, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_CISAKnownExploitedVulnerabilities
+//
+
+@implementation GTLRContainerAnalysis_CISAKnownExploitedVulnerabilities
+@dynamic knownRansomwareCampaignUse;
 @end
 
 
@@ -1135,6 +1145,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_EnvelopeSignature
 @dynamic keyid, sig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_ExploitPredictionScoringSystem
+//
+
+@implementation GTLRContainerAnalysis_ExploitPredictionScoringSystem
+@dynamic percentile, score;
 @end
 
 
@@ -2688,6 +2708,16 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_Risk
+//
+
+@implementation GTLRContainerAnalysis_Risk
+@dynamic cisaKev, epss;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_RunDetails
 //
 
@@ -3297,7 +3327,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 @implementation GTLRContainerAnalysis_VulnerabilityOccurrence
 @dynamic cvssScore, cvssV2, cvssv3, cvssVersion, effectiveSeverity,
          extraDetails, fixAvailable, longDescription, packageIssue, relatedUrls,
-         severity, shortDescription, type, vexAssessment;
+         risk, severity, shortDescription, type, vexAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

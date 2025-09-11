@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Location Finder API (cloudlocationfinder/v1alpha)
+//   Cloud Location Finder API (cloudlocationfinder/v1)
 // Documentation:
 //   https://cloud.google.com/location-finder/docs
 

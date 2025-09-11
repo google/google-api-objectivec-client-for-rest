@@ -1479,10 +1479,17 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_Tool
-@dynamic descriptionProperty, inputSchema, name, outputSchema;
+@dynamic dependsOn, descriptionProperty, inputSchema, name, outputSchema;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dependsOn" : [NSString class]
+  };
+  return map;
 }
 
 @end

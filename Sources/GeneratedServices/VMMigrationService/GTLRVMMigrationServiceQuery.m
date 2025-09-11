@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// type
+NSString * const kGTLRVMMigrationServiceTypeDisks              = @"DISKS";
+NSString * const kGTLRVMMigrationServiceTypeSnapshots          = @"SNAPSHOTS";
+NSString * const kGTLRVMMigrationServiceTypeStorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
+
 // view
 NSString * const kGTLRVMMigrationServiceViewBasic              = @"BASIC";
 NSString * const kGTLRVMMigrationServiceViewFull               = @"FULL";
@@ -632,6 +637,171 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
 
 @end
 
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_CancelDiskMigrationJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.sources.diskMigrationJobs.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsCreate
+
+@dynamic diskMigrationJobId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_DiskMigrationJob *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/diskMigrationJobs";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.sources.diskMigrationJobs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.sources.diskMigrationJobs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_DiskMigrationJob class];
+  query.loggingName = @"vmmigration.projects.locations.sources.diskMigrationJobs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/diskMigrationJobs";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMMigrationService_ListDiskMigrationJobsResponse class];
+  query.loggingName = @"vmmigration.projects.locations.sources.diskMigrationJobs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_DiskMigrationJob *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.sources.diskMigrationJobs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsRun
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_RunDiskMigrationJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:run";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.sources.diskMigrationJobs.run";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesFetchInventory
 
 @dynamic forceRefresh, pageSize, pageToken, source;
@@ -646,6 +816,25 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
   query.source = source;
   query.expectedObjectClass = [GTLRVMMigrationService_FetchInventoryResponse class];
   query.loggingName = @"vmmigration.projects.locations.sources.fetchInventory";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesFetchStorageInventory
+
+@dynamic forceRefresh, pageSize, pageToken, source, type;
+
++ (instancetype)queryWithSource:(NSString *)source {
+  NSArray *pathParams = @[ @"source" ];
+  NSString *pathURITemplate = @"v1/{+source}:fetchStorageInventory";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesFetchStorageInventory *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.source = source;
+  query.expectedObjectClass = [GTLRVMMigrationService_FetchStorageInventoryResponse class];
+  query.loggingName = @"vmmigration.projects.locations.sources.fetchStorageInventory";
   return query;
 }
 

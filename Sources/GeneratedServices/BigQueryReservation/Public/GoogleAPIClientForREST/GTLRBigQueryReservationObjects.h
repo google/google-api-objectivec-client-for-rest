@@ -50,6 +50,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background;
 /**
+ *  Finer granularity background jobs for capturing changes in a source database
+ *  and streaming them into BigQuery. Reservations with this job type take
+ *  priority over a default BACKGROUND reservation assignment (if it exists).
+ *
+ *  Value: "BACKGROUND_CHANGE_DATA_CAPTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_BackgroundChangeDataCapture;
+/**
+ *  Finer granularity background jobs for refreshing cached metadata for
+ *  BigQuery tables. Reservations with this job type take priority over a
+ *  default BACKGROUND reservation assignment (if it exists).
+ *
+ *  Value: "BACKGROUND_COLUMN_METADATA_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_BackgroundColumnMetadataIndex;
+/**
+ *  Finer granularity background jobs for refreshing search indexes upon
+ *  BigQuery table columns. Reservations with this job type take priority over a
+ *  default BACKGROUND reservation assignment (if it exists).
+ *
+ *  Value: "BACKGROUND_SEARCH_INDEX_REFRESH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_BackgroundSearchIndexRefresh;
+/**
  *  Continuous SQL jobs will use this reservation. Reservations with continuous
  *  assignments cannot be mixed with non-continuous assignments.
  *
@@ -379,7 +403,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_FailoverReservationR
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Hard;
 /**
  *  When customers initiate a soft failover, BigQuery will wait until all
- *  committed writes are replicated to the secondary.
+ *  committed writes are replicated to the secondary. This mode requires both
+ *  regions to be available for the failover to succeed and prevents data loss.
  *
  *  Value: "SOFT"
  */
@@ -505,6 +530,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Background Background
  *        jobs that BigQuery runs for the customers in the background. (Value:
  *        "BACKGROUND")
+ *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_BackgroundChangeDataCapture
+ *        Finer granularity background jobs for capturing changes in a source
+ *        database and streaming them into BigQuery. Reservations with this job
+ *        type take priority over a default BACKGROUND reservation assignment
+ *        (if it exists). (Value: "BACKGROUND_CHANGE_DATA_CAPTURE")
+ *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_BackgroundColumnMetadataIndex
+ *        Finer granularity background jobs for refreshing cached metadata for
+ *        BigQuery tables. Reservations with this job type take priority over a
+ *        default BACKGROUND reservation assignment (if it exists). (Value:
+ *        "BACKGROUND_COLUMN_METADATA_INDEX")
+ *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_BackgroundSearchIndexRefresh
+ *        Finer granularity background jobs for refreshing search indexes upon
+ *        BigQuery table columns. Reservations with this job type take priority
+ *        over a default BACKGROUND reservation assignment (if it exists).
+ *        (Value: "BACKGROUND_SEARCH_INDEX_REFRESH")
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Continuous Continuous
  *        SQL jobs will use this reservation. Reservations with continuous
  *        assignments cannot be mixed with non-continuous assignments. (Value:
@@ -1027,7 +1067,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @interface GTLRBigQueryReservation_FailoverReservationRequest : GTLRObject
 
 /**
- *  Optional. failover mode for the failover operation.
+ *  Optional. A parameter that determines how writes that are pending
+ *  replication are handled after a failover is initiated. If not specified,
+ *  HARD failover mode is used by default.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_FailoverModeUnspecified
@@ -1038,7 +1080,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *        data loss for hard failover. (Value: "HARD")
  *    @arg @c kGTLRBigQueryReservation_FailoverReservationRequest_FailoverMode_Soft
  *        When customers initiate a soft failover, BigQuery will wait until all
- *        committed writes are replicated to the secondary. (Value: "SOFT")
+ *        committed writes are replicated to the secondary. This mode requires
+ *        both regions to be available for the failover to succeed and prevents
+ *        data loss. (Value: "SOFT")
  */
 @property(nonatomic, copy, nullable) NSString *failoverMode;
 

@@ -302,6 +302,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Cloudchannel"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudCommercePartnerProcurementService",
+            targets: ["GoogleAPIClientForREST_CloudCommercePartnerProcurementService"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudComposer",
             targets: ["GoogleAPIClientForREST_CloudComposer"]
         ),
@@ -1687,6 +1691,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Cloudchannel",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Cloudchannel",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudCommercePartnerProcurementService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CloudCommercePartnerProcurementService",
             publicHeadersPath: "Public"
         ),
         .target(

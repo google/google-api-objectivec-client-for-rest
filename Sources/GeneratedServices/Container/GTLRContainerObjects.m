@@ -290,6 +290,12 @@ NSString * const kGTLRContainer_NetworkPerformanceConfig_TotalEgressBandwidthTie
 NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico  = @"CALICO";
 NSString * const kGTLRContainer_NetworkPolicy_Provider_ProviderUnspecified = @"PROVIDER_UNSPECIFIED";
 
+// GTLRContainer_NetworkTierConfig.networkTier
+NSString * const kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierDefault = @"NETWORK_TIER_DEFAULT";
+NSString * const kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierPremium = @"NETWORK_TIER_PREMIUM";
+NSString * const kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierStandard = @"NETWORK_TIER_STANDARD";
+NSString * const kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierUnspecified = @"NETWORK_TIER_UNSPECIFIED";
+
 // GTLRContainer_NodeAffinity.operatorProperty
 NSString * const kGTLRContainer_NodeAffinity_OperatorProperty_In = @"IN";
 NSString * const kGTLRContainer_NodeAffinity_OperatorProperty_NotIn = @"NOT_IN";
@@ -1017,7 +1023,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredMasterAuthorizedNetworksConfig, desiredMasterVersion,
          desiredMeshCertificates, desiredMonitoringConfig,
          desiredMonitoringService, desiredNetworkPerformanceConfig,
-         desiredNodeKubeletConfig, desiredNodePoolAutoConfigKubeletConfig,
+         desiredNetworkTierConfig, desiredNodeKubeletConfig,
+         desiredNodePoolAutoConfigKubeletConfig,
          desiredNodePoolAutoConfigLinuxNodeConfig,
          desiredNodePoolAutoConfigNetworkTags,
          desiredNodePoolAutoConfigResourceManagerTags,
@@ -1663,10 +1670,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic additionalIpRangesConfigs, additionalPodRangesConfig, autoIpamConfig,
          clusterIpv4Cidr, clusterIpv4CidrBlock, clusterSecondaryRangeName,
          createSubnetwork, defaultPodIpv4RangeUtilization, ipv6AccessType,
-         nodeIpv4Cidr, nodeIpv4CidrBlock, podCidrOverprovisionConfig,
-         servicesIpv4Cidr, servicesIpv4CidrBlock, servicesIpv6CidrBlock,
-         servicesSecondaryRangeName, stackType, subnetIpv6CidrBlock,
-         subnetworkName, tpuIpv4CidrBlock, useIpAliases, useRoutes;
+         networkTierConfig, nodeIpv4Cidr, nodeIpv4CidrBlock,
+         podCidrOverprovisionConfig, servicesIpv4Cidr, servicesIpv4CidrBlock,
+         servicesIpv6CidrBlock, servicesSecondaryRangeName, stackType,
+         subnetIpv6CidrBlock, subnetworkName, tpuIpv4CidrBlock, useIpAliases,
+         useRoutes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2117,6 +2125,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NetworkTierConfig
+//
+
+@implementation GTLRContainer_NetworkTierConfig
+@dynamic networkTier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NodeAffinity
 //
 
@@ -2289,8 +2307,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_NodeNetworkConfig
 @dynamic additionalNodeNetworkConfigs, additionalPodNetworkConfigs,
          createPodRange, enablePrivateNodes, networkPerformanceConfig,
-         podCidrOverprovisionConfig, podIpv4CidrBlock, podIpv4RangeUtilization,
-         podRange, subnetwork;
+         networkTierConfig, podCidrOverprovisionConfig, podIpv4CidrBlock,
+         podIpv4RangeUtilization, podRange, subnetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

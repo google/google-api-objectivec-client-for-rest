@@ -53,6 +53,7 @@
 @class GTLRManagedKafka_Topic;
 @class GTLRManagedKafka_Topic_Configs;
 @class GTLRManagedKafka_TrustConfig;
+@class GTLRManagedKafka_UpdateOptions;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -776,6 +777,12 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 
 /** Optional. TLS configuration for the Kafka cluster. */
 @property(nonatomic, strong, nullable) GTLRManagedKafka_TlsConfig *tlsConfig;
+
+/**
+ *  Optional. UpdateOptions represents options that control how updates to the
+ *  cluster are applied.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedKafka_UpdateOptions *updateOptions;
 
 /** Output only. The time when the cluster was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -2258,6 +2265,28 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *  Maximum 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_CertificateAuthorityServiceConfig *> *casConfigs;
+
+@end
+
+
+/**
+ *  UpdateOptions specifies options that influence how a cluster update is
+ *  applied. These options control the behavior of the update process, rather
+ *  than defining the desired end-state of a cluster.
+ */
+@interface GTLRManagedKafka_UpdateOptions : GTLRObject
+
+/**
+ *  Optional. If true, allows an update operation that increases the total vCPU
+ *  and/or memory allocation of the cluster to significantly decrease the
+ *  per-broker vCPU and/or memory allocation. This can result in reduced
+ *  performance and availability. By default, the update operation will fail if
+ *  an upscale request results in a vCPU or memory allocation for the brokers
+ *  that is smaller than 90% of the current broker size.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowBrokerDownscaleOnClusterUpscale;
 
 @end
 

@@ -28,6 +28,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// type
+
+/**
+ *  The type is disks.
+ *
+ *  Value: "DISKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceTypeDisks;
+/**
+ *  The type is snapshots.
+ *
+ *  Value: "SNAPSHOTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceTypeSnapshots;
+/**
+ *  The type is unspecified.
+ *
+ *  Value: "STORAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceTypeStorageTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // view
 
 /**
@@ -674,8 +696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 @interface GTLRVMMigrationServiceQuery_ProjectsLocationsList : GTLRVMMigrationServiceQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1154,6 +1176,276 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 @end
 
 /**
+ *  Cancels the disk migration job.
+ *
+ *  Method: vmmigration.projects.locations.sources.diskMigrationJobs.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsCancel : GTLRVMMigrationServiceQuery
+
+/** Required. The name of the DiskMigrationJob. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Cancels the disk migration job.
+ *
+ *  @param object The @c GTLRVMMigrationService_CancelDiskMigrationJobRequest to
+ *    include in the query.
+ *  @param name Required. The name of the DiskMigrationJob.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsCancel
+ */
++ (instancetype)queryWithObject:(GTLRVMMigrationService_CancelDiskMigrationJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new disk migration job in a given Source.
+ *
+ *  Method: vmmigration.projects.locations.sources.diskMigrationJobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsCreate : GTLRVMMigrationServiceQuery
+
+/**
+ *  Required. The DiskMigrationJob identifier. The maximum length of this value
+ *  is 63 characters. Valid characters are lower case Latin letters, digits and
+ *  hyphen. It must start with a Latin letter and must not end with a hyphen.
+ */
+@property(nonatomic, copy, nullable) NSString *diskMigrationJobId;
+
+/** Required. The DiskMigrationJob's parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request timed out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Creates a new disk migration job in a given Source.
+ *
+ *  @param object The @c GTLRVMMigrationService_DiskMigrationJob to include in
+ *    the query.
+ *  @param parent Required. The DiskMigrationJob's parent.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRVMMigrationService_DiskMigrationJob *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single DiskMigrationJob.
+ *
+ *  Method: vmmigration.projects.locations.sources.diskMigrationJobs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsDelete : GTLRVMMigrationServiceQuery
+
+/** Required. The name of the DiskMigrationJob. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Deletes a single DiskMigrationJob.
+ *
+ *  @param name Required. The name of the DiskMigrationJob.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single DiskMigrationJob.
+ *
+ *  Method: vmmigration.projects.locations.sources.diskMigrationJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsGet : GTLRVMMigrationServiceQuery
+
+/** Required. The name of the DiskMigrationJob. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_DiskMigrationJob.
+ *
+ *  Gets details of a single DiskMigrationJob.
+ *
+ *  @param name Required. The name of the DiskMigrationJob.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DiskMigrationJobs in a given Source.
+ *
+ *  Method: vmmigration.projects.locations.sources.diskMigrationJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsList : GTLRVMMigrationServiceQuery
+
+/** Optional. The filter request (according to AIP-160). */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Ordering of the result list. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of disk migration jobs to return. The service
+ *  may return fewer than this value. If unspecified, at most 500 disk migration
+ *  jobs will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListDiskMigrationJobs`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  parameters provided to `ListDiskMigrationJobs` except `page_size` must match
+ *  the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent, which owns this collection of DiskMigrationJobs. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_ListDiskMigrationJobsResponse.
+ *
+ *  Lists DiskMigrationJobs in a given Source.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    DiskMigrationJobs.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single DiskMigrationJob.
+ *
+ *  Method: vmmigration.projects.locations.sources.diskMigrationJobs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsPatch : GTLRVMMigrationServiceQuery
+
+/** Output only. Identifier. The identifier of the DiskMigrationJob. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request timed out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  DiskMigrationJob resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask,
+ *  then a mask equivalent to all fields that are populated (have a non-empty
+ *  value), will be implied.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Updates the parameters of a single DiskMigrationJob.
+ *
+ *  @param object The @c GTLRVMMigrationService_DiskMigrationJob to include in
+ *    the query.
+ *  @param name Output only. Identifier. The identifier of the DiskMigrationJob.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsPatch
+ */
++ (instancetype)queryWithObject:(GTLRVMMigrationService_DiskMigrationJob *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Runs the disk migration job.
+ *
+ *  Method: vmmigration.projects.locations.sources.diskMigrationJobs.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsRun : GTLRVMMigrationServiceQuery
+
+/** Required. The name of the DiskMigrationJob. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_Operation.
+ *
+ *  Runs the disk migration job.
+ *
+ *  @param object The @c GTLRVMMigrationService_RunDiskMigrationJobRequest to
+ *    include in the query.
+ *  @param name Required. The name of the DiskMigrationJob.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDiskMigrationJobsRun
+ */
++ (instancetype)queryWithObject:(GTLRVMMigrationService_RunDiskMigrationJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  List remote source's inventory of VMs. The remote source is the onprem
  *  vCenter (remote in the sense it's not in Compute Engine). The inventory
  *  describes the list of existing VMs in that source. Note that this operation
@@ -1205,6 +1497,77 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
  *  @param source Required. The name of the Source.
  *
  *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesFetchInventory
+ */
++ (instancetype)queryWithSource:(NSString *)source;
+
+@end
+
+/**
+ *  List remote source's inventory of storage resources. The remote source is
+ *  another cloud vendor (e.g. AWS, Azure). The inventory describes the list of
+ *  existing storage resources in that source. Note that this operation lists
+ *  the resources on the remote source, as opposed to listing the MigratingVms
+ *  resources in the vmmigration service.
+ *
+ *  Method: vmmigration.projects.locations.sources.fetchStorageInventory
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMMigrationServiceCloudPlatform
+ */
+@interface GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesFetchStorageInventory : GTLRVMMigrationServiceQuery
+
+/**
+ *  Optional. If this flag is set to true, the source will be queried instead of
+ *  using cached results. Using this flag will make the call slower.
+ */
+@property(nonatomic, assign) BOOL forceRefresh;
+
+/**
+ *  Optional. The maximum number of VMs to return. The service may return fewer
+ *  than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `FetchStorageInventory`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `FetchStorageInventory` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The name of the Source. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Required. The type of the storage inventory to fetch.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationServiceTypeStorageTypeUnspecified The type is
+ *        unspecified. (Value: "STORAGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationServiceTypeDisks The type is disks. (Value:
+ *        "DISKS")
+ *    @arg @c kGTLRVMMigrationServiceTypeSnapshots The type is snapshots.
+ *        (Value: "SNAPSHOTS")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Fetches a @c GTLRVMMigrationService_FetchStorageInventoryResponse.
+ *
+ *  List remote source's inventory of storage resources. The remote source is
+ *  another cloud vendor (e.g. AWS, Azure). The inventory describes the list of
+ *  existing storage resources in that source. Note that this operation lists
+ *  the resources on the remote source, as opposed to listing the MigratingVms
+ *  resources in the vmmigration service.
+ *
+ *  @param source Required. The name of the Source.
+ *
+ *  @return GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesFetchStorageInventory
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithSource:(NSString *)source;
 

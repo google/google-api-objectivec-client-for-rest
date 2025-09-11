@@ -146,6 +146,117 @@
 
 @end
 
+@implementation GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsCreate
+
+@dynamic parent, vpcFlowLogsConfigId;
+
++ (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/vpcFlowLogsConfigs";
+  GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_Operation class];
+  query.loggingName = @"networkmanagement.organizations.locations.vpcFlowLogsConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_Operation class];
+  query.loggingName = @"networkmanagement.organizations.locations.vpcFlowLogsConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_VpcFlowLogsConfig class];
+  query.loggingName = @"networkmanagement.organizations.locations.vpcFlowLogsConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/vpcFlowLogsConfigs";
+  GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_ListVpcFlowLogsConfigsResponse class];
+  query.loggingName = @"networkmanagement.organizations.locations.vpcFlowLogsConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkManagement_Operation class];
+  query.loggingName = @"networkmanagement.organizations.locations.vpcFlowLogsConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkManagementQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -794,6 +905,44 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkManagement_Operation class];
   query.loggingName = @"networkmanagement.projects.locations.vpcFlowLogsConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsQueryOrgVpcFlowLogsConfigs
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/vpcFlowLogsConfigs:queryOrgVpcFlowLogsConfigs";
+  GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsQueryOrgVpcFlowLogsConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_QueryOrgVpcFlowLogsConfigsResponse class];
+  query.loggingName = @"networkmanagement.projects.locations.vpcFlowLogsConfigs.queryOrgVpcFlowLogsConfigs";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsShowEffectiveFlowLogsConfigs
+
+@dynamic filter, pageSize, pageToken, parent, resource;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/vpcFlowLogsConfigs:showEffectiveFlowLogsConfigs";
+  GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsShowEffectiveFlowLogsConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkManagement_ShowEffectiveFlowLogsConfigsResponse class];
+  query.loggingName = @"networkmanagement.projects.locations.vpcFlowLogsConfigs.showEffectiveFlowLogsConfigs";
   return query;
 }
 

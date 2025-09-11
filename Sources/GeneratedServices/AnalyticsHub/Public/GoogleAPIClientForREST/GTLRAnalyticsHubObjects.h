@@ -54,6 +54,7 @@
 @class GTLRAnalyticsHub_PushConfig;
 @class GTLRAnalyticsHub_PushConfig_Attributes;
 @class GTLRAnalyticsHub_QueryTemplate;
+@class GTLRAnalyticsHub_Replica;
 @class GTLRAnalyticsHub_RestrictedExportConfig;
 @class GTLRAnalyticsHub_RestrictedExportPolicy;
 @class GTLRAnalyticsHub_RetryPolicy;
@@ -288,6 +289,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Pending
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_QueryTemplate_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Replica.primaryState
+
+/**
+ *  The replica is the primary replica.
+ *
+ *  Value: "PRIMARY_REPLICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Replica_PrimaryState_PrimaryReplica;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "PRIMARY_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Replica_PrimaryState_PrimaryStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_Replica.replicaState
+
+/**
+ *  The replica is backfilled and ready to use.
+ *
+ *  Value: "READY_TO_USE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Replica_ReplicaState_ReadyToUse;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "REPLICA_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Replica_ReplicaState_ReplicaStateUnspecified;
+/**
+ *  The replica is unavailable, does not exist, or has not been backfilled yet.
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Replica_ReplicaState_Unavailable;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_Routine.routineType
@@ -537,6 +576,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  `projects/myproject/datasets/123`
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
+
+/**
+ *  Output only. Server-owned effective state of replicas. Contains both primary
+ *  and secondary replicas. Each replica includes a system-computed
+ *  (output-only) state and primary designation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_Replica *> *effectiveReplicas;
+
+/**
+ *  Optional. A list of regions where the publisher has created shared dataset
+ *  replicas.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replicaLocations;
 
 /**
  *  Optional. If set, restricted export policy will be propagated and enforced
@@ -937,6 +989,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  https://cloud.google.com/bigquery/docs/locations for supported locations.
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Optional. The geographic locations where the dataset should be replicated.
+ *  See [BigQuery locations](https://cloud.google.com/bigquery/docs/locations)
+ *  for supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replicaLocations;
 
 @end
 
@@ -2185,6 +2244,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /** The refreshed subscription resource. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_Subscription *subscription;
+
+@end
+
+
+/**
+ *  Represents the state of a replica of a shared dataset. It includes the
+ *  geographic location of the replica and system-computed, output-only fields
+ *  indicating its replication state and whether it is the primary replica.
+ */
+@interface GTLRAnalyticsHub_Replica : GTLRObject
+
+/**
+ *  Output only. The geographic location where the replica resides. See
+ *  [BigQuery locations](https://cloud.google.com/bigquery/docs/locations) for
+ *  supported locations. Eg. "us-central1".
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. Indicates that this replica is the primary replica.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Replica_PrimaryState_PrimaryReplica The replica
+ *        is the primary replica. (Value: "PRIMARY_REPLICA")
+ *    @arg @c kGTLRAnalyticsHub_Replica_PrimaryState_PrimaryStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "PRIMARY_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *primaryState;
+
+/**
+ *  Output only. Assigned by Analytics Hub based on real BigQuery replication
+ *  state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsHub_Replica_ReplicaState_ReadyToUse The replica is
+ *        backfilled and ready to use. (Value: "READY_TO_USE")
+ *    @arg @c kGTLRAnalyticsHub_Replica_ReplicaState_ReplicaStateUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "REPLICA_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAnalyticsHub_Replica_ReplicaState_Unavailable The replica is
+ *        unavailable, does not exist, or has not been backfilled yet. (Value:
+ *        "UNAVAILABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *replicaState;
 
 @end
 

@@ -309,6 +309,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Argument_Mode_Out;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Daily;
 /**
+ *  Hourly period, 1 hour.
+ *
+ *  Value: "HOURLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Hourly;
+/**
  *  Monthly period, 30 days or irregular.
  *
  *  Value: "MONTHLY"
@@ -354,6 +360,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_Seasona
  *  Value: "DAILY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Daily;
+/**
+ *  Hourly period, 1 hour.
+ *
+ *  Value: "HOURLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Hourly;
 /**
  *  Monthly period, 30 days or irregular.
  *
@@ -401,6 +413,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Daily;
 /**
+ *  Hourly period, 1 hour.
+ *
+ *  Value: "HOURLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Hourly;
+/**
  *  Monthly period, 30 days or irregular.
  *
  *  Value: "MONTHLY"
@@ -446,6 +464,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Yea
  *  Value: "DAILY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Daily;
+/**
+ *  Hourly period, 1 hour.
+ *
+ *  Value: "HOURLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Hourly;
 /**
  *  Monthly period, 30 days or irregular.
  *
@@ -5353,8 +5377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
- *  Data policy option proto, it currently supports name only, will support
- *  precedence later.
+ *  Data policy option. For more information, see [Mask data by applying data
+ *  policies to a
+ *  column](https://cloud.google.com/bigquery/docs/column-data-masking#data-policies-on-column/).
  */
 @interface GTLRBigquery_DataPolicyOption : GTLRObject
 
@@ -7975,6 +8000,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /** [Pick one] Configures a load job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationLoad *load;
+
+/**
+ *  Optional. INTERNAL: DO NOT USE. The maximum rate of slot consumption to
+ *  allow for this job. If set, the number of slots used to execute the job will
+ *  be throttled to try and keep its slot consumption below the requested rate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSlots;
 
 /** [Pick one] Configures a query job. */
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationQuery *query;
@@ -11141,6 +11175,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /**
+ *  Optional. INTERNAL: DO NOT USE. The maximum rate of slot consumption to
+ *  allow for this job. If set, the number of slots used to execute the job will
+ *  be throttled to try and keep its slot consumption below the requested rate.
+ *  This limit is best effort.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSlots;
+
+/**
  *  GoogleSQL only. Set to POSITIONAL to use positional (?) query parameters or
  *  to NAMED to use named (\@myparam) query parameters in this query.
  */
@@ -11809,15 +11853,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Required. The body of the routine. For functions, this is the expression in
- *  the AS clause. If language=SQL, it is the substring inside (but excluding)
- *  the parentheses. For example, for the function created with the following
- *  statement: `CREATE FUNCTION JoinLines(x string, y string) as (concat(x,
- *  "\\n", y))` The definition_body is `concat(x, "\\n", y)` (\\n is not
- *  replaced with linebreak). If language=JAVASCRIPT, it is the evaluated string
- *  in the AS clause. For example, for the function created with the following
- *  statement: `CREATE FUNCTION f() RETURNS STRING LANGUAGE js AS 'return
- *  "\\n";\\n'` The definition_body is `return "\\n";\\n` Note that both \\n are
- *  replaced with linebreaks.
+ *  the AS clause. If `language = "SQL"`, it is the substring inside (but
+ *  excluding) the parentheses. For example, for the function created with the
+ *  following statement: `CREATE FUNCTION JoinLines(x string, y string) as
+ *  (concat(x, "\\n", y))` The definition_body is `concat(x, "\\n", y)` (\\n is
+ *  not replaced with linebreak). If `language="JAVASCRIPT"`, it is the
+ *  evaluated string in the AS clause. For example, for the function created
+ *  with the following statement: `CREATE FUNCTION f() RETURNS STRING LANGUAGE
+ *  js AS 'return "\\n";\\n'` The definition_body is `return "\\n";\\n` Note
+ *  that both \\n are replaced with linebreaks. If `definition_body` references
+ *  another routine, then that routine must be fully qualified with its project
+ *  ID.
  */
 @property(nonatomic, copy, nullable) NSString *definitionBody;
 
@@ -13544,7 +13590,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *collation;
 
-/** Optional. Data policy options, will replace the data_policies. */
+/**
+ *  Optional. Data policies attached to this field, used for field-level access
+ *  control.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_DataPolicyOption *> *dataPolicies;
 
 /**

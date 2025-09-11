@@ -90,6 +90,7 @@ NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_StateUnspecified = 
 NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_ConnectModeUnspecified = @"CONNECT_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_DirectPeering = @"DIRECT_PEERING";
 NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceAccess = @"PRIVATE_SERVICE_ACCESS";
+NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceConnect = @"PRIVATE_SERVICE_CONNECT";
 
 // GTLRCloudFilestore_NetworkConfig.modes
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified = @"ADDRESS_MODE_UNSPECIFIED";
@@ -108,14 +109,19 @@ NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_SquashModeUnspe
 // GTLRCloudFilestore_ReplicaConfig.state
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Creating = @"CREATING";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Failed = @"FAILED";
+NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Paused = @"PAUSED";
+NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Pausing = @"PAUSING";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Promoting = @"PROMOTING";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Ready = @"READY";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Removing = @"REMOVING";
+NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Resuming = @"RESUMING";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudFilestore_ReplicaConfig.stateReasons
+NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_PauseFailed = @"PAUSE_FAILED";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_PeerInstanceUnreachable = @"PEER_INSTANCE_UNREACHABLE";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_RemoveFailed = @"REMOVE_FAILED";
+NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_ResumeFailed = @"RESUME_FAILED";
 NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_StateReasonUnspecified = @"STATE_REASON_UNSPECIFIED";
 
 // GTLRCloudFilestore_Replication.role
@@ -506,9 +512,10 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_Instance
-@dynamic createTime, customPerformanceSupported, deletionProtectionEnabled,
-         deletionProtectionReason, descriptionProperty, ETag, fileShares,
-         kmsKeyName, labels, name, networks, performanceConfig,
+@dynamic capacityStepSizeGb, createTime, customPerformanceSupported,
+         deletionProtectionEnabled, deletionProtectionReason,
+         descriptionProperty, ETag, fileShares, kmsKeyName, labels,
+         maxCapacityGb, minCapacityGb, name, networks, performanceConfig,
          performanceLimits, protocol, replication, satisfiesPzi, satisfiesPzs,
          state, statusMessage, suspensionReasons, tags, tier;
 
@@ -767,7 +774,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_NetworkConfig
-@dynamic connectMode, ipAddresses, modes, network, reservedIpRange;
+@dynamic connectMode, ipAddresses, modes, network, pscConfig, reservedIpRange;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -786,7 +793,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_NfsExportOptions
-@dynamic accessMode, anonGid, anonUid, ipRanges, squashMode;
+@dynamic accessMode, anonGid, anonUid, ipRanges, network, squashMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -875,6 +882,16 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 @implementation GTLRCloudFilestore_PromoteReplicaRequest
 @dynamic peerInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_PscConfig
+//
+
+@implementation GTLRCloudFilestore_PscConfig
+@dynamic endpointProject;
 @end
 
 

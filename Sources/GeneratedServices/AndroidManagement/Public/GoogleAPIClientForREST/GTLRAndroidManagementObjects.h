@@ -30,6 +30,7 @@
 @class GTLRAndroidManagement_ApplicationPolicyChange;
 @class GTLRAndroidManagement_ApplicationReport;
 @class GTLRAndroidManagement_ApplicationReportingSettings;
+@class GTLRAndroidManagement_ApplicationSigningKeyCert;
 @class GTLRAndroidManagement_AppProcessInfo;
 @class GTLRAndroidManagement_AppProcessStartEvent;
 @class GTLRAndroidManagement_AppTrackInfo;
@@ -50,6 +51,7 @@
 @class GTLRAndroidManagement_ContentProviderEndpoint;
 @class GTLRAndroidManagement_CrossProfilePolicies;
 @class GTLRAndroidManagement_CryptoSelfTestCompletedEvent;
+@class GTLRAndroidManagement_CustomAppConfig;
 @class GTLRAndroidManagement_Date;
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_Device_SystemProperties;
@@ -1257,6 +1259,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Inst
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Blocked;
 /**
+ *  The app can only be installed and updated via AMAPI SDK command
+ *  (https://developers.google.com/android/management/extensibility-sdk-integration).Note:
+ *  This only affects fully managed devices. Play related fields
+ *  minimumVersionCode, accessibleTrackIds, autoUpdateMode, installConstraint
+ *  and installPriority cannot be set for the app. The app isn't available in
+ *  the Play Store. The app installed on the device has applicationSource set to
+ *  CUSTOM. The signing key certificate fingerprint of the app on the device
+ *  must match one of the entries in ApplicationPolicy.signingKeyCerts .
+ *  Otherwise, a NonComplianceDetail with APP_SIGNING_CERT_MISMATCH is reported.
+ *  Changing the installType to and from CUSTOM uninstalls the existing app if
+ *  its signing key certificate fingerprint doesn't match the one from the new
+ *  app source. Removing the app from applications doesn't uninstall the
+ *  existing app if it conforms to playStoreMode. See also customAppConfig. This
+ *  is different from the Google Play Custom App Publishing
+ *  (https://developers.google.com/android/work/play/custom-app-api/get-started)
+ *  feature.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_InstallType_Custom;
+/**
  *  The app is automatically installed regardless of a set maintenance window
  *  and can't be removed by the user.
  *
@@ -1406,6 +1429,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Work
  *  Value: "APPLICATION_SOURCE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified;
+/**
+ *  The app was installed using the AMAPI SDK command
+ *  (https://developers.google.com/android/management/extensibility-sdk-integration).
+ *  See also: CUSTOM
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_ApplicationSource_Custom;
 /**
  *  The app was installed from the Google Play Store.
  *
@@ -1899,6 +1930,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_W
  *  Value: "WORK_PROFILE_WIDGETS_DEFAULT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_WorkProfileWidgetsDefault_WorkProfileWidgetsDefaultUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CustomAppConfig.userUninstallSettings
+
+/**
+ *  User is allowed to uninstall the custom app.
+ *
+ *  Value: "ALLOW_UNINSTALL_BY_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_AllowUninstallByUser;
+/**
+ *  User is not allowed to uninstall the custom app.
+ *
+ *  Value: "DISALLOW_UNINSTALL_BY_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_DisallowUninstallByUser;
+/**
+ *  Unspecified. Defaults to DISALLOW_UNINSTALL_BY_USER.
+ *
+ *  Value: "USER_UNINSTALL_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_UserUninstallSettingsUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.appliedState
@@ -3468,6 +3521,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated;
 /**
+ *  The app's signing certificate does not match the setting value.
+ *
+ *  Value: "APP_SIGNING_CERT_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppSigningCertMismatch;
+/**
  *  The device is incompatible with the policy requirements.
  *
  *  Value: "DEVICE_INCOMPATIBLE"
@@ -3653,6 +3712,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
  *  Value: "APP_NOT_UPDATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated;
+/**
+ *  The app's signing certificate does not match the setting value.
+ *
+ *  Value: "APP_SIGNING_CERT_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppSigningCertMismatch;
 /**
  *  The device is incompatible with the policy requirements.
  *
@@ -6026,7 +6091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig
 /**
  *  Controls access to developer settings: developer options and safe boot.
  *  Replaces safeBootDisabled (deprecated) and debuggingFeaturesAllowed
- *  (deprecated).
+ *  (deprecated). On personally-owned devices with a work profile, setting this
+ *  policy will not disable safe boot. In this case, a NonComplianceDetail with
+ *  MANAGEMENT_MODE is reported.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsAllowed
@@ -6738,6 +6805,12 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *credentialProviderPolicy;
 
 /**
+ *  Optional. Configuration for this custom app.install_type must be set to
+ *  CUSTOM for this to be set.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_CustomAppConfig *customAppConfig;
+
+/**
  *  The default policy for all permissions requested by the app. If specified,
  *  this overrides the policy-level default_permission_policy which applies to
  *  all apps. It does not override the permission_grants which applies to all
@@ -6791,11 +6864,13 @@ GTLR_DEPRECATED
  *  Configuration to enable this app as an extension app, with the capability of
  *  interacting with Android Device Policy offline.This field can be set for at
  *  most one app.The signing key certificate fingerprint of the app on the
- *  device must match one of the entries in signingKeyFingerprintsSha256 or the
- *  signing key certificate fingerprints obtained from Play Store for the app to
- *  be able to communicate with Android Device Policy. If the app is not on Play
- *  Store and signingKeyFingerprintsSha256 is not set, a NonComplianceDetail
- *  with INVALID_VALUE is reported.
+ *  device must match one of the entries in ApplicationPolicy.signingKeyCerts or
+ *  ExtensionConfig.signingKeyFingerprintsSha256 (deprecated) or the signing key
+ *  certificate fingerprints obtained from Play Store for the app to be able to
+ *  communicate with Android Device Policy. If the app is not on Play Store and
+ *  if ApplicationPolicy.signingKeyCerts and
+ *  ExtensionConfig.signingKeyFingerprintsSha256 (deprecated) are not set, a
+ *  NonComplianceDetail with INVALID_VALUE is reported.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ExtensionConfig *extensionConfig;
 
@@ -6826,6 +6901,24 @@ GTLR_DEPRECATED
  *        app is blocked and can't be installed. If the app was installed under
  *        a previous policy, it will be uninstalled. This also blocks its
  *        instant app functionality. (Value: "BLOCKED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Custom The
+ *        app can only be installed and updated via AMAPI SDK command
+ *        (https://developers.google.com/android/management/extensibility-sdk-integration).Note:
+ *        This only affects fully managed devices. Play related fields
+ *        minimumVersionCode, accessibleTrackIds, autoUpdateMode,
+ *        installConstraint and installPriority cannot be set for the app. The
+ *        app isn't available in the Play Store. The app installed on the device
+ *        has applicationSource set to CUSTOM. The signing key certificate
+ *        fingerprint of the app on the device must match one of the entries in
+ *        ApplicationPolicy.signingKeyCerts . Otherwise, a NonComplianceDetail
+ *        with APP_SIGNING_CERT_MISMATCH is reported. Changing the installType
+ *        to and from CUSTOM uninstalls the existing app if its signing key
+ *        certificate fingerprint doesn't match the one from the new app source.
+ *        Removing the app from applications doesn't uninstall the existing app
+ *        if it conforms to playStoreMode. See also customAppConfig. This is
+ *        different from the Google Play Custom App Publishing
+ *        (https://developers.google.com/android/work/play/custom-app-api/get-started)
+ *        feature. (Value: "CUSTOM")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled
  *        The app is automatically installed regardless of a set maintenance
  *        window and can't be removed by the user. (Value: "FORCE_INSTALLED")
@@ -6937,6 +7030,21 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *preferentialNetworkId;
 
 /**
+ *  Optional. Signing key certificates of the app.This field is required in the
+ *  following cases: The app has installType set to CUSTOM (i.e. a custom app).
+ *  The app has extensionConfig set (i.e. an extension app) but
+ *  ExtensionConfig.signingKeyFingerprintsSha256 (deprecated) is not set and the
+ *  app does not exist on the Play Store.If this field is not set for a custom
+ *  app, the policy is rejected. If it is not set when required for a non-custom
+ *  app, a NonComplianceDetail with INVALID_VALUE is reported.For other cases,
+ *  this field is optional and the signing key certificates obtained from Play
+ *  Store are used.See following policy settings to see how this field is used:
+ *  choosePrivateKeyRules ApplicationPolicy.InstallType.CUSTOM
+ *  ApplicationPolicy.extensionConfig
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationSigningKeyCert *> *signingKeyCerts;
+
+/**
  *  Optional. Specifies whether user control is permitted for the app. User
  *  control includes user actions like force-stopping and clearing app data.
  *  Certain types of apps have special treatment, see
@@ -7038,6 +7146,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_ApplicationReport_ApplicationSource_ApplicationSourceUnspecified
  *        The app was sideloaded from an unspecified source. (Value:
  *        "APPLICATION_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationReport_ApplicationSource_Custom
+ *        The app was installed using the AMAPI SDK command
+ *        (https://developers.google.com/android/management/extensibility-sdk-integration).
+ *        See also: CUSTOM (Value: "CUSTOM")
  *    @arg @c kGTLRAndroidManagement_ApplicationReport_ApplicationSource_InstalledFromPlayStore
  *        The app was installed from the Google Play Store. (Value:
  *        "INSTALLED_FROM_PLAY_STORE")
@@ -7131,6 +7243,24 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeRemovedApps;
+
+@end
+
+
+/**
+ *  The application signing key certificate.
+ */
+@interface GTLRAndroidManagement_ApplicationSigningKeyCert : GTLRObject
+
+/**
+ *  Required. The SHA-256 hash value of the signing key certificate of the app.
+ *  This must be a valid SHA-256 hash value, i.e. 32 bytes. Otherwise, the
+ *  policy is rejected.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signingKeyCertFingerprintSha256;
 
 @end
 
@@ -7433,10 +7563,11 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_ChoosePrivateKeyRule : GTLRObject
 
 /**
- *  The package names to which this rule applies. The hash of the signing
- *  certificate for each app is verified against the hash provided by Play. If
- *  no package names are specified, then the alias is provided to all apps that
- *  call KeyChain.choosePrivateKeyAlias
+ *  The package names to which this rule applies. The signing key certificate
+ *  fingerprint of the app is verified against the signing key certificate
+ *  fingerprints provided by Play Store and ApplicationPolicy.signingKeyCerts .
+ *  If no package names are specified, then the alias is provided to all apps
+ *  that call KeyChain.choosePrivateKeyAlias
  *  (https://developer.android.com/reference/android/security/KeyChain#choosePrivateKeyAlias%28android.app.Activity,%20android.security.KeyChainAliasCallback,%20java.lang.String[],%20java.security.Principal[],%20java.lang.String,%20int,%20java.lang.String%29)
  *  or any overloads (but not without calling KeyChain.choosePrivateKeyAlias,
  *  even on Android 11 and above). Any app with the same Android UID as a
@@ -8060,6 +8191,30 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for a custom app.
+ */
+@interface GTLRAndroidManagement_CustomAppConfig : GTLRObject
+
+/**
+ *  Optional. User uninstall settings of the custom app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_AllowUninstallByUser
+ *        User is allowed to uninstall the custom app. (Value:
+ *        "ALLOW_UNINSTALL_BY_USER")
+ *    @arg @c kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_DisallowUninstallByUser
+ *        User is not allowed to uninstall the custom app. (Value:
+ *        "DISALLOW_UNINSTALL_BY_USER")
+ *    @arg @c kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_UserUninstallSettingsUnspecified
+ *        Unspecified. Defaults to DISALLOW_UNINSTALL_BY_USER. (Value:
+ *        "USER_UNINSTALL_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userUninstallSettings;
+
+@end
+
+
+/**
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
@@ -8119,9 +8274,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationReport *> *applicationReports;
 
 /**
- *  The password requirements currently applied to the device. The applied
- *  requirements may be slightly different from those specified in
- *  passwordPolicies in some cases. fieldPath is set based on passwordPolicies.
+ *  The password requirements currently applied to the device. This field exists
+ *  because the applied requirements may be slightly different from those
+ *  specified in passwordPolicies in some cases. Note that this field does not
+ *  provide information about password compliance. For non-compliance
+ *  information, see nonComplianceDetails. NonComplianceDetail.fieldPath, is set
+ *  based on passwordPolicies, not based on this field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PasswordRequirements *> *appliedPasswordPolicies;
 
@@ -9308,7 +9466,7 @@ GTLR_DEPRECATED
  *  to be able to communicate with Android Device Policy.In production use
  *  cases, it is recommended to leave this empty.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *signingKeyFingerprintsSha256;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signingKeyFingerprintsSha256 GTLR_DEPRECATED;
 
 @end
 
@@ -9547,7 +9705,10 @@ GTLR_DEPRECATED
 /** The model of the device. For example, Asus Nexus 7. */
 @property(nonatomic, copy, nullable) NSString *model;
 
-/** The device serial number. */
+/**
+ *  The device serial number. However, for personally-owned devices running
+ *  Android 12 and above, this is the same as the enterpriseSpecificId.
+ */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
 /**
@@ -10875,6 +11036,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppNotUpdated
  *        The app is installed, but it hasn't been updated to the minimum
  *        version code specified by policy. (Value: "APP_NOT_UPDATED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_AppSigningCertMismatch
+ *        The app's signing certificate does not match the setting value.
+ *        (Value: "APP_SIGNING_CERT_MISMATCH")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_DeviceIncompatible
  *        The device is incompatible with the policy requirements. (Value:
  *        "DEVICE_INCOMPATIBLE")
@@ -11012,6 +11176,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppNotUpdated
  *        The app is installed, but it hasn't been updated to the minimum
  *        version code specified by policy. (Value: "APP_NOT_UPDATED")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_AppSigningCertMismatch
+ *        The app's signing certificate does not match the setting value.
+ *        (Value: "APP_SIGNING_CERT_MISMATCH")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetailCondition_NonComplianceReason_DeviceIncompatible
  *        The device is incompatible with the policy requirements. (Value:
  *        "DEVICE_INCOMPATIBLE")

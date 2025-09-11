@@ -422,6 +422,7 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Attestati
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1AttestationCredential_KeyType_RsaKey = @"RSA_KEY";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256 = @"SIGNATURE_ALGORITHM_ECDSA_SHA256";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256 = @"SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
 
@@ -485,6 +486,18 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_PolicySourceUnspecified = @"POLICY_SOURCE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserCloud = @"USER_CLOUD";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserPlatform = @"USER_PLATFORM";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile.keyUsages
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageKeyEncipherment = @"KEY_USAGE_KEY_ENCIPHERMENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageSigning = @"KEY_USAGE_SIGNING";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageUnspecified = @"KEY_USAGE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName.type
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_DnsName = @"DNS_NAME";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_OtherNameUserPrincipalName = @"OTHER_NAME_USER_PRINCIPAL_NAME";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_Rfc822Name = @"RFC822_NAME";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_SubjectAltNameTypeUnspecified = @"SUBJECT_ALT_NAME_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_UniformResourceIdentifier = @"UNIFORM_RESOURCE_IDENTIFIER";
 
 // ----------------------------------------------------------------------------
 //
@@ -1882,8 +1895,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess
 @dynamic chromeOsDevice, chromeOsUserSession, failureMessage,
          genericCaConnection, genericProfile, issuedCertificate, name,
-         provisioningProfileId, signature, signatureAlgorithm, signData,
-         startTime, subjectPublicKeyInfo;
+         provisioningProfileId, scepCaConnection, scepProfile, signature,
+         signatureAlgorithm, signData, startTime, subjectPublicKeyInfo;
 @end
 
 
@@ -2150,6 +2163,37 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection
+@dynamic caConnectionAdapterConfigReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile
+@dynamic certificateTemplateName, country, keyUsages, locality, organization,
+         organizationalUnits, state, subjectAltNames, subjectCommonName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keyUsages" : [NSString class],
+    @"organizationalUnits" : [NSString class],
+    @"subjectAltNames" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataMetadata
 //
 
@@ -2165,6 +2209,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataResponse
 @dynamic certificateProvisioningProcess;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName
+@dynamic type, value;
 @end
 
 

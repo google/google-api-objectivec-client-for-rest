@@ -131,6 +131,11 @@ NSString * const kGTLRWorkloadManager_ResourceStatus_State_Creating = @"CREATING
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Deleting = @"DELETING";
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRWorkloadManager_Rule.ruleType
+NSString * const kGTLRWorkloadManager_Rule_RuleType_Baseline   = @"BASELINE";
+NSString * const kGTLRWorkloadManager_Rule_RuleType_Custom     = @"CUSTOM";
+NSString * const kGTLRWorkloadManager_Rule_RuleType_RuleTypeUnspecified = @"RULE_TYPE_UNSPECIFIED";
+
 // GTLRWorkloadManager_RuleExecutionResult.state
 NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateFailure = @"STATE_FAILURE";
 NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateSkipped = @"STATE_SKIPPED";
@@ -223,7 +228,7 @@ NSString * const kGTLRWorkloadManager_SapWorkload_Architecture_StandaloneDatabas
 NSString * const kGTLRWorkloadManager_ServiceStates_State_ConfigFailure = @"CONFIG_FAILURE";
 NSString * const kGTLRWorkloadManager_ServiceStates_State_Disabled = @"DISABLED";
 NSString * const kGTLRWorkloadManager_ServiceStates_State_Enabled = @"ENABLED";
-NSString * const kGTLRWorkloadManager_ServiceStates_State_FunctionailityFailure = @"FUNCTIONAILITY_FAILURE";
+NSString * const kGTLRWorkloadManager_ServiceStates_State_FunctionalityFailure = @"FUNCTIONALITY_FAILURE";
 NSString * const kGTLRWorkloadManager_ServiceStates_State_IamFailure = @"IAM_FAILURE";
 NSString * const kGTLRWorkloadManager_ServiceStates_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
@@ -951,7 +956,8 @@ NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeU
 
 @implementation GTLRWorkloadManager_Rule
 @dynamic descriptionProperty, displayName, errorMessage, name, primaryCategory,
-         remediation, revisionId, secondaryCategory, severity, tags, uri;
+         remediation, revisionId, ruleType, secondaryCategory, severity, tags,
+         uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

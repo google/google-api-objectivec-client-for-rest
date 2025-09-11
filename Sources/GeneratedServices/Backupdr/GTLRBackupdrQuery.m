@@ -893,6 +893,25 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_ProjectsLocationsGetTrial
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBackupdrQuery_ProjectsLocationsGetTrial *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupdr_Trial class];
+  query.loggingName = @"backupdr.projects.locations.getTrial";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsList
 
 @dynamic extraLocationTypes, filter, name, pageSize, pageToken;
@@ -1232,6 +1251,33 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
   query.name = name;
   query.expectedObjectClass = [GTLRBackupdr_Operation class];
   query.loggingName = @"backupdr.projects.locations.serviceConfig.initialize";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsTrialSubscribe
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_SubscribeTrialRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/trial:subscribe";
+  GTLRBackupdrQuery_ProjectsLocationsTrialSubscribe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_Trial class];
+  query.loggingName = @"backupdr.projects.locations.trial.subscribe";
   return query;
 }
 

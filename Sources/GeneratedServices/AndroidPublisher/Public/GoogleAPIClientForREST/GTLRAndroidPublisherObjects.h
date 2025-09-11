@@ -41,6 +41,7 @@
 @class GTLRAndroidPublisher_Bundle;
 @class GTLRAndroidPublisher_BuyerAddress;
 @class GTLRAndroidPublisher_CanceledStateContext;
+@class GTLRAndroidPublisher_CancellationContext;
 @class GTLRAndroidPublisher_CancellationEvent;
 @class GTLRAndroidPublisher_CancelOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_CancelSurveyResult;
@@ -148,6 +149,7 @@
 @class GTLRAndroidPublisher_PrepaidBasePlanType;
 @class GTLRAndroidPublisher_PrepaidPlan;
 @class GTLRAndroidPublisher_Price;
+@class GTLRAndroidPublisher_PriceStepUpConsentDetails;
 @class GTLRAndroidPublisher_ProcessedEvent;
 @class GTLRAndroidPublisher_ProductLineItem;
 @class GTLRAndroidPublisher_ProductOfferDetails;
@@ -547,6 +549,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_BasePlan_State_Inactive
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_BasePlan_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_CancellationContext.cancellationType
+
+/**
+ *  Cancellation type unspecified.
+ *
+ *  Value: "CANCELLATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancellationContext_CancellationType_CancellationTypeUnspecified;
+/**
+ *  Cancellation requested by the developer, and the subscription cannot be
+ *  restored. It stops the subscription's next payment. For an installment
+ *  subscription, users will not need to pay the next payment and finish the
+ *  commitment period. For more details on renewals and payments, see
+ *  https://developer.android.com/google/play/billing/subscriptions#installments
+ *
+ *  Value: "DEVELOPER_REQUESTED_STOP_PAYMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancellationContext_CancellationType_DeveloperRequestedStopPayments;
+/**
+ *  Cancellation requested by the user, and the subscription can be restored. It
+ *  only stops the subscription's next renewal. For an installment subscription,
+ *  users still need to finish the commitment period. For more details on
+ *  renewals and payments, see
+ *  https://developer.android.com/google/play/billing/subscriptions#installments
+ *
+ *  Value: "USER_REQUESTED_STOP_RENEWALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_CancellationContext_CancellationType_UserRequestedStopRenewals;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_CancelOneTimeProductOfferRequest.latencyTolerance
@@ -1512,6 +1544,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_Tim
  *  Value: "TIME_EXTENSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_PriceStepUpConsentDetails.state
+
+/**
+ *  The user has consented, and the new price has taken effect.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Completed;
+/**
+ *  The user has consented, and the new price is waiting to take effect.
+ *
+ *  Value: "CONFIRMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Confirmed;
+/**
+ *  Unspecified consent state.
+ *
+ *  Value: "CONSENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_ConsentStateUnspecified;
+/**
+ *  The user has not yet provided consent.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ProductOfferDetails.consumptionState
@@ -3242,10 +3302,14 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionItemPriceChangeDetails *priceChangeDetails;
 
+/** The information of the latest price step-up consent. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PriceStepUpConsentDetails *priceStepUpConsentDetails;
+
 /**
  *  The current recurring price of the auto renewing plan. Note that the price
- *  does not take into account discounts and taxes, call orders.get API instead
- *  if transaction details are needed.
+ *  does not take into account discounts and does not include taxes for
+ *  tax-exclusive pricing, please call orders.get API instead if transaction
+ *  details are needed.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *recurringPrice;
 
@@ -3796,6 +3860,39 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Cancellation context of the purchases.subscriptionsv2.cancel API.
+ */
+@interface GTLRAndroidPublisher_CancellationContext : GTLRObject
+
+/**
+ *  Required. The type of cancellation for the purchased subscription.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_CancellationContext_CancellationType_CancellationTypeUnspecified
+ *        Cancellation type unspecified. (Value:
+ *        "CANCELLATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_CancellationContext_CancellationType_DeveloperRequestedStopPayments
+ *        Cancellation requested by the developer, and the subscription cannot
+ *        be restored. It stops the subscription's next payment. For an
+ *        installment subscription, users will not need to pay the next payment
+ *        and finish the commitment period. For more details on renewals and
+ *        payments, see
+ *        https://developer.android.com/google/play/billing/subscriptions#installments
+ *        (Value: "DEVELOPER_REQUESTED_STOP_PAYMENTS")
+ *    @arg @c kGTLRAndroidPublisher_CancellationContext_CancellationType_UserRequestedStopRenewals
+ *        Cancellation requested by the user, and the subscription can be
+ *        restored. It only stops the subscription's next renewal. For an
+ *        installment subscription, users still need to finish the commitment
+ *        period. For more details on renewals and payments, see
+ *        https://developer.android.com/google/play/billing/subscriptions#installments
+ *        (Value: "USER_REQUESTED_STOP_RENEWALS")
+ */
+@property(nonatomic, copy, nullable) NSString *cancellationType;
+
+@end
+
+
+/**
  *  Details of when the order was canceled.
  */
 @interface GTLRAndroidPublisher_CancellationEvent : GTLRObject
@@ -3844,6 +3941,24 @@ GTLR_DEPRECATED
 /** Required. The parent purchase option (ID) of the offer to cancel. */
 @property(nonatomic, copy, nullable) NSString *purchaseOptionId;
 
+@end
+
+
+/**
+ *  Request for the purchases.subscriptionsv2.cancel API.
+ */
+@interface GTLRAndroidPublisher_CancelSubscriptionPurchaseRequest : GTLRObject
+
+/** Required. Additional details around the subscription revocation. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_CancellationContext *cancellationContext;
+
+@end
+
+
+/**
+ *  Response for the purchases.subscriptionsv2.cancel API.
+ */
+@interface GTLRAndroidPublisher_CancelSubscriptionPurchaseResponse : GTLRObject
 @end
 
 
@@ -7377,6 +7492,40 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Information related to a price step-up that requires user consent.
+ */
+@interface GTLRAndroidPublisher_PriceStepUpConsentDetails : GTLRObject
+
+/**
+ *  The deadline by which the user must provide consent. If consent is not
+ *  provided by this time, the subscription will be canceled.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *consentDeadlineTime;
+
+/** The new price which requires user consent. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *newPrice NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Output only. The state of the price step-up consent.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Completed
+ *        The user has consented, and the new price has taken effect. (Value:
+ *        "COMPLETED")
+ *    @arg @c kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Confirmed
+ *        The user has consented, and the new price is waiting to take effect.
+ *        (Value: "CONFIRMED")
+ *    @arg @c kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_ConsentStateUnspecified
+ *        Unspecified consent state. (Value: "CONSENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Pending The
+ *        user has not yet provided consent. (Value: "PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Details of when the order was processed.
  */
 @interface GTLRAndroidPublisher_ProcessedEvent : GTLRObject
@@ -9940,7 +10089,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRAndroidPublisher_TrackRelease : GTLRObject
 
-/** Restricts a release to a specific set of countries. */
+/**
+ *  Restricts a release to a specific set of countries. Note this is only
+ *  allowed to be set for inProgress releases in the production track.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_CountryTargeting *countryTargeting;
 
 /**

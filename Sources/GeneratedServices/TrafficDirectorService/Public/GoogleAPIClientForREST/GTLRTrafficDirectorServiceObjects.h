@@ -1855,9 +1855,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTrafficDirectorService_SocketAddress_Pro
  *  created in (see ``man 7 network_namespaces``). If this field is set, Envoy
  *  will create the socket in the specified network namespace. .. note:: Setting
  *  this parameter requires Envoy to run with the ``CAP_NET_ADMIN`` capability.
- *  .. note:: Currently only used for Listener sockets. .. attention:: Network
- *  namespaces are only configurable on Linux. Otherwise, this field has no
- *  effect.
+ *  .. attention:: Network namespaces are only configurable on Linux. Otherwise,
+ *  this field has no effect.
  */
 @property(nonatomic, copy, nullable) NSString *networkNamespaceFilepath;
 

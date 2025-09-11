@@ -71,8 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_OrganizationsLocationsList : GTLRNetworkManagementQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -260,6 +260,250 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same
+ *  settings already exists (even if the ID is different), the creation fails.
+ *  Notes: 1. Creating a configuration with `state=DISABLED` will fail 2. The
+ *  following fields are not considered as settings for the purpose of the check
+ *  mentioned above, therefore - creating another configuration with the same
+ *  fields but different values for the following fields will fail as well: *
+ *  name * create_time * update_time * labels * description
+ *
+ *  Method: networkmanagement.organizations.locations.vpcFlowLogsConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsCreate : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The parent resource of the VpcFlowLogsConfig to create, in one of
+ *  the following formats: - For project-level resources:
+ *  `projects/{project_id}/locations/global` - For organization-level resources:
+ *  `organizations/{organization_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. ID of the `VpcFlowLogsConfig`. */
+@property(nonatomic, copy, nullable) NSString *vpcFlowLogsConfigId;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Creates a new `VpcFlowLogsConfig`. If a configuration with the exact same
+ *  settings already exists (even if the ID is different), the creation fails.
+ *  Notes: 1. Creating a configuration with `state=DISABLED` will fail 2. The
+ *  following fields are not considered as settings for the purpose of the check
+ *  mentioned above, therefore - creating another configuration with the same
+ *  fields but different values for the following fields will fail as well: *
+ *  name * create_time * update_time * labels * description
+ *
+ *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
+ *    the query.
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig to
+ *    create, in one of the following formats: - For project-level resources:
+ *    `projects/{project_id}/locations/global` - For organization-level
+ *    resources: `organizations/{organization_id}/locations/global`
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specific `VpcFlowLogsConfig`.
+ *
+ *  Method: networkmanagement.organizations.locations.vpcFlowLogsConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsDelete : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The resource name of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For a project-level resource:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For an organization-level resource:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Deletes a specific `VpcFlowLogsConfig`.
+ *
+ *  @param name Required. The resource name of the VpcFlowLogsConfig, in one of
+ *    the following formats: - For a project-level resource:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For an organization-level resource:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a specific `VpcFlowLogsConfig`.
+ *
+ *  Method: networkmanagement.organizations.locations.vpcFlowLogsConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsGet : GTLRNetworkManagementQuery
+
+/**
+ *  Required. The resource name of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For project-level resources:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For organization-level resources:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_VpcFlowLogsConfig.
+ *
+ *  Gets the details of a specific `VpcFlowLogsConfig`.
+ *
+ *  @param name Required. The resource name of the VpcFlowLogsConfig, in one of
+ *    the following formats: - For project-level resources:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For organization-level resources:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all `VpcFlowLogsConfigs` in a given organization.
+ *
+ *  Method: networkmanagement.organizations.locations.vpcFlowLogsConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsList : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. Lists the `VpcFlowLogsConfigs` that match the filter expression. A
+ *  filter expression must use the supported [CEL logic operators]
+ *  (https://cloud.google.com/vpc/docs/about-flow-logs-records#supported_cel_logic_operators).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field to use to sort the list. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. Number of `VpcFlowLogsConfigs` to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token from an earlier query, as returned in
+ *  `next_page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource of the VpcFlowLogsConfig, in one of the
+ *  following formats: - For project-level resourcs:
+ *  `projects/{project_id}/locations/global` - For organization-level resources:
+ *  `organizations/{organization_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListVpcFlowLogsConfigsResponse.
+ *
+ *  Lists all `VpcFlowLogsConfigs` in a given organization.
+ *
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig, in one
+ *    of the following formats: - For project-level resourcs:
+ *    `projects/{project_id}/locations/global` - For organization-level
+ *    resources: `organizations/{organization_id}/locations/global`
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact
+ *  same settings already exists (even if the ID is different), the creation
+ *  fails. Notes: 1. Updating a configuration with `state=DISABLED` will fail 2.
+ *  The following fields are not considered as settings for the purpose of the
+ *  check mentioned above, therefore - updating another configuration with the
+ *  same fields but different values for the following fields will fail as well:
+ *  * name * create_time * update_time * labels * description
+ *
+ *  Method: networkmanagement.organizations.locations.vpcFlowLogsConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsPatch : GTLRNetworkManagementQuery
+
+/**
+ *  Identifier. Unique name of the configuration. The name can have one of the
+ *  following forms: - For project-level configurations:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For organization-level configurations:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. For example, to change the state of the configuration to
+ *  ENABLED, specify `update_mask` = `"state"`, and the `vpc_flow_logs_config`
+ *  would be: `vpc_flow_logs_config = { name =
+ *  "projects/my-project/locations/global/vpcFlowLogsConfigs/my-config" state =
+ *  "ENABLED" }`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Updates an existing `VpcFlowLogsConfig`. If a configuration with the exact
+ *  same settings already exists (even if the ID is different), the creation
+ *  fails. Notes: 1. Updating a configuration with `state=DISABLED` will fail 2.
+ *  The following fields are not considered as settings for the purpose of the
+ *  check mentioned above, therefore - updating another configuration with the
+ *  same fields but different values for the following fields will fail as well:
+ *  * name * create_time * update_time * labels * description
+ *
+ *  @param object The @c GTLRNetworkManagement_VpcFlowLogsConfig to include in
+ *    the query.
+ *  @param name Identifier. Unique name of the configuration. The name can have
+ *    one of the following forms: - For project-level configurations:
+ *    `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *    - For organization-level configurations:
+ *    `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsVpcFlowLogsConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -865,8 +1109,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsList : GTLRNetworkManagementQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1543,6 +1787,122 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRNetworkManagement_VpcFlowLogsConfig *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  QueryOrgVpcFlowLogsConfigs returns a list of all organization-level VPC Flow
+ *  Logs configurations applicable to the specified project.
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.queryOrgVpcFlowLogsConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsQueryOrgVpcFlowLogsConfigs : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. Lists the `VpcFlowLogsConfigs` that match the filter expression. A
+ *  filter expression must use the supported [CEL logic operators]
+ *  (https://cloud.google.com/vpc/docs/about-flow-logs-records#supported_cel_logic_operators).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Number of `VpcFlowLogsConfigs` to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token from an earlier query, as returned in
+ *  `next_page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource of the VpcFlowLogsConfig, specified in the
+ *  following format: `projects/{project_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_QueryOrgVpcFlowLogsConfigsResponse.
+ *
+ *  QueryOrgVpcFlowLogsConfigs returns a list of all organization-level VPC Flow
+ *  Logs configurations applicable to the specified project.
+ *
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig,
+ *    specified in the following format:
+ *    `projects/{project_id}/locations/global`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsQueryOrgVpcFlowLogsConfigs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  ShowEffectiveFlowLogsConfigs returns a list of all VPC Flow Logs
+ *  configurations applicable to a specified resource.
+ *
+ *  Method: networkmanagement.projects.locations.vpcFlowLogsConfigs.showEffectiveFlowLogsConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsShowEffectiveFlowLogsConfigs : GTLRNetworkManagementQuery
+
+/**
+ *  Optional. Lists the `EffectiveVpcFlowLogsConfigs` that match the filter
+ *  expression. A filter expression must use the supported [CEL logic operators]
+ *  (https://cloud.google.com/vpc/docs/about-flow-logs-records#supported_cel_logic_operators).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Number of `EffectiveVpcFlowLogsConfigs` to return. Default is 30.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token from an earlier query, as returned in
+ *  `next_page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource of the VpcFlowLogsConfig, specified in the
+ *  following format: `projects/{project_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The resource to get the effective VPC Flow Logs configuration for.
+ *  The resource must belong to the same project as the parent. The resource
+ *  must be a network, subnetwork, interconnect attachment, VPN tunnel, or a
+ *  project.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ShowEffectiveFlowLogsConfigsResponse.
+ *
+ *  ShowEffectiveFlowLogsConfigs returns a list of all VPC Flow Logs
+ *  configurations applicable to a specified resource.
+ *
+ *  @param parent Required. The parent resource of the VpcFlowLogsConfig,
+ *    specified in the following format:
+ *    `projects/{project_id}/locations/global`
+ *
+ *  @return GTLRNetworkManagementQuery_ProjectsLocationsVpcFlowLogsConfigsShowEffectiveFlowLogsConfigs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

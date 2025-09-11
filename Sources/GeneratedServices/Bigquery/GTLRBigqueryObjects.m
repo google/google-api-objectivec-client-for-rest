@@ -26,6 +26,7 @@ NSString * const kGTLRBigquery_Argument_Mode_Out             = @"OUT";
 
 // GTLRBigquery_ArimaForecastingMetrics.seasonalPeriods
 NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Daily = @"DAILY";
+NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Hourly = @"HOURLY";
 NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Monthly = @"MONTHLY";
 NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_NoSeasonality = @"NO_SEASONALITY";
 NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Quarterly = @"QUARTERLY";
@@ -35,6 +36,7 @@ NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Yearly = 
 
 // GTLRBigquery_ArimaModelInfo.seasonalPeriods
 NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Daily = @"DAILY";
+NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Hourly = @"HOURLY";
 NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Monthly = @"MONTHLY";
 NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_NoSeasonality = @"NO_SEASONALITY";
 NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Quarterly = @"QUARTERLY";
@@ -44,6 +46,7 @@ NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Yearly = @"YEARLY"
 
 // GTLRBigquery_ArimaResult.seasonalPeriods
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Daily = @"DAILY";
+NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Hourly = @"HOURLY";
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Monthly = @"MONTHLY";
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_NoSeasonality = @"NO_SEASONALITY";
 NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Quarterly = @"QUARTERLY";
@@ -53,6 +56,7 @@ NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Yearly = @"YEARLY";
 
 // GTLRBigquery_ArimaSingleModelForecastingMetrics.seasonalPeriods
 NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Daily = @"DAILY";
+NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Hourly = @"HOURLY";
 NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Monthly = @"MONTHLY";
 NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_NoSeasonality = @"NO_SEASONALITY";
 NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Quarterly = @"QUARTERLY";
@@ -2115,7 +2119,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_JobConfiguration
 @dynamic copyProperty, dryRun, extract, jobTimeoutMs, jobType, labels, load,
-         query, reservation;
+         maxSlots, query, reservation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"copyProperty" : @"copy" };
@@ -3157,9 +3161,9 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 @dynamic connectionProperties, continuous, createSession, defaultDataset,
          destinationEncryptionConfiguration, dryRun, formatOptions,
          jobCreationMode, jobTimeoutMs, kind, labels, location,
-         maximumBytesBilled, maxResults, parameterMode, preserveNulls, query,
-         queryParameters, requestId, reservation, timeoutMs, useLegacySql,
-         useQueryCache, writeIncrementalResults;
+         maximumBytesBilled, maxResults, maxSlots, parameterMode, preserveNulls,
+         query, queryParameters, requestId, reservation, timeoutMs,
+         useLegacySql, useQueryCache, writeIncrementalResults;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

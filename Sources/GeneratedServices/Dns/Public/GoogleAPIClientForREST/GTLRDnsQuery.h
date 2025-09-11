@@ -837,7 +837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Creates a new Policy.
+ *  Creates a new policy.
  *
  *  Method: dns.policies.create
  *
@@ -860,7 +860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Policy.
  *
- *  Creates a new Policy.
+ *  Creates a new policy.
  *
  *  @param object The @c GTLRDns_Policy to include in the query.
  *  @param project Identifies the project addressed by this request.
@@ -873,7 +873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Deletes a previously created Policy. Fails if the policy is still being
+ *  Deletes a previously created policy. Fails if the policy is still being
  *  referenced by a network.
  *
  *  Method: dns.policies.delete
@@ -901,7 +901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a previously created Policy. Fails if the policy is still being
+ *  Deletes a previously created policy. Fails if the policy is still being
  *  referenced by a network.
  *
  *  @param project Identifies the project addressed by this request.
@@ -916,7 +916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Fetches the representation of an existing Policy.
+ *  Fetches the representation of an existing policy.
  *
  *  Method: dns.policies.get
  *
@@ -944,7 +944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Policy.
  *
- *  Fetches the representation of an existing Policy.
+ *  Fetches the representation of an existing policy.
  *
  *  @param project Identifies the project addressed by this request.
  *  @param policy User given friendly name of the policy addressed by this
@@ -958,7 +958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Enumerates all Policies associated with a project.
+ *  Enumerates all policies associated with a project.
  *
  *  Method: dns.policies.list
  *
@@ -988,7 +988,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_PoliciesListResponse.
  *
- *  Enumerates all Policies associated with a project.
+ *  Enumerates all policies associated with a project.
  *
  *  @param project Identifies the project addressed by this request.
  *
@@ -1003,7 +1003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Applies a partial update to an existing Policy.
+ *  Applies a partial update to an existing policy.
  *
  *  Method: dns.policies.patch
  *
@@ -1029,7 +1029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_PoliciesPatchResponse.
  *
- *  Applies a partial update to an existing Policy.
+ *  Applies a partial update to an existing policy.
  *
  *  @param object The @c GTLRDns_Policy to include in the query.
  *  @param project Identifies the project addressed by this request.
@@ -1045,7 +1045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Updates an existing Policy.
+ *  Updates an existing policy.
  *
  *  Method: dns.policies.update
  *
@@ -1071,7 +1071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_PoliciesUpdateResponse.
  *
- *  Updates an existing Policy.
+ *  Updates an existing policy.
  *
  *  @param object The @c GTLRDns_Policy to include in the query.
  *  @param project Identifies the project addressed by this request.
@@ -1302,7 +1302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Restricts the list to return only records with this fully qualified domain
- *  name.
+ *  name. Mutually exclusive with the {\@code filter} field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1317,7 +1317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Restricts the list to return only records of this type. If present, the
- *  "name" parameter must also be present.
+ *  "name" parameter must also be present. Mutually exclusive with the {\@code
+ *  filter} field.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

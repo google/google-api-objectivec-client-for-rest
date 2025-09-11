@@ -272,6 +272,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Unhealthy
 // GTLRCloudRedis_DatabaseResourceMetadata.edition
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionEnterprise = @"EDITION_ENTERPRISE";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionEnterprisePlus = @"EDITION_ENTERPRISE_PLUS";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionStandard = @"EDITION_STANDARD";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
 
 // GTLRCloudRedis_DatabaseResourceMetadata.expectedState
@@ -707,7 +708,8 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_BackupCollection
-@dynamic cluster, clusterUid, createTime, kmsKey, name, uid;
+@dynamic cluster, clusterUid, createTime, kmsKey, lastBackupTime, name,
+         totalBackupCount, totalBackupSizeBytes, uid;
 @end
 
 
@@ -801,7 +803,7 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
          authorizationMode, automatedBackupConfig, backupCollection,
          clusterEndpoints, createTime, crossClusterReplicationConfig,
          deletionProtectionEnabled, discoveryEndpoints, encryptionInfo,
-         gcsSource, kmsKey, maintenancePolicy, maintenanceSchedule,
+         gcsSource, kmsKey, labels, maintenancePolicy, maintenanceSchedule,
          managedBackupSource, name, nodeType, ondemandMaintenance,
          persistenceConfig, preciseSizeGb, pscConfigs, pscConnections,
          pscServiceAttachments, redisConfigs, replicaCount, satisfiesPzi,
@@ -817,6 +819,20 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
     @"pscServiceAttachments" : [GTLRCloudRedis_PscServiceAttachment class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_Cluster_Labels
+//
+
+@implementation GTLRCloudRedis_Cluster_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

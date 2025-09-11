@@ -5801,10 +5801,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resources. For a search query that will match a large number of resources,
  *  you can avoiding using the special synchronous index by including an
  *  additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you
- *  want to keep the default sorting order. Note: The special synchronous
- *  identifier index are currently disabled for DocumentReference and
- *  DocumentManifest searches. For samples and detailed information, see
- *  [Searching for FHIR
+ *  want to keep the default sorting order. For samples and detailed
+ *  information, see [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -5884,10 +5882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resources. For a search query that will match a large number of resources,
  *  you can avoiding using the special synchronous index by including an
  *  additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you
- *  want to keep the default sorting order. Note: The special synchronous
- *  identifier index are currently disabled for DocumentReference and
- *  DocumentManifest searches. For samples and detailed information, see
- *  [Searching for FHIR
+ *  want to keep the default sorting order. For samples and detailed
+ *  information, see [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -5965,10 +5961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resources. For a search query that will match a large number of resources,
  *  you can avoiding using the special synchronous index by including an
  *  additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you
- *  want to keep the default sorting order. Note: The special synchronous
- *  identifier index are currently disabled for DocumentReference and
- *  DocumentManifest searches. For samples and detailed information, see
- *  [Searching for FHIR
+ *  want to keep the default sorting order. For samples and detailed
+ *  information, see [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -6058,10 +6052,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  resources. For a search query that will match a large number of resources,
  *  you can avoiding using the special synchronous index by including an
  *  additional `_sort` parameter in your query. Use `_sort=-_lastUpdated` if you
- *  want to keep the default sorting order. Note: The special synchronous
- *  identifier index are currently disabled for DocumentReference and
- *  DocumentManifest searches. For samples and detailed information, see
- *  [Searching for FHIR
+ *  want to keep the default sorting order. For samples and detailed
+ *  information, see [Searching for FHIR
  *  resources](https://cloud.google.com/healthcare/docs/how-tos/fhir-search) and
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
@@ -8088,8 +8080,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsList : GTLRCloudHealthcareQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

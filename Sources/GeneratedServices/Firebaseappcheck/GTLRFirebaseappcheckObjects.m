@@ -14,6 +14,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity.minDeviceRecognitionLevel
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_DeviceRecognitionLevelUnspecified = @"DEVICE_RECOGNITION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsBasicIntegrity = @"MEETS_BASIC_INTEGRITY";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsDeviceIntegrity = @"MEETS_DEVICE_INTEGRITY";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_MeetsStrongIntegrity = @"MEETS_STRONG_INTEGRITY";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity_MinDeviceRecognitionLevel_NoIntegrity = @"NO_INTEGRITY";
+
 // GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy.enforcementMode
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Enforced = @"ENFORCED";
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1ResourcePolicy_EnforcementMode_Off = @"OFF";
@@ -458,7 +465,37 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfig
-@dynamic name, tokenTtl;
+@dynamic accountDetails, appIntegrity, deviceIntegrity, name, tokenTtl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAccountDetails
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAccountDetails
+@dynamic requireLicensed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAppIntegrity
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigAppIntegrity
+@dynamic allowUnrecognizedVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1PlayIntegrityConfigDeviceIntegrity
+@dynamic minDeviceRecognitionLevel;
 @end
 
 
@@ -496,7 +533,17 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfig
-@dynamic name, siteKey, tokenTtl;
+@dynamic name, riskAnalysis, siteKey, tokenTtl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfigRiskAnalysis
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaEnterpriseConfigRiskAnalysis
+@dynamic minValidScore;
 @end
 
 
@@ -506,7 +553,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1RecaptchaV3Config
-@dynamic name, siteSecret, siteSecretSet, tokenTtl;
+@dynamic minValidScore, name, siteSecret, siteSecretSet, tokenTtl;
 @end
 
 

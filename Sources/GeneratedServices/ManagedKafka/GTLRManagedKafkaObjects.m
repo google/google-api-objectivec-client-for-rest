@@ -235,7 +235,8 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 @implementation GTLRManagedKafka_Cluster
 @dynamic capacityConfig, createTime, gcpConfig, labels, name, rebalanceConfig,
-         satisfiesPzi, satisfiesPzs, state, tlsConfig, updateTime;
+         satisfiesPzi, satisfiesPzs, state, tlsConfig, updateOptions,
+         updateTime;
 @end
 
 
@@ -1127,6 +1128,16 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedKafka_UpdateOptions
+//
+
+@implementation GTLRManagedKafka_UpdateOptions
+@dynamic allowBrokerDownscaleOnClusterUpscale;
 @end
 
 

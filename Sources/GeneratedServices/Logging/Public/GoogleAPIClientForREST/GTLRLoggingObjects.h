@@ -4282,7 +4282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRLogging_Query *loggingQuery;
 
 /**
- *  Optional. Resource name of the recent query.In the format:
+ *  Output only. Resource name of the recent query.In the format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/recentQueries/[QUERY_ID]" For
  *  a list of supported locations, see Supported Regions
  *  (https://cloud.google.com/logging/docs/region-support)The QUERY_ID is a

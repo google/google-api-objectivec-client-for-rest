@@ -127,6 +127,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError = @"ABORT_FUNCTION_UPGRADE_ERROR";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError = @"COMMIT_FUNCTION_UPGRADE_ERROR";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade = @"ELIGIBLE_FOR_2ND_GEN_UPGRADE";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_IneligibleForUpgradeUntilRedeployment = @"INELIGIBLE_FOR_UPGRADE_UNTIL_REDEPLOYMENT";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficError = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC_ERROR";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficSuccessful = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC_SUCCESSFUL";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RollbackFunctionUpgradeTrafficError = @"ROLLBACK_FUNCTION_UPGRADE_TRAFFIC_ERROR";

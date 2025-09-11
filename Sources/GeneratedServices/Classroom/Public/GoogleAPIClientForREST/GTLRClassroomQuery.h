@@ -1035,7 +1035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  returns the following error codes: * `PERMISSION_DENIED` if the requesting
  *  user is not permitted to access the requested course or course work or for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
- *  `NOT_FOUND` if the requested course or course work does not exist.
+ *  `NOT_FOUND` if the requested course or course work does not exist. *
+ *  `FAILED_PRECONDITION` for the following request error: * EmptyAssignees
  *
  *  Method: classroom.courses.announcements.modifyAssignees
  *
@@ -1065,7 +1066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  returns the following error codes: * `PERMISSION_DENIED` if the requesting
  *  user is not permitted to access the requested course or course work or for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
- *  `NOT_FOUND` if the requested course or course work does not exist.
+ *  `NOT_FOUND` if the requested course or course work does not exist. *
+ *  `FAILED_PRECONDITION` for the following request error: * EmptyAssignees
  *
  *  @param object The @c GTLRClassroom_ModifyAnnouncementAssigneesRequest to
  *    include in the query.
@@ -2612,7 +2614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  returns the following error codes: * `PERMISSION_DENIED` if the requesting
  *  user is not permitted to access the requested course or course work or for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
- *  `NOT_FOUND` if the requested course or course work does not exist.
+ *  `NOT_FOUND` if the requested course or course work does not exist. *
+ *  `FAILED_PRECONDITION` for the following request error: * EmptyAssignees
  *
  *  Method: classroom.courses.courseWork.modifyAssignees
  *
@@ -2642,7 +2645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  returns the following error codes: * `PERMISSION_DENIED` if the requesting
  *  user is not permitted to access the requested course or course work or for
  *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
- *  `NOT_FOUND` if the requested course or course work does not exist.
+ *  `NOT_FOUND` if the requested course or course work does not exist. *
+ *  `FAILED_PRECONDITION` for the following request error: * EmptyAssignees
  *
  *  @param object The @c GTLRClassroom_ModifyCourseWorkAssigneesRequest to
  *    include in the query.

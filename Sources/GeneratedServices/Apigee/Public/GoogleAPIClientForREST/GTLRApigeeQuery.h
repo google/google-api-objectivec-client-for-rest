@@ -12680,6 +12680,204 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates a new report containing customer feedback.
+ *
+ *  Method: apigee.organizations.securityFeedback.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityFeedbackCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the organization. Use the following structure in your
+ *  request: `organizations/{org}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The id for this feedback report. If not provided, it will be set
+ *  to a system-generated UUID.
+ */
+@property(nonatomic, copy, nullable) NSString *securityFeedbackId;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityFeedback.
+ *
+ *  Creates a new report containing customer feedback.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityFeedback to
+ *    include in the query.
+ *  @param parent Required. Name of the organization. Use the following
+ *    structure in your request: `organizations/{org}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityFeedbackCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityFeedback *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specific feedback report. Used for "undo" of a feedback
+ *  submission.
+ *
+ *  Method: apigee.organizations.securityFeedback.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityFeedbackDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the SecurityFeedback to delete. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/securityFeedback/{feedback_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Deletes a specific feedback report. Used for "undo" of a feedback
+ *  submission.
+ *
+ *  @param name Required. Name of the SecurityFeedback to delete. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/securityFeedback/{feedback_id}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityFeedbackDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific customer feedback report.
+ *
+ *  Method: apigee.organizations.securityFeedback.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityFeedbackGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the SecurityFeedback. Format:
+ *  `organizations/{org}/securityFeedback/{feedback_id}` Example:
+ *  organizations/apigee-organization-name/securityFeedback/feedback-id
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityFeedback.
+ *
+ *  Gets a specific customer feedback report.
+ *
+ *  @param name Required. Name of the SecurityFeedback. Format:
+ *    `organizations/{org}/securityFeedback/{feedback_id}` Example:
+ *    organizations/apigee-organization-name/securityFeedback/feedback-id
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityFeedbackGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all feedback reports which have already been submitted.
+ *
+ *  Method: apigee.organizations.securityFeedback.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityFeedbackList : GTLRApigeeQuery
+
+/**
+ *  Optional. The maximum number of feedback reports to return. The service may
+ *  return fewer than this value. LINT.IfChange(documented_page_size_limits) If
+ *  unspecified, at most 10 feedback reports will be returned. The maximum value
+ *  is 100; values above 100 will be coerced to 100. LINT.ThenChange(
+ *  //depot/google3/edge/sense/boq/service/v1/securityfeedback/securityfeedback_rpc.go:page_size_limits
+ *  )
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListSecurityFeedback`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListSecurityFeedback` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the organization. Format: `organizations/{org}`. Example:
+ *  organizations/apigee-organization-name/securityFeedback
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSecurityFeedbackResponse.
+ *
+ *  Lists all feedback reports which have already been submitted.
+ *
+ *  @param parent Required. Name of the organization. Format:
+ *    `organizations/{org}`. Example:
+ *    organizations/apigee-organization-name/securityFeedback
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityFeedbackList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a specific feedback report.
+ *
+ *  Method: apigee.organizations.securityFeedback.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSecurityFeedbackPatch : GTLRApigeeQuery
+
+/**
+ *  Output only. Identifier. The feedback name is intended to be a
+ *  system-generated uuid.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityFeedback.
+ *
+ *  Updates a specific feedback report.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SecurityFeedback to
+ *    include in the query.
+ *  @param name Output only. Identifier. The feedback name is intended to be a
+ *    system-generated uuid.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSecurityFeedbackPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SecurityFeedback *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create a security monitoring condition.
  *
  *  Method: apigee.organizations.securityMonitoringConditions.create

@@ -74,6 +74,11 @@ NSString * const kGTLRAndroidPublisher_BasePlan_State_Draft    = @"DRAFT";
 NSString * const kGTLRAndroidPublisher_BasePlan_State_Inactive = @"INACTIVE";
 NSString * const kGTLRAndroidPublisher_BasePlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_CancellationContext.cancellationType
+NSString * const kGTLRAndroidPublisher_CancellationContext_CancellationType_CancellationTypeUnspecified = @"CANCELLATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_CancellationContext_CancellationType_DeveloperRequestedStopPayments = @"DEVELOPER_REQUESTED_STOP_PAYMENTS";
+NSString * const kGTLRAndroidPublisher_CancellationContext_CancellationType_UserRequestedStopRenewals = @"USER_REQUESTED_STOP_RENEWALS";
+
 // GTLRAndroidPublisher_CancelOneTimeProductOfferRequest.latencyTolerance
 NSString * const kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencySensitive = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_SENSITIVE";
 NSString * const kGTLRAndroidPublisher_CancelOneTimeProductOfferRequest_LatencyTolerance_ProductUpdateLatencyToleranceLatencyTolerant = @"PRODUCT_UPDATE_LATENCY_TOLERANCE_LATENCY_TOLERANT";
@@ -270,6 +275,12 @@ NSString * const kGTLRAndroidPublisher_PartialRefundEvent_State_StateUnspecified
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionActive = @"TIME_EXTENSION_ACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionInactive = @"TIME_EXTENSION_INACTIVE";
 NSString * const kGTLRAndroidPublisher_PrepaidBasePlanType_TimeExtension_TimeExtensionUnspecified = @"TIME_EXTENSION_UNSPECIFIED";
+
+// GTLRAndroidPublisher_PriceStepUpConsentDetails.state
+NSString * const kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Completed = @"COMPLETED";
+NSString * const kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Confirmed = @"CONFIRMED";
+NSString * const kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_ConsentStateUnspecified = @"CONSENT_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_PriceStepUpConsentDetails_State_Pending = @"PENDING";
 
 // GTLRAndroidPublisher_ProductOfferDetails.consumptionState
 NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_ConsumptionStateConsumed = @"CONSUMPTION_STATE_CONSUMED";
@@ -835,7 +846,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_AutoRenewingPlan
 @dynamic autoRenewEnabled, installmentDetails, priceChangeDetails,
-         recurringPrice;
+         priceStepUpConsentDetails, recurringPrice;
 @end
 
 
@@ -1439,6 +1450,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_CancellationContext
+//
+
+@implementation GTLRAndroidPublisher_CancellationContext
+@dynamic cancellationType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_CancellationEvent
 //
 
@@ -1454,6 +1475,25 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_CancelOneTimeProductOfferRequest
 @dynamic latencyTolerance, offerId, packageName, productId, purchaseOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CancelSubscriptionPurchaseRequest
+//
+
+@implementation GTLRAndroidPublisher_CancelSubscriptionPurchaseRequest
+@dynamic cancellationContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_CancelSubscriptionPurchaseResponse
+//
+
+@implementation GTLRAndroidPublisher_CancelSubscriptionPurchaseResponse
 @end
 
 
@@ -3187,6 +3227,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_Price
 @dynamic currency, priceMicros;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PriceStepUpConsentDetails
+//
+
+@implementation GTLRAndroidPublisher_PriceStepUpConsentDetails
+@dynamic consentDeadlineTime, newPrice, state;
 @end
 
 

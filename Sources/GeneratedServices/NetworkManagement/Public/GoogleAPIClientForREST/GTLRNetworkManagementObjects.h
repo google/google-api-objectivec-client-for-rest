@@ -32,6 +32,7 @@
 @class GTLRNetworkManagement_DirectVpcEgressConnectionInfo;
 @class GTLRNetworkManagement_DropInfo;
 @class GTLRNetworkManagement_EdgeLocation;
+@class GTLRNetworkManagement_EffectiveVpcFlowLogsConfig;
 @class GTLRNetworkManagement_Endpoint;
 @class GTLRNetworkManagement_EndpointInfo;
 @class GTLRNetworkManagement_Expr;
@@ -42,6 +43,7 @@
 @class GTLRNetworkManagement_GKEMasterInfo;
 @class GTLRNetworkManagement_GoogleServiceInfo;
 @class GTLRNetworkManagement_Host;
+@class GTLRNetworkManagement_HybridSubnetInfo;
 @class GTLRNetworkManagement_InstanceInfo;
 @class GTLRNetworkManagement_InterconnectAttachmentInfo;
 @class GTLRNetworkManagement_LatencyDistribution;
@@ -812,6 +814,27 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Ingress
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning;
 /**
+ *  Packet is dropped due to destination IP not matching the appliance mapping
+ *  IPs configured on the L2 Interconnect attachment.
+ *
+ *  Value: "L2_INTERCONNECT_DESTINATION_IP_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_L2InterconnectDestinationIpMismatch;
+/**
+ *  Packet is dropped due to using an unsupported port (any other than 6081) for
+ *  L2 Interconnect.
+ *
+ *  Value: "L2_INTERCONNECT_UNSUPPORTED_PORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_L2InterconnectUnsupportedPort;
+/**
+ *  Packet is dropped due to using an unsupported protocol (any other than UDP)
+ *  for L2 Interconnect.
+ *
+ *  Value: "L2_INTERCONNECT_UNSUPPORTED_PROTOCOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_L2InterconnectUnsupportedProtocol;
+/**
  *  Packet is dropped due to a load balancer backend instance not having a
  *  network interface in the network expected by the load balancer.
  *
@@ -1205,6 +1228,172 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpnTunn
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_VpnTunnelRemoteSelectorMismatch;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.aggregationInterval
+
+/**
+ *  If not specified, will default to INTERVAL_5_SEC.
+ *
+ *  Value: "AGGREGATION_INTERVAL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_AggregationIntervalUnspecified;
+/**
+ *  Aggregate logs in 10m intervals.
+ *
+ *  Value: "INTERVAL_10_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval10Min;
+/**
+ *  Aggregate logs in 15m intervals.
+ *
+ *  Value: "INTERVAL_15_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval15Min;
+/**
+ *  Aggregate logs in 1m intervals.
+ *
+ *  Value: "INTERVAL_1_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval1Min;
+/**
+ *  Aggregate logs in 30s intervals.
+ *
+ *  Value: "INTERVAL_30_SEC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval30Sec;
+/**
+ *  Aggregate logs in 5m intervals.
+ *
+ *  Value: "INTERVAL_5_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval5Min;
+/**
+ *  Aggregate logs in 5s intervals.
+ *
+ *  Value: "INTERVAL_5_SEC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval5Sec;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.crossProjectMetadata
+
+/**
+ *  When CROSS_PROJECT_METADATA_DISABLED, metadata from other projects will not
+ *  be included in the logs.
+ *
+ *  Value: "CROSS_PROJECT_METADATA_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataDisabled;
+/**
+ *  When CROSS_PROJECT_METADATA_ENABLED, metadata from other projects will be
+ *  included in the logs.
+ *
+ *  Value: "CROSS_PROJECT_METADATA_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataEnabled;
+/**
+ *  If not specified, the default is CROSS_PROJECT_METADATA_ENABLED.
+ *
+ *  Value: "CROSS_PROJECT_METADATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.metadata
+
+/**
+ *  Include only custom fields (specified in metadata_fields).
+ *
+ *  Value: "CUSTOM_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Metadata_CustomMetadata;
+/**
+ *  Exclude all metadata fields.
+ *
+ *  Value: "EXCLUDE_ALL_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Metadata_ExcludeAllMetadata;
+/**
+ *  Include all metadata fields.
+ *
+ *  Value: "INCLUDE_ALL_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Metadata_IncludeAllMetadata;
+/**
+ *  If not specified, will default to INCLUDE_ALL_METADATA.
+ *
+ *  Value: "METADATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Metadata_MetadataUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.scope
+
+/**
+ *  Target resource is a subnet, and the config originates from the Compute API.
+ *
+ *  Value: "COMPUTE_API_SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_ComputeApiSubnet;
+/**
+ *  Target resource is an interconnect attachment.
+ *
+ *  Value: "INTERCONNECT_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_InterconnectAttachment;
+/**
+ *  Target resource is a network.
+ *
+ *  Value: "NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_Network;
+/**
+ *  Configuration applies to an entire organization.
+ *
+ *  Value: "ORGANIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_Organization;
+/**
+ *  Scope is unspecified.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_ScopeUnspecified;
+/**
+ *  Target resource is a subnet (Network Management API).
+ *
+ *  Value: "SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_Subnet;
+/**
+ *  Target resource is a VPN tunnel.
+ *
+ *  Value: "VPN_TUNNEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_VpnTunnel;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_EffectiveVpcFlowLogsConfig.state
+
+/**
+ *  When DISABLED, this configuration will not generate logs.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_State_Disabled;
+/**
+ *  When ENABLED, this configuration will generate logs.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_State_Enabled;
+/**
+ *  If not specified, will default to ENABLED.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_Endpoint.forwardingRuleTarget
 
 /**
@@ -1588,6 +1777,40 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InstanceInfo_Status_Ru
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InstanceInfo_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_InterconnectAttachmentInfo.type
+
+/**
+ *  Attachment to a dedicated interconnect.
+ *
+ *  Value: "DEDICATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_Dedicated;
+/**
+ *  Attachment to a L2 interconnect, created by the customer.
+ *
+ *  Value: "L2_DEDICATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_L2Dedicated;
+/**
+ *  Attachment to a partner interconnect, created by the customer.
+ *
+ *  Value: "PARTNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_Partner;
+/**
+ *  Attachment to a partner interconnect, created by the partner.
+ *
+ *  Value: "PARTNER_PROVIDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_PartnerProvider;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_LoadBalancerBackend.healthCheckFirewallState
 
 /**
@@ -1828,6 +2051,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_Type_CloudNat;
  *  Value: "EXTERNAL_TO_INTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_Type_ExternalToInternal;
+/**
+ *  GKE Pod IP address masquerading.
+ *
+ *  Value: "GKE_POD_IP_MASQUERADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_Type_GkePodIpMasquerading;
 /**
  *  From Compute Engine instance's internal address to external address.
  *
@@ -2373,6 +2602,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyRoute;
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer GTLR_DEPRECATED;
 /**
+ *  Forwarding state: arriving at a hybrid subnet. Appropriate routing
+ *  configuration will be determined here.
+ *
+ *  Value: "ARRIVE_AT_HYBRID_SUBNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtHybridSubnet;
+/**
  *  Forwarding state: arriving at a Compute Engine instance.
  *
  *  Value: "ARRIVE_AT_INSTANCE"
@@ -2435,7 +2671,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Drop;
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Forward;
 /**
- *  Transition state: packet header translated.
+ *  Transition state: packet header translated. The `nat` field is populated
+ *  with the translation information.
  *
  *  Value: "NAT"
  */
@@ -2620,6 +2857,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_Aggr
  *  Value: "INTERVAL_5_SEC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_AggregationInterval_Interval5Sec;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_VpcFlowLogsConfig.crossProjectMetadata
+
+/**
+ *  When CROSS_PROJECT_METADATA_DISABLED, metadata from other projects will not
+ *  be included in the logs.
+ *
+ *  Value: "CROSS_PROJECT_METADATA_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataDisabled;
+/**
+ *  When CROSS_PROJECT_METADATA_ENABLED, metadata from other projects will be
+ *  included in the logs.
+ *
+ *  Value: "CROSS_PROJECT_METADATA_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataEnabled;
+/**
+ *  If not specified, the default is CROSS_PROJECT_METADATA_ENABLED.
+ *
+ *  Value: "CROSS_PROJECT_METADATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_VpcFlowLogsConfig.metadata
@@ -3626,6 +3887,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning Packet is
  *        sent from or to a Compute Engine instance that is not in a running
  *        state. (Value: "INSTANCE_NOT_RUNNING")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_L2InterconnectDestinationIpMismatch
+ *        Packet is dropped due to destination IP not matching the appliance
+ *        mapping IPs configured on the L2 Interconnect attachment. (Value:
+ *        "L2_INTERCONNECT_DESTINATION_IP_MISMATCH")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_L2InterconnectUnsupportedPort
+ *        Packet is dropped due to using an unsupported port (any other than
+ *        6081) for L2 Interconnect. (Value: "L2_INTERCONNECT_UNSUPPORTED_PORT")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_L2InterconnectUnsupportedProtocol
+ *        Packet is dropped due to using an unsupported protocol (any other than
+ *        UDP) for L2 Interconnect. (Value:
+ *        "L2_INTERCONNECT_UNSUPPORTED_PROTOCOL")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvalidNetwork
  *        Packet is dropped due to a load balancer backend instance not having a
  *        network interface in the network expected by the load balancer.
@@ -3867,6 +4139,171 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** Name of the metropolitan area. */
 @property(nonatomic, copy, nullable) NSString *metropolitanArea;
+
+@end
+
+
+/**
+ *  A configuration to generate a response for GetEffectiveVpcFlowLogsConfig
+ *  request.
+ */
+@interface GTLRNetworkManagement_EffectiveVpcFlowLogsConfig : GTLRObject
+
+/**
+ *  The aggregation interval for the logs. Default value is INTERVAL_5_SEC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_AggregationIntervalUnspecified
+ *        If not specified, will default to INTERVAL_5_SEC. (Value:
+ *        "AGGREGATION_INTERVAL_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval10Min
+ *        Aggregate logs in 10m intervals. (Value: "INTERVAL_10_MIN")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval15Min
+ *        Aggregate logs in 15m intervals. (Value: "INTERVAL_15_MIN")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval1Min
+ *        Aggregate logs in 1m intervals. (Value: "INTERVAL_1_MIN")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval30Sec
+ *        Aggregate logs in 30s intervals. (Value: "INTERVAL_30_SEC")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval5Min
+ *        Aggregate logs in 5m intervals. (Value: "INTERVAL_5_MIN")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_AggregationInterval_Interval5Sec
+ *        Aggregate logs in 5s intervals. (Value: "INTERVAL_5_SEC")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationInterval;
+
+/**
+ *  Determines whether to include cross project annotations in the logs. This
+ *  field is available only for organization configurations. If not specified in
+ *  org configs will be set to CROSS_PROJECT_METADATA_ENABLED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataDisabled
+ *        When CROSS_PROJECT_METADATA_DISABLED, metadata from other projects
+ *        will not be included in the logs. (Value:
+ *        "CROSS_PROJECT_METADATA_DISABLED")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataEnabled
+ *        When CROSS_PROJECT_METADATA_ENABLED, metadata from other projects will
+ *        be included in the logs. (Value: "CROSS_PROJECT_METADATA_ENABLED")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataUnspecified
+ *        If not specified, the default is CROSS_PROJECT_METADATA_ENABLED.
+ *        (Value: "CROSS_PROJECT_METADATA_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crossProjectMetadata;
+
+/** Export filter used to define which VPC Flow Logs should be logged. */
+@property(nonatomic, copy, nullable) NSString *filterExpr;
+
+/**
+ *  The value of the field must be in (0, 1]. The sampling rate of VPC Flow Logs
+ *  where 1.0 means all collected logs are reported. Setting the sampling rate
+ *  to 0.0 is not allowed. If you want to disable VPC Flow Logs, use the state
+ *  field instead. Default value is 1.0.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flowSampling;
+
+/**
+ *  Traffic will be logged from the Interconnect Attachment. Format:
+ *  projects/{project_id}/regions/{region}/interconnectAttachments/{name}
+ */
+@property(nonatomic, copy, nullable) NSString *interconnectAttachment;
+
+/**
+ *  Configures whether all, none or a subset of metadata fields should be added
+ *  to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Metadata_CustomMetadata
+ *        Include only custom fields (specified in metadata_fields). (Value:
+ *        "CUSTOM_METADATA")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Metadata_ExcludeAllMetadata
+ *        Exclude all metadata fields. (Value: "EXCLUDE_ALL_METADATA")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Metadata_IncludeAllMetadata
+ *        Include all metadata fields. (Value: "INCLUDE_ALL_METADATA")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Metadata_MetadataUnspecified
+ *        If not specified, will default to INCLUDE_ALL_METADATA. (Value:
+ *        "METADATA_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *metadata;
+
+/**
+ *  Custom metadata fields to include in the reported VPC flow logs. Can only be
+ *  specified if "metadata" was set to CUSTOM_METADATA.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metadataFields;
+
+/**
+ *  Unique name of the configuration. The name can have one of the following
+ *  forms: - For project-level configurations:
+ *  `projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For organization-level configurations:
+ *  `organizations/{organization_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}`
+ *  - For a Compute config, the name will be the path of the subnet:
+ *  `projects/{project_id}/regions/{region}/subnetworks/{subnet_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Traffic will be logged from VMs, VPN tunnels and Interconnect Attachments
+ *  within the network. Format: projects/{project_id}/global/networks/{name}
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Specifies the scope of the config (e.g., SUBNET, NETWORK, ORGANIZATION..).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_ComputeApiSubnet
+ *        Target resource is a subnet, and the config originates from the
+ *        Compute API. (Value: "COMPUTE_API_SUBNET")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_InterconnectAttachment
+ *        Target resource is an interconnect attachment. (Value:
+ *        "INTERCONNECT_ATTACHMENT")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_Network
+ *        Target resource is a network. (Value: "NETWORK")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_Organization
+ *        Configuration applies to an entire organization. (Value:
+ *        "ORGANIZATION")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_ScopeUnspecified
+ *        Scope is unspecified. (Value: "SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_Subnet
+ *        Target resource is a subnet (Network Management API). (Value:
+ *        "SUBNET")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_Scope_VpnTunnel
+ *        Target resource is a VPN tunnel. (Value: "VPN_TUNNEL")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  The state of the VPC Flow Log configuration. Default value is ENABLED. When
+ *  creating a new configuration, it must be enabled. Setting state=DISABLED
+ *  will pause the log generation for this config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_State_Disabled
+ *        When DISABLED, this configuration will not generate logs. (Value:
+ *        "DISABLED")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_State_Enabled
+ *        When ENABLED, this configuration will generate logs. (Value:
+ *        "ENABLED")
+ *    @arg @c kGTLRNetworkManagement_EffectiveVpcFlowLogsConfig_State_StateUnspecified
+ *        If not specified, will default to ENABLED. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Traffic will be logged from VMs within the subnetwork. Format:
+ *  projects/{project_id}/regions/{region}/subnetworks/{name}
+ */
+@property(nonatomic, copy, nullable) NSString *subnet;
+
+/**
+ *  Traffic will be logged from the VPN Tunnel. Format:
+ *  projects/{project_id}/regions/{region}/vpnTunnels/{name}
+ */
+@property(nonatomic, copy, nullable) NSString *vpnTunnel;
 
 @end
 
@@ -4506,6 +4943,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 
 /**
+ *  For display only. Metadata associated with a hybrid subnet.
+ */
+@interface GTLRNetworkManagement_HybridSubnetInfo : GTLRObject
+
+/** Name of a hybrid subnet. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Name of a Google Cloud region where the hybrid subnet is configured. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** URI of a hybrid subnet. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with a Compute Engine instance.
  */
 @interface GTLRNetworkManagement_InstanceInfo : GTLRObject
@@ -4577,11 +5031,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  */
 @property(nonatomic, copy, nullable) NSString *interconnectUri;
 
+/** Appliance IP address that was matched for L2_DEDICATED attachments. */
+@property(nonatomic, copy, nullable) NSString *l2AttachmentMatchedIpAddress;
+
 /**
  *  Name of a Google Cloud region where the Interconnect attachment is
  *  configured.
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  The type of interconnect attachment this is.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_Dedicated
+ *        Attachment to a dedicated interconnect. (Value: "DEDICATED")
+ *    @arg @c kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_L2Dedicated
+ *        Attachment to a L2 interconnect, created by the customer. (Value:
+ *        "L2_DEDICATED")
+ *    @arg @c kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_Partner
+ *        Attachment to a partner interconnect, created by the customer. (Value:
+ *        "PARTNER")
+ *    @arg @c kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_PartnerProvider
+ *        Attachment to a partner interconnect, created by the partner. (Value:
+ *        "PARTNER_PROVIDER")
+ *    @arg @c kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_TypeUnspecified
+ *        Unspecified type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** URI of an Interconnect attachment. */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -5239,6 +5716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *    @arg @c kGTLRNetworkManagement_NatInfo_Type_ExternalToInternal From
  *        Compute Engine instance's external address to internal address.
  *        (Value: "EXTERNAL_TO_INTERNAL")
+ *    @arg @c kGTLRNetworkManagement_NatInfo_Type_GkePodIpMasquerading GKE Pod
+ *        IP address masquerading. (Value: "GKE_POD_IP_MASQUERADING")
  *    @arg @c kGTLRNetworkManagement_NatInfo_Type_InternalToExternal From
  *        Compute Engine instance's internal address to external address.
  *        (Value: "INTERNAL_TO_EXTERNAL")
@@ -5875,6 +6354,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 
 /**
+ *  Response for the `QueryVpcFlowLogsConfigs` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "vpcFlowLogsConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkManagement_QueryOrgVpcFlowLogsConfigsResponse : GTLRCollectionObject
+
+/** Page token to fetch the next set of configurations. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Locations that could not be reached (when querying all locations with `-`).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+/**
+ *  List of VPC Flow Log configurations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_VpcFlowLogsConfig *> *vpcFlowLogsConfigs;
+
+@end
+
+
+/**
  *  Results of the configuration analysis from the last run of the test.
  */
 @interface GTLRNetworkManagement_ReachabilityDetails : GTLRObject
@@ -6248,6 +6756,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 
 /**
+ *  Response for the `ShowEffectiveFlowLogsConfigs` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "effectiveFlowLogsConfigs" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkManagement_ShowEffectiveFlowLogsConfigsResponse : GTLRCollectionObject
+
+/**
+ *  List of Effective Vpc Flow Logs configurations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_EffectiveVpcFlowLogsConfig *> *effectiveFlowLogsConfigs;
+
+/** Page token to fetch the next set of configurations. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Locations that could not be reached (when querying all locations with `-`).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Probing results for a single edge device.
  */
 @interface GTLRNetworkManagement_SingleEdgeResponse : GTLRObject
@@ -6422,6 +6959,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 /** Display information of a Google service */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_GoogleServiceInfo *googleService;
 
+/** Display information of a hybrid subnet. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_HybridSubnetInfo *hybridSubnet;
+
 /** Display information of a Compute Engine instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_InstanceInfo *instance;
 
@@ -6490,6 +7030,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer
  *        Forwarding state: arriving at a Compute Engine external load balancer.
  *        (Value: "ARRIVE_AT_EXTERNAL_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtHybridSubnet Forwarding
+ *        state: arriving at a hybrid subnet. Appropriate routing configuration
+ *        will be determined here. (Value: "ARRIVE_AT_HYBRID_SUBNET")
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtInstance Forwarding
  *        state: arriving at a Compute Engine instance. (Value:
  *        "ARRIVE_AT_INSTANCE")
@@ -6518,7 +7061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        could be forwarded to a network with an unknown configuration. (Value:
  *        "FORWARD")
  *    @arg @c kGTLRNetworkManagement_Step_State_Nat Transition state: packet
- *        header translated. (Value: "NAT")
+ *        header translated. The `nat` field is populated with the translation
+ *        information. (Value: "NAT")
  *    @arg @c kGTLRNetworkManagement_Step_State_ProxyConnection Transition
  *        state: original connection is terminated and a new proxied connection
  *        is initiated. (Value: "PROXY_CONNECTION")
@@ -6735,6 +7279,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. Determines whether to include cross project annotations in the
+ *  logs. This field is available only for organization configurations. If not
+ *  specified in org configs will be set to CROSS_PROJECT_METADATA_ENABLED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataDisabled
+ *        When CROSS_PROJECT_METADATA_DISABLED, metadata from other projects
+ *        will not be included in the logs. (Value:
+ *        "CROSS_PROJECT_METADATA_DISABLED")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataEnabled
+ *        When CROSS_PROJECT_METADATA_ENABLED, metadata from other projects will
+ *        be included in the logs. (Value: "CROSS_PROJECT_METADATA_ENABLED")
+ *    @arg @c kGTLRNetworkManagement_VpcFlowLogsConfig_CrossProjectMetadata_CrossProjectMetadataUnspecified
+ *        If not specified, the default is CROSS_PROJECT_METADATA_ENABLED.
+ *        (Value: "CROSS_PROJECT_METADATA_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crossProjectMetadata;
+
+/**
  *  Optional. The user-supplied description of the VPC Flow Logs configuration.
  *  Maximum of 512 characters.
  *
@@ -6801,6 +7364,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Traffic will be logged from VMs, VPN tunnels and Interconnect Attachments
+ *  within the network. Format: projects/{project_id}/global/networks/{name}
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
  *  Optional. The state of the VPC Flow Log configuration. Default value is
  *  ENABLED. When creating a new configuration, it must be enabled. Setting
  *  state=DISABLED will pause the log generation for this config.
@@ -6815,6 +7384,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        not specified, will default to ENABLED. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Traffic will be logged from VMs within the subnetwork. Format:
+ *  projects/{project_id}/regions/{region}/subnetworks/{name}
+ */
+@property(nonatomic, copy, nullable) NSString *subnet;
 
 /**
  *  Output only. Describes the state of the configured target resource for

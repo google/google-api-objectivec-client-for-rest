@@ -3024,7 +3024,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 /** Geo criteria IDs to be targeted. Refer to Geo tables. */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_CriteriaTargeting *geoTargeting;
 
-/** Inventory sizes to be targeted. */
+/**
+ *  Inventory sizes to be targeted. Only PIXEL inventory size type is supported.
+ */
 @property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_InventorySizeTargeting *inventorySizeTargeting;
 
 /**

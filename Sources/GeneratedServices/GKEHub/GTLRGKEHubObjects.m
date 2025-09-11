@@ -25,7 +25,6 @@ NSString * const kGTLRGKEHub_CloudBuildSpec_SecurityPolicy_SecurityPolicyUnspeci
 // GTLRGKEHub_ClusterUpgradeUpgradeStatus.code
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Complete = @"COMPLETE";
-NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedComplete = @"FORCED_COMPLETE";
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedSoaking = @"FORCED_SOAKING";
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Ineligible = @"INELIGIBLE";
 NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_InProgress = @"IN_PROGRESS";

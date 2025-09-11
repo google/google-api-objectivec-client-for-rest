@@ -18,6 +18,7 @@
 @class GTLRNetworkconnectivity_AuditConfig;
 @class GTLRNetworkconnectivity_AuditLogConfig;
 @class GTLRNetworkconnectivity_AutoAccept;
+@class GTLRNetworkconnectivity_AutoCreatedSubnetworkInfo;
 @class GTLRNetworkconnectivity_Binding;
 @class GTLRNetworkconnectivity_ConsumerPscConfig;
 @class GTLRNetworkconnectivity_ConsumerPscConfig_ProducerInstanceMetadata;
@@ -72,6 +73,8 @@
 @class GTLRNetworkconnectivity_PscPropagationStatus;
 @class GTLRNetworkconnectivity_RegionalEndpoint;
 @class GTLRNetworkconnectivity_RegionalEndpoint_Labels;
+@class GTLRNetworkconnectivity_RemoteTransportProfile;
+@class GTLRNetworkconnectivity_RemoteTransportProfile_Labels;
 @class GTLRNetworkconnectivity_Route;
 @class GTLRNetworkconnectivity_Route_Labels;
 @class GTLRNetworkconnectivity_RouterApplianceInstance;
@@ -96,6 +99,8 @@
 @class GTLRNetworkconnectivity_StateMetadata;
 @class GTLRNetworkconnectivity_StateReason;
 @class GTLRNetworkconnectivity_StateTimeline;
+@class GTLRNetworkconnectivity_Transport;
+@class GTLRNetworkconnectivity_Transport_Labels;
 @class GTLRNetworkconnectivity_VirtualMachine;
 @class GTLRNetworkconnectivity_Warnings;
 @class GTLRNetworkconnectivity_Warnings_Data;
@@ -348,19 +353,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ConsumerPscConnectio
 // GTLRNetworkconnectivity_DestinationEndpoint.state
 
 /**
- *  The Endpoint is invalid.
+ *  The `DestinationEndpoint` resource is invalid.
  *
  *  Value: "INVALID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_DestinationEndpoint_State_Invalid;
 /**
- *  An invalid state as the default case.
+ *  An invalid state, which is the default case.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_DestinationEndpoint_State_StateUnspecified;
 /**
- *  The Endpoint is valid.
+ *  The `DestinationEndpoint` resource is valid.
  *
  *  Value: "VALID"
  */
@@ -1081,28 +1086,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RouteTable_State_Upd
 // GTLRNetworkconnectivity_ServiceConfig.eligibilityCriteria
 
 /**
- *  An invalid eligibility criteria as the default case.
+ *  The service is not eligible for Data Transfer Essentials configuration. This
+ *  is the default case.
  *
  *  Value: "ELIGIBILITY_CRITERIA_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConfig_EligibilityCriteria_EligibilityCriteriaUnspecified;
 /**
- *  The service is eligible for multicloud data transfer only for the premium
- *  network tier.
+ *  The service is eligible for Data Transfer Essentials configuration only for
+ *  Premium Tier.
  *
  *  Value: "NETWORK_SERVICE_TIER_PREMIUM_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConfig_EligibilityCriteria_NetworkServiceTierPremiumOnly;
 /**
- *  The service is eligible for multicloud data transfer only for the standard
- *  network tier.
+ *  The service is eligible for Data Transfer Essentials configuration only for
+ *  Standard Tier.
  *
  *  Value: "NETWORK_SERVICE_TIER_STANDARD_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_ServiceConfig_EligibilityCriteria_NetworkServiceTierStandardOnly;
 /**
- *  The service is eligible for multicloud data transfer only for the regional
- *  endpoint.
+ *  The service is eligible for Data Transfer Essentials configuration only for
+ *  the regional endpoint.
  *
  *  Value: "REQUEST_ENDPOINT_REGIONAL_ENDPOINT_ONLY"
  */
@@ -1429,13 +1435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateMetadata_State_
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateMetadata_State_Deleting;
 /**
- *  An invalid state as the default case.
+ *  An invalid state, which is the default case.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateMetadata_State_StateUnspecified;
 /**
- *  The resource is not in use for billing and is suspended.
+ *  The resource is suspended and not in use.
  *
  *  Value: "SUSPENDED"
  */
@@ -1723,6 +1729,38 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  created or updated in these projects.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoAcceptProjects;
+
+@end
+
+
+/**
+ *  Information for the automatically created subnetwork and its associated IR.
+ */
+@interface GTLRNetworkconnectivity_AutoCreatedSubnetworkInfo : GTLRObject
+
+/**
+ *  Output only. URI of the automatically created Internal Range. Only set if
+ *  the subnetwork mode is AUTO_CREATED during creation.
+ */
+@property(nonatomic, copy, nullable) NSString *internalRange;
+
+/**
+ *  Output only. URI of the automatically created Internal Range reference. Only
+ *  set if the subnetwork mode is AUTO_CREATED during creation.
+ */
+@property(nonatomic, copy, nullable) NSString *internalRangeRef;
+
+/**
+ *  Output only. URI of the automatically created subnetwork. Only set if the
+ *  subnetwork mode is AUTO_CREATED during creation.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/**
+ *  Output only. URI of the automatically created subnetwork reference. Only set
+ *  if the subnetwork mode is AUTO_CREATED during creation.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetworkRef;
 
 @end
 
@@ -2078,35 +2116,37 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The Destination resource.
+ *  The `Destination` resource. It specifies the IP prefix and the associated
+ *  autonomous system numbers (ASN) that you want to include in a
+ *  `MulticloudDataTransferConfig` resource.
  */
 @interface GTLRNetworkconnectivity_Destination : GTLRObject
 
-/** Output only. Time when the Destination was created. */
+/** Output only. Time when the `Destination` resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. An optional field to provide a description of this resource.
+ *  Optional. A description of this resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Unordered list. The list of Endpoints configured for the IP
- *  Prefix.
+ *  Required. Unordered list. The list of `DestinationEndpoint` resources
+ *  configured for the IP prefix.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_DestinationEndpoint *> *endpoints;
 
 /**
- *  The etag is computed by the server, and may be sent on update and delete
- *  requests to ensure the client has an up-to-date value before proceeding.
+ *  The etag is computed by the server, and might be sent with update and delete
+ *  requests so that the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. Immutable. Remote IP Prefix in the remote CSP, where the
- *  customer's workload is located
+ *  Required. Immutable. The IP prefix that represents your workload on another
+ *  CSP.
  */
 @property(nonatomic, copy, nullable) NSString *ipPrefix;
 
@@ -2114,32 +2154,32 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Destination_Labels *labels;
 
 /**
- *  Identifier. The name of the Destination resource. Format:
+ *  Identifier. The name of the `Destination` resource. Format:
  *  `projects/{project}/locations/{location}/multicloudDataTransferConfigs/{multicloud_data_transfer_config}/destinations/{destination}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The timeline of the expected Destination states or the current
- *  rest state. If a state change is expected, the value will be the list of
- *  ADDING, DELETING or SUSPENDING statesdepending on the actions taken.
- *  Example: "state_timeline": { "states": [ { "state": "ADDING", // The time
- *  when the Destination will be activated. "effective_time":
- *  "2024-12-01T08:00:00Z" }, { "state": "SUSPENDING", // The time when the
- *  Destination will be suspended. "effective_time": "2024-12-01T20:00:00Z" } ]
- *  }
+ *  Output only. The timeline of the expected `Destination` states or the
+ *  current rest state. If a state change is expected, the value is `ADDING`,
+ *  `DELETING` or `SUSPENDING`, depending on the action specified. Example:
+ *  "state_timeline": { "states": [ { // The time when the `Destination`
+ *  resource will be activated. "effectiveTime": "2024-12-01T08:00:00Z",
+ *  "state": "ADDING" }, { // The time when the `Destination` resource will be
+ *  suspended. "effectiveTime": "2024-12-01T20:00:00Z", "state": "SUSPENDING" }
+ *  ] }
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_StateTimeline *stateTimeline;
 
 /**
- *  Output only. The Google-generated UUID for the destination. This value is
- *  unique across all destination resources. If a destination is deleted and
- *  another with the same name is created, the new destination is assigned a
- *  different uid.
+ *  Output only. The Google-generated unique ID for the `Destination` resource.
+ *  This value is unique across all `Destination` resources. If a resource is
+ *  deleted and another with the same name is created, the new resource is
+ *  assigned a different and unique ID.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. Time when the Destination was updated. */
+/** Output only. Time when the `Destination` resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -2158,34 +2198,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The metadata for a DestinationEndpoint.
+ *  The metadata for a `DestinationEndpoint` resource.
  */
 @interface GTLRNetworkconnectivity_DestinationEndpoint : GTLRObject
 
 /**
- *  Required. The ASN of the remote IP Prefix.
+ *  Required. The ASN of the remote IP prefix.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *asn;
 
-/** Required. The name of the CSP of the remote IP Prefix. */
+/** Required. The CSP of the remote IP prefix. */
 @property(nonatomic, copy, nullable) NSString *csp;
 
 /**
- *  Output only. The state of the Endpoint.
+ *  Output only. The state of the `DestinationEndpoint` resource.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_DestinationEndpoint_State_Invalid The
- *        Endpoint is invalid. (Value: "INVALID")
+ *        `DestinationEndpoint` resource is invalid. (Value: "INVALID")
  *    @arg @c kGTLRNetworkconnectivity_DestinationEndpoint_State_StateUnspecified
- *        An invalid state as the default case. (Value: "STATE_UNSPECIFIED")
+ *        An invalid state, which is the default case. (Value:
+ *        "STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_DestinationEndpoint_State_Valid The
- *        Endpoint is valid. (Value: "VALID")
+ *        `DestinationEndpoint` resource is valid. (Value: "VALID")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output only. Time when the DestinationEndpoint was updated. */
+/** Output only. Time when the `DestinationEndpoint` resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -3180,7 +3221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Response message for ListDestinations.
+ *  Response message to list `Destination` resources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "destinations" property. If returned as the result of a query, it
@@ -3190,7 +3231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_ListDestinationsResponse : GTLRCollectionObject
 
 /**
- *  Destinations to be returned.
+ *  The list of `Destination` resources to be listed.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3355,7 +3396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Response message for ListMulticloudDataTransferConfigs.
+ *  Response message to list `MulticloudDataTransferConfig` resources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "multicloudDataTransferConfigs" property. If returned as the
@@ -3365,7 +3406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_ListMulticloudDataTransferConfigsResponse : GTLRCollectionObject
 
 /**
- *  MulticloudDataTransferConfigs to be returned.
+ *  The list of `MulticloudDataTransferConfig` resources to be listed.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3382,7 +3423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Response message for ListMulticloudDataTransferSupportedServices.
+ *  Response message to list the services in your project in regions that are
+ *  eligible for Data Transfer Essentials configuration.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "multicloudDataTransferSupportedServices" property. If returned as
@@ -3460,6 +3502,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RegionalEndpoint *> *regionalEndpoints;
 
 /** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing RemoteTransportProfiles
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "remoteTransportProfiles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RemoteTransportProfiles
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RemoteTransportProfile *> *remoteTransportProfiles;
+
+/** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -3679,6 +3748,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  Message for response to listing Transports
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "transports" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkconnectivity_ListTransportsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Transport
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Transport *> *transports;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  A resource that represents a Google Cloud location.
  */
 @interface GTLRNetworkconnectivity_Location : GTLRObject
@@ -3774,40 +3870,43 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The MulticloudDataTransferConfig resource. This lists the services for which
- *  customer is opting in for Multicloud Data Transfer.
+ *  The `MulticloudDataTransferConfig` resource. It lists the services that you
+ *  configure for Data Transfer Essentials billing and metering.
  */
 @interface GTLRNetworkconnectivity_MulticloudDataTransferConfig : GTLRObject
 
-/** Output only. Time when the MulticloudDataTransferConfig was created. */
+/**
+ *  Output only. Time when the `MulticloudDataTransferConfig` resource was
+ *  created.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. An optional field to provide a description of this resource.
+ *  Optional. A description of this resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. The number of Destinations in use under the
- *  MulticloudDataTransferConfig resource.
+ *  Output only. The number of `Destination` resources in use with the
+ *  `MulticloudDataTransferConfig` resource.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *destinationsActiveCount;
 
 /**
- *  Output only. The number of Destinations configured under the
- *  MulticloudDataTransferConfig resource.
+ *  Output only. The number of `Destination` resources configured for the
+ *  `MulticloudDataTransferConfig` resource.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *destinationsCount;
 
 /**
- *  The etag is computed by the server, and may be sent on update and delete
- *  requests to ensure the client has an up-to-date value before proceeding.
+ *  The etag is computed by the server, and might be sent with update and delete
+ *  requests so that the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -3815,31 +3914,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_MulticloudDataTransferConfig_Labels *labels;
 
 /**
- *  Identifier. The name of the MulticloudDataTransferConfig resource. Format:
+ *  Identifier. The name of the `MulticloudDataTransferConfig` resource. Format:
  *  `projects/{project}/locations/{location}/multicloudDataTransferConfigs/{multicloud_data_transfer_config}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. This map services to either their current or planned states.
- *  Service names are keys, and the associated values describe the service's
- *  state. If a state change is expected, the value will be the list of ADDING
- *  or DELETING states depending on the actions taken. Example: "services": {
- *  "big-query": { "states": [ { "state": "ADDING", "effective_time":
- *  "2024-12-12T08:00:00Z" }, ] }, "cloud-storage": { "states": [ { "state":
- *  "ACTIVE", } ] } }
+ *  Optional. Maps services to their current or planned states. Service names
+ *  are keys, and the associated values describe the state of the service. If a
+ *  state change is expected, the value is either `ADDING` or `DELETING`,
+ *  depending on the actions taken. Sample output: "services": { "big-query": {
+ *  "states": [ { "effectiveTime": "2024-12-12T08:00:00Z" "state": "ADDING", },
+ *  ] }, "cloud-storage": { "states": [ { "state": "ACTIVE", } ] } }
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_MulticloudDataTransferConfig_Services *services;
 
 /**
- *  Output only. The Google-generated UUID for the MulticloudDataTransferConfig.
- *  This value is unique across all MulticloudDataTransferConfig resources. If a
- *  MulticloudDataTransferConfig is deleted and another with the same name is
- *  created, the new MulticloudDataTransferConfig is assigned a different uid.
+ *  Output only. The Google-generated unique ID for the
+ *  `MulticloudDataTransferConfig` resource. This value is unique across all
+ *  `MulticloudDataTransferConfig` resources. If a resource is deleted and
+ *  another with the same name is created, the new resource is assigned a
+ *  different and unique ID.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. Time when the MulticloudDataTransferConfig was updated. */
+/**
+ *  Output only. Time when the `MulticloudDataTransferConfig` resource was
+ *  updated.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -3858,13 +3960,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Optional. This map services to either their current or planned states.
- *  Service names are keys, and the associated values describe the service's
- *  state. If a state change is expected, the value will be the list of ADDING
- *  or DELETING states depending on the actions taken. Example: "services": {
- *  "big-query": { "states": [ { "state": "ADDING", "effective_time":
- *  "2024-12-12T08:00:00Z" }, ] }, "cloud-storage": { "states": [ { "state":
- *  "ACTIVE", } ] } }
+ *  Optional. Maps services to their current or planned states. Service names
+ *  are keys, and the associated values describe the state of the service. If a
+ *  state change is expected, the value is either `ADDING` or `DELETING`,
+ *  depending on the actions taken. Sample output: "services": { "big-query": {
+ *  "states": [ { "effectiveTime": "2024-12-12T08:00:00Z" "state": "ADDING", },
+ *  ] }, "cloud-storage": { "states": [ { "state": "ACTIVE", } ] } }
  *
  *  @note This class is documented as having more properties of
  *        GTLRNetworkconnectivity_StateTimeline. Use @c -additionalJSONKeys and
@@ -3876,14 +3977,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The supported service for Multicloud Data Transfer.
+ *  A service in your project in a region that is eligible for Data Transfer
+ *  Essentials configuration.
  */
 @interface GTLRNetworkconnectivity_MulticloudDataTransferSupportedService : GTLRObject
 
 /** Identifier. The name of the service. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. The network service tiers supported for the service. */
+/**
+ *  Output only. The network service tier or regional endpoint supported for the
+ *  service.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_ServiceConfig *> *serviceConfigs;
 
 @end
@@ -4703,6 +4808,38 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  Message describing RemoteTransportProfile object
+ */
+@interface GTLRNetworkconnectivity_RemoteTransportProfile : GTLRObject
+
+/** Output only. [Output only] Create time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_RemoteTransportProfile_Labels *labels;
+
+/** Identifier. name of resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. [Output only] Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_RemoteTransportProfile_Labels : GTLRObject
+@end
+
+
+/**
  *  A route defines a path from VM instances within a spoke to a specific
  *  destination resource. Only VPC spokes have routes.
  */
@@ -5036,37 +5173,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Specifies the Multicloud Data Transfer supported services configuration.
- *  This includes either the network tier or the request endpoint. If end of
- *  support for multicloud data transfer is planned for a service's network tier
- *  or request endpoint, the end time will be provided.
+ *  Specifies eligibility information for the service.
  */
 @interface GTLRNetworkconnectivity_ServiceConfig : GTLRObject
 
 /**
- *  Output only. The eligibility criteria for the service. The user has to meet
- *  the eligibility criteria specified here for the service to qualify for
- *  multicloud data transfer.
+ *  Output only. The eligibility criteria for the service.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_ServiceConfig_EligibilityCriteria_EligibilityCriteriaUnspecified
- *        An invalid eligibility criteria as the default case. (Value:
+ *        The service is not eligible for Data Transfer Essentials
+ *        configuration. This is the default case. (Value:
  *        "ELIGIBILITY_CRITERIA_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_ServiceConfig_EligibilityCriteria_NetworkServiceTierPremiumOnly
- *        The service is eligible for multicloud data transfer only for the
- *        premium network tier. (Value: "NETWORK_SERVICE_TIER_PREMIUM_ONLY")
+ *        The service is eligible for Data Transfer Essentials configuration
+ *        only for Premium Tier. (Value: "NETWORK_SERVICE_TIER_PREMIUM_ONLY")
  *    @arg @c kGTLRNetworkconnectivity_ServiceConfig_EligibilityCriteria_NetworkServiceTierStandardOnly
- *        The service is eligible for multicloud data transfer only for the
- *        standard network tier. (Value: "NETWORK_SERVICE_TIER_STANDARD_ONLY")
+ *        The service is eligible for Data Transfer Essentials configuration
+ *        only for Standard Tier. (Value: "NETWORK_SERVICE_TIER_STANDARD_ONLY")
  *    @arg @c kGTLRNetworkconnectivity_ServiceConfig_EligibilityCriteria_RequestEndpointRegionalEndpointOnly
- *        The service is eligible for multicloud data transfer only for the
- *        regional endpoint. (Value: "REQUEST_ENDPOINT_REGIONAL_ENDPOINT_ONLY")
+ *        The service is eligible for Data Transfer Essentials configuration
+ *        only for the regional endpoint. (Value:
+ *        "REQUEST_ENDPOINT_REGIONAL_ENDPOINT_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *eligibilityCriteria;
 
 /**
- *  Output only. The eligibility criteria support end time. If the end time is
- *  not specified, no planned end time is available.
+ *  Output only. The end time for eligibility criteria support. If not
+ *  specified, no planned end time is set.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *supportEndTime;
 
@@ -5130,7 +5264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /**
  *  The service class identifier this ServiceConnectionMap is for. The user of
  *  ServiceConnectionMap create API needs to have
- *  networkconnecitivty.serviceclasses.use iam permission for the service class.
+ *  networkconnectivity.serviceClasses.use IAM permission for the service class.
  */
 @property(nonatomic, copy, nullable) NSString *serviceClass;
 
@@ -5165,6 +5299,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  The ServiceConnectionPolicy resource.
  */
 @interface GTLRNetworkconnectivity_ServiceConnectionPolicy : GTLRObject
+
+/**
+ *  Output only. Information for the automatically created subnetwork and its
+ *  associated IR.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_AutoCreatedSubnetworkInfo *autoCreatedSubnetInfo;
 
 /** Output only. Time when the ServiceConnectionPolicy was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -5650,12 +5790,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_StateMetadata : GTLRObject
 
 /**
- *  Output only. This field will be accompanied only with transient states
- *  (PENDING_ADD, PENDING_DELETE, PENDING_SUSPENSION) and denotes the time when
- *  the transient state of the resource will be effective. For instance, if the
- *  state is "ADDING," this field will show the time the resource transitions to
- *  "ACTIVE." Similarly, if the state is "PENDING_DELETE," it will show the
- *  deletion time.
+ *  Output only. Accompanies only the transient states, which include `ADDING`,
+ *  `DELETING`, and `SUSPENDING`, to denote the time until which the transient
+ *  state of the resource will be effective. For instance, if the state is
+ *  `ADDING`, this field shows the time when the resource state transitions to
+ *  `ACTIVE`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
 
@@ -5670,10 +5809,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *    @arg @c kGTLRNetworkconnectivity_StateMetadata_State_Deleting The resource
  *        is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRNetworkconnectivity_StateMetadata_State_StateUnspecified An
- *        invalid state as the default case. (Value: "STATE_UNSPECIFIED")
+ *        invalid state, which is the default case. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkconnectivity_StateMetadata_State_Suspended The
- *        resource is not in use for billing and is suspended. (Value:
- *        "SUSPENDED")
+ *        resource is suspended and not in use. (Value: "SUSPENDED")
  *    @arg @c kGTLRNetworkconnectivity_StateMetadata_State_Suspending The
  *        resource is being suspended. (Value: "SUSPENDING")
  */
@@ -5724,7 +5862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The timeline of pending states for a resource.
+ *  The timeline of the pending states for a resource.
  */
 @interface GTLRNetworkconnectivity_StateTimeline : GTLRObject
 
@@ -5761,6 +5899,38 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  Message describing Transport object
+ */
+@interface GTLRNetworkconnectivity_Transport : GTLRObject
+
+/** Output only. [Output only] Create time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Labels as key value pairs */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Transport_Labels *labels;
+
+/** Identifier. name of resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. [Output only] Update time stamp */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_Transport_Labels : GTLRObject
 @end
 
 

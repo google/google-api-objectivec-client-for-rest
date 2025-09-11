@@ -2400,7 +2400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
- *  Cloud KMS Autokey configuration for a folder.
+ *  Cloud KMS Autokey configuration for a folder or project.
  */
 @interface GTLRCloudKMS_AutokeyConfig : GTLRObject
 
@@ -2427,7 +2427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -1618,7 +1618,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
- *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesBatchDelete : GTLRBigqueryQuery
 
@@ -1663,7 +1662,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
- *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesDelete : GTLRBigqueryQuery
 
@@ -1802,7 +1800,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
- *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesInsert : GTLRBigqueryQuery
 
@@ -1944,7 +1941,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryViewTableMetadataViewUnspecified
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
- *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesUpdate : GTLRBigqueryQuery
 

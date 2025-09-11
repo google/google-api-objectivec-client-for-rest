@@ -45,6 +45,7 @@
 @class GTLRDatastream_LogFileDirectories;
 @class GTLRDatastream_LogMiner;
 @class GTLRDatastream_Merge;
+@class GTLRDatastream_MongodbChangeStreamPosition;
 @class GTLRDatastream_MongodbCluster;
 @class GTLRDatastream_MongodbCollection;
 @class GTLRDatastream_MongodbDatabase;
@@ -1439,6 +1440,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  destination table.
  */
 @interface GTLRDatastream_Merge : GTLRObject
+@end
+
+
+/**
+ *  MongoDB change stream position
+ */
+@interface GTLRDatastream_MongodbChangeStreamPosition : GTLRObject
+
+/** Required. The timestamp (in epoch seconds) to start change stream from. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 
@@ -3025,6 +3037,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  CDC strategy to start replicating from a specific position in the source.
  */
 @interface GTLRDatastream_SpecificStartPosition : GTLRObject
+
+/** MongoDB change stream position to start replicating from. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbChangeStreamPosition *mongodbChangeStreamPosition;
 
 /** MySQL GTID set to start replicating from. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlGtidPosition *mysqlGtidPosition;

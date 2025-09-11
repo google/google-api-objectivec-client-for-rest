@@ -146,13 +146,30 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseAppHosting_ArchiveSource
+//
+
+@implementation GTLRFirebaseAppHosting_ArchiveSource
+@dynamic author, descriptionProperty, externalSignedUri, rootDirectory,
+         userStorageUri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseAppHosting_Backend
 //
 
 @implementation GTLRFirebaseAppHosting_Backend
 @dynamic annotations, appId, codebase, createTime, deleteTime, displayName,
          environment, ETag, labels, managedResources, mode, name, reconciling,
-         serviceAccount, servingLocality, uid, updateTime, uri;
+         requestLogsDisabled, serviceAccount, servingLocality, uid, updateTime,
+         uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -254,7 +271,7 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 //
 
 @implementation GTLRFirebaseAppHosting_BuildSource
-@dynamic codebase, container;
+@dynamic archive, codebase, container;
 @end
 
 
@@ -853,6 +870,16 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 
 @implementation GTLRFirebaseAppHosting_ServingBehavior
 @dynamic redirect;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseAppHosting_SourceUserMetadata
+//
+
+@implementation GTLRFirebaseAppHosting_SourceUserMetadata
+@dynamic displayName, email, imageUri;
 @end
 
 

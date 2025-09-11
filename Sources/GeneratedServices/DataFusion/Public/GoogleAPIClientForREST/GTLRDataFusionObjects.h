@@ -169,6 +169,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_DisabledReason_Disab
  *  Value: "KMS_KEY_ISSUE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_DisabledReason_KmsKeyIssue;
+/**
+ *  The consumer project is in a non-ACTIVE state.
+ *
+ *  Value: "PROJECT_STATE_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_DisabledReason_ProjectStateOff;
 
 // ----------------------------------------------------------------------------
 // GTLRDataFusion_Instance.state
@@ -210,6 +216,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Deleting;
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Disabled;
+/**
+ *  Instance is being enabled.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Enabling;
 /**
  *  Instance creation failed
  *
@@ -873,6 +885,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *        (Value: "DELETING")
  *    @arg @c kGTLRDataFusion_Instance_State_Disabled Instance is disabled
  *        (Value: "DISABLED")
+ *    @arg @c kGTLRDataFusion_Instance_State_Enabling Instance is being enabled.
+ *        (Value: "ENABLING")
  *    @arg @c kGTLRDataFusion_Instance_State_Failed Instance creation failed
  *        (Value: "FAILED")
  *    @arg @c kGTLRDataFusion_Instance_State_Restarting Instance is being

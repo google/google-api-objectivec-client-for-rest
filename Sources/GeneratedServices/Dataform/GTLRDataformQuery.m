@@ -17,6 +17,83 @@
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  GTLRDataformQuery_ProjectsLocationsFoldersGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_Policy class];
+  query.loggingName = @"dataform.projects.locations.folders.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataform_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  GTLRDataformQuery_ProjectsLocationsFoldersSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_Policy class];
+  query.loggingName = @"dataform.projects.locations.folders.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataform_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  GTLRDataformQuery_ProjectsLocationsFoldersTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_TestIamPermissionsResponse class];
+  query.loggingName = @"dataform.projects.locations.folders.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -76,6 +153,90 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataform_ListLocationsResponse class];
   query.loggingName = @"dataform.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataform_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  GTLRDataformQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.loggingName = @"dataform.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.loggingName = @"dataform.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Operation class];
+  query.loggingName = @"dataform.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  GTLRDataformQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_ListOperationsResponse class];
+  query.loggingName = @"dataform.projects.locations.operations.list";
   return query;
 }
 
@@ -1394,6 +1555,83 @@
   query.workspace = workspace;
   query.expectedObjectClass = [GTLRDataform_WriteFileResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.workspaces.writeFile";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_Policy class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataform_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_Policy class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataform_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataform_TestIamPermissionsResponse class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.testIamPermissions";
   return query;
 }
 

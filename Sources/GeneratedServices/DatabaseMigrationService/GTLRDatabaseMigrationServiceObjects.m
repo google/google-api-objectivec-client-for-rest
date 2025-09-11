@@ -1296,6 +1296,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_HeterogeneousMetadata
+//
+
+@implementation GTLRDatabaseMigrationService_HeterogeneousMetadata
+@dynamic unsupportedEventsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_ImportMappingRulesRequest
 //
 
@@ -1751,7 +1761,8 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_MigrationJobObject
-@dynamic createTime, error, name, phase, sourceObject, state, updateTime;
+@dynamic createTime, error, heterogeneousMetadata, name, phase, sourceObject,
+         state, updateTime;
 @end
 
 
@@ -2459,9 +2470,20 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SqlServerConnectionProfile
-@dynamic backups, cloudSqlId, database, forwardSshConnectivity, host, password,
-         passwordSet, port, privateConnectivity,
-         privateServiceConnectConnectivity, ssl, staticIpConnectivity, username;
+@dynamic backups, cloudSqlId, cloudSqlProjectId, database, dbmPort,
+         forwardSshConnectivity, host, password, passwordSet, port,
+         privateConnectivity, privateServiceConnectConnectivity, ssl,
+         staticIpConnectivity, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SqlServerDagConfig
+//
+
+@implementation GTLRDatabaseMigrationService_SqlServerDagConfig
+@dynamic linkedServer, sourceAg;
 @end
 
 
@@ -2491,7 +2513,8 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig
-@dynamic backupFilePattern, databaseBackups, promoteWhenReady, useDiffBackup;
+@dynamic backupFilePattern, dagConfig, databaseBackups, promoteWhenReady,
+         useDiffBackup;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
