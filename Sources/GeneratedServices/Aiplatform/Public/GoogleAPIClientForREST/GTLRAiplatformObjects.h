@@ -60,6 +60,9 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1BatchReadFeatureValuesRequestEntityTypeSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BatchReadFeatureValuesRequestPassThroughField;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BigQueryDestination;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSet;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSet_CandidateResponseColumns;
+@class GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSetSamplingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BigQuerySource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BleuInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1BleuInstance;
@@ -72,6 +75,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1CachedContent;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CachedContentUsageMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Candidate;
+@class GTLRAiplatform_GoogleCloudAiplatformV1CandidateResponse;
+@class GTLRAiplatform_GoogleCloudAiplatformV1CandidateResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Checkpoint;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Citation;
 @class GTLRAiplatform_GoogleCloudAiplatformV1CitationMetadata;
@@ -160,6 +165,42 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluatedAnnotation;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluatedAnnotationExplanation;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationDataset;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstance_RubricGroups;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceData;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceDataContents;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceMapInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceMapInstance_MapInstance;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPrompt;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPromptPromptTemplateData;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPromptPromptTemplateData_Values;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRequest;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRequest_Rubrics;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationResults;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRubricConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_InferenceConfigs;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunDataSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigAutoraterConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigOutputConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigPromptTemplate;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunInferenceConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetric;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Parameters;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec_AdditionalConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec_Parameters;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricBasedMetricSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricBasedMetricSpecRepeatedRubrics;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Event;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Event_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInput;
@@ -345,6 +386,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1MetadataStoreDataplexConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MetadataStoreMetadataStoreState;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Metric;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MetricResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MetricxInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MetricxInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MetricxResult;
@@ -445,6 +487,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplateRef;
 @class GTLRAiplatform_GoogleCloudAiplatformV1NotebookSoftwareConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1OutputConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult;
@@ -486,6 +529,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1Port;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PostStartupScriptConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PrebuiltVoiceConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PredefinedMetricSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PredefinedMetricSpec_MetricSpecParameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PredefinedSplit;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PredictRequestResponseLoggingConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PredictSchemata;
@@ -575,6 +620,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerMonthUsageData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerUserUsageData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_ClassMethods_Item;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec;
@@ -597,11 +643,17 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RougeResults;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RougeSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Rubric;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RubricContent;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RubricContentProperty;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RubricCritiqueResult;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RubricGroup;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RubricVerdict;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SafetyInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SafetyInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating;
@@ -779,11 +831,16 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbosityResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SummarizationVerbositySpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummaryMetrics;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SummaryMetrics_Metrics;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistribution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDatasetDistributionDatasetBucket;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningDataStats;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SupervisedTuningSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SyntheticExample;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SyntheticField;
+@class GTLRAiplatform_GoogleCloudAiplatformV1TaskDescriptionStrategy;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensor;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensor_StructVal;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Tensorboard;
@@ -1255,6 +1312,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BatchP
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BatchPredictionJob_State_JobStateUpdating;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSetSamplingConfig.samplingMethod
+
+/**
+ *  Random sampling.
+ *
+ *  Value: "RANDOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSetSamplingConfig_SamplingMethod_Random;
+/**
+ *  Unspecified sampling method.
+ *
+ *  Value: "SAMPLING_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSetSamplingConfig_SamplingMethod_SamplingMethodUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1Candidate.finishReason
 
 /**
@@ -1295,7 +1368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candid
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_ImageSafety;
 /**
- *  The function call generated by the model is invalid.
+ *  The function call generated by the model is syntaxtically invalid (e.g. the
+ *  function call generated is not parsable).
  *
  *  Value: "MALFORMED_FUNCTION_CALL"
  */
@@ -1353,7 +1427,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candid
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_Stop;
 /**
- *  The tool call generated by the model is invalid.
+ *  The function call generated by the model is semantically invalid (e.g. a
+ *  function call is generated when function calling is not enabled or the
+ *  function is not in the function declaration).
  *
  *  Value: "UNEXPECTED_TOOL_CALL"
  */
@@ -1796,6 +1872,136 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Evalua
  *  Value: "TRUE_POSITIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluatedAnnotation_Type_TruePositive;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem.evaluationItemType
+
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "EVALUATION_ITEM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_EvaluationItemType_EvaluationItemTypeUnspecified;
+/**
+ *  The EvaluationItem is a request to evaluate.
+ *
+ *  Value: "REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_EvaluationItemType_Request;
+/**
+ *  The EvaluationItem is the result of evaluation.
+ *
+ *  Value: "RESULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_EvaluationItemType_Result;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun.state
+
+/**
+ *  The evaluation run has been cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Cancelled;
+/**
+ *  The evaluation run has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Failed;
+/**
+ *  The evaluation run is performing rubric generation.
+ *
+ *  Value: "GENERATING_RUBRICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_GeneratingRubrics;
+/**
+ *  The evaluation run is performing inference.
+ *
+ *  Value: "INFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Inference;
+/**
+ *  The evaluation run is pending.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Pending;
+/**
+ *  The evaluation run is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Running;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_StateUnspecified;
+/**
+ *  The evaluation run has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec.type
+
+/**
+ *  BLEU metric.
+ *
+ *  Value: "BLEU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Bleu;
+/**
+ *  Unspecified computation based metric type.
+ *
+ *  Value: "COMPUTATION_BASED_METRIC_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ComputationBasedMetricTypeUnspecified;
+/**
+ *  Exact match metric.
+ *
+ *  Value: "EXACT_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ExactMatch;
+/**
+ *  ROUGE metric.
+ *
+ *  Value: "ROUGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Rouge;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec.rubricContentType
+
+/**
+ *  Generate rubrics in an NL question answer format.
+ *
+ *  Value: "NL_QUESTION_ANSWER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_NlQuestionAnswer;
+/**
+ *  Generate rubrics based on properties.
+ *
+ *  Value: "PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_Property;
+/**
+ *  Generate rubrics in a unit test format.
+ *
+ *  Value: "PYTHON_CODE_ASSERTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_PythonCodeAssertion;
+/**
+ *  The content type to generate is not specified.
+ *
+ *  Value: "RUBRIC_CONTENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_RubricContentTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1Event.type
@@ -4029,6 +4235,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Notebo
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1NotebookRuntimeTemplate_NotebookRuntimeType_UserDefined;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec.fieldType
+
+/**
+ *  Audio field type.
+ *
+ *  Value: "AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_Audio;
+/**
+ *  Arbitrary content field type.
+ *
+ *  Value: "CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_Content;
+/**
+ *  Field type is unspecified.
+ *
+ *  Value: "FIELD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_FieldTypeUnspecified;
+/**
+ *  Image field type.
+ *
+ *  Value: "IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_Image;
+/**
+ *  Text field type.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_Text;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricResult.pairwiseChoice
 
 /**
@@ -4604,6 +4844,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Reserv
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity_ReservationAffinityType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1Rubric.importance
+
+/**
+ *  High importance.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Rubric_Importance_High;
+/**
+ *  Importance is not specified.
+ *
+ *  Value: "IMPORTANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Rubric_Importance_ImportanceUnspecified;
+/**
+ *  Low importance.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Rubric_Importance_Low;
+/**
+ *  Medium importance.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Rubric_Importance_Medium;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec.rubricContentType
+
+/**
+ *  Generate rubrics in an NL question answer format.
+ *
+ *  Value: "NL_QUESTION_ANSWER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec_RubricContentType_NlQuestionAnswer;
+/**
+ *  Generate rubrics based on properties.
+ *
+ *  Value: "PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec_RubricContentType_Property;
+/**
+ *  Generate rubrics in a unit test format.
+ *
+ *  Value: "PYTHON_CODE_ASSERTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec_RubricContentType_PythonCodeAssertion;
+/**
+ *  The content type to generate is not specified.
+ *
+ *  Value: "RUBRIC_CONTENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec_RubricContentType_RubricContentTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating.category
@@ -8400,6 +8696,87 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  The request set for the evaluation run.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSet : GTLRObject
+
+/**
+ *  Optional. Map of candidate name to candidate response column name. The
+ *  column will be in evaluation_item.CandidateResponse format.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSet_CandidateResponseColumns *candidateResponseColumns;
+
+/**
+ *  Optional. The name of the column that contains the requests to evaluate.
+ *  This will be in evaluation_item.EvalPrompt format.
+ */
+@property(nonatomic, copy, nullable) NSString *promptColumn;
+
+/**
+ *  Optional. The name of the column that contains the rubrics. This will be in
+ *  evaluation_rubric.RubricGroup format (cl/762595858).
+ */
+@property(nonatomic, copy, nullable) NSString *rubricsColumn;
+
+/** Optional. The sampling config for the bigquery resource. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSetSamplingConfig *samplingConfig;
+
+/**
+ *  Required. The URI of a BigQuery table. e.g.
+ *  bq://projectId.bqDatasetId.bqTableId
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Optional. Map of candidate name to candidate response column name. The
+ *  column will be in evaluation_item.CandidateResponse format.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSet_CandidateResponseColumns : GTLRObject
+@end
+
+
+/**
+ *  The sampling config.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSetSamplingConfig : GTLRObject
+
+/**
+ *  Optional. The total number of logged data to import. If available data is
+ *  less than the sampling count, all data will be imported. Default is 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingCount;
+
+/**
+ *  Optional. How long to wait before sampling data from the BigQuery table. If
+ *  not specified, defaults to 0.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *samplingDuration;
+
+/**
+ *  Optional. The sampling method to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSetSamplingConfig_SamplingMethod_Random
+ *        Random sampling. (Value: "RANDOM")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSetSamplingConfig_SamplingMethod_SamplingMethodUnspecified
+ *        Unspecified sampling method. (Value: "SAMPLING_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *samplingMethod;
+
+@end
+
+
+/**
  *  The BigQuery location for the input content.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1BigQuerySource : GTLRObject
@@ -8711,6 +9088,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  Request message for EvaluationManagementService.CancelEvaluationRun.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CancelEvaluationRunRequest : GTLRObject
+@end
+
+
+/**
  *  Request message for JobService.CancelHyperparameterTuningJob.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1CancelHyperparameterTuningJobRequest : GTLRObject
@@ -8792,7 +9176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *        Token generation stopped because generated images has safety
  *        violations. (Value: "IMAGE_SAFETY")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MalformedFunctionCall
- *        The function call generated by the model is invalid. (Value:
+ *        The function call generated by the model is syntaxtically invalid
+ *        (e.g. the function call generated is not parsable). (Value:
  *        "MALFORMED_FUNCTION_CALL")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_MaxTokens
  *        Token generation reached the configured maximum output tokens. (Value:
@@ -8818,7 +9203,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *        Token generation reached a natural stopping point or a configured stop
  *        sequence. (Value: "STOP")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Candidate_FinishReason_UnexpectedToolCall
- *        The tool call generated by the model is invalid. (Value:
+ *        The function call generated by the model is semantically invalid (e.g.
+ *        a function call is generated when function calling is not enabled or
+ *        the function is not in the function declaration). (Value:
  *        "UNEXPECTED_TOOL_CALL")
  */
 @property(nonatomic, copy, nullable) NSString *finishReason;
@@ -8848,6 +9235,64 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 /** Output only. Metadata related to url context retrieval tool. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1UrlContextMetadata *urlContextMetadata;
+
+@end
+
+
+/**
+ *  Responses from model or agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CandidateResponse : GTLRObject
+
+/** Required. The name of the candidate that produced the response. */
+@property(nonatomic, copy, nullable) NSString *candidate;
+
+/** Text response. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Fields and values that can be used to populate the response template.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id value;
+
+@end
+
+
+/**
+ *  Result for a single candidate.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1CandidateResult : GTLRObject
+
+/**
+ *  Optional. Additional results for the metric.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id additionalResults;
+
+/**
+ *  Required. The candidate that is being evaluated. The value is the same as
+ *  the candidate name in the EvaluationRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *candidate;
+
+/** Optional. The explanation for the metric. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/** Required. The metric that was evaluated. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/** Optional. The rubric verdicts for the metric. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1RubricVerdict *> *rubricVerdicts;
+
+/**
+ *  Optional. The score for the metric.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -12899,6 +13344,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 /** Input for groundedness metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundednessInput *groundednessInput;
 
+/** The instance to be evaluated. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstance *instance;
+
+/**
+ *  The metrics used for evaluation. Currently, we only support evaluating a
+ *  single metric. If multiple metrics are provided, only the first one will be
+ *  evaluated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Metric *> *metrics;
+
 /** Input for Metricx metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MetricxInput *metricxInput;
 
@@ -13006,6 +13461,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 /** Result for groundedness metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundednessResult *groundednessResult;
 
+/**
+ *  Metric results for each instance. The order of the metric results is
+ *  guaranteed to be the same as the order of the instances in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MetricResult *> *metricResults;
+
 /** Result for Metricx metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MetricxResult *metricxResult;
 
@@ -13100,6 +13561,851 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  file path is supported.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GcsSource *gcsSource;
+
+@end
+
+
+/**
+ *  A single instance to be evaluated. Instances are used to specify the input
+ *  data for evaluation, from simple string comparisons to complex, multi-turn
+ *  model evaluations
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstance : GTLRObject
+
+/** Optional. Other data used to populate placeholders based on their key. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceMapInstance *otherData;
+
+/**
+ *  Optional. Data used to populate placeholder `prompt` in a metric prompt
+ *  template.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceData *prompt;
+
+/**
+ *  Optional. Data used to populate placeholder `reference` in a metric prompt
+ *  template.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceData *reference;
+
+/**
+ *  Required. Data used to populate placeholder `response` in a metric prompt
+ *  template.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceData *response;
+
+/**
+ *  Optional. Named groups of rubrics associated with the prompt. This is used
+ *  for rubric-based evaluations where rubrics can be referenced by a key. The
+ *  key could represent versions, associated metrics, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstance_RubricGroups *rubricGroups;
+
+@end
+
+
+/**
+ *  Optional. Named groups of rubrics associated with the prompt. This is used
+ *  for rubric-based evaluations where rubrics can be referenced by a key. The
+ *  key could represent versions, associated metrics, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAiplatform_GoogleCloudAiplatformV1RubricGroup. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstance_RubricGroups : GTLRObject
+@end
+
+
+/**
+ *  Instance data used to populate placeholders in a metric prompt template.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceData : GTLRObject
+
+/** List of Gemini content data. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceDataContents *contents;
+
+/** Text data. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  List of standard Content messages from Gemini API.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceDataContents : GTLRObject
+
+/** Optional. Repeated contents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Content *> *contents;
+
+@end
+
+
+/**
+ *  Instance data specified as a map.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceMapInstance : GTLRObject
+
+/** Optional. Map of instance data. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceMapInstance_MapInstance *mapInstance;
+
+@end
+
+
+/**
+ *  Optional. Map of instance data.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceData.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceMapInstance_MapInstance : GTLRObject
+@end
+
+
+/**
+ *  EvaluationItem is a single evaluation request or result. The content of an
+ *  EvaluationItem is immutable - it cannot be updated once created.
+ *  EvaluationItems can be deleted when no longer needed.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem : GTLRObject
+
+/** Output only. Timestamp when this item was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The display name of the EvaluationItem. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. Error for the evaluation item. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleRpcStatus *error;
+
+/**
+ *  Required. The type of the EvaluationItem.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_EvaluationItemType_EvaluationItemTypeUnspecified
+ *        The default value. This value is unused. (Value:
+ *        "EVALUATION_ITEM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_EvaluationItemType_Request
+ *        The EvaluationItem is a request to evaluate. (Value: "REQUEST")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_EvaluationItemType_Result
+ *        The EvaluationItem is the result of evaluation. (Value: "RESULT")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationItemType;
+
+/** The request to evaluate. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRequest *evaluationRequest;
+
+/** Output only. The response from evaluation. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationResult *evaluationResponse;
+
+/** The GCS object where the request or response is stored. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/** Optional. Labels for the EvaluationItem. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_Labels *labels;
+
+/**
+ *  Optional. Metadata for the EvaluationItem.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id metadata;
+
+/**
+ *  Identifier. The resource name of the EvaluationItem. Format:
+ *  `projects/{project}/locations/{location}/evaluationItems/{evaluation_item}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Optional. Labels for the EvaluationItem.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem_Labels : GTLRObject
+@end
+
+
+/**
+ *  Prompt to be evaluated.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPrompt : GTLRObject
+
+/** Prompt template data. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPromptPromptTemplateData *promptTemplateData;
+
+/** Text prompt. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Fields and values that can be used to populate the prompt template.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id value;
+
+@end
+
+
+/**
+ *  Message to hold a prompt template and the values to populate the template.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPromptPromptTemplateData : GTLRObject
+
+/** The values for fields in the prompt template. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPromptPromptTemplateData_Values *values;
+
+@end
+
+
+/**
+ *  The values for fields in the prompt template.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAiplatform_GoogleCloudAiplatformV1Content. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPromptPromptTemplateData_Values : GTLRObject
+@end
+
+
+/**
+ *  Single evaluation request.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRequest : GTLRObject
+
+/**
+ *  Optional. Responses from model under test and other baseline models for
+ *  comparison.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1CandidateResponse *> *candidateResponses;
+
+/** Optional. The Ideal response or ground truth. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1CandidateResponse *goldenResponse;
+
+/** Required. The request/prompt to evaluate. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationPrompt *prompt;
+
+/**
+ *  Optional. Named groups of rubrics associated with this prompt. The key is a
+ *  user-defined name for the rubric group.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRequest_Rubrics *rubrics;
+
+@end
+
+
+/**
+ *  Optional. Named groups of rubrics associated with this prompt. The key is a
+ *  user-defined name for the rubric group.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAiplatform_GoogleCloudAiplatformV1RubricGroup. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRequest_Rubrics : GTLRObject
+@end
+
+
+/**
+ *  Evaluation result.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationResult : GTLRObject
+
+/** Optional. The results for the metric. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1CandidateResult *> *candidateResults;
+
+/**
+ *  Required. The request item that was evaluated. Format:
+ *  projects/{project}/locations/{location}/evaluationItems/{evaluation_item}
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationRequest;
+
+/**
+ *  Required. The evaluation run that was used to generate the result. Format:
+ *  projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationRun;
+
+/**
+ *  Optional. Metadata about the evaluation result.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id metadata;
+
+/** Required. The metric that was evaluated. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/** Required. The request that was evaluated. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRequest *request;
+
+@end
+
+
+/**
+ *  The results of the evaluation run.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationResults : GTLRObject
+
+/** The evaluation set where item level results are stored. */
+@property(nonatomic, copy, nullable) NSString *evaluationSet;
+
+/** Optional. The summary metrics for the evaluation run. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummaryMetrics *summaryMetrics;
+
+@end
+
+
+/**
+ *  Configuration for a rubric group to be generated/saved for evaluation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRubricConfig : GTLRObject
+
+/** Dynamically generate rubrics using a predefined spec. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec *predefinedRubricGenerationSpec;
+
+/** Dynamically generate rubrics using this specification. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec *rubricGenerationSpec;
+
+/**
+ *  Required. The key used to save the generated rubrics. If a generation spec
+ *  is provided, this key will be used for the name of the generated rubric
+ *  group. Otherwise, this key will be used to look up the existing rubric group
+ *  on the evaluation item. Note that if a rubric group key is specified on both
+ *  a rubric config and an evaluation metric, the key from the metric will be
+ *  used to select the rubrics for evaluation.
+ */
+@property(nonatomic, copy, nullable) NSString *rubricGroupKey;
+
+@end
+
+
+/**
+ *  EvaluationRun is a resource that represents a single evaluation run, which
+ *  includes a set of prompts, model responses, evaluation configuration and the
+ *  resulting metrics.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun : GTLRObject
+
+/** Output only. Time when the evaluation run was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completionTime;
+
+/** Output only. Time when the evaluation run was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The data source for the evaluation run. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunDataSource *dataSource;
+
+/** Required. The display name of the Evaluation Run. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Only populated when the evaluation run's state is FAILED or
+ *  CANCELLED.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleRpcStatus *error;
+
+/** Required. The configuration used for the evaluation. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfig *evaluationConfig;
+
+/**
+ *  Output only. The results of the evaluation run. Only populated when the
+ *  evaluation run's state is SUCCEEDED.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationResults *evaluationResults;
+
+/**
+ *  Output only. The specific evaluation set of the evaluation run. For runs
+ *  with an evaluation set input, this will be that same set. For runs with
+ *  BigQuery input, it's the sampled BigQuery dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationSetSnapshot;
+
+/**
+ *  Optional. The candidate to inference config map for the evaluation run. The
+ *  candidate can be up to 128 characters long and can consist of any UTF-8
+ *  characters.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_InferenceConfigs *inferenceConfigs;
+
+/** Optional. Labels for the evaluation run. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_Labels *labels;
+
+/**
+ *  Optional. Metadata about the evaluation run, can be used by the caller to
+ *  store additional tracking information about the evaluation run.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id metadata;
+
+/**
+ *  Identifier. The resource name of the EvaluationRun. This is a unique
+ *  identifier. Format:
+ *  `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the evaluation run.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Cancelled
+ *        The evaluation run has been cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Failed
+ *        The evaluation run has failed. (Value: "FAILED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_GeneratingRubrics
+ *        The evaluation run is performing rubric generation. (Value:
+ *        "GENERATING_RUBRICS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Inference
+ *        The evaluation run is performing inference. (Value: "INFERENCE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Pending
+ *        The evaluation run is pending. (Value: "PENDING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Running
+ *        The evaluation run is running. (Value: "RUNNING")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Succeeded
+ *        The evaluation run has succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Optional. The candidate to inference config map for the evaluation run. The
+ *  candidate can be up to 128 characters long and can consist of any UTF-8
+ *  characters.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunInferenceConfig.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_InferenceConfigs : GTLRObject
+@end
+
+
+/**
+ *  Optional. Labels for the evaluation run.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_Labels : GTLRObject
+@end
+
+
+/**
+ *  The data source for the evaluation run.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunDataSource : GTLRObject
+
+/** Evaluation data in bigquery. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BigQueryRequestSet *bigqueryRequestSet;
+
+/**
+ *  The EvaluationSet resource name. Format:
+ *  `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}`
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationSet;
+
+@end
+
+
+/**
+ *  The Evalution configuration used for the evaluation run.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfig : GTLRObject
+
+/** Optional. The autorater config for the evaluation run. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigAutoraterConfig *autoraterConfig;
+
+/** Required. The metrics to be calculated in the evaluation run. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetric *> *metrics;
+
+/** Optional. The output config for the evaluation run. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigOutputConfig *outputConfig;
+
+/**
+ *  The prompt template used for inference. The values for variables in the
+ *  prompt template are defined in
+ *  EvaluationItem.EvaluationPrompt.PromptTemplateData.values.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigPromptTemplate *promptTemplate;
+
+/**
+ *  Optional. The rubric configs for the evaluation run. They are used to
+ *  generate rubrics which can be used by rubric-based metrics. Multiple rubric
+ *  configs can be specified for rubric generation but only one rubric config
+ *  can be used for a rubric-based metric. If more than one rubric config is
+ *  provided, the evaluation metric must specify a rubric group key. Note that
+ *  if a generation spec is specified on both a rubric config and an evaluation
+ *  metric, the rubrics generated for the metric will be used for evaluation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRubricConfig *> *rubricConfigs;
+
+@end
+
+
+/**
+ *  The autorater config used for the evaluation run.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigAutoraterConfig : GTLRObject
+
+/**
+ *  Optional. The fully qualified name of the publisher model or tuned autorater
+ *  endpoint to use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Tuned
+ *  model endpoint format:
+ *  `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *autoraterModel;
+
+/** Optional. Configuration options for model generation and outputs. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig *generationConfig;
+
+/**
+ *  Optional. Number of samples for each instance in the dataset. If not
+ *  specified, the default is 4. Minimum value is 1, maximum value is 32.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampleCount;
+
+@end
+
+
+/**
+ *  The output config for the evaluation run.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigOutputConfig : GTLRObject
+
+/** BigQuery destination for evaluation output. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1BigQueryDestination *bigqueryDestination;
+
+/** Cloud Storage destination for evaluation output. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GcsDestination *gcsDestination;
+
+@end
+
+
+/**
+ *  Prompt template used for inference.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigPromptTemplate : GTLRObject
+
+/**
+ *  Prompt template stored in Cloud Storage. Format:
+ *  "gs://my-bucket/file-name.txt".
+ */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/**
+ *  Inline prompt template. Template variables should be in the format
+ *  "{var_name}". Example: "Translate the following from {source_lang} to
+ *  {target_lang}: {text}"
+ */
+@property(nonatomic, copy, nullable) NSString *promptTemplate;
+
+@end
+
+
+/**
+ *  An inference config used for model inference during the evaluation run.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunInferenceConfig : GTLRObject
+
+/** Optional. Generation config. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig *generationConfig;
+
+/**
+ *  Required. The fully qualified name of the publisher model or endpoint to
+ *  use. Publisher model format:
+ *  `projects/{project}/locations/{location}/publishers/ * /models/ *` Endpoint
+ *  format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  The metric used for evaluation runs.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetric : GTLRObject
+
+/** Spec for a computation based metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec *computationBasedMetricSpec;
+
+/** Spec for an LLM based metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec *llmBasedMetricSpec;
+
+/** Required. The name of the metric. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/** Spec for a pre-defined metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec *predefinedMetricSpec;
+
+/** Spec for rubric based metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricBasedMetricSpec *rubricBasedMetricSpec;
+
+@end
+
+
+/**
+ *  Specification for a computation based metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec : GTLRObject
+
+/**
+ *  Optional. A map of parameters for the metric, e.g. {"rouge_type": "rougeL"}.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Parameters *parameters;
+
+/**
+ *  Required. The type of the computation based metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Bleu
+ *        BLEU metric. (Value: "BLEU")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ComputationBasedMetricTypeUnspecified
+ *        Unspecified computation based metric type. (Value:
+ *        "COMPUTATION_BASED_METRIC_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ExactMatch
+ *        Exact match metric. (Value: "EXACT_MATCH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Rouge
+ *        ROUGE metric. (Value: "ROUGE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Optional. A map of parameters for the metric, e.g. {"rouge_type": "rougeL"}.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Specification for an LLM based metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec : GTLRObject
+
+/** Optional. Optional additional configuration for the metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec_AdditionalConfig *additionalConfig;
+
+/** Optional. Optional configuration for the judge LLM (Autorater). */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigAutoraterConfig *judgeAutoraterConfig;
+
+/** Required. Template for the prompt sent to the judge model. */
+@property(nonatomic, copy, nullable) NSString *metricPromptTemplate;
+
+/** Dynamically generate rubrics using a predefined spec. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec *predefinedRubricGenerationSpec;
+
+/** Dynamically generate rubrics using this specification. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec *rubricGenerationSpec;
+
+/**
+ *  Use a pre-defined group of rubrics associated with the input. Refers to a
+ *  key in the rubric_groups map of EvaluationInstance.
+ */
+@property(nonatomic, copy, nullable) NSString *rubricGroupKey;
+
+/** Optional. System instructions for the judge model. */
+@property(nonatomic, copy, nullable) NSString *systemInstruction;
+
+@end
+
+
+/**
+ *  Optional. Optional additional configuration for the metric.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec_AdditionalConfig : GTLRObject
+@end
+
+
+/**
+ *  Specification for a pre-defined metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec : GTLRObject
+
+/**
+ *  Required. The name of a pre-defined metric, such as
+ *  "instruction_following_v1" or "text_quality_v1".
+ */
+@property(nonatomic, copy, nullable) NSString *metricSpecName;
+
+/** Optional. The parameters needed to run the pre-defined metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec_Parameters *parameters;
+
+@end
+
+
+/**
+ *  Optional. The parameters needed to run the pre-defined metric.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Specification for a metric that is based on rubrics.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricBasedMetricSpec : GTLRObject
+
+/** Use rubrics provided directly in the spec. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricBasedMetricSpecRepeatedRubrics *inlineRubrics;
+
+/**
+ *  Optional. Optional configuration for the judge LLM (Autorater). The
+ *  definition of AutoraterConfig needs to be provided.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigAutoraterConfig *judgeAutoraterConfig;
+
+/**
+ *  Optional. Template for the prompt used by the judge model to evaluate
+ *  against rubrics.
+ */
+@property(nonatomic, copy, nullable) NSString *metricPromptTemplate;
+
+/** Dynamically generate rubrics for evaluation using this specification. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec *rubricGenerationSpec;
+
+/**
+ *  Use a pre-defined group of rubrics associated with the input content. This
+ *  refers to a key in the `rubric_groups` map of `RubricEnhancedContents`.
+ */
+@property(nonatomic, copy, nullable) NSString *rubricGroupKey;
+
+@end
+
+
+/**
+ *  Defines a list of rubrics, used when providing rubrics inline.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricBasedMetricSpecRepeatedRubrics : GTLRObject
+
+/** The list of rubrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Rubric *> *rubrics;
+
+@end
+
+
+/**
+ *  Specification for how rubrics should be generated.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec : GTLRObject
+
+/**
+ *  Optional. Configuration for the model used in rubric generation. Configs
+ *  including sampling count and base model can be specified here. Flipping is
+ *  not supported for rubric generation.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigAutoraterConfig *modelConfig;
+
+/**
+ *  Optional. Template for the prompt used to generate rubrics. The details
+ *  should be updated based on the most-recent recipe requirements.
+ */
+@property(nonatomic, copy, nullable) NSString *promptTemplate;
+
+/**
+ *  Optional. The type of rubric content to be generated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_NlQuestionAnswer
+ *        Generate rubrics in an NL question answer format. (Value:
+ *        "NL_QUESTION_ANSWER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_Property
+ *        Generate rubrics based on properties. (Value: "PROPERTY")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_PythonCodeAssertion
+ *        Generate rubrics in a unit test format. (Value:
+ *        "PYTHON_CODE_ASSERTION")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_RubricContentTypeUnspecified
+ *        The content type to generate is not specified. (Value:
+ *        "RUBRIC_CONTENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *rubricContentType;
+
+/**
+ *  Optional. An optional, pre-defined list of allowed types for generated
+ *  rubrics. If this field is provided, it implies `include_rubric_type` should
+ *  be true, and the generated rubric types should be chosen from this ontology.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rubricTypeOntology;
+
+@end
+
+
+/**
+ *  EvaluationSet is a collection of related EvaluationItems that are evaluated
+ *  together.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet : GTLRObject
+
+/** Output only. Timestamp when this item was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. The display name of the EvaluationSet. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Required. The EvaluationItems that are part of this dataset. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *evaluationItems;
+
+/**
+ *  Optional. Metadata for the EvaluationSet.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id metadata;
+
+/**
+ *  Identifier. The resource name of the EvaluationSet. Format:
+ *  `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Timestamp when this item was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -17426,6 +18732,86 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  Request message for EvaluationService.GenerateInstanceRubrics.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateInstanceRubricsRequest : GTLRObject
+
+/**
+ *  Required. The prompt to generate rubrics from. For single-turn queries, this
+ *  is a single instance. For multi-turn queries, this is a repeated field that
+ *  contains conversation history + latest request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Content *> *contents;
+
+/**
+ *  Optional. Specification for using the rubric generation configs of a
+ *  pre-defined metric, e.g. "generic_quality_v1" and
+ *  "instruction_following_v1". Some of the configs may be only used in rubric
+ *  generation and not supporting evaluation, e.g.
+ *  "fully_customized_generic_quality_v1". If this field is set, the
+ *  `rubric_generation_spec` field will be ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PredefinedMetricSpec *predefinedRubricGenerationSpec;
+
+/** Optional. Specification for how the rubrics should be generated. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec *rubricGenerationSpec;
+
+@end
+
+
+/**
+ *  Response message for EvaluationService.GenerateInstanceRubrics.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateInstanceRubricsResponse : GTLRObject
+
+/** Output only. A list of generated rubrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Rubric *> *generatedRubrics;
+
+@end
+
+
+/**
+ *  Request message for DataFoundryService.GenerateSyntheticData.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateSyntheticDataRequest : GTLRObject
+
+/**
+ *  Required. The number of synthetic examples to generate. For this stateless
+ *  API, the count is limited to a small number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Optional. A list of few-shot examples to guide the model's output style and
+ *  format.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SyntheticExample *> *examples;
+
+/**
+ *  Required. The schema of the desired output, defined by a list of fields.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec *> *outputFieldSpecs;
+
+/** Generate data from a high-level task description. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1TaskDescriptionStrategy *taskDescription;
+
+@end
+
+
+/**
+ *  The response containing the generated data.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateSyntheticDataResponse : GTLRObject
+
+/** A list of generated synthetic examples. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SyntheticExample *> *syntheticExamples;
+
+@end
+
+
+/**
  *  Generate video response.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponse : GTLRObject
@@ -19773,6 +21159,78 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  Response message for EvaluationManagementService.ListEvaluationItems.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "evaluationItems" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListEvaluationItemsResponse : GTLRCollectionObject
+
+/**
+ *  List of EvaluationItems in the requested page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem *> *evaluationItems;
+
+/** A token to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for EvaluationManagementService.ListEvaluationRuns.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "evaluationRuns" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListEvaluationRunsResponse : GTLRCollectionObject
+
+/**
+ *  List of EvaluationRuns in the requested page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun *> *evaluationRuns;
+
+/** A token to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for EvaluationManagementService.ListEvaluationSets.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "evaluationSets" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListEvaluationSetsResponse : GTLRCollectionObject
+
+/**
+ *  List of EvaluationSets in the requested page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet *> *evaluationSets;
+
+/** A token to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for MetadataService.ListExecutions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -21239,8 +22697,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 /** Spec for pointwise metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PointwiseMetricSpec *pointwiseMetricSpec;
 
+/** The spec for a pre-defined metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PredefinedMetricSpec *predefinedMetricSpec;
+
 /** Spec for rouge metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RougeSpec *rougeSpec;
+
+@end
+
+
+/**
+ *  Result for a single metric on a single instance.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MetricResult : GTLRObject
+
+/** Output only. The error status for the metric result. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleRpcStatus *error;
+
+/** Output only. The explanation for the metric result. */
+@property(nonatomic, copy, nullable) NSString *explanation;
+
+/** Output only. For rubric-based metrics, the verdicts for each rubric. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1RubricVerdict *> *rubricVerdicts;
+
+/**
+ *  Output only. The score for the metric. Please refer to each metric's
+ *  documentation for the meaning of the score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -25004,6 +26490,42 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Defines a specification for a single output field.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec : GTLRObject
+
+/** Required. The name of the output field. */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+/**
+ *  Optional. The data type of the field. Defaults to CONTENT if not set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_Audio
+ *        Audio field type. (Value: "AUDIO")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_Content
+ *        Arbitrary content field type. (Value: "CONTENT")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_FieldTypeUnspecified
+ *        Field type is unspecified. (Value: "FIELD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_Image
+ *        Image field type. (Value: "IMAGE")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1OutputFieldSpec_FieldType_Text
+ *        Text field type. (Value: "TEXT")
+ */
+@property(nonatomic, copy, nullable) NSString *fieldType;
+
+/**
+ *  Optional. Optional, but recommended. Additional guidance specific to this
+ *  field to provide targeted instructions for the LLM to generate the content
+ *  of a single output field. While the LLM can sometimes infer content from the
+ *  field name, providing explicit guidance is preferred.
+ */
+@property(nonatomic, copy, nullable) NSString *guidance;
+
+@end
+
+
+/**
  *  Input for pairwise metric.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricInput : GTLRObject
@@ -26286,6 +27808,35 @@ GTLR_DEPRECATED
 /** The name of the preset voice to use. */
 @property(nonatomic, copy, nullable) NSString *voiceName;
 
+@end
+
+
+/**
+ *  The spec for a pre-defined metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PredefinedMetricSpec : GTLRObject
+
+/**
+ *  Required. The name of a pre-defined metric, such as
+ *  "instruction_following_v1" or "text_quality_v1".
+ */
+@property(nonatomic, copy, nullable) NSString *metricSpecName;
+
+/** Optional. The parameters needed to run the pre-defined metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PredefinedMetricSpec_MetricSpecParameters *metricSpecParameters;
+
+@end
+
+
+/**
+ *  Optional. The parameters needed to run the pre-defined metric.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PredefinedMetricSpec_MetricSpecParameters : GTLRObject
 @end
 
 
@@ -28913,6 +30464,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
+/** Labels for the ReasoningEngine. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine_Labels *labels;
+
 /**
  *  Identifier. The resource name of the ReasoningEngine. Format:
  *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
@@ -28927,6 +30481,18 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Labels for the ReasoningEngine.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine_Labels : GTLRObject
 @end
 
 
@@ -29603,6 +31169,47 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Message representing a single testable criterion for evaluation. One input
+ *  prompt could have multiple rubrics.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Rubric : GTLRObject
+
+/** Required. The actual testable criteria for the rubric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RubricContent *content;
+
+/**
+ *  Optional. The relative importance of this rubric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Rubric_Importance_High High
+ *        importance. (Value: "HIGH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Rubric_Importance_ImportanceUnspecified
+ *        Importance is not specified. (Value: "IMPORTANCE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Rubric_Importance_Low Low
+ *        importance. (Value: "LOW")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1Rubric_Importance_Medium
+ *        Medium importance. (Value: "MEDIUM")
+ */
+@property(nonatomic, copy, nullable) NSString *importance;
+
+/**
+ *  Unique identifier for the rubric. This ID is used to refer to this rubric,
+ *  e.g., in RubricVerdict.
+ */
+@property(nonatomic, copy, nullable) NSString *rubricId;
+
+/**
+ *  Optional. A type designator for the rubric, which can inform how it's
+ *  evaluated or interpreted by systems or users. It's recommended to use
+ *  consistent, well-defined, upper snake_case strings. Examples:
+ *  "SUMMARIZATION_QUALITY", "SAFETY_HARMFUL_CONTENT", "INSTRUCTION_ADHERENCE".
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Instance and metric spec for RubricBasedInstructionFollowing metric.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1RubricBasedInstructionFollowingInput : GTLRObject
@@ -29659,6 +31266,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Content of the rubric, defining the testable criteria.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RubricContent : GTLRObject
+
+/** Evaluation criteria based on a specific property. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RubricContentProperty *property;
+
+@end
+
+
+/**
+ *  Defines criteria based on a specific property.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RubricContentProperty : GTLRObject
+
+/**
+ *  Description of the property being evaluated. Example: "The model's response
+ *  is grammatically correct."
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
  *  Rubric critique result.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1RubricCritiqueResult : GTLRObject
@@ -29669,6 +31303,104 @@ GTLR_DEPRECATED
 /**
  *  Output only. Verdict for the rubric - true if the rubric is met, false
  *  otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verdict;
+
+@end
+
+
+/**
+ *  Specification for how rubrics should be generated.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec : GTLRObject
+
+/**
+ *  Configuration for the model used in rubric generation. Configs including
+ *  sampling count and base model can be specified here. Flipping is not
+ *  supported for rubric generation.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AutoraterConfig *modelConfig;
+
+/**
+ *  Template for the prompt used to generate rubrics. The details should be
+ *  updated based on the most-recent recipe requirements.
+ */
+@property(nonatomic, copy, nullable) NSString *promptTemplate;
+
+/**
+ *  The type of rubric content to be generated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec_RubricContentType_NlQuestionAnswer
+ *        Generate rubrics in an NL question answer format. (Value:
+ *        "NL_QUESTION_ANSWER")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec_RubricContentType_Property
+ *        Generate rubrics based on properties. (Value: "PROPERTY")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec_RubricContentType_PythonCodeAssertion
+ *        Generate rubrics in a unit test format. (Value:
+ *        "PYTHON_CODE_ASSERTION")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec_RubricContentType_RubricContentTypeUnspecified
+ *        The content type to generate is not specified. (Value:
+ *        "RUBRIC_CONTENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *rubricContentType;
+
+/**
+ *  Optional. An optional, pre-defined list of allowed types for generated
+ *  rubrics. If this field is provided, it implies `include_rubric_type` should
+ *  be true, and the generated rubric types should be chosen from this ontology.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rubricTypeOntology;
+
+@end
+
+
+/**
+ *  A group of rubrics, used for grouping rubrics based on a metric or a
+ *  version.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RubricGroup : GTLRObject
+
+/**
+ *  Human-readable name for the group. This should be unique within a given
+ *  context if used for display or selection. Example: "Instruction Following
+ *  V1", "Content Quality - Summarization Task".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Unique identifier for the group. */
+@property(nonatomic, copy, nullable) NSString *groupId;
+
+/** Rubrics that are part of this group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Rubric *> *rubrics;
+
+@end
+
+
+/**
+ *  Represents the verdict of an evaluation against a single rubric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RubricVerdict : GTLRObject
+
+/**
+ *  Required. The full rubric definition that was evaluated. Storing this
+ *  ensures the verdict is self-contained and understandable, especially if the
+ *  original rubric definition changes or was dynamically generated.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Rubric *evaluatedRubric;
+
+/**
+ *  Optional. Human-readable reasoning or explanation for the verdict. This can
+ *  include specific examples or details from the evaluated content that justify
+ *  the given verdict.
+ */
+@property(nonatomic, copy, nullable) NSString *reasoning;
+
+/**
+ *  Required. Outcome of the evaluation against the rubric, represented as a
+ *  boolean. `true` indicates a "Pass", `false` indicates a "Fail".
  *
  *  Uses NSNumber of boolValue.
  */
@@ -37865,6 +39597,43 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The summary metrics for the evaluation run.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummaryMetrics : GTLRObject
+
+/**
+ *  Optional. The number of items that failed to be evaluated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedItems;
+
+/** Optional. Map of metric name to metric value. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SummaryMetrics_Metrics *metrics;
+
+/**
+ *  Optional. The total number of items that were evaluated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalItems;
+
+@end
+
+
+/**
+ *  Optional. Map of metric name to metric value.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SummaryMetrics_Metrics : GTLRObject
+@end
+
+
+/**
  *  Hyperparameters for SFT.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SupervisedHyperParameters : GTLRObject
@@ -38136,6 +39905,46 @@ GTLR_DEPRECATED
  *  `projects/{project}/locations/{location}/featureOnlineStores/{feature_online_store}/featureViews/{feature_view}/featureViewSyncs/{feature_view_sync}`
  */
 @property(nonatomic, copy, nullable) NSString *featureViewSync;
+
+@end
+
+
+/**
+ *  Represents a single synthetic example, composed of multiple fields. Used for
+ *  providing few-shot examples in the request and for returning generated
+ *  examples in the response.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SyntheticExample : GTLRObject
+
+/** Required. A list of fields that constitute an example. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SyntheticField *> *fields;
+
+@end
+
+
+/**
+ *  Represents a single named field within a SyntheticExample.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SyntheticField : GTLRObject
+
+/** Required. The content of the field. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Content *content;
+
+/** Optional. The name of the field. */
+@property(nonatomic, copy, nullable) NSString *fieldName;
+
+@end
+
+
+/**
+ *  Defines a generation strategy based on a high-level task description.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1TaskDescriptionStrategy : GTLRObject
+
+/**
+ *  Required. A high-level description of the synthetic data to be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *taskDescription;
 
 @end
 

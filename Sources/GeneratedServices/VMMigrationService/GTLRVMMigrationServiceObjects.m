@@ -26,6 +26,16 @@ NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Failed = @"FAILE
 NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_Pending = @"PENDING";
 NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRVMMigrationService_AwsSourceDiskDetails.diskType
+NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Gp2 = @"GP2";
+NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Gp3 = @"GP3";
+NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Io1 = @"IO1";
+NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Io2 = @"IO2";
+NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Sc1 = @"SC1";
+NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_St1 = @"ST1";
+NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Standard = @"STANDARD";
+NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRVMMigrationService_AwsSourceVmDetails.architecture
 NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureArm64 = @"VM_ARCHITECTURE_ARM64";
 NSString * const kGTLRVMMigrationService_AwsSourceVmDetails_Architecture_VmArchitectureUnspecified = @"VM_ARCHITECTURE_UNSPECIFIED";
@@ -113,6 +123,13 @@ NSString * const kGTLRVMMigrationService_CloneJob_State_Pending = @"PENDING";
 NSString * const kGTLRVMMigrationService_CloneJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRVMMigrationService_CloneJob_State_Succeeded = @"SUCCEEDED";
 
+// GTLRVMMigrationService_ComputeEngineDisk.diskType
+NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeBalanced = @"COMPUTE_ENGINE_DISK_TYPE_BALANCED";
+NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeHyperdiskBalanced = @"COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED";
+NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeSsd = @"COMPUTE_ENGINE_DISK_TYPE_SSD";
+NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeStandard = @"COMPUTE_ENGINE_DISK_TYPE_STANDARD";
+NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeUnspecified = @"COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED";
+
 // GTLRVMMigrationService_ComputeEngineTargetDefaults.bootConversion
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootConversion_BiosToEfi = @"BIOS_TO_EFI";
 NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_BootConversion_BootConversionUnspecified = @"BOOT_CONVERSION_UNSPECIFIED";
@@ -184,6 +201,15 @@ NSString * const kGTLRVMMigrationService_DatacenterConnector_State_Offline = @"O
 NSString * const kGTLRVMMigrationService_DatacenterConnector_State_Pending = @"PENDING";
 NSString * const kGTLRVMMigrationService_DatacenterConnector_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRVMMigrationService_DiskMigrationJob.state
+NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Failed = @"FAILED";
+NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Ready = @"READY";
+NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Running = @"RUNNING";
+NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Succeeded = @"SUCCEEDED";
+
 // GTLRVMMigrationService_Group.migrationTargetType
 NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeDisks = @"MIGRATION_TARGET_TYPE_DISKS";
 NSString * const kGTLRVMMigrationService_Group_MigrationTargetType_MigrationTargetTypeGce = @"MIGRATION_TARGET_TYPE_GCE";
@@ -228,6 +254,7 @@ NSString * const kGTLRVMMigrationService_MigratingVm_State_StateUnspecified = @"
 NSString * const kGTLRVMMigrationService_MigrationError_Code_ApplianceUpgradeError = @"APPLIANCE_UPGRADE_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_CloneError = @"CLONE_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_CutoverError = @"CUTOVER_ERROR";
+NSString * const kGTLRVMMigrationService_MigrationError_Code_DiskMigrationError = @"DISK_MIGRATION_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_ImageImportError = @"IMAGE_IMPORT_ERROR";
 NSString * const kGTLRVMMigrationService_MigrationError_Code_OsAdaptationError = @"OS_ADAPTATION_ERROR";
@@ -430,6 +457,30 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_AwsSourceDetails_MigrationResourcesUserTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsSourceDiskDetails
+//
+
+@implementation GTLRVMMigrationService_AwsSourceDiskDetails
+@dynamic diskType, sizeGib, tags, volumeId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_AwsSourceDiskDetails_Tags
+//
+
+@implementation GTLRVMMigrationService_AwsSourceDiskDetails_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -650,6 +701,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_CancelDiskMigrationJobRequest
+//
+
+@implementation GTLRVMMigrationService_CancelDiskMigrationJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_CancelImageImportJobRequest
 //
 
@@ -703,6 +763,28 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 @implementation GTLRVMMigrationService_CloneStep
 @dynamic adaptingOs, endTime, instantiatingMigratedVm, preparingVmDisks,
          startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ComputeEngineDisk
+//
+
+@implementation GTLRVMMigrationService_ComputeEngineDisk
+@dynamic diskId, diskType, replicaZones, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicaZones" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -883,10 +965,28 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_CopyingSourceDiskSnapshotStep
+//
+
+@implementation GTLRVMMigrationService_CopyingSourceDiskSnapshotStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_CreatingImageStep
 //
 
 @implementation GTLRVMMigrationService_CreatingImageStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_CreatingSourceDiskSnapshotStep
+//
+
+@implementation GTLRVMMigrationService_CreatingSourceDiskSnapshotStep
 @end
 
 
@@ -1023,6 +1123,61 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_DiskMigrationJob
+//
+
+@implementation GTLRVMMigrationService_DiskMigrationJob
+@dynamic awsSourceDiskDetails, createTime, errors, name, state, steps,
+         targetDetails, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRVMMigrationService_Status class],
+    @"steps" : [GTLRVMMigrationService_DiskMigrationStep class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DiskMigrationJobTargetDetails
+//
+
+@implementation GTLRVMMigrationService_DiskMigrationJobTargetDetails
+@dynamic encryption, labels, targetDisk, targetProject;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DiskMigrationJobTargetDetails_Labels
+//
+
+@implementation GTLRVMMigrationService_DiskMigrationJobTargetDetails_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_DiskMigrationStep
+//
+
+@implementation GTLRVMMigrationService_DiskMigrationStep
+@dynamic copyingSourceDiskSnapshot, creatingSourceDiskSnapshot, endTime,
+         provisioningTargetDisk, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_DisksMigrationDisksTargetDefaults
 //
 
@@ -1145,6 +1300,28 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 @implementation GTLRVMMigrationService_FetchInventoryResponse
 @dynamic awsVms, azureVms, nextPageToken, updateTime, vmwareVms;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_FetchStorageInventoryResponse
+//
+
+@implementation GTLRVMMigrationService_FetchStorageInventoryResponse
+@dynamic nextPageToken, resources, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRVMMigrationService_SourceStorageResource class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resources";
+}
+
 @end
 
 
@@ -1342,6 +1519,29 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 + (NSString *)collectionItemsKey {
   return @"datacenterConnectors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ListDiskMigrationJobsResponse
+//
+
+@implementation GTLRVMMigrationService_ListDiskMigrationJobsResponse
+@dynamic diskMigrationJobs, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"diskMigrationJobs" : [GTLRVMMigrationService_DiskMigrationJob class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"diskMigrationJobs";
 }
 
 @end
@@ -1904,6 +2104,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_ProvisioningTargetDiskStep
+//
+
+@implementation GTLRVMMigrationService_ProvisioningTargetDiskStep
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_RemoveGroupMigrationRequest
 //
 
@@ -1959,6 +2168,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ResumeMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_RunDiskMigrationJobRequest
+//
+
+@implementation GTLRVMMigrationService_RunDiskMigrationJobRequest
 @end
 
 
@@ -2067,6 +2285,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_SourceStorageResource
+//
+
+@implementation GTLRVMMigrationService_SourceStorageResource
+@dynamic awsDiskDetails;
 @end
 
 

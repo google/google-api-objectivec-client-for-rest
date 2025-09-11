@@ -15,6 +15,9 @@
 
 // GTLRBigQueryReservation_Assignment.jobType
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_Background = @"BACKGROUND";
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_BackgroundChangeDataCapture = @"BACKGROUND_CHANGE_DATA_CAPTURE";
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_BackgroundColumnMetadataIndex = @"BACKGROUND_COLUMN_METADATA_INDEX";
+NSString * const kGTLRBigQueryReservation_Assignment_JobType_BackgroundSearchIndexRefresh = @"BACKGROUND_SEARCH_INDEX_REFRESH";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_Continuous = @"CONTINUOUS";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified = @"JOB_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigQueryReservation_Assignment_JobType_MlExternal = @"ML_EXTERNAL";

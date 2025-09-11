@@ -3375,6 +3375,37 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Cancel
+
+@dynamic packageName, token;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_CancelSubscriptionPurchaseRequest *)object
+                    packageName:(NSString *)packageName
+                          token:(NSString *)token {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"token"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptionsv2/tokens/{token}:cancel";
+  GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Cancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.token = token;
+  query.expectedObjectClass = [GTLRAndroidPublisher_CancelSubscriptionPurchaseResponse class];
+  query.loggingName = @"androidpublisher.purchases.subscriptionsv2.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Get
 
 @dynamic packageName, token;

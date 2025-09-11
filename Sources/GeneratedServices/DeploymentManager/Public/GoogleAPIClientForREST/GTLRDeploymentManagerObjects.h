@@ -56,6 +56,7 @@
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item;
 @class GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata;
+@class GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata_ZoneToIgmIds;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata_PerLocationOperations;
 @class GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo;
@@ -1595,7 +1596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Policy *policy;
 
 /**
- *  updateMask
+ *  Update mask for the policy.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2997,6 +2998,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *zonalIgmIds;
 
+/** Map of zone to an ID of the zonal IGM belonging to the RMIG. */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata_ZoneToIgmIds *zoneToIgmIds;
+
+@end
+
+
+/**
+ *  Map of zone to an ID of the zonal IGM belonging to the RMIG.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata_ZoneToIgmIds : GTLRObject
 @end
 
 

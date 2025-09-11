@@ -195,14 +195,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_Complete;
 /**
- *  The upgrade was forced into soaking and the soaking time has passed. This is
- *  the equivalent of COMPLETE status for upgrades that were forced into
- *  soaking.
- *
- *  Value: "FORCED_COMPLETE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedComplete;
-/**
  *  A cluster will be forced to enter soaking if an upgrade doesn't finish
  *  within a certain limit, despite it's actual status.
  *
@@ -2287,10 +2279,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *        has passed all post conditions (soaking). At the scope level, this
  *        means all eligible clusters are in COMPLETE status. (Value:
  *        "COMPLETE")
- *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedComplete The
- *        upgrade was forced into soaking and the soaking time has passed. This
- *        is the equivalent of COMPLETE status for upgrades that were forced
- *        into soaking. (Value: "FORCED_COMPLETE")
  *    @arg @c kGTLRGKEHub_ClusterUpgradeUpgradeStatus_Code_ForcedSoaking A
  *        cluster will be forced to enter soaking if an upgrade doesn't finish
  *        within a certain limit, despite it's actual status. (Value:

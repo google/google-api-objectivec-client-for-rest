@@ -42,6 +42,7 @@
 @class GTLRCertificateAuthorityService_CertificateTemplate;
 @class GTLRCertificateAuthorityService_CertificateTemplate_Labels;
 @class GTLRCertificateAuthorityService_EcKeyType;
+@class GTLRCertificateAuthorityService_EncryptionSpec;
 @class GTLRCertificateAuthorityService_Expr;
 @class GTLRCertificateAuthorityService_ExtendedKeyUsageOptions;
 @class GTLRCertificateAuthorityService_IssuanceModes;
@@ -554,33 +555,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublishingOp
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublishingOptions_EncodingFormat_Pem;
 
 // ----------------------------------------------------------------------------
-// GTLRCertificateAuthorityService_ReconciliationOperationMetadata.exclusiveAction
-
-/**
- *  The resource has to be deleted. When using this bit, the CLH should fail the
- *  operation. DEPRECATED. Instead use DELETE_RESOURCE OperationSignal in
- *  SideChannel.
- *
- *  Value: "DELETE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete GTLR_DEPRECATED;
-/**
- *  This resource could not be repaired but the repair should be tried again at
- *  a later time. This can happen if there is a dependency that needs to be
- *  resolved first- e.g. if a parent resource must be repaired before a child
- *  resource.
- *
- *  Value: "RETRY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry;
-/**
- *  Unknown repair action.
- *
- *  Value: "UNKNOWN_REPAIR_ACTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
-
-// ----------------------------------------------------------------------------
 // GTLRCertificateAuthorityService_RevocationDetails.revocationState
 
 /**
@@ -1074,6 +1048,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  the trust anchor.
  */
 @interface GTLRCertificateAuthorityService_CaPool : GTLRObject
+
+/**
+ *  Optional. When EncryptionSpec is provided, the Subject, SubjectAltNames, and
+ *  the PEM-encoded certificate fields will be encrypted at rest.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_EncryptionSpec *encryptionSpec;
 
 /**
  *  Optional. The IssuancePolicy to control how Certificates will be issued from
@@ -1866,6 +1846,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  The configuration used for encrypting data at rest.
+ */
+@interface GTLRCertificateAuthorityService_EncryptionSpec : GTLRObject
+
+/**
+ *  The resource name for a Cloud KMS key in the format `projects/ * /locations/
+ *  * /keyRings/ * /cryptoKeys/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudKmsKey;
 
 @end
 
@@ -2934,39 +2928,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *publishCrl;
-
-@end
-
-
-/**
- *  Operation metadata returned by the CLH during resource state reconciliation.
- */
-@interface GTLRCertificateAuthorityService_ReconciliationOperationMetadata : GTLRObject
-
-/**
- *  DEPRECATED. Use exclusive_action instead.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *deleteResource GTLR_DEPRECATED;
-
-/**
- *  Excluisive action returned by the CLH.
- *
- *  Likely values:
- *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete
- *        The resource has to be deleted. When using this bit, the CLH should
- *        fail the operation. DEPRECATED. Instead use DELETE_RESOURCE
- *        OperationSignal in SideChannel. (Value: "DELETE")
- *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry
- *        This resource could not be repaired but the repair should be tried
- *        again at a later time. This can happen if there is a dependency that
- *        needs to be resolved first- e.g. if a parent resource must be repaired
- *        before a child resource. (Value: "RETRY")
- *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction
- *        Unknown repair action. (Value: "UNKNOWN_REPAIR_ACTION")
- */
-@property(nonatomic, copy, nullable) NSString *exclusiveAction;
 
 @end
 

@@ -188,3 +188,114 @@
 }
 
 @end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesCreate
+
+@dynamic parent, traceScopeId;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_TraceScope *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/traceScopes";
+  GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudObservability_TraceScope class];
+  query.loggingName = @"observability.projects.locations.traceScopes.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Empty class];
+  query.loggingName = @"observability.projects.locations.traceScopes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_TraceScope class];
+  query.loggingName = @"observability.projects.locations.traceScopes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/traceScopes";
+  GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudObservability_ListTraceScopesResponse class];
+  query.loggingName = @"observability.projects.locations.traceScopes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_TraceScope *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_TraceScope class];
+  query.loggingName = @"observability.projects.locations.traceScopes.patch";
+  return query;
+}
+
+@end

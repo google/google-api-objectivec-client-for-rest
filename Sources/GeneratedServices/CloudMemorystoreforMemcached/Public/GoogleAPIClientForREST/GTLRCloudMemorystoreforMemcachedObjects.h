@@ -18,6 +18,7 @@
 @class GTLRCloudMemorystoreforMemcached_DailyCycle;
 @class GTLRCloudMemorystoreforMemcached_Date;
 @class GTLRCloudMemorystoreforMemcached_DenyMaintenancePeriod;
+@class GTLRCloudMemorystoreforMemcached_GetTagsResponse_Tags;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1MaintenancePolicy;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata;
@@ -56,6 +57,8 @@
 @class GTLRCloudMemorystoreforMemcached_Operation_Metadata;
 @class GTLRCloudMemorystoreforMemcached_Operation_Response;
 @class GTLRCloudMemorystoreforMemcached_Schedule;
+@class GTLRCloudMemorystoreforMemcached_SetTagsRequest_Tags;
+@class GTLRCloudMemorystoreforMemcached_SetTagsResponse_Tags;
 @class GTLRCloudMemorystoreforMemcached_Status;
 @class GTLRCloudMemorystoreforMemcached_Status_Details_Item;
 @class GTLRCloudMemorystoreforMemcached_TimeOfDay;
@@ -605,6 +608,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCloudMemorystoreforMemcached_Empty : GTLRObject
+@end
+
+
+/**
+ *  Request message for GetTags.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GetTagsRequest : GTLRObject
+
+/** Required. The full One Platform resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Response message for GetTags.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GetTagsResponse : GTLRObject
+
+/** Required. The full One Platform resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Tag keys/values directly bound to this resource. Each item in the
+ *  map must be expressed as " : ". For example: "123/environment" :
+ *  "production", "123/costCenter" : "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GetTagsResponse_Tags *tags;
+
+/**
+ *  A checksum based on the current bindings. This field is always set in server
+ *  responses.
+ */
+@property(nonatomic, copy, nullable) NSString *tagsEtag;
+
+@end
+
+
+/**
+ *  Required. Tag keys/values directly bound to this resource. Each item in the
+ *  map must be expressed as " : ". For example: "123/environment" :
+ *  "production", "123/costCenter" : "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GetTagsResponse_Tags : GTLRObject
 @end
 
 
@@ -2036,6 +2088,90 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 /** Time within the window to start the operations. */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_TimeOfDay *startTime;
 
+@end
+
+
+/**
+ *  Request message for SetTags.
+ */
+@interface GTLRCloudMemorystoreforMemcached_SetTagsRequest : GTLRObject
+
+/** Required. The full One Platform resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a valid UUID. This
+ *  request is only idempotent if a `request_id` is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. These bindings will override any bindings previously set and will
+ *  be effective immediately. Each item in the map must be expressed as " : ".
+ *  For example: "123/environment" : "production", "123/costCenter" :
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_SetTagsRequest_Tags *tags;
+
+/**
+ *  Optional. A checksum based on the current bindings which can be passed to
+ *  prevent race conditions. If not passed, etag check would be skipped.
+ */
+@property(nonatomic, copy, nullable) NSString *tagsEtag;
+
+@end
+
+
+/**
+ *  Required. These bindings will override any bindings previously set and will
+ *  be effective immediately. Each item in the map must be expressed as " : ".
+ *  For example: "123/environment" : "production", "123/costCenter" :
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMemorystoreforMemcached_SetTagsRequest_Tags : GTLRObject
+@end
+
+
+/**
+ *  Response message for SetTags.
+ */
+@interface GTLRCloudMemorystoreforMemcached_SetTagsResponse : GTLRObject
+
+/** Required. The full One Platform resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Tag keys/values directly bound to this resource. Each item in the
+ *  map must be expressed as " : ". For example: "123/environment" :
+ *  "production", "123/costCenter" : "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_SetTagsResponse_Tags *tags;
+
+/**
+ *  A checksum based on the current bindings. This field is always set in server
+ *  responses.
+ */
+@property(nonatomic, copy, nullable) NSString *tagsEtag;
+
+@end
+
+
+/**
+ *  Required. Tag keys/values directly bound to this resource. Each item in the
+ *  map must be expressed as " : ". For example: "123/environment" :
+ *  "production", "123/costCenter" : "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMemorystoreforMemcached_SetTagsResponse_Tags : GTLRObject
 @end
 
 

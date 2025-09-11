@@ -4035,6 +4035,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_Tool : GTLRObject
 
+/** List of tool names that this tool depends on. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dependsOn;
+
 /**
  *  Description of the tool.
  *

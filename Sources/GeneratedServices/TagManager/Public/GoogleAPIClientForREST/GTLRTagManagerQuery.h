@@ -92,6 +92,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpReferrer;
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpTitle;
 /** Value: "ampTotalEngagedTime" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAmpTotalEngagedTime;
+/** Value: "analyticsClientId" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAnalyticsClientId;
+/** Value: "analyticsSessionId" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAnalyticsSessionId;
+/** Value: "analyticsSessionNumber" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAnalyticsSessionNumber;
 /** Value: "appId" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeAppId;
 /** Value: "appName" */
@@ -1334,6 +1340,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
  *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
  *        "serverPageLocationHostname"
  *    @arg @c kGTLRTagManagerTypeVisitorRegion Value "visitorRegion"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsClientId Value "analyticsClientId"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsSessionId Value "analyticsSessionId"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsSessionNumber Value
+ *        "analyticsSessionNumber"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1521,6 +1531,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
  *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
  *        "serverPageLocationHostname"
  *    @arg @c kGTLRTagManagerTypeVisitorRegion Value "visitorRegion"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsClientId Value "analyticsClientId"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsSessionId Value "analyticsSessionId"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsSessionNumber Value
+ *        "analyticsSessionNumber"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1743,6 +1757,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
  *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
  *        "serverPageLocationHostname"
  *    @arg @c kGTLRTagManagerTypeVisitorRegion Value "visitorRegion"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsClientId Value "analyticsClientId"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsSessionId Value "analyticsSessionId"
+ *    @arg @c kGTLRTagManagerTypeAnalyticsSessionNumber Value
+ *        "analyticsSessionNumber"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

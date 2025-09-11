@@ -657,6 +657,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_MongodbChangeStreamPosition
+//
+
+@implementation GTLRDatastream_MongodbChangeStreamPosition
+@dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_MongodbCluster
 //
 
@@ -1473,8 +1483,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SpecificStartPosition
-@dynamic mysqlGtidPosition, mysqlLogPosition, oracleScnPosition,
-         sqlServerLsnPosition;
+@dynamic mongodbChangeStreamPosition, mysqlGtidPosition, mysqlLogPosition,
+         oracleScnPosition, sqlServerLsnPosition;
 @end
 
 

@@ -1620,7 +1620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Configurations related to DNS64 for this Policy. */
+/** Configurations related to DNS64 for this policy. */
 @property(nonatomic, strong, nullable) GTLRDns_PolicyDns64Config *dns64Config;
 
 /**
@@ -1736,7 +1736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget
 @interface GTLRDns_PolicyDns64ConfigScope : GTLRObject
 
 /**
- *  Controls whether DNS64 is enabled globally at the network level.
+ *  Controls whether DNS64 is enabled globally for all networks bound to the
+ *  policy.
  *
  *  Uses NSNumber of boolValue.
  */

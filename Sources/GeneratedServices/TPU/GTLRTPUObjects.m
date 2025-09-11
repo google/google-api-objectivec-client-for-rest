@@ -163,10 +163,30 @@ NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled = @"UNSCHEDULED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTPU_BootDiskConfig
+//
+
+@implementation GTLRTPU_BootDiskConfig
+@dynamic customerEncryptionKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTPU_CreatingData
 //
 
 @implementation GTLRTPU_CreatingData
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_CustomerEncryptionKey
+//
+
+@implementation GTLRTPU_CustomerEncryptionKey
+@dynamic kmsKeyName;
 @end
 
 
@@ -526,12 +546,12 @@ NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled = @"UNSCHEDULED";
 //
 
 @implementation GTLRTPU_Node
-@dynamic acceleratorConfig, acceleratorType, apiVersion, cidrBlock, createTime,
-         dataDisks, descriptionProperty, health, healthDescription, identifier,
-         labels, metadata, multisliceNode, name, networkConfig, networkConfigs,
-         networkEndpoints, queuedResource, runtimeVersion, schedulingConfig,
-         serviceAccount, shieldedInstanceConfig, state, symptoms, tags,
-         upcomingMaintenance;
+@dynamic acceleratorConfig, acceleratorType, apiVersion, bootDiskConfig,
+         cidrBlock, createTime, dataDisks, descriptionProperty, health,
+         healthDescription, identifier, labels, metadata, multisliceNode, name,
+         networkConfig, networkConfigs, networkEndpoints, queuedResource,
+         runtimeVersion, schedulingConfig, serviceAccount,
+         shieldedInstanceConfig, state, symptoms, tags, upcomingMaintenance;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

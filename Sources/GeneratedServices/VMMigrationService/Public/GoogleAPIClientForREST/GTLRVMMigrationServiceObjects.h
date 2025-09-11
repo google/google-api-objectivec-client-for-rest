@@ -24,6 +24,8 @@
 @class GTLRVMMigrationService_AwsSecurityGroup;
 @class GTLRVMMigrationService_AwsSourceDetails;
 @class GTLRVMMigrationService_AwsSourceDetails_MigrationResourcesUserTags;
+@class GTLRVMMigrationService_AwsSourceDiskDetails;
+@class GTLRVMMigrationService_AwsSourceDiskDetails_Tags;
 @class GTLRVMMigrationService_AwsSourceVmDetails;
 @class GTLRVMMigrationService_AwsVmDetails;
 @class GTLRVMMigrationService_AwsVmDetails_Tags;
@@ -39,6 +41,7 @@
 @class GTLRVMMigrationService_ClientSecretCredentials;
 @class GTLRVMMigrationService_CloneJob;
 @class GTLRVMMigrationService_CloneStep;
+@class GTLRVMMigrationService_ComputeEngineDisk;
 @class GTLRVMMigrationService_ComputeEngineDisksTargetDefaults;
 @class GTLRVMMigrationService_ComputeEngineDisksTargetDetails;
 @class GTLRVMMigrationService_ComputeEngineTargetDefaults;
@@ -48,7 +51,9 @@
 @class GTLRVMMigrationService_ComputeEngineTargetDetails_Labels;
 @class GTLRVMMigrationService_ComputeEngineTargetDetails_Metadata;
 @class GTLRVMMigrationService_ComputeScheduling;
+@class GTLRVMMigrationService_CopyingSourceDiskSnapshotStep;
 @class GTLRVMMigrationService_CreatingImageStep;
+@class GTLRVMMigrationService_CreatingSourceDiskSnapshotStep;
 @class GTLRVMMigrationService_CutoverForecast;
 @class GTLRVMMigrationService_CutoverJob;
 @class GTLRVMMigrationService_CutoverStep;
@@ -59,6 +64,10 @@
 @class GTLRVMMigrationService_DiskImageDefaults;
 @class GTLRVMMigrationService_DiskImageTargetDetails;
 @class GTLRVMMigrationService_DiskImageTargetDetails_Labels;
+@class GTLRVMMigrationService_DiskMigrationJob;
+@class GTLRVMMigrationService_DiskMigrationJobTargetDetails;
+@class GTLRVMMigrationService_DiskMigrationJobTargetDetails_Labels;
+@class GTLRVMMigrationService_DiskMigrationStep;
 @class GTLRVMMigrationService_DisksMigrationDisksTargetDefaults;
 @class GTLRVMMigrationService_DisksMigrationDisksTargetDetails;
 @class GTLRVMMigrationService_DisksMigrationVmTargetDefaults;
@@ -98,6 +107,7 @@
 @class GTLRVMMigrationService_PersistentDiskDefaults_AdditionalLabels;
 @class GTLRVMMigrationService_PostProcessingStep;
 @class GTLRVMMigrationService_PreparingVMDisksStep;
+@class GTLRVMMigrationService_ProvisioningTargetDiskStep;
 @class GTLRVMMigrationService_ReplicatingStep;
 @class GTLRVMMigrationService_ReplicationCycle;
 @class GTLRVMMigrationService_ReplicationSync;
@@ -109,6 +119,7 @@
 @class GTLRVMMigrationService_SkipOsAdaptation;
 @class GTLRVMMigrationService_Source;
 @class GTLRVMMigrationService_Source_Labels;
+@class GTLRVMMigrationService_SourceStorageResource;
 @class GTLRVMMigrationService_Status;
 @class GTLRVMMigrationService_Status_Details_Item;
 @class GTLRVMMigrationService_Tag;
@@ -193,6 +204,58 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDetails_Stat
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDetails_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMMigrationService_AwsSourceDiskDetails.diskType
+
+/**
+ *  GP2 disk type.
+ *
+ *  Value: "GP2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Gp2;
+/**
+ *  GP3 disk type.
+ *
+ *  Value: "GP3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Gp3;
+/**
+ *  IO1 disk type.
+ *
+ *  Value: "IO1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Io1;
+/**
+ *  IO2 disk type.
+ *
+ *  Value: "IO2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Io2;
+/**
+ *  SC1 disk type.
+ *
+ *  Value: "SC1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Sc1;
+/**
+ *  ST1 disk type.
+ *
+ *  Value: "ST1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_St1;
+/**
+ *  Standard disk type.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Standard;
+/**
+ *  Unspecified AWS disk type. Should not be used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMMigrationService_AwsSourceVmDetails.architecture
@@ -609,6 +672,40 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_CloneJob_State_StateU
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_CloneJob_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_ComputeEngineDisk.diskType
+
+/**
+ *  An alternative to SSD persistent disks that balance performance and cost.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeBalanced;
+/**
+ *  Hyperdisk balanced disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeHyperdiskBalanced;
+/**
+ *  SSD hard disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_SSD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeSsd;
+/**
+ *  A Standard disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeStandard;
+/**
+ *  An unspecified disk type. Will be used as STANDARD.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_ComputeEngineTargetDefaults.bootConversion
 
 /**
@@ -945,6 +1042,53 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DatacenterConnector_S
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DatacenterConnector_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRVMMigrationService_DiskMigrationJob.state
+
+/**
+ *  The migration was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Cancelled;
+/**
+ *  Migration cancellation was initiated.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Cancelling;
+/**
+ *  The migration process encountered an unrecoverable error and was aborted.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Failed;
+/**
+ *  The initial state of the disk migration. In this state the customers can
+ *  update the target details.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Ready;
+/**
+ *  The migration is active, and it's running or scheduled to run.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Running;
+/**
+ *  The state is unspecified. This is not in use.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_StateUnspecified;
+/**
+ *  The migration completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_DiskMigrationJob_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_Group.migrationTargetType
 
 /**
@@ -1172,6 +1316,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_C
  *  Value: "CUTOVER_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_CutoverError;
+/**
+ *  Migrate to Virtual Machines encountered an error in disk migration
+ *  operation.
+ *
+ *  Value: "DISK_MIGRATION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_DiskMigrationError;
 /**
  *  Default value. This value is not used.
  *
@@ -1831,6 +1982,63 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  Represents the source AWS Disk details.
+ */
+@interface GTLRVMMigrationService_AwsSourceDiskDetails : GTLRObject
+
+/**
+ *  Optional. Output only. Disk type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Gp2 GP2 disk
+ *        type. (Value: "GP2")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Gp3 GP3 disk
+ *        type. (Value: "GP3")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Io1 IO1 disk
+ *        type. (Value: "IO1")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Io2 IO2 disk
+ *        type. (Value: "IO2")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Sc1 SC1 disk
+ *        type. (Value: "SC1")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_St1 ST1 disk
+ *        type. (Value: "ST1")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_Standard
+ *        Standard disk type. (Value: "STANDARD")
+ *    @arg @c kGTLRVMMigrationService_AwsSourceDiskDetails_DiskType_TypeUnspecified
+ *        Unspecified AWS disk type. Should not be used. (Value:
+ *        "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  Output only. Size in GiB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGib;
+
+/** Optional. Output only. A map of AWS volume tags. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceDiskDetails_Tags *tags;
+
+/** Required. AWS volume ID. */
+@property(nonatomic, copy, nullable) NSString *volumeId;
+
+@end
+
+
+/**
+ *  Optional. Output only. A map of AWS volume tags.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVMMigrationService_AwsSourceDiskDetails_Tags : GTLRObject
+@end
+
+
+/**
  *  Represent the source AWS VM details.
  */
 @interface GTLRVMMigrationService_AwsSourceVmDetails : GTLRObject
@@ -2388,6 +2596,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  Request message for 'CancelDiskMigrationJob' request.
+ */
+@interface GTLRVMMigrationService_CancelDiskMigrationJobRequest : GTLRObject
+@end
+
+
+/**
  *  Request message for 'CancelImageImportJob' request.
  */
 @interface GTLRVMMigrationService_CancelImageImportJobRequest : GTLRObject
@@ -2508,6 +2723,57 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** The time the step has started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Compute Engine disk target details.
+ */
+@interface GTLRVMMigrationService_ComputeEngineDisk : GTLRObject
+
+/**
+ *  Optional. Target Compute Engine Disk ID. This is the resource ID segment of
+ *  the Compute Engine Disk to create. In the resource name
+ *  compute/v1/projects/{project}/zones/{zone}/disks/disk1 "disk1" is the
+ *  resource ID for the disk.
+ */
+@property(nonatomic, copy, nullable) NSString *diskId;
+
+/**
+ *  Required. The disk type to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeBalanced
+ *        An alternative to SSD persistent disks that balance performance and
+ *        cost. (Value: "COMPUTE_ENGINE_DISK_TYPE_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeHyperdiskBalanced
+ *        Hyperdisk balanced disk type. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeSsd
+ *        SSD hard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_SSD")
+ *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeStandard
+ *        A Standard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_STANDARD")
+ *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeUnspecified
+ *        An unspecified disk type. Will be used as STANDARD. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  Optional. Replication zones of the regional disk. Should be of the form:
+ *  projects/{target-project}/locations/{replica-zone} Currently only one
+ *  replica zone is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replicaZones;
+
+/**
+ *  Required. The Compute Engine zone in which to create the disk. Should be of
+ *  the form: projects/{target-project}/locations/{zone}
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -2990,9 +3256,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  CopyingSourceDiskSnapshotStep contains specific step details.
+ */
+@interface GTLRVMMigrationService_CopyingSourceDiskSnapshotStep : GTLRObject
+@end
+
+
+/**
  *  CreatingImageStep contains specific step details.
  */
 @interface GTLRVMMigrationService_CreatingImageStep : GTLRObject
+@end
+
+
+/**
+ *  CreatingSourceDiskSnapshotStep contains specific step details.
+ */
+@interface GTLRVMMigrationService_CreatingSourceDiskSnapshotStep : GTLRObject
 @end
 
 
@@ -3352,6 +3632,127 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  Describes the disk which will be migrated from the source environment. The
+ *  source disk has to be unattached.
+ */
+@interface GTLRVMMigrationService_DiskMigrationJob : GTLRObject
+
+/** Details of the unattached AWS source disk. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceDiskDetails *awsSourceDiskDetails;
+
+/** Output only. The time the DiskMigrationJob resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Provides details on the errors that led to the disk migration
+ *  job's state in case of an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_Status *> *errors;
+
+/** Output only. Identifier. The identifier of the DiskMigrationJob. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the DiskMigrationJob.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_DiskMigrationJob_State_Cancelled The
+ *        migration was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRVMMigrationService_DiskMigrationJob_State_Cancelling
+ *        Migration cancellation was initiated. (Value: "CANCELLING")
+ *    @arg @c kGTLRVMMigrationService_DiskMigrationJob_State_Failed The
+ *        migration process encountered an unrecoverable error and was aborted.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRVMMigrationService_DiskMigrationJob_State_Ready The initial
+ *        state of the disk migration. In this state the customers can update
+ *        the target details. (Value: "READY")
+ *    @arg @c kGTLRVMMigrationService_DiskMigrationJob_State_Running The
+ *        migration is active, and it's running or scheduled to run. (Value:
+ *        "RUNNING")
+ *    @arg @c kGTLRVMMigrationService_DiskMigrationJob_State_StateUnspecified
+ *        The state is unspecified. This is not in use. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationService_DiskMigrationJob_State_Succeeded The
+ *        migration completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The disk migration steps list representing its progress. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_DiskMigrationStep *> *steps;
+
+/** Required. Details of the target Disk in Compute Engine. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DiskMigrationJobTargetDetails *targetDetails;
+
+/** Output only. The last time the DiskMigrationJob resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Details of the target disk in Compute Engine.
+ */
+@interface GTLRVMMigrationService_DiskMigrationJobTargetDetails : GTLRObject
+
+/**
+ *  Optional. The encryption to apply to the disk. If the DiskMigrationJob
+ *  parent Source resource has an encryption, this field must be set to the same
+ *  encryption key.
+ */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_Encryption *encryption;
+
+/** Optional. A map of labels to associate with the disk. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_DiskMigrationJobTargetDetails_Labels *labels;
+
+/** Required. The target disk. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineDisk *targetDisk;
+
+/**
+ *  Required. The name of the resource of type TargetProject which represents
+ *  the Compute Engine project in which to create the disk. Should be of the
+ *  form: projects/{project}/locations/global/targetProjects/{target-project}
+ */
+@property(nonatomic, copy, nullable) NSString *targetProject;
+
+@end
+
+
+/**
+ *  Optional. A map of labels to associate with the disk.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRVMMigrationService_DiskMigrationJobTargetDetails_Labels : GTLRObject
+@end
+
+
+/**
+ *  DiskMigrationStep holds information about the disk migration step progress.
+ */
+@interface GTLRVMMigrationService_DiskMigrationStep : GTLRObject
+
+/** Copying source disk snapshot step. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_CopyingSourceDiskSnapshotStep *copyingSourceDiskSnapshot;
+
+/** Creating source disk snapshot step. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_CreatingSourceDiskSnapshotStep *creatingSourceDiskSnapshot;
+
+/** Output only. The time the step has ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Creating target disk step. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_ProvisioningTargetDiskStep *provisioningTargetDisk;
+
+/** Output only. The time the step has started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Details for a disk only migration.
  */
 @interface GTLRVMMigrationService_DisksMigrationDisksTargetDefaults : GTLRObject
@@ -3555,6 +3956,39 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** The description of the VMs in a Source of type Vmware. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_VmwareVmsDetails *vmwareVms;
+
+@end
+
+
+/**
+ *  Response message for fetchStorageInventory.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVMMigrationService_FetchStorageInventoryResponse : GTLRCollectionObject
+
+/**
+ *  Output only. A token, which can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of storage resources in the source.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_SourceStorageResource *> *resources;
+
+/**
+ *  Output only. The timestamp when the source was last queried (if the result
+ *  is from the cache).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -3924,6 +4358,37 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /**
  *  Output only. A token, which can be sent as `page_token` to retrieve the next
  *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Output only. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for 'ListDiskMigrationJobs' request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "diskMigrationJobs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRVMMigrationService_ListDiskMigrationJobsResponse : GTLRCollectionObject
+
+/**
+ *  Output only. The list of the disk migration jobs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_DiskMigrationJob *> *diskMigrationJobs;
+
+/**
+ *  Optional. Output only. A token, which can be sent as `page_token` to
+ *  retrieve the next page. If this field is omitted, there are no subsequent
+ *  pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4626,6 +5091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_CutoverError Migrate
  *        to Virtual Machines encountered an error in cutover operation. (Value:
  *        "CUTOVER_ERROR")
+ *    @arg @c kGTLRVMMigrationService_MigrationError_Code_DiskMigrationError
+ *        Migrate to Virtual Machines encountered an error in disk migration
+ *        operation. (Value: "DISK_MIGRATION_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_ErrorCodeUnspecified
  *        Default value. This value is not used. (Value:
  *        "ERROR_CODE_UNSPECIFIED")
@@ -5006,6 +5474,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  ProvisioningTargetDiskStep contains specific step details.
+ */
+@interface GTLRVMMigrationService_ProvisioningTargetDiskStep : GTLRObject
+@end
+
+
+/**
  *  Request message for 'RemoveMigration' request.
  */
 @interface GTLRVMMigrationService_RemoveGroupMigrationRequest : GTLRObject
@@ -5138,6 +5613,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Request message for 'ResumeMigration' request.
  */
 @interface GTLRVMMigrationService_ResumeMigrationRequest : GTLRObject
+@end
+
+
+/**
+ *  Request message for 'RunDiskMigrationJobRequest' request.
+ */
+@interface GTLRVMMigrationService_RunDiskMigrationJobRequest : GTLRObject
 @end
 
 
@@ -5320,6 +5802,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *        fetch them all at once.
  */
 @interface GTLRVMMigrationService_Source_Labels : GTLRObject
+@end
+
+
+/**
+ *  SourceStorageResource describes a storage resource in the source.
+ */
+@interface GTLRVMMigrationService_SourceStorageResource : GTLRObject
+
+/** Source AWS volume details. */
+@property(nonatomic, strong, nullable) GTLRVMMigrationService_AwsSourceDiskDetails *awsDiskDetails;
+
 @end
 
 

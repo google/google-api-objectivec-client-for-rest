@@ -649,6 +649,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateFailed;
 /**
+ *  `JOB_STATE_PAUSED` is not implemented yet.
+ *
+ *  Value: "JOB_STATE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePaused;
+/**
+ *  `JOB_STATE_PAUSING` is not implemented yet.
+ *
+ *  Value: "JOB_STATE_PAUSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePausing;
+/**
  *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
  *  or `JOB_STATE_FAILED`.
@@ -931,6 +943,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateDraini
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateFailed;
 /**
+ *  `JOB_STATE_PAUSED` is not implemented yet.
+ *
+ *  Value: "JOB_STATE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePaused;
+/**
+ *  `JOB_STATE_PAUSING` is not implemented yet.
+ *
+ *  Value: "JOB_STATE_PAUSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePausing;
+/**
  *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
  *  or `JOB_STATE_FAILED`.
@@ -1041,6 +1065,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateDrai
  *  Value: "JOB_STATE_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateFailed;
+/**
+ *  `JOB_STATE_PAUSED` is not implemented yet.
+ *
+ *  Value: "JOB_STATE_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePaused;
+/**
+ *  `JOB_STATE_PAUSING` is not implemented yet.
+ *
+ *  Value: "JOB_STATE_PAUSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePausing;
 /**
  *  `JOB_STATE_PENDING` indicates that the job has been created but is not yet
  *  running. Jobs that are pending may only transition to `JOB_STATE_RUNNING`,
@@ -3364,6 +3400,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        terminal job state. This state may only be set by the Cloud Dataflow
  *        service, and only as a transition from `JOB_STATE_RUNNING`. (Value:
  *        "JOB_STATE_FAILED")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePaused
+ *        `JOB_STATE_PAUSED` is not implemented yet. (Value: "JOB_STATE_PAUSED")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePausing
+ *        `JOB_STATE_PAUSING` is not implemented yet. (Value:
+ *        "JOB_STATE_PAUSING")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStatePending
  *        `JOB_STATE_PENDING` indicates that the job has been created but is not
  *        yet running. Jobs that are pending may only transition to
@@ -4248,6 +4289,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        indicates that the job has failed. This is a terminal job state. This
  *        state may only be set by the Cloud Dataflow service, and only as a
  *        transition from `JOB_STATE_RUNNING`. (Value: "JOB_STATE_FAILED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePaused `JOB_STATE_PAUSED`
+ *        is not implemented yet. (Value: "JOB_STATE_PAUSED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePausing `JOB_STATE_PAUSING`
+ *        is not implemented yet. (Value: "JOB_STATE_PAUSING")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStatePending `JOB_STATE_PENDING`
  *        indicates that the job has been created but is not yet running. Jobs
  *        that are pending may only transition to `JOB_STATE_RUNNING`, or
@@ -4400,6 +4445,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        indicates that the job has failed. This is a terminal job state. This
  *        state may only be set by the Cloud Dataflow service, and only as a
  *        transition from `JOB_STATE_RUNNING`. (Value: "JOB_STATE_FAILED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStatePaused `JOB_STATE_PAUSED`
+ *        is not implemented yet. (Value: "JOB_STATE_PAUSED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStatePausing
+ *        `JOB_STATE_PAUSING` is not implemented yet. (Value:
+ *        "JOB_STATE_PAUSING")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStatePending
  *        `JOB_STATE_PENDING` indicates that the job has been created but is not
  *        yet running. Jobs that are pending may only transition to

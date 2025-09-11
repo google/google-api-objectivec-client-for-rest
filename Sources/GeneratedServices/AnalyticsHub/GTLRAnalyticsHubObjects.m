@@ -73,6 +73,15 @@ NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Drafted = @"DRAFTED";
 NSString * const kGTLRAnalyticsHub_QueryTemplate_State_Pending = @"PENDING";
 NSString * const kGTLRAnalyticsHub_QueryTemplate_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRAnalyticsHub_Replica.primaryState
+NSString * const kGTLRAnalyticsHub_Replica_PrimaryState_PrimaryReplica = @"PRIMARY_REPLICA";
+NSString * const kGTLRAnalyticsHub_Replica_PrimaryState_PrimaryStateUnspecified = @"PRIMARY_STATE_UNSPECIFIED";
+
+// GTLRAnalyticsHub_Replica.replicaState
+NSString * const kGTLRAnalyticsHub_Replica_ReplicaState_ReadyToUse = @"READY_TO_USE";
+NSString * const kGTLRAnalyticsHub_Replica_ReplicaState_ReplicaStateUnspecified = @"REPLICA_STATE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsHub_Replica_ReplicaState_Unavailable = @"UNAVAILABLE";
+
 // GTLRAnalyticsHub_Routine.routineType
 NSString * const kGTLRAnalyticsHub_Routine_RoutineType_RoutineTypeUnspecified = @"ROUTINE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAnalyticsHub_Routine_RoutineType_TableValuedFunction = @"TABLE_VALUED_FUNCTION";
@@ -160,10 +169,13 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_BigQueryDatasetSource
-@dynamic dataset, restrictedExportPolicy, selectedResources;
+@dynamic dataset, effectiveReplicas, replicaLocations, restrictedExportPolicy,
+         selectedResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"effectiveReplicas" : [GTLRAnalyticsHub_Replica class],
+    @"replicaLocations" : [NSString class],
     @"selectedResources" : [GTLRAnalyticsHub_SelectedResource class]
   };
   return map;
@@ -265,10 +277,18 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_DestinationDataset
-@dynamic datasetReference, descriptionProperty, friendlyName, labels, location;
+@dynamic datasetReference, descriptionProperty, friendlyName, labels, location,
+         replicaLocations;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicaLocations" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -811,6 +831,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 @implementation GTLRAnalyticsHub_RefreshSubscriptionResponse
 @dynamic subscription;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_Replica
+//
+
+@implementation GTLRAnalyticsHub_Replica
+@dynamic location, primaryState, replicaState;
 @end
 
 

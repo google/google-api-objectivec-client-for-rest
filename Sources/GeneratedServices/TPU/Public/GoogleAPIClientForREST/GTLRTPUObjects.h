@@ -20,7 +20,9 @@
 @class GTLRTPU_AccessConfig;
 @class GTLRTPU_ActiveData;
 @class GTLRTPU_AttachedDisk;
+@class GTLRTPU_BootDiskConfig;
 @class GTLRTPU_CreatingData;
+@class GTLRTPU_CustomerEncryptionKey;
 @class GTLRTPU_DeletingData;
 @class GTLRTPU_FailedData;
 @class GTLRTPU_Guaranteed;
@@ -604,9 +606,38 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled
 
 
 /**
+ *  Sets the boot disk configuration for the TPU node.
+ */
+@interface GTLRTPU_BootDiskConfig : GTLRObject
+
+/** Optional. Customer encryption key for boot disk. */
+@property(nonatomic, strong, nullable) GTLRTPU_CustomerEncryptionKey *customerEncryptionKey;
+
+@end
+
+
+/**
  *  Further data for the creating state.
  */
 @interface GTLRTPU_CreatingData : GTLRObject
+@end
+
+
+/**
+ *  Defines the customer encryption key for disk encryption.
+ */
+@interface GTLRTPU_CustomerEncryptionKey : GTLRObject
+
+/**
+ *  The name of the encryption key that is stored in Google Cloud KMS. For
+ *  example: "kmsKeyName":
+ *  "projects/KMS_PROJECT_ID/locations/REGION/keyRings/KEY_REGION/cryptoKeys/KEY
+ *  The fully-qualifed key name may be returned for resource GET requests. For
+ *  example: "kmsKeyName":
+ *  "projects/KMS_PROJECT_ID/locations/REGION/keyRings/KEY_REGION/cryptoKeys/KEY/cryptoKeyVersions/1
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 @end
 
 
@@ -1117,6 +1148,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled
  *        (Value: "V2_ALPHA1")
  */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Optional. Boot disk configuration. */
+@property(nonatomic, strong, nullable) GTLRTPU_BootDiskConfig *bootDiskConfig;
 
 /**
  *  The CIDR block that the TPU node will use when selecting an IP address. This

@@ -120,6 +120,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpRefer
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpTitle;
 /** Value: "ampTotalEngagedTime" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AmpTotalEngagedTime;
+/** Value: "analyticsClientId" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AnalyticsClientId;
+/** Value: "analyticsSessionId" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AnalyticsSessionId;
+/** Value: "analyticsSessionNumber" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AnalyticsSessionNumber;
 /** Value: "appId" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_AppId;
 /** Value: "appName" */
@@ -758,6 +764,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpTitle Value "ampTitle"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AmpTotalEngagedTime Value
  *        "ampTotalEngagedTime"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AnalyticsClientId Value
+ *        "analyticsClientId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AnalyticsSessionId Value
+ *        "analyticsSessionId"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AnalyticsSessionNumber Value
+ *        "analyticsSessionNumber"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AppId Value "appId"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AppName Value "appName"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_AppVersionCode Value

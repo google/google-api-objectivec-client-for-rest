@@ -831,8 +831,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 /**
  *  Optional. Required for managed constraints if parameters are defined. Passes
  *  parameter values when policy enforcement is enabled. Ensure that parameter
- *  value types match those defined in the constraint definition. For example: {
- *  "allowedLocations" : ["us-east1", "us-west1"], "allowAll" : true }
+ *  value types match those defined in the constraint definition. For example:
+ *  ``` { "allowedLocations" : ["us-east1", "us-west1"], "allowAll" : true } ```
  */
 @property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpecPolicyRule_Parameters *parameters;
 
@@ -848,8 +848,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 /**
  *  Optional. Required for managed constraints if parameters are defined. Passes
  *  parameter values when policy enforcement is enabled. Ensure that parameter
- *  value types match those defined in the constraint definition. For example: {
- *  "allowedLocations" : ["us-east1", "us-west1"], "allowAll" : true }
+ *  value types match those defined in the constraint definition. For example:
+ *  ``` { "allowedLocations" : ["us-east1", "us-west1"], "allowAll" : true } ```
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

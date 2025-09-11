@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v4)
+//   Campaign Manager 360 API (dfareporting/v5)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.
@@ -29,7 +29,7 @@ NSString * const kGTLRAuthScopeDfareportingDfatrafficking = @"https://www.google
   if (self) {
     // From discovery.
     self.rootURLString = @"https://dfareporting.googleapis.com/";
-    self.servicePath = @"dfareporting/v4/";
+    self.servicePath = @"dfareporting/v5/";
     self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];

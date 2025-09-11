@@ -156,6 +156,15 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_CancelOperationRequest
+//
+
+@implementation GTLRDataform_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_CancelWorkflowInvocationRequest
 //
 
@@ -732,6 +741,28 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_ListOperationsResponse
+//
+
+@implementation GTLRDataform_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRDataform_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_ListReleaseConfigsResponse
 //
 
@@ -986,6 +1017,44 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_NotebookRuntimeOptions
 @dynamic aiPlatformNotebookRuntimeTemplate, gcsOutputBucket;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Operation
+//
+
+@implementation GTLRDataform_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Operation_Metadata
+//
+
+@implementation GTLRDataform_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Operation_Response
+//
+
+@implementation GTLRDataform_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

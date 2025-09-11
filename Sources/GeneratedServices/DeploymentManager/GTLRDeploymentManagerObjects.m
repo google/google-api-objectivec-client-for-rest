@@ -932,13 +932,27 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 //
 
 @implementation GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata
-@dynamic zonalIgmIds;
+@dynamic zonalIgmIds, zoneToIgmIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"zonalIgmIds" : [NSNumber class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata_ZoneToIgmIds
+//
+
+@implementation GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata_ZoneToIgmIds
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
 }
 
 @end

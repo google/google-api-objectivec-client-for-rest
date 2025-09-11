@@ -805,8 +805,8 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 @implementation GTLRNetworkSecurity_FirewallEndpoint
 @dynamic associatedNetworks, associations, billingProjectId, createTime,
-         descriptionProperty, labels, name, reconciling, satisfiesPzi,
-         satisfiesPzs, state, updateTime;
+         descriptionProperty, endpointSettings, labels, name, reconciling,
+         satisfiesPzi, satisfiesPzs, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -869,6 +869,15 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 @implementation GTLRNetworkSecurity_FirewallEndpointAssociationReference
 @dynamic name, network;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_FirewallEndpointEndpointSettings
+//
+
+@implementation GTLRNetworkSecurity_FirewallEndpointEndpointSettings
 @end
 
 

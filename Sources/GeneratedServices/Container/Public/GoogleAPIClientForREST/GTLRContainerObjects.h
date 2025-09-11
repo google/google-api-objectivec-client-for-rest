@@ -121,6 +121,7 @@
 @class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NetworkPolicyConfig;
 @class GTLRContainer_NetworkTags;
+@class GTLRContainer_NetworkTierConfig;
 @class GTLRContainer_NodeAffinity;
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
@@ -1547,6 +1548,40 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico;
  *  Value: "PROVIDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkPolicy_Provider_ProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NetworkTierConfig.networkTier
+
+/**
+ *  Default network tier. Use project-level configuration. User can specify this
+ *  value, meaning they want to keep the same behaviour as before cluster level
+ *  network tier configuration is introduced. This field ensures backward
+ *  compatibility for the network tier of cluster resources, such as node pools
+ *  and load balancers, for their external IP addresses.
+ *
+ *  Value: "NETWORK_TIER_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierDefault;
+/**
+ *  Premium network tier.
+ *
+ *  Value: "NETWORK_TIER_PREMIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierPremium;
+/**
+ *  Standard network tier.
+ *
+ *  Value: "NETWORK_TIER_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierStandard;
+/**
+ *  By default, use project-level configuration. When unspecified, the behavior
+ *  defaults to NETWORK_TIER_DEFAULT. For cluster updates, this implies no
+ *  action (no-op).
+ *
+ *  Value: "NETWORK_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NodeAffinity.operatorProperty
@@ -4479,6 +4514,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired network performance config. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterNetworkPerformanceConfig *desiredNetworkPerformanceConfig;
 
+/** The desired network tier configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkTierConfig *desiredNetworkTierConfig;
+
 /** The desired node kubelet config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *desiredNodeKubeletConfig;
 
@@ -5989,6 +6027,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *ipv6AccessType;
 
+/**
+ *  Cluster-level network tier configuration is used to determine the default
+ *  network tier for external IP addresses on cluster resources, such as node
+ *  pools and load balancers.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkTierConfig *networkTierConfig;
+
 /** This field is deprecated, use node_ipv4_cidr_block. */
 @property(nonatomic, copy, nullable) NSString *nodeIpv4Cidr GTLR_DEPRECATED;
 
@@ -7104,6 +7149,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  NetworkTierConfig contains network tier information.
+ */
+@interface GTLRContainer_NetworkTierConfig : GTLRObject
+
+/**
+ *  Network tier configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierDefault
+ *        Default network tier. Use project-level configuration. User can
+ *        specify this value, meaning they want to keep the same behaviour as
+ *        before cluster level network tier configuration is introduced. This
+ *        field ensures backward compatibility for the network tier of cluster
+ *        resources, such as node pools and load balancers, for their external
+ *        IP addresses. (Value: "NETWORK_TIER_DEFAULT")
+ *    @arg @c kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierPremium
+ *        Premium network tier. (Value: "NETWORK_TIER_PREMIUM")
+ *    @arg @c kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierStandard
+ *        Standard network tier. (Value: "NETWORK_TIER_STANDARD")
+ *    @arg @c kGTLRContainer_NetworkTierConfig_NetworkTier_NetworkTierUnspecified
+ *        By default, use project-level configuration. When unspecified, the
+ *        behavior defaults to NETWORK_TIER_DEFAULT. For cluster updates, this
+ *        implies no action (no-op). (Value: "NETWORK_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *networkTier;
+
+@end
+
+
+/**
  *  Specifies the NodeAffinity key, values, and affinity operator according to
  *  [shared sole tenant node group
  *  affinities](https://{$universe.dns_names.final_documentation_domain}/compute/docs/nodes/sole-tenant-nodes#node_affinity_and_anti-affinity).
@@ -7825,6 +7900,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Network bandwidth tier configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPerformanceConfig *networkPerformanceConfig;
+
+/**
+ *  Output only. The network tier configuration for the node pool inherits from
+ *  the cluster-level configuration and remains immutable throughout the node
+ *  pool's lifecycle, including during upgrades.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NetworkTierConfig *networkTierConfig;
 
 /**
  *  [PRIVATE FIELD] Pod CIDR size overprovisioning config for the nodepool. Pod

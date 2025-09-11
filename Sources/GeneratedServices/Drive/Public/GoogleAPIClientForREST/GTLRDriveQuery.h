@@ -892,7 +892,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a shared drive.
+ *  Creates a shared drive. For more information, see [Manage shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  Method: drive.drives.create
  *
@@ -913,7 +914,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Drive.
  *
- *  Creates a shared drive.
+ *  Creates a shared drive. For more information, see [Manage shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  @param object The @c GTLRDrive_Drive to include in the query.
  *  @param requestId Required. An ID, such as a random UUID, which uniquely
@@ -931,7 +933,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Permanently deletes a shared drive for which the user is an `organizer`. The
- *  shared drive cannot contain any untrashed items.
+ *  shared drive cannot contain any untrashed items. For more information, see
+ *  [Manage shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  Method: drive.drives.delete
  *
@@ -965,7 +969,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  be nil. This query does not fetch an object.
  *
  *  Permanently deletes a shared drive for which the user is an `organizer`. The
- *  shared drive cannot contain any untrashed items.
+ *  shared drive cannot contain any untrashed items. For more information, see
+ *  [Manage shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  @param driveId The ID of the shared drive.
  *
@@ -976,7 +982,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets a shared drive's metadata by ID.
+ *  Gets a shared drive's metadata by ID. For more information, see [Manage
+ *  shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  Method: drive.drives.get
  *
@@ -1001,7 +1009,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Drive.
  *
- *  Gets a shared drive's metadata by ID.
+ *  Gets a shared drive's metadata by ID. For more information, see [Manage
+ *  shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  @param driveId The ID of the shared drive.
  *
@@ -1012,7 +1022,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Hides a shared drive from the default view.
+ *  Hides a shared drive from the default view. For more information, see
+ *  [Manage shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  Method: drive.drives.hide
  *
@@ -1027,7 +1039,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Drive.
  *
- *  Hides a shared drive from the default view.
+ *  Hides a shared drive from the default view. For more information, see
+ *  [Manage shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  @param driveId The ID of the shared drive.
  *
@@ -1093,7 +1107,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Restores a shared drive to the default view.
+ *  Restores a shared drive to the default view. For more information, see
+ *  [Manage shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  Method: drive.drives.unhide
  *
@@ -1108,7 +1124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Drive.
  *
- *  Restores a shared drive to the default view.
+ *  Restores a shared drive to the default view. For more information, see
+ *  [Manage shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  @param driveId The ID of the shared drive.
  *
@@ -1119,7 +1137,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates the metadata for a shared drive.
+ *  Updates the metadata for a shared drive. For more information, see [Manage
+ *  shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  Method: drive.drives.update
  *
@@ -1143,7 +1163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Drive.
  *
- *  Updates the metadata for a shared drive.
+ *  Updates the metadata for a shared drive. For more information, see [Manage
+ *  shared
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives).
  *
  *  @param object The @c GTLRDrive_Drive to include in the query.
  *  @param driveId The ID of the shared drive.
@@ -1157,7 +1179,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Creates a copy of a file and applies any requested updates with patch
- *  semantics.
+ *  semantics. For more information, see [Create and manage
+ *  files](https://developers.google.com/workspace/drive/api/guides/create-file).
  *
  *  Method: drive.files.copy
  *
@@ -1170,12 +1193,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_FilesCopy : GTLRDriveQuery
 
 /**
- *  Deprecated. Copying files into multiple folders is no longer supported. Use
+ *  Deprecated: Copying files into multiple folders is no longer supported. Use
  *  shortcuts instead.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceSingleParent;
+@property(nonatomic, assign) BOOL enforceSingleParent GTLR_DEPRECATED;
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -1198,12 +1221,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
- *  Only 'published' is supported.
+ *  Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
 /**
- *  Whether to set the 'keepForever' field in the new head revision. This is
+ *  Whether to set the `keepForever` field in the new head revision. This is
  *  only applicable to files with binary content in Google Drive. Only 200
  *  revisions for the file can be kept forever. If the limit is reached, try
  *  deleting pinned revisions.
@@ -1236,7 +1259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_File.
  *
  *  Creates a copy of a file and applies any requested updates with patch
- *  semantics.
+ *  semantics. For more information, see [Create and manage
+ *  files](https://developers.google.com/workspace/drive/api/guides/create-file).
  *
  *  @param object The @c GTLRDrive_File to include in the query.
  *  @param fileId The ID of the file.
@@ -1249,22 +1273,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a new file. This method supports an * /upload* URI and accepts
- *  uploaded media with the following characteristics: - *Maximum file size:*
- *  5,120 GB - *Accepted Media MIME types:*`* / *` Note: Specify a valid MIME
- *  type, rather than the literal `* / *` value. The literal `* / *` is only
- *  used to indicate that any valid MIME type can be uploaded. For more
+ *  Creates a file. For more information, see [Create and manage
+ *  files](/workspace/drive/api/guides/create-file). This method supports an *
+ *  /upload* URI and accepts uploaded media with the following characteristics:
+ *  - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:* `* / *`
+ *  (Specify a valid MIME type, rather than the literal `* / *` value. The
+ *  literal `* / *` is only used to indicate that any valid MIME type can be
+ *  uploaded. For more information, see [Google Workspace and Google Drive
+ *  supported MIME types](/workspace/drive/api/guides/mime-types).) For more
  *  information on uploading files, see [Upload file
  *  data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts
- *  with `files.create` must specify the MIME type
+ *  with the `create` method must specify the MIME type
  *  `application/vnd.google-apps.shortcut`. Apps should specify a file extension
  *  in the `name` property when inserting files with the API. For example, an
  *  operation to insert a JPEG file should specify something like `"name":
  *  "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only
  *  `fileExtension` property populated with the extension originally specified
- *  in the `title` property. When a Google Drive user requests to download a
+ *  in the `name` property. When a Google Drive user requests to download a
  *  file, or when the file is downloaded through the sync client, Drive builds a
- *  full filename (with extension) based on the title. In cases where the
+ *  full filename (with extension) based on the name. In cases where the
  *  extension is missing, Drive attempts to determine the extension based on the
  *  file's MIME type.
  *
@@ -1278,11 +1305,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_FilesCreate : GTLRDriveQuery
 
 /**
- *  Deprecated. Creating files in multiple folders is no longer supported.
+ *  Deprecated: Creating files in multiple folders is no longer supported.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceSingleParent;
+@property(nonatomic, assign) BOOL enforceSingleParent GTLR_DEPRECATED;
 
 /**
  *  Whether to ignore the domain's default visibility settings for the created
@@ -1302,12 +1329,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
- *  Only 'published' is supported.
+ *  Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
 /**
- *  Whether to set the 'keepForever' field in the new head revision. This is
+ *  Whether to set the `keepForever` field in the new head revision. This is
  *  only applicable to files with binary content in Google Drive. Only 200
  *  revisions for the file can be kept forever. If the limit is reached, try
  *  deleting pinned revisions.
@@ -1346,22 +1373,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_File.
  *
- *  Creates a new file. This method supports an * /upload* URI and accepts
- *  uploaded media with the following characteristics: - *Maximum file size:*
- *  5,120 GB - *Accepted Media MIME types:*`* / *` Note: Specify a valid MIME
- *  type, rather than the literal `* / *` value. The literal `* / *` is only
- *  used to indicate that any valid MIME type can be uploaded. For more
+ *  Creates a file. For more information, see [Create and manage
+ *  files](/workspace/drive/api/guides/create-file). This method supports an *
+ *  /upload* URI and accepts uploaded media with the following characteristics:
+ *  - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:* `* / *`
+ *  (Specify a valid MIME type, rather than the literal `* / *` value. The
+ *  literal `* / *` is only used to indicate that any valid MIME type can be
+ *  uploaded. For more information, see [Google Workspace and Google Drive
+ *  supported MIME types](/workspace/drive/api/guides/mime-types).) For more
  *  information on uploading files, see [Upload file
  *  data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts
- *  with `files.create` must specify the MIME type
+ *  with the `create` method must specify the MIME type
  *  `application/vnd.google-apps.shortcut`. Apps should specify a file extension
  *  in the `name` property when inserting files with the API. For example, an
  *  operation to insert a JPEG file should specify something like `"name":
  *  "cat.jpg"` in the metadata. Subsequent `GET` requests include the read-only
  *  `fileExtension` property populated with the extension originally specified
- *  in the `title` property. When a Google Drive user requests to download a
+ *  in the `name` property. When a Google Drive user requests to download a
  *  file, or when the file is downloaded through the sync client, Drive builds a
- *  full filename (with extension) based on the title. In cases where the
+ *  full filename (with extension) based on the name. In cases where the
  *  extension is missing, Drive attempts to determine the extension based on the
  *  file's MIME type.
  *
@@ -1378,6 +1408,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Permanently deletes a file owned by the user without moving it to the trash.
+ *  For more information, see [Trash or delete files and
+ *  folders](https://developers.google.com/workspace/drive/api/guides/delete).
  *  If the file belongs to a shared drive, the user must be an `organizer` on
  *  the parent folder. If the target is a folder, all descendants owned by the
  *  user are also deleted.
@@ -1392,9 +1424,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_FilesDelete : GTLRDriveQuery
 
 /**
- *  Deprecated: If an item is not in a shared drive and its last parent is
- *  deleted but the item itself is not, the item will be placed under its
- *  owner's root.
+ *  Deprecated: If an item isn't in a shared drive and its last parent is
+ *  deleted but the item itself isn't, the item will be placed under its owner's
+ *  root.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1423,6 +1455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  be nil. This query does not fetch an object.
  *
  *  Permanently deletes a file owned by the user without moving it to the trash.
+ *  For more information, see [Trash or delete files and
+ *  folders](https://developers.google.com/workspace/drive/api/guides/delete).
  *  If the file belongs to a shared drive, the user must be an `organizer` on
  *  the parent folder. If the target is a folder, all descendants owned by the
  *  user are also deleted.
@@ -1436,8 +1470,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Downloads content of a file. Operations are valid for 24 hours from the time
- *  of creation.
+ *  Downloads the content of a file. For more information, see [Download and
+ *  export
+ *  files](https://developers.google.com/workspace/drive/api/guides/manage-downloads).
+ *  Operations are valid for 24 hours from the time of creation.
  *
  *  Method: drive.files.download
  *
@@ -1453,11 +1489,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Optional. The MIME type the file should be downloaded as. This field can
- *  only be set when downloading Google Workspace documents. See [Export MIME
- *  types for Google Workspace documents](/drive/api/guides/ref-export-formats)
- *  for the list of supported MIME types. If not set, a Google Workspace
- *  document is downloaded with a default MIME type. The default MIME type might
- *  change in the future.
+ *  only be set when downloading Google Workspace documents. For a list of
+ *  supported MIME types, see [Export MIME types for Google Workspace
+ *  documents](/workspace/drive/api/guides/ref-export-formats). If not set, a
+ *  Google Workspace document is downloaded with a default MIME type. The
+ *  default MIME type might change in the future.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -1472,8 +1508,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Operation.
  *
- *  Downloads content of a file. Operations are valid for 24 hours from the time
- *  of creation.
+ *  Downloads the content of a file. For more information, see [Download and
+ *  export
+ *  files](https://developers.google.com/workspace/drive/api/guides/manage-downloads).
+ *  Operations are valid for 24 hours from the time of creation.
  *
  *  @param fileId Required. The ID of the file to download.
  *
@@ -1484,7 +1522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Permanently deletes all of the user's trashed files.
+ *  Permanently deletes all of the user's trashed files. For more information,
+ *  see [Trash or delete files and
+ *  folders](https://developers.google.com/workspace/drive/api/guides/delete).
  *
  *  Method: drive.files.emptyTrash
  *
@@ -1497,9 +1537,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *driveId;
 
 /**
- *  Deprecated: If an item is not in a shared drive and its last parent is
- *  deleted but the item itself is not, the item will be placed under its
- *  owner's root.
+ *  Deprecated: If an item isn't in a shared drive and its last parent is
+ *  deleted but the item itself isn't, the item will be placed under its owner's
+ *  root.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1509,7 +1549,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Permanently deletes all of the user's trashed files.
+ *  Permanently deletes all of the user's trashed files. For more information,
+ *  see [Trash or delete files and
+ *  folders](https://developers.google.com/workspace/drive/api/guides/delete).
  *
  *  @return GTLRDriveQuery_FilesEmptyTrash
  */
@@ -1519,7 +1561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Exports a Google Workspace document to the requested MIME type and returns
- *  exported byte content. Note that the exported content is limited to 10MB.
+ *  exported byte content. For more information, see [Download and export
+ *  files](https://developers.google.com/workspace/drive/api/guides/manage-downloads).
+ *  Note that the exported content is limited to 10 MB.
  *
  *  Method: drive.files.export
  *
@@ -1534,18 +1578,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
-/** Required. The MIME type of the format requested for this export. */
+/**
+ *  Required. The MIME type of the format requested for this export. For a list
+ *  of supported MIME types, see [Export MIME types for Google Workspace
+ *  documents](/workspace/drive/api/guides/ref-export-formats).
+ */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
  *  Exports a Google Workspace document to the requested MIME type and returns
- *  exported byte content. Note that the exported content is limited to 10MB.
+ *  exported byte content. For more information, see [Download and export
+ *  files](https://developers.google.com/workspace/drive/api/guides/manage-downloads).
+ *  Note that the exported content is limited to 10 MB.
  *
  *  @param fileId The ID of the file.
  *  @param mimeType Required. The MIME type of the format requested for this
- *    export.
+ *    export. For a list of supported MIME types, see [Export MIME types for
+ *    Google Workspace
+ *    documents](/workspace/drive/api/guides/ref-export-formats).
  *
  *  @return GTLRDriveQuery_FilesExport
  */
@@ -1556,7 +1608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Generates a set of file IDs which can be provided in create or copy
- *  requests.
+ *  requests. For more information, see [Create and manage
+ *  files](https://developers.google.com/workspace/drive/api/guides/create-file).
  *
  *  Method: drive.files.generateIds
  *
@@ -1576,8 +1629,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) NSInteger count;
 
 /**
- *  The space in which the IDs can be used to create new files. Supported values
- *  are 'drive' and 'appDataFolder'. (Default: 'drive')
+ *  The space in which the IDs can be used to create files. Supported values are
+ *  `drive` and `appDataFolder`. (Default: `drive`.) For more information, see
+ *  [File
+ *  organization](https://developers.google.com/workspace/drive/api/guides/about-files#file-organization).
  *
  *  @note If not set, the documented server-side default will be drive.
  */
@@ -1585,8 +1640,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  The type of items which the IDs can be used for. Supported values are
- *  'files' and 'shortcuts'. Note that 'shortcuts' are only supported in the
- *  `drive` 'space'. (Default: 'files')
+ *  `files` and `shortcuts`. Note that `shortcuts` are only supported in the
+ *  `drive` `space`. (Default: `files`.) For more information, see [File
+ *  organization](https://developers.google.com/workspace/drive/api/guides/about-files#file-organization).
  *
  *  @note If not set, the documented server-side default will be files.
  */
@@ -1596,7 +1652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_GeneratedIds.
  *
  *  Generates a set of file IDs which can be provided in create or copy
- *  requests.
+ *  requests. For more information, see [Create and manage
+ *  files](https://developers.google.com/workspace/drive/api/guides/create-file).
  *
  *  @return GTLRDriveQuery_FilesGenerateIds
  */
@@ -1605,12 +1662,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets a file's metadata or content by ID. If you provide the URL parameter
- *  `alt=media`, then the response includes the file contents in the response
- *  body. Downloading content with `alt=media` only works if the file is stored
- *  in Drive. To download Google Docs, Sheets, and Slides use
+ *  Gets a file's metadata or content by ID. For more information, see [Search
+ *  for files and folders](/workspace/drive/api/guides/search-files). If you
+ *  provide the URL parameter `alt=media`, then the response includes the file
+ *  contents in the response body. Downloading content with `alt=media` only
+ *  works if the file is stored in Drive. To download Google Docs, Sheets, and
+ *  Slides use
  *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
- *  instead. For more information, see [Download & export
+ *  instead. For more information, see [Download and export
  *  files](/workspace/drive/api/guides/manage-downloads).
  *
  *  Method: drive.files.get
@@ -1648,7 +1707,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
- *  Only 'published' is supported.
+ *  Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
@@ -1670,12 +1729,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_File.
  *
- *  Gets a file's metadata or content by ID. If you provide the URL parameter
- *  `alt=media`, then the response includes the file contents in the response
- *  body. Downloading content with `alt=media` only works if the file is stored
- *  in Drive. To download Google Docs, Sheets, and Slides use
+ *  Gets a file's metadata or content by ID. For more information, see [Search
+ *  for files and folders](/workspace/drive/api/guides/search-files). If you
+ *  provide the URL parameter `alt=media`, then the response includes the file
+ *  contents in the response body. Downloading content with `alt=media` only
+ *  works if the file is stored in Drive. To download Google Docs, Sheets, and
+ *  Slides use
  *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
- *  instead. For more information, see [Download & export
+ *  instead. For more information, see [Download and export
  *  files](/workspace/drive/api/guides/manage-downloads).
  *
  *  @param fileId The ID of the file.
@@ -1687,12 +1748,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Gets a file's metadata or content by ID. If you provide the URL parameter
- *  `alt=media`, then the response includes the file contents in the response
- *  body. Downloading content with `alt=media` only works if the file is stored
- *  in Drive. To download Google Docs, Sheets, and Slides use
+ *  Gets a file's metadata or content by ID. For more information, see [Search
+ *  for files and folders](/workspace/drive/api/guides/search-files). If you
+ *  provide the URL parameter `alt=media`, then the response includes the file
+ *  contents in the response body. Downloading content with `alt=media` only
+ *  works if the file is stored in Drive. To download Google Docs, Sheets, and
+ *  Slides use
  *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
- *  instead. For more information, see [Download & export
+ *  instead. For more information, see [Download and export
  *  files](/workspace/drive/api/guides/manage-downloads).
  *
  *  @param fileId The ID of the file.
@@ -1704,12 +1767,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists the user's files. This method accepts the `q` parameter, which is a
- *  search query combining one or more search terms. For more information, see
- *  the [Search for files & folders](/workspace/drive/api/guides/search-files)
- *  guide. *Note:* This method returns *all* files by default, including trashed
- *  files. If you don't want trashed files to appear in the list, use the
- *  `trashed=false` query parameter to remove trashed files from the results.
+ *  Lists the user's files. For more information, see [Search for files and
+ *  folders](/workspace/drive/api/guides/search-files). This method accepts the
+ *  `q` parameter, which is a search query combining one or more search terms.
+ *  This method returns *all* files by default, including trashed files. If you
+ *  don't want trashed files to appear in the list, use the `trashed=false`
+ *  query parameter to remove trashed files from the results.
  *
  *  Method: drive.files.list
  *
@@ -1726,16 +1789,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_FilesList : GTLRDriveQuery
 
 /**
- *  Bodies of items (files/documents) to which the query applies. Supported
- *  bodies are 'user', 'domain', 'drive', and 'allDrives'. Prefer 'user' or
- *  'drive' to 'allDrives' for efficiency. By default, corpora is set to 'user'.
- *  However, this can change depending on the filter set through the 'q'
- *  parameter.
+ *  Bodies of items (files or documents) to which the query applies. Supported
+ *  bodies are: * `user` * `domain` * `drive` * `allDrives` Prefer `user` or
+ *  `drive` to `allDrives` for efficiency. By default, corpora is set to `user`.
+ *  However, this can change depending on the filter set through the `q`
+ *  parameter. For more information, see [File
+ *  organization](https://developers.google.com/workspace/drive/api/guides/about-files#file-organization).
  */
 @property(nonatomic, copy, nullable) NSString *corpora;
 
 /**
- *  Deprecated: The source of files to list. Use 'corpora' instead.
+ *  Deprecated: The source of files to list. Use `corpora` instead.
  *
  *  Likely values:
  *    @arg @c kGTLRDriveCorpusDomain Files shared to the user's domain. (Value:
@@ -1763,7 +1827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
- *  Only 'published' is supported.
+ *  Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
@@ -1787,7 +1851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  `sharedWithMeTime`: When the file was shared with the user, if applicable. *
  *  `starred`: Whether the user has starred the file. * `viewedByMeTime`: The
  *  last time the file was viewed by the user. Each key sorts ascending by
- *  default, but can be reversed with the 'desc' modifier. Example usage:
+ *  default, but can be reversed with the `desc` modifier. Example usage:
  *  `?orderBy=folder,modifiedTime desc,name`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -1803,19 +1867,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  The token for continuing a previous list request on the next page. This
- *  should be set to the value of 'nextPageToken' from the previous response.
+ *  should be set to the value of `nextPageToken` from the previous response.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A query for filtering the file results. See the "Search for files & folders"
- *  guide for supported syntax.
+ *  A query for filtering the file results. For supported syntax, see [Search
+ *  for files and folders](/workspace/drive/api/guides/search-files).
  */
 @property(nonatomic, copy, nullable) NSString *q;
 
 /**
  *  A comma-separated list of spaces to query within the corpora. Supported
- *  values are 'drive' and 'appDataFolder'.
+ *  values are `drive` and `appDataFolder`. For more information, see [File
+ *  organization](https://developers.google.com/workspace/drive/api/guides/about-files#file-organization).
  *
  *  @note If not set, the documented server-side default will be drive.
  */
@@ -1842,12 +1907,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_FileList.
  *
- *  Lists the user's files. This method accepts the `q` parameter, which is a
- *  search query combining one or more search terms. For more information, see
- *  the [Search for files & folders](/workspace/drive/api/guides/search-files)
- *  guide. *Note:* This method returns *all* files by default, including trashed
- *  files. If you don't want trashed files to appear in the list, use the
- *  `trashed=false` query parameter to remove trashed files from the results.
+ *  Lists the user's files. For more information, see [Search for files and
+ *  folders](/workspace/drive/api/guides/search-files). This method accepts the
+ *  `q` parameter, which is a search query combining one or more search terms.
+ *  This method returns *all* files by default, including trashed files. If you
+ *  don't want trashed files to appear in the list, use the `trashed=false`
+ *  query parameter to remove trashed files from the results.
  *
  *  @return GTLRDriveQuery_FilesList
  *
@@ -1860,7 +1925,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists the labels on a file.
+ *  Lists the labels on a file. For more information, see [List labels on a
+ *  file](https://developers.google.com/workspace/drive/api/guides/list-labels).
  *
  *  Method: drive.files.listLabels
  *
@@ -1888,14 +1954,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  The token for continuing a previous list request on the next page. This
- *  should be set to the value of 'nextPageToken' from the previous response.
+ *  should be set to the value of `nextPageToken` from the previous response.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRDrive_LabelList.
  *
- *  Lists the labels on a file.
+ *  Lists the labels on a file. For more information, see [List labels on a
+ *  file](https://developers.google.com/workspace/drive/api/guides/list-labels).
  *
  *  @param fileId The ID for the file.
  *
@@ -1910,8 +1977,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Modifies the set of labels applied to a file. Returns a list of the labels
- *  that were added or modified.
+ *  Modifies the set of labels applied to a file. For more information, see [Set
+ *  a label field on a
+ *  file](https://developers.google.com/workspace/drive/api/guides/set-label).
+ *  Returns a list of the labels that were added or modified.
  *
  *  Method: drive.files.modifyLabels
  *
@@ -1928,8 +1997,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_ModifyLabelsResponse.
  *
- *  Modifies the set of labels applied to a file. Returns a list of the labels
- *  that were added or modified.
+ *  Modifies the set of labels applied to a file. For more information, see [Set
+ *  a label field on a
+ *  file](https://developers.google.com/workspace/drive/api/guides/set-label).
+ *  Returns a list of the labels that were added or modified.
  *
  *  @param object The @c GTLRDrive_ModifyLabelsRequest to include in the query.
  *  @param fileId The ID of the file to which the labels belong.
@@ -1942,15 +2013,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates a file's metadata and/or content. When calling this method, only
+ *  Updates a file's metadata, content, or both. When calling this method, only
  *  populate fields in the request that you want to modify. When updating
  *  fields, some fields might be changed automatically, such as `modifiedDate`.
  *  This method supports patch semantics. This method supports an * /upload* URI
  *  and accepts uploaded media with the following characteristics: - *Maximum
- *  file size:* 5,120 GB - *Accepted Media MIME types:*`* / *` Note: Specify a
- *  valid MIME type, rather than the literal `* / *` value. The literal `* / *`
- *  is only used to indicate that any valid MIME type can be uploaded. For more
- *  information on uploading files, see [Upload file
+ *  file size:* 5,120 GB - *Accepted Media MIME types:* `* / *` (Specify a valid
+ *  MIME type, rather than the literal `* / *` value. The literal `* / *` is
+ *  only used to indicate that any valid MIME type can be uploaded. For more
+ *  information, see [Google Workspace and Google Drive supported MIME
+ *  types](/workspace/drive/api/guides/mime-types).) For more information on
+ *  uploading files, see [Upload file
  *  data](/workspace/drive/api/guides/manage-uploads).
  *
  *  Method: drive.files.update
@@ -1986,12 +2059,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
- *  Only 'published' is supported.
+ *  Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
 /**
- *  Whether to set the 'keepForever' field in the new head revision. This is
+ *  Whether to set the `keepForever` field in the new head revision. This is
  *  only applicable to files with binary content in Google Drive. Only 200
  *  revisions for the file can be kept forever. If the limit is reached, try
  *  deleting pinned revisions.
@@ -2033,15 +2106,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_File.
  *
- *  Updates a file's metadata and/or content. When calling this method, only
+ *  Updates a file's metadata, content, or both. When calling this method, only
  *  populate fields in the request that you want to modify. When updating
  *  fields, some fields might be changed automatically, such as `modifiedDate`.
  *  This method supports patch semantics. This method supports an * /upload* URI
  *  and accepts uploaded media with the following characteristics: - *Maximum
- *  file size:* 5,120 GB - *Accepted Media MIME types:*`* / *` Note: Specify a
- *  valid MIME type, rather than the literal `* / *` value. The literal `* / *`
- *  is only used to indicate that any valid MIME type can be uploaded. For more
- *  information on uploading files, see [Upload file
+ *  file size:* 5,120 GB - *Accepted Media MIME types:* `* / *` (Specify a valid
+ *  MIME type, rather than the literal `* / *` value. The literal `* / *` is
+ *  only used to indicate that any valid MIME type can be uploaded. For more
+ *  information, see [Google Workspace and Google Drive supported MIME
+ *  types](/workspace/drive/api/guides/mime-types).) For more information on
+ *  uploading files, see [Upload file
  *  data](/workspace/drive/api/guides/manage-uploads).
  *
  *  @param object The @c GTLRDrive_File to include in the query.
@@ -2058,7 +2133,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Subscribes to changes to a file.
+ *  Subscribes to changes to a file. For more information, see [Notifications
+ *  for resource
+ *  changes](https://developers.google.com/workspace/drive/api/guides/push).
  *
  *  Method: drive.files.watch
  *
@@ -2095,7 +2172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
- *  Only 'published' is supported.
+ *  Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
@@ -2117,7 +2194,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Channel.
  *
- *  Subscribes to changes to a file.
+ *  Subscribes to changes to a file. For more information, see [Notifications
+ *  for resource
+ *  changes](https://developers.google.com/workspace/drive/api/guides/push).
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *  @param fileId The ID of the file.
@@ -2207,7 +2286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Whether to send a notification email when sharing to users or groups. This
- *  defaults to true for users and groups, and is not allowed for other
+ *  defaults to `true` for users and groups, and is not allowed for other
  *  requests. It must not be disabled for ownership transfers.
  */
 @property(nonatomic, assign) BOOL sendNotificationEmail;
@@ -2782,7 +2861,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Permanently deletes a file version. You can only delete revisions for files
  *  with binary content in Google Drive, like images or videos. Revisions for
  *  other files, like Google Docs or Sheets, and the last remaining file version
- *  can't be deleted.
+ *  can't be deleted. For more information, see [Manage file
+ *  revisions](https://developers.google.com/drive/api/guides/manage-revisions).
  *
  *  Method: drive.revisions.delete
  *
@@ -2806,7 +2886,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Permanently deletes a file version. You can only delete revisions for files
  *  with binary content in Google Drive, like images or videos. Revisions for
  *  other files, like Google Docs or Sheets, and the last remaining file version
- *  can't be deleted.
+ *  can't be deleted. For more information, see [Manage file
+ *  revisions](https://developers.google.com/drive/api/guides/manage-revisions).
  *
  *  @param fileId The ID of the file.
  *  @param revisionId The ID of the revision.
@@ -2819,7 +2900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets a revision's metadata or content by ID.
+ *  Gets a revision's metadata or content by ID. For more information, see
+ *  [Manage file
+ *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
  *
  *  Method: drive.revisions.get
  *
@@ -2854,7 +2937,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Revision.
  *
- *  Gets a revision's metadata or content by ID.
+ *  Gets a revision's metadata or content by ID. For more information, see
+ *  [Manage file
+ *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
  *
  *  @param fileId The ID of the file.
  *  @param revisionId The ID of the revision.
@@ -2867,7 +2952,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Gets a revision's metadata or content by ID.
+ *  Gets a revision's metadata or content by ID. For more information, see
+ *  [Manage file
+ *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
  *
  *  @param fileId The ID of the file.
  *  @param revisionId The ID of the revision.
@@ -2880,7 +2967,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists a file's revisions.
+ *  Lists a file's revisions. For more information, see [Manage file
+ *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
  *
  *  Method: drive.revisions.list
  *
@@ -2916,7 +3004,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_RevisionList.
  *
- *  Lists a file's revisions.
+ *  Lists a file's revisions. For more information, see [Manage file
+ *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
  *
  *  @param fileId The ID of the file.
  *
@@ -2931,7 +3020,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates a revision with patch semantics.
+ *  Updates a revision with patch semantics. For more information, see [Manage
+ *  file
+ *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
  *
  *  Method: drive.revisions.update
  *
@@ -2951,7 +3042,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Revision.
  *
- *  Updates a revision with patch semantics.
+ *  Updates a revision with patch semantics. For more information, see [Manage
+ *  file
+ *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
  *
  *  @param object The @c GTLRDrive_Revision to include in the query.
  *  @param fileId The ID of the file.

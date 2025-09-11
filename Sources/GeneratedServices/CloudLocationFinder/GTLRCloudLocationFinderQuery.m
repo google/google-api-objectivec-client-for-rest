@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Location Finder API (cloudlocationfinder/v1alpha)
+//   Cloud Location Finder API (cloudlocationfinder/v1)
 // Documentation:
 //   https://cloud.google.com/location-finder/docs
 
@@ -22,7 +22,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudLocationFinderQuery_ProjectsLocationsCloudLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -41,7 +41,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/cloudLocations";
+  NSString *pathURITemplate = @"v1/{+parent}/cloudLocations";
   GTLRCloudLocationFinderQuery_ProjectsLocationsCloudLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -60,7 +60,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha/{+parent}/cloudLocations:search";
+  NSString *pathURITemplate = @"v1/{+parent}/cloudLocations:search";
   GTLRCloudLocationFinderQuery_ProjectsLocationsCloudLocationsSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -79,7 +79,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudLocationFinderQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -105,7 +105,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRCloudLocationFinderQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

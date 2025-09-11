@@ -468,7 +468,8 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadRel
 
 @implementation GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release
 @dynamic binaryDownloadUri, buildVersion, createTime, displayVersion,
-         firebaseConsoleUri, name, releaseNotes, testingUri;
+         expireTime, firebaseConsoleUri, name, releaseNotes, testingUri,
+         updateTime;
 @end
 
 

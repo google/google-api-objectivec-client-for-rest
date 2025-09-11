@@ -1247,6 +1247,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  */
 @property(nonatomic, copy, nullable) NSString *displayVersion;
 
+/** Output only. The time the release will expire. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
 /**
  *  Output only. A link to the Firebase console displaying a single release.
  */
@@ -1267,6 +1270,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  and install the app onto their devices.
  */
 @property(nonatomic, copy, nullable) NSString *testingUri;
+
+/** Output only. The time the release was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

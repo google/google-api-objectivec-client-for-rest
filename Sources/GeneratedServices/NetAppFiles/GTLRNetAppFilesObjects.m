@@ -167,6 +167,12 @@ NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_AccessType_ReadNone = @
 NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_AccessType_ReadOnly = @"READ_ONLY";
 NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_AccessType_ReadWrite = @"READ_WRITE";
 
+// GTLRNetAppFiles_SimpleExportPolicyRule.squashMode
+NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_AllSquash = @"ALL_SQUASH";
+NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_NoRootSquash = @"NO_ROOT_SQUASH";
+NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_RootSquash = @"ROOT_SQUASH";
+NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_SquashModeUnspecified = @"SQUASH_MODE_UNSPECIFIED";
+
 // GTLRNetAppFiles_Snapshot.state
 NSString * const kGTLRNetAppFiles_Snapshot_State_Creating      = @"CREATING";
 NSString * const kGTLRNetAppFiles_Snapshot_State_Deleting      = @"DELETING";
@@ -1116,9 +1122,9 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_SimpleExportPolicyRule
-@dynamic accessType, allowedClients, hasRootAccess, kerberos5iReadOnly,
+@dynamic accessType, allowedClients, anonUid, hasRootAccess, kerberos5iReadOnly,
          kerberos5iReadWrite, kerberos5pReadOnly, kerberos5pReadWrite,
-         kerberos5ReadOnly, kerberos5ReadWrite, nfsv3, nfsv4;
+         kerberos5ReadOnly, kerberos5ReadWrite, nfsv3, nfsv4, squashMode;
 @end
 
 
@@ -1212,12 +1218,13 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 @implementation GTLRNetAppFiles_StoragePool
 @dynamic activeDirectory, allowAutoTiering, availableThroughputMibps,
-         capacityGib, createTime, customPerformanceEnabled, descriptionProperty,
-         enableHotTierAutoResize, encryptionType, globalAccessAllowed,
-         hotTierSizeGib, kmsConfig, labels, ldapEnabled, name, network,
-         psaRange, qosType, replicaZone, satisfiesPzi, satisfiesPzs,
-         serviceLevel, state, stateDetails, totalIops, totalThroughputMibps,
-         volumeCapacityGib, volumeCount, zoneProperty;
+         capacityGib, coldTierSizeUsedGib, createTime, customPerformanceEnabled,
+         descriptionProperty, enableHotTierAutoResize, encryptionType,
+         globalAccessAllowed, hotTierSizeGib, hotTierSizeUsedGib, kmsConfig,
+         labels, ldapEnabled, name, network, psaRange, qosType, replicaZone,
+         satisfiesPzi, satisfiesPzs, serviceLevel, state, stateDetails,
+         totalIops, totalThroughputMibps, volumeCapacityGib, volumeCount,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1339,13 +1346,13 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 @implementation GTLRNetAppFiles_Volume
 @dynamic activeDirectory, backupConfig, capacityGib, coldTierSizeGib,
          createTime, descriptionProperty, encryptionType, exportPolicy,
-         hasReplication, hybridReplicationParameters, kerberosEnabled,
-         kmsConfig, labels, largeCapacity, ldapEnabled, mountOptions,
-         multipleEndpoints, name, network, protocols, psaRange, replicaZone,
-         restoreParameters, restrictedActions, securityStyle, serviceLevel,
-         shareName, smbSettings, snapReserve, snapshotDirectory, snapshotPolicy,
-         state, stateDetails, storagePool, throughputMibps, tieringPolicy,
-         unixPermissions, usedGib, zoneProperty;
+         hasReplication, hotTierSizeUsedGib, hybridReplicationParameters,
+         kerberosEnabled, kmsConfig, labels, largeCapacity, ldapEnabled,
+         mountOptions, multipleEndpoints, name, network, protocols, psaRange,
+         replicaZone, restoreParameters, restrictedActions, securityStyle,
+         serviceLevel, shareName, smbSettings, snapReserve, snapshotDirectory,
+         snapshotPolicy, state, stateDetails, storagePool, throughputMibps,
+         tieringPolicy, unixPermissions, usedGib, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

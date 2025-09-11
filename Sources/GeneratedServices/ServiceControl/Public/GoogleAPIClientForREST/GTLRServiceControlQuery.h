@@ -106,9 +106,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  after the operations have been executed. For more information, see
  *  [Telemetry
  *  Reporting](https://cloud.google.com/service-infrastructure/docs/telemetry-reporting).
- *  NOTE: The telemetry reporting has a hard limit of 1000 operations and 1MB
- *  per Report call. It is recommended to have no more than 100 operations per
- *  call. This method requires the `servicemanagement.services.report`
+ *  NOTE: The telemetry reporting has a hard limit of 100 operations and 1MB per
+ *  Report call. This method requires the `servicemanagement.services.report`
  *  permission on the specified service. For more information, see [Service
  *  Control API Access
  *  Control](https://cloud.google.com/service-infrastructure/docs/service-control/access-control).
@@ -139,9 +138,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  after the operations have been executed. For more information, see
  *  [Telemetry
  *  Reporting](https://cloud.google.com/service-infrastructure/docs/telemetry-reporting).
- *  NOTE: The telemetry reporting has a hard limit of 1000 operations and 1MB
- *  per Report call. It is recommended to have no more than 100 operations per
- *  call. This method requires the `servicemanagement.services.report`
+ *  NOTE: The telemetry reporting has a hard limit of 100 operations and 1MB per
+ *  Report call. This method requires the `servicemanagement.services.report`
  *  permission on the specified service. For more information, see [Service
  *  Control API Access
  *  Control](https://cloud.google.com/service-infrastructure/docs/service-control/access-control).

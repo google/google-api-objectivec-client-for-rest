@@ -56,6 +56,7 @@
 @class GTLRCloudFilestore_Operation_Response;
 @class GTLRCloudFilestore_PerformanceConfig;
 @class GTLRCloudFilestore_PerformanceLimits;
+@class GTLRCloudFilestore_PscConfig;
 @class GTLRCloudFilestore_ReplicaConfig;
 @class GTLRCloudFilestore_Replication;
 @class GTLRCloudFilestore_Schedule;
@@ -481,6 +482,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode
  *  Value: "PRIVATE_SERVICE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceAccess;
+/**
+ *  Connect to your Filestore instance using Private Service Connect. A
+ *  connection policy must exist in the region for the VPC network and the
+ *  google-cloud-filestore service class.
+ *
+ *  Value: "PRIVATE_SERVICE_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceConnect;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_NetworkConfig.modes
@@ -559,6 +568,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Creat
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Failed;
 /**
+ *  The replica is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Paused;
+/**
+ *  The replica is being paused.
+ *
+ *  Value: "PAUSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Pausing;
+/**
  *  The replica is being promoted.
  *
  *  Value: "PROMOTING"
@@ -577,6 +598,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Ready
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Removing;
 /**
+ *  The replica is being resumed.
+ *
+ *  Value: "RESUMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_Resuming;
+/**
  *  State not set.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -586,6 +613,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_State_State
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_ReplicaConfig.stateReasons
 
+/**
+ *  The pause replica operation failed.
+ *
+ *  Value: "PAUSE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_PauseFailed;
 /**
  *  The peer instance is unreachable.
  *
@@ -598,6 +631,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReason
  *  Value: "REMOVE_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_RemoveFailed;
+/**
+ *  The resume replica operation failed.
+ *
+ *  Value: "RESUME_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_ReplicaConfig_StateReasons_ResumeFailed;
 /**
  *  Reason not specified.
  *
@@ -1618,6 +1657,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @interface GTLRCloudFilestore_Instance : GTLRObject
 
+/**
+ *  Output only. The increase/decrease capacity step size in GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *capacityStepSizeGb;
+
 /** Output only. The time when the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1664,6 +1710,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 /** Resource labels to represent user provided metadata. */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Instance_Labels *labels;
+
+/**
+ *  Output only. The max capacity of the instance in GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxCapacityGb;
+
+/**
+ *  Output only. The min capacity of the instance in GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minCapacityGb;
 
 /**
  *  Output only. The resource name of the instance, in the format
@@ -2164,6 +2224,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        Private services access provides an IP address range for multiple
  *        Google Cloud services, including Filestore. (Value:
  *        "PRIVATE_SERVICE_ACCESS")
+ *    @arg @c kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceConnect
+ *        Connect to your Filestore instance using Private Service Connect. A
+ *        connection policy must exist in the region for the VPC network and the
+ *        google-cloud-filestore service class. (Value:
+ *        "PRIVATE_SERVICE_CONNECT")
  */
 @property(nonatomic, copy, nullable) NSString *connectMode;
 
@@ -2186,6 +2251,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  connected.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. Private Service Connect configuration. Should only be set when
+ *  connect_mode is PRIVATE_SERVICE_CONNECT.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_PscConfig *pscConfig;
 
 /**
  *  Optional, reserved_ip_range can have one of the following two types of
@@ -2257,6 +2328,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  ranges/addresses for each FileShareConfig among all NfsExportOptions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipRanges;
+
+/**
+ *  Optional. The source VPC network for ip_ranges. Required for instances using
+ *  Private Service Connect, optional otherwise. If provided, must be the same
+ *  network specified in the `NetworkConfig.network` field.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  Either NO_ROOT_SQUASH, for allowing root access on the exported directory,
@@ -2492,6 +2570,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
+ *  Private Service Connect configuration.
+ */
+@interface GTLRCloudFilestore_PscConfig : GTLRObject
+
+/**
+ *  Optional. Consumer service project in which the Private Service Connect
+ *  endpoint would be set up. This is optional, and only relevant in case the
+ *  network is a shared VPC. If this is not specified, the endpoint would be
+ *  setup in the VPC host project.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointProject;
+
+@end
+
+
+/**
  *  Replica configuration for the instance.
  */
 @interface GTLRCloudFilestore_ReplicaConfig : GTLRObject
@@ -2515,12 +2609,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        experiencing an issue and might be unusable. You can get further
  *        details from the `stateReasons` field of the `ReplicaConfig` object.
  *        (Value: "FAILED")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Paused The replica is
+ *        paused. (Value: "PAUSED")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Pausing The replica is
+ *        being paused. (Value: "PAUSING")
  *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Promoting The replica is
  *        being promoted. (Value: "PROMOTING")
  *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Ready The replica is
  *        ready. (Value: "READY")
  *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Removing The replica is
  *        being removed. (Value: "REMOVING")
+ *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_Resuming The replica is
+ *        being resumed. (Value: "RESUMING")
  *    @arg @c kGTLRCloudFilestore_ReplicaConfig_State_StateUnspecified State not
  *        set. (Value: "STATE_UNSPECIFIED")
  */

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v4)
+//   Campaign Manager 360 API (dfareporting/v5)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.
@@ -184,15 +184,13 @@ NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingJavascript = @"P
 NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingThirdPartyMeasurement = @"PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT";
 
 // type
-NSString * const kGTLRDfareportingTypeAdServingBrandSafeAd     = @"AD_SERVING_BRAND_SAFE_AD";
-NSString * const kGTLRDfareportingTypeAdServingClickTracker    = @"AD_SERVING_CLICK_TRACKER";
-NSString * const kGTLRDfareportingTypeAdServingDefaultAd       = @"AD_SERVING_DEFAULT_AD";
-NSString * const kGTLRDfareportingTypeAdServingStandardAd      = @"AD_SERVING_STANDARD_AD";
-NSString * const kGTLRDfareportingTypeAdServingTracking        = @"AD_SERVING_TRACKING";
-NSString * const kGTLRDfareportingTypeCounter                  = @"COUNTER";
-NSString * const kGTLRDfareportingTypePlanningPlacementTypeCredit = @"PLANNING_PLACEMENT_TYPE_CREDIT";
-NSString * const kGTLRDfareportingTypePlanningPlacementTypeRegular = @"PLANNING_PLACEMENT_TYPE_REGULAR";
-NSString * const kGTLRDfareportingTypeSale                     = @"SALE";
+NSString * const kGTLRDfareportingTypeAdServingBrandSafeAd  = @"AD_SERVING_BRAND_SAFE_AD";
+NSString * const kGTLRDfareportingTypeAdServingClickTracker = @"AD_SERVING_CLICK_TRACKER";
+NSString * const kGTLRDfareportingTypeAdServingDefaultAd    = @"AD_SERVING_DEFAULT_AD";
+NSString * const kGTLRDfareportingTypeAdServingStandardAd   = @"AD_SERVING_STANDARD_AD";
+NSString * const kGTLRDfareportingTypeAdServingTracking     = @"AD_SERVING_TRACKING";
+NSString * const kGTLRDfareportingTypeCounter               = @"COUNTER";
+NSString * const kGTLRDfareportingTypeSale                  = @"SALE";
 
 // types
 NSString * const kGTLRDfareportingTypesBrandSafeDefaultInstreamVideo = @"BRAND_SAFE_DEFAULT_INSTREAM_VIDEO";
@@ -3640,68 +3638,6 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @end
 
-@implementation GTLRDfareportingQuery_InventoryItemsGet
-
-@dynamic identifier, profileId, projectId;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (instancetype)queryWithProfileId:(long long)profileId
-                         projectId:(long long)projectId
-                        identifier:(long long)identifier {
-  NSArray *pathParams = @[
-    @"id", @"profileId", @"projectId"
-  ];
-  NSString *pathURITemplate = @"userprofiles/{+profileId}/projects/{projectId}/inventoryItems/{+id}";
-  GTLRDfareportingQuery_InventoryItemsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.profileId = profileId;
-  query.projectId = projectId;
-  query.identifier = identifier;
-  query.expectedObjectClass = [GTLRDfareporting_InventoryItem class];
-  query.loggingName = @"dfareporting.inventoryItems.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRDfareportingQuery_InventoryItemsList
-
-@dynamic ids, inPlan, maxResults, orderId, pageToken, profileId, projectId,
-         siteId, sortField, sortOrder, type;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"ids" : [NSNumber class],
-    @"orderId" : [NSNumber class],
-    @"siteId" : [NSNumber class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithProfileId:(long long)profileId
-                         projectId:(long long)projectId {
-  NSArray *pathParams = @[
-    @"profileId", @"projectId"
-  ];
-  NSString *pathURITemplate = @"userprofiles/{+profileId}/projects/{projectId}/inventoryItems";
-  GTLRDfareportingQuery_InventoryItemsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.profileId = profileId;
-  query.projectId = projectId;
-  query.expectedObjectClass = [GTLRDfareporting_InventoryItemsListResponse class];
-  query.loggingName = @"dfareporting.inventoryItems.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRDfareportingQuery_LanguagesList
 
 @dynamic profileId;
@@ -3923,67 +3859,6 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.profileId = profileId;
   query.expectedObjectClass = [GTLRDfareporting_OperatingSystemVersionsListResponse class];
   query.loggingName = @"dfareporting.operatingSystemVersions.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRDfareportingQuery_OrdersGet
-
-@dynamic identifier, profileId, projectId;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (instancetype)queryWithProfileId:(long long)profileId
-                         projectId:(long long)projectId
-                        identifier:(long long)identifier {
-  NSArray *pathParams = @[
-    @"id", @"profileId", @"projectId"
-  ];
-  NSString *pathURITemplate = @"userprofiles/{+profileId}/projects/{projectId}/orders/{+id}";
-  GTLRDfareportingQuery_OrdersGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.profileId = profileId;
-  query.projectId = projectId;
-  query.identifier = identifier;
-  query.expectedObjectClass = [GTLRDfareporting_Order class];
-  query.loggingName = @"dfareporting.orders.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRDfareportingQuery_OrdersList
-
-@dynamic ids, maxResults, pageToken, profileId, projectId, searchString, siteId,
-         sortField, sortOrder;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"ids" : [NSNumber class],
-    @"siteId" : [NSNumber class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithProfileId:(long long)profileId
-                         projectId:(long long)projectId {
-  NSArray *pathParams = @[
-    @"profileId", @"projectId"
-  ];
-  NSString *pathURITemplate = @"userprofiles/{+profileId}/projects/{projectId}/orders";
-  GTLRDfareportingQuery_OrdersList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.profileId = profileId;
-  query.projectId = projectId;
-  query.expectedObjectClass = [GTLRDfareporting_OrdersListResponse class];
-  query.loggingName = @"dfareporting.orders.list";
   return query;
 }
 
@@ -4578,61 +4453,6 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @end
 
-@implementation GTLRDfareportingQuery_ProjectsGet
-
-@dynamic identifier, profileId;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (instancetype)queryWithProfileId:(long long)profileId
-                        identifier:(long long)identifier {
-  NSArray *pathParams = @[
-    @"id", @"profileId"
-  ];
-  NSString *pathURITemplate = @"userprofiles/{+profileId}/projects/{+id}";
-  GTLRDfareportingQuery_ProjectsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.profileId = profileId;
-  query.identifier = identifier;
-  query.expectedObjectClass = [GTLRDfareporting_Project class];
-  query.loggingName = @"dfareporting.projects.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRDfareportingQuery_ProjectsList
-
-@dynamic advertiserIds, ids, maxResults, pageToken, profileId, searchString,
-         sortField, sortOrder;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"advertiserIds" : [NSNumber class],
-    @"ids" : [NSNumber class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithProfileId:(long long)profileId {
-  NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{+profileId}/projects";
-  GTLRDfareportingQuery_ProjectsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.profileId = profileId;
-  query.expectedObjectClass = [GTLRDfareporting_ProjectsListResponse class];
-  query.loggingName = @"dfareporting.projects.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRDfareportingQuery_RegionsList
 
 @dynamic profileId;
@@ -5044,37 +4864,6 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.profileId = profileId;
   query.expectedObjectClass = [GTLRDfareporting_ReportList class];
   query.loggingName = @"dfareporting.reports.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRDfareportingQuery_ReportsPatch
-
-@dynamic profileId, reportId;
-
-+ (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
-                      profileId:(long long)profileId
-                       reportId:(long long)reportId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"profileId", @"reportId"
-  ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}";
-  GTLRDfareportingQuery_ReportsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.profileId = profileId;
-  query.reportId = reportId;
-  query.expectedObjectClass = [GTLRDfareporting_Report class];
-  query.loggingName = @"dfareporting.reports.patch";
   return query;
 }
 

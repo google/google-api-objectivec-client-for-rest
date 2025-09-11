@@ -7708,6 +7708,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, copy, nullable) NSString *notificationType;
 
+/**
+ *  The physical headers provided by RequestReceivedParameters in Scotty
+ *  request. type is uploader_service.KeyValuePairs.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *physicalHeaders;
+
 /** The Scotty request ID. */
 @property(nonatomic, copy, nullable) NSString *requestId;
 

@@ -36,6 +36,7 @@
 @class GTLRContainerAnalysis_BuildProvenance;
 @class GTLRContainerAnalysis_BuildProvenance_BuildOptions;
 @class GTLRContainerAnalysis_Category;
+@class GTLRContainerAnalysis_CISAKnownExploitedVulnerabilities;
 @class GTLRContainerAnalysis_CisBenchmark;
 @class GTLRContainerAnalysis_CloudRepoSourceContext;
 @class GTLRContainerAnalysis_CloudStorageLocation;
@@ -58,6 +59,7 @@
 @class GTLRContainerAnalysis_DSSEHint;
 @class GTLRContainerAnalysis_Envelope;
 @class GTLRContainerAnalysis_EnvelopeSignature;
+@class GTLRContainerAnalysis_ExploitPredictionScoringSystem;
 @class GTLRContainerAnalysis_Expr;
 @class GTLRContainerAnalysis_File;
 @class GTLRContainerAnalysis_File_Digest;
@@ -164,6 +166,7 @@
 @class GTLRContainerAnalysis_ResourceDescriptor;
 @class GTLRContainerAnalysis_ResourceDescriptor_Annotations;
 @class GTLRContainerAnalysis_ResourceDescriptor_Digest;
+@class GTLRContainerAnalysis_Risk;
 @class GTLRContainerAnalysis_RunDetails;
 @class GTLRContainerAnalysis_SbomReferenceIntotoPayload;
 @class GTLRContainerAnalysis_SbomReferenceIntotoPredicate;
@@ -2547,7 +2550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  A step in the build pipeline. Next ID: 22
+ *  A step in the build pipeline. Next ID: 23
  */
 @interface GTLRContainerAnalysis_BuildStep : GTLRObject
 
@@ -2649,6 +2652,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_TimeSpan *pullTiming;
 
+/** Remote configuration for the build step. */
+@property(nonatomic, copy, nullable) NSString *remoteConfig;
+
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_StepResult *> *results;
 
 /**
@@ -2736,6 +2742,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The localized name of the category. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_CISAKnownExploitedVulnerabilities
+ */
+@interface GTLRContainerAnalysis_CISAKnownExploitedVulnerabilities : GTLRObject
+
+/**
+ *  Whether the vulnerability is known to have been leveraged as part of a
+ *  ransomware campaign.
+ */
+@property(nonatomic, copy, nullable) NSString *knownRansomwareCampaignUse;
 
 @end
 
@@ -3719,6 +3739,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
+ *  GTLRContainerAnalysis_ExploitPredictionScoringSystem
+ */
+@interface GTLRContainerAnalysis_ExploitPredictionScoringSystem : GTLRObject
+
+/**
+ *  The percentile of the current score, the proportion of all scored
+ *  vulnerabilities with the same or a lower EPSS score
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentile;
+
+/**
+ *  The EPSS score representing the probability [0-1] of exploitation in the
+ *  wild in the next 30 days
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
  *  The request to generate and export SBOM. Target must be specified for the
  *  request.
  */
@@ -4217,7 +4261,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsNpmPackage : GTLRObject
 
-/** Path to the package.json. e.g. workspace/path/to/package */
+/**
+ *  Optional. Path to the package.json. e.g. workspace/path/to/package Only one
+ *  of `archive` or `package_path` can be specified.
+ */
 @property(nonatomic, copy, nullable) NSString *packagePath;
 
 /**
@@ -6319,7 +6366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /**
  *  Unordered list. Unreachable regions. Populated for requests from the global
- *  region when `return_partial_success` is set. Format: projects//locations/
+ *  region when `return_partial_success` is set. Format:
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -6353,7 +6401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /**
  *  Unordered list. Unreachable regions. Populated for requests from the global
- *  region when `return_partial_success` is set. Format: projects//locations/
+ *  region when `return_partial_success` is set. Format:
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -7254,6 +7303,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *        fetch them all at once.
  */
 @interface GTLRContainerAnalysis_ResourceDescriptor_Digest : GTLRObject
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_Risk
+ */
+@interface GTLRContainerAnalysis_Risk : GTLRObject
+
+/**
+ *  CISA maintains the authoritative source of vulnerabilities that have been
+ *  exploited in the wild.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CISAKnownExploitedVulnerabilities *cisaKev;
+
+/**
+ *  The Exploit Prediction Scoring System (EPSS) estimates the likelihood
+ *  (probability) that a software vulnerability will be exploited in the wild.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ExploitPredictionScoringSystem *epss;
+
 @end
 
 
@@ -8421,6 +8490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** Output only. URLs related to this vulnerability. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_RelatedUrl *> *relatedUrls;
 
+/** Risk information about the vulnerability, such as CISA, EPSS, etc. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Risk *risk;
+
 /**
  *  Output only. The note provider assigned severity of this vulnerability.
  *
@@ -8467,7 +8539,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /**
  *  Unordered list. Unreachable regions. Populated for requests from the global
- *  region when `return_partial_success` is set. Format: projects//locations/
+ *  region when `return_partial_success` is set. Format:
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

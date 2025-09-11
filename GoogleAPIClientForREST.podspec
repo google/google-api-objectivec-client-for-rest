@@ -415,6 +415,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Cloudchannel/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Cloudchannel/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CloudCommercePartnerProcurementService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CloudCommercePartnerProcurementService/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CloudCommercePartnerProcurementService/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CloudComposer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudComposer/**/*.{h,m}'

@@ -886,7 +886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. The user who set the content restriction. Only populated if
- *  `readOnly` is true.
+ *  `readOnly=true`.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_User *restrictingUser;
 
@@ -927,7 +927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSNumber *restrictedForReaders;
 
 /**
- *  Whether download and copy is restricted for writers. If true, download is
+ *  Whether download and copy is restricted for writers. If `true`, download is
  *  also restricted for readers.
  *
  *  Uses NSNumber of boolValue.
@@ -950,7 +950,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  The download restriction of the file applied directly by the owner or
- *  organizer. This does not take into account shared drive settings or DLP
+ *  organizer. This doesn't take into account shared drive settings or DLP
  *  rules.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_DownloadRestriction *itemDownloadRestriction;
@@ -1382,7 +1382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Capabilities the current user has on this file. Each capability
- *  corresponds to a fine-grained action that a user may take.
+ *  corresponds to a fine-grained action that a user may take. For more
+ *  information, see [Understand file
+ *  capabilities](https://developers.google.com/workspace/drive/api/guides/manage-sharing#capabilities).
  */
 @property(nonatomic, strong, nullable) GTLRDrive_File_Capabilities *capabilities;
 
@@ -1399,8 +1401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_ContentRestriction *> *contentRestrictions;
 
 /**
- *  Whether the options to copy, print, or download this file, should be
- *  disabled for readers and commenters.
+ *  Whether the options to copy, print, or download this file should be disabled
+ *  for readers and commenters.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1447,8 +1449,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  The color for a folder or a shortcut to a folder as an RGB hex string. The
  *  supported colors are published in the `folderColorPalette` field of the
- *  About resource. If an unsupported color is specified, the closest color in
- *  the palette is used instead.
+ *  [`about`](/workspace/drive/api/reference/rest/v3/about) resource. If an
+ *  unsupported color is specified, the closest color in the palette is used
+ *  instead.
  */
 @property(nonatomic, copy, nullable) NSString *folderColorRgb;
 
@@ -1456,8 +1459,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Output only. The full file extension extracted from the `name` field. May
  *  contain multiple concatenated extensions, such as "tar.gz". This is only
  *  available for files with binary content in Google Drive. This is
- *  automatically updated when the `name` field changes, however it is not
- *  cleared if the new name does not contain a valid extension.
+ *  automatically updated when the `name` field changes, however it's not
+ *  cleared if the new name doesn't contain a valid extension.
  */
 @property(nonatomic, copy, nullable) NSString *fullFileExtension;
 
@@ -1470,7 +1473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSNumber *hasAugmentedPermissions;
 
 /**
- *  Output only. Whether this file has a thumbnail. This does not indicate
+ *  Output only. Whether this file has a thumbnail. This doesn't indicate
  *  whether the requesting app has access to the thumbnail. To check access,
  *  look for the presence of the thumbnailLink field.
  *
@@ -1544,7 +1547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  appropriate value from uploaded content, if no value is provided. The value
  *  cannot be changed unless a new revision is uploaded. If a file is created
  *  with a Google Doc MIME type, the uploaded content is imported, if possible.
- *  The supported import formats are published in the About resource.
+ *  The supported import formats are published in the
+ *  [`about`](/workspace/drive/api/reference/rest/v3/about) resource.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -1565,9 +1569,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;
 
 /**
- *  The name of the file. This is not necessarily unique within a folder. Note
- *  that for immutable items such as the top level folders of shared drives, My
- *  Drive root folder, and Application Data folder the name is constant.
+ *  The name of the file. This isn't necessarily unique within a folder. Note
+ *  that for immutable items such as the top-level folders of shared drives, the
+ *  My Drive root folder, and the Application Data folder, the name is constant.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1632,7 +1636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. The SHA1 checksum associated with this file, if available. This
- *  field is only populated for files with content stored in Google Drive; it is
+ *  field is only populated for files with content stored in Google Drive; it's
  *  not populated for Docs Editors or shortcut files.
  */
 @property(nonatomic, copy, nullable) NSString *sha1Checksum;
@@ -1640,7 +1644,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  Output only. The SHA256 checksum associated with this file, if available.
  *  This field is only populated for files with content stored in Google Drive;
- *  it is not populated for Docs Editors or shortcut files.
+ *  it's not populated for Docs Editors or shortcut files.
  */
 @property(nonatomic, copy, nullable) NSString *sha256Checksum;
 
@@ -1672,8 +1676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) GTLRDrive_File_ShortcutDetails *shortcutDetails;
 
 /**
- *  Output only. Size in bytes of blobs and first party editor files. Won't be
- *  populated for files that have no size, like shortcuts and folders.
+ *  Output only. Size in bytes of blobs and Google Workspace editor files. Won't
+ *  be populated for files that have no size, like shortcuts and folders.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1681,7 +1685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. The list of spaces which contain the file. The currently
- *  supported values are 'drive', 'appDataFolder' and 'photos'.
+ *  supported values are `drive`, `appDataFolder`, and `photos`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *spaces;
 
@@ -1699,10 +1703,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Output only. A short-lived link to the file's thumbnail, if available.
  *  Typically lasts on the order of hours. Not intended for direct usage on web
  *  applications due to [Cross-Origin Resource Sharing
- *  (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) policies,
- *  consider using a proxy server. Only populated when the requesting app can
+ *  (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) policies.
+ *  Consider using a proxy server. Only populated when the requesting app can
  *  access the file's content. If the file isn't shared publicly, the URL
- *  returned in `Files.thumbnailLink` must be fetched using a credentialed
+ *  returned in `files.thumbnailLink` must be fetched using a credentialed
  *  request.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailLink;
@@ -1809,7 +1813,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Capabilities the current user has on this file. Each capability
- *  corresponds to a fine-grained action that a user may take.
+ *  corresponds to a fine-grained action that a user may take. For more
+ *  information, see [Understand file
+ *  capabilities](https://developers.google.com/workspace/drive/api/guides/manage-sharing#capabilities).
  */
 @interface GTLRDrive_File_Capabilities : GTLRObject
 
@@ -1823,7 +1829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the current user can add children to this folder. This
- *  is always false when the item is not a folder.
+ *  is always `false` when the item isn't a folder.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1831,8 +1837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the current user can add a folder from another drive
- *  (different shared drive or My Drive) to this folder. This is false when the
- *  item is not a folder. Only populated for items in shared drives.
+ *  (different shared drive or My Drive) to this folder. This is `false` when
+ *  the item isn't a folder. Only populated for items in shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1864,7 +1870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSNumber *canChangeItemDownloadRestriction;
 
 /**
- *  Output only. Whether the current user can change the securityUpdateEnabled
+ *  Output only. Whether the current user can change the `securityUpdateEnabled`
  *  field on link share metadata.
  *
  *  Uses NSNumber of boolValue.
@@ -1888,7 +1894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  Output only. Whether the current user can copy this file. For an item in a
  *  shared drive, whether the current user can copy non-folder descendants of
- *  this item, or this item itself if it is not a folder.
+ *  this item, or this item if it's not a folder.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1903,7 +1909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the current user can delete children of this folder.
- *  This is false when the item is not a folder. Only populated for items in
+ *  This is `false` when the item isn't a folder. Only populated for items in
  *  shared drives.
  *
  *  Uses NSNumber of boolValue.
@@ -1942,7 +1948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the current user can list the children of this folder.
- *  This is always false when the item is not a folder.
+ *  This is always `false` when the item isn't a folder.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1957,7 +1963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Deprecated: Output only. Use one of `canModifyEditorContentRestriction`,
- *  `canModifyOwnerContentRestriction` or `canRemoveContentRestriction`.
+ *  `canModifyOwnerContentRestriction`, or `canRemoveContentRestriction`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1988,7 +1994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the current user can move children of this folder
- *  outside of the shared drive. This is false when the item is not a folder.
+ *  outside of the shared drive. This is `false` when the item isn't a folder.
  *  Only populated for items in shared drives.
  *
  *  Uses NSNumber of boolValue.
@@ -2004,7 +2010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the current user can move children of this folder
- *  within this drive. This is false when the item is not a folder. Note that a
+ *  within this drive. This is `false` when the item isn't a folder. Note that a
  *  request to move the child may still fail depending on the current user's
  *  access to the child and to the destination folder.
  *
@@ -2029,7 +2035,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  Output only. Whether the current user can move this item outside of this
  *  drive by changing its parent. Note that a request to change the parent of
- *  the item may still fail depending on the new parent that is being added.
+ *  the item may still fail depending on the new parent that's being added.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2045,7 +2051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  Output only. Whether the current user can move this item within this drive.
  *  Note that a request to change the parent of the item may still fail
- *  depending on the new parent that is being added and the parent that is being
+ *  depending on the new parent that's being added and the parent that is being
  *  removed.
  *
  *  Uses NSNumber of boolValue.
@@ -2085,8 +2091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  Output only. Whether the current user can read the revisions resource of
  *  this file. For a shared drive item, whether revisions of non-folder
- *  descendants of this item, or this item itself if it is not a folder, can be
- *  read.
+ *  descendants of this item, or this item if it's not a folder, can be read.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2101,15 +2106,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the current user can remove children from this folder.
- *  This is always false when the item is not a folder. For a folder in a shared
- *  drive, use `canDeleteChildren` or `canTrashChildren` instead.
+ *  This is always `false` when the item isn't a folder. For a folder in a
+ *  shared drive, use `canDeleteChildren` or `canTrashChildren` instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canRemoveChildren;
 
 /**
- *  Output only. Whether there is a content restriction on the file that can be
+ *  Output only. Whether there's a content restriction on the file that can be
  *  removed by the current user.
  *
  *  Uses NSNumber of boolValue.
@@ -2149,7 +2154,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the current user can trash children of this folder.
- *  This is false when the item is not a folder. Only populated for items in
+ *  This is `false` when the item isn't a folder. Only populated for items in
  *  shared drives.
  *
  *  Uses NSNumber of boolValue.
@@ -2174,7 +2179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Text to be indexed for the file to improve fullText queries. This is limited
- *  to 128KB in length and may contain HTML elements.
+ *  to 128 KB in length and may contain HTML elements.
  */
 @property(nonatomic, copy, nullable) NSString *indexableText;
 
@@ -2386,7 +2391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  */
 @property(nonatomic, copy, nullable) NSString *targetMimeType;
 
-/** Output only. The ResourceKey for the target file. */
+/** Output only. The `resourceKey` for the target file. */
 @property(nonatomic, copy, nullable) NSString *targetResourceKey;
 
 @end
@@ -2429,7 +2434,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @interface GTLRDrive_File_ContentHints_Thumbnail : GTLRObject
 
 /**
- *  The thumbnail data encoded with URL-safe Base64 (RFC 4648 section 5).
+ *  The thumbnail data encoded with URL-safe Base64 ([RFC 4648 section
+ *  5](https://datatracker.ietf.org/doc/html/rfc4648#section-5)).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2482,7 +2488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @interface GTLRDrive_FileList : GTLRCollectionObject
 
 /**
- *  The list of files. If nextPageToken is populated, then this list may be
+ *  The list of files. If `nextPageToken` is populated, then this list may be
  *  incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
@@ -2493,9 +2499,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  Whether the search process was incomplete. If true, then some search results
  *  might be missing, since all documents were not searched. This can occur when
- *  searching multiple drives with the 'allDrives' corpora, but all corpora
+ *  searching multiple drives with the `allDrives` corpora, but all corpora
  *  couldn't be searched. When this happens, it's suggested that clients narrow
- *  their query by choosing a different corpus such as 'user' or 'drive'.
+ *  their query by choosing a different corpus such as `user` or `drive`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2632,7 +2638,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /** The ID of the field to be modified. */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
-/** This is always drive#labelFieldModification. */
+/** This is always `"drive#labelFieldModification"`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2657,7 +2663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setTextValues;
 
 /**
- *  Replaces a `user` field with these new values. The values must be valid
+ *  Replaces a `user` field with these new values. The values must be a valid
  *  email addresses.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *setUserValues;
@@ -2682,7 +2688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  */
 @interface GTLRDrive_LabelList : GTLRCollectionObject
 
-/** This is always drive#labelList */
+/** This is always `"drive#labelList"`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2707,7 +2713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 
 /**
- *  A modification to a label on a file. A LabelModification can be used to
+ *  A modification to a label on a file. A `LabelModification` can be used to
  *  apply a label to a file, update an existing label on a file, or remove a
  *  label from a file.
  */
@@ -2716,7 +2722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /** The list of modifications to this label's fields. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_LabelFieldModification *> *fieldModifications;
 
-/** This is always drive#labelModification. */
+/** This is always `"drive#labelModification"`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The ID of the label to modify. */
@@ -2767,7 +2773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  */
 @interface GTLRDrive_ModifyLabelsRequest : GTLRObject
 
-/** This is always drive#modifyLabelsRequest. */
+/** This is always `"drive#modifyLabelsRequest"`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of modifications to apply to the labels on the file. */
@@ -2777,12 +2783,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 
 /**
- *  Response to a ModifyLabels request. This contains only those labels which
+ *  Response to a `ModifyLabels` request. This contains only those labels which
  *  were added or updated by the request.
  */
 @interface GTLRDrive_ModifyLabelsResponse : GTLRObject
 
-/** This is always drive#modifyLabelsResponse */
+/** This is always `"drive#modifyLabelsResponse"`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of labels which were added or updated by the request. */

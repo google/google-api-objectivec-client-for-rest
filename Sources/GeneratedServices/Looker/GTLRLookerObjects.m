@@ -498,7 +498,8 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_ServiceAttachment
-@dynamic connectionStatus, localFqdn, localFqdns, targetServiceAttachmentUri;
+@dynamic connectionStatus, failureReason, localFqdn, localFqdns,
+         targetServiceAttachmentUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

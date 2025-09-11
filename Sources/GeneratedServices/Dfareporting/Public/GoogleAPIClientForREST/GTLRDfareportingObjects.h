@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v4)
+//   Campaign Manager 360 API (dfareporting/v5)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.
@@ -22,7 +22,6 @@
 @class GTLRDfareporting_Activities;
 @class GTLRDfareporting_Ad;
 @class GTLRDfareporting_AdBlockingConfiguration;
-@class GTLRDfareporting_AdSlot;
 @class GTLRDfareporting_Advertiser;
 @class GTLRDfareporting_AdvertiserGroup;
 @class GTLRDfareporting_AudienceSegment;
@@ -55,7 +54,6 @@
 @class GTLRDfareporting_Creative;
 @class GTLRDfareporting_CreativeAsset;
 @class GTLRDfareporting_CreativeAssetId;
-@class GTLRDfareporting_CreativeAssetSelection;
 @class GTLRDfareporting_CreativeAssignment;
 @class GTLRDfareporting_CreativeClickThroughUrl;
 @class GTLRDfareporting_CreativeCustomEvent;
@@ -102,7 +100,6 @@
 @class GTLRDfareporting_FieldFilter;
 @class GTLRDfareporting_File;
 @class GTLRDfareporting_File_Urls;
-@class GTLRDfareporting_Flight;
 @class GTLRDfareporting_FloodlightActivity;
 @class GTLRDfareporting_FloodlightActivityDynamicTag;
 @class GTLRDfareporting_FloodlightActivityGroup;
@@ -114,7 +111,6 @@
 @class GTLRDfareporting_GeoTargeting;
 @class GTLRDfareporting_IngestionErrorRecord;
 @class GTLRDfareporting_IngestionStatus;
-@class GTLRDfareporting_InventoryItem;
 @class GTLRDfareporting_Invoice;
 @class GTLRDfareporting_KeyValueTargetingExpression;
 @class GTLRDfareporting_LandingPage;
@@ -141,8 +137,6 @@
 @class GTLRDfareporting_OperatingSystem;
 @class GTLRDfareporting_OperatingSystemVersion;
 @class GTLRDfareporting_OptimizationActivity;
-@class GTLRDfareporting_Order;
-@class GTLRDfareporting_OrderContact;
 @class GTLRDfareporting_PathToConversionReportCompatibleFields;
 @class GTLRDfareporting_Placement;
 @class GTLRDfareporting_PlacementAssignment;
@@ -154,10 +148,8 @@
 @class GTLRDfareporting_PlatformType;
 @class GTLRDfareporting_PopupWindowProperties;
 @class GTLRDfareporting_PostalCode;
-@class GTLRDfareporting_Pricing;
 @class GTLRDfareporting_PricingSchedule;
 @class GTLRDfareporting_PricingSchedulePricingPeriod;
-@class GTLRDfareporting_Project;
 @class GTLRDfareporting_ProximityFilter;
 @class GTLRDfareporting_ReachReportCompatibleFields;
 @class GTLRDfareporting_Recipient;
@@ -166,7 +158,6 @@
 @class GTLRDfareporting_RemarketingValueAttribute;
 @class GTLRDfareporting_Report;
 @class GTLRDfareporting_Report_Criteria;
-@class GTLRDfareporting_Report_CrossDimensionReachCriteria;
 @class GTLRDfareporting_Report_CrossMediaReachCriteria;
 @class GTLRDfareporting_Report_Delivery;
 @class GTLRDfareporting_Report_FloodlightCriteria;
@@ -179,7 +170,6 @@
 @class GTLRDfareporting_ReportsConfiguration;
 @class GTLRDfareporting_RequestValue;
 @class GTLRDfareporting_RichMediaExitOverride;
-@class GTLRDfareporting_Rule;
 @class GTLRDfareporting_RuleBlock;
 @class GTLRDfareporting_Site;
 @class GTLRDfareporting_SiteCompanionSetting;
@@ -214,6 +204,7 @@
 @class GTLRDfareporting_VideoFormat;
 @class GTLRDfareporting_VideoOffset;
 @class GTLRDfareporting_VideoSettings;
+@class GTLRDfareporting_YoutubeSettings;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -395,36 +386,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingStandardAd
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingTracking;
 
 // ----------------------------------------------------------------------------
-// GTLRDfareporting_AdSlot.compatibility
+// GTLRDfareporting_Advertiser.euPoliticalAdsDeclaration
 
 /**
- *  Deprecated enum value. No longer supported.
+ *  All new campaigns will have “No” selected for the question that asks if your
+ *  campaign has EU political ads. You can change this for any campaign at any
+ *  time.
  *
- *  Value: "APP"
+ *  Value: "ADVERTISER_DOES_NOT_PLAN_TO_SERVE_EU_POLITICAL_ADS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_App;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Advertiser_EuPoliticalAdsDeclaration_AdvertiserDoesNotPlanToServeEuPoliticalAds;
 /**
- *  Deprecated enum value. No longer supported.
+ *  You'll need to confirm if your campaign contains EU political advertising.
  *
- *  Value: "APP_INTERSTITIAL"
+ *  Value: "ADVERTISER_PLANS_TO_SERVE_EU_POLITICAL_ADS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_AppInterstitial;
-/** Value: "DISPLAY" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_Display;
-/** Value: "DISPLAY_INTERSTITIAL" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_DisplayInterstitial;
-/** Value: "IN_STREAM_AUDIO" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_InStreamAudio;
-/** Value: "IN_STREAM_VIDEO" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_Compatibility_InStreamVideo;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_AdSlot.paymentSourceType
-
-/** Value: "PLANNING_PAYMENT_SOURCE_TYPE_AGENCY_PAID" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourceTypeAgencyPaid;
-/** Value: "PLANNING_PAYMENT_SOURCE_TYPE_PUBLISHER_PAID" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourceTypePublisherPaid;
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Advertiser_EuPoliticalAdsDeclaration_AdvertiserPlansToServeEuPoliticalAds;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Advertiser.status
@@ -541,6 +518,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_C
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_Ea;
 /** Value: "P2C" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_BillingRate_UnitOfMeasure_P2c;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_Campaign.euPoliticalAdsDeclaration
+
+/**
+ *  The campaign contains EU political ads.
+ *
+ *  Value: "CONTAINS_EU_POLITICAL_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Campaign_EuPoliticalAdsDeclaration_ContainsEuPoliticalAds;
+/**
+ *  The campaign does not contain EU political ads.
+ *
+ *  Value: "DOES_NOT_CONTAIN_EU_POLITICAL_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Campaign_EuPoliticalAdsDeclaration_DoesNotContainEuPoliticalAds;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ContentSource.resourceType
@@ -2968,6 +2961,177 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBus
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBustingType_Php;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_FloodlightActivity.conversionCategory
+
+/**
+ *  The following are conversion categories added as part of
+ *  go/new-categories-prd. The addition of items to a shopping cart or bag on an
+ *  advertiser site.
+ *
+ *  Value: "CONVERSION_CATEGORY_ADD_TO_CART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryAddToCart;
+/**
+ *  When someone enters the checkout flow on an advertiser site.
+ *
+ *  Value: "CONVERSION_CATEGORY_BEGIN_CHECKOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBeginCheckout;
+/**
+ *  A booking of an appointment with an advertiser's business.
+ *
+ *  Value: "CONVERSION_CATEGORY_BOOK_APPOINTMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBookAppointment;
+/**
+ *  Boom event (for user list creation). This is an internal-only category.
+ *
+ *  Value: "CONVERSION_CATEGORY_BOOM_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBoomEvent;
+/**
+ *  A call, SMS, email, chat or other type of contact to an advertiser.
+ *
+ *  Value: "CONVERSION_CATEGORY_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryContact;
+/**
+ *  A lead conversion imported from an external source into Google Ads, that has
+ *  further completed a desired stage as defined by the lead gen advertiser.
+ *
+ *  Value: "CONVERSION_CATEGORY_CONVERTED_LEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryConvertedLead;
+/**
+ *  Unspecified category (called "Other" externally).
+ *
+ *  Value: "CONVERSION_CATEGORY_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryDefault;
+/**
+ *  Software download action (as for an app). A conversion type that is created
+ *  as a download type may not have its category changed.
+ *
+ *  Value: "CONVERSION_CATEGORY_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryDownload;
+/**
+ *  A website engagement event such as long site time or a GA Smart Goal,
+ *  intended to be used for GA, Firebase, GA Gold goal imports. This will also
+ *  be used for YouTube Hosted engagements like Add To Playlist, Likes etc. See
+ *  go/add-to-playlist-conversion-buyside
+ *
+ *  Value: "CONVERSION_CATEGORY_ENGAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryEngagement;
+/**
+ *  A search for an advertiser's business location.
+ *
+ *  Value: "CONVERSION_CATEGORY_GET_DIRECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryGetDirections;
+/**
+ *  A lead conversion imported from an external source into Google Ads.
+ *
+ *  Value: "CONVERSION_CATEGORY_IMPORTED_LEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryImportedLead;
+/**
+ *  Conversion event that provides the revenue value of impressions that were
+ *  shown in-app to users. See go/ad-impression-type.
+ *
+ *  Value: "CONVERSION_CATEGORY_IN_APP_AD_REVENUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryInAppAdRevenue;
+/**
+ *  Message exchanges which indicate an interest in an advertiser's offering.
+ *
+ *  Value: "CONVERSION_CATEGORY_MESSAGE_LEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryMessageLead;
+/**
+ *  A click to an advertiser's partner site, e.g. a referral.
+ *
+ *  Value: "CONVERSION_CATEGORY_OUTBOUND_CLICK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryOutboundClick;
+/**
+ *  User visiting a page.
+ *
+ *  Value: "CONVERSION_CATEGORY_PAGE_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPageView;
+/**
+ *  A call to indicate interesting in an advertiser's offering. Note: this is
+ *  different from support calls.
+ *
+ *  Value: "CONVERSION_CATEGORY_PHONE_CALL_LEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPhoneCallLead;
+/**
+ *  Purchase, sales, or "order placed" event.
+ *
+ *  Value: "CONVERSION_CATEGORY_PURCHASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPurchase;
+/**
+ *  End of new conversion categories from go/new-categories-prd. A lead
+ *  conversion imported from an external source into Google Ads, that has been
+ *  further qualified by the advertiser.
+ *
+ *  Value: "CONVERSION_CATEGORY_QUALIFIED_LEAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryQualifiedLead;
+/**
+ *  A quote or price estimate request.
+ *
+ *  Value: "CONVERSION_CATEGORY_REQUEST_QUOTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryRequestQuote;
+/**
+ *  Signup user action.
+ *
+ *  Value: "CONVERSION_CATEGORY_SIGNUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySignup;
+/**
+ *  A sale occurring in a physical store.
+ *
+ *  Value: "CONVERSION_CATEGORY_STORE_SALE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryStoreSale;
+/**
+ *  A visit to a physical store location.
+ *
+ *  Value: "CONVERSION_CATEGORY_STORE_VISIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryStoreVisit;
+/**
+ *  A submission of a form on an advertiser site indicating business interest.
+ *
+ *  Value: "CONVERSION_CATEGORY_SUBMIT_LEAD_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubmitLeadForm;
+/**
+ *  The start of a free subscription for a product or service.
+ *
+ *  Value: "CONVERSION_CATEGORY_SUBSCRIBE_FREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubscribeFree;
+/**
+ *  The start of a paid subscription for a product or service.
+ *
+ *  Value: "CONVERSION_CATEGORY_SUBSCRIBE_PAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubscribePaid;
+/**
+ *  Key page views (ex: product page, article).
+ *
+ *  Value: "CONVERSION_CATEGORY_VIEW_KEY_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryViewKeyPage;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_FloodlightActivity.countingMethod
 
 /**
@@ -3291,14 +3455,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_Ce
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FsCommand_PositionOption_DistanceFromTopLeftCorner;
 
 // ----------------------------------------------------------------------------
-// GTLRDfareporting_InventoryItem.type
-
-/** Value: "PLANNING_PLACEMENT_TYPE_CREDIT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeCredit;
-/** Value: "PLANNING_PLACEMENT_TYPE_REGULAR" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeRegular;
-
-// ----------------------------------------------------------------------------
 // GTLRDfareporting_Invoice.invoiceType
 
 /** Value: "INVOICE_TYPE_CREDIT" */
@@ -3545,6 +3701,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingD
 
 /** Value: "BLOCKING" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Blocking;
+/** Value: "BLOCKING_FILTERING_VPAID" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_BlockingFilteringVpaid;
+/** Value: "BLOCKING_FILTERING_VPAID_ONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_BlockingFilteringVpaidOnly;
 /** Value: "MONITORING" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Monitoring;
 /** Value: "MONITORING_READ_ONLY" */
@@ -3619,16 +3779,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_Assigne
  *  Value: "NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ObjectFilter_Status_None;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_OrderContact.contactType
-
-/** Value: "PLANNING_ORDER_CONTACT_BUYER_BILLING_CONTACT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerBillingContact;
-/** Value: "PLANNING_ORDER_CONTACT_BUYER_CONTACT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact;
-/** Value: "PLANNING_ORDER_CONTACT_SELLER_CONTACT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.activeStatus
@@ -3830,56 +3980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PopupWindowProperties_Posit
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PopupWindowProperties_PositionType_Coordinates;
 
 // ----------------------------------------------------------------------------
-// GTLRDfareporting_Pricing.capCostType
-
-/** Value: "PLANNING_PLACEMENT_CAP_COST_TYPE_CUMULATIVE" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeCumulative;
-/** Value: "PLANNING_PLACEMENT_CAP_COST_TYPE_MONTHLY" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeMonthly;
-/** Value: "PLANNING_PLACEMENT_CAP_COST_TYPE_NONE" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeNone;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_Pricing.groupType
-
-/**
- *  A placement package represents "package pricing": Pricing and flight
- *  information is defined on the package, not on its child placements. The
- *  placements in a package do not need to be on the same page.
- *
- *  Value: "PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypePackage;
-/**
- *  A roadblock represents a set of placements that are all the same page. One
- *  of the child placements is designated as the "primary" placement for
- *  reporting purposes.
- *
- *  Value: "PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypeRoadblock;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_Pricing.pricingType
-
-/** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CLICKS" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeClicks;
-/** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CPA" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpa;
-/** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CPC" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpc;
-/** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CPM" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpm;
-/** Value: "PLANNING_PLACEMENT_PRICING_TYPE_CPM_ACTIVEVIEW" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpmActiveview;
-/** Value: "PLANNING_PLACEMENT_PRICING_TYPE_FLAT_RATE_CLICKS" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeFlatRateClicks;
-/** Value: "PLANNING_PLACEMENT_PRICING_TYPE_FLAT_RATE_IMPRESSIONS" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeFlatRateImpressions;
-/** Value: "PLANNING_PLACEMENT_PRICING_TYPE_IMPRESSIONS" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeImpressions;
-
-// ----------------------------------------------------------------------------
 // GTLRDfareporting_PricingSchedule.capCostOption
 
 /** Value: "CAP_COST_CUMULATIVE" */
@@ -3904,32 +4004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeFlatRateClicks;
 /** Value: "PRICING_TYPE_FLAT_RATE_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_PricingSchedule_PricingType_PricingTypeFlatRateImpressions;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_Project.audienceAgeGroup
-
-/** Value: "PLANNING_AUDIENCE_AGE_18_24" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge1824;
-/** Value: "PLANNING_AUDIENCE_AGE_25_34" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge2534;
-/** Value: "PLANNING_AUDIENCE_AGE_35_44" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge3544;
-/** Value: "PLANNING_AUDIENCE_AGE_45_54" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge4554;
-/** Value: "PLANNING_AUDIENCE_AGE_55_64" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge5564;
-/** Value: "PLANNING_AUDIENCE_AGE_65_OR_MORE" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge65OrMore;
-/** Value: "PLANNING_AUDIENCE_AGE_UNKNOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAgeUnknown;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_Project.audienceGender
-
-/** Value: "PLANNING_AUDIENCE_GENDER_FEMALE" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderFemale;
-/** Value: "PLANNING_AUDIENCE_GENDER_MALE" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderMale;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_ProximityFilter.radiusBucketType
@@ -4082,8 +4156,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Format_Excel;
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Report.type
 
-/** Value: "CROSS_DIMENSION_REACH" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossDimensionReach;
 /** Value: "CROSS_MEDIA_REACH" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_CrossMediaReach;
 /** Value: "FLOODLIGHT" */
@@ -4094,18 +4166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_PathToConversio
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Reach;
 /** Value: "STANDARD" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_Type_Standard;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_Report_CrossDimensionReachCriteria.dimension
-
-/** Value: "ADVERTISER" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_Advertiser;
-/** Value: "CAMPAIGN" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_Campaign;
-/** Value: "SITE_BY_ADVERTISER" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_SiteByAdvertiser;
-/** Value: "SITE_BY_CAMPAIGN" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_SiteByCampaign;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Report_Delivery.emailOwnerDeliveryType
@@ -4830,6 +4890,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_A
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Landscape;
 /** Value: "PORTRAIT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_Portrait;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_YoutubeSettings.callToActions
+
+/** Value: "CALL_TO_ACTION_APPLY_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionApplyNow;
+/** Value: "CALL_TO_ACTION_BOOK_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionBookNow;
+/** Value: "CALL_TO_ACTION_BUY_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionBuyNow;
+/** Value: "CALL_TO_ACTION_CALL_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionCallNow;
+/** Value: "CALL_TO_ACTION_CONTACT_US" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionContactUs;
+/** Value: "CALL_TO_ACTION_DONATE_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionDonateNow;
+/** Value: "CALL_TO_ACTION_DOWNLOAD" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionDownload;
+/** Value: "CALL_TO_ACTION_GET_OFFER" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionGetOffer;
+/** Value: "CALL_TO_ACTION_GET_QUOTE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionGetQuote;
+/** Value: "CALL_TO_ACTION_LEARN_MORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionLearnMore;
+/** Value: "CALL_TO_ACTION_ORDER_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionOrderNow;
+/** Value: "CALL_TO_ACTION_PLAY_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionPlayNow;
+/** Value: "CALL_TO_ACTION_SCHEDULE_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionScheduleNow;
+/** Value: "CALL_TO_ACTION_SEE_MORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionSeeMore;
+/** Value: "CALL_TO_ACTION_SHOP_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionShopNow;
+/** Value: "CALL_TO_ACTION_SIGN_UP" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionSignUp;
+/** Value: "CALL_TO_ACTION_START_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionStartNow;
+/** Value: "CALL_TO_ACTION_SUBSCRIBE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionSubscribe;
+/** Value: "CALL_TO_ACTION_TEST_DRIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionTestDrive;
+/** Value: "CALL_TO_ACTION_UNKNOWN" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionUnknown;
+/** Value: "CALL_TO_ACTION_VIEW_MENU" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionViewMenu;
+/** Value: "CALL_TO_ACTION_VISIT_SITE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionVisitSite;
+/** Value: "CALL_TO_ACTION_VISIT_STORE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionVisitStore;
+/** Value: "CALL_TO_ACTION_WATCH_NOW" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWatchNow;
 
 /**
  *  Contains properties of a Campaign Manager account.
@@ -5716,82 +5828,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Ad Slot
- */
-@interface GTLRDfareporting_AdSlot : GTLRObject
-
-/** Comment for this ad slot. */
-@property(nonatomic, copy, nullable) NSString *comment;
-
-/**
- *  Ad slot compatibility. DISPLAY and DISPLAY_INTERSTITIAL refer to rendering
- *  either on desktop, mobile devices or in mobile apps for regular or
- *  interstitial ads respectively. APP and APP_INTERSTITIAL are for rendering in
- *  mobile apps. IN_STREAM_VIDEO refers to rendering in in-stream video ads
- *  developed with the VAST standard.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_App Deprecated enum value.
- *        No longer supported. (Value: "APP")
- *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_AppInterstitial Deprecated
- *        enum value. No longer supported. (Value: "APP_INTERSTITIAL")
- *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_Display Value "DISPLAY"
- *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_DisplayInterstitial Value
- *        "DISPLAY_INTERSTITIAL"
- *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_InStreamAudio Value
- *        "IN_STREAM_AUDIO"
- *    @arg @c kGTLRDfareporting_AdSlot_Compatibility_InStreamVideo Value
- *        "IN_STREAM_VIDEO"
- */
-@property(nonatomic, copy, nullable) NSString *compatibility;
-
-/**
- *  Height of this ad slot.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *height;
-
-/**
- *  ID of the placement from an external platform that is linked to this ad
- *  slot.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *linkedPlacementId;
-
-/** Name of this ad slot. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Payment source type of this ad slot.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourceTypeAgencyPaid
- *        Value "PLANNING_PAYMENT_SOURCE_TYPE_AGENCY_PAID"
- *    @arg @c kGTLRDfareporting_AdSlot_PaymentSourceType_PlanningPaymentSourceTypePublisherPaid
- *        Value "PLANNING_PAYMENT_SOURCE_TYPE_PUBLISHER_PAID"
- */
-@property(nonatomic, copy, nullable) NSString *paymentSourceType;
-
-/**
- *  Primary ad slot of a roadblock inventory item.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *primary;
-
-/**
- *  Width of this ad slot.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *width;
-
-@end
-
-
-/**
  *  Contains properties of a Campaign Manager advertiser.
  */
 @interface GTLRDfareporting_Advertiser : GTLRObject
@@ -5829,6 +5865,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** Default email address used in sender field for tag emails. */
 @property(nonatomic, copy, nullable) NSString *defaultEmail;
+
+/**
+ *  Optional. Whether the advertiser plans to serve EU political ads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_Advertiser_EuPoliticalAdsDeclaration_AdvertiserDoesNotPlanToServeEuPoliticalAds
+ *        All new campaigns will have “No” selected for the question that asks
+ *        if your campaign has EU political ads. You can change this for any
+ *        campaign at any time. (Value:
+ *        "ADVERTISER_DOES_NOT_PLAN_TO_SERVE_EU_POLITICAL_ADS")
+ *    @arg @c kGTLRDfareporting_Advertiser_EuPoliticalAdsDeclaration_AdvertiserPlansToServeEuPoliticalAds
+ *        You'll need to confirm if your campaign contains EU political
+ *        advertising. (Value: "ADVERTISER_PLANS_TO_SERVE_EU_POLITICAL_ADS")
+ */
+@property(nonatomic, copy, nullable) NSString *euPoliticalAdsDeclaration;
 
 /**
  *  Floodlight configuration ID of this advertiser. The floodlight configuration
@@ -6677,6 +6728,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Date only (yyyy-mm-dd).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endDate;
+
+/**
+ *  Optional. Whether the campaign has EU political ads. Campaign Manager 360
+ *  doesn't allow campaigns with EU political ads to serve in the EU. They can
+ *  still serve in other regions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_Campaign_EuPoliticalAdsDeclaration_ContainsEuPoliticalAds
+ *        The campaign contains EU political ads. (Value:
+ *        "CONTAINS_EU_POLITICAL_ADS")
+ *    @arg @c kGTLRDfareporting_Campaign_EuPoliticalAdsDeclaration_DoesNotContainEuPoliticalAds
+ *        The campaign does not contain EU political ads. (Value:
+ *        "DOES_NOT_CONTAIN_EU_POLITICAL_ADS")
+ */
+@property(nonatomic, copy, nullable) NSString *euPoliticalAdsDeclaration;
 
 /**
  *  Overrides that can be used to activate or deactivate advertiser event tags.
@@ -8125,9 +8191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CreativeAsset *> *creativeAssets;
 
-/** Required if dynamicAssetSelection is true. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_CreativeAssetSelection *creativeAssetSelection;
-
 /**
  *  Creative field assignments for this creative. Applicable to all creative
  *  types.
@@ -8142,17 +8205,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  types: all RICH_MEDIA, and all VPAID.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customKeyValues;
-
-/**
- *  Set this to true to enable the use of rules to target individual assets in
- *  this creative. When set to true creativeAssetSelection must be set. This
- *  also controls asset-level companions. When this is true, companion creatives
- *  should be assigned to creative assets. Learn more. Applicable to
- *  INSTREAM_VIDEO creatives.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dynamicAssetSelection;
 
 /**
  *  List of exit events configured for the creative. For DISPLAY and
@@ -9163,31 +9215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  "SVG_INVALID" - "ZIP_INVALID"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *warnedValidationRules;
-
-@end
-
-
-/**
- *  Encapsulates the list of rules for asset selection and a default asset in
- *  case none of the rules match. Applicable to INSTREAM_VIDEO creatives.
- */
-@interface GTLRDfareporting_CreativeAssetSelection : GTLRObject
-
-/**
- *  A creativeAssets[].id. This should refer to one of the parent assets in this
- *  creative, and will be served if none of the rules match. This is a required
- *  field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *defaultAssetId;
-
-/**
- *  Rules determine which asset will be served to a viewer. Rules will be
- *  evaluated in the order in which they are stored in this list. This list must
- *  contain at least one rule. Applicable to INSTREAM_VIDEO creatives.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Rule *> *rules;
 
 @end
 
@@ -12103,42 +12130,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Flight
- */
-@interface GTLRDfareporting_Flight : GTLRObject
-
-/**
- *  endDate
- *
- *  Date only (yyyy-mm-dd).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *endDate;
-
-/**
- *  Rate or cost of this flight.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *rateOrCost;
-
-/**
- *  startDate
- *
- *  Date only (yyyy-mm-dd).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startDate;
-
-/**
- *  Units of this flight.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *units;
-
-@end
-
-
-/**
  *  Floodlight Activity GenerateTag Response
  */
 @interface GTLRDfareporting_FloodlightActivitiesGenerateTagResponse : GTLRObject
@@ -12248,6 +12239,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "PHP"
  */
 @property(nonatomic, copy, nullable) NSString *cacheBustingType;
+
+/**
+ *  Required. The conversion category of the activity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryAddToCart
+ *        The following are conversion categories added as part of
+ *        go/new-categories-prd. The addition of items to a shopping cart or bag
+ *        on an advertiser site. (Value: "CONVERSION_CATEGORY_ADD_TO_CART")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBeginCheckout
+ *        When someone enters the checkout flow on an advertiser site. (Value:
+ *        "CONVERSION_CATEGORY_BEGIN_CHECKOUT")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBookAppointment
+ *        A booking of an appointment with an advertiser's business. (Value:
+ *        "CONVERSION_CATEGORY_BOOK_APPOINTMENT")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBoomEvent
+ *        Boom event (for user list creation). This is an internal-only
+ *        category. (Value: "CONVERSION_CATEGORY_BOOM_EVENT")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryContact
+ *        A call, SMS, email, chat or other type of contact to an advertiser.
+ *        (Value: "CONVERSION_CATEGORY_CONTACT")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryConvertedLead
+ *        A lead conversion imported from an external source into Google Ads,
+ *        that has further completed a desired stage as defined by the lead gen
+ *        advertiser. (Value: "CONVERSION_CATEGORY_CONVERTED_LEAD")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryDefault
+ *        Unspecified category (called "Other" externally). (Value:
+ *        "CONVERSION_CATEGORY_DEFAULT")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryDownload
+ *        Software download action (as for an app). A conversion type that is
+ *        created as a download type may not have its category changed. (Value:
+ *        "CONVERSION_CATEGORY_DOWNLOAD")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryEngagement
+ *        A website engagement event such as long site time or a GA Smart Goal,
+ *        intended to be used for GA, Firebase, GA Gold goal imports. This will
+ *        also be used for YouTube Hosted engagements like Add To Playlist,
+ *        Likes etc. See go/add-to-playlist-conversion-buyside (Value:
+ *        "CONVERSION_CATEGORY_ENGAGEMENT")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryGetDirections
+ *        A search for an advertiser's business location. (Value:
+ *        "CONVERSION_CATEGORY_GET_DIRECTIONS")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryImportedLead
+ *        A lead conversion imported from an external source into Google Ads.
+ *        (Value: "CONVERSION_CATEGORY_IMPORTED_LEAD")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryInAppAdRevenue
+ *        Conversion event that provides the revenue value of impressions that
+ *        were shown in-app to users. See go/ad-impression-type. (Value:
+ *        "CONVERSION_CATEGORY_IN_APP_AD_REVENUE")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryMessageLead
+ *        Message exchanges which indicate an interest in an advertiser's
+ *        offering. (Value: "CONVERSION_CATEGORY_MESSAGE_LEAD")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryOutboundClick
+ *        A click to an advertiser's partner site, e.g. a referral. (Value:
+ *        "CONVERSION_CATEGORY_OUTBOUND_CLICK")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPageView
+ *        User visiting a page. (Value: "CONVERSION_CATEGORY_PAGE_VIEW")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPhoneCallLead
+ *        A call to indicate interesting in an advertiser's offering. Note: this
+ *        is different from support calls. (Value:
+ *        "CONVERSION_CATEGORY_PHONE_CALL_LEAD")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPurchase
+ *        Purchase, sales, or "order placed" event. (Value:
+ *        "CONVERSION_CATEGORY_PURCHASE")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryQualifiedLead
+ *        End of new conversion categories from go/new-categories-prd. A lead
+ *        conversion imported from an external source into Google Ads, that has
+ *        been further qualified by the advertiser. (Value:
+ *        "CONVERSION_CATEGORY_QUALIFIED_LEAD")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryRequestQuote
+ *        A quote or price estimate request. (Value:
+ *        "CONVERSION_CATEGORY_REQUEST_QUOTE")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySignup
+ *        Signup user action. (Value: "CONVERSION_CATEGORY_SIGNUP")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryStoreSale
+ *        A sale occurring in a physical store. (Value:
+ *        "CONVERSION_CATEGORY_STORE_SALE")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryStoreVisit
+ *        A visit to a physical store location. (Value:
+ *        "CONVERSION_CATEGORY_STORE_VISIT")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubmitLeadForm
+ *        A submission of a form on an advertiser site indicating business
+ *        interest. (Value: "CONVERSION_CATEGORY_SUBMIT_LEAD_FORM")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubscribeFree
+ *        The start of a free subscription for a product or service. (Value:
+ *        "CONVERSION_CATEGORY_SUBSCRIBE_FREE")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategorySubscribePaid
+ *        The start of a paid subscription for a product or service. (Value:
+ *        "CONVERSION_CATEGORY_SUBSCRIBE_PAID")
+ *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryViewKeyPage
+ *        Key page views (ex: product page, article). (Value:
+ *        "CONVERSION_CATEGORY_VIEW_KEY_PAGE")
+ */
+@property(nonatomic, copy, nullable) NSString *conversionCategory;
 
 /**
  *  Counting method for conversions for this floodlight activity. This is a
@@ -13022,182 +13106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Represents a buy from the Planning inventory store.
- */
-@interface GTLRDfareporting_InventoryItem : GTLRObject
-
-/**
- *  Account ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *accountId;
-
-/**
- *  Ad slots of this inventory item. If this inventory item represents a
- *  standalone placement, there will be exactly one ad slot. If this inventory
- *  item represents a placement group, there will be more than one ad slot, each
- *  representing one child placement in that placement group.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_AdSlot *> *adSlots;
-
-/**
- *  Advertiser ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *advertiserId;
-
-/**
- *  Content category ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *contentCategoryId;
-
-/**
- *  Estimated click-through rate of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *estimatedClickThroughRate;
-
-/**
- *  Estimated conversion rate of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *estimatedConversionRate;
-
-/**
- *  ID of this inventory item.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/**
- *  Whether this inventory item is in plan.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *inPlan;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#inventoryItem".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Information about the most recent modification of this inventory item. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
-
-/**
- *  Name of this inventory item. For standalone inventory items, this is the
- *  same name as that of its only ad slot. For group inventory items, this can
- *  differ from the name of any of its ad slots.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Negotiation channel ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *negotiationChannelId;
-
-/**
- *  Order ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *orderId;
-
-/**
- *  Placement strategy ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *placementStrategyId;
-
-/** Pricing of this inventory item. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_Pricing *pricing;
-
-/**
- *  Project ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *projectId;
-
-/**
- *  RFP ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *rfpId;
-
-/**
- *  ID of the site this inventory item is associated with.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *siteId;
-
-/**
- *  Subaccount ID of this inventory item.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *subaccountId;
-
-/**
- *  Type of inventory item.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeCredit
- *        Value "PLANNING_PLACEMENT_TYPE_CREDIT"
- *    @arg @c kGTLRDfareporting_InventoryItem_Type_PlanningPlacementTypeRegular
- *        Value "PLANNING_PLACEMENT_TYPE_REGULAR"
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Inventory item List Response
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "inventoryItems" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRDfareporting_InventoryItemsListResponse : GTLRCollectionObject
-
-/**
- *  Inventory item collection
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_InventoryItem *> *inventoryItems;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#inventoryItemsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Pagination token to be used for the next list operation. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Contains information about a single invoice
  */
 @interface GTLRDfareporting_Invoice : GTLRObject
@@ -13788,6 +13696,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Likely values:
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Blocking
  *        Value "BLOCKING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_BlockingFilteringVpaid
+ *        Value "BLOCKING_FILTERING_VPAID"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_BlockingFilteringVpaidOnly
+ *        Value "BLOCKING_FILTERING_VPAID_ONLY"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Monitoring
  *        Value "MONITORING"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringReadOnly
@@ -14339,183 +14251,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Describes properties of a Planning order.
- */
-@interface GTLRDfareporting_Order : GTLRObject
-
-/**
- *  Account ID of this order.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *accountId;
-
-/**
- *  Advertiser ID of this order.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *advertiserId;
-
-/**
- *  IDs for users that have to approve documents created for this order.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *approverUserProfileIds;
-
-/** Buyer invoice ID associated with this order. */
-@property(nonatomic, copy, nullable) NSString *buyerInvoiceId;
-
-/** Name of the buyer organization. */
-@property(nonatomic, copy, nullable) NSString *buyerOrganizationName;
-
-/** Comments in this order. */
-@property(nonatomic, copy, nullable) NSString *comments;
-
-/** Contacts for this order. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_OrderContact *> *contacts;
-
-/**
- *  ID of this order. This is a read-only, auto-generated field.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#order".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Information about the most recent modification of this order. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
-
-/** Name of this order. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Notes of this order. */
-@property(nonatomic, copy, nullable) NSString *notes;
-
-/**
- *  ID of the terms and conditions template used in this order.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *planningTermId;
-
-/**
- *  Project ID of this order.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *projectId;
-
-/** Seller order ID associated with this order. */
-@property(nonatomic, copy, nullable) NSString *sellerOrderId;
-
-/** Name of the seller organization. */
-@property(nonatomic, copy, nullable) NSString *sellerOrganizationName;
-
-/**
- *  Site IDs this order is associated with.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *siteId;
-
-/** Free-form site names this order is associated with. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *siteNames;
-
-/**
- *  Subaccount ID of this order.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *subaccountId;
-
-/** Terms and conditions of this order. */
-@property(nonatomic, copy, nullable) NSString *termsAndConditions;
-
-@end
-
-
-/**
- *  Contact of an order.
- */
-@interface GTLRDfareporting_OrderContact : GTLRObject
-
-/**
- *  Free-form information about this contact. It could be any information
- *  related to this contact in addition to type, title, name, and signature user
- *  profile ID.
- */
-@property(nonatomic, copy, nullable) NSString *contactInfo;
-
-/** Name of this contact. */
-@property(nonatomic, copy, nullable) NSString *contactName;
-
-/** Title of this contact. */
-@property(nonatomic, copy, nullable) NSString *contactTitle;
-
-/**
- *  Type of this contact.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerBillingContact
- *        Value "PLANNING_ORDER_CONTACT_BUYER_BILLING_CONTACT"
- *    @arg @c kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactBuyerContact
- *        Value "PLANNING_ORDER_CONTACT_BUYER_CONTACT"
- *    @arg @c kGTLRDfareporting_OrderContact_ContactType_PlanningOrderContactSellerContact
- *        Value "PLANNING_ORDER_CONTACT_SELLER_CONTACT"
- */
-@property(nonatomic, copy, nullable) NSString *contactType;
-
-/**
- *  ID of the user profile containing the signature that will be embedded into
- *  order documents.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *signatureUserProfileId;
-
-@end
-
-
-/**
- *  Order List Response
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "orders" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRDfareporting_OrdersListResponse : GTLRCollectionObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#ordersListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Pagination token to be used for the next list operation. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Order collection.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Order *> *orders;
-
-@end
-
-
-/**
  *  Represents fields that are compatible to be selected for a report of type
  *  "PATH_TO_CONVERSION".
  */
@@ -14625,6 +14360,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  auto-generated field.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *advertiserIdDimensionValue;
+
+/**
+ *  Optional. Whether the placement is enabled for YouTube integration.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowOnYoutube;
 
 /**
  *  Campaign ID of this placement. This field is a required field on insertion.
@@ -14929,6 +14671,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *wrappingOptOut;
+
+/**
+ *  Optional. YouTube settings for the placement. The placement must be enabled
+ *  for YouTube to use this field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_YoutubeSettings *youtubeSettings;
 
 @end
 
@@ -15535,94 +15283,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  GTLRDfareporting_Pricing
- */
-@interface GTLRDfareporting_Pricing : GTLRObject
-
-/**
- *  Cap cost type of this inventory item.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeCumulative
- *        Value "PLANNING_PLACEMENT_CAP_COST_TYPE_CUMULATIVE"
- *    @arg @c kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeMonthly
- *        Value "PLANNING_PLACEMENT_CAP_COST_TYPE_MONTHLY"
- *    @arg @c kGTLRDfareporting_Pricing_CapCostType_PlanningPlacementCapCostTypeNone
- *        Value "PLANNING_PLACEMENT_CAP_COST_TYPE_NONE"
- */
-@property(nonatomic, copy, nullable) NSString *capCostType;
-
-/**
- *  endDate
- *
- *  Date only (yyyy-mm-dd).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *endDate;
-
-/**
- *  Flights of this inventory item. A flight (a.k.a. pricing period) represents
- *  the inventory item pricing information for a specific period of time.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Flight *> *flights;
-
-/**
- *  Group type of this inventory item if it represents a placement group. Is
- *  null otherwise. There are two type of placement groups:
- *  PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE is a simple group of inventory items
- *  that acts as a single pricing point for a group of tags.
- *  PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK is a group of inventory items that
- *  not only acts as a single pricing point, but also assumes that all the tags
- *  in it will be served at the same time. A roadblock requires one of its
- *  assigned inventory items to be marked as primary.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypePackage
- *        A placement package represents "package pricing": Pricing and flight
- *        information is defined on the package, not on its child placements.
- *        The placements in a package do not need to be on the same page.
- *        (Value: "PLANNING_PLACEMENT_GROUP_TYPE_PACKAGE")
- *    @arg @c kGTLRDfareporting_Pricing_GroupType_PlanningPlacementGroupTypeRoadblock
- *        A roadblock represents a set of placements that are all the same page.
- *        One of the child placements is designated as the "primary" placement
- *        for reporting purposes. (Value:
- *        "PLANNING_PLACEMENT_GROUP_TYPE_ROADBLOCK")
- */
-@property(nonatomic, copy, nullable) NSString *groupType;
-
-/**
- *  Pricing type of this inventory item.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeClicks
- *        Value "PLANNING_PLACEMENT_PRICING_TYPE_CLICKS"
- *    @arg @c kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpa
- *        Value "PLANNING_PLACEMENT_PRICING_TYPE_CPA"
- *    @arg @c kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpc
- *        Value "PLANNING_PLACEMENT_PRICING_TYPE_CPC"
- *    @arg @c kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpm
- *        Value "PLANNING_PLACEMENT_PRICING_TYPE_CPM"
- *    @arg @c kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeCpmActiveview
- *        Value "PLANNING_PLACEMENT_PRICING_TYPE_CPM_ACTIVEVIEW"
- *    @arg @c kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeFlatRateClicks
- *        Value "PLANNING_PLACEMENT_PRICING_TYPE_FLAT_RATE_CLICKS"
- *    @arg @c kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeFlatRateImpressions
- *        Value "PLANNING_PLACEMENT_PRICING_TYPE_FLAT_RATE_IMPRESSIONS"
- *    @arg @c kGTLRDfareporting_Pricing_PricingType_PlanningPlacementPricingTypeImpressions
- *        Value "PLANNING_PLACEMENT_PRICING_TYPE_IMPRESSIONS"
- */
-@property(nonatomic, copy, nullable) NSString *pricingType;
-
-/**
- *  startDate
- *
- *  Date only (yyyy-mm-dd).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startDate;
-
-@end
-
-
-/**
  *  Pricing Schedule
  */
 @interface GTLRDfareporting_PricingSchedule : GTLRObject
@@ -15739,200 +15399,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
-
-@end
-
-
-/**
- *  Contains properties of a Planning project.
- */
-@interface GTLRDfareporting_Project : GTLRObject
-
-/**
- *  Account ID of this project.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *accountId;
-
-/**
- *  Advertiser ID of this project.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *advertiserId;
-
-/**
- *  Audience age group of this project.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge1824
- *        Value "PLANNING_AUDIENCE_AGE_18_24"
- *    @arg @c kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge2534
- *        Value "PLANNING_AUDIENCE_AGE_25_34"
- *    @arg @c kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge3544
- *        Value "PLANNING_AUDIENCE_AGE_35_44"
- *    @arg @c kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge4554
- *        Value "PLANNING_AUDIENCE_AGE_45_54"
- *    @arg @c kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge5564
- *        Value "PLANNING_AUDIENCE_AGE_55_64"
- *    @arg @c kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAge65OrMore
- *        Value "PLANNING_AUDIENCE_AGE_65_OR_MORE"
- *    @arg @c kGTLRDfareporting_Project_AudienceAgeGroup_PlanningAudienceAgeUnknown
- *        Value "PLANNING_AUDIENCE_AGE_UNKNOWN"
- */
-@property(nonatomic, copy, nullable) NSString *audienceAgeGroup;
-
-/**
- *  Audience gender of this project.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderFemale
- *        Value "PLANNING_AUDIENCE_GENDER_FEMALE"
- *    @arg @c kGTLRDfareporting_Project_AudienceGender_PlanningAudienceGenderMale
- *        Value "PLANNING_AUDIENCE_GENDER_MALE"
- */
-@property(nonatomic, copy, nullable) NSString *audienceGender;
-
-/**
- *  Budget of this project in the currency specified by the current account. The
- *  value stored in this field represents only the non-fractional amount. For
- *  example, for USD, the smallest value that can be represented by this field
- *  is 1 US dollar.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *budget;
-
-/** Client billing code of this project. */
-@property(nonatomic, copy, nullable) NSString *clientBillingCode;
-
-/** Name of the project client. */
-@property(nonatomic, copy, nullable) NSString *clientName;
-
-/**
- *  endDate
- *
- *  Date only (yyyy-mm-dd).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *endDate;
-
-/**
- *  ID of this project. This is a read-only, auto-generated field.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#project".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Information about the most recent modification of this project. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
-
-/** Name of this project. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Overview of this project. */
-@property(nonatomic, copy, nullable) NSString *overview;
-
-/**
- *  startDate
- *
- *  Date only (yyyy-mm-dd).
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startDate;
-
-/**
- *  Subaccount ID of this project.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *subaccountId;
-
-/**
- *  Number of clicks that the advertiser is targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetClicks;
-
-/**
- *  Number of conversions that the advertiser is targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetConversions;
-
-/**
- *  CPA that the advertiser is targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetCpaNanos;
-
-/**
- *  CPC that the advertiser is targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetCpcNanos;
-
-/**
- *  vCPM from Active View that the advertiser is targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetCpmActiveViewNanos;
-
-/**
- *  CPM that the advertiser is targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetCpmNanos;
-
-/**
- *  Number of impressions that the advertiser is targeting.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetImpressions;
-
-@end
-
-
-/**
- *  Project List Response
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "projects" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRDfareporting_ProjectsListResponse : GTLRCollectionObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#projectsListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Pagination token to be used for the next list operation. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Project collection.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Project *> *projects;
 
 @end
 
@@ -16347,9 +15813,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /** The report criteria for a report of type "STANDARD". */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_Criteria *criteria;
 
-/** The report criteria for a report of type "CROSS_DIMENSION_REACH". */
-@property(nonatomic, strong, nullable) GTLRDfareporting_Report_CrossDimensionReachCriteria *crossDimensionReachCriteria;
-
 /** Optional. The report criteria for a report of type "CROSS_MEDIA_REACH". */
 @property(nonatomic, strong, nullable) GTLRDfareporting_Report_CrossMediaReachCriteria *crossMediaReachCriteria;
 
@@ -16430,8 +15893,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  The type of the report.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_Report_Type_CrossDimensionReach Value
- *        "CROSS_DIMENSION_REACH"
  *    @arg @c kGTLRDfareporting_Report_Type_CrossMediaReach Value
  *        "CROSS_MEDIA_REACH"
  *    @arg @c kGTLRDfareporting_Report_Type_Floodlight Value "FLOODLIGHT"
@@ -16471,51 +15932,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** The list of names of metrics the report should include. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
-
-@end
-
-
-/**
- *  The report criteria for a report of type "CROSS_DIMENSION_REACH".
- */
-@interface GTLRDfareporting_Report_CrossDimensionReachCriteria : GTLRObject
-
-/** The list of dimensions the report should include. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortedDimension *> *breakdown;
-
-/** The date range this report should be run for. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
-
-/**
- *  The dimension option.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_Advertiser
- *        Value "ADVERTISER"
- *    @arg @c kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_Campaign
- *        Value "CAMPAIGN"
- *    @arg @c kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_SiteByAdvertiser
- *        Value "SITE_BY_ADVERTISER"
- *    @arg @c kGTLRDfareporting_Report_CrossDimensionReachCriteria_Dimension_SiteByCampaign
- *        Value "SITE_BY_CAMPAIGN"
- */
-@property(nonatomic, copy, nullable) NSString *dimension;
-
-/** The list of filters on which dimensions are filtered. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *dimensionFilters;
-
-/** The list of names of metrics the report should include. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
-
-/** The list of names of overlap metrics the report should include. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *overlapMetricNames;
-
-/**
- *  Whether the report is pivoted or not. Defaults to true.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pivoted;
 
 @end
 
@@ -16675,15 +16091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** The list of dimensions the report should include. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_SortedDimension *> *dimensions;
-
-/**
- *  Whether to enable all reach dimension combinations in the report. Defaults
- *  to false. If enabled, the date range of the report should be within the last
- *  42 days.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enableAllDimensionCombinations;
 
 /** The list of names of metrics the report should include. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metricNames;
@@ -17056,35 +16463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *exitId;
-
-@end
-
-
-/**
- *  A rule associates an asset with a targeting template for asset-level
- *  targeting. Applicable to INSTREAM_VIDEO creatives.
- */
-@interface GTLRDfareporting_Rule : GTLRObject
-
-/**
- *  A creativeAssets[].id. This should refer to one of the parent assets in this
- *  creative. This is a required field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *assetId;
-
-/** A user-friendly name for this rule. This is a required field. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  A targeting template ID. The targeting from the targeting template will be
- *  used to determine whether this asset should be served. This is a required
- *  field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *targetingTemplateId;
 
 @end
 
@@ -19222,6 +18600,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  overridden.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_TranscodeSetting *transcodeSettings;
+
+@end
+
+
+/**
+ *  Contains the YouTube settings.
+ */
+@interface GTLRDfareporting_YoutubeSettings : GTLRObject
+
+/**
+ *  Optional. The IDs of the creatives to use for the business logo. Currently
+ *  only one creative is supported.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *businessLogoCreativeIds;
+
+/** Optional. The business name. */
+@property(nonatomic, copy, nullable) NSString *businessName;
+
+/**
+ *  Optional. The call to actions. Currently only one call to action is
+ *  supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *callToActions;
+
+/**
+ *  Optional. The descriptions. Currently only one description is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *descriptions;
+
+/**
+ *  Optional. The headlines associated with the call to actions. Currently only
+ *  one headline is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *headlines;
+
+/**
+ *  Optional. The long headlines. Currently only one long headline is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *longHeadlines;
 
 @end
 

@@ -1125,6 +1125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFea
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FeatureUnspecified;
 /** Value: "MANAGEMENT_SERVER" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer;
+/** Value: "PROTECTION_SUMMARY" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ProtectionSummary;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_ManagementServer.state
@@ -1334,6 +1336,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NodeAffinity_OperatorProperty_O
  *  Value: "CLOUD_SQL_INSTANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_CloudSqlInstance;
+/**
+ *  Compute Engine Disk.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineDisk;
+/**
+ *  Compute Engine Regional Disk.
+ *
+ *  Value: "COMPUTE_ENGINE_REGIONAL_DISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineRegionalDisk;
 /**
  *  Compute Engine VM.
  *
@@ -1646,6 +1660,68 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_StandardSchedule_RecurrenceType
  *  Value: "YEARLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_StandardSchedule_RecurrenceType_Yearly;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_Trial.endReason
+
+/**
+ *  Trial is discontinued before expiration.
+ *
+ *  Value: "DISCONTINUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_EndReason_Discontinued;
+/**
+ *  End reason not set.
+ *
+ *  Value: "END_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_EndReason_EndReasonUnspecified;
+/**
+ *  Trial is deliberately ended by the user to transition to paid usage.
+ *
+ *  Value: "MOVE_TO_PAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_EndReason_MoveToPaid;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_Trial.state
+
+/**
+ *  Trial is eligible for enablement.
+ *
+ *  Value: "ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_State_Eligible;
+/**
+ *  Trial is expired post 30 days of subscription.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_State_Expired;
+/**
+ *  Trial is not eligible for enablement.
+ *
+ *  Value: "NOT_ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_State_NotEligible;
+/**
+ *  State not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_State_StateUnspecified;
+/**
+ *  Trial is subscribed.
+ *
+ *  Value: "SUBSCRIBED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_State_Subscribed;
+/**
+ *  Trial is unsubscribed before expiration.
+ *
+ *  Value: "UNSUBSCRIBED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Trial_State_Unsubscribed;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_WeekDayOfMonth.dayOfWeek
@@ -2885,7 +2961,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  defined in “days”. The value should be greater than or equal to minimum
  *  enforced retention of the backup vault. Minimum value is 1 and maximum value
  *  is 36159 for custom retention on-demand backup. Minimum and maximum values
- *  are workload specific for all other rules.
+ *  are workload specific for all other rules. Note: Longer retention can lead
+ *  to higher storage costs post introductory trial. We recommend starting with
+ *  a short duration of 3 days or less.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2954,6 +3032,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /**
  *  Required. The default and minimum enforced retention for each backup within
  *  the backup vault. The enforced retention for each backup can be extended.
+ *  Note: Longer minimum enforced retention period impacts potential storage
+ *  costs post introductory trial. We recommend starting with a short duration
+ *  of 3 days or less.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *backupMinimumEnforcedRetentionDuration;
 
@@ -6025,6 +6106,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Likely values:
  *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_CloudSqlInstance
  *        Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
+ *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineDisk
+ *        Compute Engine Disk. (Value: "COMPUTE_ENGINE_DISK")
+ *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineRegionalDisk
+ *        Compute Engine Regional Disk. (Value: "COMPUTE_ENGINE_REGIONAL_DISK")
  *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineVm
  *        Compute Engine VM. (Value: "COMPUTE_ENGINE_VM")
  *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ResourceTypeUnspecified
@@ -6514,6 +6599,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Request message for subscribing to a trial.
+ */
+@interface GTLRBackupdr_SubscribeTrialRequest : GTLRObject
+@end
+
+
+/**
  *  A set of instance tags.
  */
 @interface GTLRBackupdr_Tags : GTLRObject
@@ -6583,6 +6675,58 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Represents a Trial for a project.
+ */
+@interface GTLRBackupdr_Trial : GTLRObject
+
+/**
+ *  Output only. The reason for ending the trial.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_Trial_EndReason_Discontinued Trial is discontinued
+ *        before expiration. (Value: "DISCONTINUED")
+ *    @arg @c kGTLRBackupdr_Trial_EndReason_EndReasonUnspecified End reason not
+ *        set. (Value: "END_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_Trial_EndReason_MoveToPaid Trial is deliberately
+ *        ended by the user to transition to paid usage. (Value: "MOVE_TO_PAID")
+ */
+@property(nonatomic, copy, nullable) NSString *endReason;
+
+/** Output only. The time when the trial will expire. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Identifier. The resource name of the trial. Format:
+ *  projects/{project}/locations/{location}/trial
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time when the trial was subscribed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The state of the trial.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_Trial_State_Eligible Trial is eligible for
+ *        enablement. (Value: "ELIGIBLE")
+ *    @arg @c kGTLRBackupdr_Trial_State_Expired Trial is expired post 30 days of
+ *        subscription. (Value: "EXPIRED")
+ *    @arg @c kGTLRBackupdr_Trial_State_NotEligible Trial is not eligible for
+ *        enablement. (Value: "NOT_ELIGIBLE")
+ *    @arg @c kGTLRBackupdr_Trial_State_StateUnspecified State not set. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_Trial_State_Subscribed Trial is subscribed. (Value:
+ *        "SUBSCRIBED")
+ *    @arg @c kGTLRBackupdr_Trial_State_Unsubscribed Trial is unsubscribed
+ *        before expiration. (Value: "UNSUBSCRIBED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

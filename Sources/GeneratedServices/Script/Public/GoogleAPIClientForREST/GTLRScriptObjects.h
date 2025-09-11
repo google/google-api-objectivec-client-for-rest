@@ -641,18 +641,16 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_
  */
 @interface GTLRScript_File : GTLRObject
 
-/**
- *  Creation date timestamp. This read-only field is only visible to users who
- *  have WRITER permission for the script project.
- */
+/** Creation date timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** The defined set of functions in the script file, if any. */
 @property(nonatomic, strong, nullable) GTLRScript_GoogleAppsScriptTypeFunctionSet *functionSet;
 
 /**
- *  The user who modified the file most recently. This read-only field is only
- *  visible to users who have WRITER permission for the script project.
+ *  The user who modified the file most recently. The details visible in this
+ *  object are controlled by the profile visibility settings of the last
+ *  modifying user.
  */
 @property(nonatomic, strong, nullable) GTLRScript_GoogleAppsScriptTypeUser *lastModifyUser;
 
@@ -682,10 +680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/**
- *  Last modified date timestamp. This read-only field is only visible to users
- *  who have WRITER permission for the script project.
- */
+/** Last modified date timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end

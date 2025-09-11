@@ -26,6 +26,7 @@
 @class GTLRCloudRedis_BackupRun;
 @class GTLRCloudRedis_CertChain;
 @class GTLRCloudRedis_Cluster;
+@class GTLRCloudRedis_Cluster_Labels;
 @class GTLRCloudRedis_Cluster_RedisConfigs;
 @class GTLRCloudRedis_ClusterEndpoint;
 @class GTLRCloudRedis_ClusterMaintenancePolicy;
@@ -1519,6 +1520,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edit
  *  Value: "EDITION_ENTERPRISE_PLUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionEnterprisePlus;
+/**
+ *  Represents the standard edition.
+ *
+ *  Value: "EDITION_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionStandard;
 /**
  *  Default, to make it consistent with instance edition enum.
  *
@@ -3768,8 +3775,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
+/**
+ *  Output only. The last time a backup was created in the backup collection.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastBackupTime;
+
 /** Identifier. Full resource path of the backup collection. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Total number of backups in the backup collection.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalBackupCount;
+
+/**
+ *  Output only. Total size of all backups in the backup collection.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalBackupSizeBytes;
 
 /**
  *  Output only. System assigned unique identifier of the backup collection.
@@ -3937,14 +3963,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_Cluster : GTLRObject
 
 /**
- *  Optional. Immutable. Allows customers to specify if they are okay with
- *  deploying a multi-zone cluster in less than 3 zones. Once set, if there is a
- *  zonal outage during the cluster creation, the cluster will only be deployed
- *  in 2 zones, and stay within the 2 zones for its lifecycle.
+ *  Optional. Immutable. Deprecated, do not use.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *allowFewerZonesDeployment;
+@property(nonatomic, strong, nullable) NSNumber *allowFewerZonesDeployment GTLR_DEPRECATED;
 
 /**
  *  Optional. If true, cluster endpoints that are created and registered by
@@ -4015,6 +4038,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Optional. The KMS key used to encrypt the at-rest data of the cluster. */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/** Optional. Labels to represent user-provided metadata. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Cluster_Labels *labels;
 
 /**
  *  Optional. ClusterMaintenancePolicy determines when to allow or deny updates.
@@ -4187,6 +4213,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ZoneDistributionConfig *zoneDistributionConfig;
 
+@end
+
+
+/**
+ *  Optional. Labels to represent user-provided metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRedis_Cluster_Labels : GTLRObject
 @end
 
 
@@ -5199,6 +5237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionEnterprisePlus
  *        Represents the enterprise plus edition. (Value:
  *        "EDITION_ENTERPRISE_PLUS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionStandard
+ *        Represents the standard edition. (Value: "EDITION_STANDARD")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_Edition_EditionUnspecified
  *        Default, to make it consistent with instance edition enum. (Value:
  *        "EDITION_UNSPECIFIED")

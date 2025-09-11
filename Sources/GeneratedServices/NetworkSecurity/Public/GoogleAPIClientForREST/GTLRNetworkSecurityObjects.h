@@ -49,6 +49,7 @@
 @class GTLRNetworkSecurity_FirewallEndpointAssociation;
 @class GTLRNetworkSecurity_FirewallEndpointAssociation_Labels;
 @class GTLRNetworkSecurity_FirewallEndpointAssociationReference;
+@class GTLRNetworkSecurity_FirewallEndpointEndpointSettings;
 @class GTLRNetworkSecurity_GatewaySecurityPolicy;
 @class GTLRNetworkSecurity_GatewaySecurityPolicyRule;
 @class GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider;
@@ -2185,8 +2186,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 /**
  *  Required. All gateways and forwarding rules referenced by this policy and
  *  extensions must share the same load balancing scheme. Supported values:
- *  `INTERNAL_MANAGED` and `EXTERNAL_MANAGED`. For more information, refer to
- *  [Backend services
+ *  `INTERNAL_MANAGED`, `INTERNAL_SELF_MANAGED`, and `EXTERNAL_MANAGED`. For
+ *  more information, refer to [Backend services
  *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
  *
  *  Likely values:
@@ -2207,7 +2208,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  Required. A list of references to the Forwarding Rules on which this policy
- *  will be applied.
+ *  will be applied. For policies created for Cloudrun, this field will
+ *  reference the Cloud Run services.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -2591,6 +2593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Optional. Settings for the endpoint. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpointEndpointSettings *endpointSettings;
+
 /** Optional. Labels as key value pairs */
 @property(nonatomic, strong, nullable) GTLRNetworkSecurity_FirewallEndpoint_Labels *labels;
 
@@ -2749,6 +2754,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
+@end
+
+
+/**
+ *  Settings for the endpoint.
+ */
+@interface GTLRNetworkSecurity_FirewallEndpointEndpointSettings : GTLRObject
 @end
 
 

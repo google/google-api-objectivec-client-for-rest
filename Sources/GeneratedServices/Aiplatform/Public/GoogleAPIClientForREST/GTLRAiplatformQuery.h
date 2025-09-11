@@ -5720,6 +5720,537 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Creates an Evaluation Item.
+ *
+ *  Method: aiplatform.projects.locations.evaluationItems.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationItemsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the Evaluation Item
+ *  in. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem.
+ *
+ *  Creates an Evaluation Item.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    Evaluation Item in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationItemsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Evaluation Item.
+ *
+ *  Method: aiplatform.projects.locations.evaluationItems.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationItemsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the EvaluationItem resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/evaluationItems/{evaluation_item}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes an Evaluation Item.
+ *
+ *  @param name Required. The name of the EvaluationItem resource to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/evaluationItems/{evaluation_item}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationItemsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an Evaluation Item.
+ *
+ *  Method: aiplatform.projects.locations.evaluationItems.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationItemsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the EvaluationItem resource. Format:
+ *  `projects/{project}/locations/{location}/evaluationItems/{evaluation_item}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationItem.
+ *
+ *  Gets an Evaluation Item.
+ *
+ *  @param name Required. The name of the EvaluationItem resource. Format:
+ *    `projects/{project}/locations/{location}/evaluationItems/{evaluation_item}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationItemsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Evaluation Items.
+ *
+ *  Method: aiplatform.projects.locations.evaluationItems.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationItemsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. Filter expression that matches a subset of the EvaluationItems to
+ *  show. For field names both snake_case and camelCase are supported. For more
+ *  information about filter syntax, see [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order by default. Use `desc` after a field name for descending.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The maximum number of Evaluation Items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListEvaluationItems` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location from which to list the
+ *  Evaluation Items. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListEvaluationItemsResponse.
+ *
+ *  Lists Evaluation Items.
+ *
+ *  @param parent Required. The resource name of the Location from which to list
+ *    the Evaluation Items. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationItemsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Cancels an Evaluation Run. Attempts to cancel a running Evaluation Run
+ *  asynchronously. Status of run can be checked via GetEvaluationRun.
+ *
+ *  Method: aiplatform.projects.locations.evaluationRuns.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsCancel : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the EvaluationRun resource to be cancelled. Format:
+ *  `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Cancels an Evaluation Run. Attempts to cancel a running Evaluation Run
+ *  asynchronously. Status of run can be checked via GetEvaluationRun.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1CancelEvaluationRunRequest to
+ *    include in the query.
+ *  @param name Required. The name of the EvaluationRun resource to be
+ *    cancelled. Format:
+ *    `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsCancel
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1CancelEvaluationRunRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an Evaluation Run.
+ *
+ *  Method: aiplatform.projects.locations.evaluationRuns.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the Evaluation Run in.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun.
+ *
+ *  Creates an Evaluation Run.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    Evaluation Run in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Evaluation Run.
+ *
+ *  Method: aiplatform.projects.locations.evaluationRuns.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the EvaluationRun resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes an Evaluation Run.
+ *
+ *  @param name Required. The name of the EvaluationRun resource to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an Evaluation Run.
+ *
+ *  Method: aiplatform.projects.locations.evaluationRuns.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the EvaluationRun resource. Format:
+ *  `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun.
+ *
+ *  Gets an Evaluation Run.
+ *
+ *  @param name Required. The name of the EvaluationRun resource. Format:
+ *    `projects/{project}/locations/{location}/evaluationRuns/{evaluation_run}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Evaluation Runs.
+ *
+ *  Method: aiplatform.projects.locations.evaluationRuns.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. Filter expression that matches a subset of the EvaluationRuns to
+ *  show. For field names both snake_case and camelCase are supported. For more
+ *  information about filter syntax, see [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order by default. Use `desc` after a field name for descending.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The maximum number of Evaluation Runs to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListEvaluationRuns` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location from which to list the
+ *  Evaluation Runs. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListEvaluationRunsResponse.
+ *
+ *  Lists Evaluation Runs.
+ *
+ *  @param parent Required. The resource name of the Location from which to list
+ *    the Evaluation Runs. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationRunsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an Evaluation Set.
+ *
+ *  Method: aiplatform.projects.locations.evaluationSets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to create the Evaluation Set in.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet.
+ *
+ *  Creates an Evaluation Set.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location to create the
+ *    Evaluation Set in. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Evaluation Set.
+ *
+ *  Method: aiplatform.projects.locations.evaluationSets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the EvaluationSet resource to be deleted. Format:
+ *  `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes an Evaluation Set.
+ *
+ *  @param name Required. The name of the EvaluationSet resource to be deleted.
+ *    Format:
+ *    `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an Evaluation Set.
+ *
+ *  Method: aiplatform.projects.locations.evaluationSets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the EvaluationSet resource. Format:
+ *  `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet.
+ *
+ *  Gets an Evaluation Set.
+ *
+ *  @param name Required. The name of the EvaluationSet resource. Format:
+ *    `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Evaluation Sets.
+ *
+ *  Method: aiplatform.projects.locations.evaluationSets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. Filter expression that matches a subset of the EvaluationSets to
+ *  show. For field names both snake_case and camelCase are supported. For more
+ *  information about filter syntax, see [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order by default. Use `desc` after a field name for descending.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The maximum number of Evaluation Sets to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListEvaluationSets` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the Location from which to list the
+ *  Evaluation Sets. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListEvaluationSetsResponse.
+ *
+ *  Lists Evaluation Sets.
+ *
+ *  @param parent Required. The resource name of the Location from which to list
+ *    the Evaluation Sets. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an Evaluation Set.
+ *
+ *  Method: aiplatform.projects.locations.evaluationSets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsPatch : GTLRAiplatformQuery
+
+/**
+ *  Identifier. The resource name of the EvaluationSet. Format:
+ *  `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see google.protobuf.FieldMask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet.
+ *
+ *  Updates an Evaluation Set.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the EvaluationSet. Format:
+ *    `projects/{project}/locations/{location}/evaluationSets/{evaluation_set}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEvaluationSetsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new FeatureGroup in a given project and location.
  *
  *  Method: aiplatform.projects.locations.featureGroups.create
@@ -10025,6 +10556,82 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Generates rubrics for a given prompt. A rubric represents a single testable
+ *  criterion for evaluation. One input prompt could have multiple rubrics This
+ *  RPC allows users to get suggested rubrics based on provided prompt, which
+ *  can then be reviewed and used for subsequent evaluations.
+ *
+ *  Method: aiplatform.projects.locations.generateInstanceRubrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsGenerateInstanceRubrics : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to generate rubrics from.
+ *  Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1GenerateInstanceRubricsResponse.
+ *
+ *  Generates rubrics for a given prompt. A rubric represents a single testable
+ *  criterion for evaluation. One input prompt could have multiple rubrics This
+ *  RPC allows users to get suggested rubrics based on provided prompt, which
+ *  can then be reviewed and used for subsequent evaluations.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateInstanceRubricsRequest to
+ *    include in the query.
+ *  @param location Required. The resource name of the Location to generate
+ *    rubrics from. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsGenerateInstanceRubrics
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateInstanceRubricsRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
+ *  Generates synthetic data based on the provided configuration.
+ *
+ *  Method: aiplatform.projects.locations.generateSyntheticData
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsGenerateSyntheticData : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location to run the job. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1GenerateSyntheticDataResponse.
+ *
+ *  Generates synthetic data based on the provided configuration.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateSyntheticDataRequest to
+ *    include in the query.
+ *  @param location Required. The resource name of the Location to run the job.
+ *    Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsGenerateSyntheticData
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateSyntheticDataRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: aiplatform.projects.locations.get
@@ -11525,8 +12132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsList : GTLRAiplatformQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

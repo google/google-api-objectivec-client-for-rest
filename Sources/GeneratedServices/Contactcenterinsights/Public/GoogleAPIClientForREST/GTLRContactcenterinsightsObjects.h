@@ -1779,6 +1779,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcome;
 /**
+ *  A prebuilt classifier classfying whether the agent is helpful to the
+ *  customer.
+ *
+ *  Value: "CONVERSATION_OUTCOME_AGENT_HELPFULNESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeAgentHelpfulness;
+/**
+ *  A prebuilt classifier classfying whether the customer is satisfied with the
+ *  agent's response.
+ *
+ *  Value: "CONVERSATION_OUTCOME_CUSTOMER_SATISFACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeCustomerSatisfaction;
+/**
  *  A prebuilt classifier classfying the initiator of the conversation
  *  escalation. For example, if it was initiated by the customer or the agent.
  *
@@ -1827,6 +1841,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "TOO_MANY_INVALID_FEEDBACK_LABELS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata_DatasetValidationWarnings_TooManyInvalidFeedbackLabels;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard.source
+
+/**
+ *  The scorecard is a custom scorecard created by the user.
+ *
+ *  Value: "QA_SCORECARD_SOURCE_CUSTOMER_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceCustomerDefined;
+/**
+ *  The scorecard is a scorecard created through discovery engine deployment.
+ *
+ *  Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceDiscoveryEngine;
+/**
+ *  The source of the scorecard is unspecified. Default to
+ *  QA_SCORECARD_SOURCE_CUSTOMER_DEFINED.
+ *
+ *  Value: "QA_SCORECARD_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource.sourceType
@@ -4138,6 +4175,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** Output only. The original request for ingest. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequest *request;
+
+/**
+ *  Output only. Stores the conversation resources produced by ingest sampling
+ *  operations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sampledConversations;
 
 @end
 
@@ -8622,6 +8665,12 @@ GTLR_DEPRECATED
 /** Output only. The original request for ingest. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequest *request;
 
+/**
+ *  Output only. Stores the conversation resources produced by ingest sampling
+ *  operations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sampledConversations;
+
 @end
 
 
@@ -9402,6 +9451,33 @@ GTLR_DEPRECATED
  *  A token which can be sent as `page_token` to retrieve the next page. If this
  *  field is set, it means there is another page available. If it is not set, it
  *  means no other pages are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response to list datasets.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "datasets" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListDatasetsResponse : GTLRCollectionObject
+
+/**
+ *  The datasets that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset *> *datasets;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -10192,6 +10268,13 @@ GTLR_DEPRECATED
  *        A prebuilt classifier classfying the outcome of the conversation. For
  *        example, if the customer issue mentioned in a conversation has been
  *        resolved or not. (Value: "CONVERSATION_OUTCOME")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeAgentHelpfulness
+ *        A prebuilt classifier classfying whether the agent is helpful to the
+ *        customer. (Value: "CONVERSATION_OUTCOME_AGENT_HELPFULNESS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeCustomerSatisfaction
+ *        A prebuilt classifier classfying whether the customer is satisfied
+ *        with the agent's response. (Value:
+ *        "CONVERSATION_OUTCOME_CUSTOMER_SATISFACTION")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole
  *        A prebuilt classifier classfying the initiator of the conversation
  *        escalation. For example, if it was initiated by the customer or the
@@ -10303,6 +10386,23 @@ GTLR_DEPRECATED
  *  projects/{project}/locations/{location}/qaScorecards/{qa_scorecard}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The source of the scorecard.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceCustomerDefined
+ *        The scorecard is a custom scorecard created by the user. (Value:
+ *        "QA_SCORECARD_SOURCE_CUSTOMER_DEFINED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceDiscoveryEngine
+ *        The scorecard is a scorecard created through discovery engine
+ *        deployment. (Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard_Source_QaScorecardSourceUnspecified
+ *        The source of the scorecard is unspecified. Default to
+ *        QA_SCORECARD_SOURCE_CUSTOMER_DEFINED. (Value:
+ *        "QA_SCORECARD_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
 
 /** Output only. The most recent time at which the scorecard was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -11191,8 +11291,11 @@ GTLR_DEPRECATED
  *  time an export is complete. * "ingest-conversations": Notify each time an
  *  IngestConversations LRO is complete. * "update-conversation": Notify each
  *  time a conversation is updated via UpdateConversation. *
- *  "upload-conversation": Notify when an UploadConversation LRO is complete.
- *  Values are Pub/Sub topics. The format of each Pub/Sub topic is:
+ *  "upload-conversation": Notify when an UploadConversation LRO is complete. *
+ *  "update-or-analyze-conversation": Notify when an analysis for a conversation
+ *  is completed or when the conversation is updated. The message will contain
+ *  the conversation with transcript, analysis and other metadata. Values are
+ *  Pub/Sub topics. The format of each Pub/Sub topic is:
  *  projects/{project}/topics/{topic}
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings_PubsubNotificationSettings *pubsubNotificationSettings;
@@ -11230,8 +11333,11 @@ GTLR_DEPRECATED
  *  time an export is complete. * "ingest-conversations": Notify each time an
  *  IngestConversations LRO is complete. * "update-conversation": Notify each
  *  time a conversation is updated via UpdateConversation. *
- *  "upload-conversation": Notify when an UploadConversation LRO is complete.
- *  Values are Pub/Sub topics. The format of each Pub/Sub topic is:
+ *  "upload-conversation": Notify when an UploadConversation LRO is complete. *
+ *  "update-or-analyze-conversation": Notify when an analysis for a conversation
+ *  is completed or when the conversation is updated. The message will contain
+ *  the conversation with transcript, analysis and other metadata. Values are
+ *  Pub/Sub topics. The format of each Pub/Sub topic is:
  *  projects/{project}/topics/{topic}
  *
  *  @note This class is documented as having more properties of NSString. Use @c

@@ -1228,8 +1228,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /**
  *  Optional. The strategy used for executing this Rollout. This strategy will
- *  override whatever strategy is specified in the RolloutType. If not specified
- *  on creation, the strategy from RolloutType will be used. There are two
+ *  override whatever strategy is specified in the RolloutKind. If not specified
+ *  on creation, the strategy from RolloutKind will be used. There are two
  *  supported values strategies which are used to control -
  *  "Google.Cloud.Simple.AllAtOnce" - "Google.Cloud.Simple.OneLocationAtATime" A
  *  rollout with one of these simple strategies will rollout across all
@@ -1306,7 +1306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  Optional. CEL(https://github.com/google/cel-spec) formatted filter string
  *  against Unit. The filter will be applied to determine the eligible unit
  *  population. This filter can only reduce, but not expand the scope of the
- *  rollout. If not provided, the unit_filter from the RolloutType will be used.
+ *  rollout. If not provided, the unit_filter from the RolloutKind will be used.
  */
 @property(nonatomic, copy, nullable) NSString *unitFilter;
 

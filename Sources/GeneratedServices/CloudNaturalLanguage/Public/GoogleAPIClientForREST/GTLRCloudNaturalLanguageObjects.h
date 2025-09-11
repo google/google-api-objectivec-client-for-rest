@@ -318,6 +318,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_G2;
 /**
+ *  GPU-based machine, skip quota reporting.
+ *
+ *  Value: "G4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_G4;
+/**
  *  MEMORY_OPTIMIZED
  *
  *  Value: "M1"
@@ -511,6 +517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard8;
 /** Value: "G2_STANDARD_96" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard96;
+/** Value: "G4_STANDARD_48" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G4Standard48;
 /** Value: "N1_HIGHCPU_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu16;
 /** Value: "N1_HIGHCPU_2" */
@@ -849,6 +857,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_N
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaH200141gb;
 /** Value: "NVIDIA_L4" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaL4;
+/** Value: "NVIDIA_RTX_PRO_6000" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaRtxPro6000;
 /** Value: "NVIDIA_TESLA_A100" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaA100;
 /** Value: "NVIDIA_TESLA_K80" */
@@ -1035,6 +1045,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard8;
 /** Value: "G2_STANDARD_96" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard96;
+/** Value: "G4_STANDARD_48" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G4Standard48;
 /** Value: "N1_HIGHCPU_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu16;
 /** Value: "N1_HIGHCPU_2" */
@@ -1396,6 +1408,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard8;
 /** Value: "G2_STANDARD_96" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard96;
+/** Value: "G4_STANDARD_48" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G4Standard48;
 /** Value: "N1_HIGHCPU_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu16;
 /** Value: "N1_HIGHCPU_2" */
@@ -1588,6 +1602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_E2;
 /** Value: "G2" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_G2;
+/** Value: "G4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_G4;
 /**
  *  MEMORY_OPTIMIZED
  *
@@ -2886,6 +2902,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_E2 Value "E2"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_G2 GPU-based machine,
  *        skip quota reporting. (Value: "G2")
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_G4 GPU-based machine,
+ *        skip quota reporting. (Value: "G4")
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_M1 MEMORY_OPTIMIZED
  *        (Value: "M1")
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_M2
@@ -3072,6 +3090,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "G2_STANDARD_8"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G2Standard96 Value
  *        "G2_STANDARD_96"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_G4Standard48 Value
+ *        "G4_STANDARD_48"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu16 Value
  *        "N1_HIGHCPU_16"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N1Highcpu2 Value
@@ -3505,6 +3525,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "NVIDIA_H200_141GB"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaL4 Value
  *        "NVIDIA_L4"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaRtxPro6000 Value
+ *        "NVIDIA_RTX_PRO_6000"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaA100 Value
  *        "NVIDIA_TESLA_A100"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_GpuType_NvidiaTeslaK80 Value
@@ -3694,6 +3716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "G2_STANDARD_8"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G2Standard96 Value
  *        "G2_STANDARD_96"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_G4Standard48 Value
+ *        "G4_STANDARD_48"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu16 Value
  *        "N1_HIGHCPU_16"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N1Highcpu2 Value
@@ -4150,6 +4174,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "G2_STANDARD_8"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G2Standard96 Value
  *        "G2_STANDARD_96"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_G4Standard48 Value
+ *        "G4_STANDARD_48"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu16 Value
  *        "N1_HIGHCPU_16"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N1Highcpu2 Value
@@ -4339,6 +4365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_Custom Value "CUSTOM"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_E2 Value "E2"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_G2 Value "G2"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_G4 Value "G4"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_M1 MEMORY_OPTIMIZED
  *        (Value: "M1")
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_M2

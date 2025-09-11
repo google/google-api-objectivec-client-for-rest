@@ -1190,9 +1190,9 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 /**
  *  Optional. An authentication config used to authenticate message requests,
  *  such that destinations can verify the source. For example, this can be used
- *  with private GCP destinations that require GCP credentials to access like
- *  Cloud Run. This field is optional and should be set only by users interested
- *  in authenticated push
+ *  with private Google Cloud destinations that require Google Cloud credentials
+ *  for access like Cloud Run. This field is optional and should be set only by
+ *  users interested in authenticated push.
  */
 @property(nonatomic, strong, nullable) GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfig *authenticationConfig;
 
@@ -1251,7 +1251,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 /**
  *  Optional. This authenticate method will apply Google OIDC tokens signed by a
- *  GCP service account to the requests.
+ *  Google Cloud service account to the requests.
  */
 @property(nonatomic, strong, nullable) GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfigOidcToken *googleOidc;
 
@@ -1298,8 +1298,9 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 /**
  *  Represents a config used to authenticate with a Google OIDC token using a
- *  GCP service account. Use this authentication method to invoke your Cloud Run
- *  and Cloud Functions destinations or HTTP endpoints that support Google OIDC.
+ *  Google Cloud service account. Use this authentication method to invoke your
+ *  Cloud Run and Cloud Functions destinations or HTTP endpoints that support
+ *  Google OIDC.
  */
 @interface GTLREventarc_GoogleCloudEventarcV1PipelineDestinationAuthenticationConfigOidcToken : GTLRObject
 

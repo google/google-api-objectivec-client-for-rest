@@ -279,11 +279,21 @@ NSString * const kGTLRPlayIntegrity_RecentDeviceActivity_DeviceActivityLevel_Une
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPlayIntegrity_PcTestingDetails
+//
+
+@implementation GTLRPlayIntegrity_PcTestingDetails
+@dynamic isTestingResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPlayIntegrity_PcTokenPayloadExternal
 //
 
 @implementation GTLRPlayIntegrity_PcTokenPayloadExternal
-@dynamic accountDetails, deviceIntegrity, requestDetails;
+@dynamic accountDetails, deviceIntegrity, requestDetails, testingDetails;
 @end
 
 

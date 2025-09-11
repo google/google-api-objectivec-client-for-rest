@@ -108,6 +108,9 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AdditionalParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AuthParams;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig_AdditionalParams;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig_AuthParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorRealtimeSyncConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorRealtimeSyncConfigStreamingError;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity;
@@ -259,6 +262,10 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerStepActionObservationSearchResultSnippetInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerStepActionSearchAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswer;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultBannedPhraseEnforcementResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultModelArmorEnforcementResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultPolicyEnforcementResult;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerReply;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant_EnabledTools;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContent;
@@ -268,6 +275,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantContentFile;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicy;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGenerationConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGenerationConfigSystemInstruction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGroundedContent;
@@ -319,6 +327,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluationEvaluationSpecQuerySetSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaHealthcareFhirConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfigExternalIdpConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaImportErrorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaInterval;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLanguageInfo;
@@ -454,6 +464,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1HealthcareFhirConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingEntry;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfigExternalIdpConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportErrorConfig;
@@ -1534,6 +1546,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_BlockingReasons_AllowlistInServiceAttachment;
 /**
+ *  Connector requires customer to allowlist service account in their project.
+ *
+ *  Value: "ALLOWLIST_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_BlockingReasons_AllowlistServiceAccount;
+/**
  *  Connector requires customer to allowlist static IPs.
  *
  *  Value: "ALLOWLIST_STATIC_IP"
@@ -1927,6 +1945,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SOLUTION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_SolutionTypes_SolutionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine.appType
+
+/**
+ *  App type for intranet search and Agentspace.
+ *
+ *  Value: "APP_TYPE_INTRANET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_AppType_AppTypeIntranet;
+/**
+ *  All non specified apps.
+ *
+ *  Value: "APP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_AppType_AppTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine.industryVertical
@@ -3654,6 +3688,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswer_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult.verdict
+
+/**
+ *  There was no policy violation.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult_Verdict_Allow;
+/**
+ *  Processing was blocked by the customer policy.
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult_Verdict_Block;
+/**
+ *  Unknown value.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult_Verdict_Unspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant.webGroundingType
 
 /**
@@ -3734,6 +3790,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "WORD_BOUNDARY_STRING_MATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase_MatchType_WordBoundaryStringMatch;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig.failureMode
+
+/**
+ *  In case of a Model Armor processing failure, the request is rejected.
+ *
+ *  Value: "FAIL_CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig_FailureMode_FailClosed;
+/**
+ *  In case of a Model Armor processing failure, the request is allowed to
+ *  proceed without any changes.
+ *
+ *  Value: "FAIL_OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig_FailureMode_FailOpen;
+/**
+ *  Unspecified failure mode, default behavior is `FAIL_CLOSED`.
+ *
+ *  Value: "FAILURE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig_FailureMode_FailureModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata.state
@@ -4053,6 +4132,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_SolutionTypes_SolutionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.appType
+
+/**
+ *  App type for intranet search and Agentspace.
+ *
+ *  Value: "APP_TYPE_INTRANET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_AppType_AppTypeIntranet;
+/**
+ *  All non specified apps.
+ *
+ *  Value: "APP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_AppType_AppTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.industryVertical
 
 /**
@@ -4232,6 +4327,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEvaluation_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig.idpType
+
+/**
+ *  Google 1P provider.
+ *
+ *  Value: "GSUITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig_IdpType_Gsuite;
+/**
+ *  Default value. ACL search not enabled.
+ *
+ *  Value: "IDP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig_IdpType_IdpTypeUnspecified;
+/**
+ *  Third party provider.
+ *
+ *  Value: "THIRD_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig_IdpType_ThirdParty;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaNaturalLanguageQueryUnderstandingConfig.mode
@@ -5432,6 +5549,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_SolutionTypes_SolutionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.appType
+
+/**
+ *  App type for intranet search and Agentspace.
+ *
+ *  Value: "APP_TYPE_INTRANET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_AppType_AppTypeIntranet;
+/**
+ *  All non specified apps.
+ *
+ *  Value: "APP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_AppType_AppTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.industryVertical
 
 /**
@@ -5577,6 +5710,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "SEARCH_TIER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineSearchEngineConfig_SearchTier_SearchTierUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig.idpType
+
+/**
+ *  Google 1P provider.
+ *
+ *  Value: "GSUITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig_IdpType_Gsuite;
+/**
+ *  Default value. ACL search not enabled.
+ *
+ *  Value: "IDP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig_IdpType_IdpTypeUnspecified;
+/**
+ *  Third party provider.
+ *
+ *  Value: "THIRD_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig_IdpType_ThirdParty;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest.reconciliationMode
@@ -7701,6 +7856,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  `google.cloud.discoveryengine.v1alpha.RecommendationService.Recommend`.
  */
 @property(nonatomic, copy, nullable) NSString *functionName;
+
+@end
+
+
+/**
+ *  Access Control Configuration.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AclConfig : GTLRObject
+
+/** Identity provider config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig *idpConfig;
+
+/**
+ *  Immutable. The full resource name of the acl configuration. Format:
+ *  `projects/{project}/locations/{location}/aclConfig`. This field must be a
+ *  UTF-8 encoded string with a length limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -9957,6 +10130,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errors;
 
 /**
+ *  Optional. Any params and credentials used specifically for hybrid connectors
+ *  supporting FEDERATED mode. This field should only be set if the connector is
+ *  a hybrid connector and we want to enable FEDERATED mode.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig *federatedConfig;
+
+/**
  *  Optional. If the connector is a hybrid connector, determines whether
  *  ingestion is enabled and appropriate resources are provisioned during
  *  connector creation. If the connector is not a hybrid connector, this field
@@ -10118,6 +10298,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDuration *refreshInterval;
 
 /**
+ *  Optional. Specifies keys to be removed from the 'params' field. This is only
+ *  active when 'params' is included in the 'update_mask' in an
+ *  UpdateDataConnectorRequest. Deletion takes precedence if a key is both in
+ *  'remove_param_keys' and present in the 'params' field of the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeParamKeys;
+
+/**
  *  Output only. State of the connector.
  *
  *  Likely values:
@@ -10253,6 +10441,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AuthParams : GTLRObject
+@end
+
+
+/**
+ *  Any params and credentials used specifically for hybrid connectors
+ *  supporting FEDERATED mode.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig : GTLRObject
+
+/** Optional. Any additional parameters needed for FEDERATED. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig_AdditionalParams *additionalParams;
+
+/** Optional. Any authentication parameters specific to FEDERATED. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig_AuthParams *authParams;
+
+@end
+
+
+/**
+ *  Optional. Any additional parameters needed for FEDERATED.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig_AdditionalParams : GTLRObject
+@end
+
+
+/**
+ *  Optional. Any authentication parameters specific to FEDERATED.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig_AuthParams : GTLRObject
 @end
 
 
@@ -11105,6 +11332,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Metadata that describes the training and serving parameters of an Engine.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine : GTLRObject
+
+/**
+ *  Optional. Immutable. This the application type which this engine resource
+ *  represents. NOTE: this is a new concept independ of existing industry
+ *  vertical or solution type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_AppType_AppTypeIntranet
+ *        App type for intranet search and Agentspace. (Value:
+ *        "APP_TYPE_INTRANET")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_AppType_AppTypeUnspecified
+ *        All non specified apps. (Value: "APP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
 
 /**
  *  Configurations for the Chat Engine. Only applicable if solution_type is
@@ -16873,6 +17114,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assistSkippedReasons;
 
 /**
+ *  Optional. The field contains information about the various policy checks'
+ *  results like the banned phrases or the Model Armor checks. This field is
+ *  populated only if the assist call was skipped due to a policy violation.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult *customerPolicyEnforcementResult;
+
+/**
  *  Immutable. Identifier. Resource name of the `AssistAnswer`. Format:
  *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}/assistAnswers/{assist_answer}`
  *  This field must be a UTF-8 encoded string with a length limit of 1024
@@ -16899,6 +17147,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Assist operation has succeeded. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Customer policy enforcement results. Contains the results of the various
+ *  policy checks, like the banned phrases or the Model Armor checks.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult : GTLRObject
+
+/**
+ *  Customer policy enforcement results. Populated only if the assist call was
+ *  skipped due to a policy violation. It contains results from those filters
+ *  that blocked the processing of the query.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultPolicyEnforcementResult *> *policyResults;
+
+/**
+ *  Final verdict of the customer policy enforcement. If only one policy blocked
+ *  the processing, the verdict is BLOCK.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult_Verdict_Allow
+ *        There was no policy violation. (Value: "ALLOW")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult_Verdict_Block
+ *        Processing was blocked by the customer policy. (Value: "BLOCK")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResult_Verdict_Unspecified
+ *        Unknown value. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+@end
+
+
+/**
+ *  Customer policy enforcement result for the banned phrase policy.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultBannedPhraseEnforcementResult : GTLRObject
+
+/** The banned phrases that were found in the query or the answer. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *bannedPhrases;
+
+@end
+
+
+/**
+ *  Customer policy enforcement result for the Model Armor policy.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultModelArmorEnforcementResult : GTLRObject
+
+/**
+ *  The error returned by Model Armor if the policy enforcement failed for some
+ *  reason.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *error;
+
+/** The Model Armor violation that was found. */
+@property(nonatomic, copy, nullable) NSString *modelArmorViolation;
+
+@end
+
+
+/**
+ *  Customer policy enforcement result for a single policy type.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultPolicyEnforcementResult : GTLRObject
+
+/** The policy enforcement result for the banned phrase policy. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultBannedPhraseEnforcementResult *bannedPhraseEnforcementResult;
+
+/** The policy enforcement result for the Model Armor policy. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswerCustomerPolicyEnforcementResultModelArmorEnforcementResult *modelArmorEnforcementResult;
 
 @end
 
@@ -17102,6 +17422,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Optional. List of banned phrases. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyBannedPhrase *> *bannedPhrases;
 
+/**
+ *  Optional. Model Armor configuration to be used for sanitizing user prompts
+ *  and assistant responses.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig *modelArmorConfig;
+
 @end
 
 
@@ -17139,6 +17465,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Required. The raw string content to be banned. */
 @property(nonatomic, copy, nullable) NSString *phrase;
+
+@end
+
+
+/**
+ *  Configuration for customer defined Model Armor templates to be used for
+ *  sanitizing user prompts and assistant responses.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig : GTLRObject
+
+/**
+ *  Optional. Defines the failure mode for Model Armor sanitization.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig_FailureMode_FailClosed
+ *        In case of a Model Armor processing failure, the request is rejected.
+ *        (Value: "FAIL_CLOSED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig_FailureMode_FailOpen
+ *        In case of a Model Armor processing failure, the request is allowed to
+ *        proceed without any changes. (Value: "FAIL_OPEN")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig_FailureMode_FailureModeUnspecified
+ *        Unspecified failure mode, default behavior is `FAIL_CLOSED`. (Value:
+ *        "FAILURE_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *failureMode;
+
+/**
+ *  Optional. The resource name of the Model Armor template for sanitizing
+ *  assistant responses. Format:
+ *  `projects/{project}/locations/{location}/templates/{template_id}` If not
+ *  specified, no sanitization will be applied to the assistant response.
+ */
+@property(nonatomic, copy, nullable) NSString *responseTemplate;
+
+/**
+ *  Optional. The resource name of the Model Armor template for sanitizing user
+ *  prompts. Format:
+ *  `projects/{project}/locations/{location}/templates/{template_id}` If not
+ *  specified, no sanitization will be applied to the user prompt.
+ */
+@property(nonatomic, copy, nullable) NSString *userPromptTemplate;
 
 @end
 
@@ -17542,6 +17909,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Request message for SiteSearchEngineService.BatchVerifyTargetSites method.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchVerifyTargetSitesRequest : GTLRObject
+@end
+
+
+/**
+ *  Access Control Configuration.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAclConfig : GTLRObject
+
+/** Identity provider config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig *idpConfig;
+
+/**
+ *  Immutable. The full resource name of the acl configuration. Format:
+ *  `projects/{project}/locations/{location}/aclConfig`. This field must be a
+ *  UTF-8 encoded string with a length limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -18801,6 +19186,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine : GTLRObject
 
 /**
+ *  Optional. Immutable. This the application type which this engine resource
+ *  represents. NOTE: this is a new concept independ of existing industry
+ *  vertical or solution type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_AppType_AppTypeIntranet
+ *        App type for intranet search and Agentspace. (Value:
+ *        "APP_TYPE_INTRANET")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_AppType_AppTypeUnspecified
+ *        All non specified apps. (Value: "APP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/**
  *  Configurations for the Chat Engine. Only applicable if solution_type is
  *  SOLUTION_TYPE_CHAT.
  */
@@ -19355,6 +19754,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalCount;
+
+@end
+
+
+/**
+ *  Identity Provider Config.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig : GTLRObject
+
+/** External Identity provider config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfigExternalIdpConfig *externalIdpConfig;
+
+/**
+ *  Identity provider type configured.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig_IdpType_Gsuite
+ *        Google 1P provider. (Value: "GSUITE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig_IdpType_IdpTypeUnspecified
+ *        Default value. ACL search not enabled. (Value: "IDP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig_IdpType_ThirdParty
+ *        Third party provider. (Value: "THIRD_PARTY")
+ */
+@property(nonatomic, copy, nullable) NSString *idpType;
+
+@end
+
+
+/**
+ *  Third party IDP Config.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfigExternalIdpConfig : GTLRObject
+
+/** Workforce pool name. Example: "locations/global/workforcePools/pool_id" */
+@property(nonatomic, copy, nullable) NSString *workforcePoolName;
 
 @end
 
@@ -24659,6 +25093,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine : GTLRObject
 
 /**
+ *  Optional. Immutable. This the application type which this engine resource
+ *  represents. NOTE: this is a new concept independ of existing industry
+ *  vertical or solution type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_AppType_AppTypeIntranet
+ *        App type for intranet search and Agentspace. (Value:
+ *        "APP_TYPE_INTRANET")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_AppType_AppTypeUnspecified
+ *        All non specified apps. (Value: "APP_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/**
  *  Configurations for the Chat Engine. Only applicable if solution_type is
  *  SOLUTION_TYPE_CHAT.
  */
@@ -25424,6 +25872,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Identity Provider Config.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig : GTLRObject
+
+/** External Identity provider config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfigExternalIdpConfig *externalIdpConfig;
+
+/**
+ *  Identity provider type configured.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig_IdpType_Gsuite
+ *        Google 1P provider. (Value: "GSUITE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig_IdpType_IdpTypeUnspecified
+ *        Default value. ACL search not enabled. (Value: "IDP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig_IdpType_ThirdParty
+ *        Third party provider. (Value: "THIRD_PARTY")
+ */
+@property(nonatomic, copy, nullable) NSString *idpType;
+
+@end
+
+
+/**
+ *  Third party IDP Config.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfigExternalIdpConfig : GTLRObject
+
+/** Workforce pool name. Example: "locations/global/workforcePools/pool_id" */
+@property(nonatomic, copy, nullable) NSString *workforcePoolName;
 
 @end
 

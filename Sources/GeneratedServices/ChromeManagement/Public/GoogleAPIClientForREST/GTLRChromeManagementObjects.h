@@ -108,6 +108,9 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
@@ -2244,6 +2247,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.signatureAlgorithm
 
 /**
+ *  The PKCS#1 digest info is built by the server-side and sent to the client
+ *  unhashed. The client is responsible for signing and hashing. Uses the P-256
+ *  curve.
+ *
+ *  Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256;
+/**
  *  The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
  *  constructed on the server-side. The client should sign using RSA with PKCS#1
  *  v1.5 padding.
@@ -2558,6 +2569,62 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "USER_PLATFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserPlatform;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile.keyUsages
+
+/**
+ *  The key can be used for key encipherment.
+ *
+ *  Value: "KEY_USAGE_KEY_ENCIPHERMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageKeyEncipherment;
+/**
+ *  The key can be used for signing.
+ *
+ *  Value: "KEY_USAGE_SIGNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageSigning;
+/**
+ *  The key usage is unspecified.
+ *
+ *  Value: "KEY_USAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName.type
+
+/**
+ *  The subject alternative name type is a a Domain Name System (DNS).
+ *
+ *  Value: "DNS_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_DnsName;
+/**
+ *  The subject alternative name type is a User Principal Name (UPN).
+ *
+ *  Value: "OTHER_NAME_USER_PRINCIPAL_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_OtherNameUserPrincipalName;
+/**
+ *  The subject alternative name type is an email address adhering to RFC822.
+ *
+ *  Value: "RFC822_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_Rfc822Name;
+/**
+ *  The subject alternative name type is unspecified.
+ *
+ *  Value: "SUBJECT_ALT_NAME_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_SubjectAltNameTypeUnspecified;
+/**
+ *  The subject alternative name type is a Uniform Resource Identifier (URI).
+ *
+ *  Value: "UNIFORM_RESOURCE_IDENTIFIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_UniformResourceIdentifier;
 
 /**
  *  Android app information.
@@ -6668,6 +6735,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 /** Output only. The ID of the certificate provisioning profile. */
 @property(nonatomic, copy, nullable) NSString *provisioningProfileId;
 
+/** Output only. The CA connection is a SCEP CA connection. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection *scepCaConnection;
+
+/** Output only. The profile is a SCEP certificate provisioning profile. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile *scepProfile;
+
 /**
  *  Output only. The signature of `signature_algorithm`, generated using the
  *  client's private key using `signature_algorithm`. This field is only present
@@ -6684,6 +6757,10 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  present after the `SignData` operation has been initiated.
  *
  *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256
+ *        The PKCS#1 digest info is built by the server-side and sent to the
+ *        client unhashed. The client is responsible for signing and hashing.
+ *        Uses the P-256 curve. (Value: "SIGNATURE_ALGORITHM_ECDSA_SHA256")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256
  *        The server-side builds the PKCS#1 DigestInfo, i.e., the SHA256 hash is
  *        constructed on the server-side. The client should sign using RSA with
@@ -7392,6 +7469,59 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Describes a SCEP Certificate Authority Connection.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection : GTLRObject
+
+/**
+ *  Output only. A string that references the administrator-provided
+ *  configuration for the certification authority service. This field can be
+ *  missing if no configuration was given.
+ */
+@property(nonatomic, copy, nullable) NSString *caConnectionAdapterConfigReference;
+
+@end
+
+
+/**
+ *  Describes a SCEP certificate provisioning profile.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile : GTLRObject
+
+/**
+ *  Output only. The certificate template name as defined by the admin on their
+ *  on-prem infrastructure. This is identifiable by the customer's CA.
+ */
+@property(nonatomic, copy, nullable) NSString *certificateTemplateName;
+
+/** Output only. The country of the subject. */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** Output only. The allowed key usages for certificate's key. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *keyUsages;
+
+/** Output only. The locality of the subject. */
+@property(nonatomic, copy, nullable) NSString *locality;
+
+/** Output only. The name of the organization the subject belongs to. */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/** Output only. The organizational units of the subject. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *organizationalUnits;
+
+/** Output only. The state of the subject. */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The subject alternative names. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName *> *subjectAltNames;
+
+/** Output only. The common name of the subject. */
+@property(nonatomic, copy, nullable) NSString *subjectCommonName;
+
+@end
+
+
+/**
  *  Metadata for the long-running operation returned by signData.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataMetadata : GTLRObject
@@ -7414,6 +7544,42 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  `CertificateProvisioningProcess`.
  */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess *certificateProvisioningProcess;
+
+@end
+
+
+/**
+ *  Describes a subject alternative name.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName : GTLRObject
+
+/**
+ *  Output only. The type of the SubjectAltName extension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_DnsName
+ *        The subject alternative name type is a a Domain Name System (DNS).
+ *        (Value: "DNS_NAME")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_OtherNameUserPrincipalName
+ *        The subject alternative name type is a User Principal Name (UPN).
+ *        (Value: "OTHER_NAME_USER_PRINCIPAL_NAME")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_Rfc822Name
+ *        The subject alternative name type is an email address adhering to
+ *        RFC822. (Value: "RFC822_NAME")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_SubjectAltNameTypeUnspecified
+ *        The subject alternative name type is unspecified. (Value:
+ *        "SUBJECT_ALT_NAME_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_UniformResourceIdentifier
+ *        The subject alternative name type is a Uniform Resource Identifier
+ *        (URI). (Value: "UNIFORM_RESOURCE_IDENTIFIER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. The value of the subject alternative name with respoect to the
+ *  `type`.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 

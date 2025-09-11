@@ -72,6 +72,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudObservability_ListTraceScopesResponse
+//
+
+@implementation GTLRCloudObservability_ListTraceScopesResponse
+@dynamic nextPageToken, traceScopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"traceScopes" : [GTLRCloudObservability_TraceScope class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"traceScopes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudObservability_Location
 //
 
@@ -163,7 +185,7 @@
 //
 
 @implementation GTLRCloudObservability_Scope
-@dynamic logScope, name, updateTime;
+@dynamic logScope, name, traceScope, updateTime;
 @end
 
 
@@ -194,6 +216,28 @@
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudObservability_TraceScope
+//
+
+@implementation GTLRCloudObservability_TraceScope
+@dynamic createTime, descriptionProperty, name, resourceNames, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
 }
 
 @end

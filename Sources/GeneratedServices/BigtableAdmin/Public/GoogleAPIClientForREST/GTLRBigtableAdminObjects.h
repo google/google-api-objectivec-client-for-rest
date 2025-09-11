@@ -2614,9 +2614,9 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
- *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing" Tags and Labels (above) are both used to bind metadata to
- *  resources, with different use-cases. See
+ *  resource. For example: - "123/environment": "production", -
+ *  "123/costCenter": "marketing" Tags and Labels (above) are both used to bind
+ *  metadata to resources, with different use-cases. See
  *  https://cloud.google.com/resource-manager/docs/tags/tags-overview for an
  *  in-depth overview on the difference between tags and labels.
  */
@@ -2664,9 +2664,9 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
- *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing" Tags and Labels (above) are both used to bind metadata to
- *  resources, with different use-cases. See
+ *  resource. For example: - "123/environment": "production", -
+ *  "123/costCenter": "marketing" Tags and Labels (above) are both used to bind
+ *  metadata to resources, with different use-cases. See
  *  https://cloud.google.com/resource-manager/docs/tags/tags-overview for an
  *  in-depth overview on the difference between tags and labels.
  *
@@ -3131,7 +3131,8 @@ GTLR_DEPRECATED
 @interface GTLRBigtableAdmin_MaterializedView : GTLRObject
 
 /**
- *  Set to true to make the MaterializedView protected against deletion.
+ *  Set to true to make the MaterializedView protected against deletion. Views:
+ *  `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3140,17 +3141,22 @@ GTLR_DEPRECATED
 /**
  *  Optional. The etag for this materialized view. This may be sent on update
  *  requests to ensure that the client has an up-to-date value before
- *  proceeding. The server returns an ABORTED error on a mismatched etag.
+ *  proceeding. The server returns an ABORTED error on a mismatched etag. Views:
+ *  `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Identifier. The unique name of the materialized view. Format:
  *  `projects/{project}/instances/{instance}/materializedViews/{materialized_view}`
+ *  Views: `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Required. Immutable. The materialized view's select query. */
+/**
+ *  Required. Immutable. The materialized view's select query. Views:
+ *  `SCHEMA_VIEW`, `FULL`.
+ */
 @property(nonatomic, copy, nullable) NSString *query;
 
 @end

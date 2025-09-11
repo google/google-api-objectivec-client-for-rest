@@ -26,12 +26,15 @@
 @class GTLRServiceControl_Auth;
 @class GTLRServiceControl_Auth_Claims;
 @class GTLRServiceControl_AuthenticationInfo;
+@class GTLRServiceControl_AuthenticationInfo_LoggableShortLivedCredential;
 @class GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal;
 @class GTLRServiceControl_AuthorizationInfo;
 @class GTLRServiceControl_CheckResponse_DynamicMetadata;
 @class GTLRServiceControl_CheckResponse_Headers;
 @class GTLRServiceControl_FirstPartyPrincipal;
 @class GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata;
+@class GTLRServiceControl_Oauth;
+@class GTLRServiceControl_OAuthInfo;
 @class GTLRServiceControl_OrgPolicyViolationInfo;
 @class GTLRServiceControl_OrgPolicyViolationInfo_Payload;
 @class GTLRServiceControl_OrgPolicyViolationInfo_ResourceTags;
@@ -584,6 +587,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Auth_Claims *claims;
 
+/** Attributes of the OAuth token associated with the request. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Oauth *oauth;
+
 /**
  *  The authorized presenter of the credential. Reflects the optional Authorized
  *  Presenter (`azp`) claim within a JWT or the OAuth client id. For example, a
@@ -634,6 +640,18 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *authoritySelector;
 
 /**
+ *  Converted from "identity_cloudgaia.AuditLoggableShortLivedCredential" proto.
+ *  This message will be used by security, detection and response team. For
+ *  context please refer to go/cg:short-lived-credential-logging. When the JSON
+ *  object represented here has a proto equivalent, the proto name will be
+ *  indicated in the `\@type` property.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_AuthenticationInfo_LoggableShortLivedCredential *loggableShortLivedCredential;
+
+/** OAuth authentication information such as the OAuth client ID. */
+@property(nonatomic, strong, nullable) GTLRServiceControl_OAuthInfo *oauthInfo;
+
+/**
  *  The email address of the authenticated user (or service account on behalf of
  *  third party principal) making the request. For third party identity callers,
  *  the `principal_subject` field is populated instead of this field. For
@@ -678,6 +696,22 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_AuthenticationInfo_ThirdPartyPrincipal *thirdPartyPrincipal;
 
+@end
+
+
+/**
+ *  Converted from "identity_cloudgaia.AuditLoggableShortLivedCredential" proto.
+ *  This message will be used by security, detection and response team. For
+ *  context please refer to go/cg:short-lived-credential-logging. When the JSON
+ *  object represented here has a proto equivalent, the proto name will be
+ *  indicated in the `\@type` property.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_AuthenticationInfo_LoggableShortLivedCredential : GTLRObject
 @end
 
 
@@ -848,6 +882,36 @@ GTLR_DEPRECATED
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceControl_FirstPartyPrincipal_ServiceMetadata : GTLRObject
+@end
+
+
+/**
+ *  This message defines attributes associated with OAuth credentials.
+ */
+@interface GTLRServiceControl_Oauth : GTLRObject
+
+/**
+ *  The optional OAuth client ID. This is the unique public identifier issued by
+ *  an authorization server to a registered client application. Empty string is
+ *  equivalent to no oauth client id. WARNING: This is for MCP tools/call and
+ *  tools/list authorization and not for general use.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+@end
+
+
+/**
+ *  OAuth related information about the request.
+ */
+@interface GTLRServiceControl_OAuthInfo : GTLRObject
+
+/**
+ *  The OAuth client ID of the 1P or 3P application acting on behalf of the
+ *  user.
+ */
+@property(nonatomic, copy, nullable) NSString *oauthClientId;
+
 @end
 
 

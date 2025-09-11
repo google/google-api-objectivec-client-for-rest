@@ -1033,6 +1033,78 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2ServiceScaling_ScalingMode_ScalingModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest.releaseTrack
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the "Deprecation Policy" section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Unimplemented;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2Task.executionEnvironment
 
 /**
@@ -4325,10 +4397,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  If unspecified, the volume will expose a file whose name is the secret,
- *  relative to VolumeMount.mount_path. If specified, the key will be used as
- *  the version to fetch from Cloud Secret Manager and the path will be the name
- *  of the file exposed in the volume. When items are defined, they must specify
- *  a path and a version.
+ *  relative to VolumeMount.mount_path + VolumeMount.sub_path. If specified, the
+ *  key will be used as the version to fetch from Cloud Secret Manager and the
+ *  path will be the name of the file exposed in the volume. When items are
+ *  defined, they must specify a path and a version.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4833,6 +4905,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  is supported. If worker_pool is set, this field will be ignored.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Optional. The release track of the client that initiated the build request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared for widespread use. By Alpha, all significant design issues
+ *        are resolved and we are in the process of verifying functionality.
+ *        Alpha customers need to apply for access, agree to applicable terms,
+ *        and have their projects allowlisted. Alpha releases don't have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Beta
+ *        Beta is the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a Beta release. Products will be complete from a feature perspective,
+ *        but may have some open outstanding issues. Beta releases are suitable
+ *        for limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the "Deprecation Policy" section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Ga
+ *        GA features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest_ReleaseTrack_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *releaseTrack;
 
 /**
  *  Optional. The service account to use for the build. If not set, the default
@@ -7149,7 +7268,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1NpmPackage : GTLRObject
 
-/** Path to the package.json. e.g. workspace/path/to/package */
+/**
+ *  Optional. Path to the package.json. e.g. workspace/path/to/package Only one
+ *  of `archive` or `package_path` can be specified.
+ */
 @property(nonatomic, copy, nullable) NSString *packagePath;
 
 /**

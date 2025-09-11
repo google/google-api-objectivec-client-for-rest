@@ -20,6 +20,7 @@
 @class GTLRCloudObservability_Operation_Response;
 @class GTLRCloudObservability_Status;
 @class GTLRCloudObservability_Status_Details_Item;
+@class GTLRCloudObservability_TraceScope;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -89,6 +90,34 @@ NS_ASSUME_NONNULL_BEGIN
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudObservability_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response for listing TraceScopes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "traceScopes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudObservability_ListTraceScopesResponse : GTLRCollectionObject
+
+/**
+ *  Optional. If there might be more results than appear in this response, then
+ *  `next_page_token` is included. To get the next set of results, call the same
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Optional. A list of trace scopes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudObservability_TraceScope *> *traceScopes;
 
 @end
 
@@ -292,6 +321,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Required. The resource name of the `TraceScope`. For example:
+ *  projects/myproject/locations/global/traceScopes/my-trace-scope
+ */
+@property(nonatomic, copy, nullable) NSString *traceScope;
+
+/**
  *  Output only. Update timestamp. Note: The Update timestamp for the default
  *  scope is initially unset.
  */
@@ -342,6 +377,41 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudObservability_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  A trace scope is a collection of resources whose traces are queried
+ *  together.
+ */
+@interface GTLRCloudObservability_TraceScope : GTLRObject
+
+/** Output only. The creation timestamp of the trace scope. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Describes this trace scope. The maximum length of the description
+ *  is 8000 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Identifier. The resource name of the trace scope. For example:
+ *  projects/my-project/locations/global/traceScopes/my-trace-scope
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Names of the projects that are included in this trace scope. *
+ *  `projects/[PROJECT_ID]` A trace scope can include a maximum of 20 projects.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+/** Output only. The last update timestamp of the trace scope. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -65,6 +65,7 @@
 @class GTLRDatabaseMigrationService_FunctionEntity;
 @class GTLRDatabaseMigrationService_FunctionEntity_CustomFeatures;
 @class GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata_Metadata;
+@class GTLRDatabaseMigrationService_HeterogeneousMetadata;
 @class GTLRDatabaseMigrationService_ImportRulesJobDetails;
 @class GTLRDatabaseMigrationService_IndexEntity;
 @class GTLRDatabaseMigrationService_IndexEntity_CustomFeatures;
@@ -134,6 +135,7 @@
 @class GTLRDatabaseMigrationService_SqlIpConfig;
 @class GTLRDatabaseMigrationService_SqlServerBackups;
 @class GTLRDatabaseMigrationService_SqlServerConnectionProfile;
+@class GTLRDatabaseMigrationService_SqlServerDagConfig;
 @class GTLRDatabaseMigrationService_SqlServerDatabaseBackup;
 @class GTLRDatabaseMigrationService_SqlServerEncryptionOptions;
 @class GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig;
@@ -4881,6 +4883,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Metadata for heterogeneous migration jobs objects.
+ */
+@interface GTLRDatabaseMigrationService_HeterogeneousMetadata : GTLRObject
+
+/**
+ *  The number of unsupported events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unsupportedEventsCount;
+
+@end
+
+
+/**
  *  Request message for 'ImportMappingRules' request.
  */
 @interface GTLRDatabaseMigrationService_ImportMappingRulesRequest : GTLRObject
@@ -5890,6 +5907,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Output only. The error details in case of failure. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_Status *error;
+
+/** Output only. Metadata for heterogeneous migration jobs objects. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_HeterogeneousMetadata *heterogeneousMetadata;
 
 /** The object's name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -7736,8 +7756,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *cloudSqlId;
 
+/**
+ *  Optional. The project id of the Cloud SQL instance. If not provided, the
+ *  project id of the connection profile will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudSqlProjectId;
+
 /** Required. The name of the specific database within the host. */
 @property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Optional. The Database Mirroring (DBM) port of the source SQL Server
+ *  instance.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dbmPort;
 
 /** Forward SSH tunnel connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity *forwardSshConnectivity;
@@ -7787,6 +7821,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Service.
  */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Configuration for distributed availability group (DAG) for the SQL Server
+ *  homogeneous migration.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerDagConfig : GTLRObject
+
+/**
+ *  Required. The name of the linked server that points to the source SQL Server
+ *  instance. Only used by DAG migrations.
+ */
+@property(nonatomic, copy, nullable) NSString *linkedServer;
+
+/**
+ *  Required. The name of the source availability group. Only used by DAG
+ *  migrations.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceAg;
 
 @end
 
@@ -7856,6 +7911,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  (?.*)\\.(?\\d*).trn
  */
 @property(nonatomic, copy, nullable) NSString *backupFilePattern;
+
+/**
+ *  Optional. Configuration for distributed availability group (DAG) for the SQL
+ *  Server homogeneous migration.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerDagConfig *dagConfig;
 
 /** Required. Backup details per database in Cloud Storage. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_SqlServerDatabaseBackup *> *databaseBackups;

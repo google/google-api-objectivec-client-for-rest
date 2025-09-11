@@ -25,6 +25,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// qaScorecardSources
+
+/**
+ *  The scorecard is a custom scorecard created by the user.
+ *
+ *  Value: "QA_SCORECARD_SOURCE_CUSTOMER_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceCustomerDefined;
+/**
+ *  The scorecard is a scorecard created through discovery engine deployment.
+ *
+ *  Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceDiscoveryEngine;
+/**
+ *  The source of the scorecard is unspecified. Default to
+ *  QA_SCORECARD_SOURCE_CUSTOMER_DEFINED.
+ *
+ *  Value: "QA_SCORECARD_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceUnspecified;
+
+// ----------------------------------------------------------------------------
 // view
 
 /**
@@ -1372,7 +1395,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  final component of the AuthorizedView's resource name. If no ID is
  *  specified, a server-generated ID will be used. This value should be 4-64
  *  characters and must match the regular expression
- *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. See aip.dev/122#resource-id-segments
+ *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. See
+ *  https://google.aip.dev/122#resource-id-segments
  */
 @property(nonatomic, copy, nullable) NSString *authorizedViewId;
 
@@ -1958,7 +1982,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  final component of the AuthorizedViewSet's resource name. If no ID is
  *  specified, a server-generated ID will be used. This value should be 4-64
  *  characters and must match the regular expression
- *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. See aip.dev/122#resource-id-segments
+ *  `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`. See
+ *  https://google.aip.dev/122#resource-id-segments
  */
 @property(nonatomic, copy, nullable) NSString *authorizedViewSetId;
 
@@ -3333,6 +3358,38 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Samples conversations based on user configuration and handles the sampled
+ *  conversations for different use cases.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.sample
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsSample : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the dataset. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Samples conversations based on user configuration and handles the sampled
+ *  conversations for different use cases.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the dataset.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsSample
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Create a long-running conversation upload operation. This method differs
  *  from `CreateConversation` by allowing audio transcription and optional DLP
  *  redaction.
@@ -4069,6 +4126,125 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Samples conversations based on user configuration and handles the sampled
+ *  conversations for different use cases.
+ *
+ *  Method: contactcenterinsights.projects.locations.datasets.conversations.sample
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsSample : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the dataset. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Samples conversations based on user configuration and handles the sampled
+ *  conversations for different use cases.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource of the dataset.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsSample
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a dataset.
+ *
+ *  Method: contactcenterinsights.projects.locations.datasets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsCreate : GTLRContactcenterinsightsQuery
+
+/** Optional. The ID to use for the dataset. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. The parent resource of the dataset. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset.
+ *
+ *  Creates a dataset.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the dataset.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a dataset.
+ *
+ *  Method: contactcenterinsights.projects.locations.datasets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the dataset to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Delete a dataset.
+ *
+ *  @param name Required. The name of the dataset to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a dataset.
+ *
+ *  Method: contactcenterinsights.projects.locations.datasets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the dataset to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset.
+ *
+ *  Gets a dataset.
+ *
+ *  @param name Required. The name of the dataset to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Export insights data to a destination defined in the request body.
  *
  *  Method: contactcenterinsights.projects.locations.datasets.insightsdata.export
@@ -4095,6 +4271,60 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  List datasets matching the input.
+ *
+ *  Method: contactcenterinsights.projects.locations.datasets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A filter to reduce results to a specific subset. Useful for
+ *  querying datasets with specific properties. Supported fields include, for Q2
+ *  though we only support list by project: - `type` - `description` -
+ *  `project_number`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of datasets to return in the response. If this
+ *  value is zero, the service will select a default size. A call might return
+ *  fewer objects than requested. A non-empty `next_page_token` in the response
+ *  indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListDatasetsResponse`; indicates
+ *  that this is a continuation of a prior `ListDatasets` call and the system
+ *  should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the dataset. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListDatasetsResponse.
+ *
+ *  List datasets matching the input.
+ *
+ *  @param parent Required. The parent resource of the dataset.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -4152,6 +4382,48 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a dataset.
+ *
+ *  Method: contactcenterinsights.projects.locations.datasets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Immutable. Identifier. Resource name of the dataset. Format:
+ *  projects/{project}/locations/{location}/datasets/{dataset}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset.
+ *
+ *  Updates a dataset.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset to
+ *    include in the query.
+ *  @param name Immutable. Identifier. Resource name of the dataset. Format:
+ *    projects/{project}/locations/{location}/datasets/{dataset}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -5398,6 +5670,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. The source of scorecards are based on how those Scorecards were
+ *  created, e.g., a customer-defined scorecard, a predefined scorecard, etc.
+ *  This field is used to retrieve Scorecards of one or more sources.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceUnspecified
+ *        The source of the scorecard is unspecified. Default to
+ *        QA_SCORECARD_SOURCE_CUSTOMER_DEFINED. (Value:
+ *        "QA_SCORECARD_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceCustomerDefined
+ *        The scorecard is a custom scorecard created by the user. (Value:
+ *        "QA_SCORECARD_SOURCE_CUSTOMER_DEFINED")
+ *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceDiscoveryEngine
+ *        The scorecard is a scorecard created through discovery engine
+ *        deployment. (Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *qaScorecardSources;
+
+/**
  *  Fetches a @c
  *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListQaScorecardsResponse.
  *
@@ -5628,6 +5919,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  character.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The source of scorecards are based on how those Scorecards were
+ *  created, e.g., a customer-defined scorecard, a predefined scorecard, etc.
+ *  This field is used to retrieve Scorecards Revisions from Scorecards of one
+ *  or more sources.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceUnspecified
+ *        The source of the scorecard is unspecified. Default to
+ *        QA_SCORECARD_SOURCE_CUSTOMER_DEFINED. (Value:
+ *        "QA_SCORECARD_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceCustomerDefined
+ *        The scorecard is a custom scorecard created by the user. (Value:
+ *        "QA_SCORECARD_SOURCE_CUSTOMER_DEFINED")
+ *    @arg @c kGTLRContactcenterinsightsQaScorecardSourcesQaScorecardSourceDiscoveryEngine
+ *        The scorecard is a scorecard created through discovery engine
+ *        deployment. (Value: "QA_SCORECARD_SOURCE_DISCOVERY_ENGINE")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *qaScorecardSources;
 
 /**
  *  Fetches a @c

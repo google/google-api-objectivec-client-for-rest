@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Location Finder API (cloudlocationfinder/v1alpha)
+//   Cloud Location Finder API (cloudlocationfinder/v1)
 // Documentation:
 //   https://cloud.google.com/location-finder/docs
 
@@ -216,8 +216,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudLocationFinderQuery_ProjectsLocationsList : GTLRCloudLocationFinderQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

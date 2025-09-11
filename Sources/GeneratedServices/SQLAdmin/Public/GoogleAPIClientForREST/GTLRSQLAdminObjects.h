@@ -1961,6 +1961,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_DnsScop
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instance;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_ExecuteSqlPayload.partialResultMode
+
+/**
+ *  Return a truncated result and set `partial_result` to true if the result
+ *  exceeds 10 MB. Don't throw an error.
+ *
+ *  Value: "ALLOW_PARTIAL_RESULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_AllowPartialResult;
+/**
+ *  Throw an error if the result exceeds 10 MB. Don't return the result.
+ *
+ *  Value: "FAIL_PARTIAL_RESULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_FailPartialResult;
+/**
+ *  Unspecified mode, effectively the same as `FAIL_PARTIAL_RESULT`.
+ *
+ *  Value: "PARTIAL_RESULT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_PartialResultModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ExportContext.fileType
 
 /** Value: "BAK" */
@@ -6103,6 +6126,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
+ *  Optional. Controls how the API should respond when the SQL execution result
+ *  exceeds 10 MB. The default mode is to throw an error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_AllowPartialResult
+ *        Return a truncated result and set `partial_result` to true if the
+ *        result exceeds 10 MB. Don't throw an error. (Value:
+ *        "ALLOW_PARTIAL_RESULT")
+ *    @arg @c kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_FailPartialResult
+ *        Throw an error if the result exceeds 10 MB. Don't return the result.
+ *        (Value: "FAIL_PARTIAL_RESULT")
+ *    @arg @c kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_PartialResultModeUnspecified
+ *        Unspecified mode, effectively the same as `FAIL_PARTIAL_RESULT`.
+ *        (Value: "PARTIAL_RESULT_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *partialResultMode;
+
+/**
  *  Optional. The maximum number of rows returned per SQL statement.
  *
  *  Uses NSNumber of longLongValue.
@@ -6114,6 +6155,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  statement or a sequence of statements separated by semicolons.
  */
 @property(nonatomic, copy, nullable) NSString *sqlStatement;
+
+/**
+ *  Optional. The name of an existing database user to connect to the database.
+ *  When `auto_iam_authn` is set to true, this field is ignored and the API
+ *  caller's IAM user is used.
+ */
+@property(nonatomic, copy, nullable) NSString *user;
 
 @end
 
@@ -9234,6 +9282,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Instance get latest recovery time response.
  */
 @interface GTLRSQLAdmin_SqlInstancesGetLatestRecoveryTimeResponse : GTLRObject
+
+/**
+ *  Timestamp, identifies the earliest recovery time of the source instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *earliestRecoveryTime;
 
 /** This is always `sql#getLatestRecoveryTime`. */
 @property(nonatomic, copy, nullable) NSString *kind;

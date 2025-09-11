@@ -41,6 +41,7 @@ NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspecified = @"L
 // GTLRDataFusion_Instance.disabledReason
 NSString * const kGTLRDataFusion_Instance_DisabledReason_DisabledReasonUnspecified = @"DISABLED_REASON_UNSPECIFIED";
 NSString * const kGTLRDataFusion_Instance_DisabledReason_KmsKeyIssue = @"KMS_KEY_ISSUE";
+NSString * const kGTLRDataFusion_Instance_DisabledReason_ProjectStateOff = @"PROJECT_STATE_OFF";
 
 // GTLRDataFusion_Instance.state
 NSString * const kGTLRDataFusion_Instance_State_Active         = @"ACTIVE";
@@ -49,6 +50,7 @@ NSString * const kGTLRDataFusion_Instance_State_AutoUpgrading  = @"AUTO_UPGRADIN
 NSString * const kGTLRDataFusion_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRDataFusion_Instance_State_Deleting       = @"DELETING";
 NSString * const kGTLRDataFusion_Instance_State_Disabled       = @"DISABLED";
+NSString * const kGTLRDataFusion_Instance_State_Enabling       = @"ENABLING";
 NSString * const kGTLRDataFusion_Instance_State_Failed         = @"FAILED";
 NSString * const kGTLRDataFusion_Instance_State_Restarting     = @"RESTARTING";
 NSString * const kGTLRDataFusion_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";

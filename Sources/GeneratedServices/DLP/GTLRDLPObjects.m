@@ -493,6 +493,11 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood
 NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryLikely = @"VERY_LIKELY";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment_FixedLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
 
+// GTLRDLP_GooglePrivacyDlpV2LocationSupport.regionalizationScope
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_AnyLocation = @"ANY_LOCATION";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_Regional = @"REGIONAL";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_RegionalizationScopeUnspecified = @"REGIONALIZATION_SCOPE_UNSPECIFIED";
+
 // GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
 NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified = @"METADATATYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata = @"STORAGE_METADATA";
@@ -2719,8 +2724,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
-@dynamic categories, descriptionProperty, displayName, example, name,
-         sensitivityScore, specificInfoTypes, supportedBy, versions;
+@dynamic categories, descriptionProperty, displayName, example, locationSupport,
+         name, sensitivityScore, specificInfoTypes, supportedBy, versions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3551,6 +3556,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"contentLocations" : [GTLRDLP_GooglePrivacyDlpV2ContentLocation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2LocationSupport
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2LocationSupport
+@dynamic locations, regionalizationScope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
   };
   return map;
 }

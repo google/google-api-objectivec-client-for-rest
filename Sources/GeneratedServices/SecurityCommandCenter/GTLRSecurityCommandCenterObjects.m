@@ -3981,8 +3981,18 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource
-@dynamic awsMetadata, azureMetadata, cloudProvider, displayName,
+@dynamic application, awsMetadata, azureMetadata, cloudProvider, displayName,
          googleCloudMetadata, name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplication
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplication
+@dynamic name;
 @end
 
 

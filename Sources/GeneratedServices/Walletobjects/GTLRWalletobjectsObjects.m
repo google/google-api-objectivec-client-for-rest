@@ -2109,8 +2109,8 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_MediaRequestInfo
 @dynamic currentBytes, customData, diffObjectVersion, finalStatus,
-         notificationType, requestId, requestReceivedParamsServingInfo,
-         totalBytes, totalBytesIsEstimated;
+         notificationType, physicalHeaders, requestId,
+         requestReceivedParamsServingInfo, totalBytes, totalBytesIsEstimated;
 @end
 
 

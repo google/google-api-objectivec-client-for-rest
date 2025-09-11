@@ -277,7 +277,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_SynthesisInput
-@dynamic customPronunciations, markup, multiSpeakerMarkup, ssml, text;
+@dynamic customPronunciations, markup, multiSpeakerMarkup, prompt, ssml, text;
 @end
 
 

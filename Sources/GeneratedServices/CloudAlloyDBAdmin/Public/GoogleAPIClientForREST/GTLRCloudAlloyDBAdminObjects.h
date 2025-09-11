@@ -105,6 +105,7 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_AdditionalMetadata;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainGCBDRConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainInternalResourceMetadata;
@@ -170,6 +171,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres16;
+/**
+ *  The database version is Postgres 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres17;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Backup.state
@@ -318,6 +325,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersio
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres16;
+/**
+ *  The database version is Postgres 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres17;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Cluster.state
@@ -467,6 +480,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres16;
+/**
+ *  The database version is Postgres 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres17;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_ClusterUpgradeDetails.upgradeStatus
@@ -2218,6 +2237,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprisePlus;
 /**
+ *  Represents the standard edition.
+ *
+ *  Value: "EDITION_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionStandard;
+/**
  *  Default, to make it consistent with instance edition enum.
  *
  *  Value: "EDITION_UNSPECIFIED"
@@ -3078,6 +3103,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakRootPassword;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData.signalState
+
+/**
+ *  Signal is active and requires attention.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Active;
+/**
+ *  Signal is dismissed by the user and should not be shown to the user again.
+ *
+ *  Value: "DISMISSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Dismissed;
+/**
+ *  Signal is inactive and does not require attention.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Inactive;
+/**
+ *  Unspecified signal state.
+ *
+ *  Value: "SIGNAL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_SignalStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData.signalType
+
+/**
+ *  Represents database auditing is disabled.
+ *
+ *  Value: "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeDatabaseAuditingDisabled;
+/**
+ *  Represents if a resource is exposed to public access.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess;
+/**
+ *  Represents if a database has a password configured for the root account or
+ *  not.
+ *
+ *  Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword;
+/**
+ *  Outdated Minor Version
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion;
+/**
+ *  Represents if a resources requires all incoming connections to use SSL or
+ *  not.
+ *
+ *  Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections;
+/**
+ *  Unspecified signal type.
+ *
+ *  Value: "SIGNAL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement.entitlementState
 
 /**
@@ -3570,6 +3665,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres16;
+/**
+ *  The database version is Postgres 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_SupportedDatabaseFlag_SupportedDbVersions_Postgres17;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_SupportedDatabaseFlag.valueType
@@ -3638,6 +3739,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres16;
+/**
+ *  The database version is Postgres 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres17;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_UpgradeClusterResponse.status
@@ -3724,6 +3831,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_S
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_SourceVersion_Postgres16;
+/**
+ *  The database version is Postgres 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_SourceVersion_Postgres17;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_UpgradeClusterStatus.state
@@ -3810,6 +3923,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_T
  *  Value: "POSTGRES_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_TargetVersion_Postgres16;
+/**
+ *  The database version is Postgres 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_TargetVersion_Postgres17;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_User.userType
@@ -4007,6 +4126,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        database version is Postgres 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres16 The
  *        database version is Postgres 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Backup_DatabaseVersion_Postgres17 The
+ *        database version is Postgres 17. (Value: "POSTGRES_17")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -4364,6 +4485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        database version is Postgres 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres16 The
  *        database version is Postgres 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres17 The
+ *        database version is Postgres 17. (Value: "POSTGRES_17")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -4614,6 +4737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        The database version is Postgres 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres16
  *        The database version is Postgres 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_ClusterUpgradeDetails_DatabaseVersion_Postgres17
+ *        The database version is Postgres 17. (Value: "POSTGRES_17")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -7209,7 +7334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform. Next ID: 11
+ *  database resource level events into Condor platform. Next ID: 12
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed : GTLRObject
 
@@ -7221,6 +7346,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  on the configuration of the database resource.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData *configBasedSignalData;
+
+/**
+ *  Database resource signal data is used to ingest signals from database
+ *  resource signal feeds.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData *databaseResourceSignalData;
 
 /** Required. Timestamp when feed is generated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *feedTimestamp;
@@ -7857,7 +7988,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 26
+ *  Common model for database resource instance metadata. Next ID: 27
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
 
@@ -7913,6 +8044,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionEnterprisePlus
  *        Represents the enterprise plus edition. (Value:
  *        "EDITION_ENTERPRISE_PLUS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionStandard
+ *        Represents the standard edition. (Value: "EDITION_STANDARD")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Edition_EditionUnspecified
  *        Default, to make it consistent with instance edition enum. (Value:
  *        "EDITION_UNSPECIFIED")
@@ -8061,6 +8194,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** User-provided labels associated with the resource */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels *userLabelSet;
+
+/**
+ *  The resource zone. This is only applicable for zonal resources and will be
+ *  empty for regional and multi-regional resources.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -8489,6 +8630,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_AdditionalMetadata : GTLRObject
+@end
+
+
+/**
+ *  Database resource signal data. This is used to send signals to Condor which
+ *  are based on the DB/Instance/Fleet level configurations. These will be used
+ *  to send signals for all inventory types. Next ID: 7
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData : GTLRObject
+
+/** Required. Full Resource name of the source resource. */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/** Required. Last time signal was refreshed */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
+
+/** Database resource id. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
+
+/**
+ *  Signal data for boolean signals.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *signalBoolValue;
+
+/**
+ *  Required. Output only. Signal state of the signal
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Active
+ *        Signal is active and requires attention. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Dismissed
+ *        Signal is dismissed by the user and should not be shown to the user
+ *        again. (Value: "DISMISSED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_Inactive
+ *        Signal is inactive and does not require attention. (Value: "INACTIVE")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalState_SignalStateUnspecified
+ *        Unspecified signal state. (Value: "SIGNAL_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signalState;
+
+/**
+ *  Required. Signal type of the signal
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeDatabaseAuditingDisabled
+ *        Represents database auditing is disabled. (Value:
+ *        "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess
+ *        Represents if a resource is exposed to public access. (Value:
+ *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword
+ *        Represents if a database has a password configured for the root
+ *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion
+ *        Outdated Minor Version (Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections
+ *        Represents if a resources requires all incoming connections to use SSL
+ *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnspecified
+ *        Unspecified signal type. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signalType;
+
 @end
 
 
@@ -9204,6 +9410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        The database version is Postgres 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres16
  *        The database version is Postgres 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterRequest_Version_Postgres17
+ *        The database version is Postgres 17. (Value: "POSTGRES_17")
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -9281,6 +9489,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        The database version is Postgres 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_SourceVersion_Postgres16
  *        The database version is Postgres 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_SourceVersion_Postgres17
+ *        The database version is Postgres 17. (Value: "POSTGRES_17")
  */
 @property(nonatomic, copy, nullable) NSString *sourceVersion;
 
@@ -9326,6 +9536,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        The database version is Postgres 15. (Value: "POSTGRES_15")
  *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_TargetVersion_Postgres16
  *        The database version is Postgres 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_UpgradeClusterStatus_TargetVersion_Postgres17
+ *        The database version is Postgres 17. (Value: "POSTGRES_17")
  */
 @property(nonatomic, copy, nullable) NSString *targetVersion;
 

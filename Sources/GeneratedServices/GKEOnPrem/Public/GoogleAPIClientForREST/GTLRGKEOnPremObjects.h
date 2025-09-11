@@ -120,6 +120,7 @@
 @class GTLRGKEOnPrem_VmwareAdminNetworkConfig;
 @class GTLRGKEOnPrem_VmwareAdminPreparedSecretsConfig;
 @class GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig;
+@class GTLRGKEOnPrem_VmwareAdminProxy;
 @class GTLRGKEOnPrem_VmwareAdminSeesawConfig;
 @class GTLRGKEOnPrem_VmwareAdminVCenterConfig;
 @class GTLRGKEOnPrem_VmwareAdminVipConfig;
@@ -4118,6 +4119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 /** Configuration for registry. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminPrivateRegistryConfig *privateRegistryConfig;
 
+/** Configuration for proxy. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_VmwareAdminProxy *proxy;
+
 /**
  *  Output only. If set, there are currently changes in flight to the VMware
  *  admin cluster.
@@ -4415,6 +4419,25 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
  *  uses the CA's certificate to validate the registry's certificate.
  */
 @property(nonatomic, copy, nullable) NSString *caCert;
+
+@end
+
+
+/**
+ *  VmwareAdminProxy represents configuration for admin cluster proxy.
+ */
+@interface GTLRGKEOnPrem_VmwareAdminProxy : GTLRObject
+
+/**
+ *  A comma-separated list of IP addresses, IP address ranges, host names, and
+ *  domain names that should not go through the proxy server. When Google
+ *  Distributed Cloud sends a request to one of these addresses, hosts, or
+ *  domains, the request is sent directly.
+ */
+@property(nonatomic, copy, nullable) NSString *noProxy;
+
+/** The HTTP address of proxy server. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 

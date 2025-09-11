@@ -185,6 +185,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendation;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendationRecommendationLink;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityFeedback;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityIncident;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfile;
@@ -1657,6 +1659,90 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssess
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Weight_WeightUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityFeedback.feedbackType
+
+/**
+ *  Feedback identifying attributes to be excluded from detections.
+ *
+ *  Value: "EXCLUDED_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_FeedbackType_ExcludedDetection;
+/**
+ *  Unspecified feedback type.
+ *
+ *  Value: "FEEDBACK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_FeedbackType_FeedbackTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityFeedback.reason
+
+/**
+ *  The feedback is created for an internal system.
+ *
+ *  Value: "INTERNAL_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_InternalSystem;
+/**
+ *  The feedback is created for to label NAT.
+ *
+ *  Value: "NAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_Nat;
+/**
+ *  The feedback is created for a non-risk client.
+ *
+ *  Value: "NON_RISK_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_NonRiskClient;
+/**
+ *  The feedback is created for other reasons.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_Other;
+/**
+ *  The feedback is created for a penetration test.
+ *
+ *  Value: "PENETRATION_TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_PenetrationTest;
+/**
+ *  Unspecified reason.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_ReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext.attribute
+
+/**
+ *  Values will be a list of API keys.
+ *
+ *  Value: "ATTRIBUTE_API_KEYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeApiKeys;
+/**
+ *  Values will be a list of environments.
+ *
+ *  Value: "ATTRIBUTE_ENVIRONMENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeEnvironments;
+/**
+ *  Values will be a list of IP addresses. This could be either IPv4 or IPv6.
+ *
+ *  Value: "ATTRIBUTE_IP_ADDRESS_RANGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeIpAddressRanges;
+/**
+ *  Unspecified attribute.
+ *
+ *  Value: "ATTRIBUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityIncident.observability
 
 /**
@@ -2278,7 +2364,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  adjust the balance for an under-charged developer i.e. the balance of the
  *  developer will decrease. * A negative value of `adjustment` means that that
  *  the API provider wants to adjust the balance for an over-charged developer
- *  i.e. the balance of the developer will increase.
+ *  i.e. the balance of the developer will increase. NOTE: An adjustment cannot
+ *  increase the balance of the developer beyond the balance as of the most
+ *  recent credit. For example, if a developer's balance is updated to be $100,
+ *  and they spend $10, a negative adjustment can only increase the balance of
+ *  the developer to $100.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *adjustment;
 
@@ -3716,7 +3806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  Required. Scope of the resources for the computation. For Apigee, the
+ *  Optional. Scope of the resources for the computation. For Apigee, the
  *  environment is the scope of the resources.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
@@ -7539,6 +7629,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListSecurityFeedback
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "securityFeedback" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListSecurityFeedbackResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` in `ListSecurityFeedbackRequest` to
+ *  retrieve the next page. If this field is omitted, there are no subsequent
+ *  pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of SecurityFeedback reports.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityFeedback *> *securityFeedback;
+
+@end
+
+
+/**
  *  Response for ListSecurityIncidents.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -10608,6 +10726,104 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Represents a feedback report from an Advanced API Security customer.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityFeedback : GTLRObject
+
+/**
+ *  Optional. Optional text the user can provide for additional, unstructured
+ *  context.
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/** Output only. The time when this specific feedback id was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The display name of the feedback. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. One or more attribute/value pairs for constraining the feedback.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext *> *feedbackContexts;
+
+/**
+ *  Required. The type of feedback being submitted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_FeedbackType_ExcludedDetection
+ *        Feedback identifying attributes to be excluded from detections.
+ *        (Value: "EXCLUDED_DETECTION")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_FeedbackType_FeedbackTypeUnspecified
+ *        Unspecified feedback type. (Value: "FEEDBACK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *feedbackType;
+
+/**
+ *  Output only. Identifier. The feedback name is intended to be a
+ *  system-generated uuid.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The reason for the feedback.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_InternalSystem
+ *        The feedback is created for an internal system. (Value:
+ *        "INTERNAL_SYSTEM")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_Nat The
+ *        feedback is created for to label NAT. (Value: "NAT")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_NonRiskClient
+ *        The feedback is created for a non-risk client. (Value:
+ *        "NON_RISK_CLIENT")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_Other The
+ *        feedback is created for other reasons. (Value: "OTHER")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_PenetrationTest
+ *        The feedback is created for a penetration test. (Value:
+ *        "PENETRATION_TEST")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_ReasonUnspecified
+ *        Unspecified reason. (Value: "REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** Output only. The time when this specific feedback id was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  FeedbackContext captures the intent of the submitted feedback.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext : GTLRObject
+
+/**
+ *  Required. The attribute the user is providing feedback about.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeApiKeys
+ *        Values will be a list of API keys. (Value: "ATTRIBUTE_API_KEYS")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeEnvironments
+ *        Values will be a list of environments. (Value:
+ *        "ATTRIBUTE_ENVIRONMENTS")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeIpAddressRanges
+ *        Values will be a list of IP addresses. This could be either IPv4 or
+ *        IPv6. (Value: "ATTRIBUTE_IP_ADDRESS_RANGES")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeUnspecified
+ *        Unspecified attribute. (Value: "ATTRIBUTE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attribute;
+
+/**
+ *  Required. The values of the attribute the user is providing feedback about.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
  *  Represents an SecurityIncident resource.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityIncident : GTLRObject
@@ -10709,7 +10925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  Required. Scope of the security monitoring condition. For Apigee, the
+ *  Optional. Scope of the security monitoring condition. For Apigee, the
  *  environment is the scope of the resources.
  */
 @property(nonatomic, copy, nullable) NSString *scope;

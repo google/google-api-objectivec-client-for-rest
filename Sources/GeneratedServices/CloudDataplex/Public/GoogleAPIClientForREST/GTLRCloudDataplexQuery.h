@@ -1317,56 +1317,6 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: dataplex.projects.locations.dataProducts.dataAssets.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGetIamPolicy : GTLRCloudDataplexQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the
- *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
- *  will be rejected.Requests for policies with any conditional role bindings
- *  must specify version 3. Policies with no conditional role bindings may
- *  specify any valid value or leave the field unset.The policy in the response
- *  might use the policy version that you specified, or it might use a lower
- *  policy version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1.To learn which
- *  resources support conditions in their IAM policies, see the IAM
- *  documentation
- *  (https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
  *  PERMISSION_DENIED errors.
@@ -1447,56 +1397,6 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: dataplex.projects.locations.dataProducts.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGetIamPolicy : GTLRCloudDataplexQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the
- *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
- *  will be rejected.Requests for policies with any conditional role bindings
- *  must specify version 3. Policies with no conditional role bindings may
- *  specify any valid value or leave the field unset.The policy in the response
- *  might use the policy version that you specified, or it might use a lower
- *  policy version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1.To learn which
- *  resources support conditions in their IAM policies, see the IAM
- *  documentation
- *  (https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -8549,8 +8449,8 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -9006,7 +8906,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. Specifies the ordering of results. Supported values are: relevance
- *  (default) last_modified_timestamp last_modified_timestamp asc
+ *  last_modified_timestamp last_modified_timestamp asc
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

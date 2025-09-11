@@ -1713,8 +1713,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with the authorization scope: - `https://www.googleapis.com/auth/chat.bot` -
- *  [User
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.bot`: When using this authorization
+ *  scope, this method returns details about a message the Chat app has access
+ *  to, like direct messages and [slash
+ *  commands](https://developers.google.com/workspace/chat/slash-commands) that
+ *  invoke the Chat app. -
+ *  `https://www.googleapis.com/auth/chat.app.messages.readonly` with
+ *  [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  (available in [Developer
+ *  Preview](https://developers.google.com/workspace/preview)). When using this
+ *  authentication scope, this method returns details about a public message in
+ *  a space. - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.messages.readonly` -
@@ -1748,8 +1758,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
- *  with the authorization scope: - `https://www.googleapis.com/auth/chat.bot` -
- *  [User
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.bot`: When using this authorization
+ *  scope, this method returns details about a message the Chat app has access
+ *  to, like direct messages and [slash
+ *  commands](https://developers.google.com/workspace/chat/slash-commands) that
+ *  invoke the Chat app. -
+ *  `https://www.googleapis.com/auth/chat.app.messages.readonly` with
+ *  [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  (available in [Developer
+ *  Preview](https://developers.google.com/workspace/preview)). When using this
+ *  authentication scope, this method returns details about a public message in
+ *  a space. - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.messages.readonly` -
@@ -1770,15 +1790,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Lists messages in a space that the caller is a member of, including messages
- *  from blocked members and spaces. If you list messages from a space with no
+ *  from blocked members and spaces. System messages, like those announcing new
+ *  space members, aren't included. If you list messages from a space with no
  *  messages, the response is an empty object. When using a REST/HTTP interface,
  *  the response contains an empty JSON object, `{}`. For an example, see [List
  *  messages](https://developers.google.com/workspace/chat/api/guides/v1/messages/list).
- *  Requires [user
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) with
+ *  the authorization scope: -
+ *  `https://www.googleapis.com/auth/chat.app.messages.readonly`. When using
+ *  this authentication scope, this method only returns public messages in a
+ *  space. It doesn't include private messages. - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
- *  with one of the following [authorization
- *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
- *  - `https://www.googleapis.com/auth/chat.messages.readonly` -
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.messages.readonly` -
  *  `https://www.googleapis.com/auth/chat.messages` -
  *  `https://www.googleapis.com/auth/chat.import` (import mode spaces only)
  *
@@ -1855,15 +1884,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Fetches a @c GTLRHangoutsChat_ListMessagesResponse.
  *
  *  Lists messages in a space that the caller is a member of, including messages
- *  from blocked members and spaces. If you list messages from a space with no
+ *  from blocked members and spaces. System messages, like those announcing new
+ *  space members, aren't included. If you list messages from a space with no
  *  messages, the response is an empty object. When using a REST/HTTP interface,
  *  the response contains an empty JSON object, `{}`. For an example, see [List
  *  messages](https://developers.google.com/workspace/chat/api/guides/v1/messages/list).
- *  Requires [user
+ *  Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize):
+ *  - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) with
+ *  the authorization scope: -
+ *  `https://www.googleapis.com/auth/chat.app.messages.readonly`. When using
+ *  this authentication scope, this method only returns public messages in a
+ *  space. It doesn't include private messages. - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
- *  with one of the following [authorization
- *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
- *  - `https://www.googleapis.com/auth/chat.messages.readonly` -
+ *  with one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.messages.readonly` -
  *  `https://www.googleapis.com/auth/chat.messages` -
  *  `https://www.googleapis.com/auth/chat.import` (import mode spaces only)
  *
@@ -2437,13 +2475,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 
 /**
  *  Returns a list of spaces in a Google Workspace organization based on an
- *  administrator's search. Requires [user authentication with administrator
+ *  administrator's search. In the request, set `use_admin_access` to `true`.
+ *  For an example, see [Search for and manage
+ *  spaces](https://developers.google.com/workspace/chat/search-manage-admin).
+ *  Requires [user authentication with administrator
  *  privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges)
  *  and one of the following [authorization
  *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
  *  - `https://www.googleapis.com/auth/chat.admin.spaces.readonly` -
- *  `https://www.googleapis.com/auth/chat.admin.spaces` In the request, set
- *  `use_admin_access` to `true`.
+ *  `https://www.googleapis.com/auth/chat.admin.spaces`
  *
  *  Method: chat.spaces.search
  *
@@ -2542,13 +2582,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Fetches a @c GTLRHangoutsChat_SearchSpacesResponse.
  *
  *  Returns a list of spaces in a Google Workspace organization based on an
- *  administrator's search. Requires [user authentication with administrator
+ *  administrator's search. In the request, set `use_admin_access` to `true`.
+ *  For an example, see [Search for and manage
+ *  spaces](https://developers.google.com/workspace/chat/search-manage-admin).
+ *  Requires [user authentication with administrator
  *  privileges](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user#admin-privileges)
  *  and one of the following [authorization
  *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
  *  - `https://www.googleapis.com/auth/chat.admin.spaces.readonly` -
- *  `https://www.googleapis.com/auth/chat.admin.spaces` In the request, set
- *  `use_admin_access` to `true`.
+ *  `https://www.googleapis.com/auth/chat.admin.spaces`
  *
  *  @return GTLRHangoutsChatQuery_SpacesSearch
  *
