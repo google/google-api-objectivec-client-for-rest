@@ -835,7 +835,12 @@ static BOOL IsCurrentQueue(dispatch_queue_t targetQueue) {
   service.fetcherService.testBlock = ^(GTMSessionFetcher *fetcherToTest,
                                        GTMSessionFetcherTestResponse testResponse) {
     checkRequestParamsAndHeaders(fetcherToTest.request);
-    XCTAssertEqual(queryTicket.pagesFetchedCounter, (NSUInteger)pageCounter);
+    // There's a chance the test block will get calls at the same time as the query is being
+    // started, so there could a a race for access to `queryTicket`, so skip inspecing it
+    // for the first page.
+    if (pageCounter != 0) {
+      XCTAssertEqual(queryTicket.pagesFetchedCounter, (NSUInteger)pageCounter);
+    }
 
     ++pageCounter;
 
